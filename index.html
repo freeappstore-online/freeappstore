@@ -5,490 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FreeAppStore — Beautiful, Free-Forever Web Apps</title>
   <meta name="description" content="A platform of free-forever web apps. No charges, no plans, no paywalls. Works on mobile, tablet, and desktop. Open source." />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #fafaf9;
-      --surface: #ffffff;
-      --ink: #1a1a1a;
-      --muted: #6b6b6b;
-      --accent: #2563eb;
-      --accent-soft: #eff6ff;
-      --pro: #7c3aed;
-      --pro-soft: #f5f3ff;
-      --border: #e5e5e5;
-      --radius: 1.25rem;
-      --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
-      --shadow-lg: 0 4px 20px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f0f0f;
-        --surface: #1a1a1a;
-        --ink: #f0f0f0;
-        --muted: #999;
-        --accent: #60a5fa;
-        --accent-soft: #1e293b;
-        --pro: #a78bfa;
-        --pro-soft: #1e1b2e;
-        --border: #2a2a2a;
-        --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.3);
-        --shadow-lg: 0 4px 20px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.4);
-      }
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Header */
-    header {
-      padding: 2rem 0 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .logo span { color: var(--accent); }
-
-    .header-links a {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 1.5rem;
-    }
-
-    .header-links a:hover { color: var(--ink); }
-    .header-links .pro-link { color: var(--pro); }
-
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 4rem 0 3rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Promise banner */
-    .promise {
-      background: var(--accent-soft);
-      border: 1px solid var(--accent);
-      border-radius: var(--radius);
-      padding: 1.5rem 2rem;
-      text-align: center;
-      margin: 0 auto 3rem;
-      max-width: 700px;
-    }
-
-    .promise strong {
-      display: block;
-      font-size: 1.1rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .promise p {
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    /* Philosophy */
-    .philosophy {
-      padding: 2rem 0 4rem;
-    }
-
-    .philosophy h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
-
-    .principles {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .principle {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-    }
-
-    .principle h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.35rem;
-    }
-
-    .principle p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* Apps */
-    .apps-section {
-      padding: 2rem 0 4rem;
-    }
-
-    .apps-section h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .apps-section > p {
-      color: var(--muted);
-      margin-bottom: 2rem;
-    }
-
-    .apps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .app-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.75rem;
-      text-decoration: none;
-      color: inherit;
-      transition: box-shadow 0.2s, transform 0.2s;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .app-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-2px);
-    }
-
-    .app-card-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .app-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      flex-shrink: 0;
-    }
-
-    .app-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-
-    .app-card .tag {
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      background: var(--accent-soft);
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      width: fit-content;
-    }
-
-    .app-card p {
-      font-size: 0.92rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .app-card .app-link {
-      font-size: 0.85rem;
-      color: var(--accent);
-      font-weight: 600;
-      margin-top: auto;
-    }
-
-    /* Pro section */
-    .pro-section {
-      padding: 3rem 0 4rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .pro-section h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .pro-section > p {
-      color: var(--muted);
-      margin-bottom: 2rem;
-      max-width: 650px;
-    }
-
-    .pro-card {
-      background: var(--pro-soft);
-      border: 1px solid var(--pro);
-      border-radius: var(--radius);
-      padding: 2rem;
-      max-width: 600px;
-    }
-
-    .pro-card h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--pro);
-      margin-bottom: 0.75rem;
-    }
-
-    .pro-card ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .pro-card li {
-      font-size: 0.92rem;
-      color: var(--muted);
-      padding: 0.35rem 0;
-      padding-left: 1.25rem;
-      position: relative;
-    }
-
-    .pro-card li::before {
-      content: "+";
-      position: absolute;
-      left: 0;
-      color: var(--pro);
-      font-weight: 700;
-    }
-
-    /* Comparison */
-    .comparison {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      margin-top: 2rem;
-      max-width: 700px;
-    }
-
-    @media (max-width: 600px) {
-      .comparison { grid-template-columns: 1fr; }
-    }
-
-    .comparison-col {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-    }
-
-    .comparison-col h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
-    .comparison-col.free h4 { color: var(--accent); }
-    .comparison-col.pro h4 { color: var(--pro); }
-
-    .comparison-col ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .comparison-col li {
-      font-size: 0.85rem;
-      color: var(--muted);
-      padding: 0.3rem 0;
-    }
-
-    /* How it works */
-    .how-section {
-      padding: 3rem 0 4rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .how-section h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 2rem;
-    }
-
-    .how-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .step {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .step-num {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: white;
-      font-weight: 700;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .step h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
-
-    .step p {
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-
-    /* Open source */
-    .oss-section {
-      padding: 3rem 0 4rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .oss-section h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
-    }
-
-    .oss-section p {
-      color: var(--muted);
-      max-width: 600px;
-      margin-bottom: 1rem;
-    }
-
-    .oss-section a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    /* Footer */
-    footer {
-      padding: 3rem 0;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">Free<span>App</span>Store</div>
-      <nav class="header-links">
-        <a href="#apps">Apps</a>
-        <a href="#philosophy">About</a>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free<span>App</span>Store</a>
+      <nav>
+        <a href="/" class="active">Apps</a>
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Contribute</a>
         <a href="https://proappstore.online" class="pro-link">Pro</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
+  <main class="container">
     <section class="hero">
       <h1>Free forever.<br>No exceptions.</h1>
-      <p>A platform of beautiful web apps you can use for free, forever. No charges, no plans, no paywalls, no ads. Ever.</p>
+      <p>Beautiful web apps you can use for free, forever. No charges, no plans, no paywalls, no ads. Ever.</p>
     </section>
 
     <div class="promise">
       <strong>The FreeAppStore Promise</strong>
-      <p>Every app on this platform will remain 100% free. No trial periods. No premium tiers. No "upgrade to unlock." If it's here, it's yours to use — no strings attached.</p>
+      <p>Every app on this platform will remain 100% free. No trial periods. No premium tiers. No "upgrade to unlock." If it's here, it's yours — no strings attached.</p>
     </div>
-
-    <section class="philosophy" id="philosophy">
-      <h2>How we think about apps</h2>
-      <div class="principles">
-        <div class="principle">
-          <h3>Free means free</h3>
-          <p>Not freemium. Not free-with-ads. Not free-for-now. These apps will never ask you for money. The business model is simple: there isn't one.</p>
-        </div>
-        <div class="principle">
-          <h3>Real apps, not websites</h3>
-          <p>Save any app to your home screen and it works like a native app. Full offline support, smooth animations, responsive on any screen size.</p>
-        </div>
-        <div class="principle">
-          <h3>Mobile-first, everywhere</h3>
-          <p>Every app works on your phone, tablet, and desktop. Use it from a mobile browser, save it to your home screen, or open it on your laptop.</p>
-        </div>
-        <div class="principle">
-          <h3>Private by default</h3>
-          <p>No accounts, no tracking, no analytics. Your data stays on your device. Nothing leaves your browser.</p>
-        </div>
-        <div class="principle">
-          <h3>Open source</h3>
-          <p>Every app is open source. Read the code, verify our claims, contribute improvements, or fork it and make your own.</p>
-        </div>
-        <div class="principle">
-          <h3>Open platform</h3>
-          <p>If your app meets our criteria — truly free, responsive, works as a PWA — it can be listed here. Submit yours on GitHub.</p>
-        </div>
-      </div>
-    </section>
 
     <section class="apps-section" id="apps">
       <h2>The apps</h2>
-      <p>Each app is focused on doing one thing exceptionally well.</p>
+      <p>Each app does one thing exceptionally well. Browse by category or explore them all.</p>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="learning">Learning</button>
+        <button class="filter-btn" data-filter="strategy">Strategy</button>
+        <button class="filter-btn" data-filter="discovery">Discovery</button>
+        <button class="filter-btn" data-filter="brain-training">Brain Training</button>
+      </div>
 
       <div class="apps-grid">
-        <a class="app-card" href="https://chess.freeappstore.online">
+        <a class="app-card" href="https://chess.freeappstore.online" data-category="strategy">
           <div class="app-card-header">
             <div class="app-icon" style="background: #f0fdf4;">&#9822;</div>
             <div>
@@ -496,11 +52,11 @@
               <div class="tag">Strategy</div>
             </div>
           </div>
-          <p>Play against the engine, analyze positions, and improve your tactics with puzzles.</p>
+          <p>Play against the engine, analyze positions, and sharpen your tactics with puzzles.</p>
           <span class="app-link">Open app &rarr;</span>
         </a>
 
-        <a class="app-card" href="https://language.freeappstore.online">
+        <a class="app-card" href="https://language.freeappstore.online" data-category="learning">
           <div class="app-card-header">
             <div class="app-icon" style="background: #eff6ff;">&#127463;</div>
             <div>
@@ -508,11 +64,11 @@
               <div class="tag">Learning</div>
             </div>
           </div>
-          <p>Flashcards, cloze exercises, missing letters, and speech practice across multiple languages.</p>
+          <p>Flashcards, cloze exercises, and speech practice across multiple languages.</p>
           <span class="app-link">Open app &rarr;</span>
         </a>
 
-        <a class="app-card" href="https://math.freeappstore.online">
+        <a class="app-card" href="https://math.freeappstore.online" data-category="learning">
           <div class="app-card-header">
             <div class="app-icon" style="background: #fef3c7;">&#128290;</div>
             <div>
@@ -520,11 +76,11 @@
               <div class="tag">Learning</div>
             </div>
           </div>
-          <p>Practice arithmetic, algebra, and problem-solving with adaptive difficulty and progress tracking.</p>
+          <p>Arithmetic, algebra, and problem-solving with adaptive difficulty and progress tracking.</p>
           <span class="app-link">Open app &rarr;</span>
         </a>
 
-        <a class="app-card" href="https://music.freeappstore.online">
+        <a class="app-card" href="https://music.freeappstore.online" data-category="discovery">
           <div class="app-card-header">
             <div class="app-icon" style="background: #fdf2f8;">&#127925;</div>
             <div>
@@ -532,23 +88,23 @@
               <div class="tag">Discovery</div>
             </div>
           </div>
-          <p>Explore classical, jazz, and blues music. Discover composers, listen to works, and build your library.</p>
+          <p>Explore classical, jazz, and blues. Discover composers, listen to works, build your library.</p>
           <span class="app-link">Open app &rarr;</span>
         </a>
 
-        <a class="app-card" href="https://puzzle.freeappstore.online">
+        <a class="app-card" href="https://puzzle.freeappstore.online" data-category="brain-training">
           <div class="app-card-header">
             <div class="app-icon" style="background: #f5f3ff;">&#129513;</div>
             <div>
               <h3>Puzzle</h3>
-              <div class="tag">Brain training</div>
+              <div class="tag">Brain Training</div>
             </div>
           </div>
-          <p>Sharpen your mind with logic puzzles, pattern recognition, and spatial reasoning challenges.</p>
+          <p>Logic puzzles, pattern recognition, and spatial reasoning challenges.</p>
           <span class="app-link">Open app &rarr;</span>
         </a>
 
-        <a class="app-card" href="https://quiz.freeappstore.online">
+        <a class="app-card" href="https://quiz.freeappstore.online" data-category="learning">
           <div class="app-card-header">
             <div class="app-icon" style="background: #ecfdf5;">&#128218;</div>
             <div>
@@ -561,76 +117,40 @@
         </a>
       </div>
     </section>
+  </main>
 
-    <section class="pro-section">
-      <h2>About Pro App Store</h2>
-      <p>We believe in transparency. Some apps need more resources, more features, and sustainable funding. That's what <a href="https://proappstore.online" style="color:var(--pro);text-decoration:none;font-weight:600;">ProAppStore.online</a> is for.</p>
-
-      <div class="comparison">
-        <div class="comparison-col free">
-          <h4>FreeAppStore</h4>
-          <ul>
-            <li>Always free, forever</li>
-            <li>No account required</li>
-            <li>Core features, well-executed</li>
-            <li>Offline-capable PWA</li>
-            <li>Open source</li>
-            <li>Will never charge you</li>
-          </ul>
-        </div>
-        <div class="comparison-col pro">
-          <h4>ProAppStore</h4>
-          <ul>
-            <li>Paid apps with advanced features</li>
-            <li>May mirror free apps with extras</li>
-            <li>Cloud sync, collaboration, AI</li>
-            <li>Priority support</li>
-            <li>Sustainable development</li>
-            <li>Will always be transparent about pricing</li>
-          </ul>
-        </div>
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free<span>App</span>Store</a>
+        <p>Free forever, open source, privacy-first.</p>
       </div>
-
-      <p style="margin-top:1.5rem;font-size:0.92rem;color:var(--muted);">The two platforms are intertwined. You can always switch between the free and pro version of any app. If you're happy with free — stay there. If you want more, pro is one click away. No pressure, no dark patterns.</p>
-    </section>
-
-    <section class="how-section">
-      <h2>How it works</h2>
-      <div class="how-steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <div>
-            <h4>Pick an app</h4>
-            <p>Browse our collection. Every app does one thing well.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <div>
-            <h4>Use it instantly</h4>
-            <p>Opens in your browser. Save to home screen for a native app experience. Works offline.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <div>
-            <h4>It's yours forever</h4>
-            <p>No sign-up, no expiry, no limits. Your progress saves locally on your device.</p>
-          </div>
-        </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Contribute</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="https://github.com/freeapps-online">GitHub</a>
+        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
       </div>
-    </section>
+    </div>
+  </footer>
 
-    <section class="oss-section">
-      <h2>Open source</h2>
-      <p>Every app on this platform is open source. We believe in building in the open. Inspect the code, verify our privacy claims, contribute improvements, or build your own app and submit it to the store.</p>
-      <a href="https://github.com/freeapps-online">View on GitHub &rarr;</a>
-    </section>
-
-    <footer>
-      <p>FreeAppStore.online &mdash; free forever, open source, privacy-first.</p>
-      <p style="margin-top:0.5rem;">Want advanced features? Visit <a href="https://proappstore.online" style="color:var(--pro);">ProAppStore.online</a></p>
-    </footer>
-  </div>
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.app-card').forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.removeAttribute('hidden');
+          } else {
+            card.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

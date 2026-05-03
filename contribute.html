@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contribute — FreeAppStore</title>
+  <meta name="description" content="Contribute to FreeAppStore. Improve existing apps or submit your own. Open source, TypeScript, React, Vite." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free<span>App</span>Store</a>
+      <nav>
+        <a href="/">Apps</a>
+        <a href="/about.html">About</a>
+        <a href="/contribute.html" class="active">Contribute</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Contribute</h1>
+      <p>FreeAppStore is open source. Help us build the best collection of free apps on the web.</p>
+    </div>
+
+    <div class="page-content">
+      <h2>Improve existing apps</h2>
+      <p>Every app is on GitHub and accepts contributions. Here's how to get started:</p>
+      <ol>
+        <li>Browse our <a href="https://github.com/freeapps-online">GitHub organization</a> and find an app that interests you.</li>
+        <li>Check the issue tracker for bugs, feature requests, or "good first issue" labels.</li>
+        <li>Fork the repo, make your changes, and submit a pull request.</li>
+        <li>We review PRs promptly and provide constructive feedback.</li>
+      </ol>
+      <p>Contributions of all kinds are welcome: bug fixes, new features, improved accessibility, better documentation, performance optimizations, or design improvements.</p>
+
+      <h2>Submit a new app</h2>
+      <p>Have an idea for an app that belongs on FreeAppStore? We'd love to hear it. New apps can be proposed by opening an issue in our <a href="https://github.com/freeapps-online">GitHub organization</a> with a brief description of what the app does and why it belongs here.</p>
+
+      <h3>App criteria</h3>
+      <p>To be listed on FreeAppStore, an app must meet these requirements:</p>
+      <ul>
+        <li><strong>Truly free forever</strong> — No plans to monetize, no freemium gates, no ads. The app must be and remain completely free.</li>
+        <li><strong>Responsive design</strong> — Must work well on mobile phones, tablets, and desktops. Mobile-first approach preferred.</li>
+        <li><strong>Works as a PWA</strong> — Must be installable on home screen with offline support via service workers.</li>
+        <li><strong>No tracking</strong> — No analytics, no cookies, no data collection of any kind. All data stays on the user's device.</li>
+        <li><strong>Open source</strong> — Must be released under MIT license with source available on GitHub.</li>
+        <li><strong>Does one thing well</strong> — Focused, purposeful apps that excel at their core function.</li>
+      </ul>
+
+      <h2>Tech stack</h2>
+      <p>Our apps share a common technology foundation that makes them fast, reliable, and easy to contribute to:</p>
+
+      <div class="tech-list">
+        <div class="tech-item">
+          <strong>TypeScript</strong>
+          <p>Type-safe code for reliability and developer experience.</p>
+        </div>
+        <div class="tech-item">
+          <strong>React</strong>
+          <p>Component-based UI with hooks for state management.</p>
+        </div>
+        <div class="tech-item">
+          <strong>Vite</strong>
+          <p>Fast builds, hot module replacement, optimized production bundles.</p>
+        </div>
+        <div class="tech-item">
+          <strong>Cloudflare Pages</strong>
+          <p>Global CDN deployment, fast worldwide, zero-config HTTPS.</p>
+        </div>
+      </div>
+
+      <p>You don't have to use this exact stack — what matters is that the app meets our criteria. But using the same tools makes it easier for the community to contribute across apps.</p>
+
+      <h2>Development workflow</h2>
+      <p>Each app follows a standard workflow:</p>
+      <ol>
+        <li>Clone the repo and run <code>npm install</code></li>
+        <li>Start the dev server with <code>npm run dev</code></li>
+        <li>Make your changes with hot-reload</li>
+        <li>Run <code>npm run build</code> to verify production build</li>
+        <li>Submit a PR — deployment is automatic via Cloudflare Pages</li>
+      </ol>
+
+      <div class="cta-box">
+        <h3>Ready to contribute?</h3>
+        <p>Check out our GitHub organization to find an app to improve or propose a new one.</p>
+        <a href="https://github.com/freeapps-online" class="btn">Visit GitHub &rarr;</a>
+      </div>
+
+      <h2>Code of conduct</h2>
+      <p>We maintain a welcoming and inclusive environment. Be respectful, constructive, and helpful. We're all here to build useful things for people to use for free.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free<span>App</span>Store</a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Contribute</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="https://github.com/freeapps-online">GitHub</a>
+        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
