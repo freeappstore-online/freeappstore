@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FreeAppStore — Beautiful, Free Web Apps</title>
-  <meta name="description" content="A curated collection of beautiful, free web apps for learning and creativity. No ads, no tracking, no accounts required." />
+  <title>FreeAppStore — Beautiful, Free-Forever Web Apps</title>
+  <meta name="description" content="A platform of free-forever web apps. No charges, no plans, no paywalls. Works on mobile, tablet, and desktop. Open source." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -15,6 +15,8 @@
       --muted: #6b6b6b;
       --accent: #2563eb;
       --accent-soft: #eff6ff;
+      --pro: #7c3aed;
+      --pro-soft: #f5f3ff;
       --border: #e5e5e5;
       --radius: 1.25rem;
       --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
@@ -29,6 +31,8 @@
         --muted: #999;
         --accent: #60a5fa;
         --accent-soft: #1e293b;
+        --pro: #a78bfa;
+        --pro-soft: #1e1b2e;
         --border: #2a2a2a;
         --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.3);
         --shadow-lg: 0 4px 20px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.4);
@@ -52,7 +56,9 @@
     /* Header */
     header {
       padding: 2rem 0 1rem;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
@@ -62,6 +68,17 @@
     }
 
     .logo span { color: var(--accent); }
+
+    .header-links a {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+    }
+
+    .header-links a:hover { color: var(--ink); }
+    .header-links .pro-link { color: var(--pro); }
 
     /* Hero */
     .hero {
@@ -80,16 +97,48 @@
     .hero p {
       font-size: 1.2rem;
       color: var(--muted);
-      max-width: 560px;
+      max-width: 600px;
       margin: 0 auto;
     }
 
-    /* Principles */
+    /* Promise banner */
+    .promise {
+      background: var(--accent-soft);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      margin: 0 auto 3rem;
+      max-width: 700px;
+    }
+
+    .promise strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .promise p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    /* Philosophy */
+    .philosophy {
+      padding: 2rem 0 4rem;
+    }
+
+    .philosophy h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
     .principles {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.25rem;
-      padding: 2rem 0 4rem;
     }
 
     .principle {
@@ -97,11 +146,6 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.5rem;
-    }
-
-    .principle-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
     }
 
     .principle h3 {
@@ -204,6 +248,101 @@
       margin-top: auto;
     }
 
+    /* Pro section */
+    .pro-section {
+      padding: 3rem 0 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .pro-section h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .pro-section > p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 650px;
+    }
+
+    .pro-card {
+      background: var(--pro-soft);
+      border: 1px solid var(--pro);
+      border-radius: var(--radius);
+      padding: 2rem;
+      max-width: 600px;
+    }
+
+    .pro-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--pro);
+      margin-bottom: 0.75rem;
+    }
+
+    .pro-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pro-card li {
+      font-size: 0.92rem;
+      color: var(--muted);
+      padding: 0.35rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .pro-card li::before {
+      content: "+";
+      position: absolute;
+      left: 0;
+      color: var(--pro);
+      font-weight: 700;
+    }
+
+    /* Comparison */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 2rem;
+      max-width: 700px;
+    }
+
+    @media (max-width: 600px) {
+      .comparison { grid-template-columns: 1fr; }
+    }
+
+    .comparison-col {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .comparison-col h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .comparison-col.free h4 { color: var(--accent); }
+    .comparison-col.pro h4 { color: var(--pro); }
+
+    .comparison-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .comparison-col li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 0.3rem 0;
+    }
+
     /* How it works */
     .how-section {
       padding: 3rem 0 4rem;
@@ -253,6 +392,31 @@
       color: var(--muted);
     }
 
+    /* Open source */
+    .oss-section {
+      padding: 3rem 0 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .oss-section h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .oss-section p {
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 1rem;
+    }
+
+    .oss-section a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
     /* Footer */
     footer {
       padding: 3rem 0;
@@ -272,42 +436,59 @@
   <div class="container">
     <header>
       <div class="logo">Free<span>App</span>Store</div>
+      <nav class="header-links">
+        <a href="#apps">Apps</a>
+        <a href="#philosophy">About</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+      </nav>
     </header>
 
     <section class="hero">
-      <h1>Beautiful apps.<br>Completely free.</h1>
-      <p>A curated collection of web apps for learning and creativity. No ads, no tracking, no sign-up. Just open and use.</p>
+      <h1>Free forever.<br>No exceptions.</h1>
+      <p>A platform of beautiful web apps you can use for free, forever. No charges, no plans, no paywalls, no ads. Ever.</p>
     </section>
 
-    <section class="principles">
-      <div class="principle">
-        <div class="principle-icon">&#9889;</div>
-        <h3>Instant access</h3>
-        <p>No downloads, no installs. Every app runs in your browser and works offline.</p>
-      </div>
-      <div class="principle">
-        <div class="principle-icon">&#128274;</div>
-        <h3>Private by design</h3>
-        <p>Zero tracking, zero analytics, zero data collection. Your activity stays on your device.</p>
-      </div>
-      <div class="principle">
-        <div class="principle-icon">&#127912;</div>
-        <h3>Beautifully crafted</h3>
-        <p>Each app is designed with care — smooth animations, clean typography, native feel.</p>
-      </div>
-      <div class="principle">
-        <div class="principle-icon">&#127760;</div>
-        <h3>Works everywhere</h3>
-        <p>Phone, tablet, desktop. Every app is responsive and supports multiple languages.</p>
+    <div class="promise">
+      <strong>The FreeAppStore Promise</strong>
+      <p>Every app on this platform will remain 100% free. No trial periods. No premium tiers. No "upgrade to unlock." If it's here, it's yours to use — no strings attached.</p>
+    </div>
+
+    <section class="philosophy" id="philosophy">
+      <h2>How we think about apps</h2>
+      <div class="principles">
+        <div class="principle">
+          <h3>Free means free</h3>
+          <p>Not freemium. Not free-with-ads. Not free-for-now. These apps will never ask you for money. The business model is simple: there isn't one.</p>
+        </div>
+        <div class="principle">
+          <h3>Real apps, not websites</h3>
+          <p>Save any app to your home screen and it works like a native app. Full offline support, smooth animations, responsive on any screen size.</p>
+        </div>
+        <div class="principle">
+          <h3>Mobile-first, everywhere</h3>
+          <p>Every app works on your phone, tablet, and desktop. Use it from a mobile browser, save it to your home screen, or open it on your laptop.</p>
+        </div>
+        <div class="principle">
+          <h3>Private by default</h3>
+          <p>No accounts, no tracking, no analytics. Your data stays on your device. Nothing leaves your browser.</p>
+        </div>
+        <div class="principle">
+          <h3>Open source</h3>
+          <p>Every app is open source. Read the code, verify our claims, contribute improvements, or fork it and make your own.</p>
+        </div>
+        <div class="principle">
+          <h3>Open platform</h3>
+          <p>If your app meets our criteria — truly free, responsive, works as a PWA — it can be listed here. Submit yours on GitHub.</p>
+        </div>
       </div>
     </section>
 
-    <section class="apps-section">
+    <section class="apps-section" id="apps">
       <h2>The apps</h2>
       <p>Each app is focused on doing one thing exceptionally well.</p>
 
       <div class="apps-grid">
-        <a class="app-card" href="https://freechessapp.pages.dev">
+        <a class="app-card" href="https://chess.freeappstore.online">
           <div class="app-card-header">
             <div class="app-icon" style="background: #f0fdf4;">&#9822;</div>
             <div>
@@ -315,11 +496,11 @@
               <div class="tag">Strategy</div>
             </div>
           </div>
-          <p>Play chess against the engine, analyze positions, and improve your tactical skills with puzzles.</p>
+          <p>Play against the engine, analyze positions, and improve your tactics with puzzles.</p>
           <span class="app-link">Open app &rarr;</span>
         </a>
 
-        <a class="app-card" href="https://freelanguageapp.pages.dev">
+        <a class="app-card" href="https://language.freeappstore.online">
           <div class="app-card-header">
             <div class="app-icon" style="background: #eff6ff;">&#127463;</div>
             <div>
@@ -327,11 +508,11 @@
               <div class="tag">Learning</div>
             </div>
           </div>
-          <p>Learn vocabulary with flashcards, cloze exercises, missing letters, and speech practice across multiple languages.</p>
+          <p>Flashcards, cloze exercises, missing letters, and speech practice across multiple languages.</p>
           <span class="app-link">Open app &rarr;</span>
         </a>
 
-        <a class="app-card" href="https://freemathapp.pages.dev">
+        <a class="app-card" href="https://math.freeappstore.online">
           <div class="app-card-header">
             <div class="app-icon" style="background: #fef3c7;">&#128290;</div>
             <div>
@@ -343,7 +524,7 @@
           <span class="app-link">Open app &rarr;</span>
         </a>
 
-        <a class="app-card" href="https://freemusic.pages.dev">
+        <a class="app-card" href="https://music.freeappstore.online">
           <div class="app-card-header">
             <div class="app-icon" style="background: #fdf2f8;">&#127925;</div>
             <div>
@@ -355,7 +536,7 @@
           <span class="app-link">Open app &rarr;</span>
         </a>
 
-        <a class="app-card" href="https://freepuzzle.pages.dev">
+        <a class="app-card" href="https://puzzle.freeappstore.online">
           <div class="app-card-header">
             <div class="app-icon" style="background: #f5f3ff;">&#129513;</div>
             <div>
@@ -367,7 +548,7 @@
           <span class="app-link">Open app &rarr;</span>
         </a>
 
-        <a class="app-card" href="https://freequizapp.pages.dev">
+        <a class="app-card" href="https://quiz.freeappstore.online">
           <div class="app-card-header">
             <div class="app-icon" style="background: #ecfdf5;">&#128218;</div>
             <div>
@@ -375,10 +556,42 @@
               <div class="tag">Learning</div>
             </div>
           </div>
-          <p>Swipe-based quiz cards covering science, programming, chemistry, and more. Learn by reading and answering.</p>
+          <p>Swipe-based quiz cards covering science, programming, chemistry, and more.</p>
           <span class="app-link">Open app &rarr;</span>
         </a>
       </div>
+    </section>
+
+    <section class="pro-section">
+      <h2>About Pro App Store</h2>
+      <p>We believe in transparency. Some apps need more resources, more features, and sustainable funding. That's what <a href="https://proappstore.online" style="color:var(--pro);text-decoration:none;font-weight:600;">ProAppStore.online</a> is for.</p>
+
+      <div class="comparison">
+        <div class="comparison-col free">
+          <h4>FreeAppStore</h4>
+          <ul>
+            <li>Always free, forever</li>
+            <li>No account required</li>
+            <li>Core features, well-executed</li>
+            <li>Offline-capable PWA</li>
+            <li>Open source</li>
+            <li>Will never charge you</li>
+          </ul>
+        </div>
+        <div class="comparison-col pro">
+          <h4>ProAppStore</h4>
+          <ul>
+            <li>Paid apps with advanced features</li>
+            <li>May mirror free apps with extras</li>
+            <li>Cloud sync, collaboration, AI</li>
+            <li>Priority support</li>
+            <li>Sustainable development</li>
+            <li>Will always be transparent about pricing</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="margin-top:1.5rem;font-size:0.92rem;color:var(--muted);">The two platforms are intertwined. You can always switch between the free and pro version of any app. If you're happy with free — stay there. If you want more, pro is one click away. No pressure, no dark patterns.</p>
     </section>
 
     <section class="how-section">
@@ -388,28 +601,35 @@
           <div class="step-num">1</div>
           <div>
             <h4>Pick an app</h4>
-            <p>Choose from our growing collection of learning and creativity tools.</p>
+            <p>Browse our collection. Every app does one thing well.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div>
             <h4>Use it instantly</h4>
-            <p>No account needed. Opens in your browser, works on any device, installs as a PWA for offline use.</p>
+            <p>Opens in your browser. Save to home screen for a native app experience. Works offline.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div>
-            <h4>Stay in control</h4>
-            <p>Your progress saves locally. No cloud sync, no data harvesting. Export anytime.</p>
+            <h4>It's yours forever</h4>
+            <p>No sign-up, no expiry, no limits. Your progress saves locally on your device.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <section class="oss-section">
+      <h2>Open source</h2>
+      <p>Every app on this platform is open source. We believe in building in the open. Inspect the code, verify our privacy claims, contribute improvements, or build your own app and submit it to the store.</p>
+      <a href="https://github.com/freeapps-online">View on GitHub &rarr;</a>
+    </section>
+
     <footer>
-      <p>FreeAppStore &mdash; open source, privacy-first web apps.<br>Built with care. Free forever.</p>
+      <p>FreeAppStore.online &mdash; free forever, open source, privacy-first.</p>
+      <p style="margin-top:0.5rem;">Want advanced features? Visit <a href="https://proappstore.online" style="color:var(--pro);">ProAppStore.online</a></p>
     </footer>
   </div>
 </body>
