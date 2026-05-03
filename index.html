@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreeAppStore — Beautiful, Free Web Apps</title>
+  <meta name="description" content="A curated collection of beautiful, free web apps for learning and creativity. No ads, no tracking, no accounts required." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --border: #e5e5e5;
+      --radius: 1.25rem;
+      --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
+      --shadow-lg: 0 4px 20px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f0f0f;
+        --surface: #1a1a1a;
+        --ink: #f0f0f0;
+        --muted: #999;
+        --accent: #60a5fa;
+        --accent-soft: #1e293b;
+        --border: #2a2a2a;
+        --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.3);
+        --shadow-lg: 0 4px 20px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.4);
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    header {
+      padding: 2rem 0 1rem;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .logo span { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 4rem 0 3rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* Principles */
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      padding: 2rem 0 4rem;
+    }
+
+    .principle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .principle-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .principle h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .principle p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Apps */
+    .apps-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .apps-section h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .apps-section > p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .app-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .app-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .app-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .app-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .app-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .app-card .tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      width: fit-content;
+    }
+
+    .app-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .app-card .app-link {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: auto;
+    }
+
+    /* How it works */
+    .how-section {
+      padding: 3rem 0 4rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .how-section h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .step p {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Free<span>App</span>Store</div>
+    </header>
+
+    <section class="hero">
+      <h1>Beautiful apps.<br>Completely free.</h1>
+      <p>A curated collection of web apps for learning and creativity. No ads, no tracking, no sign-up. Just open and use.</p>
+    </section>
+
+    <section class="principles">
+      <div class="principle">
+        <div class="principle-icon">&#9889;</div>
+        <h3>Instant access</h3>
+        <p>No downloads, no installs. Every app runs in your browser and works offline.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">&#128274;</div>
+        <h3>Private by design</h3>
+        <p>Zero tracking, zero analytics, zero data collection. Your activity stays on your device.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">&#127912;</div>
+        <h3>Beautifully crafted</h3>
+        <p>Each app is designed with care — smooth animations, clean typography, native feel.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-icon">&#127760;</div>
+        <h3>Works everywhere</h3>
+        <p>Phone, tablet, desktop. Every app is responsive and supports multiple languages.</p>
+      </div>
+    </section>
+
+    <section class="apps-section">
+      <h2>The apps</h2>
+      <p>Each app is focused on doing one thing exceptionally well.</p>
+
+      <div class="apps-grid">
+        <a class="app-card" href="https://freechessapp.pages.dev">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f0fdf4;">&#9822;</div>
+            <div>
+              <h3>Chess</h3>
+              <div class="tag">Strategy</div>
+            </div>
+          </div>
+          <p>Play chess against the engine, analyze positions, and improve your tactical skills with puzzles.</p>
+          <span class="app-link">Open app &rarr;</span>
+        </a>
+
+        <a class="app-card" href="https://freelanguageapp.pages.dev">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #eff6ff;">&#127463;</div>
+            <div>
+              <h3>Language</h3>
+              <div class="tag">Learning</div>
+            </div>
+          </div>
+          <p>Learn vocabulary with flashcards, cloze exercises, missing letters, and speech practice across multiple languages.</p>
+          <span class="app-link">Open app &rarr;</span>
+        </a>
+
+        <a class="app-card" href="https://freemathapp.pages.dev">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #fef3c7;">&#128290;</div>
+            <div>
+              <h3>Math</h3>
+              <div class="tag">Learning</div>
+            </div>
+          </div>
+          <p>Practice arithmetic, algebra, and problem-solving with adaptive difficulty and progress tracking.</p>
+          <span class="app-link">Open app &rarr;</span>
+        </a>
+
+        <a class="app-card" href="https://freemusic.pages.dev">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #fdf2f8;">&#127925;</div>
+            <div>
+              <h3>Music</h3>
+              <div class="tag">Discovery</div>
+            </div>
+          </div>
+          <p>Explore classical, jazz, and blues music. Discover composers, listen to works, and build your library.</p>
+          <span class="app-link">Open app &rarr;</span>
+        </a>
+
+        <a class="app-card" href="https://freepuzzle.pages.dev">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f5f3ff;">&#129513;</div>
+            <div>
+              <h3>Puzzle</h3>
+              <div class="tag">Brain training</div>
+            </div>
+          </div>
+          <p>Sharpen your mind with logic puzzles, pattern recognition, and spatial reasoning challenges.</p>
+          <span class="app-link">Open app &rarr;</span>
+        </a>
+
+        <a class="app-card" href="https://freequizapp.pages.dev">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #ecfdf5;">&#128218;</div>
+            <div>
+              <h3>Quiz</h3>
+              <div class="tag">Learning</div>
+            </div>
+          </div>
+          <p>Swipe-based quiz cards covering science, programming, chemistry, and more. Learn by reading and answering.</p>
+          <span class="app-link">Open app &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="how-section">
+      <h2>How it works</h2>
+      <div class="how-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h4>Pick an app</h4>
+            <p>Choose from our growing collection of learning and creativity tools.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h4>Use it instantly</h4>
+            <p>No account needed. Opens in your browser, works on any device, installs as a PWA for offline use.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h4>Stay in control</h4>
+            <p>Your progress saves locally. No cloud sync, no data harvesting. Export anytime.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>FreeAppStore &mdash; open source, privacy-first web apps.<br>Built with care. Free forever.</p>
+    </footer>
+  </div>
+</body>
+</html>
