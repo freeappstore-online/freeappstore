@@ -249,6 +249,34 @@ Mobile (&lt;1024px):
         <li>Always respect <code>prefers-reduced-motion</code></li>
       </ul>
 
+      <!-- App Types -->
+      <h2 id="app-types">App Types</h2>
+
+      <h3>Standalone apps (no backend)</h3>
+      <p>Pure client-side apps with no server. All data lives in localStorage. No account required. Examples: Chess, Quiz, Puzzle, Math, Books.</p>
+      <ul>
+        <li>Frontend only — React + Vite deployed to Cloudflare Pages</li>
+        <li>Zero backend infrastructure</li>
+        <li>Works fully offline after first load</li>
+      </ul>
+
+      <h3>Connected apps (shared backend)</h3>
+      <p>Free and Pro versions share the same backend. Same database, same users. The free app provides limited features; the pro app unlocks the full experience.</p>
+      <ul>
+        <li>Both frontends connect to the same Firebase project</li>
+        <li>User roles (free/pro) determine feature access</li>
+        <li>Firestore rules enforce access control server-side</li>
+        <li>Backend code (Functions, rules) lives in the pro repo</li>
+        <li>Free users can upgrade seamlessly — their data is already there</li>
+      </ul>
+
+      <div class="rule-card">
+        <strong>Examples of connected apps</strong>
+        <p><strong>Bandmates</strong> — Free: discover bands, browse profiles. Pro: create bands, messaging, scheduling.<br>
+        <strong>Meetup</strong> — Free: browse events, RSVP. Pro: create/host events, groups, analytics.<br>
+        <strong>Language</strong> — Free: flashcards, exercises (local). Pro: AI translation, cloud sync.</p>
+      </div>
+
       <!-- Tech Stack -->
       <h2 id="tech-stack">Tech Stack</h2>
 
@@ -258,7 +286,8 @@ Mobile (&lt;1024px):
         <tr><td>Framework</td><td>React</td><td>^19.0</td></tr>
         <tr><td>Bundler</td><td>Vite</td><td>^6.0</td></tr>
         <tr><td>Styling</td><td>Tailwind CSS</td><td>^4.1</td></tr>
-        <tr><td>Hosting</td><td>Cloudflare Pages</td><td>—</td></tr>
+        <tr><td>Hosting (frontend)</td><td>Cloudflare Pages</td><td>—</td></tr>
+        <tr><td>Backend (connected)</td><td>Firebase</td><td>Firestore, Auth, Functions</td></tr>
         <tr><td>Package Manager</td><td>pnpm</td><td>^10.30</td></tr>
         <tr><td>Node</td><td>—</td><td>≥20.19</td></tr>
       </table>
