@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreeAppStore — Beautiful, Free-Forever Web Apps</title>
+  <meta name="description" content="A platform of free-forever web apps. No charges, no plans, no paywalls. Works on mobile, tablet, and desktop. Open source." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FreeAppStore — Beautiful, Free-Forever Web Apps" />
+  <meta property="og:description" content="A platform of free-forever web apps. No charges, no plans, no paywalls. Works on mobile, tablet, and desktop. Open source." />
+  <meta property="og:url" content="https://freeappstore.online/" />
+  <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free<span>App</span>Store</a>
+      <nav>
+        <a href="/" class="active">Apps</a>
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Contribute</a>
+        <a href="/guidelines.html">Guidelines</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Free forever.<br>No exceptions.</h1>
+      <p>Beautiful web apps you can use for free, forever. No charges, no plans, no paywalls, no ads. Ever.</p>
+    </section>
+
+    <div class="promise">
+      <strong>The FreeAppStore Promise</strong>
+      <p>Every app on this platform will remain 100% free. No trial periods. No premium tiers. No "upgrade to unlock." If it's here, it's yours — no strings attached.</p>
+    </div>
+
+    <section class="apps-section" id="apps">
+      <h2>The apps</h2>
+      <p>Each app does one thing exceptionally well. Browse by category or explore them all.</p>
+
+      <div class="filter-bar">
+        {{FILTER_BUTTONS}}
+      </div>
+
+      <div class="apps-grid">
+        {{APPS_GRID}}
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free<span>App</span>Store</a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Contribute</a>
+        <a href="/guidelines.html">Guidelines</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.app-card').forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.removeAttribute('hidden');
+          } else {
+            card.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+
+    // Wire up About links and card clicks
+    document.querySelectorAll('.app-card').forEach(card => {
+      const aboutUrl = card.dataset.about;
+      if (aboutUrl) {
+        card.querySelector('.app-about').href = aboutUrl;
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', e => {
+          if (!e.target.closest('.app-btn-open')) {
+            window.location.href = aboutUrl;
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

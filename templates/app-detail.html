@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minesweeper — FreeAppStore</title>
-  <meta name="description" content="Free minesweeper app. Clean, simple, works offline. No account needed." />
+  <title>{{NAME}} — FreeAppStore</title>
+  <meta name="description" content="Free {{NAME_LOWER}} app. {{DESCRIPTION}} Works offline, no account needed." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Minesweeper — FreeAppStore" />
-  <meta property="og:description" content="Free minesweeper app. Clean, simple, works offline." />
-  <meta property="og:url" content="https://freeappstore.online/apps/minesweeper.html" />
+  <meta property="og:title" content="{{NAME}} — FreeAppStore" />
+  <meta property="og:description" content="Free {{NAME_LOWER}} app. {{DESCRIPTION}}" />
+  <meta property="og:url" content="https://freeappstore.online/apps/{{ID}}.html" />
   <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
   <meta name="twitter:card" content="summary" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -25,10 +25,6 @@
     .app-meta-item .value { font-size: 1.1rem; font-weight: 700; margin-top: 0.25rem; }
     .app-cta { display: inline-block; background: var(--accent); color: white; padding: 0.75rem 2rem; border-radius: 0.75rem; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: opacity 0.2s; }
     .app-cta:hover { opacity: 0.9; }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .feature-item { background: var(--surface); border: 1px solid var(--border); border-radius: 1rem; padding: 1.25rem; }
-    .feature-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
-    .feature-item p { font-size: 0.85rem; color: var(--muted); }
     .app-section { margin-bottom: 3rem; }
     .app-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; }
     .source-link { font-size: 0.88rem; color: var(--accent); text-decoration: none; font-weight: 600; }
@@ -50,16 +46,16 @@
 
   <main class="container">
     <div class="app-hero">
-      <div class="app-hero-icon" style="background: #f0f9ff;">&#128163;</div>
+      <div class="app-hero-icon" style="background: {{ICON_BG}};">{{ICON}}</div>
       <div>
-        <h1>Minesweeper</h1>
-        <div class="tag">Brain Training</div>
+        <h1>{{NAME}}</h1>
+        <div class="tag">{{CATEGORY_LABEL}}</div>
       </div>
     </div>
 
-    <p style="font-size: 1.1rem; color: var(--muted); max-width: 600px; margin-bottom: 1.5rem;">A clean, simple minesweeper that works instantly. Standard operations, percent, negate. No bloat, no ads, works offline.</p>
+    <p style="font-size: 1.1rem; color: var(--muted); max-width: 600px; margin-bottom: 1.5rem;">{{DESCRIPTION}}</p>
 
-    <a class="app-cta" href="https://minesweeper.freeappstore.online" target="_blank" rel="noopener">Open Minesweeper &rarr;</a>
+    <a class="app-cta" href="{{APP_URL}}" target="_blank" rel="noopener">Open {{NAME}} &rarr;</a>
 
     <div class="app-meta">
       <div class="app-meta-item">
@@ -72,54 +68,33 @@
       </div>
       <div class="app-meta-item">
         <div class="label">Offline</div>
-        <div class="value">Yes</div>
+        <div class="value">{{OFFLINE}}</div>
       </div>
       <div class="app-meta-item">
         <div class="label">Account</div>
-        <div class="value">Not required</div>
+        <div class="value">{{ACCOUNT}}</div>
       </div>
       <div class="app-meta-item">
         <div class="label">Source</div>
-        <div class="value"><a href="https://github.com/freeappstore-online/minesweeper" class="source-link">GitHub</a></div>
+        <div class="value"><a href="https://github.com/{{REPO}}" class="source-link">GitHub</a></div>
       </div>
     </div>
 
     <section class="app-section">
-      <h2>Features</h2>
-      <div class="features-grid">
-        <div class="feature-item">
-          <h4>Three Difficulties</h4>
-          <p>Easy (9x9), Medium (16x16), Hard (16x30). Pick your challenge.
-        </div>
-        <div class="feature-item">
-          <h4>Flag &amp; Reveal</h4>
-          <p>Click to reveal, right-click or long-press to flag. First click is always safe.
-        </div>
-        <div class="feature-item">
-          <h4>Works Offline</h4>
-          <p>Save to your home screen and use anytime. No internet needed.</p>
-        </div>
-        <div class="feature-item">
-          <h4>Number Clues</h4>
-          <p>Numbers tell you how many mines are adjacent. Use logic to clear the board.
-        </div>
-      </div>
-    </section>
-
-    <section class="app-section">
-      <h2>How It Works</h2>
-      <p>Minesweeper runs entirely in your browser. Click to reveal cells, right-click to flag mines. First click is always safe. Timer tracks your speed. Install as a PWA for offline play.</p>
+      <h2>About</h2>
+      <p>{{DESCRIPTION}}</p>
+      <p style="margin-top: 0.75rem;"><strong>Type:</strong> {{TYPE_LABEL}} &middot; <strong>Developer:</strong> {{DEVELOPER}}</p>
     </section>
 
     <section class="app-section">
       <h2>Privacy</h2>
-      <p>Minesweeper collects zero data. No analytics, no tracking, no cookies. Nothing leaves your browser.</p>
+      <p>{{NAME}} collects zero data. No analytics, no tracking, no cookies. Nothing leaves your browser.</p>
     </section>
 
     <section class="app-section">
       <h2>Open Source</h2>
-      <p>Fully open source under the MIT license. Classic puzzle game built from the FreeAppStore standalone template.</p>
-      <a href="https://github.com/freeappstore-online/minesweeper" class="source-link">View source on GitHub &rarr;</a>
+      <p>Fully open source under the MIT license. Inspect the code, report bugs, or contribute improvements.</p>
+      <a href="https://github.com/{{REPO}}" class="source-link">View source on GitHub &rarr;</a>
     </section>
   </main>
 
