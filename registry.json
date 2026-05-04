@@ -84,7 +84,7 @@
       "category": "learning",
       "icon": "&#128214;",
       "iconBg": "#fef9ee",
-      "description": "Listen to 130+ classic audiobooks with text-to-speech. Read or listen — your progress saves automatically.",
+      "description": "Listen to 130+ classic audiobooks with text-to-speech. Read or listen \u2014 your progress saves automatically.",
       "appUrl": "https://books.freeappstore.online",
       "repo": "freeappstore-online/books",
       "cfProject": "freebooksapp",
@@ -205,6 +205,19 @@
       "appUrl": "https://2048.freeappstore.online",
       "repo": "freeappstore-online/2048",
       "cfProject": "free2048",
+      "type": "standalone",
+      "developer": "FreeAppStore"
+    },
+    {
+      "id": "slither",
+      "name": "Slither",
+      "category": "brain-training",
+      "icon": "&#128013;",
+      "iconBg": "#ecfdf5",
+      "description": "Slither.io-style snake game. Eat, grow, survive against AI bots.",
+      "appUrl": "https://slither.freeappstore.online",
+      "repo": "freeappstore-online/slither",
+      "cfProject": "freeslitherapp",
       "type": "standalone",
       "developer": "FreeAppStore"
     }
