@@ -1,19 +1,6 @@
 {
   "apps": [
     {
-      "id": "chess",
-      "name": "Chess",
-      "category": "strategy",
-      "icon": "&#9822;",
-      "iconBg": "#f0fdf4",
-      "description": "Play against the engine, analyze positions, and sharpen your tactics with puzzles.",
-      "appUrl": "https://chess.freeappstore.online",
-      "repo": "freeappstore-online/chess",
-      "cfProject": "freechessapp",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
       "id": "language",
       "name": "Language",
       "category": "learning",
@@ -49,19 +36,6 @@
       "appUrl": "https://music.freeappstore.online",
       "repo": "freeappstore-online/music",
       "cfProject": "freemusic",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
-      "id": "puzzle",
-      "name": "Puzzle",
-      "category": "brain-training",
-      "icon": "&#129513;",
-      "iconBg": "#f5f3ff",
-      "description": "Logic puzzles, pattern recognition, and spatial reasoning challenges.",
-      "appUrl": "https://puzzle.freeappstore.online",
-      "repo": "freeappstore-online/puzzle",
-      "cfProject": "freepuzzle",
       "type": "standalone",
       "developer": "FreeAppStore"
     },
@@ -153,71 +127,6 @@
       "appUrl": "https://calculator.freeappstore.online",
       "repo": "freeappstore-online/calculator",
       "cfProject": "freecalculatorapp",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
-      "id": "tetris",
-      "name": "Tetris",
-      "category": "brain-training",
-      "icon": "&#127918;",
-      "iconBg": "#fef2f2",
-      "description": "Classic block-stacking puzzle. Seven pieces, line clearing, increasing speed. Touch and keyboard controls.",
-      "appUrl": "https://tetris.freeappstore.online",
-      "repo": "freeappstore-online/tetris",
-      "cfProject": "freetetris",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
-      "id": "snake",
-      "name": "Snake",
-      "category": "brain-training",
-      "icon": "&#128013;",
-      "iconBg": "#ecfdf5",
-      "description": "Classic snake game. Eat food, grow longer, don't hit yourself. Speed increases with score.",
-      "appUrl": "https://snake.freeappstore.online",
-      "repo": "freeappstore-online/snake",
-      "cfProject": "freesnake",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
-      "id": "minesweeper",
-      "name": "Minesweeper",
-      "category": "brain-training",
-      "icon": "&#128163;",
-      "iconBg": "#f0f9ff",
-      "description": "Classic mine-finding puzzle. Three difficulties. Flag mines, reveal safe cells, clear the board.",
-      "appUrl": "https://minesweeper.freeappstore.online",
-      "repo": "freeappstore-online/minesweeper",
-      "cfProject": "freeminesweeper",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
-      "id": "2048",
-      "name": "2048",
-      "category": "brain-training",
-      "icon": "&#128290;",
-      "iconBg": "#fef3c7",
-      "description": "Slide and merge tiles to reach 2048. Swipe on mobile, arrow keys on desktop. Best score saved.",
-      "appUrl": "https://2048.freeappstore.online",
-      "repo": "freeappstore-online/2048",
-      "cfProject": "free2048",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
-      "id": "slither",
-      "name": "Slither",
-      "category": "brain-training",
-      "icon": "&#128013;",
-      "iconBg": "#ecfdf5",
-      "description": "Slither.io-style snake game. Eat, grow, survive against AI bots.",
-      "appUrl": "https://slither.freeappstore.online",
-      "repo": "freeappstore-online/slither",
-      "cfProject": "freeslitherapp",
       "type": "standalone",
       "developer": "FreeAppStore"
     }
