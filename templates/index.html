@@ -30,20 +30,7 @@
   </header>
 
   <main class="container">
-    <section class="hero">
-      <h1>Free forever.<br>No exceptions.</h1>
-      <p>Beautiful web apps you can use for free, forever. No charges, no plans, no paywalls, no ads. Ever.</p>
-    </section>
-
-    <div class="promise">
-      <strong>The FreeAppStore Promise</strong>
-      <p>Every app on this platform will remain 100% free. No trial periods. No premium tiers. No "upgrade to unlock." If it's here, it's yours — no strings attached.</p>
-    </div>
-
-    <section class="apps-section" id="apps">
-      <h2>The apps</h2>
-      <p>Each app does one thing exceptionally well. Browse by category or explore them all.</p>
-
+    <section class="apps-section" id="apps" style="padding-top: 2rem;">
       <div class="filter-bar">
         {{FILTER_BUTTONS}}
       </div>
@@ -88,7 +75,6 @@
       });
     });
 
-    // Wire up About links and card clicks
     document.querySelectorAll('.app-card').forEach(card => {
       const aboutUrl = card.dataset.about;
       if (aboutUrl) {
