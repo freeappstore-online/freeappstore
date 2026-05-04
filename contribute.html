@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contribute — FreeAppStore</title>
-  <meta name="description" content="Contribute to FreeAppStore. Improve existing apps or submit your own. Open source, TypeScript, React, Vite." />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Contribute — FreeAppStore" />
-  <meta property="og:description" content="Contribute to FreeAppStore. Improve existing apps or submit your own. Open source, TypeScript, React, Vite." />
-  <meta property="og:url" content="https://freeappstore.online/" />
-  <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
-  <meta name="twitter:card" content="summary" />
+  <title>Build — FreeAppStore</title>
+  <meta name="description" content="Build a free app for FreeAppStore. Clone a template, write code (with AI or without), push to deploy. Open source, TypeScript, React." />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .steps { counter-reset: step; list-style: none; padding: 0; }
+    .steps li { counter-increment: step; margin-bottom: 1.5rem; padding-left: 2.5rem; position: relative; }
+    .steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+    .cmd { background: var(--surface, #1a1a1a); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1rem 1.25rem; margin: 0.75rem 0; font-family: monospace; font-size: 0.9rem; overflow-x: auto; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .card { background: var(--surface, #1a1a1a); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .card h3 { margin-bottom: 0.5rem; }
+    .card p { font-size: 0.9rem; color: var(--muted); }
+    .highlight { background: var(--accent-soft, #eff6ff); border: 1px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
+  </style>
 </head>
 <body>
   <header>
@@ -21,8 +26,9 @@
       <a href="/" class="logo">Free<span>App</span>Store</a>
       <nav>
         <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
         <a href="/about.html">About</a>
-        <a href="/contribute.html">Contribute</a>
+        <a href="/contribute.html" class="active">Build</a>
         <a href="/guidelines.html">Guidelines</a>
         <a href="https://proappstore.online" class="pro-link">Pro</a>
       </nav>
@@ -31,84 +37,92 @@
 
   <main class="container">
     <div class="page-header">
-      <h1>Contribute</h1>
-      <p>FreeAppStore is open source. Help us build the best collection of free apps on the web.</p>
+      <h1>Build an App</h1>
+      <p>Create a free app and ship it to thousands of users. Use AI or code it yourself — your choice.</p>
     </div>
 
     <div class="page-content">
-      <h2>Improve existing apps</h2>
-      <p>Every app is on GitHub and accepts contributions. Here's how to get started:</p>
-      <ol>
-        <li>Browse our <a href="https://github.com/freeappstore-online">GitHub organization</a> and find an app that interests you.</li>
-        <li>Check the issue tracker for bugs, feature requests, or "good first issue" labels.</li>
-        <li>Fork the repo, make your changes, and submit a pull request.</li>
-        <li>We review PRs promptly and provide constructive feedback.</li>
-      </ol>
-      <p>Contributions of all kinds are welcome: bug fixes, new features, improved accessibility, better documentation, performance optimizations, or design improvements.</p>
+      <div class="highlight">
+        <h3>3 commands to a working app</h3>
+        <div class="cmd">git clone https://github.com/freeappstore-online/template-standalone my-app<br>cd my-app && pnpm install<br>pnpm dev</div>
+        <p>That's it. You have a running app with the full FreeAppStore brand, dark mode, PWA support, and deployment config. Edit <code>web/src/App.tsx</code> and build your idea.</p>
+      </div>
 
-      <h2>Submit a new app</h2>
-      <p>Want to build an app for FreeAppStore? Here's the process:</p>
-      <ol>
-        <li>Read the <a href="/guidelines.html">developer guidelines</a></li>
-        <li>Bootstrap from our <a href="https://github.com/freeappstore-online/template-standalone">standalone template</a> or <a href="https://github.com/freeappstore-online/template-connected">connected template</a></li>
-        <li>Build your app following the brand and tech stack guidelines</li>
-        <li><a href="https://github.com/freeappstore-online/submissions/issues/new?template=app-submission.yml"><strong>Submit for review</strong></a> via our GitHub Issue form</li>
-      </ol>
-      <p>We review submissions within 48 hours. Once approved, your app goes live at <code>yourapp.freeappstore.online</code>.</p>
+      <h2>Choose your path</h2>
 
-      <h3>App criteria</h3>
-      <p>To be listed on FreeAppStore, an app must meet these requirements:</p>
-      <ul>
-        <li><strong>Truly free forever</strong> — No plans to monetize, no freemium gates, no ads. The app must be and remain completely free.</li>
-        <li><strong>Responsive design</strong> — Must work well on mobile phones, tablets, and desktops. Mobile-first approach preferred.</li>
-        <li><strong>Works as a PWA</strong> — Must be installable on home screen with offline support via service workers.</li>
-        <li><strong>No tracking</strong> — No analytics, no cookies, no data collection of any kind. All data stays on the user's device.</li>
-        <li><strong>Open source</strong> — Must be released under MIT license with source available on GitHub.</li>
-        <li><strong>Does one thing well</strong> — Focused, purposeful apps that excel at their core function.</li>
-      </ul>
+      <div class="cards">
+        <div class="card">
+          <h3>Build with AI</h3>
+          <p>Use Claude Code, Cursor, Codex, or any AI coding tool. Point it to our <a href="https://raw.githubusercontent.com/freeappstore-online/ops/main/SKILLS.md">SKILLS.md</a> and it knows the entire platform — tech stack, brand, how to deploy.</p>
+          <div class="cmd" style="font-size:0.8rem;">Add this to your AI:<br><br>Read https://raw.githubusercontent.com/<br>freeappstore-online/ops/main/SKILLS.md</div>
+        </div>
+        <div class="card">
+          <h3>Code it yourself</h3>
+          <p>Clone a template, write TypeScript + React, push to main. Auto-deploys globally via Cloudflare Pages. No server to manage, no config to worry about.</p>
+        </div>
+        <div class="card">
+          <h3>Improve existing apps</h3>
+          <p>Every app is open source on <a href="https://github.com/freeappstore-online">GitHub</a>. Fork, fix bugs, add features, submit a PR. We review within 48 hours.</p>
+        </div>
+      </div>
+
+      <h2>Step by step</h2>
+
+      <ol class="steps">
+        <li>
+          <strong>Clone the template</strong>
+          <div class="cmd">git clone https://github.com/freeappstore-online/template-standalone my-app</div>
+          <p>For games, use <a href="https://github.com/freegamestore-online">game templates</a> (canvas, grid, cards, 3D).</p>
+        </li>
+        <li>
+          <strong>Build your app</strong>
+          <p>Edit <code>web/src/App.tsx</code>. The Shell component gives you the sidebar layout, fonts, and dark mode for free. Use <code>pnpm dev</code> for hot reload.</p>
+        </li>
+        <li>
+          <strong>Submit for review</strong>
+          <p>Push your code to a public GitHub repo and <a href="https://github.com/freeappstore-online/submissions/issues/new">open a submission</a>. Include your repo link and a brief description.</p>
+        </li>
+        <li>
+          <strong>Go live</strong>
+          <p>After approval, we provision your app — GitHub repo in our org, custom domain, auto-deploy. Your app is live at <code>yourapp.freeappstore.online</code>. Every push to main auto-deploys.</p>
+        </li>
+      </ol>
 
       <h2>Tech stack</h2>
-      <p>Our apps share a common technology foundation that makes them fast, reliable, and easy to contribute to:</p>
-
-      <div class="tech-list">
-        <div class="tech-item">
-          <strong>TypeScript</strong>
-          <p>Type-safe code for reliability and developer experience.</p>
+      <p>All apps share the same foundation:</p>
+      <div class="cards">
+        <div class="card">
+          <h3>TypeScript + React 19</h3>
+          <p>Type-safe, modern React with hooks.</p>
         </div>
-        <div class="tech-item">
-          <strong>React</strong>
-          <p>Component-based UI with hooks for state management.</p>
+        <div class="card">
+          <h3>Vite + Tailwind CSS</h3>
+          <p>Fast builds, hot reload, utility-first CSS.</p>
         </div>
-        <div class="tech-item">
-          <strong>Vite</strong>
-          <p>Fast builds, hot module replacement, optimized production bundles.</p>
+        <div class="card">
+          <h3>Cloudflare Pages</h3>
+          <p>Global CDN, auto-deploy on push, free forever.</p>
         </div>
-        <div class="tech-item">
-          <strong>Cloudflare Pages</strong>
-          <p>Global CDN deployment, fast worldwide, zero-config HTTPS.</p>
+        <div class="card">
+          <h3>PWA + Offline</h3>
+          <p>Installable, works offline, no app store needed.</p>
         </div>
       </div>
 
-      <p>You don't have to use this exact stack — what matters is that the app meets our criteria. But using the same tools makes it easier for the community to contribute across apps.</p>
-
-      <h2>Development workflow</h2>
-      <p>Each app follows a standard workflow:</p>
-      <ol>
-        <li>Clone the repo and run <code>pnpm install</code></li>
-        <li>Start the dev server with <code>pnpm dev</code></li>
-        <li>Make your changes with hot-reload</li>
-        <li>Run <code>pnpm build</code> to verify production build</li>
-        <li>Submit a PR — deployment is automatic via Cloudflare Pages on merge to <code>main</code></li>
-      </ol>
+      <h2>Rules</h2>
+      <ul>
+        <li><strong>Free forever</strong> — no monetization, no ads, no paywalls</li>
+        <li><strong>No tracking</strong> — zero analytics, cookies, or data collection</li>
+        <li><strong>Open source</strong> — MIT license, public repo</li>
+        <li><strong>Works everywhere</strong> — responsive, mobile-first, PWA</li>
+        <li><strong>One app per category</strong> — check what's already built</li>
+      </ul>
 
       <div class="cta-box">
-        <h3>Ready to contribute?</h3>
-        <p>Check out our GitHub organization to find an app to improve or propose a new one.</p>
-        <a href="https://github.com/freeappstore-online" class="btn">Visit GitHub &rarr;</a>
+        <h3>Ready?</h3>
+        <p>Clone the template and start building. We'll handle the rest.</p>
+        <a href="https://github.com/freeappstore-online/template-standalone" class="btn">Get the template &rarr;</a>
       </div>
-
-      <h2>Code of conduct</h2>
-      <p>We maintain a welcoming and inclusive environment. Be respectful, constructive, and helpful. We're all here to build useful things for people to use for free.</p>
     </div>
   </main>
 
@@ -120,7 +134,7 @@
       </div>
       <div class="footer-links">
         <a href="/about.html">About</a>
-        <a href="/contribute.html">Contribute</a>
+        <a href="/contribute.html">Build</a>
         <a href="/guidelines.html">Guidelines</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
