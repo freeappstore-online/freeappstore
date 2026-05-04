@@ -129,6 +129,19 @@
       "cfProject": "freecalculatorapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "chessclock",
+      "name": "Chess Clock",
+      "category": "utilities",
+      "icon": "&#9823;",
+      "iconBg": "#f0f4ff",
+      "description": "Beautiful chess clock for over-the-board play. 12 time controls, increment support, tap to switch.",
+      "appUrl": "https://freechessclock.pages.dev",
+      "repo": "freeappstore-online/chessclock",
+      "cfProject": "freechessclock",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
