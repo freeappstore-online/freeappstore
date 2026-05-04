@@ -37,91 +37,106 @@
 
   <main class="container">
     <div class="page-header">
-      <h1>Build an App</h1>
-      <p>Create a free app and ship it to thousands of users. Use AI or code it yourself — your choice.</p>
+      <h1>Build</h1>
+      <p>Use an existing app, become a creator, or start building your own. Every app is open source.</p>
     </div>
 
     <div class="page-content">
-      <div class="highlight">
-        <h3>3 commands to a working app</h3>
-        <div class="cmd">git clone https://github.com/freeappstore-online/template-standalone my-app<br>cd my-app && pnpm install<br>pnpm dev</div>
-        <p>That's it. You have a running app with the full FreeAppStore brand, dark mode, PWA support, and deployment config. Edit <code>web/src/App.tsx</code> and build your idea.</p>
-      </div>
 
-      <h2>Choose your path</h2>
-
+      <!-- Section 1: Use an existing app -->
+      <h2>Use an existing app</h2>
+      <p>Every app on FreeAppStore is open source. You can contribute without building something new.</p>
       <div class="cards">
         <div class="card">
-          <h3>Build with AI</h3>
-          <p>Use Claude Code, Cursor, Codex, or any AI coding tool. Point it to our <a href="https://raw.githubusercontent.com/freeappstore-online/ops/main/SKILLS.md">SKILLS.md</a> and it knows the entire platform — tech stack, brand, how to deploy.</p>
-          <div class="cmd" style="font-size:0.8rem;">Add this to your AI:<br><br>Read https://raw.githubusercontent.com/<br>freeappstore-online/ops/main/SKILLS.md</div>
+          <h3>Browse apps</h3>
+          <p>Explore the <a href="/">app catalog</a> and use what's already built. All apps are free, private, and work offline.</p>
         </div>
         <div class="card">
-          <h3>Code it yourself</h3>
-          <p>Clone a template, write TypeScript + React, push to main. Auto-deploys globally via Cloudflare Pages. No server to manage, no config to worry about.</p>
+          <h3>Fix bugs</h3>
+          <p>Found a bug? Every app has a public repo on <a href="https://github.com/freeappstore-online">GitHub</a>. Fork it, fix it, open a PR. We review within 48 hours.</p>
         </div>
         <div class="card">
-          <h3>Improve existing apps</h3>
-          <p>Every app is open source on <a href="https://github.com/freeappstore-online">GitHub</a>. Fork, fix bugs, add features, submit a PR. We review within 48 hours.</p>
+          <h3>Suggest features</h3>
+          <p>Have an idea for an existing app? Open a <a href="https://github.com/freeappstore-online">GitHub Issue</a> on that app's repo. Describe what you'd like and why.</p>
         </div>
       </div>
 
-      <h2>Step by step</h2>
+      <!-- Section 2: Become a Creator -->
+      <h2>Become a Creator</h2>
+      <p>Apply to join the creators program and ship your own app under the FreeAppStore platform.</p>
+
+      <div class="highlight">
+        <h3>What creators get</h3>
+        <ul>
+          <li>Your own app at <code>yourapp.freeappstore.online</code></li>
+          <li>Auto-deploy on every push to main via Cloudflare Pages</li>
+          <li>Listed in the FreeAppStore catalog for all users to discover</li>
+        </ul>
+      </div>
+
+      <h3>How to apply</h3>
+      <ol class="steps">
+        <li>
+          <strong>Open an issue</strong>
+          <p>Go to <a href="https://github.com/freeappstore-online/submissions/issues/new">github.com/freeappstore-online/submissions</a> and describe your app idea. Include your GitHub username.</p>
+        </li>
+        <li>
+          <strong>We review within 48 hours</strong>
+          <p>We check the idea fits the platform — unique category, genuinely useful, buildable as a PWA.</p>
+        </li>
+        <li>
+          <strong>Get provisioned</strong>
+          <p>Once approved, we add you to the creators team, create your repo, set up your subdomain, and configure auto-deploy. You start coding.</p>
+        </li>
+      </ol>
+
+      <h3>Requirements</h3>
+      <ul>
+        <li><strong>Free forever</strong> — no monetization, no ads, no paywalls</li>
+        <li><strong>No tracking</strong> — zero analytics, cookies, or data collection</li>
+        <li><strong>Open source</strong> — MIT license, public repo</li>
+        <li><strong>Uses our tech stack</strong> — TypeScript, React, Vite, Tailwind. See <a href="/guidelines.html">Guidelines</a></li>
+      </ul>
+
+      <!-- Section 3: Start Building -->
+      <h2>Start Building</h2>
+      <p>For approved creators: clone the template and start shipping.</p>
 
       <ol class="steps">
         <li>
           <strong>Clone the template</strong>
           <div class="cmd">git clone https://github.com/freeappstore-online/template-standalone my-app</div>
-          <p>For games, use <a href="https://github.com/freegamestore-online">game templates</a> (canvas, grid, cards, 3D).</p>
         </li>
         <li>
-          <strong>Build your app</strong>
-          <p>Edit <code>web/src/App.tsx</code>. The Shell component gives you the sidebar layout, fonts, and dark mode for free. Use <code>pnpm dev</code> for hot reload.</p>
+          <strong>Install dependencies</strong>
+          <div class="cmd">cd my-app && pnpm install</div>
         </li>
         <li>
-          <strong>Submit for review</strong>
-          <p>Push your code to a public GitHub repo and <a href="https://github.com/freeappstore-online/submissions/issues/new">open a submission</a>. Include your repo link and a brief description.</p>
+          <strong>Start developing</strong>
+          <div class="cmd">pnpm dev</div>
+          <p>Edit <code>web/src/App.tsx</code>. The Shell component gives you the sidebar layout, fonts, and dark mode for free.</p>
         </li>
         <li>
-          <strong>Go live</strong>
-          <p>After approval, we provision your app — GitHub repo in our org, custom domain, auto-deploy. Your app is live at <code>yourapp.freeappstore.online</code>. Every push to main auto-deploys.</p>
+          <strong>Run tests</strong>
+          <div class="cmd">pnpm test</div>
+          <p>Verify your app passes compliance checks before pushing.</p>
+        </li>
+        <li>
+          <strong>Deploy</strong>
+          <p>Push to <code>main</code> and your app auto-deploys to <code>yourapp.freeappstore.online</code>.</p>
         </li>
       </ol>
 
-      <h2>Tech stack</h2>
-      <p>All apps share the same foundation:</p>
-      <div class="cards">
-        <div class="card">
-          <h3>TypeScript + React 19</h3>
-          <p>Type-safe, modern React with hooks.</p>
-        </div>
-        <div class="card">
-          <h3>Vite + Tailwind CSS</h3>
-          <p>Fast builds, hot reload, utility-first CSS.</p>
-        </div>
-        <div class="card">
-          <h3>Cloudflare Pages</h3>
-          <p>Global CDN, auto-deploy on push, free forever.</p>
-        </div>
-        <div class="card">
-          <h3>PWA + Offline</h3>
-          <p>Installable, works offline, no app store needed.</p>
-        </div>
+      <div class="highlight">
+        <h3>AI-assisted development</h3>
+        <p>Using Claude Code, Cursor, Codex, or another AI coding tool? Add this to your agent so it knows the entire platform — tech stack, brand, how to deploy:</p>
+        <div class="cmd">Read https://raw.githubusercontent.com/freeappstore-online/ops/main/SKILLS.md</div>
       </div>
-
-      <h2>Rules</h2>
-      <ul>
-        <li><strong>Free forever</strong> — no monetization, no ads, no paywalls</li>
-        <li><strong>No tracking</strong> — zero analytics, cookies, or data collection</li>
-        <li><strong>Open source</strong> — MIT license, public repo</li>
-        <li><strong>Works everywhere</strong> — responsive, mobile-first, PWA</li>
-        <li><strong>One app per category</strong> — check what's already built</li>
-      </ul>
 
       <div class="cta-box">
         <h3>Ready?</h3>
-        <p>Clone the template and start building. We'll handle the rest.</p>
-        <a href="https://github.com/freeappstore-online/template-standalone" class="btn">Get the template &rarr;</a>
+        <p>Apply to join the creators program and start building.</p>
+        <a href="https://github.com/freeappstore-online/submissions/issues/new" class="btn">Apply now &rarr;</a>
       </div>
     </div>
   </main>

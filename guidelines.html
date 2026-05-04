@@ -38,8 +38,9 @@
       <a href="/" class="logo">Free<span>App</span>Store</a>
       <nav>
         <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
         <a href="/about.html">About</a>
-        <a href="/contribute.html">Contribute</a>
+        <a href="/contribute.html">Build</a>
         <a href="/guidelines.html" class="active">Guidelines</a>
         <a href="https://proappstore.online" class="pro-link">Pro</a>
       </nav>
@@ -55,226 +56,17 @@
     <div class="page-content">
       <div class="section-nav">
         <h3>Contents</h3>
-        <a href="#platform-rules">Platform Rules</a>
-        <a href="#brand">Brand &amp; Logo</a>
-        <a href="#colors">Colors</a>
-        <a href="#typography">Typography</a>
-        <a href="#layout">Layout &amp; Components</a>
         <a href="#tech-stack">Tech Stack</a>
-        <a href="#publishing">Publishing Process</a>
-        <a href="#checklist">Launch Checklist</a>
-      </div>
-
-      <!-- Platform Rules -->
-      <h2 id="platform-rules">Platform Rules</h2>
-      <p>These are non-negotiable. Every app on FreeAppStore must follow these principles:</p>
-
-      <div class="rule-card">
-        <strong>One app per category</strong>
-        <p>There will never be two chess apps, two audiobook readers, or two calendars. One in Free, one in Pro. That's it. No fragmentation.</p>
-      </div>
-      <div class="rule-card">
-        <strong>Free means free</strong>
-        <p>No freemium, no ads, no plans, no paywalls, no "upgrade to unlock." If it's on FreeAppStore, it stays free forever.</p>
-      </div>
-      <div class="rule-card">
-        <strong>Real apps, not websites</strong>
-        <p>Every app must work as a PWA. Save to home screen, use offline, feel native. If it only works in a browser tab, it's not ready.</p>
-      </div>
-      <div class="rule-card">
-        <strong>Private by default</strong>
-        <p>Zero tracking, zero analytics, zero cookies, zero data collection. All user data stays on-device in localStorage.</p>
-      </div>
-      <div class="rule-card">
-        <strong>Open source</strong>
-        <p>MIT license. Public repo on the <a href="https://github.com/freeappstore-online">freeappstore-online</a> GitHub org. Anyone can read the code, verify privacy claims, and contribute.</p>
-      </div>
-
-      <!-- Brand -->
-      <h2 id="brand">Brand &amp; Logo</h2>
-
-      <h3>Wordmark</h3>
-      <p>The logo is a wordmark, not an icon. Written as one word with "App" highlighted in the platform accent color:</p>
-      <ul>
-        <li><strong>Free<span style="color:var(--accent)">App</span>Store</strong> — blue accent (<code>#2563eb</code>)</li>
-        <li><strong>Pro<span style="color:var(--pro)">App</span>Store</strong> — purple accent (<code>#7c3aed</code>)</li>
-      </ul>
-
-      <h3>Naming rules</h3>
-      <ul>
-        <li>Always one word, PascalCase: <code>FreeAppStore</code></li>
-        <li>Never three words: <s>Free App Store</s></li>
-        <li>Never all-caps: <s>FREEAPPSTORE</s></li>
-      </ul>
-
-      <h3>App naming</h3>
-      <table class="spec-table">
-        <tr><th>Context</th><th>Format</th><th>Example</th></tr>
-        <tr><td>GitHub repo</td><td>lowercase, no prefix</td><td><code>freebooks</code></td></tr>
-        <tr><td>Package name</td><td>lowercase + "app"</td><td><code>freebooksapp</code></td></tr>
-        <tr><td>Display name</td><td>Single word, capitalized</td><td>Books</td></tr>
-        <tr><td>Subdomain</td><td>lowercase.freeappstore.online</td><td><code>books.freeappstore.online</code></td></tr>
-      </table>
-
-      <!-- Colors -->
-      <h2 id="colors">Colors</h2>
-
-      <h3>Shared neutral palette (all apps)</h3>
-      <p>Every app uses the same neutral palette for UI chrome. Only the accent color differs per app.</p>
-
-      <table class="spec-table">
-        <tr><th>Token</th><th>Light</th><th>Dark</th><th>Usage</th></tr>
-        <tr><td><code>--paper</code></td><td><span class="color-swatch" style="background:#fefdfb"></span>#fefdfb</td><td><span class="color-swatch" style="background:#141413"></span>#141413</td><td>Page background</td></tr>
-        <tr><td><code>--ink</code></td><td><span class="color-swatch" style="background:#1a1917"></span>#1a1917</td><td><span class="color-swatch" style="background:#f2f0ed"></span>#f2f0ed</td><td>Primary text</td></tr>
-        <tr><td><code>--muted</code></td><td><span class="color-swatch" style="background:#8a8780"></span>#8a8780</td><td><span class="color-swatch" style="background:#7a7770"></span>#7a7770</td><td>Secondary text</td></tr>
-        <tr><td><code>--line</code></td><td><span class="color-swatch" style="background:#e8e5e0"></span>#e8e5e0</td><td><span class="color-swatch" style="background:#2a2825"></span>#2a2825</td><td>Borders</td></tr>
-        <tr><td><code>--panel</code></td><td><span class="color-swatch" style="background:#f5f3f0"></span>#f5f3f0</td><td><span class="color-swatch" style="background:#1e1d1b"></span>#1e1d1b</td><td>Panel background</td></tr>
-        <tr><td><code>--glass</code></td><td colspan="2">rgba with 0.7 opacity</td><td>Frosted glass overlays</td></tr>
-        <tr><td><code>--success</code></td><td><span class="color-swatch" style="background:#22c55e"></span>#22c55e</td><td><span class="color-swatch" style="background:#4ade80"></span>#4ade80</td><td>Correct / positive</td></tr>
-        <tr><td><code>--warning</code></td><td><span class="color-swatch" style="background:#f59e0b"></span>#f59e0b</td><td><span class="color-swatch" style="background:#fbbf24"></span>#fbbf24</td><td>Caution</td></tr>
-        <tr><td><code>--error</code></td><td><span class="color-swatch" style="background:#ef4444"></span>#ef4444</td><td><span class="color-swatch" style="background:#f87171"></span>#f87171</td><td>Wrong / destructive</td></tr>
-      </table>
-
-      <h3>App accent colors</h3>
-      <p>Each app gets ONE accent color. Used for active states, primary buttons, and highlights.</p>
-
-      <table class="spec-table">
-        <tr><th>App</th><th>Accent</th><th>Rationale</th></tr>
-        <tr><td>Chess</td><td><span class="color-swatch" style="background:#5b7db1"></span><code>#5b7db1</code></td><td>Calm blue — strategic</td></tr>
-        <tr><td>Language</td><td><span class="color-swatch" style="background:#da5b37"></span><code>#da5b37</code></td><td>Warm terracotta — cultural</td></tr>
-        <tr><td>Math</td><td><span class="color-swatch" style="background:#4d70dc"></span><code>#4d70dc</code></td><td>Confident blue — precise</td></tr>
-        <tr><td>Music</td><td><span class="color-swatch" style="background:#6ECE9E"></span><code>#6ECE9E</code></td><td>Teal green — creative</td></tr>
-        <tr><td>Puzzle</td><td><span class="color-swatch" style="background:#ff8a54"></span><code>#ff8a54</code></td><td>Energetic orange — playful</td></tr>
-        <tr><td>Quiz</td><td><span class="color-swatch" style="background:#d86f4d"></span><code>#d86f4d</code></td><td>Warm orange — engaging</td></tr>
-        <tr><td>Books</td><td><span class="color-swatch" style="background:#c08552"></span><code>#c08552</code></td><td>Golden brown — literary</td></tr>
-      </table>
-
-      <!-- Typography -->
-      <h2 id="typography">Typography</h2>
-
-      <h3>Font families</h3>
-      <table class="spec-table">
-        <tr><th>Role</th><th>Family</th><th>Weights</th><th>Usage</th></tr>
-        <tr><td>Body</td><td><strong>Manrope</strong></td><td>400, 500, 600, 700, 800</td><td>All UI text, labels, body</td></tr>
-        <tr><td>Display</td><td><strong>Fraunces</strong></td><td>700, 800</td><td>Headlines, card titles</td></tr>
-      </table>
-
-      <h3>Load fonts</h3>
-      <div class="code-block"><code>&lt;link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,700;9..144,800&amp;display=swap" rel="stylesheet"&gt;</code></div>
-
-      <h3>Type scale</h3>
-      <table class="spec-table">
-        <tr><th>Token</th><th>Size</th><th>Usage</th></tr>
-        <tr><td><code>--text-xs</code></td><td>0.65rem</td><td>Labels, badges, uppercase tags</td></tr>
-        <tr><td><code>--text-sm</code></td><td>0.85rem</td><td>Secondary text, hints</td></tr>
-        <tr><td><code>--text-base</code></td><td>1rem</td><td>Body text</td></tr>
-        <tr><td><code>--text-lg</code></td><td>1.2rem</td><td>Subheadings</td></tr>
-        <tr><td><code>--text-xl</code></td><td>1.5rem</td><td>Section titles</td></tr>
-        <tr><td><code>--text-2xl</code></td><td>2rem</td><td>Page titles</td></tr>
-      </table>
-
-      <!-- Layout -->
-      <h2 id="layout">Layout &amp; Components</h2>
-
-      <h3>App shell</h3>
-      <p>All apps use the same responsive shell pattern:</p>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.5rem 0;">
-        <div class="rule-card">
-          <strong>Desktop (1024px+)</strong>
-          <div style="display:grid;grid-template-columns:5rem 1fr;gap:0.5rem;margin-top:0.75rem;">
-            <div style="background:var(--accent);opacity:0.15;border-radius:0.5rem;padding:1rem 0.5rem;text-align:center;font-size:0.7rem;color:var(--ink);">Sidebar<br>(17rem)<br><br>Nav<br>Tools</div>
-            <div style="background:var(--surface);border:1px solid var(--border);border-radius:0.5rem;padding:1rem;text-align:center;font-size:0.75rem;color:var(--muted);">Main Content</div>
-          </div>
-        </div>
-        <div class="rule-card">
-          <strong>Mobile (&lt;1024px)</strong>
-          <div style="display:flex;flex-direction:column;gap:0.35rem;margin-top:0.75rem;">
-            <div style="background:var(--surface);border:1px solid var(--border);border-radius:0.5rem;padding:0.5rem;text-align:center;font-size:0.7rem;color:var(--muted);">App Header</div>
-            <div style="background:var(--surface);border:1px solid var(--border);border-radius:0.5rem;padding:1.5rem;text-align:center;font-size:0.75rem;color:var(--muted);flex:1;">Main Content</div>
-            <div style="background:var(--accent);opacity:0.15;border-radius:0.5rem;padding:0.5rem;text-align:center;font-size:0.7rem;color:var(--ink);">Bottom Dock</div>
-          </div>
-        </div>
-      </div>
-
-      <h3>Key measurements</h3>
-      <table class="spec-table">
-        <tr><th>Element</th><th>Value</th></tr>
-        <tr><td>Sidebar width</td><td><code>17rem</code></td></tr>
-        <tr><td>Card border radius</td><td><code>1.25rem</code></td></tr>
-        <tr><td>Button border radius</td><td><code>0.75rem</code></td></tr>
-        <tr><td>Card padding</td><td><code>1.5rem</code></td></tr>
-        <tr><td>Grid gap</td><td><code>1.25rem</code></td></tr>
-        <tr><td>Page margin (mobile)</td><td><code>1.5rem</code></td></tr>
-        <tr><td>Page margin (desktop)</td><td><code>2rem</code></td></tr>
-      </table>
-
-      <h3>Component specs</h3>
-
-      <h4>Cards</h4>
-      <ul>
-        <li>Background: <code>var(--surface)</code> or <code>var(--panel)</code></li>
-        <li>Border: <code>1px solid var(--line)</code></li>
-        <li>Hover: <code>translateY(-2px)</code> + shadow lift</li>
-        <li>Transition: <code>200ms ease</code></li>
-      </ul>
-
-      <h4>Buttons</h4>
-      <ul>
-        <li>Primary: accent background, white text</li>
-        <li>Active state: <code>scale(0.985)</code></li>
-        <li>Transition: <code>160ms ease</code></li>
-      </ul>
-
-      <h4>Mobile dock</h4>
-      <ul>
-        <li>Fixed bottom, full width</li>
-        <li>Backdrop blur + <code>var(--dock)</code> background</li>
-        <li>Safe area padding: <code>env(safe-area-inset-bottom)</code></li>
-        <li>2-4 tab buttons max</li>
-      </ul>
-
-      <h3>Dark mode</h3>
-      <p>All apps follow the system preference via <code>prefers-color-scheme: dark</code>. No manual toggle. Colors are defined as CSS custom properties with separate light/dark values.</p>
-
-      <h3>Motion</h3>
-      <ul>
-        <li>Fast (buttons): <code>120ms ease</code></li>
-        <li>Base (cards, panels): <code>200ms ease</code></li>
-        <li>Slow (overlays): <code>300ms ease</code></li>
-        <li>Always respect <code>prefers-reduced-motion</code></li>
-      </ul>
-
-      <!-- App Types -->
-      <h2 id="app-types">App Types</h2>
-
-      <h3>Standalone apps (no backend)</h3>
-      <p>Pure client-side apps with no server. All data lives in localStorage. No account required. Examples: Chess, Quiz, Puzzle, Math, Books.</p>
-      <ul>
-        <li>Frontend only — React + Vite deployed to Cloudflare Pages</li>
-        <li>Zero backend infrastructure</li>
-        <li>Works fully offline after first load</li>
-      </ul>
-
-      <h3>Connected apps (shared backend)</h3>
-      <p>Free and Pro versions share the same backend. Same database, same users. The free app provides limited features; the pro app unlocks the full experience.</p>
-      <ul>
-        <li>Both frontends connect to the same Firebase project</li>
-        <li>User roles (free/pro) determine feature access</li>
-        <li>Firestore rules enforce access control server-side</li>
-        <li>Backend code (Functions, rules) lives in the pro repo</li>
-        <li>Free users can upgrade seamlessly — their data is already there</li>
-      </ul>
-
-      <div class="rule-card">
-        <strong>Examples of connected apps</strong>
-        <p><strong>Bandmates</strong> — Free: discover bands, browse profiles. Pro: create bands, messaging, scheduling.<br>
-        <strong>Meetup</strong> — Free: browse events, RSVP. Pro: create/host events, groups, analytics.<br>
-        <strong>Language</strong> — Free: flashcards, exercises (local). Pro: AI translation, cloud sync.</p>
+        <a href="#project-structure">Project Structure</a>
+        <a href="#brand">Brand Guidelines</a>
+        <a href="#privacy">Privacy Rules</a>
+        <a href="#compliance">Compliance Checks</a>
+        <a href="#templates">Templates</a>
       </div>
 
       <!-- Tech Stack -->
       <h2 id="tech-stack">Tech Stack</h2>
+      <p>All FreeAppStore apps share the same foundation.</p>
 
       <table class="spec-table">
         <tr><th>Layer</th><th>Choice</th><th>Version</th></tr>
@@ -282,13 +74,16 @@
         <tr><td>Framework</td><td>React</td><td>^19.0</td></tr>
         <tr><td>Bundler</td><td>Vite</td><td>^6.0</td></tr>
         <tr><td>Styling</td><td>Tailwind CSS</td><td>^4.1</td></tr>
-        <tr><td>Hosting (frontend)</td><td>Cloudflare Pages</td><td>—</td></tr>
-        <tr><td>Backend (connected)</td><td>Firebase</td><td>Firestore, Auth, Functions</td></tr>
+        <tr><td>Hosting</td><td>Cloudflare Pages</td><td>—</td></tr>
+        <tr><td>Backend (connected apps)</td><td>Firebase</td><td>Firestore, Auth, Functions</td></tr>
         <tr><td>Package Manager</td><td>pnpm</td><td>^10.30</td></tr>
-        <tr><td>Node</td><td>—</td><td>≥20.19</td></tr>
+        <tr><td>Node</td><td>—</td><td>&ge;20.19</td></tr>
       </table>
 
-      <h3>Project structure</h3>
+      <!-- Project Structure -->
+      <h2 id="project-structure">Project Structure</h2>
+      <p>Every app uses a pnpm workspace with the frontend in a <code>web/</code> package.</p>
+
       <div class="code-block"><code>app-name/
 ├── package.json           (workspace root)
 ├── pnpm-workspace.yaml    (packages: [web])
@@ -309,99 +104,152 @@
         ├── hooks/
         └── services/</code></div>
 
-      <!-- Publishing -->
-      <h2 id="publishing">Publishing Process</h2>
+      <!-- Brand Guidelines -->
+      <h2 id="brand">Brand Guidelines</h2>
 
-      <h3>How apps get deployed</h3>
-      <ol>
-        <li><strong>Push to <code>main</code></strong> — developer pushes code to the GitHub repo</li>
-        <li><strong>Cloudflare Pages builds</strong> — automatic build triggered on push (runs <code>pnpm install && pnpm build</code>)</li>
-        <li><strong>Deploy to edge</strong> — built assets deployed to Cloudflare's global CDN</li>
-        <li><strong>Live on subdomain</strong> — available at <code>appname.freeappstore.online</code></li>
-      </ol>
-      <p>No CI/CD configuration needed. No tokens to manage. Cloudflare Pages is connected directly to GitHub — push and it deploys.</p>
+      <h3>Fonts</h3>
+      <table class="spec-table">
+        <tr><th>Role</th><th>Family</th><th>Weights</th><th>Usage</th></tr>
+        <tr><td>Body</td><td><strong>Manrope</strong></td><td>400, 500, 600, 700, 800</td><td>All UI text, labels, body</td></tr>
+        <tr><td>Display</td><td><strong>Fraunces</strong></td><td>700, 800</td><td>Headlines, card titles</td></tr>
+      </table>
 
-      <h3>How a new app gets listed</h3>
-      <ol>
-        <li><strong>Propose</strong> — Open an issue on GitHub describing the app and its category</li>
-        <li><strong>Build</strong> — Develop the app following these guidelines</li>
-        <li><strong>Review</strong> — The app is reviewed against the launch checklist below</li>
-        <li><strong>Publish</strong> — Repo is added to the org, CF Pages project is created, subdomain is assigned</li>
-        <li><strong>Listed</strong> — App card is added to the FreeAppStore landing page</li>
-      </ol>
+      <div class="code-block"><code>&lt;link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Fraunces:opsz,wght@9..144,700;9..144,800&amp;display=swap" rel="stylesheet"&gt;</code></div>
 
-      <h3>Infrastructure setup (for maintainers)</h3>
-      <div class="code-block"><code># 1. Create GitHub repo
-gh repo create freeappstore-online/freeappname --public
+      <h3>CSS Variables</h3>
+      <table class="spec-table">
+        <tr><th>Token</th><th>Light</th><th>Dark</th><th>Usage</th></tr>
+        <tr><td><code>--paper</code></td><td><span class="color-swatch" style="background:#fefdfb"></span>#fefdfb</td><td><span class="color-swatch" style="background:#141413"></span>#141413</td><td>Page background</td></tr>
+        <tr><td><code>--ink</code></td><td><span class="color-swatch" style="background:#1a1917"></span>#1a1917</td><td><span class="color-swatch" style="background:#f2f0ed"></span>#f2f0ed</td><td>Primary text</td></tr>
+        <tr><td><code>--muted</code></td><td><span class="color-swatch" style="background:#8a8780"></span>#8a8780</td><td><span class="color-swatch" style="background:#7a7770"></span>#7a7770</td><td>Secondary text</td></tr>
+        <tr><td><code>--line</code></td><td><span class="color-swatch" style="background:#e8e5e0"></span>#e8e5e0</td><td><span class="color-swatch" style="background:#2a2825"></span>#2a2825</td><td>Borders</td></tr>
+        <tr><td><code>--panel</code></td><td><span class="color-swatch" style="background:#f5f3f0"></span>#f5f3f0</td><td><span class="color-swatch" style="background:#1e1d1b"></span>#1e1d1b</td><td>Panel background</td></tr>
+        <tr><td><code>--glass</code></td><td colspan="2">rgba with 0.7 opacity</td><td>Frosted glass overlays</td></tr>
+        <tr><td><code>--success</code></td><td><span class="color-swatch" style="background:#22c55e"></span>#22c55e</td><td><span class="color-swatch" style="background:#4ade80"></span>#4ade80</td><td>Correct / positive</td></tr>
+        <tr><td><code>--warning</code></td><td><span class="color-swatch" style="background:#f59e0b"></span>#f59e0b</td><td><span class="color-swatch" style="background:#fbbf24"></span>#fbbf24</td><td>Caution</td></tr>
+        <tr><td><code>--error</code></td><td><span class="color-swatch" style="background:#ef4444"></span>#ef4444</td><td><span class="color-swatch" style="background:#f87171"></span>#f87171</td><td>Wrong / destructive</td></tr>
+      </table>
+      <p>Each app also gets ONE accent color for active states, primary buttons, and highlights. Dark mode follows system preference via <code>prefers-color-scheme: dark</code> — no manual toggle.</p>
 
-# 2. Create Cloudflare Pages project (via API)
-#    - Connected to GitHub repo
-#    - Build command: pnpm install && pnpm build
-#    - Output dir: web/dist
-#    - Node version: 22
+      <h3>Shell Component Layout</h3>
+      <p>All apps use the same responsive Shell component:</p>
 
-# 3. Add custom domain
-#    appname.freeappstore.online → CF Pages project
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.5rem 0;">
+        <div class="rule-card">
+          <strong>Desktop (1024px+)</strong>
+          <div style="display:grid;grid-template-columns:5rem 1fr;gap:0.5rem;margin-top:0.75rem;">
+            <div style="background:var(--accent);opacity:0.15;border-radius:0.5rem;padding:1rem 0.5rem;text-align:center;font-size:0.7rem;color:var(--ink);">Sidebar<br>(17rem)<br><br>Nav<br>Tools</div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:0.5rem;padding:1rem;text-align:center;font-size:0.75rem;color:var(--muted);">Main Content</div>
+          </div>
+        </div>
+        <div class="rule-card">
+          <strong>Mobile (&lt;1024px)</strong>
+          <div style="display:flex;flex-direction:column;gap:0.35rem;margin-top:0.75rem;">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:0.5rem;padding:0.5rem;text-align:center;font-size:0.7rem;color:var(--muted);">App Header</div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:0.5rem;padding:1.5rem;text-align:center;font-size:0.75rem;color:var(--muted);flex:1;">Main Content</div>
+            <div style="background:var(--accent);opacity:0.15;border-radius:0.5rem;padding:0.5rem;text-align:center;font-size:0.7rem;color:var(--ink);">Bottom Dock</div>
+          </div>
+        </div>
+      </div>
 
-# 4. Add app card to freeappstore landing page index.html</code></div>
+      <table class="spec-table">
+        <tr><th>Element</th><th>Value</th></tr>
+        <tr><td>Sidebar width</td><td><code>17rem</code></td></tr>
+        <tr><td>Card border radius</td><td><code>1.25rem</code></td></tr>
+        <tr><td>Button border radius</td><td><code>0.75rem</code></td></tr>
+        <tr><td>Card padding</td><td><code>1.5rem</code></td></tr>
+        <tr><td>Grid gap</td><td><code>1.25rem</code></td></tr>
+        <tr><td>Page margin (mobile)</td><td><code>1.5rem</code></td></tr>
+        <tr><td>Page margin (desktop)</td><td><code>2rem</code></td></tr>
+      </table>
 
-      <!-- Checklist -->
-      <h2 id="checklist">Launch Checklist</h2>
-      <p>Every app must pass ALL of these before listing:</p>
+      <!-- Privacy Rules -->
+      <h2 id="privacy">Privacy Rules</h2>
+      <p>Non-negotiable. Every app on FreeAppStore must follow these:</p>
 
-      <h3>Functionality</h3>
+      <div class="rule-card">
+        <strong>Zero tracking</strong>
+        <p>No analytics, no telemetry, no usage metrics. Zero network requests for tracking purposes.</p>
+      </div>
+      <div class="rule-card">
+        <strong>No cookies</strong>
+        <p>No cookies of any kind — not for sessions, not for preferences, not for anything.</p>
+      </div>
+      <div class="rule-card">
+        <strong>localStorage only</strong>
+        <p>All user data stays on-device in localStorage. No server-side storage for standalone apps. No external scripts (CDN fonts are OK).</p>
+      </div>
+
+      <!-- Compliance Checks -->
+      <h2 id="compliance">Compliance Checks</h2>
+      <p>These checks run automatically on every push. Your app must pass all of them.</p>
+
+      <h3>Build &amp; Code</h3>
       <ul>
-        <li>Core feature works on mobile (320px+)</li>
-        <li>Core feature works on desktop (1024px+)</li>
-        <li>Core feature works offline (after first load)</li>
-        <li>Data persists across sessions (localStorage)</li>
-        <li>No console errors in production build</li>
+        <li>TypeScript strict mode — no <code>any</code> types</li>
+        <li>Clean build with zero warnings</li>
+        <li>Core JS bundle &lt;100KB gzipped</li>
+        <li>MIT license present in repo</li>
       </ul>
 
       <h3>Design</h3>
       <ul>
         <li>Uses Manrope + Fraunces fonts</li>
         <li>Uses shared CSS custom properties for neutrals</li>
-        <li>Has a single app-specific accent color</li>
-        <li>Follows sidebar (desktop) + dock (mobile) pattern</li>
-        <li>Supports dark mode via system preference</li>
+        <li>Single app-specific accent color</li>
+        <li>Sidebar (desktop) + dock (mobile) shell pattern</li>
+        <li>Dark mode via system preference</li>
         <li>Respects safe area insets (notched phones)</li>
       </ul>
 
       <h3>PWA</h3>
       <ul>
-        <li>Has <code>manifest.json</code> with name, icons, theme color</li>
-        <li>Includes <code>apple-mobile-web-app-capable</code> meta tag</li>
-        <li>Registers a service worker</li>
+        <li><code>manifest.json</code> with name, icons, theme color</li>
+        <li><code>apple-mobile-web-app-capable</code> meta tag</li>
+        <li>Service worker registered</li>
         <li>Works when added to home screen</li>
+        <li>Works offline after first load</li>
       </ul>
 
       <h3>Privacy</h3>
       <ul>
-        <li>Zero network requests for tracking/analytics</li>
+        <li>Zero tracking/analytics network requests</li>
         <li>No cookies</li>
-        <li>No external scripts (CDN fonts are OK)</li>
+        <li>No external scripts (CDN fonts OK)</li>
         <li>All user data in localStorage only</li>
       </ul>
 
       <h3>Performance</h3>
       <ul>
         <li>First load &lt;2s on 3G</li>
-        <li>Core JS bundle &lt;100KB gzipped</li>
         <li>No layout shift after load</li>
+        <li>Works on mobile (320px+) and desktop (1024px+)</li>
       </ul>
 
-      <h3>Code</h3>
-      <ul>
-        <li>TypeScript with strict mode</li>
-        <li>No <code>any</code> types</li>
-        <li>Clean build with zero warnings</li>
-        <li>MIT license in repo</li>
-      </ul>
+      <!-- Templates -->
+      <h2 id="templates">Templates</h2>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.5rem 0;">
+        <div class="rule-card">
+          <strong>Standalone</strong>
+          <p>Pure client-side app, no backend. All data in localStorage. Works fully offline.</p>
+          <p style="margin-top:0.75rem;"><a href="https://github.com/freeappstore-online/template-standalone">github.com/freeappstore-online/template-standalone</a></p>
+        </div>
+        <div class="rule-card">
+          <strong>Connected</strong>
+          <p>Free + Pro versions sharing a Firebase backend. User roles determine feature access.</p>
+          <p style="margin-top:0.75rem;"><a href="https://github.com/freeappstore-online/template-connected">github.com/freeappstore-online/template-connected</a></p>
+        </div>
+      </div>
+
+      <div class="rule-card">
+        <strong>Building a game?</strong>
+        <p>Games live on our sister platform. See <a href="https://freegamestore.online/guidelines.html">freegamestore.online/guidelines.html</a> for game-specific guidelines and templates.</p>
+      </div>
 
       <div class="cta-box">
         <h3>Ready to build?</h3>
-        <p>Fork an existing app as a starting point, or start fresh. Either way, follow these guidelines and your app will fit right in.</p>
+        <p>Clone a template and start coding. Check the <a href="/contribute.html">Build</a> page for how to apply as a creator.</p>
         <a href="https://github.com/freeappstore-online" class="btn">GitHub Organization &rarr;</a>
       </div>
     </div>
@@ -415,7 +263,7 @@ gh repo create freeappstore-online/freeappname --public
       </div>
       <div class="footer-links">
         <a href="/about.html">About</a>
-        <a href="/contribute.html">Contribute</a>
+        <a href="/contribute.html">Build</a>
         <a href="/guidelines.html">Guidelines</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
