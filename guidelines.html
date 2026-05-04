@@ -179,27 +179,23 @@
       <h3>App shell</h3>
       <p>All apps use the same responsive shell pattern:</p>
 
-      <div class="code-block"><code>Desktop (≥1024px):
-┌──────────────────────────────────────────┐
-│  ┌─────────┐  ┌──────────────────────┐   │
-│  │ Sidebar │  │     Main Content     │   │
-│  │ (17rem) │  │                      │   │
-│  │         │  │                      │   │
-│  │ - Nav   │  │                      │   │
-│  │ - Tools │  │                      │   │
-│  └─────────┘  └──────────────────────┘   │
-└──────────────────────────────────────────┘
-
-Mobile (&lt;1024px):
-┌──────────────────────┐
-│      App Header      │
-├──────────────────────┤
-│                      │
-│    Main Content      │
-│                      │
-├──────────────────────┤
-│    Bottom Dock       │
-└──────────────────────┘</code></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1.5rem 0;">
+        <div class="rule-card">
+          <strong>Desktop (1024px+)</strong>
+          <div style="display:grid;grid-template-columns:5rem 1fr;gap:0.5rem;margin-top:0.75rem;">
+            <div style="background:var(--accent);opacity:0.15;border-radius:0.5rem;padding:1rem 0.5rem;text-align:center;font-size:0.7rem;color:var(--ink);">Sidebar<br>(17rem)<br><br>Nav<br>Tools</div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:0.5rem;padding:1rem;text-align:center;font-size:0.75rem;color:var(--muted);">Main Content</div>
+          </div>
+        </div>
+        <div class="rule-card">
+          <strong>Mobile (&lt;1024px)</strong>
+          <div style="display:flex;flex-direction:column;gap:0.35rem;margin-top:0.75rem;">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:0.5rem;padding:0.5rem;text-align:center;font-size:0.7rem;color:var(--muted);">App Header</div>
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:0.5rem;padding:1.5rem;text-align:center;font-size:0.75rem;color:var(--muted);flex:1;">Main Content</div>
+            <div style="background:var(--accent);opacity:0.15;border-radius:0.5rem;padding:0.5rem;text-align:center;font-size:0.7rem;color:var(--ink);">Bottom Dock</div>
+          </div>
+        </div>
+      </div>
 
       <h3>Key measurements</h3>
       <table class="spec-table">
