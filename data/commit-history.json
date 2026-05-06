@@ -838,5 +838,33 @@
         }
       }
     ]
+  },
+  "freeappstore-online/mandarin-english": {
+    "meta": {
+      "created_at": "2026-05-06T04:25:18Z",
+      "pushed_at": "2026-05-06T04:25:18Z"
+    },
+    "commits": [
+      {
+        "sha": "942b2ae924a263c392899a52fce411e751773c79",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/942b2ae924a263c392899a52fce411e751773c79",
+        "commit": {
+          "message": "Mandarin-English phrase prep app",
+          "author": {
+            "date": "2026-05-06T04:25:31Z"
+          }
+        }
+      },
+      {
+        "sha": "dbda023867a5ccbfa9a6059b011291c27024c779",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/dbda023867a5ccbfa9a6059b011291c27024c779",
+        "commit": {
+          "message": "Initial commit from standalone template",
+          "author": {
+            "date": "2026-05-06T04:21:37Z"
+          }
+        }
+      }
+    ]
   }
 }
