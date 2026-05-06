@@ -251,14 +251,58 @@ fs.writeFileSync(path.join(DIST, 'index.html'), indexHtml);
 // authenticated GitHub rate limits (5000/hr) and ~5–10s wall time.
 // Wrapped in async IIFE because this file is CJS (no top-level await).
 
+async function fetchAuditSummary() {
+  // Fetch the latest audit summary from /v1/audit. Failures degrade
+  // gracefully — the audit badge just doesn't render. Falls back to
+  // an empty map so all apps render the "not yet audited" state.
+  try {
+    const res = await new Promise((resolve, reject) => {
+      const req = https.request(
+        { hostname: 'api.freeappstore.online', path: '/v1/audit?store=apps', method: 'GET' },
+        (r) => {
+          let data = '';
+          r.on('data', (c) => (data += c));
+          r.on('end', () => resolve({ status: r.statusCode, body: data }));
+        },
+      );
+      req.on('error', reject);
+      req.end();
+    });
+    if (res.status !== 200) return new Map();
+    const parsed = JSON.parse(res.body);
+    const map = new Map();
+    for (const s of parsed.summary ?? []) map.set(s.appId, s);
+    return map;
+  } catch (err) {
+    console.warn(`  ! could not fetch audit summary: ${err.message}`);
+    return new Map();
+  }
+}
+
+function renderAuditBadge(summary) {
+  if (!summary) {
+    return '<p class="audit-badge audit-pending"><span class="dot"></span> Not yet audited</p>';
+  }
+  const total = summary.pass + summary.warn + summary.fail;
+  if (summary.fail > 0) {
+    return `<p class="audit-badge audit-fail"><span class="dot"></span> ${summary.fail} compliance failure${summary.fail === 1 ? '' : 's'} of ${total} checks &middot; <a href="https://api.freeappstore.online/v1/audit?app=${summary.appId}">details</a></p>`;
+  }
+  if (summary.warn > 0) {
+    return `<p class="audit-badge audit-warn"><span class="dot"></span> ${summary.pass}/${total} compliance checks pass &middot; ${summary.warn} warning${summary.warn === 1 ? '' : 's'}</p>`;
+  }
+  return `<p class="audit-badge audit-pass"><span class="dot"></span> ${total}/${total} compliance checks pass</p>`;
+}
+
 (async () => {
 console.log(`Fetching commit history for ${apps.length} apps (with disk cache fallback)...`);
-const histories = await fetchAllHistories(apps);
+const [histories, auditMap] = await Promise.all([
+  fetchAllHistories(apps),
+  fetchAuditSummary(),
+]);
 // Summarize: count how many apps got real commit data vs fell back.
-// With the cache fallback this should normally be 100% even when the
-// API is rate-limited.
 const okCount = histories.filter((h) => Array.isArray(h?.commits) && h.commits.length > 0).length;
 console.log(`  ${okCount}/${apps.length} apps got commit history`);
+console.log(`  ${auditMap.size} apps have audit results`);
 
 apps.forEach((app, i) => {
   const offline = app.type === 'standalone' ? 'Yes' : 'When cached';
@@ -280,7 +324,8 @@ apps.forEach((app, i) => {
     .replace(/\{\{OFFLINE\}\}/g, offline)
     .replace(/\{\{ACCOUNT\}\}/g, account)
     .replace(/\{\{PUBLISHED_LINE\}\}/g, renderPublishedLine(history))
-    .replace(/\{\{HISTORY_SECTION\}\}/g, renderHistorySection(app.repo, history));
+    .replace(/\{\{HISTORY_SECTION\}\}/g, renderHistorySection(app.repo, history))
+    .replace(/\{\{AUDIT_BADGE\}\}/g, renderAuditBadge(auditMap.get(app.id)));
 
   fs.writeFileSync(path.join(DIST, 'apps', `${app.id}.html`), html);
 });
@@ -298,6 +343,11 @@ const sitemapEntries = [
   '  <url><loc>https://freeappstore.online/ai/github-copilot.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/ai/aider.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/ai/codex.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/ai/windsurf.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/ai/zed.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/ai/continue.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/ai/cline.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/ai/chatgpt-web.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/guidelines.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/privacy.html</loc><priority>0.5</priority></url>',
   '  <url><loc>https://freeappstore.online/terms.html</loc><priority>0.5</priority></url>',

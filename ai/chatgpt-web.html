@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatGPT (web) — FreeAppStore</title>
+  <meta name="description" content="Build a free app on FreeAppStore with ChatGPT (web)." />
+  <meta property="og:title" content="ChatGPT (web) — FreeAppStore" />
+  <meta property="og:description" content="Build a free app on FreeAppStore with ChatGPT (web)." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://freeappstore.online/ai/chatgpt-web.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .ai-hero { padding: 2rem 0 1rem; }
+    .ai-hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .ai-lead { font-size: 1.15rem; color: var(--muted); line-height: 1.6; max-width: 720px; margin-bottom: 2rem; }
+    .ai-tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin: 1.5rem 0 3rem; }
+    .ai-tool { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); transition: border-color 0.15s; text-decoration: none; color: var(--ink); display: block; }
+    .ai-tool:hover { border-color: var(--accent); text-decoration: none; }
+    .ai-tool h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+    .ai-tool p { font-size: 0.9rem; color: var(--muted); }
+    .ai-tool .tag { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem; }
+    .steps { counter-reset: step; list-style: none; padding: 0; }
+    .steps li { counter-increment: step; margin-bottom: 1.5rem; padding-left: 2.5rem; position: relative; }
+    .steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+    .cmd { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.1rem; margin: 0.5rem 0; font-family: ui-monospace, SF Mono, Menlo, monospace; font-size: 0.88rem; overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
+    .callout { padding: 1.25rem 1.5rem; border-left: 4px solid var(--accent); background: var(--accent-soft, var(--panel)); border-radius: 0 0.75rem 0.75rem 0; margin: 1.5rem 0; }
+    .callout strong { color: var(--ink); }
+    h2 { font-size: 1.4rem; font-weight: 800; margin: 2.5rem 0 1rem; }
+    h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    .crumbs { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+    .crumbs a { color: var(--muted); }
+    .ai-prompt { background: var(--surface); border: 1px dashed var(--border); border-radius: 0.75rem; padding: 1rem 1.25rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.55; color: var(--ink); }
+    .ai-prompt::before { content: 'Prompt'; display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free<span>App</span>Store</a>
+      <nav>
+        <a href="/">Apps</a>
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Build</a>
+        <a href="/build-with-ai.html" class="active">Build with AI</a>
+        <a href="/guidelines.html">Guidelines</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="crumbs"><a href="/build-with-ai.html">Build with AI</a> &raquo; ChatGPT (web)</div>
+    <h1>ChatGPT (web) on FreeAppStore</h1>
+    <p class="ai-lead">Build a free app using ChatGPT (web). The agent reads the platform's <a href="https://raw.githubusercontent.com/freeappstore-online/ops/main/SKILLS.md">SKILLS.md</a> and knows the brand rules, the CLI, and the deploy flow before it writes a line of code.</p>
+
+    <div class="callout">
+      <strong>Before you start:</strong> install Node 22+ and the FreeAppStore CLI.
+      <div class="cmd">npm i -g @freeappstore/cli
+fas login</div>
+    </div>
+
+
+    <h2>Set up ChatGPT for FreeAppStore work</h2>
+    <ol class="steps">
+      <li>
+        <strong>Open ChatGPT in a browser</strong>
+        <p>Go to <a href="https://chatgpt.com">chatgpt.com</a>. Plus or Pro subscriptions give you access to GPT-5 (or whatever the latest is) which handles the platform's TypeScript + React idioms much better than free tier.</p>
+      </li>
+      <li>
+        <strong>Scaffold locally first</strong>
+        <p>ChatGPT can't run shell commands directly (unless you use Code Interpreter). Scaffold the app on your machine, then bring code into ChatGPT for help.</p>
+        <div class="cmd">fas init my-app
+cd my-app</div>
+      </li>
+      <li>
+        <strong>Open a new chat with the platform context</strong>
+        <p>Paste this as your first message:</p>
+        <div class="cmd">I'm building a app for FreeAppStore.
+
+Read the platform guide here for context:
+https://raw.githubusercontent.com/freeappstore-online/ops/main/SKILLS.md
+
+Hard rules:
+- Manrope + Fraunces fonts only.
+- Brand CSS tokens via var(--accent), var(--ink), var(--paper).
+- Zero tracking SDKs.
+- Use the Shell component for layout.
+
+I'll paste the file you should edit in the next message.</div>
+        <p>ChatGPT's browser tool will fetch the URL and load the platform context. From there, paste your <code>web/src/App.tsx</code> and ask for changes.</p>
+      </li>
+      <li>
+        <strong>Use a Project</strong>
+        <p>If you have ChatGPT Plus, create a Project for this app. Paste the platform context into the Project's instructions and pin the SKILLS.md URL — every chat in the Project inherits it.</p>
+      </li>
+    </ol>
+
+    <h2>Prompt the build</h2>
+    <div class="ai-prompt">[paste current web/src/App.tsx contents]
+
+Add a dark-mode-aware bar chart of the daily lap times to my stopwatch app. Use SVG (no chart library). Don't break the existing keyboard shortcuts.</div>
+    <div class="ai-prompt">Refactor this component to extract the timer logic into a useTimer hook with proper cleanup on unmount. Add unit tests with vitest. Output the full new files.</div>
+
+    <h2>Iterate</h2>
+    <ol class="steps">
+      <li>
+        <strong>Run the dev server</strong>
+        <div class="cmd">cd my-app &amp;&amp; pnpm install &amp;&amp; pnpm dev</div>
+        <p>The agent will tell you which file it edited; refresh the browser to see the change.</p>
+      </li>
+      <li>
+        <strong>Run compliance checks</strong>
+        <div class="cmd">fas check</div>
+        <p>Catches missing brand fonts, tracking SDKs, oversized bundles, and missing PWA manifest before publish.</p>
+      </li>
+      <li>
+        <strong>Publish</strong>
+        <div class="cmd">fas publish</div>
+        <p>Provisions <code>github.com/freeappstore-online/my-app</code>, the Cloudflare Pages project, the DNS record, custom subdomain at <code>my-app.freeappstore.online</code>, and the storefront entry — atomically.</p>
+      </li>
+      <li>
+        <strong>Push your code</strong>
+        <div class="cmd">git push upstream main</div>
+        <p>Auto-deploys via Cloudflare Pages in ~30 seconds. Future commits to <code>main</code> deploy automatically.</p>
+      </li>
+    </ol>
+
+    <h2>What the AI knows (and doesn't ask you for)</h2>
+    <p>Once SKILLS.md is loaded, the agent will:</p>
+    <ul>
+      <li>Use the platform's CSS tokens (<code>--accent</code>, <code>--ink</code>, <code>--paper</code>, …) — never redefine them.</li>
+      <li>Use Manrope (body) + Fraunces (display) — never custom display fonts.</li>
+      <li>Refuse to add Google Analytics, Plausible, Mixpanel, or any tracker.</li>
+      <li>Use <code>localStorage</code> for persistence (or <code>@freeappstore/sdk</code> KV for connected apps).</li>
+      <li>Push to <code>main</code> for deploy. Never <code>wrangler pages deploy</code> manually.</li>
+      <li>Never ask you for Cloudflare or GitHub tokens.</li>
+    </ul>
+    <p>The compliance suite (<code>fas check</code>) enforces all of the above on every push, so even if the AI slips, the platform catches it.</p>
+
+    <h2>Get the source</h2>
+    <p>The CLI, SDK, and compliance package live at <a href="https://github.com/freeappstore-online/sdk">https://github.com/freeappstore-online/sdk</a>. Reading the source is allowed — and often illuminating when you're trying to coax a difficult prompt.</p>
+
+
+    <h2>Tips for ChatGPT (web) specifically</h2>
+    <ul>
+      <li><strong>Projects</strong> persist the platform context across sessions — much better than re-pasting every time.</li>
+      <li>Use <strong>Canvas</strong> mode for code-heavy turns; the diff UI makes copy-paste back to your editor easier.</li>
+      <li>Code Interpreter (Advanced Data Analysis) can run the code in a sandbox to verify it compiles before you copy it.</li>
+      <li>If you're making the same kind of app repeatedly (a series of small tools), save a custom GPT with the platform rules baked in.</li>
+    </ul>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free<span>App</span>Store</a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Build</a>
+        <a href="/build-with-ai.html">Build with AI</a>
+        <a href="/guidelines.html">Guidelines</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
