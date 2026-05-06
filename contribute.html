@@ -135,6 +135,11 @@
           <p>Catches missing brand fonts, tracking SDKs, oversized bundles, missing PWA manifest, and unsubstituted template placeholders before you publish.</p>
         </li>
         <li>
+          <strong>Verify the layout fits (recommended)</strong>
+          <div class="cmd">fas screencheck</div>
+          <p>Builds, serves the dist locally, and drives a real Chromium at the <code>min_viewport_width</code> declared in your manifest in both portrait and landscape. Fails if the page actually scrolls — the static check only sees what you declared, this proves it works. Playwright is an opt-in peer dep; the command prompts to install on first run.</p>
+        </li>
+        <li>
           <strong>Publish</strong>
           <div class="cmd">fas publish</div>
           <p>Provisions your repo at <code>github.com/freeappstore-online/my-app</code>, the Cloudflare Pages project, the DNS record, the custom subdomain, and the storefront entry. Prints the <code>git remote add</code> + <code>git push</code> commands when done.</p>
