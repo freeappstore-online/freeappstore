@@ -180,6 +180,13 @@ fs.writeFileSync(path.join(DIST, 'index.html'), indexHtml);
 (async () => {
 console.log(`Fetching commit history for ${apps.length} apps...`);
 const histories = await Promise.all(apps.map((app) => fetchAppHistory(app.repo)));
+// Per-app summary so a build failure or partial fetch is obvious from CI logs.
+apps.forEach((app, i) => {
+  const h = histories[i];
+  const cn = Array.isArray(h?.commits) ? h.commits.length : `not-array(${typeof h?.commits})`;
+  const mn = h?.meta?.created_at ? 'ok' : 'null';
+  console.log(`  - ${app.id.padEnd(14)} commits=${cn}  meta=${mn}`);
+});
 
 apps.forEach((app, i) => {
   const offline = app.type === 'standalone' ? 'Yes' : 'When cached';
