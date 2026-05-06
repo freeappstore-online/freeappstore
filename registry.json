@@ -58,7 +58,7 @@
       "category": "learning",
       "icon": "&#128214;",
       "iconBg": "#fef9ee",
-      "description": "Listen to 130+ classic audiobooks with text-to-speech. Read or listen \u2014 your progress saves automatically.",
+      "description": "Listen to 130+ classic audiobooks with text-to-speech. Read or listen — your progress saves automatically.",
       "appUrl": "https://books.freeappstore.online",
       "repo": "freeappstore-online/books",
       "cfProject": "freebooksapp",
@@ -309,6 +309,19 @@
       "appUrl": "https://todo.freeappstore.online",
       "repo": "freeappstore-online/todo",
       "cfProject": "freetodoapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
+    },
+    {
+      "id": "counter",
+      "name": "counter",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "counter test",
+      "appUrl": "https://counter.freeappstore.online",
+      "repo": "freeappstore-online/counter",
+      "cfProject": "freecounterapp",
       "type": "standalone",
       "developer": "FreeAppStore"
     }
