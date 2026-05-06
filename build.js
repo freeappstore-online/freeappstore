@@ -292,6 +292,12 @@ const sitemapEntries = [
   '  <url><loc>https://freeappstore.online/</loc><priority>1.0</priority></url>',
   '  <url><loc>https://freeappstore.online/about.html</loc><priority>0.8</priority></url>',
   '  <url><loc>https://freeappstore.online/contribute.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/build-with-ai.html</loc><priority>0.85</priority></url>',
+  '  <url><loc>https://freeappstore.online/ai/claude-code.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/ai/cursor.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/ai/github-copilot.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/ai/aider.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/ai/codex.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/guidelines.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/privacy.html</loc><priority>0.5</priority></url>',
   '  <url><loc>https://freeappstore.online/terms.html</loc><priority>0.5</priority></url>',
@@ -322,7 +328,8 @@ const filesToCopy = [
   'contribute.html',
   'guidelines.html',
   'privacy.html',
-  'terms.html'
+  'terms.html',
+  'build-with-ai.html',
 ];
 
 filesToCopy.forEach(file => {
@@ -331,6 +338,18 @@ filesToCopy.forEach(file => {
     fs.copyFileSync(src, path.join(DIST, file));
   }
 });
+
+// AI tool guides — one HTML file per tool (claude-code, cursor, etc.).
+// They live under /ai/<slug>.html so the URL space stays clean.
+const aiSrcDir = path.join(ROOT, 'ai');
+if (fs.existsSync(aiSrcDir)) {
+  const aiDestDir = path.join(DIST, 'ai');
+  fs.mkdirSync(aiDestDir, { recursive: true });
+  for (const f of fs.readdirSync(aiSrcDir)) {
+    if (!f.endsWith('.html')) continue;
+    fs.copyFileSync(path.join(aiSrcDir, f), path.join(aiDestDir, f));
+  }
+}
 
 console.log(`Built ${apps.length} app cards into dist/index.html`);
 console.log(`Generated ${apps.length} detail pages in dist/apps/`);

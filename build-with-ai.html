@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Build with AI — FreeAppStore</title>
+  <meta name="description" content="Build a free app on FreeAppStore with Claude Code, Cursor, GitHub Copilot, Aider, Codex, or any AI coding tool." />
+  <meta property="og:title" content="Build with AI — FreeAppStore" />
+  <meta property="og:description" content="Build a free app on FreeAppStore with Claude Code, Cursor, GitHub Copilot, Aider, Codex, or any AI coding tool." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://freeappstore.online/build with ai.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .ai-hero { padding: 2rem 0 1rem; }
+    .ai-hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .ai-lead { font-size: 1.15rem; color: var(--muted); line-height: 1.6; max-width: 720px; margin-bottom: 2rem; }
+    .ai-tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin: 1.5rem 0 3rem; }
+    .ai-tool { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); transition: border-color 0.15s; text-decoration: none; color: var(--ink); display: block; }
+    .ai-tool:hover { border-color: var(--accent); text-decoration: none; }
+    .ai-tool h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+    .ai-tool p { font-size: 0.9rem; color: var(--muted); }
+    .ai-tool .tag { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem; }
+    .steps { counter-reset: step; list-style: none; padding: 0; }
+    .steps li { counter-increment: step; margin-bottom: 1.5rem; padding-left: 2.5rem; position: relative; }
+    .steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+    .cmd { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.1rem; margin: 0.5rem 0; font-family: ui-monospace, SF Mono, Menlo, monospace; font-size: 0.88rem; overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
+    .callout { padding: 1.25rem 1.5rem; border-left: 4px solid var(--accent); background: var(--accent-soft, var(--panel)); border-radius: 0 0.75rem 0.75rem 0; margin: 1.5rem 0; }
+    .callout strong { color: var(--ink); }
+    h2 { font-size: 1.4rem; font-weight: 800; margin: 2.5rem 0 1rem; }
+    h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    .crumbs { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+    .crumbs a { color: var(--muted); }
+    .ai-prompt { background: var(--surface); border: 1px dashed var(--border); border-radius: 0.75rem; padding: 1rem 1.25rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.55; color: var(--ink); }
+    .ai-prompt::before { content: 'Prompt'; display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free<span>App</span>Store</a>
+      <nav>
+        <a href="/">Apps</a>
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Build</a>
+        <a href="/build-with-ai.html" class="active">Build with AI</a>
+        <a href="/guidelines.html">Guidelines</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="ai-hero">
+      <h1>Build a free app with AI.</h1>
+      <p class="ai-lead">FreeAppStore is AI-first. Drop our <a href="https://raw.githubusercontent.com/freeappstore-online/ops/main/SKILLS.md">SKILLS.md</a> into your AI tool of choice, and the agent already knows the brand rules, the privacy mandates, the CLI, and the deploy flow before it writes a line of code. Ship a real, free, MIT-licensed app in an afternoon.</p>
+    </div>
+
+    <h2>Pick your tool</h2>
+    <div class="ai-tools">
+      <a href="/ai/claude-code.html" class="ai-tool">
+        <span class="tag">Claude Code</span>
+        <h3>Claude Code</h3>
+        <p>Anthropic's official terminal CLI. Best fit if you live in a shell.</p>
+      </a>
+      <a href="/ai/cursor.html" class="ai-tool">
+        <span class="tag">Cursor</span>
+        <h3>Cursor</h3>
+        <p>AI-native fork of VS Code. Best fit if you want a polished editor UI.</p>
+      </a>
+      <a href="/ai/github-copilot.html" class="ai-tool">
+        <span class="tag">GitHub Copilot</span>
+        <h3>GitHub Copilot</h3>
+        <p>Built into VS Code, JetBrains, and the GitHub web UI. Best fit if you want zero install friction.</p>
+      </a>
+      <a href="/ai/aider.html" class="ai-tool">
+        <span class="tag">Aider</span>
+        <h3>Aider</h3>
+        <p>Open-source AI pair programming in your terminal. Best fit if you want to swap models freely.</p>
+      </a>
+      <a href="/ai/codex.html" class="ai-tool">
+        <span class="tag">Codex CLI</span>
+        <h3>Codex CLI</h3>
+        <p>OpenAI's open-source terminal agent. Best fit if you prefer GPT-5 / o4 models.</p>
+      </a>
+    </div>
+
+    <h2>Or any other tool</h2>
+    <p>Aider, Cline, Continue, Windsurf, Zed, Roo, ChatGPT in the browser — all of them work. The pattern is the same:</p>
+    <ol class="steps">
+      <li><strong>Install the FreeAppStore CLI:</strong> <code>npm i -g @freeappstore/cli</code> then <code>fas login</code>.</li>
+      <li><strong>Scaffold:</strong> <code>fas init my-app</code>.</li>
+      <li><strong>Tell your AI tool to read SKILLS.md.</strong> Drop the URL in the project's instruction file (CLAUDE.md, .cursorrules, .github/copilot-instructions.md, AGENTS.md, CONVENTIONS.md, system prompt, …).</li>
+      <li><strong>Build.</strong> The agent edits <code>web/src/App.tsx</code> and supporting files using the Shell layout, brand tokens, and brand fonts.</li>
+      <li><strong>Run <code>fas check</code>.</strong> Compliance enforced.</li>
+      <li><strong>Run <code>fas publish</code>.</strong> Provisions repo + hosting + DNS.</li>
+      <li><strong>Push to main.</strong> Auto-deploys in ~30 seconds.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>The platform context lives at:</strong>
+      <div class="cmd">https://raw.githubusercontent.com/freeappstore-online/ops/main/SKILLS.md</div>
+      <p>Drop that URL in your tool's instruction file. The agent fetches it on demand and writes platform-aware code.</p>
+    </div>
+
+    <h2>What "AI-first" actually means here</h2>
+    <p>Three things, enforced by tooling:</p>
+    <ul>
+      <li><strong>Brand and privacy are not negotiable.</strong> Your agent will try to add Google Analytics or a custom display font. <code>fas check</code> rejects the publish. The mandates exist precisely so that AI-generated apps stay consistent.</li>
+      <li><strong>Provisioning is one command.</strong> No copy-pasting Cloudflare tokens. No DNS dashboards. No CI YAML. <code>fas publish</code> handles everything atomically.</li>
+      <li><strong>Deploy is a push.</strong> The agent doesn't need a deploy script. <code>git push</code> triggers Cloudflare Pages, the storefront refreshes within hours.</li>
+    </ul>
+    <p>The mandates aren't to slow agents down — they're to let agents go fast without breaking the platform.</p>
+
+    <h2>Other reading</h2>
+    <ul>
+      <li><a href="/contribute.html">Manual / non-AI build flow</a> — the same steps without an agent.</li>
+      <li><a href="/guidelines.html">Platform guidelines</a> — what gets approved and what doesn't.</li>
+      <li><a href="https://github.com/freeappstore-online/sdk">FreeAppStore SDK source</a> — CLI, compliance package, backend.</li>
+      <li><a href="https://freegamestore.online/build-with-ai.html">FreeGameStore's AI guide</a> — sister storefront, same flow.</li>
+    </ul>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free<span>App</span>Store</a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Build</a>
+        <a href="/build-with-ai.html">Build with AI</a>
+        <a href="/guidelines.html">Guidelines</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
