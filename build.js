@@ -87,6 +87,55 @@ async function fetchAppHistory(repo) {
   }
 }
 
+// --- History cache (data/commit-history.json) ---
+//
+// CF Pages runs its own GitHub-integration build that doesn't have
+// GITHUB_TOKEN, so it hits the 60/hr unauthenticated rate limit and
+// renders the fallback. Caching the histories in the repo lets that
+// no-token build still produce correct output — it falls back to the
+// cache when the API call fails. The scheduled GH-Actions deploy
+// refreshes the cache every 6h.
+const CACHE_PATH = path.join(ROOT, 'data', 'commit-history.json');
+
+function readCache() {
+  try {
+    return JSON.parse(fs.readFileSync(CACHE_PATH, 'utf8'));
+  } catch {
+    return {};
+  }
+}
+
+function writeCache(cache) {
+  fs.mkdirSync(path.dirname(CACHE_PATH), { recursive: true });
+  fs.writeFileSync(CACHE_PATH, JSON.stringify(cache, null, 2) + '\n');
+}
+
+/**
+ * Fetch history for every app, falling back to the cache when GitHub
+ * fails. Returns the histories array AND the updated cache (callers
+ * write it to disk so the next build sees fresh data even if the API
+ * is rate-limited at that time).
+ */
+async function fetchAllHistories(apps) {
+  const cache = readCache();
+  const histories = await Promise.all(
+    apps.map(async (app) => {
+      const fresh = await fetchAppHistory(app.repo);
+      if (fresh.commits) {
+        // Cache is keyed by repo so re-ordering registry doesn't churn.
+        cache[app.repo] = fresh;
+        return fresh;
+      }
+      // API failed — return the last good data, if any.
+      const cached = cache[app.repo];
+      if (cached?.commits) return cached;
+      return fresh; // both null
+    }),
+  );
+  writeCache(cache);
+  return histories;
+}
+
 function renderHistorySection(repo, history) {
   const githubAllUrl = `https://github.com/${repo}/commits/main`;
   if (!history.commits || history.commits.length === 0) {
@@ -178,11 +227,11 @@ fs.writeFileSync(path.join(DIST, 'index.html'), indexHtml);
 // Wrapped in async IIFE because this file is CJS (no top-level await).
 
 (async () => {
-console.log(`Fetching commit history for ${apps.length} apps...`);
-const histories = await Promise.all(apps.map((app) => fetchAppHistory(app.repo)));
-// Summarize: count how many apps got real commit data vs fell back. A
-// silent rate-limit failure used to be invisible until the live page
-// showed "No updates yet" — this line makes it obvious from CI alone.
+console.log(`Fetching commit history for ${apps.length} apps (with disk cache fallback)...`);
+const histories = await fetchAllHistories(apps);
+// Summarize: count how many apps got real commit data vs fell back.
+// With the cache fallback this should normally be 100% even when the
+// API is rate-limited.
 const okCount = histories.filter((h) => Array.isArray(h?.commits) && h.commits.length > 0).length;
 console.log(`  ${okCount}/${apps.length} apps got commit history`);
 

@@ -13,11 +13,19 @@ on:
   # an immediate refresh after publishing a hot fix to their app.
   workflow_dispatch:
 
+# Need write access so we can commit the refreshed commit-history cache
+# back to the repo. Without this, CF Pages' parallel no-token build
+# never sees the fresh data.
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/setup-node@v4
         with:
@@ -29,6 +37,22 @@ jobs:
       - run: node build.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Persist the refreshed history cache so CF Pages' no-token build
+      # can read it instead of hitting the rate-limited API. [skip ci]
+      # keeps this commit from re-triggering deploy.yml's push handler;
+      # the schedule still fires every 6h to refresh.
+      - name: Commit refreshed commit-history cache
+        run: |
+          if git diff --quiet data/commit-history.json 2>/dev/null; then
+            echo "No history changes to commit."
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add data/commit-history.json
+            git commit -m "Refresh commit-history cache [skip ci]"
+            git push
+          fi
 
       - run: npx wrangler pages deploy dist --project-name=freeappstore
         env:
