@@ -3,6 +3,15 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches: [main]
+  # Scheduled rebuild every 6 hours so the per-app "Recent updates"
+  # sections on detail pages reflect commits creators push to their
+  # OWN repos — without this, the inline 3-commit list stays frozen
+  # until the next storefront-repo push.
+  schedule:
+    - cron: '0 */6 * * *'
+  # Manual trigger: lets a creator (or a future fas CLI helper) force
+  # an immediate refresh after publishing a hot fix to their app.
+  workflow_dispatch:
 
 jobs:
   deploy:
