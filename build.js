@@ -180,13 +180,11 @@ fs.writeFileSync(path.join(DIST, 'index.html'), indexHtml);
 (async () => {
 console.log(`Fetching commit history for ${apps.length} apps...`);
 const histories = await Promise.all(apps.map((app) => fetchAppHistory(app.repo)));
-// Per-app summary so a build failure or partial fetch is obvious from CI logs.
-apps.forEach((app, i) => {
-  const h = histories[i];
-  const cn = Array.isArray(h?.commits) ? h.commits.length : `not-array(${typeof h?.commits})`;
-  const mn = h?.meta?.created_at ? 'ok' : 'null';
-  console.log(`  - ${app.id.padEnd(14)} commits=${cn}  meta=${mn}`);
-});
+// Summarize: count how many apps got real commit data vs fell back. A
+// silent rate-limit failure used to be invisible until the live page
+// showed "No updates yet" — this line makes it obvious from CI alone.
+const okCount = histories.filter((h) => Array.isArray(h?.commits) && h.commits.length > 0).length;
+console.log(`  ${okCount}/${apps.length} apps got commit history`);
 
 apps.forEach((app, i) => {
   const offline = app.type === 'standalone' ? 'Yes' : 'When cached';
