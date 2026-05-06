@@ -324,6 +324,19 @@
       "cfProject": "freecounterapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "tip",
+      "name": "tip",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A tip calculator",
+      "appUrl": "https://tip.freeappstore.online",
+      "repo": "freeappstore-online/tip",
+      "cfProject": "freetipapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
