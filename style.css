@@ -787,3 +787,27 @@ footer .container {
   color: var(--muted);
 }
 .audit-pending .dot { background: var(--muted); }
+
+/* === Storefront search bar === */
+.search-bar {
+  margin-bottom: 1.25rem;
+}
+.search-bar input[type="search"] {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.search-bar input[type="search"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+.search-bar input[type="search"]::placeholder {
+  color: var(--muted);
+}
