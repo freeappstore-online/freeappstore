@@ -842,26 +842,36 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-06T04:25:32Z"
+      "pushed_at": "2026-05-06T05:19:30Z"
     },
     "commits": [
       {
-        "sha": "942b2ae924a263c392899a52fce411e751773c79",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/942b2ae924a263c392899a52fce411e751773c79",
+        "sha": "24f7c2434f09d1fdaf60614e5c62238e909f86ad",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/24f7c2434f09d1fdaf60614e5c62238e909f86ad",
         "commit": {
-          "message": "Mandarin-English phrase prep app",
+          "message": "Fullscreen: request inside the click gesture; sync with OS fullscreen\n\nTwo bugs in the practice fullscreen mode:\n\n1. requestFullscreen was called from FullscreenView's mount-effect,\n   which runs AFTER the click handler returns. iOS Safari and\n   strict desktop browsers require the request to fire inside an\n   active user gesture, so the request was silently rejected and\n   the device chrome / notch stayed visible. Moving the call into\n   the trigger button's onClick fixes this.\n\n2. If the user pressed Esc / F11 / swiped down to leave OS\n   fullscreen, our modal stayed open with no chrome cue to exit.\n   Now listening for fullscreenchange so the modal closes in sync.",
           "author": {
-            "date": "2026-05-06T04:25:31Z"
+            "date": "2026-05-06T05:19:28Z"
           }
         }
       },
       {
-        "sha": "dbda023867a5ccbfa9a6059b011291c27024c779",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/dbda023867a5ccbfa9a6059b011291c27024c779",
+        "sha": "36c3f77ea8adbcb357c2e1c36edadea339fce914",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/36c3f77ea8adbcb357c2e1c36edadea339fce914",
         "commit": {
-          "message": "Initial commit from standalone template",
+          "message": "Practice fullscreen: big text, tap halves to navigate\n\nAdds a fullscreen presentation mode in Practice view so people can\nhand the phone to whoever they're talking with and step through\nphrases at meetup speed.\n\n- \"⛶ Full screen\" button enters a viewport-covering modal with the\n  current phrase rendered at clamp(2rem, 9vw, 5rem) — readable from\n  arm's length across a table.\n- Left half of the screen is a transparent tap-zone for previous;\n  right half is next. No tiny buttons to fumble for.\n- Keyboard: ← / → to navigate, Esc to exit.\n- Engages the browser's real fullscreen API where available so the\n  notch / browser chrome get out of the way; falls back gracefully\n  when the API is denied.\n- Pronunciation + native meaning still visible underneath the\n  target text in case the speaker needs a quick prompt.",
           "author": {
-            "date": "2026-05-06T04:21:37Z"
+            "date": "2026-05-06T04:40:08Z"
+          }
+        }
+      },
+      {
+        "sha": "436f3f08df890b601b0dbfba9af100fa5850bd97",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/436f3f08df890b601b0dbfba9af100fa5850bd97",
+        "commit": {
+          "message": "Multilingual support — any language pair, not just Mandarin/English\n\nThe app is now structured around a generic native↔target language\npair instead of a hardcoded Mandarin↔English direction enum:\n\n- Phrases carry their own nativeLang and targetLang strings, so\n  one user can prep Spanish↔English in one tab and Japanese↔English\n  in another without losing data.\n- Pair picker at the top lists every pair the user already has\n  phrases for, plus a \"+ Pair\" button to add a new one.\n- \"Pinyin\" → \"Pronunciation\" (works for romaji, IPA, etc.).\n- Migrates v1 localStorage on first load: rows with the old\n  direction enum become English↔Mandarin pairs; pinyin becomes\n  pronunciation. No data loss for existing users.",
+          "author": {
+            "date": "2026-05-06T04:34:35Z"
           }
         }
       }
