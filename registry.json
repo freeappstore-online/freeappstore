@@ -337,6 +337,19 @@
       "cfProject": "freetipapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "stopwatch",
+      "name": "stopwatch",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Track time with start/stop, lap splits, and persistent history. Works offline.",
+      "appUrl": "https://stopwatch.freeappstore.online",
+      "repo": "freeappstore-online/stopwatch",
+      "cfProject": "freestopwatchapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
