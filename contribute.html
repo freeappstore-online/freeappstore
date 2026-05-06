@@ -151,6 +151,30 @@
 
       <p>Full reference: <a href="https://github.com/freeappstore-online/sdk/tree/main/packages/cli#readme">github.com/freeappstore-online/sdk/packages/cli</a></p>
 
+      <h2>Brand and UI rules (mandated)</h2>
+      <p>Every app on the platform looks predictable and consistent. The storefront, the detail pages, and every app share the same visual language so visitors learn the rhythm once and never relearn it. This is not a style guide suggestion — it's enforced by <code>fas check</code> and the CI workflow that runs before merge.</p>
+
+      <ul>
+        <li><strong>Use the template's CSS tokens.</strong> Colors, surfaces, lines, and spacing come from <code>--paper</code>, <code>--ink</code>, <code>--muted</code>, <code>--accent</code>, <code>--line</code>, <code>--line-strong</code>, <code>--panel</code>. Reference them via <code>var(--accent)</code>, etc. Don't redefine them in component CSS or inline styles.</li>
+        <li><strong>Brand fonts only:</strong> Manrope (body) and Fraunces (display). System and monospace fallbacks are fine. No custom display fonts (Cormorant, Sora, Inter, etc.) — even when they'd look great.</li>
+        <li><strong>No custom theme.</strong> Light/dark mode comes from <code>prefers-color-scheme</code> and the template's variables. Don't ship your own theme switcher or override <code>color-scheme</code>.</li>
+        <li><strong>Layout uses <code>Shell</code>.</strong> The sidebar layout, header, and footer rhythm come from <code>web/src/components/Shell.tsx</code>. Apps may add content inside <code>Shell</code> but shouldn't replace it.</li>
+      </ul>
+
+      <p>The <code>fas check</code> compliance suite (run automatically before <code>fas publish</code> and again in your repo's CI) enforces:</p>
+      <ul>
+        <li><code>No template placeholders</code> — every <code>APPNAME</code> substituted</li>
+        <li><code>No tracking SDKs</code> — none of the 8 known trackers (Google Analytics, Plausible, Mixpanel, etc.)</li>
+        <li><code>Brand fonts present</code> — Manrope and Fraunces both referenced</li>
+        <li><code>No brand overrides</code> — no app redefines a platform CSS token outside the canonical theme file; no non-brand <code>font-family</code> declarations</li>
+        <li><code>PWA manifest</code> — <code>web/public/manifest.json</code> with <code>name</code>, <code>display</code>, <code>start_url</code></li>
+        <li><code>Bundle size</code> — main bundle under 300 KB gzipped</li>
+      </ul>
+
+      <p>Run them locally any time:</p>
+      <div class="cmd">fas check</div>
+      <p>Hard failures block <code>fas publish</code> (override with <code>--skip-checks</code> at your own risk; admin review will still catch issues). Warnings are advisory.</p>
+
       <div class="highlight">
         <h3>AI-assisted development</h3>
         <p>Using Claude Code, Cursor, Codex, or another AI coding tool? Add this to your agent so it knows the entire platform — tech stack, brand, how to deploy:</p>
