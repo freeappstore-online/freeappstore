@@ -590,8 +590,7 @@ footer .container {
 }
 
 /* === App detail: live preview in phone frame === */
-.app-preview {
-  margin: 2rem 0 2.5rem;
+.app-split-phone {
   text-align: center;
 }
 .phone-frame {
@@ -698,5 +697,55 @@ footer .container {
   .version-date {
     grid-column: 1 / -1;
     margin-bottom: -0.4rem;
+  }
+}
+
+/* === App detail: split layout (desktop = phone L / info R) === */
+.app-split {
+  display: grid;
+  gap: 2.5rem;
+  margin: 2rem 0 2.5rem;
+  /* Mobile: info first (so users read what the app does before previewing). */
+  grid-template-areas: "info" "phone";
+}
+.app-split-info  { grid-area: info; }
+.app-split-phone { grid-area: phone; }
+
+/* Inside the split, the hero stops needing its own top padding —
+   the split's margin handles the breathing room. */
+.app-split-info .app-hero {
+  padding: 0 0 1.25rem;
+}
+.app-description {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+/* The meta block, when stacked inside the right column, drops its
+   horizontal-only flex pattern in favor of a wrapping grid that fits
+   the narrower column without overflow. */
+.app-split-info .app-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+}
+.app-split-info .app-meta-item {
+  text-align: left;
+}
+
+@media (min-width: 900px) {
+  .app-split {
+    /* Phone first on desktop. The 360px column matches .phone-frame width. */
+    grid-template-columns: 360px 1fr;
+    grid-template-areas: "phone info";
+    gap: 3rem;
+    align-items: start;
+  }
+  .app-split-phone {
+    /* Sticky preview so the phone stays visible while the description
+       column scrolls. top offset clears the header. */
+    position: sticky;
+    top: 1.5rem;
   }
 }

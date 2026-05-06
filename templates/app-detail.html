@@ -45,36 +45,21 @@
   </header>
 
   <main class="container">
-    <div class="app-hero">
-      <div class="app-hero-icon" style="background: {{ICON_BG}};">{{ICON}}</div>
-      <div>
-        <h1>{{NAME}}</h1>
-        <div class="tag">{{CATEGORY_LABEL}}</div>
-      </div>
-    </div>
+    <div class="app-split">
+      <div class="app-split-info">
+        <div class="app-hero">
+          <div class="app-hero-icon" style="background: {{ICON_BG}};">{{ICON}}</div>
+          <div>
+            <h1>{{NAME}}</h1>
+            <div class="tag">{{CATEGORY_LABEL}}</div>
+          </div>
+        </div>
 
-    <p style="font-size: 1.1rem; color: var(--muted); max-width: 600px; margin-bottom: 1.5rem;">{{DESCRIPTION}}</p>
+        <p class="app-description">{{DESCRIPTION}}</p>
 
-    {{PUBLISHED_LINE}}
+        {{PUBLISHED_LINE}}
 
-    <section class="app-preview">
-      <div class="phone-frame">
-        <iframe
-          src="{{APP_URL}}"
-          title="{{NAME}} live preview"
-          loading="lazy"
-          referrerpolicy="no-referrer"
-          allow="clipboard-write; fullscreen"
-        ></iframe>
-      </div>
-      <div class="preview-actions">
-        <a class="app-cta" href="{{APP_URL}}" target="_blank" rel="noopener">Open in new tab &rarr;</a>
-        <button type="button" class="app-btn-secondary" data-action="reload-preview">Reload preview</button>
-      </div>
-      <p class="preview-note">If the preview doesn't load, open in a new tab.</p>
-    </section>
-
-    <div class="app-meta">
+        <div class="app-meta">
       <div class="app-meta-item">
         <div class="label">Price</div>
         <div class="value">Free forever</div>
@@ -95,6 +80,25 @@
         <div class="label">Source</div>
         <div class="value"><a href="https://github.com/{{REPO}}" class="source-link">GitHub</a></div>
       </div>
+    </div>
+      </div>
+
+      <aside class="app-split-phone">
+        <div class="phone-frame">
+          <iframe
+            src="{{APP_URL}}"
+            title="{{NAME}} live preview"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+            allow="clipboard-write; fullscreen"
+          ></iframe>
+        </div>
+        <div class="preview-actions">
+          <a class="app-cta" href="{{APP_URL}}" target="_blank" rel="noopener">Open in new tab &rarr;</a>
+          <button type="button" class="app-btn-secondary" data-action="reload-preview">Reload</button>
+        </div>
+        <p class="preview-note">If the preview doesn't load, open in a new tab.</p>
+      </aside>
     </div>
 
     <section class="app-section">
