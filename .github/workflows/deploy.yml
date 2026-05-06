@@ -42,17 +42,39 @@ jobs:
       # can read it instead of hitting the rate-limited API. [skip ci]
       # keeps this commit from re-triggering deploy.yml's push handler;
       # the schedule still fires every 6h to refresh.
+      #
+      # Race-resistance: if the schedule and a push both fire, both runs
+      # may try to commit the cache. We pull --rebase before push and
+      # retry once with a re-stage so a non-fast-forward doesn't block
+      # the deploy. Beyond two collisions we accept the loss — the next
+      # cron tick fixes it within 6h.
       - name: Commit refreshed commit-history cache
         run: |
           if git diff --quiet data/commit-history.json 2>/dev/null; then
             echo "No history changes to commit."
-          else
-            git config user.name 'github-actions[bot]'
-            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git add data/commit-history.json
-            git commit -m "Refresh commit-history cache [skip ci]"
-            git push
+            exit 0
           fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/commit-history.json
+          git commit -m "Refresh commit-history cache [skip ci]"
+          for attempt in 1 2; do
+            if git push; then
+              echo "Pushed cache on attempt $attempt."
+              exit 0
+            fi
+            echo "Push attempt $attempt failed — rebasing on remote and retrying."
+            # Stash our cache change, rebase, re-apply, recommit.
+            git fetch origin main
+            git reset --soft HEAD~1
+            git stash --include-untracked --quiet
+            git rebase origin/main
+            git stash pop --quiet
+            git add data/commit-history.json
+            git commit -m "Refresh commit-history cache [skip ci]" --allow-empty
+          done
+          echo "Two push attempts failed; leaving cache uncommitted."
+          echo "Next cron tick will retry. Build output is still correct."
 
       - run: npx wrangler pages deploy dist --project-name=freeappstore
         env:

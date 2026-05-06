@@ -70,17 +70,42 @@ function escapeHtml(s) {
     .replace(/'/g, '&#39;');
 }
 
+/**
+ * Trim the GitHub API responses to only the fields renderHistorySection
+ * and renderPublishedLine actually read. The full responses are ~14 KB
+ * per app × 25 apps ≈ 350 KB; the trimmed shape is ~600 bytes per app.
+ * Smaller cache = smaller diffs in CI commits = less repo churn.
+ */
+function compactHistory(meta, commits) {
+  return {
+    meta: meta
+      ? {
+          created_at: meta.created_at ?? null,
+          pushed_at: meta.pushed_at ?? null,
+        }
+      : null,
+    commits: Array.isArray(commits)
+      ? commits.map((c) => ({
+          sha: c.sha,
+          html_url: c.html_url,
+          commit: {
+            message: c.commit?.message ?? '',
+            author: { date: c.commit?.author?.date ?? c.commit?.committer?.date ?? null },
+          },
+        }))
+      : null,
+  };
+}
+
 async function fetchAppHistory(repo) {
   // repo is "owner/name". Two parallel calls: repo metadata for created_at,
-  // and the last 3 commits for the changelog. We only show 3 inline;
-  // the "see all on GitHub" link covers depth. Failures degrade
-  // gracefully — the section just shows "history unavailable".
+  // and the last 3 commits for the changelog. Failures degrade gracefully.
   try {
     const [meta, commits] = await Promise.all([
       ghFetch(`/repos/${repo}`),
       ghFetch(`/repos/${repo}/commits?per_page=3`),
     ]);
-    return { meta, commits };
+    return compactHistory(meta, commits);
   } catch (err) {
     console.warn(`  ! could not fetch history for ${repo}: ${err.message}`);
     return { meta: null, commits: null };
