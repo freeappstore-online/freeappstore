@@ -350,6 +350,19 @@
       "cfProject": "freestopwatchapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "mandarin-english",
+      "name": "mandarin-english",
+      "category": "Social",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Prepare phrases for Mandarin/English language exchange meetups.",
+      "appUrl": "https://mandarin-english.freeappstore.online",
+      "repo": "freeappstore-online/mandarin-english",
+      "cfProject": "freemandarin-englishapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
