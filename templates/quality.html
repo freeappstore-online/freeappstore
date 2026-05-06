@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quality Dashboard — FreeAppStore</title>
+  <meta name="description" content="Live audit of every free app on FreeAppStore. Each app loaded in iframes at every reference viewport — see fit, scroll, and clipping per device size." />
+  <link rel="canonical" href="https://freeappstore.online/quality.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .q-summary { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.75rem; margin: 2rem 0; }
+    .q-card { padding: 1rem 1.1rem; border: 1px solid var(--border); border-radius: 0.75rem; text-decoration: none; color: inherit; transition: border-color 0.15s; background: white; }
+    .q-card:hover { border-color: var(--accent); }
+    .q-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+    .q-card .name { font-weight: 700; font-size: 1.05rem; }
+    .q-card .index { font-family: 'Fraunces', serif; font-size: 1.45rem; font-weight: 800; line-height: 1; }
+    .q-card .index.ok { color: #16a34a; }
+    .q-card .index.warn { color: #d97706; }
+    .q-card .index.bad { color: #dc2626; }
+    .q-card .index.unknown { color: var(--muted); }
+    .q-card .meta { font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
+    .q-card .breakdown { display: flex; gap: 0.4rem; margin-top: 0.6rem; }
+    .q-card .pip { width: 8px; height: 8px; border-radius: 2px; background: #e5e7eb; }
+    .q-card .pip.ok { background: #16a34a; }
+    .q-card .pip.bad { background: #dc2626; }
+
+    .q-detail-head { display: flex; align-items: baseline; gap: 1rem; margin-top: 1.5rem; }
+    .q-detail-head .index { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 800; line-height: 1; }
+    .q-detail-head .index.ok { color: #16a34a; }
+    .q-detail-head .index.warn { color: #d97706; }
+    .q-detail-head .index.bad { color: #dc2626; }
+    .q-grid { display: grid; gap: 1rem; margin: 1.5rem 0 3rem; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .q-cell { border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.6rem; background: white; }
+    .q-cell.bad { border-color: #dc2626; }
+    .q-cell.ok { border-color: #16a34a; }
+    .q-cell-head { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 600; color: var(--muted); margin-bottom: 0.4rem; }
+    .q-cell-head .badge { font-size: 0.95rem; }
+    .q-frame-wrap { width: 100%; aspect-ratio: 1 / 1; overflow: hidden; background: #f6f7f9; border-radius: 0.5rem; position: relative; }
+    .q-frame-wrap iframe { border: 0; transform-origin: top left; pointer-events: none; }
+    .q-cell .reasons { font-size: 0.72rem; color: var(--muted); margin-top: 0.4rem; min-height: 1.6em; }
+    .q-cell .reasons.bad { color: #dc2626; }
+
+    .q-controls { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0; }
+    .q-controls button { padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: white; border-radius: 0.5rem; font-size: 0.85rem; cursor: pointer; }
+    .q-controls button.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    .q-empty { padding: 2rem; text-align: center; color: var(--muted); }
+    .q-pending .q-frame-wrap { background: linear-gradient(90deg, #f0f0f0 0%, #fafafa 50%, #f0f0f0 100%); background-size: 200% 100%; animation: shimmer 1.5s infinite; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free<span>App</span>Store</a>
+      <nav>
+        <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Build</a>
+        <a href="/guidelines.html">Guidelines</a>
+        <a href="/quality.html" class="active">Quality</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="q-summary-view">
+      <h1 style="margin-top: 1.5rem;">Quality Dashboard</h1>
+      <p style="color: var(--muted); max-width: 680px;">
+        Every app on FreeAppStore is loaded in iframes at every reference viewport
+        and audited live for fit, scroll, and clipping. Click an app to see its
+        layout at all 12 reference device sizes.
+      </p>
+      <div class="q-controls" id="q-store-tabs">
+        <button data-store="apps" class="active">Apps</button>
+        <button data-store="games">Games</button>
+        <button data-store="all">All</button>
+      </div>
+      <div class="q-summary" id="q-summary-list"></div>
+    </div>
+
+    <div id="q-detail-view" hidden>
+      <p style="margin-top: 1.5rem;">
+        <a href="/quality.html">← All apps</a>
+      </p>
+      <div class="q-detail-head">
+        <h1 id="q-detail-name" style="margin: 0;"></h1>
+        <span class="index unknown" id="q-detail-index">—</span>
+      </div>
+      <p style="color: var(--muted);" id="q-detail-meta"></p>
+      <div class="q-controls" id="q-mode-tabs">
+        <button data-mode="all" class="active">All viewports</button>
+        <button data-mode="phone">Phones only</button>
+        <button data-mode="tablet">Tablets+</button>
+      </div>
+      <div class="q-grid" id="q-grid"></div>
+      <p style="color: var(--muted); font-size: 0.8rem;">
+        Iframes are scaled-to-fit previews; pointer-events are disabled. Each
+        frame loads the app at the actual device pixel size, then the app's
+        embedded reporter posts its overflow / clipping numbers back here.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free<span>App</span>Store</a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Build</a>
+        <a href="/guidelines.html">Guidelines</a>
+        <a href="/quality.html">Quality</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="application/json" id="q-registry">{{REGISTRIES_JSON}}</script>
+  <script src="/quality.js"></script>
+</body>
+</html>

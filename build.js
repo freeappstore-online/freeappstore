@@ -421,6 +421,22 @@ indexHtml = indexHtml.replace(
   JSON.stringify(crossRegistry).replace(/</g, '\\u003c'),
 );
 fs.writeFileSync(path.join(DIST, 'index.html'), indexHtml);
+
+// --- Quality Dashboard ---
+// Embeds both the local apps registry and the cross-store games registry
+// so visitors can audit either from one page. The page is mostly static —
+// the live iframe + postMessage logic lives in /quality.js.
+const qualityTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'quality.html'), 'utf8');
+const qualityRegistry = {
+  apps: apps.map(a => ({ id: a.id, name: a.name, appUrl: a.appUrl })),
+  games: (crossRegistry.items || []).map(g => ({ id: g.id, name: g.name, appUrl: g.appUrl })),
+};
+const qualityHtml = qualityTemplate.replace(
+  '{{REGISTRIES_JSON}}',
+  JSON.stringify(qualityRegistry).replace(/</g, '\\u003c'),
+);
+fs.writeFileSync(path.join(DIST, 'quality.html'), qualityHtml);
+console.log(`  /quality dashboard generated for ${qualityRegistry.apps.length} apps + ${qualityRegistry.games.length} games`);
 console.log(`  ${crossRegistry.items.length} games available for cross-store search`);
 // Summarize: count how many apps got real commit data vs fell back.
 const okCount = histories.filter((h) => Array.isArray(h?.commits) && h.commits.length > 0).length;
@@ -473,6 +489,7 @@ const sitemapEntries = [
   '  <url><loc>https://freeappstore.online/ai/cline.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/ai/chatgpt-web.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/guidelines.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/quality.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/privacy.html</loc><priority>0.5</priority></url>',
   '  <url><loc>https://freeappstore.online/terms.html</loc><priority>0.5</priority></url>',
   ...apps.map(app =>
@@ -493,6 +510,7 @@ fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap);
 const filesToCopy = [
   'style.css',
   'search.js',
+  'quality.js',
   'favicon.svg',
   'apple-touch-icon.png',
   'icon-192.png',
