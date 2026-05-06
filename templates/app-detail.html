@@ -55,7 +55,24 @@
 
     <p style="font-size: 1.1rem; color: var(--muted); max-width: 600px; margin-bottom: 1.5rem;">{{DESCRIPTION}}</p>
 
-    <a class="app-cta" href="{{APP_URL}}" target="_blank" rel="noopener">Open {{NAME}} &rarr;</a>
+    {{PUBLISHED_LINE}}
+
+    <section class="app-preview">
+      <div class="phone-frame">
+        <iframe
+          src="{{APP_URL}}"
+          title="{{NAME}} live preview"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          allow="clipboard-write; fullscreen"
+        ></iframe>
+      </div>
+      <div class="preview-actions">
+        <a class="app-cta" href="{{APP_URL}}" target="_blank" rel="noopener">Open in new tab &rarr;</a>
+        <button type="button" class="app-btn-secondary" data-action="reload-preview">Reload preview</button>
+      </div>
+      <p class="preview-note">If the preview doesn't load, open in a new tab.</p>
+    </section>
 
     <div class="app-meta">
       <div class="app-meta-item">
@@ -96,6 +113,8 @@
       <p>Fully open source under the MIT license. Inspect the code, report bugs, or contribute improvements.</p>
       <a href="https://github.com/{{REPO}}" class="source-link">View source on GitHub &rarr;</a>
     </section>
+
+    {{HISTORY_SECTION}}
     <aside style="text-align: center; padding: 1rem 0; font-size: 0.9rem; color: var(--muted);">
       Looking for free games? Visit <a href="https://freegamestore.online" style="color: var(--accent); font-weight: 600;">FreeGameStore</a>
     </aside>
@@ -118,5 +137,17 @@
       </div>
     </div>
   </footer>
+  <script>
+    // Reload-preview button: bumps a cache-bust query so iframe re-fetches.
+    document.querySelectorAll('[data-action="reload-preview"]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const iframe = document.querySelector('.phone-frame iframe');
+        if (!iframe) return;
+        const url = new URL(iframe.src);
+        url.searchParams.set('_r', Date.now().toString(36));
+        iframe.src = url.toString();
+      });
+    });
+  </script>
 </body>
 </html>

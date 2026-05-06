@@ -14,7 +14,12 @@ jobs:
         with:
           node-version: 22
 
+      # GITHUB_TOKEN lifts the GitHub API rate limit from 60 → 5000 req/hr,
+      # which build.js needs to fetch each app's commit history at build
+      # time without the deploy ever rate-limiting.
       - run: node build.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: npx wrangler pages deploy dist --project-name=freeappstore
         env:
