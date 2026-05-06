@@ -98,34 +98,58 @@
         <li><strong>Uses our tech stack</strong> — TypeScript, React, Vite, Tailwind. See <a href="/guidelines.html">Guidelines</a></li>
       </ul>
 
-      <!-- Section 3: Start Building -->
+      <!-- Section 3: Start Building with the fas CLI -->
       <h2>Start Building</h2>
-      <p>For approved creators: clone the template and start shipping.</p>
+      <p>The <code>fas</code> CLI handles everything end-to-end — scaffold, check, publish, list, logs.</p>
 
       <ol class="steps">
         <li>
-          <strong>Clone the template</strong>
-          <div class="cmd">git clone https://github.com/freeappstore-online/template-standalone my-app</div>
+          <strong>Install the CLI</strong>
+          <div class="cmd">npm i -g @freeappstore/cli</div>
+          <p>Requires Node 22+. Source on <a href="https://github.com/freeappstore-online/sdk">github.com/freeappstore-online/sdk</a>; package on <a href="https://www.npmjs.com/package/@freeappstore/cli">npm</a>.</p>
         </li>
         <li>
-          <strong>Install dependencies</strong>
-          <div class="cmd">cd my-app && pnpm install</div>
+          <strong>Sign in with GitHub</strong>
+          <div class="cmd">fas login</div>
+          <p>Device-flow OAuth — no password leaves your terminal. Token cached at <code>~/.fas/config.json</code> (mode 0600).</p>
         </li>
         <li>
-          <strong>Start developing</strong>
-          <div class="cmd">pnpm dev</div>
-          <p>Edit <code>web/src/App.tsx</code>. The Shell component gives you the sidebar layout, fonts, and dark mode for free.</p>
+          <strong>Scaffold a new app</strong>
+          <div class="cmd">fas init my-app</div>
+          <p>Clones the standalone template, replaces <code>APPNAME</code> placeholders, runs <code>git init</code>, makes the first commit. Use <code>--template connected</code> if your app needs the platform backend (auth + KV + rooms).</p>
         </li>
         <li>
-          <strong>Run tests</strong>
-          <div class="cmd">pnpm test</div>
-          <p>Verify your app passes compliance checks before pushing.</p>
+          <strong>Develop locally</strong>
+          <div class="cmd">cd my-app && pnpm install && pnpm dev</div>
+          <p>Edit <code>web/src/App.tsx</code>. The <code>Shell</code> component gives you the sidebar layout, brand fonts, and dark mode for free.</p>
         </li>
         <li>
-          <strong>Deploy</strong>
-          <p>Push to <code>main</code> and your app auto-deploys to <code>yourapp.freeappstore.online</code>.</p>
+          <strong>Run compliance checks</strong>
+          <div class="cmd">fas check</div>
+          <p>Catches missing brand fonts, tracking SDKs, oversized bundles, missing PWA manifest, and unsubstituted template placeholders before you publish.</p>
+        </li>
+        <li>
+          <strong>Publish</strong>
+          <div class="cmd">fas publish</div>
+          <p>Provisions your repo at <code>github.com/freeappstore-online/my-app</code>, the Cloudflare Pages project, the DNS record, the custom subdomain, and the storefront entry. Prints the <code>git remote add</code> + <code>git push</code> commands when done.</p>
+          <p style="font-size: 0.88rem;">Scriptable from CI: pass <code>--name</code>, <code>--category</code>, <code>--type</code>, <code>--oneliner</code>, and <code>--yes</code>.</p>
+        </li>
+        <li>
+          <strong>Push your code</strong>
+          <div class="cmd">git push upstream main</div>
+          <p>Auto-deploys via GitHub Actions in ~30 seconds. Future commits to <code>main</code> deploy automatically too.</p>
         </li>
       </ol>
+
+      <h3>Other commands</h3>
+      <ul>
+        <li><code>fas list</code> — see all apps you've published</li>
+        <li><code>fas logs my-app</code> — tail Cloudflare Pages deployment logs</li>
+        <li><code>fas doctor</code> — health check (Node, git, pnpm, auth, API reachability)</li>
+        <li><code>fas whoami</code> — show signed-in GitHub user</li>
+      </ul>
+
+      <p>Full reference: <a href="https://github.com/freeappstore-online/sdk/tree/main/packages/cli#readme">github.com/freeappstore-online/sdk/packages/cli</a></p>
 
       <div class="highlight">
         <h3>AI-assisted development</h3>
