@@ -105,7 +105,23 @@
         <li><strong>Uses our tech stack</strong> — TypeScript, React, Vite, Tailwind. See <a href="/guidelines.html">Guidelines</a></li>
       </ul>
 
-      <!-- Section 3: Start Building with the fas CLI -->
+      <!-- Section 3: Workspace Setup -->
+      <h2>Workspace Setup</h2>
+      <p>Organize your repos under a consistent folder so every tool — and every AI agent — knows where to find things.</p>
+      <div class="cmd">mkdir -p ~/dev/fas/apps && cd ~/dev/fas/apps</div>
+      <p>Clone each app repo into the <code>apps/</code> folder:</p>
+      <div class="cmd">git clone https://github.com/freeappstore-online/my-app.git
+# Result: ~/dev/fas/apps/my-app/</div>
+      <p>The recommended layout:</p>
+      <div class="cmd" style="white-space:pre;">~/dev/fas/
+  apps/             ← your app repos
+    timer/
+    notes/
+    calculator/
+  infra/            ← store site &amp; templates (maintainers only)</div>
+      <p>This matches the paths in <a href="https://raw.githubusercontent.com/freeappstore-online/ops/main/SKILLS.md">SKILLS.md</a>, so AI agents reading the platform guide will find your code automatically. If you also build games, use <code>~/dev/fgs/games/</code> for <a href="https://freegamestore.online">FreeGameStore</a> projects.</p>
+
+      <!-- Section 4: Start Building with the fas CLI -->
       <h2>Start Building</h2>
       <p>The <code>fas</code> CLI handles everything end-to-end — scaffold, check, publish, list, logs.</p>
 
