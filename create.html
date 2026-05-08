@@ -53,13 +53,20 @@
     .auth-note { font-size: 0.82rem; color: var(--muted); margin-top: 1rem; }
 
     /* ── App shell (post-sign-in): full viewport, no page scroll ── */
-    body.app-mode { overflow: hidden; }
+    body.app-mode {
+      overflow: hidden;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
     body.app-mode footer { display: none; }
+    body.app-mode main { flex: 1; min-height: 0; }
+    body.app-mode #appMain { height: 100%; }
 
     .app-shell {
       display: grid;
       grid-template-columns: 1fr;
-      height: calc(100dvh - 57px);
+      height: 100%;
       overflow: hidden;
     }
     @media (min-width: 900px) {
