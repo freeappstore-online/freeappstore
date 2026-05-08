@@ -359,7 +359,9 @@
         <!-- Chat -->
         <div class="chat-panel">
           <div class="chat-toolbar">
-            <select id="provider">
+            <select id="projectSelect" title="Switch project"></select>
+            <button id="newProjectBtn" title="New project" style="background:none;border:1px solid var(--border);border-radius:0.3rem;padding:0.15rem 0.4rem;cursor:pointer;color:var(--ink);font-size:0.78rem;">+</button>
+            <select id="provider" style="margin-left: auto;">
               <option value="github">GitHub Models</option>
               <option value="anthropic">Anthropic</option>
               <option value="openai">OpenAI</option>
@@ -379,6 +381,7 @@
           </div>
           <div class="chat-input-row">
             <textarea id="userInput" rows="1" placeholder="Build me a meditation timer with breathing exercises..."></textarea>
+            <button id="micBtn" type="button" title="Voice input" style="background:none;border:1px solid var(--border);border-radius:0.5rem;padding:0.4rem 0.55rem;cursor:pointer;color:var(--muted);font-size:0.82rem;align-self:flex-end;transition:color 0.15s,border-color 0.15s;">&#127908;</button>
             <button id="sendBtn" onclick="sendMessage()">Send</button>
           </div>
         </div>
@@ -426,6 +429,7 @@
   <script>
     const API_URL = "https://api.freeappstore.online";
     const AGENT_URL = "https://agent.freeappstore.online";
+    const PROJECTS_KEY = "fas_projects"; // localStorage key
 
     const MODEL_OPTIONS = {
       github: [
@@ -454,14 +458,52 @@
 
     let currentUser = null;
     let githubToken = null;
-    let sessionId = sessionStorage.getItem("fas_session_id");
-    if (!sessionId) {
-      sessionId = crypto.randomUUID();
-      sessionStorage.setItem("fas_session_id", sessionId);
-    }
+    let sessionId = null;
     let totalTokensIn = 0;
     let totalTokensOut = 0;
     let isStreaming = false;
+
+    // ── Projects (localStorage) ──
+
+    function getProjects() {
+      try { return JSON.parse(localStorage.getItem(PROJECTS_KEY) || "[]"); } catch { return []; }
+    }
+    function saveProjects(projects) {
+      localStorage.setItem(PROJECTS_KEY, JSON.stringify(projects));
+    }
+    function getCurrentProjectId() {
+      return localStorage.getItem("fas_current_project") || null;
+    }
+    function setCurrentProjectId(id) {
+      localStorage.setItem("fas_current_project", id);
+    }
+
+    function renderProjectSelect() {
+      const sel = document.getElementById("projectSelect");
+      const projects = getProjects();
+      sel.innerHTML = projects.map(p =>
+        `<option value="${p.id}"${p.id === sessionId ? " selected" : ""}>${p.name}</option>`
+      ).join("");
+    }
+
+    function createProject(name) {
+      const id = crypto.randomUUID();
+      const projects = getProjects();
+      projects.unshift({ id, name, createdAt: new Date().toISOString() });
+      saveProjects(projects);
+      return id;
+    }
+
+    function switchProject(id) {
+      sessionId = id;
+      setCurrentProjectId(id);
+      renderProjectSelect();
+      totalTokensIn = 0;
+      totalTokensOut = 0;
+      updateTokens(0, 0);
+      clearUI();
+      loadHistory();
+    }
 
     // ── Auth ──
 
@@ -478,18 +520,30 @@
               if (tokenData.token) githubToken = tokenData.token;
             } catch {}
           }
+          initProjects();
           showApp();
         } else {
           showAuthGate();
         }
-      } catch {
-        showAuthGate();
+      } catch { showAuthGate(); }
+    }
+
+    function initProjects() {
+      const projects = getProjects();
+      if (projects.length === 0) {
+        const id = createProject("My App");
+        sessionId = id;
+        setCurrentProjectId(id);
+      } else {
+        sessionId = getCurrentProjectId() || projects[0].id;
+        setCurrentProjectId(sessionId);
       }
+      renderProjectSelect();
+      loadHistory();
     }
 
     async function startSignIn() {
-      const redirect = window.location.href;
-      const res = await fetch(`${API_URL}/auth/github/url?redirect=${encodeURIComponent(redirect)}`, { credentials: "include" });
+      const res = await fetch(`${API_URL}/auth/github/url?redirect=${encodeURIComponent(window.location.href)}`, { credentials: "include" });
       const data = await res.json();
       if (data.url) window.location.href = data.url;
     }
@@ -507,12 +561,18 @@
       document.getElementById("userInput").focus();
     }
 
-    document.getElementById("signInBtn").addEventListener("click", (e) => {
-      e.preventDefault();
-      startSignIn();
-    });
-
+    document.getElementById("signInBtn").addEventListener("click", (e) => { e.preventDefault(); startSignIn(); });
     checkAuth();
+
+    // ── Project events ──
+
+    document.getElementById("projectSelect").addEventListener("change", (e) => { switchProject(e.target.value); });
+    document.getElementById("newProjectBtn").addEventListener("click", () => {
+      const name = prompt("Project name:");
+      if (!name) return;
+      const id = createProject(name.trim());
+      switchProject(id);
+    });
 
     // ── Provider/model selector ──
 
@@ -530,18 +590,72 @@
       }
     });
 
+    // ── Voice input ──
+
+    const micBtn = document.getElementById("micBtn");
+    let recognition = null;
+    let isListening = false;
+
+    if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      recognition = new SR();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = "en-US";
+
+      let finalTranscript = "";
+      let preVoiceText = "";
+
+      recognition.onstart = () => {
+        isListening = true;
+        micBtn.style.color = "var(--accent)";
+        micBtn.style.borderColor = "var(--accent)";
+      };
+      recognition.onend = () => {
+        isListening = false;
+        micBtn.style.color = "var(--muted)";
+        micBtn.style.borderColor = "var(--border)";
+      };
+      recognition.onerror = () => {
+        isListening = false;
+        micBtn.style.color = "var(--muted)";
+        micBtn.style.borderColor = "var(--border)";
+      };
+      recognition.onresult = (e) => {
+        let interim = "";
+        finalTranscript = "";
+        for (let i = 0; i < e.results.length; i++) {
+          if (e.results[i].isFinal) finalTranscript += e.results[i][0].transcript;
+          else interim += e.results[i][0].transcript;
+        }
+        const ui = document.getElementById("userInput");
+        ui.value = preVoiceText + finalTranscript + interim;
+        ui.style.height = "auto";
+        ui.style.height = Math.min(ui.scrollHeight, 100) + "px";
+      };
+
+      micBtn.addEventListener("click", () => {
+        if (isListening) {
+          recognition.stop();
+        } else {
+          preVoiceText = document.getElementById("userInput").value;
+          finalTranscript = "";
+          recognition.start();
+        }
+      });
+    } else {
+      micBtn.style.display = "none";
+    }
+
     // ── Chat ──
 
     const userInput = document.getElementById("userInput");
     userInput.addEventListener("input", () => {
       userInput.style.height = "auto";
-      userInput.style.height = Math.min(userInput.scrollHeight, 120) + "px";
+      userInput.style.height = Math.min(userInput.scrollHeight, 100) + "px";
     });
     userInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" && !e.shiftKey) {
-        e.preventDefault();
-        sendMessage();
-      }
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
     });
 
     function addMessage(role, content) {
@@ -551,6 +665,61 @@
       document.getElementById("messages").appendChild(el);
       el.scrollIntoView({ behavior: "smooth", block: "end" });
       return el;
+    }
+
+    function clearUI() {
+      document.getElementById("messages").innerHTML = '<div class="msg msg-system">Describe the app you want to build.</div>';
+      document.getElementById("previewBody").innerHTML = '<div class="preview-placeholder"><p>Your app will appear here once deployed.</p><p style="font-size:0.78rem;color:var(--muted);">Describe your app, the agent builds it, then it deploys automatically.</p></div>';
+      document.getElementById("deployBar").style.display = "none";
+      document.getElementById("previewUrl").style.display = "none";
+      document.getElementById("previewOpen").style.display = "none";
+    }
+
+    async function loadHistory() {
+      if (!sessionId) return;
+      try {
+        const res = await fetch(`${AGENT_URL}/session/${sessionId}/history`);
+        if (!res.ok) return;
+        const data = await res.json();
+        if (!data.messages || data.messages.length === 0) return;
+
+        // Clear default message and render history
+        document.getElementById("messages").innerHTML = "";
+        for (const m of data.messages) {
+          if (m.role === "assistant" && m.toolCalls) {
+            if (m.content) addMessage("assistant", m.content);
+            for (const tc of m.toolCalls) {
+              const label = tc.name === "deploy" ? "Deployed" :
+                            tc.name === "write_file" ? `Wrote ${tc.input.path || "file"}` :
+                            tc.name === "read_file" ? `Read ${tc.input.path || "file"}` : tc.name;
+              addMessage("tool", label);
+            }
+          } else {
+            addMessage(m.role, m.content);
+          }
+        }
+
+        // Restore deploy status / preview
+        if (data.deployStatus?.phase === "live") {
+          setDeployStatus("live", `Live at ${data.deployStatus.appUrl}`);
+          showPreview(data.deployStatus.appUrl);
+        }
+        if (data.tokenUsage) {
+          totalTokensIn = data.tokenUsage.input || 0;
+          totalTokensOut = data.tokenUsage.output || 0;
+          updateTokens(0, 0);
+        }
+        // Update project name if app was deployed
+        if (data.appName) {
+          const projects = getProjects();
+          const p = projects.find(x => x.id === sessionId);
+          if (p && p.name === "My App") {
+            p.name = data.appName;
+            saveProjects(projects);
+            renderProjectSelect();
+          }
+        }
+      } catch {}
     }
 
     function updateTokens(input, output) {
@@ -591,21 +760,16 @@
     async function sendMessage() {
       const message = userInput.value.trim();
       if (!message || isStreaming) return;
+      if (isListening && recognition) recognition.stop();
 
       const provider = providerEl.value;
       let apiKey;
       if (provider === "github") {
-        if (!githubToken) {
-          addMessage("system", "GitHub Models access not available. Try signing out and back in, or switch to a BYOK provider.");
-          return;
-        }
+        if (!githubToken) { addMessage("system", "GitHub Models not available. Sign out and back in, or use a BYOK provider."); return; }
         apiKey = githubToken;
       } else {
         apiKey = document.getElementById("apiKey").value.trim();
-        if (!apiKey) {
-          addMessage("system", "Please enter your API key to use this provider.");
-          return;
-        }
+        if (!apiKey) { addMessage("system", "Enter your API key to use this provider."); return; }
       }
 
       isStreaming = true;
@@ -615,25 +779,16 @@
 
       addMessage("user", message);
       const assistantEl = addMessage("assistant", "");
-      const dot = document.createElement("span");
-      dot.className = "streaming-dot";
-      assistantEl.appendChild(dot);
+      assistantEl.innerHTML = '<span class="streaming-dot"></span>';
 
       try {
         const res = await fetch(`${AGENT_URL}/session/${sessionId}/chat`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            message,
-            aiConfig: { provider, model: modelEl.value, apiKey },
-          }),
+          body: JSON.stringify({ message, aiConfig: { provider, model: modelEl.value, apiKey } }),
         });
 
-        if (!res.ok) {
-          const err = await res.text();
-          assistantEl.textContent = `Error: ${err}`;
-          return;
-        }
+        if (!res.ok) { assistantEl.textContent = `Error: ${await res.text()}`; return; }
 
         const reader = res.body.getReader();
         const decoder = new TextDecoder();
@@ -644,7 +799,6 @@
           const { done, value } = await reader.read();
           if (done) break;
           buf += decoder.decode(value, { stream: true });
-
           const lines = buf.split("\n");
           buf = lines.pop() || "";
 
@@ -652,7 +806,6 @@
             if (!line.startsWith("data: ")) continue;
             const raw = line.slice(6).trim();
             if (!raw) continue;
-
             let evt;
             try { evt = JSON.parse(raw); } catch { continue; }
 
@@ -663,12 +816,10 @@
               const tc = JSON.parse(evt.data);
               const label = tc.name === "deploy" ? `Deploying: ${tc.input.name}...` :
                             tc.name === "write_file" ? `Writing ${tc.input.path}` :
-                            tc.name === "read_file" ? `Reading ${tc.input.path}` :
-                            `${tc.name}`;
+                            tc.name === "read_file" ? `Reading ${tc.input.path}` : tc.name;
               addMessage("tool", label);
             } else if (evt.type === "tool_result") {
-              const tr = JSON.parse(evt.data);
-              if (tr.tool === "deploy") setDeployStatus("provisioning", "Provisioning...");
+              if (JSON.parse(evt.data).tool === "deploy") setDeployStatus("provisioning", "Provisioning...");
             } else if (evt.type === "usage") {
               const u = JSON.parse(evt.data);
               updateTokens(u.input, u.output);
@@ -676,21 +827,19 @@
               const ds = JSON.parse(evt.data);
               if (ds.phase === "live") { setDeployStatus("live", `Live at ${ds.appUrl}`); showPreview(ds.appUrl); }
               else if (ds.phase === "error") setDeployStatus("error", `Deploy error: ${ds.error}`);
-              else if (ds.phase === "building") setDeployStatus("building", "Building on Cloudflare Pages...");
-              else if (ds.phase === "pushing") setDeployStatus("pushing", ds.progress || "Pushing to GitHub...");
+              else if (ds.phase === "building") setDeployStatus("building", "Building...");
+              else if (ds.phase === "pushing") setDeployStatus("pushing", ds.progress || "Pushing...");
               else if (ds.phase === "provisioning") {
-                const lastStep = ds.steps?.[ds.steps.length - 1];
-                setDeployStatus("provisioning", lastStep ? `${lastStep.name}: ${lastStep.detail}` : "Provisioning...");
+                const s = ds.steps?.[ds.steps.length - 1];
+                setDeployStatus("provisioning", s ? `${s.name}: ${s.detail}` : "Provisioning...");
               }
             } else if (evt.type === "error") {
-              assistantText += `\n\nError: ${evt.data}`;
+              assistantText += `\nError: ${evt.data}`;
               assistantEl.textContent = assistantText;
             }
           }
         }
-
-        if (!assistantText) assistantEl.textContent = "(Agent completed without text response)";
-
+        if (!assistantText) assistantEl.textContent = "(No response)";
       } catch (err) {
         assistantEl.textContent = `Connection error: ${err.message}`;
       } finally {
@@ -698,19 +847,6 @@
         document.getElementById("sendBtn").disabled = false;
         userInput.focus();
       }
-    }
-
-    function newSession() {
-      sessionId = crypto.randomUUID();
-      sessionStorage.setItem("fas_session_id", sessionId);
-      document.getElementById("messages").innerHTML = '<div class="msg msg-system">Describe the app you want to build. The agent will create it and deploy it to FreeAppStore.</div>';
-      document.getElementById("previewBody").innerHTML = '<div class="preview-placeholder"><p>Your app will appear here once deployed.</p><p style="font-size: 0.8rem;">Chat with the agent, then it deploys automatically.</p></div>';
-      document.getElementById("deployBar").style.display = "none";
-      document.getElementById("previewUrl").style.display = "none";
-      totalTokensIn = 0;
-      totalTokensOut = 0;
-      updateTokens(0, 0);
-      fetch(`${AGENT_URL}/session/${sessionId}/reset`, { method: "POST" }).catch(() => {});
     }
   </script>
   <script src="/auth.js"></script>
