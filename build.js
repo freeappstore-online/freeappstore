@@ -477,6 +477,7 @@ const sitemapEntries = [
   '  <url><loc>https://freeappstore.online/</loc><priority>1.0</priority></url>',
   '  <url><loc>https://freeappstore.online/about.html</loc><priority>0.8</priority></url>',
   '  <url><loc>https://freeappstore.online/contribute.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/create.html</loc><priority>0.9</priority></url>',
   '  <url><loc>https://freeappstore.online/build-with-ai.html</loc><priority>0.85</priority></url>',
   '  <url><loc>https://freeappstore.online/ai/claude-code.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/ai/cursor.html</loc><priority>0.7</priority></url>',
@@ -523,6 +524,7 @@ const filesToCopy = [
   'privacy.html',
   'terms.html',
   'build-with-ai.html',
+  'create.html',
 ];
 
 filesToCopy.forEach(file => {
