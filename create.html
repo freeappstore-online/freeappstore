@@ -262,26 +262,52 @@
       color: var(--muted);
     }
     .preview-placeholder p { font-size: 0.85rem; margin-bottom: 0.3rem; }
-    .deploy-bar {
-      padding: 0.35rem 0.75rem;
-      border-top: 1px solid var(--border);
-      font-size: 0.75rem;
+    /* Deploy log — replaces preview placeholder during deploy */
+    .deploy-log {
+      width: 100%;
+      padding: 1.5rem;
+      font-size: 0.82rem;
+      overflow-y: auto;
+    }
+    .deploy-log h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .deploy-step {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      flex-shrink: 0;
-      background: var(--surface);
+      padding: 0.3rem 0;
+      color: var(--muted);
     }
-    .deploy-bar .spinner {
-      width: 12px; height: 12px;
-      border: 2px solid var(--border);
-      border-top-color: var(--accent);
+    .deploy-step .dot {
+      width: 8px; height: 8px;
       border-radius: 50%;
-      animation: spin 0.6s linear infinite;
+      flex-shrink: 0;
     }
+    .deploy-step.done .dot { background: #16a34a; }
+    .deploy-step.skip .dot { background: #d97706; }
+    .deploy-step.fail .dot { background: #dc2626; }
+    .deploy-step.active .dot {
+      background: var(--accent);
+      animation: pulse 1s ease-in-out infinite;
+    }
+    .deploy-step.pending .dot { background: var(--border); }
+    .deploy-step.done, .deploy-step.active { color: var(--ink); }
+    .deploy-step .detail { color: var(--muted); font-size: 0.75rem; margin-left: 0.25rem; }
+    .deploy-live-banner {
+      margin-top: 1rem;
+      padding: 0.6rem 1rem;
+      background: color-mix(in srgb, #16a34a 10%, var(--surface));
+      border: 1px solid color-mix(in srgb, #16a34a 30%, var(--border));
+      border-radius: 0.5rem;
+      font-weight: 600;
+      color: #16a34a;
+      font-size: 0.85rem;
+    }
+    .deploy-live-banner a { color: #16a34a; font-weight: 700; }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .deploy-bar .status-text { color: var(--muted); }
-    .deploy-bar.live .status-text { color: var(--accent); font-weight: 600; }
     .streaming-dot {
       display: inline-block;
       width: 6px; height: 6px;
@@ -405,10 +431,6 @@
               <p>Your app will appear here once deployed.</p>
               <p style="font-size: 0.78rem; color: var(--muted);">Describe your app, the agent builds it, then it deploys automatically.</p>
             </div>
-          </div>
-          <div class="deploy-bar" id="deployBar" style="display:none;">
-            <div class="spinner" id="deploySpinner"></div>
-            <span class="status-text" id="deployText">Deploying...</span>
           </div>
         </div>
       </div>
@@ -677,9 +699,9 @@
     function clearUI() {
       document.getElementById("messages").innerHTML = '<div class="msg msg-system">Describe the app you want to build.</div>';
       document.getElementById("previewBody").innerHTML = '<div class="preview-placeholder"><p>Your app will appear here once deployed.</p><p style="font-size:0.78rem;color:var(--muted);">Describe your app, the agent builds it, then it deploys automatically.</p></div>';
-      document.getElementById("deployBar").style.display = "none";
       document.getElementById("previewUrl").style.display = "none";
       document.getElementById("previewOpen").style.display = "none";
+      deployStepsState = {};
     }
 
     async function loadHistory() {
@@ -707,9 +729,13 @@
         }
 
         // Restore deploy status / preview
-        if (data.deployStatus?.phase === "live") {
-          setDeployStatus("live", `Live at ${data.deployStatus.appUrl}`);
-          showPreview(data.deployStatus.appUrl);
+        if (data.deployStatus) {
+          if (data.deployStatus.phase === "live") {
+            showPreview(data.deployStatus.appUrl);
+          } else if (data.deployStatus.phase === "provisioning" || data.deployStatus.phase === "pushing" || data.deployStatus.phase === "building") {
+            initDeployLog();
+            setDeployStatus(data.deployStatus.phase, null, data.deployStatus.steps);
+          }
         }
         if (data.tokenUsage) {
           totalTokensIn = data.tokenUsage.input || 0;
@@ -736,19 +762,69 @@
       document.getElementById("tokensOut").textContent = totalTokensOut.toLocaleString();
     }
 
-    function setDeployStatus(phase, detail) {
-      const bar = document.getElementById("deployBar");
-      const spinner = document.getElementById("deploySpinner");
-      const text = document.getElementById("deployText");
-      bar.style.display = "flex";
-      if (phase === "live") {
-        bar.className = "deploy-bar live";
-        spinner.style.display = "none";
-        text.textContent = detail || "Live!";
-      } else {
-        bar.className = "deploy-bar";
-        spinner.style.display = "block";
-        text.textContent = detail || phase;
+    // Deploy pipeline steps shown in the preview body
+    const DEPLOY_STEPS = ["GitHub repo", "CF Pages", "Custom domain", "DNS", "Store listing", "Pushing code", "Building", "Live"];
+    let deployStepsState = {}; // { stepName: "done"|"active"|"skip"|"fail"|"pending" }
+
+    function initDeployLog() {
+      deployStepsState = {};
+      DEPLOY_STEPS.forEach(s => deployStepsState[s] = "pending");
+      renderDeployLog();
+    }
+
+    function renderDeployLog() {
+      const body = document.getElementById("previewBody");
+      let html = '<div class="deploy-log"><h3>Deploying your app</h3>';
+      for (const name of DEPLOY_STEPS) {
+        const state = deployStepsState[name] || "pending";
+        const icon = state === "done" ? "done" : state === "skip" ? "skip" : state === "fail" ? "fail" : state === "active" ? "active" : "pending";
+        html += `<div class="deploy-step ${icon}"><span class="dot"></span> ${name}</div>`;
+      }
+      // Show live banner if we're done
+      if (deployStepsState["Live"] === "done") {
+        const url = deployStepsState._appUrl || "";
+        html += `<div class="deploy-live-banner">Your app is live! <a href="${url}" target="_blank">${url.replace("https://","")}</a></div>`;
+      }
+      html += '</div>';
+      body.innerHTML = html;
+    }
+
+    function setDeployStatus(phase, detail, steps) {
+      if (phase === "provisioning") {
+        if (!deployStepsState["GitHub repo"] || deployStepsState["GitHub repo"] === "pending") initDeployLog();
+        // Update steps from the provisioning data
+        if (steps && steps.length) {
+          for (const s of steps) {
+            if (deployStepsState[s.name] !== undefined) {
+              deployStepsState[s.name] = s.status === "ok" ? "done" : s.status === "skip" ? "skip" : "fail";
+            }
+          }
+          // Mark next pending step as active
+          for (const name of DEPLOY_STEPS) {
+            if (deployStepsState[name] === "pending") { deployStepsState[name] = "active"; break; }
+          }
+        }
+        renderDeployLog();
+      } else if (phase === "pushing") {
+        ["GitHub repo", "CF Pages", "Custom domain", "DNS", "Store listing"].forEach(s => {
+          if (deployStepsState[s] === "pending" || deployStepsState[s] === "active") deployStepsState[s] = "done";
+        });
+        deployStepsState["Pushing code"] = "active";
+        renderDeployLog();
+      } else if (phase === "building") {
+        deployStepsState["Pushing code"] = "done";
+        deployStepsState["Building"] = "active";
+        renderDeployLog();
+      } else if (phase === "live") {
+        DEPLOY_STEPS.forEach(s => { if (deployStepsState[s] !== "fail" && deployStepsState[s] !== "skip") deployStepsState[s] = "done"; });
+        deployStepsState._appUrl = detail?.replace("Live at ", "") || "";
+        renderDeployLog();
+      } else if (phase === "error") {
+        // Mark current active as fail
+        for (const name of DEPLOY_STEPS) {
+          if (deployStepsState[name] === "active") { deployStepsState[name] = "fail"; break; }
+        }
+        renderDeployLog();
       }
     }
 
@@ -832,14 +908,11 @@
               updateTokens(u.input, u.output);
             } else if (evt.type === "deploy_status") {
               const ds = JSON.parse(evt.data);
-              if (ds.phase === "live") { setDeployStatus("live", `Live at ${ds.appUrl}`); showPreview(ds.appUrl); }
-              else if (ds.phase === "error") setDeployStatus("error", `Deploy error: ${ds.error}`);
-              else if (ds.phase === "building") setDeployStatus("building", "Building...");
-              else if (ds.phase === "pushing") setDeployStatus("pushing", ds.progress || "Pushing...");
-              else if (ds.phase === "provisioning") {
-                const s = ds.steps?.[ds.steps.length - 1];
-                setDeployStatus("provisioning", s ? `${s.name}: ${s.detail}` : "Provisioning...");
-              }
+              if (ds.phase === "live") { setDeployStatus("live", `Live at ${ds.appUrl}`); setTimeout(() => showPreview(ds.appUrl), 1500); }
+              else if (ds.phase === "error") setDeployStatus("error", ds.error);
+              else if (ds.phase === "building") setDeployStatus("building");
+              else if (ds.phase === "pushing") setDeployStatus("pushing");
+              else if (ds.phase === "provisioning") setDeployStatus("provisioning", null, ds.steps);
             } else if (evt.type === "error") {
               assistantText += `\nError: ${evt.data}`;
               assistantEl.textContent = assistantText;
