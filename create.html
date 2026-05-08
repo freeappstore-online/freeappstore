@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create — FreeAppStore</title>
+  <meta name="description" content="Build a free app with AI. Describe your idea, watch the agent build it, deploy to freeappstore.online in minutes." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Create page layout */
+    .create-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 2rem 0 4rem;
+      min-height: calc(100vh - 200px);
+    }
+    @media (min-width: 900px) {
+      .create-layout {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+      }
+      .config-panel { grid-column: 1 / -1; }
+    }
+
+    /* Config panel */
+    .config-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: end;
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .config-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      flex: 1;
+      min-width: 160px;
+    }
+    .config-field label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .config-field select,
+    .config-field input {
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+    .config-field select:focus,
+    .config-field input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+    }
+    .token-display {
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      padding: 0.55rem 0;
+    }
+    .token-display span { font-variant-numeric: tabular-nums; }
+
+    /* Chat panel */
+    .chat-panel {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-height: 500px;
+    }
+    .chat-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .msg {
+      max-width: 85%;
+      padding: 0.8rem 1rem;
+      border-radius: 1rem;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .msg-user {
+      align-self: flex-end;
+      background: var(--accent);
+      color: white;
+      border-bottom-right-radius: 0.25rem;
+    }
+    .msg-assistant {
+      align-self: flex-start;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 0.25rem;
+    }
+    .msg-system {
+      align-self: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      background: none;
+      padding: 0.4rem;
+    }
+    .msg-tool {
+      align-self: flex-start;
+      font-size: 0.8rem;
+      font-family: ui-monospace, SF Mono, Menlo, monospace;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.5rem 0.8rem;
+      border-radius: 0.5rem;
+    }
+    .msg code {
+      font-family: ui-monospace, SF Mono, Menlo, monospace;
+      font-size: 0.85em;
+      background: rgba(0,0,0,0.06);
+      padding: 0.1em 0.3em;
+      border-radius: 3px;
+    }
+    @media (prefers-color-scheme: dark) {
+      .msg code { background: rgba(255,255,255,0.08); }
+    }
+    .chat-input-row {
+      display: flex;
+      gap: 0.5rem;
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .chat-input-row textarea {
+      flex: 1;
+      resize: none;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      font-family: inherit;
+      font-size: 0.92rem;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.4;
+      min-height: 42px;
+      max-height: 200px;
+    }
+    .chat-input-row textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .chat-input-row button {
+      padding: 0.65rem 1.25rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+      transition: opacity 0.15s;
+    }
+    .chat-input-row button:hover { opacity: 0.85; }
+    .chat-input-row button:disabled { opacity: 0.5; cursor: default; }
+
+    /* Preview panel */
+    .preview-panel {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-height: 500px;
+    }
+    .preview-header {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .preview-header span {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .preview-url {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-family: ui-monospace, SF Mono, Menlo, monospace;
+    }
+    .preview-body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+    }
+    .preview-body iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .preview-placeholder {
+      text-align: center;
+      padding: 3rem;
+      color: var(--muted);
+    }
+    .preview-placeholder p {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Deploy status bar */
+    .deploy-bar {
+      padding: 0.8rem 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .deploy-bar .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .deploy-bar .status-text { color: var(--muted); }
+    .deploy-bar.live .status-text { color: var(--accent); font-weight: 600; }
+
+    /* Streaming indicator */
+    .streaming-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 1s ease-in-out infinite;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free <span>Apps</span></a>
+      <nav>
+        <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Build</a>
+        <a href="/create.html" class="active">Create</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="create-layout">
+
+      <!-- Config bar -->
+      <div class="config-panel">
+        <div class="config-field">
+          <label>Provider</label>
+          <select id="provider">
+            <option value="anthropic">Anthropic (Claude)</option>
+            <option value="openai">OpenAI (GPT)</option>
+            <option value="google">Google (Gemini)</option>
+          </select>
+        </div>
+        <div class="config-field">
+          <label>Model</label>
+          <select id="model">
+            <option value="claude-sonnet-4-6">Claude Sonnet 4.6</option>
+            <option value="claude-opus-4-6">Claude Opus 4.6</option>
+            <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5</option>
+          </select>
+        </div>
+        <div class="config-field" style="min-width: 240px;">
+          <label>API Key</label>
+          <input type="password" id="apiKey" placeholder="sk-ant-..." autocomplete="off" />
+        </div>
+        <div class="token-display">
+          <span>In: <strong id="tokensIn">0</strong></span>
+          <span>Out: <strong id="tokensOut">0</strong></span>
+        </div>
+      </div>
+
+      <!-- Chat panel -->
+      <div class="chat-panel">
+        <div class="chat-header">Agent</div>
+        <div class="chat-messages" id="messages">
+          <div class="msg msg-system">Describe the app you want to build. The agent will create it and deploy it to FreeAppStore.</div>
+        </div>
+        <div class="chat-input-row">
+          <textarea id="userInput" rows="1" placeholder="Build me a meditation timer with breathing exercises..." autofocus></textarea>
+          <button id="sendBtn" onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+
+      <!-- Preview panel -->
+      <div class="preview-panel">
+        <div class="preview-header">
+          <span>Preview</span>
+          <a class="preview-url" id="previewUrl" href="#" target="_blank" style="display:none;"></a>
+        </div>
+        <div class="preview-body" id="previewBody">
+          <div class="preview-placeholder">
+            <p>Your app will appear here once deployed.</p>
+            <p style="font-size: 0.82rem;">Chat with the agent to build your app, then it will deploy and preview automatically.</p>
+          </div>
+        </div>
+        <div class="deploy-bar" id="deployBar" style="display:none;">
+          <div class="spinner" id="deploySpinner"></div>
+          <span class="status-text" id="deployText">Deploying...</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free <span>Apps</span></a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Build</a>
+        <a href="/create.html">Create</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Will switch to agent.freeappstore.online once DNS propagates
+    const AGENT_URL = "https://freeappstore-agent.serge-the-dev.workers.dev";
+    // const AGENT_URL = "http://localhost:8787"; // dev
+
+    const MODEL_OPTIONS = {
+      anthropic: [
+        { value: "claude-sonnet-4-6", label: "Claude Sonnet 4.6" },
+        { value: "claude-opus-4-6", label: "Claude Opus 4.6" },
+        { value: "claude-haiku-4-5-20251001", label: "Claude Haiku 4.5" },
+      ],
+      openai: [
+        { value: "gpt-4o", label: "GPT-4o" },
+        { value: "gpt-4o-mini", label: "GPT-4o Mini" },
+        { value: "o3", label: "o3" },
+      ],
+      google: [
+        { value: "gemini-2.5-flash", label: "Gemini 2.5 Flash" },
+        { value: "gemini-2.5-pro", label: "Gemini 2.5 Pro" },
+      ],
+    };
+
+    // Session ID persists in sessionStorage so refreshes keep the conversation
+    let sessionId = sessionStorage.getItem("fas_session_id");
+    if (!sessionId) {
+      sessionId = crypto.randomUUID();
+      sessionStorage.setItem("fas_session_id", sessionId);
+    }
+
+    let totalTokensIn = 0;
+    let totalTokensOut = 0;
+    let isStreaming = false;
+
+    // Provider/model selector
+    const providerEl = document.getElementById("provider");
+    const modelEl = document.getElementById("model");
+
+    providerEl.addEventListener("change", () => {
+      const models = MODEL_OPTIONS[providerEl.value] || [];
+      modelEl.innerHTML = models.map(m => `<option value="${m.value}">${m.label}</option>`).join("");
+      // Update placeholder for API key
+      const placeholders = { anthropic: "sk-ant-...", openai: "sk-...", google: "AIza..." };
+      document.getElementById("apiKey").placeholder = placeholders[providerEl.value] || "API key";
+    });
+
+    // Auto-resize textarea
+    const userInput = document.getElementById("userInput");
+    userInput.addEventListener("input", () => {
+      userInput.style.height = "auto";
+      userInput.style.height = Math.min(userInput.scrollHeight, 200) + "px";
+    });
+
+    // Enter to send (Shift+Enter for newline)
+    userInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    function addMessage(role, content) {
+      const el = document.createElement("div");
+      el.className = `msg msg-${role}`;
+      el.textContent = content;
+      document.getElementById("messages").appendChild(el);
+      el.scrollIntoView({ behavior: "smooth", block: "end" });
+      return el;
+    }
+
+    function updateTokens(input, output) {
+      if (input) totalTokensIn += input;
+      if (output) totalTokensOut += output;
+      document.getElementById("tokensIn").textContent = totalTokensIn.toLocaleString();
+      document.getElementById("tokensOut").textContent = totalTokensOut.toLocaleString();
+    }
+
+    function setDeployStatus(phase, detail) {
+      const bar = document.getElementById("deployBar");
+      const spinner = document.getElementById("deploySpinner");
+      const text = document.getElementById("deployText");
+      bar.style.display = "flex";
+
+      if (phase === "live") {
+        bar.className = "deploy-bar live";
+        spinner.style.display = "none";
+        text.textContent = detail || "Live!";
+      } else {
+        bar.className = "deploy-bar";
+        spinner.style.display = "block";
+        text.textContent = detail || phase;
+      }
+    }
+
+    function showPreview(url) {
+      const body = document.getElementById("previewBody");
+      const urlEl = document.getElementById("previewUrl");
+      body.innerHTML = `<iframe src="${url}" title="App preview"></iframe>`;
+      urlEl.textContent = url.replace("https://", "");
+      urlEl.href = url;
+      urlEl.style.display = "inline";
+    }
+
+    async function sendMessage() {
+      const message = userInput.value.trim();
+      if (!message || isStreaming) return;
+
+      const apiKey = document.getElementById("apiKey").value.trim();
+      if (!apiKey) {
+        addMessage("system", "Please enter your API key above to get started.");
+        return;
+      }
+
+      isStreaming = true;
+      document.getElementById("sendBtn").disabled = true;
+      userInput.value = "";
+      userInput.style.height = "auto";
+
+      addMessage("user", message);
+      const assistantEl = addMessage("assistant", "");
+      const dot = document.createElement("span");
+      dot.className = "streaming-dot";
+      assistantEl.appendChild(dot);
+
+      try {
+        const res = await fetch(`${AGENT_URL}/session/${sessionId}/chat`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message,
+            aiConfig: {
+              provider: providerEl.value,
+              model: modelEl.value,
+              apiKey,
+            },
+          }),
+        });
+
+        if (!res.ok) {
+          const err = await res.text();
+          assistantEl.textContent = `Error: ${err}`;
+          return;
+        }
+
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder();
+        let buf = "";
+        let assistantText = "";
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buf += decoder.decode(value, { stream: true });
+
+          const lines = buf.split("\n");
+          buf = lines.pop() || "";
+
+          for (const line of lines) {
+            if (!line.startsWith("data: ")) continue;
+            const raw = line.slice(6).trim();
+            if (!raw) continue;
+
+            let evt;
+            try { evt = JSON.parse(raw); } catch { continue; }
+
+            if (evt.type === "text") {
+              assistantText += evt.data;
+              assistantEl.textContent = assistantText;
+            } else if (evt.type === "tool_call") {
+              const tc = JSON.parse(evt.data);
+              const label = tc.name === "deploy" ? `Deploying: ${tc.input.name}...` :
+                            tc.name === "write_file" ? `Writing ${tc.input.path}` :
+                            tc.name === "read_file" ? `Reading ${tc.input.path}` :
+                            `${tc.name}`;
+              addMessage("tool", label);
+            } else if (evt.type === "tool_result") {
+              const tr = JSON.parse(evt.data);
+              if (tr.tool === "deploy") {
+                setDeployStatus("provisioning", "Provisioning...");
+              }
+            } else if (evt.type === "usage") {
+              const u = JSON.parse(evt.data);
+              updateTokens(u.input, u.output);
+            } else if (evt.type === "deploy_status") {
+              const ds = JSON.parse(evt.data);
+              if (ds.phase === "live") {
+                setDeployStatus("live", `Live at ${ds.appUrl}`);
+                showPreview(ds.appUrl);
+              } else if (ds.phase === "error") {
+                setDeployStatus("error", `Deploy error: ${ds.error}`);
+              } else if (ds.phase === "building") {
+                setDeployStatus("building", "Building on Cloudflare Pages...");
+              } else if (ds.phase === "pushing") {
+                setDeployStatus("pushing", ds.progress || "Pushing to GitHub...");
+              } else if (ds.phase === "provisioning") {
+                const lastStep = ds.steps?.[ds.steps.length - 1];
+                setDeployStatus("provisioning", lastStep ? `${lastStep.name}: ${lastStep.detail}` : "Provisioning...");
+              }
+            } else if (evt.type === "error") {
+              assistantText += `\n\nError: ${evt.data}`;
+              assistantEl.textContent = assistantText;
+            }
+          }
+        }
+
+        // Final cleanup — remove streaming dot if it's still there
+        if (!assistantText) {
+          assistantEl.textContent = "(Agent completed without text response)";
+        }
+
+      } catch (err) {
+        assistantEl.textContent = `Connection error: ${err.message}`;
+      } finally {
+        isStreaming = false;
+        document.getElementById("sendBtn").disabled = false;
+        userInput.focus();
+      }
+    }
+
+    // New session button
+    function newSession() {
+      sessionId = crypto.randomUUID();
+      sessionStorage.setItem("fas_session_id", sessionId);
+      document.getElementById("messages").innerHTML = '<div class="msg msg-system">Describe the app you want to build. The agent will create it and deploy it to FreeAppStore.</div>';
+      document.getElementById("previewBody").innerHTML = '<div class="preview-placeholder"><p>Your app will appear here once deployed.</p><p style="font-size: 0.82rem;">Chat with the agent to build your app, then it will deploy and preview automatically.</p></div>';
+      document.getElementById("deployBar").style.display = "none";
+      document.getElementById("previewUrl").style.display = "none";
+      totalTokensIn = 0;
+      totalTokensOut = 0;
+      updateTokens(0, 0);
+      // Reset session on server
+      fetch(`${AGENT_URL}/session/${sessionId}/reset`, { method: "POST" }).catch(() => {});
+    }
+  </script>
+</body>
+</html>
