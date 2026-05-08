@@ -57,72 +57,13 @@
     body.app-mode footer { display: none; }
 
     .app-shell {
-      display: flex;
-      flex-direction: column;
-      height: calc(100vh - 57px); /* viewport minus header */
-      overflow: hidden;
-    }
-
-    /* Config bar — compact, fixed at top of app area */
-    .config-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-      padding: 0.6rem 1.5rem;
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
-      flex-shrink: 0;
-    }
-    .config-field {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .config-field label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-    }
-    .config-field select,
-    .config-field input {
-      padding: 0.35rem 0.55rem;
-      border: 1px solid var(--border);
-      border-radius: 0.4rem;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: inherit;
-      font-size: 0.82rem;
-    }
-    .config-field select:focus,
-    .config-field input:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 18%, transparent);
-    }
-    .token-display {
-      font-size: 0.75rem;
-      color: var(--muted);
-      display: flex;
-      gap: 0.75rem;
-      margin-left: auto;
-      font-variant-numeric: tabular-nums;
-    }
-
-    /* Panels container — fills remaining space */
-    .panels {
       display: grid;
       grid-template-columns: 1fr;
-      flex: 1;
+      height: calc(100dvh - 57px);
       overflow: hidden;
-      min-height: 0;
     }
     @media (min-width: 900px) {
-      .panels {
-        grid-template-columns: 1fr 1fr;
-      }
+      .app-shell { grid-template-columns: 1fr 1fr; }
     }
 
     /* Chat panel */
@@ -132,28 +73,52 @@
       overflow: hidden;
       border-right: 1px solid var(--border);
     }
-    .chat-header {
-      padding: 0.6rem 1rem;
+    /* Chat toolbar — model selector + tokens live here */
+    .chat-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.75rem;
       border-bottom: 1px solid var(--border);
-      font-weight: 700;
-      font-size: 0.85rem;
-      flex-shrink: 0;
       background: var(--surface);
+      flex-shrink: 0;
+      font-size: 0.78rem;
+    }
+    .chat-toolbar select,
+    .chat-toolbar input {
+      padding: 0.2rem 0.4rem;
+      border: 1px solid var(--border);
+      border-radius: 0.3rem;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 0.78rem;
+    }
+    .chat-toolbar select:focus,
+    .chat-toolbar input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .chat-toolbar .tokens {
+      margin-left: auto;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
     .chat-messages {
       flex: 1;
       overflow-y: auto;
-      padding: 1rem;
+      padding: 0.75rem;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.6rem;
       min-height: 0;
     }
     .msg {
-      max-width: 85%;
-      padding: 0.65rem 0.85rem;
-      border-radius: 0.85rem;
-      font-size: 0.88rem;
+      max-width: 88%;
+      padding: 0.55rem 0.75rem;
+      border-radius: 0.75rem;
+      font-size: 0.86rem;
       line-height: 1.5;
       white-space: pre-wrap;
       word-wrap: break-word;
@@ -162,36 +127,36 @@
       align-self: flex-end;
       background: var(--accent);
       color: white;
-      border-bottom-right-radius: 0.2rem;
+      border-bottom-right-radius: 0.15rem;
     }
     .msg-assistant {
       align-self: flex-start;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-bottom-left-radius: 0.2rem;
+      border-bottom-left-radius: 0.15rem;
     }
     .msg-system {
       align-self: center;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
       background: none;
-      padding: 0.3rem;
+      padding: 0.2rem;
     }
     .msg-tool {
       align-self: flex-start;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-family: ui-monospace, SF Mono, Menlo, monospace;
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--muted);
-      padding: 0.35rem 0.6rem;
-      border-radius: 0.4rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.35rem;
     }
     .msg code {
       font-family: ui-monospace, SF Mono, Menlo, monospace;
       font-size: 0.85em;
       background: rgba(0,0,0,0.06);
-      padding: 0.1em 0.3em;
+      padding: 0.1em 0.25em;
       border-radius: 3px;
     }
     @media (prefers-color-scheme: dark) {
@@ -199,8 +164,8 @@
     }
     .chat-input-row {
       display: flex;
-      gap: 0.5rem;
-      padding: 0.65rem 1rem;
+      gap: 0.4rem;
+      padding: 0.5rem 0.75rem;
       border-top: 1px solid var(--border);
       background: var(--surface);
       flex-shrink: 0;
@@ -209,25 +174,25 @@
       flex: 1;
       resize: none;
       border: 1px solid var(--border);
-      border-radius: 0.6rem;
-      padding: 0.5rem 0.7rem;
+      border-radius: 0.5rem;
+      padding: 0.4rem 0.6rem;
       font-family: inherit;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       background: var(--bg);
       color: var(--ink);
-      line-height: 1.4;
-      min-height: 38px;
-      max-height: 120px;
+      line-height: 1.35;
+      min-height: 34px;
+      max-height: 100px;
     }
     .chat-input-row textarea:focus { outline: none; border-color: var(--accent); }
     .chat-input-row button {
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 0.85rem;
       background: var(--accent);
       color: white;
       border: none;
-      border-radius: 0.6rem;
+      border-radius: 0.5rem;
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       cursor: pointer;
       font-family: inherit;
       white-space: nowrap;
@@ -243,21 +208,37 @@
       flex-direction: column;
       overflow: hidden;
     }
-    .preview-header {
-      padding: 0.6rem 1rem;
-      border-bottom: 1px solid var(--border);
+    .preview-toolbar {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-shrink: 0;
+      gap: 0.5rem;
+      padding: 0.35rem 0.75rem;
+      border-bottom: 1px solid var(--border);
       background: var(--surface);
+      flex-shrink: 0;
+      font-size: 0.78rem;
+      min-height: 30px;
     }
-    .preview-header span { font-weight: 700; font-size: 0.85rem; }
+    .preview-toolbar .label { font-weight: 700; color: var(--ink); }
     .preview-url {
       font-size: 0.75rem;
       color: var(--accent);
       font-family: ui-monospace, SF Mono, Menlo, monospace;
+      text-decoration: none;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
+    .preview-url:hover { text-decoration: underline; }
+    .preview-open {
+      margin-left: auto;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .preview-open:hover { text-decoration: underline; }
     .preview-body {
       flex: 1;
       display: flex;
@@ -273,19 +254,19 @@
       padding: 2rem;
       color: var(--muted);
     }
-    .preview-placeholder p { font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .preview-placeholder p { font-size: 0.85rem; margin-bottom: 0.3rem; }
     .deploy-bar {
-      padding: 0.5rem 1rem;
+      padding: 0.35rem 0.75rem;
       border-top: 1px solid var(--border);
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
       flex-shrink: 0;
       background: var(--surface);
     }
     .deploy-bar .spinner {
-      width: 14px; height: 14px;
+      width: 12px; height: 12px;
       border: 2px solid var(--border);
       border-top-color: var(--accent);
       border-radius: 50%;
@@ -296,18 +277,18 @@
     .deploy-bar.live .status-text { color: var(--accent); font-weight: 600; }
     .streaming-dot {
       display: inline-block;
-      width: 7px; height: 7px;
+      width: 6px; height: 6px;
       background: var(--accent);
       border-radius: 50%;
       animation: pulse 1s ease-in-out infinite;
-      margin-left: 3px;
+      margin-left: 2px;
       vertical-align: middle;
     }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-    /* Mobile: stack panels, each gets half */
+    /* Mobile: stack panels */
     @media (max-width: 899px) {
-      .panels { grid-template-rows: 1fr 1fr; }
+      .app-shell { grid-template-rows: 1fr 1fr; }
       .chat-panel { border-right: none; border-bottom: 1px solid var(--border); }
     }
   </style>
@@ -375,70 +356,51 @@
     <!-- App: shown when signed in — full viewport, no scroll -->
     <div id="appMain" style="display:none;">
       <div class="app-shell">
-
-        <!-- Config bar -->
-        <div class="config-bar">
-          <div class="config-field">
-            <label>Provider</label>
+        <!-- Chat -->
+        <div class="chat-panel">
+          <div class="chat-toolbar">
             <select id="provider">
               <option value="github">GitHub Models</option>
               <option value="anthropic">Anthropic</option>
               <option value="openai">OpenAI</option>
               <option value="google">Google</option>
             </select>
-          </div>
-          <div class="config-field">
-            <label>Model</label>
             <select id="model">
               <option value="openai/gpt-4.1">GPT-4.1</option>
               <option value="openai/gpt-4.1-mini">GPT-4.1 Mini</option>
               <option value="openai/gpt-4o">GPT-4o</option>
               <option value="openai/gpt-4o-mini">GPT-4o Mini</option>
             </select>
+            <input type="password" id="apiKey" placeholder="API key" autocomplete="off" style="width: 140px; display: none;" />
+            <span class="tokens">In: <strong id="tokensIn">0</strong> Out: <strong id="tokensOut">0</strong></span>
           </div>
-          <div class="config-field" id="apiKeyField" style="display: none;">
-            <label>Key</label>
-            <input type="password" id="apiKey" placeholder="API key" autocomplete="off" style="width: 180px;" />
+          <div class="chat-messages" id="messages">
+            <div class="msg msg-system">Describe the app you want to build.</div>
           </div>
-          <div class="token-display">
-            <span>In: <strong id="tokensIn">0</strong></span>
-            <span>Out: <strong id="tokensOut">0</strong></span>
-          </div>
-        </div>
-
-        <!-- Two-panel area -->
-        <div class="panels">
-          <!-- Chat -->
-          <div class="chat-panel">
-            <div class="chat-header">Agent</div>
-            <div class="chat-messages" id="messages">
-              <div class="msg msg-system">Describe the app you want to build. The agent will create it and deploy it to FreeAppStore.</div>
-            </div>
-            <div class="chat-input-row">
-              <textarea id="userInput" rows="1" placeholder="Build me a meditation timer with breathing exercises..."></textarea>
-              <button id="sendBtn" onclick="sendMessage()">Send</button>
-            </div>
-          </div>
-
-          <!-- Preview -->
-          <div class="preview-panel">
-            <div class="preview-header">
-              <span>Preview</span>
-              <a class="preview-url" id="previewUrl" href="#" target="_blank" style="display:none;"></a>
-            </div>
-            <div class="preview-body" id="previewBody">
-              <div class="preview-placeholder">
-                <p>Your app will appear here once deployed.</p>
-                <p style="font-size: 0.8rem;">Chat with the agent, then it deploys automatically.</p>
-              </div>
-            </div>
-            <div class="deploy-bar" id="deployBar" style="display:none;">
-              <div class="spinner" id="deploySpinner"></div>
-              <span class="status-text" id="deployText">Deploying...</span>
-            </div>
+          <div class="chat-input-row">
+            <textarea id="userInput" rows="1" placeholder="Build me a meditation timer with breathing exercises..."></textarea>
+            <button id="sendBtn" onclick="sendMessage()">Send</button>
           </div>
         </div>
 
+        <!-- Preview -->
+        <div class="preview-panel">
+          <div class="preview-toolbar">
+            <span class="label">Preview</span>
+            <a class="preview-url" id="previewUrl" href="#" target="_blank" style="display:none;"></a>
+            <a class="preview-open" id="previewOpen" href="#" target="_blank" style="display:none;">Open in new tab</a>
+          </div>
+          <div class="preview-body" id="previewBody">
+            <div class="preview-placeholder">
+              <p>Your app will appear here once deployed.</p>
+              <p style="font-size: 0.78rem; color: var(--muted);">Describe your app, the agent builds it, then it deploys automatically.</p>
+            </div>
+          </div>
+          <div class="deploy-bar" id="deployBar" style="display:none;">
+            <div class="spinner" id="deploySpinner"></div>
+            <span class="status-text" id="deployText">Deploying...</span>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -561,7 +523,7 @@
       const models = MODEL_OPTIONS[providerEl.value] || [];
       modelEl.innerHTML = models.map(m => `<option value="${m.value}">${m.label}</option>`).join("");
       const isBYOK = providerEl.value !== "github";
-      document.getElementById("apiKeyField").style.display = isBYOK ? "flex" : "none";
+      document.getElementById("apiKey").style.display = isBYOK ? "inline" : "none";
       if (isBYOK) {
         const placeholders = { anthropic: "sk-ant-...", openai: "sk-...", google: "AIza..." };
         document.getElementById("apiKey").placeholder = placeholders[providerEl.value] || "API key";
@@ -617,10 +579,13 @@
     function showPreview(url) {
       const body = document.getElementById("previewBody");
       const urlEl = document.getElementById("previewUrl");
+      const openEl = document.getElementById("previewOpen");
       body.innerHTML = `<iframe src="${url}" title="App preview"></iframe>`;
       urlEl.textContent = url.replace("https://", "");
       urlEl.href = url;
       urlEl.style.display = "inline";
+      openEl.href = url;
+      openEl.style.display = "inline";
     }
 
     async function sendMessage() {
