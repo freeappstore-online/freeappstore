@@ -3,12 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create — FreeAppStore</title>
+  <title>VibeCode — FreeAppStore</title>
   <meta name="description" content="Build a free app with AI. Describe your idea, watch the agent build it, deploy to freeappstore.online in minutes." />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="style.css" />
   <style>
+    /* Sign-in screen */
+    .auth-gate {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+    .auth-gate h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .auth-gate .subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .auth-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.8rem 2rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .auth-btn:hover { opacity: 0.85; text-decoration: none; }
+    .auth-btn svg { width: 20px; height: 20px; }
+    .auth-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 1rem;
+    }
+
+    /* User bar (shown when signed in) */
+    .user-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+    .user-bar img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+    }
+    .user-bar .user-name {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .user-bar .sign-out {
+      font-size: 0.8rem;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+      padding: 0;
+    }
+    .user-bar .sign-out:hover { color: var(--ink); }
+
     /* Create page layout */
     .create-layout {
       display: grid;
@@ -205,10 +279,7 @@
       justify-content: space-between;
       align-items: center;
     }
-    .preview-header span {
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
+    .preview-header span { font-weight: 700; font-size: 0.95rem; }
     .preview-url {
       font-size: 0.8rem;
       color: var(--accent);
@@ -221,20 +292,13 @@
       justify-content: center;
       background: var(--bg);
     }
-    .preview-body iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+    .preview-body iframe { width: 100%; height: 100%; border: 0; }
     .preview-placeholder {
       text-align: center;
       padding: 3rem;
       color: var(--muted);
     }
-    .preview-placeholder p {
-      font-size: 0.95rem;
-      margin-bottom: 0.5rem;
-    }
+    .preview-placeholder p { font-size: 0.95rem; margin-bottom: 0.5rem; }
 
     /* Deploy status bar */
     .deploy-bar {
@@ -256,7 +320,6 @@
     .deploy-bar .status-text { color: var(--muted); }
     .deploy-bar.live .status-text { color: var(--accent); font-weight: 600; }
 
-    /* Streaming indicator */
     .streaming-dot {
       display: inline-block;
       width: 8px; height: 8px;
@@ -285,66 +348,85 @@
   </header>
 
   <main class="container">
-    <div class="create-layout">
+    <!-- Auth gate: shown when not signed in -->
+    <div id="authGate" class="auth-gate">
+      <h1>VibeCode</h1>
+      <p class="subtitle">Describe the app you want. An AI agent builds it, deploys it, and you get a live app on FreeAppStore — in minutes.</p>
+      <a id="signInBtn" class="auth-btn" href="#">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972a6.033 6.033 0 110-12.064c1.498 0 2.866.549 3.921 1.453l2.814-2.814A9.969 9.969 0 0012.545 2C7.021 2 2.543 6.477 2.543 12s4.478 10 10.002 10c8.396 0 10.249-7.85 9.426-11.748l-9.426-.013z"/></svg>
+        Sign in with Google
+      </a>
+      <p class="auth-note">Sign in to start building. Your API key is used to call the AI provider — we never store it.</p>
+    </div>
 
-      <!-- Config bar -->
-      <div class="config-panel">
-        <div class="config-field">
-          <label>Provider</label>
-          <select id="provider">
-            <option value="anthropic">Anthropic (Claude)</option>
-            <option value="openai">OpenAI (GPT)</option>
-            <option value="google">Google (Gemini)</option>
-          </select>
-        </div>
-        <div class="config-field">
-          <label>Model</label>
-          <select id="model">
-            <option value="claude-sonnet-4-6">Claude Sonnet 4.6</option>
-            <option value="claude-opus-4-6">Claude Opus 4.6</option>
-            <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5</option>
-          </select>
-        </div>
-        <div class="config-field" style="min-width: 240px;">
-          <label>API Key</label>
-          <input type="password" id="apiKey" placeholder="sk-ant-..." autocomplete="off" />
-        </div>
-        <div class="token-display">
-          <span>In: <strong id="tokensIn">0</strong></span>
-          <span>Out: <strong id="tokensOut">0</strong></span>
-        </div>
-      </div>
+    <!-- App: shown when signed in -->
+    <div id="appMain" style="display:none;">
+      <div class="create-layout">
 
-      <!-- Chat panel -->
-      <div class="chat-panel">
-        <div class="chat-header">Agent</div>
-        <div class="chat-messages" id="messages">
-          <div class="msg msg-system">Describe the app you want to build. The agent will create it and deploy it to FreeAppStore.</div>
-        </div>
-        <div class="chat-input-row">
-          <textarea id="userInput" rows="1" placeholder="Build me a meditation timer with breathing exercises..." autofocus></textarea>
-          <button id="sendBtn" onclick="sendMessage()">Send</button>
-        </div>
-      </div>
-
-      <!-- Preview panel -->
-      <div class="preview-panel">
-        <div class="preview-header">
-          <span>Preview</span>
-          <a class="preview-url" id="previewUrl" href="#" target="_blank" style="display:none;"></a>
-        </div>
-        <div class="preview-body" id="previewBody">
-          <div class="preview-placeholder">
-            <p>Your app will appear here once deployed.</p>
-            <p style="font-size: 0.82rem;">Chat with the agent to build your app, then it will deploy and preview automatically.</p>
+        <!-- Config bar -->
+        <div class="config-panel">
+          <div id="userBar" class="user-bar" style="margin-right: auto;">
+            <img id="userPhoto" src="" alt="" />
+            <span id="userName" class="user-name"></span>
+            <button class="sign-out" onclick="signOut()">Sign out</button>
+          </div>
+          <div class="config-field">
+            <label>Provider</label>
+            <select id="provider">
+              <option value="anthropic">Anthropic (Claude)</option>
+              <option value="openai">OpenAI (GPT)</option>
+              <option value="google">Google (Gemini)</option>
+            </select>
+          </div>
+          <div class="config-field">
+            <label>Model</label>
+            <select id="model">
+              <option value="claude-sonnet-4-6">Claude Sonnet 4.6</option>
+              <option value="claude-opus-4-6">Claude Opus 4.6</option>
+              <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5</option>
+            </select>
+          </div>
+          <div class="config-field" style="min-width: 240px;">
+            <label>API Key</label>
+            <input type="password" id="apiKey" placeholder="sk-ant-..." autocomplete="off" />
+          </div>
+          <div class="token-display">
+            <span>In: <strong id="tokensIn">0</strong></span>
+            <span>Out: <strong id="tokensOut">0</strong></span>
           </div>
         </div>
-        <div class="deploy-bar" id="deployBar" style="display:none;">
-          <div class="spinner" id="deploySpinner"></div>
-          <span class="status-text" id="deployText">Deploying...</span>
-        </div>
-      </div>
 
+        <!-- Chat panel -->
+        <div class="chat-panel">
+          <div class="chat-header">Agent</div>
+          <div class="chat-messages" id="messages">
+            <div class="msg msg-system">Describe the app you want to build. The agent will create it and deploy it to FreeAppStore.</div>
+          </div>
+          <div class="chat-input-row">
+            <textarea id="userInput" rows="1" placeholder="Build me a meditation timer with breathing exercises..."></textarea>
+            <button id="sendBtn" onclick="sendMessage()">Send</button>
+          </div>
+        </div>
+
+        <!-- Preview panel -->
+        <div class="preview-panel">
+          <div class="preview-header">
+            <span>Preview</span>
+            <a class="preview-url" id="previewUrl" href="#" target="_blank" style="display:none;"></a>
+          </div>
+          <div class="preview-body" id="previewBody">
+            <div class="preview-placeholder">
+              <p>Your app will appear here once deployed.</p>
+              <p style="font-size: 0.82rem;">Chat with the agent to build your app, then it will deploy and preview automatically.</p>
+            </div>
+          </div>
+          <div class="deploy-bar" id="deployBar" style="display:none;">
+            <div class="spinner" id="deploySpinner"></div>
+            <span class="status-text" id="deployText">Deploying...</span>
+          </div>
+        </div>
+
+      </div>
     </div>
   </main>
 
@@ -367,6 +449,7 @@
   </footer>
 
   <script>
+    const API_URL = "https://api.freeappstore.online";
     const AGENT_URL = "https://agent.freeappstore.online";
     // const AGENT_URL = "http://localhost:8787"; // dev
 
@@ -387,37 +470,95 @@
       ],
     };
 
-    // Session ID persists in sessionStorage so refreshes keep the conversation
+    let currentUser = null;
     let sessionId = sessionStorage.getItem("fas_session_id");
     if (!sessionId) {
       sessionId = crypto.randomUUID();
       sessionStorage.setItem("fas_session_id", sessionId);
     }
-
     let totalTokensIn = 0;
     let totalTokensOut = 0;
     let isStreaming = false;
 
-    // Provider/model selector
+    // ── Auth ──
+
+    async function checkAuth() {
+      try {
+        const res = await fetch(`${API_URL}/auth/me`, { credentials: "include" });
+        const data = await res.json();
+        if (data.user) {
+          currentUser = data.user;
+          showApp();
+        } else {
+          showAuthGate();
+        }
+      } catch {
+        showAuthGate();
+      }
+    }
+
+    async function startSignIn() {
+      const redirect = window.location.href;
+      const res = await fetch(`${API_URL}/auth/google/url?redirect=${encodeURIComponent(redirect)}`, { credentials: "include" });
+      const data = await res.json();
+      if (data.url) window.location.href = data.url;
+    }
+
+    async function signOut() {
+      await fetch(`${API_URL}/auth/signout`, { method: "POST", credentials: "include" });
+      currentUser = null;
+      showAuthGate();
+    }
+
+    function showAuthGate() {
+      document.getElementById("authGate").style.display = "flex";
+      document.getElementById("appMain").style.display = "none";
+    }
+
+    function showApp() {
+      document.getElementById("authGate").style.display = "none";
+      document.getElementById("appMain").style.display = "block";
+      // Populate user info
+      document.getElementById("userName").textContent = currentUser.name;
+      const photo = document.getElementById("userPhoto");
+      if (currentUser.photo_url) {
+        photo.src = currentUser.photo_url;
+        photo.alt = currentUser.name;
+        photo.style.display = "inline";
+      } else {
+        photo.style.display = "none";
+      }
+      document.getElementById("userInput").focus();
+    }
+
+    // Wire up sign-in button
+    document.getElementById("signInBtn").addEventListener("click", (e) => {
+      e.preventDefault();
+      startSignIn();
+    });
+
+    // Check auth on page load
+    checkAuth();
+
+    // ── Provider/model selector ──
+
     const providerEl = document.getElementById("provider");
     const modelEl = document.getElementById("model");
 
     providerEl.addEventListener("change", () => {
       const models = MODEL_OPTIONS[providerEl.value] || [];
       modelEl.innerHTML = models.map(m => `<option value="${m.value}">${m.label}</option>`).join("");
-      // Update placeholder for API key
       const placeholders = { anthropic: "sk-ant-...", openai: "sk-...", google: "AIza..." };
       document.getElementById("apiKey").placeholder = placeholders[providerEl.value] || "API key";
     });
 
-    // Auto-resize textarea
+    // ── Chat ──
+
     const userInput = document.getElementById("userInput");
     userInput.addEventListener("input", () => {
       userInput.style.height = "auto";
       userInput.style.height = Math.min(userInput.scrollHeight, 200) + "px";
     });
-
-    // Enter to send (Shift+Enter for newline)
     userInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
@@ -446,7 +587,6 @@
       const spinner = document.getElementById("deploySpinner");
       const text = document.getElementById("deployText");
       bar.style.display = "flex";
-
       if (phase === "live") {
         bar.className = "deploy-bar live";
         spinner.style.display = "none";
@@ -569,7 +709,6 @@
           }
         }
 
-        // Final cleanup — remove streaming dot if it's still there
         if (!assistantText) {
           assistantEl.textContent = "(Agent completed without text response)";
         }
@@ -583,7 +722,6 @@
       }
     }
 
-    // New session button
     function newSession() {
       sessionId = crypto.randomUUID();
       sessionStorage.setItem("fas_session_id", sessionId);
@@ -594,7 +732,6 @@
       totalTokensIn = 0;
       totalTokensOut = 0;
       updateTokens(0, 0);
-      // Reset session on server
       fetch(`${AGENT_URL}/session/${sessionId}/reset`, { method: "POST" }).catch(() => {});
     }
   </script>
