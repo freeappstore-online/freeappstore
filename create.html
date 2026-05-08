@@ -56,33 +56,6 @@
       margin-top: 1rem;
     }
 
-    /* User bar (shown when signed in) */
-    .user-bar {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.85rem;
-    }
-    .user-bar img {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-    }
-    .user-bar .user-name {
-      font-weight: 600;
-      color: var(--ink);
-    }
-    .user-bar .sign-out {
-      font-size: 0.8rem;
-      color: var(--muted);
-      cursor: pointer;
-      border: none;
-      background: none;
-      font-family: inherit;
-      padding: 0;
-    }
-    .user-bar .sign-out:hover { color: var(--ink); }
-
     /* Create page layout */
     .create-layout {
       display: grid;
@@ -398,11 +371,6 @@
 
         <!-- Config bar -->
         <div class="config-panel">
-          <div id="userBar" class="user-bar" style="margin-right: auto;">
-            <img id="userPhoto" src="" alt="" />
-            <span id="userName" class="user-name"></span>
-            <button class="sign-out" onclick="signOut()">Sign out</button>
-          </div>
           <div class="config-field">
             <label>Provider</label>
             <select id="provider">
@@ -556,12 +524,6 @@
       if (data.url) window.location.href = data.url;
     }
 
-    async function signOut() {
-      await fetch(`${API_URL}/auth/signout`, { method: "POST", credentials: "include" });
-      currentUser = null;
-      showAuthGate();
-    }
-
     function showAuthGate() {
       document.getElementById("authGate").style.display = "flex";
       document.getElementById("appMain").style.display = "none";
@@ -570,16 +532,6 @@
     function showApp() {
       document.getElementById("authGate").style.display = "none";
       document.getElementById("appMain").style.display = "block";
-      // Populate user info
-      document.getElementById("userName").textContent = currentUser.name;
-      const photo = document.getElementById("userPhoto");
-      if (currentUser.photo_url) {
-        photo.src = currentUser.photo_url;
-        photo.alt = currentUser.name;
-        photo.style.display = "inline";
-      } else {
-        photo.style.display = "none";
-      }
       document.getElementById("userInput").focus();
     }
 
