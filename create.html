@@ -356,7 +356,7 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         Sign in with GitHub
       </a>
-      <p class="auth-note">Sign in to start building. Your API key is used to call the AI provider — we never store it.</p>
+      <p class="auth-note">Sign in to start building. AI models run through GitHub Models — no API key needed.</p>
     </div>
 
     <!-- App: shown when signed in -->
@@ -373,22 +373,24 @@
           <div class="config-field">
             <label>Provider</label>
             <select id="provider">
-              <option value="anthropic">Anthropic (Claude)</option>
-              <option value="openai">OpenAI (GPT)</option>
-              <option value="google">Google (Gemini)</option>
+              <option value="github">GitHub Models (free)</option>
+              <option value="anthropic">Anthropic (BYOK)</option>
+              <option value="openai">OpenAI (BYOK)</option>
+              <option value="google">Google (BYOK)</option>
             </select>
           </div>
           <div class="config-field">
             <label>Model</label>
             <select id="model">
-              <option value="claude-sonnet-4-6">Claude Sonnet 4.6</option>
-              <option value="claude-opus-4-6">Claude Opus 4.6</option>
-              <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5</option>
+              <option value="openai/gpt-4.1">GPT-4.1</option>
+              <option value="openai/gpt-4.1-mini">GPT-4.1 Mini</option>
+              <option value="openai/gpt-4o">GPT-4o</option>
+              <option value="openai/gpt-4o-mini">GPT-4o Mini</option>
             </select>
           </div>
-          <div class="config-field" style="min-width: 240px;">
+          <div class="config-field" id="apiKeyField" style="min-width: 240px; display: none;">
             <label>API Key</label>
-            <input type="password" id="apiKey" placeholder="sk-ant-..." autocomplete="off" />
+            <input type="password" id="apiKey" placeholder="API key" autocomplete="off" />
           </div>
           <div class="token-display">
             <span>In: <strong id="tokensIn">0</strong></span>
@@ -454,6 +456,14 @@
     // const AGENT_URL = "http://localhost:8787"; // dev
 
     const MODEL_OPTIONS = {
+      github: [
+        { value: "openai/gpt-4.1", label: "GPT-4.1" },
+        { value: "openai/gpt-4.1-mini", label: "GPT-4.1 Mini" },
+        { value: "openai/gpt-4o", label: "GPT-4o" },
+        { value: "openai/gpt-4o-mini", label: "GPT-4o Mini" },
+        { value: "DeepSeek-V3-0324", label: "DeepSeek V3" },
+        { value: "meta/llama-4-scout-17b-16e-instruct", label: "Llama 4 Scout" },
+      ],
       anthropic: [
         { value: "claude-sonnet-4-6", label: "Claude Sonnet 4.6" },
         { value: "claude-opus-4-6", label: "Claude Opus 4.6" },
@@ -471,6 +481,7 @@
     };
 
     let currentUser = null;
+    let githubToken = null; // GitHub access token for GitHub Models
     let sessionId = sessionStorage.getItem("fas_session_id");
     if (!sessionId) {
       sessionId = crypto.randomUUID();
@@ -488,6 +499,14 @@
         const data = await res.json();
         if (data.user) {
           currentUser = data.user;
+          // Fetch GitHub token for GitHub Models
+          if (data.hasGitHubModels) {
+            try {
+              const tokenRes = await fetch(`${API_URL}/auth/github-token`, { credentials: "include" });
+              const tokenData = await tokenRes.json();
+              if (tokenData.token) githubToken = tokenData.token;
+            } catch { /* GitHub Models won't be available */ }
+          }
           showApp();
         } else {
           showAuthGate();
@@ -548,8 +567,12 @@
     providerEl.addEventListener("change", () => {
       const models = MODEL_OPTIONS[providerEl.value] || [];
       modelEl.innerHTML = models.map(m => `<option value="${m.value}">${m.label}</option>`).join("");
-      const placeholders = { anthropic: "sk-ant-...", openai: "sk-...", google: "AIza..." };
-      document.getElementById("apiKey").placeholder = placeholders[providerEl.value] || "API key";
+      const isBYOK = providerEl.value !== "github";
+      document.getElementById("apiKeyField").style.display = isBYOK ? "flex" : "none";
+      if (isBYOK) {
+        const placeholders = { anthropic: "sk-ant-...", openai: "sk-...", google: "AIza..." };
+        document.getElementById("apiKey").placeholder = placeholders[providerEl.value] || "API key";
+      }
     });
 
     // ── Chat ──
@@ -611,10 +634,20 @@
       const message = userInput.value.trim();
       if (!message || isStreaming) return;
 
-      const apiKey = document.getElementById("apiKey").value.trim();
-      if (!apiKey) {
-        addMessage("system", "Please enter your API key above to get started.");
-        return;
+      const provider = providerEl.value;
+      let apiKey;
+      if (provider === "github") {
+        if (!githubToken) {
+          addMessage("system", "GitHub Models access not available. Try signing out and back in, or switch to a BYOK provider.");
+          return;
+        }
+        apiKey = githubToken;
+      } else {
+        apiKey = document.getElementById("apiKey").value.trim();
+        if (!apiKey) {
+          addMessage("system", "Please enter your API key to use this provider.");
+          return;
+        }
       }
 
       isStreaming = true;
@@ -635,7 +668,7 @@
           body: JSON.stringify({
             message,
             aiConfig: {
-              provider: providerEl.value,
+              provider,
               model: modelEl.value,
               apiKey,
             },
