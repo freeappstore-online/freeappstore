@@ -93,6 +93,30 @@ nav a.active { color: var(--ink); }
 nav a.pro-link { color: var(--pro); }
 nav a.pro-link:hover { color: var(--pro); opacity: 0.8; }
 
+/* User avatar in nav */
+.nav-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: border-color 0.15s;
+  vertical-align: middle;
+}
+.nav-avatar:hover { border-color: var(--accent); }
+.nav-signin {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  padding: 0;
+}
+.nav-signin:hover { text-decoration: underline; }
+
 /* Footer */
 footer {
   padding: 3rem 0;

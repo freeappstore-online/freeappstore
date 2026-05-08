@@ -343,6 +343,7 @@
         <a href="/contribute.html">Build</a>
         <a href="/create.html" class="active">VibeCode</a>
         <a href="https://proappstore.online" class="pro-link">Pro</a>
+        <span id="navAuth"></span>
       </nav>
     </div>
   </header>
@@ -800,5 +801,6 @@
       fetch(`${AGENT_URL}/session/${sessionId}/reset`, { method: "POST" }).catch(() => {});
     }
   </script>
+  <script src="/auth.js"></script>
 </body>
 </html>

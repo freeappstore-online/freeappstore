@@ -525,6 +525,8 @@ const filesToCopy = [
   'terms.html',
   'build-with-ai.html',
   'create.html',
+  'profile.html',
+  'auth.js',
 ];
 
 filesToCopy.forEach(file => {

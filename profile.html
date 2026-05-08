@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile — FreeAppStore</title>
+  <meta name="description" content="Your FreeAppStore profile. View your account details, apps you've built, and manage your account." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .profile-page {
+      max-width: 600px;
+      padding: 3rem 0 4rem;
+    }
+    .profile-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+    }
+    .profile-card img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 3px solid var(--border);
+    }
+    .profile-card .info h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .profile-card .info p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .profile-section {
+      margin-bottom: 2rem;
+    }
+    .profile-section h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+    .detail-row .label {
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .detail-row .value {
+      font-weight: 600;
+    }
+    .danger-zone {
+      background: color-mix(in srgb, var(--error) 6%, var(--surface));
+      border: 1px solid color-mix(in srgb, var(--error) 25%, var(--border));
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .danger-zone h3 {
+      color: var(--error);
+      border: none;
+      padding: 0;
+      margin-bottom: 0.5rem;
+    }
+    .danger-zone p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .btn-danger {
+      padding: 0.55rem 1.25rem;
+      background: var(--error);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.15s;
+    }
+    .btn-danger:hover { opacity: 0.85; }
+    .btn-secondary {
+      padding: 0.55rem 1.25rem;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+    }
+    .btn-secondary:hover { background: var(--surface); }
+    .profile-loading {
+      text-align: center;
+      padding: 4rem;
+      color: var(--muted);
+    }
+    .profile-unauth {
+      text-align: center;
+      padding: 4rem;
+    }
+    .profile-unauth p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free <span>Apps</span></a>
+      <nav>
+        <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Build</a>
+        <a href="/create.html">VibeCode</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+        <span id="navAuth"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="loading" class="profile-loading">Loading...</div>
+
+    <div id="unauth" class="profile-unauth" style="display:none;">
+      <p>Sign in to view your profile.</p>
+      <button class="btn-secondary" onclick="signIn()">Sign in with GitHub</button>
+    </div>
+
+    <div id="profileContent" class="profile-page" style="display:none;">
+      <div class="profile-card">
+        <img id="avatar" src="" alt="" />
+        <div class="info">
+          <h2 id="displayName"></h2>
+          <p id="email"></p>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h3>Account Details</h3>
+        <div class="detail-row">
+          <span class="label">Provider</span>
+          <span class="value" id="provider"></span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Member since</span>
+          <span class="value" id="memberSince"></span>
+        </div>
+        <div class="detail-row">
+          <span class="label">GitHub Models</span>
+          <span class="value" id="ghModels"></span>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h3>Session</h3>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <button class="btn-secondary" onclick="signOut()">Sign out</button>
+        </div>
+      </div>
+
+      <div class="profile-section danger-zone">
+        <h3>Danger Zone</h3>
+        <p>Permanently delete your account, session, and all stored data. This cannot be undone.</p>
+        <button class="btn-danger" onclick="deleteAccount()">Delete my account</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free <span>Apps</span></a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/contribute.html">Build</a>
+        <a href="/create.html">VibeCode</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/auth.js"></script>
+  <script>
+    const API_URL = "https://api.freeappstore.online";
+
+    async function loadProfile() {
+      try {
+        const res = await fetch(`${API_URL}/auth/me`, { credentials: "include" });
+        const data = await res.json();
+        document.getElementById("loading").style.display = "none";
+
+        if (!data.user) {
+          document.getElementById("unauth").style.display = "block";
+          return;
+        }
+
+        const u = data.user;
+        document.getElementById("avatar").src = u.photo_url || "";
+        document.getElementById("avatar").alt = u.name;
+        document.getElementById("displayName").textContent = u.name;
+        document.getElementById("email").textContent = u.email;
+        document.getElementById("provider").textContent = (u.provider || "github").charAt(0).toUpperCase() + (u.provider || "github").slice(1);
+        document.getElementById("memberSince").textContent = u.created_at ? new Date(u.created_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }) : "Unknown";
+        document.getElementById("ghModels").textContent = data.hasGitHubModels ? "Connected" : "Not connected";
+        document.getElementById("profileContent").style.display = "block";
+      } catch {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("unauth").style.display = "block";
+      }
+    }
+
+    async function signIn() {
+      const res = await fetch(`${API_URL}/auth/github/url?redirect=${encodeURIComponent(window.location.href)}`, { credentials: "include" });
+      const data = await res.json();
+      if (data.url) window.location.href = data.url;
+    }
+
+    async function signOut() {
+      await fetch(`${API_URL}/auth/signout`, { method: "POST", credentials: "include" });
+      window.location.reload();
+    }
+
+    async function deleteAccount() {
+      if (!confirm("Are you sure you want to delete your account? This cannot be undone.")) return;
+      if (!confirm("This will permanently remove all your data. Last chance — continue?")) return;
+      await fetch(`${API_URL}/auth/delete`, { method: "POST", credentials: "include" });
+      window.location.href = "/";
+    }
+
+    loadProfile();
+  </script>
+</body>
+</html>
