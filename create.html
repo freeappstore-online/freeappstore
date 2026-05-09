@@ -530,6 +530,10 @@
       totalTokensIn = 0;
       totalTokensOut = 0;
       updateTokens(0, 0);
+      // Reset provider to default
+      document.getElementById("provider").value = "github";
+      document.getElementById("apiKey").style.display = "none";
+      document.getElementById("apiKey").value = "";
       clearUI();
       loadHistory();
     }
@@ -642,6 +646,7 @@
       };
       recognition.onend = () => {
         isListening = false;
+        finalTranscript = "";
         micBtn.style.color = "var(--muted)";
         micBtn.style.borderColor = "var(--border)";
       };
@@ -829,6 +834,7 @@
     }
 
     function showPreview(url) {
+      if (!url || !url.startsWith("https://")) return;
       const body = document.getElementById("previewBody");
       const urlEl = document.getElementById("previewUrl");
       const openEl = document.getElementById("previewOpen");
