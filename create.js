@@ -154,10 +154,31 @@
       switchProject(id);
     });
 
-    // ── Provider/model selector ──
+    // ── Provider/model selector (persisted in localStorage) ──
 
     const providerEl = document.getElementById("provider");
     const modelEl = document.getElementById("model");
+
+    function saveModelPrefs() {
+      localStorage.setItem("fas_provider", providerEl.value);
+      localStorage.setItem("fas_model", modelEl.value);
+    }
+
+    function loadModelPrefs() {
+      const savedProvider = localStorage.getItem("fas_provider");
+      if (savedProvider && MODEL_OPTIONS[savedProvider]) {
+        providerEl.value = savedProvider;
+        // Rebuild model options for this provider
+        const models = MODEL_OPTIONS[savedProvider] || [];
+        modelEl.innerHTML = models.map(m => `<option value="${m.value}">${m.label}</option>`).join("");
+        const isBYOK = savedProvider !== "github";
+        document.getElementById("apiKey").style.display = isBYOK ? "inline" : "none";
+      }
+      const savedModel = localStorage.getItem("fas_model");
+      if (savedModel) {
+        modelEl.value = savedModel;
+      }
+    }
 
     providerEl.addEventListener("change", () => {
       const models = MODEL_OPTIONS[providerEl.value] || [];
@@ -168,7 +189,13 @@
         const placeholders = { anthropic: "sk-ant-...", openai: "sk-...", google: "AIza..." };
         document.getElementById("apiKey").placeholder = placeholders[providerEl.value] || "API key";
       }
+      saveModelPrefs();
     });
+
+    modelEl.addEventListener("change", saveModelPrefs);
+
+    // Restore on load
+    loadModelPrefs();
 
     // ── Voice input ──
 
