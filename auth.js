@@ -47,7 +47,7 @@
     .then(function (data) {
       if (data.user) {
         var img = document.createElement("a");
-        img.href = "/profile.html";
+        img.href = "https://create.freeappstore.online/profile";
         img.title = data.user.name;
         img.innerHTML = '<img class="nav-avatar" src="' + (data.user.photo_url || "") + '" alt="' + data.user.name + '" />';
         el.appendChild(img);
