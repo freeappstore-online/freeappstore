@@ -524,10 +524,6 @@ const filesToCopy = [
   'privacy.html',
   'terms.html',
   'build-with-ai.html',
-  'create.html',
-  'create.css',
-  'create.js',
-  'profile.html',
   'auth.js',
 ];
 
