@@ -294,16 +294,28 @@
         // Clear default message and render history
         document.getElementById("messages").innerHTML = "";
         for (const m of data.messages) {
-          if (m.role === "assistant" && m.toolCalls) {
+          if (m.role === "assistant") {
             if (m.content) addMessage("assistant", m.content);
-            for (const tc of m.toolCalls) {
-              const label = tc.name === "deploy" ? "Deployed" :
-                            tc.name === "write_file" ? `Wrote ${tc.input.path || "file"}` :
-                            tc.name === "read_file" ? `Read ${tc.input.path || "file"}` : tc.name;
-              addMessage("tool", label);
+            if (m.toolCalls) {
+              for (const tc of m.toolCalls) {
+                const label = tc.name === "deploy" ? `Deploying: ${tc.input.id || "app"}...` :
+                              tc.name === "push_update" ? `Pushing update to ${tc.input.id}` :
+                              tc.name === "write_file" ? `Writing ${tc.input.path || "file"}` :
+                              tc.name === "read_file" ? `Reading ${tc.input.path || "file"}` :
+                              tc.name === "run_compliance_check" ? "Running compliance checks..." :
+                              tc.name === "search_files" ? "Searching files..." :
+                              tc.name;
+                addMessage("tool", label);
+              }
             }
-          } else {
-            addMessage(m.role, m.content);
+          } else if (m.role === "tool_result" && m.toolResults) {
+            for (const tr of m.toolResults) {
+              if (tr.content && tr.content.length > 20) {
+                addMessage("tool", tr.content.slice(0, 400));
+              }
+            }
+          } else if (m.role === "user") {
+            addMessage("user", m.content);
           }
         }
 
