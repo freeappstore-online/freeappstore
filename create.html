@@ -408,6 +408,8 @@
             </select>
             <input type="password" id="apiKey" placeholder="API key" autocomplete="off" style="width: 140px; display: none;" />
             <span class="tokens">In: <strong id="tokensIn">0</strong> Out: <strong id="tokensOut">0</strong></span>
+            <button id="copyJsonBtn" title="Copy chat as JSON" style="background:none;border:1px solid var(--border);border-radius:0.3rem;padding:0.15rem 0.4rem;cursor:pointer;color:var(--muted);font-size:0.72rem;" onclick="copyChatJSON()">JSON</button>
+            <button id="errorsBtn" title="View server errors" style="background:none;border:1px solid var(--border);border-radius:0.3rem;padding:0.15rem 0.4rem;cursor:pointer;color:var(--muted);font-size:0.72rem;" onclick="showServerErrors()">Logs</button>
           </div>
           <div class="chat-messages" id="messages">
             <div class="msg msg-system">Describe the app you want to build.</div>
@@ -937,6 +939,50 @@
         isStreaming = false;
         document.getElementById("sendBtn").disabled = false;
         userInput.focus();
+      }
+    }
+
+    // ── Copy chat as JSON ──
+    function copyChatJSON() {
+      const msgs = document.getElementById("messages").children;
+      const chat = [];
+      for (const el of msgs) {
+        const role = el.classList.contains("msg-user") ? "user" :
+                     el.classList.contains("msg-assistant") ? "assistant" :
+                     el.classList.contains("msg-tool") ? "tool" : "system";
+        chat.push({ role, content: el.textContent });
+      }
+      const json = JSON.stringify({
+        project: document.getElementById("projectSelect").selectedOptions[0]?.text || "unknown",
+        sessionId,
+        provider: providerEl.value,
+        model: modelEl.value,
+        tokens: { input: totalTokensIn, output: totalTokensOut },
+        messages: chat,
+        exportedAt: new Date().toISOString(),
+      }, null, 2);
+      navigator.clipboard.writeText(json).then(() => {
+        const btn = document.getElementById("copyJsonBtn");
+        btn.textContent = "Copied!";
+        setTimeout(() => { btn.textContent = "JSON"; }, 1500);
+      });
+    }
+
+    // ── View server-side errors ──
+    async function showServerErrors() {
+      if (!sessionId) return;
+      try {
+        const res = await fetch(`${AGENT_URL}/session/${sessionId}/errors`);
+        const data = await res.json();
+        const errors = data.errors || [];
+        if (errors.length === 0) {
+          addMessage("system", "No server-side errors logged for this session.");
+          return;
+        }
+        const text = errors.map(e => `[${e.timestamp}] ${e.source}: ${e.message}`).join("\n\n");
+        addMessage("system", `Server errors (${errors.length}):\n\n${text}`);
+      } catch (err) {
+        addMessage("system", `Could not fetch server errors: ${err.message}`);
       }
     }
   </script>
