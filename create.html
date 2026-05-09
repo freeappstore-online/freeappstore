@@ -398,7 +398,7 @@
             <button id="copyJsonBtn" title="Copy chat as JSON" onclick="copyChatJSON()" style="background:none;border:1px solid var(--border);border-radius:0.3rem;padding:0.15rem 0.4rem;cursor:pointer;color:var(--muted);font-size:0.72rem;">JSON</button>
             <button id="settingsToggle" title="Model settings" onclick="toggleSettings()" style="background:none;border:1px solid var(--border);border-radius:0.3rem;padding:0.15rem 0.4rem;cursor:pointer;color:var(--muted);font-size:0.78rem;">&#9881;</button>
           </div>
-          <div id="settingsPanel" style="display:none;padding:0.35rem 0.75rem;border-bottom:1px solid var(--border);background:var(--surface);font-size:0.78rem;display:none;flex-wrap:wrap;gap:0.4rem;align-items:center;">
+          <div id="settingsPanel" style="display:none;padding:0.35rem 0.75rem;border-bottom:1px solid var(--border);background:var(--surface);font-size:0.78rem;flex-wrap:wrap;gap:0.4rem;align-items:center;">
             <select id="provider">
               <option value="github">GitHub Models</option>
               <option value="anthropic">Anthropic</option>
@@ -968,7 +968,7 @@
     }
 
     // ── Copy chat as JSON ──
-    function copyChatJSON() {
+    async function copyChatJSON() {
       const msgs = document.getElementById("messages").children;
       const chat = [];
       for (const el of msgs) {
@@ -977,6 +977,17 @@
                      el.classList.contains("msg-tool") ? "tool" : "system";
         chat.push({ role, content: el.textContent });
       }
+      // Fetch server-side errors + session status for debugging
+      let serverErrors = [];
+      let serverStatus = {};
+      try {
+        const [errRes, statusRes] = await Promise.all([
+          fetch(`${AGENT_URL}/session/${sessionId}/errors`).then(r => r.json()).catch(() => ({})),
+          fetch(`${AGENT_URL}/session/${sessionId}/status`).then(r => r.json()).catch(() => ({})),
+        ]);
+        serverErrors = errRes.errors || [];
+        serverStatus = statusRes;
+      } catch {}
       const json = JSON.stringify({
         project: document.getElementById("projectSelect").selectedOptions[0]?.text || "unknown",
         sessionId,
@@ -984,6 +995,7 @@
         model: modelEl.value,
         tokens: { input: totalTokensIn, output: totalTokensOut },
         messages: chat,
+        server: { errors: serverErrors, status: serverStatus },
         exportedAt: new Date().toISOString(),
       }, null, 2);
       navigator.clipboard.writeText(json).then(() => {
