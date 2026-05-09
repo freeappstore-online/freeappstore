@@ -457,15 +457,30 @@
             } else if (evt.type === "tool_call") {
               const tc = JSON.parse(evt.data);
               const label = tc.name === "deploy" ? `Deploying: ${tc.input.name}...` :
+                            tc.name === "push_update" ? `Pushing update to ${tc.input.id}...` :
                             tc.name === "write_file" ? `Writing ${tc.input.path}` :
-                            tc.name === "read_file" ? `Reading ${tc.input.path}` : tc.name;
+                            tc.name === "read_file" ? `Reading ${tc.input.path}` :
+                            tc.name === "delete_file" ? `Deleting ${tc.input.path}` :
+                            tc.name === "search_files" ? `Searching for "${tc.input.pattern}"` :
+                            tc.name === "run_compliance_check" ? "Running compliance checks..." :
+                            tc.name === "get_build_logs" ? `Fetching build logs for ${tc.input.id}` :
+                            tc.name === "get_ci_results" ? `Checking CI for ${tc.input.id}` :
+                            tc.name === "get_audit_results" ? `Fetching audit for ${tc.input.id}` :
+                            tc.name === "check_deploy_status" ? `Checking deploy: ${tc.input.id}` :
+                            tc.name === "list_deployed_apps" ? "Listing deployed apps..." :
+                            tc.name;
               addMessage("tool", label);
             } else if (evt.type === "tool_result") {
               const tr = JSON.parse(evt.data);
               if (tr.tool === "deploy") {
                 initDeployLog();
-              } else if (["push_update","check_deploy_status","list_deployed_apps","fetch_url","get_build_logs","get_ci_results","get_audit_results"].includes(tr.tool)) {
-                addMessage("tool", `${tr.tool}: ${(tr.result || "").slice(0, 300)}`);
+              } else if (tr.result && tr.result !== "executing...") {
+                // Show meaningful tool results (compliance check results, search results, infra results)
+                const result = tr.result.slice(0, 400);
+                // Skip write_file/read_file/list_files/delete_file results (already shown as tool_call labels)
+                if (!["write_file","read_file","list_files","delete_file"].includes(tr.tool)) {
+                  addMessage("tool", `${tr.tool}:\n${result}`);
+                }
               }
             } else if (evt.type === "usage") {
               const u = JSON.parse(evt.data);
