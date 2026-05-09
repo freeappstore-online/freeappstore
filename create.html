@@ -394,7 +394,12 @@
           <div class="chat-toolbar">
             <select id="projectSelect" title="Switch project"></select>
             <button id="newProjectBtn" title="New project" style="background:none;border:1px solid var(--border);border-radius:0.3rem;padding:0.15rem 0.4rem;cursor:pointer;color:var(--ink);font-size:0.78rem;">+</button>
-            <select id="provider" style="margin-left: auto;">
+            <span class="tokens" style="margin-left:auto;">In: <strong id="tokensIn">0</strong> Out: <strong id="tokensOut">0</strong></span>
+            <button id="copyJsonBtn" title="Copy chat as JSON" onclick="copyChatJSON()" style="background:none;border:1px solid var(--border);border-radius:0.3rem;padding:0.15rem 0.4rem;cursor:pointer;color:var(--muted);font-size:0.72rem;">JSON</button>
+            <button id="settingsToggle" title="Model settings" onclick="toggleSettings()" style="background:none;border:1px solid var(--border);border-radius:0.3rem;padding:0.15rem 0.4rem;cursor:pointer;color:var(--muted);font-size:0.78rem;">&#9881;</button>
+          </div>
+          <div id="settingsPanel" style="display:none;padding:0.35rem 0.75rem;border-bottom:1px solid var(--border);background:var(--surface);font-size:0.78rem;display:none;flex-wrap:wrap;gap:0.4rem;align-items:center;">
+            <select id="provider">
               <option value="github">GitHub Models</option>
               <option value="anthropic">Anthropic</option>
               <option value="openai">OpenAI</option>
@@ -419,8 +424,6 @@
               <option value="16384" selected>16K out</option>
               <option value="32768">32K out</option>
             </select>
-            <span class="tokens">In: <strong id="tokensIn">0</strong> Out: <strong id="tokensOut">0</strong></span>
-            <button id="copyJsonBtn" title="Copy chat as JSON" style="background:none;border:1px solid var(--border);border-radius:0.3rem;padding:0.15rem 0.4rem;cursor:pointer;color:var(--muted);font-size:0.72rem;" onclick="copyChatJSON()">JSON</button>
           </div>
           <div class="chat-messages" id="messages">
             <div class="msg msg-system">Describe the app you want to build.</div>
@@ -609,6 +612,11 @@
 
     document.getElementById("signInBtn").addEventListener("click", (e) => { e.preventDefault(); startSignIn(); });
     checkAuth();
+
+    function toggleSettings() {
+      const panel = document.getElementById("settingsPanel");
+      panel.style.display = panel.style.display === "flex" ? "none" : "flex";
+    }
 
     // ── Project events ──
 

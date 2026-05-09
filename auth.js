@@ -21,12 +21,10 @@
     overlay.className = "nav-overlay";
     document.body.appendChild(overlay);
 
-    // Add close button inside nav
+    // Add close button inside nav (small, top-right)
     var closeBtn = document.createElement("button");
-    closeBtn.className = "nav-toggle";
-    closeBtn.style.display = "block";
-    closeBtn.style.alignSelf = "flex-end";
-    closeBtn.style.marginBottom = "0.5rem";
+    closeBtn.className = "nav-close";
+    closeBtn.setAttribute("aria-label", "Close menu");
     closeBtn.innerHTML = "&#10005;";
     nav.insertBefore(closeBtn, nav.firstChild);
 
