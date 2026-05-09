@@ -407,6 +407,18 @@
               <option value="openai/gpt-4o-mini">GPT-4o Mini</option>
             </select>
             <input type="password" id="apiKey" placeholder="API key" autocomplete="off" style="width: 140px; display: none;" />
+            <select id="temperature" title="Temperature">
+              <option value="0">Temp 0</option>
+              <option value="0.3">Temp 0.3</option>
+              <option value="0.7" selected>Temp 0.7</option>
+              <option value="1">Temp 1</option>
+            </select>
+            <select id="maxTokens" title="Max output tokens">
+              <option value="4096">4K out</option>
+              <option value="8192">8K out</option>
+              <option value="16384" selected>16K out</option>
+              <option value="32768">32K out</option>
+            </select>
             <span class="tokens">In: <strong id="tokensIn">0</strong> Out: <strong id="tokensOut">0</strong></span>
             <button id="copyJsonBtn" title="Copy chat as JSON" style="background:none;border:1px solid var(--border);border-radius:0.3rem;padding:0.15rem 0.4rem;cursor:pointer;color:var(--muted);font-size:0.72rem;" onclick="copyChatJSON()">JSON</button>
           </div>
@@ -875,7 +887,13 @@
         const res = await fetch(`${AGENT_URL}/session/${sessionId}/chat`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message, aiConfig: { provider, model: modelEl.value, apiKey } }),
+          body: JSON.stringify({ message, aiConfig: {
+            provider,
+            model: modelEl.value,
+            apiKey,
+            temperature: parseFloat(document.getElementById("temperature").value),
+            maxTokens: parseInt(document.getElementById("maxTokens").value),
+          } }),
         });
 
         if (!res.ok) { assistantEl.textContent = `Error: ${await res.text()}`; return; }
