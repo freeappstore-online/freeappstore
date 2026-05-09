@@ -880,26 +880,36 @@
   "freeappstore-online/joke-generator": {
     "meta": {
       "created_at": "2026-05-09T12:38:29Z",
-      "pushed_at": "2026-05-09T12:46:07Z"
+      "pushed_at": "2026-05-09T12:59:28Z"
     },
     "commits": [
       {
-        "sha": "6e323af8974a92a3856bdd56cca58f511698d86c",
-        "html_url": "https://github.com/freeappstore-online/joke-generator/commit/6e323af8974a92a3856bdd56cca58f511698d86c",
+        "sha": "646f3b6d4a184d1f3c36c692ba59db9d3958d7c0",
+        "html_url": "https://github.com/freeappstore-online/joke-generator/commit/646f3b6d4a184d1f3c36c692ba59db9d3958d7c0",
         "commit": {
-          "message": "Initial app — built with FreeAppStore AI agent",
+          "message": "Fix root package.json: scripts must be inside scripts object",
           "author": {
-            "date": "2026-05-09T12:46:07Z"
+            "date": "2026-05-09T12:59:27Z"
           }
         }
       },
       {
-        "sha": "4780d19e94c077794c2e16f5193af2000df71570",
-        "html_url": "https://github.com/freeappstore-online/joke-generator/commit/4780d19e94c077794c2e16f5193af2000df71570",
+        "sha": "ea8f4e34385a7bb3387bab71b9dae7f426ad4266",
+        "html_url": "https://github.com/freeappstore-online/joke-generator/commit/ea8f4e34385a7bb3387bab71b9dae7f426ad4266",
         "commit": {
-          "message": "Initialize repo",
+          "message": "Fix web/package.json: add build scripts and dependencies",
           "author": {
-            "date": "2026-05-09T12:45:57Z"
+            "date": "2026-05-09T12:57:29Z"
+          }
+        }
+      },
+      {
+        "sha": "507b2a46700eafc6b0546cff1e2cd559f5382d62",
+        "html_url": "https://github.com/freeappstore-online/joke-generator/commit/507b2a46700eafc6b0546cff1e2cd559f5382d62",
+        "commit": {
+          "message": "Trigger CF Pages build",
+          "author": {
+            "date": "2026-05-09T12:55:14Z"
           }
         }
       }
