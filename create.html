@@ -791,7 +791,7 @@
 
     function setDeployStatus(phase, detail, steps) {
       if (phase === "provisioning") {
-        if (!deployStepsState["GitHub repo"] || deployStepsState["GitHub repo"] === "pending") initDeployLog();
+        if (Object.keys(deployStepsState).length === 0) initDeployLog();
         // Update steps from the provisioning data
         if (steps && steps.length) {
           for (const s of steps) {
@@ -902,7 +902,12 @@
                             tc.name === "read_file" ? `Reading ${tc.input.path}` : tc.name;
               addMessage("tool", label);
             } else if (evt.type === "tool_result") {
-              if (JSON.parse(evt.data).tool === "deploy") setDeployStatus("provisioning", "Provisioning...");
+              const tr = JSON.parse(evt.data);
+              if (tr.tool === "deploy") {
+                initDeployLog();
+              } else if (tr.tool === "push_update" || tr.tool === "check_deploy_status" || tr.tool === "list_deployed_apps" || tr.tool === "fetch_url") {
+                addMessage("tool", `${tr.tool}: ${(tr.result || "").slice(0, 200)}`);
+              }
             } else if (evt.type === "usage") {
               const u = JSON.parse(evt.data);
               updateTokens(u.input, u.output);
