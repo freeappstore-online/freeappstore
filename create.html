@@ -905,8 +905,8 @@
               const tr = JSON.parse(evt.data);
               if (tr.tool === "deploy") {
                 initDeployLog();
-              } else if (tr.tool === "push_update" || tr.tool === "check_deploy_status" || tr.tool === "list_deployed_apps" || tr.tool === "fetch_url") {
-                addMessage("tool", `${tr.tool}: ${(tr.result || "").slice(0, 200)}`);
+              } else if (["push_update","check_deploy_status","list_deployed_apps","fetch_url","get_build_logs","get_ci_results","get_audit_results"].includes(tr.tool)) {
+                addMessage("tool", `${tr.tool}: ${(tr.result || "").slice(0, 300)}`);
               }
             } else if (evt.type === "usage") {
               const u = JSON.parse(evt.data);
