@@ -106,6 +106,19 @@
       </aside>
     </div>
 
+    <section class="app-section" id="rating-section">
+      <h2>Rate this app</h2>
+      <div id="rating-widget" style="display: flex; align-items: center; gap: 1rem;">
+        <button id="rate-up" style="font-size: 1.5rem; background: none; border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.5rem 1rem; cursor: pointer; color: var(--ink);" title="Like">
+          <span style="margin-right: 0.3rem;">&#128077;</span><span id="count-up">0</span>
+        </button>
+        <button id="rate-down" style="font-size: 1.5rem; background: none; border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.5rem 1rem; cursor: pointer; color: var(--ink);" title="Dislike">
+          <span style="margin-right: 0.3rem;">&#128078;</span><span id="count-down">0</span>
+        </button>
+        <span id="rating-status" style="font-size: 0.8rem; color: var(--muted);"></span>
+      </div>
+    </section>
+
     <section class="app-section">
       <h2>About</h2>
       <p>{{DESCRIPTION}}</p>
@@ -161,5 +174,59 @@
     });
   </script>
   <script src="/auth.js"></script>
+  <script>
+  (function() {
+    var APP_ID = '{{ID}}';
+    var STORE = 'apps';
+    var API = 'https://api.freeappstore.online';
+    var KEY = 'fas_voted_' + APP_ID;
+    var upBtn = document.getElementById('rate-up');
+    var downBtn = document.getElementById('rate-down');
+    var countUp = document.getElementById('count-up');
+    var countDown = document.getElementById('count-down');
+    var status = document.getElementById('rating-status');
+
+    // Load current rating
+    fetch(API + '/ratings?ids=' + STORE + ':' + APP_ID)
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var rating = data[STORE + ':' + APP_ID] || { up: 0, down: 0 };
+        countUp.textContent = rating.up;
+        countDown.textContent = rating.down;
+      })
+      .catch(function() {});
+
+    // Check if already voted
+    var voted = localStorage.getItem(KEY);
+    if (voted) {
+      status.textContent = 'You voted ' + (voted === 'up' ? '\uD83D\uDC4D' : '\uD83D\uDC4E');
+      upBtn.disabled = true;
+      downBtn.disabled = true;
+      upBtn.style.opacity = voted === 'up' ? '1' : '0.4';
+      downBtn.style.opacity = voted === 'down' ? '1' : '0.4';
+    }
+
+    function vote(dir) {
+      if (localStorage.getItem(KEY)) return;
+      localStorage.setItem(KEY, dir);
+      status.textContent = 'Thanks!';
+      upBtn.disabled = true;
+      downBtn.disabled = true;
+      upBtn.style.opacity = dir === 'up' ? '1' : '0.4';
+      downBtn.style.opacity = dir === 'down' ? '1' : '0.4';
+      // Optimistic update
+      var el = dir === 'up' ? countUp : countDown;
+      el.textContent = parseInt(el.textContent) + 1;
+      fetch(API + '/ratings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: APP_ID, store: STORE, vote: dir })
+      }).catch(function() {});
+    }
+
+    upBtn.addEventListener('click', function() { vote('up'); });
+    downBtn.addEventListener('click', function() { vote('down'); });
+  })();
+  </script>
 </body>
 </html>
