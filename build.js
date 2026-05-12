@@ -430,6 +430,13 @@ const qualityTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'quality.ht
 const qualityRegistry = {
   apps: apps.map(a => ({ id: a.id, name: a.name, appUrl: a.appUrl })),
   games: (crossRegistry.items || []).map(g => ({ id: g.id, name: g.name, appUrl: g.appUrl })),
+  // Platform fixtures — deliberately-broken control cases used to verify
+  // the auditor flags each layout-bug class correctly. Visible from the
+  // /quality dashboard but filtered out of the main store browse.
+  fixtures: [
+    { id: 'auditor-fixture', name: 'Auditor Fixture', appUrl: '/audit-fixture/', fixture: true,
+      description: 'Deliberately-broken control cases. Each scenario reproduces a known layout bug to verify the platform auditor flags it correctly.' },
+  ],
 };
 const qualityHtml = qualityTemplate.replace(
   '{{REGISTRIES_JSON}}',
@@ -543,6 +550,20 @@ if (fs.existsSync(aiSrcDir)) {
   for (const f of fs.readdirSync(aiSrcDir)) {
     if (!f.endsWith('.html')) continue;
     fs.copyFileSync(path.join(aiSrcDir, f), path.join(aiDestDir, f));
+  }
+}
+
+// Auditor fixture under /audit-fixture/. Single static page with
+// query-param-driven scenarios — see audit-fixture/index.html for the
+// scenarios + their expected audit verdicts. Hosted same-origin so the
+// /quality dashboard can iframe it without any CORS dance. Mirror of
+// the fgs storefront's deploy.
+const fixtureSrcDir = path.join(ROOT, 'audit-fixture');
+if (fs.existsSync(fixtureSrcDir)) {
+  const fixtureDestDir = path.join(DIST, 'audit-fixture');
+  fs.mkdirSync(fixtureDestDir, { recursive: true });
+  for (const f of fs.readdirSync(fixtureSrcDir)) {
+    fs.copyFileSync(path.join(fixtureSrcDir, f), path.join(fixtureDestDir, f));
   }
 }
 

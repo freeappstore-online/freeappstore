@@ -119,6 +119,9 @@ function renderSummary(store) {
   let items = [];
   if (store === 'apps' || store === 'all') items = items.concat((reg.apps || []).map(a => ({ ...a, store: 'apps' })));
   if (store === 'games' || store === 'all') items = items.concat((reg.games || []).map(a => ({ ...a, store: 'games' })));
+  // Platform fixtures are surfaced separately at the bottom — they're
+  // not real apps and shouldn't pollute the score-weighted list.
+  if (store === 'fixtures' || store === 'all') items = items.concat((reg.fixtures || []).map(a => ({ ...a, store: 'fixtures' })));
   items.sort((a, b) => a.id.localeCompare(b.id));
   if (items.length === 0) {
     list.innerHTML = '<div class="q-empty">No apps registered.</div>';
@@ -283,7 +286,10 @@ function init() {
     return;
   }
   const reg = loadRegistry();
-  const list = store === 'games' ? (reg.games || []) : (reg.apps || []);
+  const list =
+    store === 'games' ? (reg.games || [])
+    : store === 'fixtures' ? (reg.fixtures || [])
+    : (reg.apps || []);
   const entry = list.find(a => a.id === appId);
   if (!entry) {
     document.getElementById('q-summary-view').hidden = false;
