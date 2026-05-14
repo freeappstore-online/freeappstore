@@ -106,9 +106,19 @@
   "freeappstore-online/timer": {
     "meta": {
       "created_at": "2026-05-04T10:57:59Z",
-      "pushed_at": "2026-05-04T11:05:27Z"
+      "pushed_at": "2026-05-14T05:29:56Z"
     },
     "commits": [
+      {
+        "sha": "2a8b63c315cc76c9c354ebf6c802461a1d9b529b",
+        "html_url": "https://github.com/freeappstore-online/timer/commit/2a8b63c315cc76c9c354ebf6c802461a1d9b529b",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:56Z"
+          }
+        }
+      },
       {
         "sha": "375a9d8b829f1217c83bf6d3cf8b6e37eae6cbab",
         "html_url": "https://github.com/freeappstore-online/timer/commit/375a9d8b829f1217c83bf6d3cf8b6e37eae6cbab",
@@ -126,16 +136,6 @@
           "message": "Timer app — stopwatch and countdown with presets\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-04T11:02:52Z"
-          }
-        }
-      },
-      {
-        "sha": "534e47f55714a13bbdd20f89e4a25a034c515213",
-        "html_url": "https://github.com/freeappstore-online/timer/commit/534e47f55714a13bbdd20f89e4a25a034c515213",
-        "commit": {
-          "message": "Add auto-deploy workflow",
-          "author": {
-            "date": "2026-05-04T10:59:23Z"
           }
         }
       }
@@ -182,9 +182,19 @@
   "freeappstore-online/todo": {
     "meta": {
       "created_at": "2026-05-04T13:08:17Z",
-      "pushed_at": "2026-05-04T13:08:20Z"
+      "pushed_at": "2026-05-14T05:29:40Z"
     },
     "commits": [
+      {
+        "sha": "d0b84f2989b4a7d2d429bb709d9c0462010e0a10",
+        "html_url": "https://github.com/freeappstore-online/todo/commit/d0b84f2989b4a7d2d429bb709d9c0462010e0a10",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:39Z"
+          }
+        }
+      },
       {
         "sha": "6210cc1a276b6033350a75ff8f0fb618c6a66c81",
         "html_url": "https://github.com/freeappstore-online/todo/commit/6210cc1a276b6033350a75ff8f0fb618c6a66c81",
@@ -200,9 +210,19 @@
   "freeappstore-online/notes": {
     "meta": {
       "created_at": "2026-05-04T10:58:03Z",
-      "pushed_at": "2026-05-04T11:05:17Z"
+      "pushed_at": "2026-05-14T05:29:49Z"
     },
     "commits": [
+      {
+        "sha": "cec03b61aa8bfea927f12cdc4a59df5546684ca9",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/cec03b61aa8bfea927f12cdc4a59df5546684ca9",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:49Z"
+          }
+        }
+      },
       {
         "sha": "88d23f61fc4465cc5d0039d57f2c4a1495adc78e",
         "html_url": "https://github.com/freeappstore-online/notes/commit/88d23f61fc4465cc5d0039d57f2c4a1495adc78e",
@@ -220,16 +240,6 @@
           "message": "Notes app — create, edit, search notes in localStorage\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-04T11:02:25Z"
-          }
-        }
-      },
-      {
-        "sha": "95297249550e5eeba68fcd702080a82d2723e8c1",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/95297249550e5eeba68fcd702080a82d2723e8c1",
-        "commit": {
-          "message": "Add auto-deploy workflow",
-          "author": {
-            "date": "2026-05-04T10:59:24Z"
           }
         }
       }
@@ -314,9 +324,19 @@
   "freeappstore-online/converter": {
     "meta": {
       "created_at": "2026-05-04T10:58:01Z",
-      "pushed_at": "2026-05-04T11:05:06Z"
+      "pushed_at": "2026-05-14T05:29:44Z"
     },
     "commits": [
+      {
+        "sha": "0cf87233f17373a0878a914466c3304a5fb313fb",
+        "html_url": "https://github.com/freeappstore-online/converter/commit/0cf87233f17373a0878a914466c3304a5fb313fb",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:44Z"
+          }
+        }
+      },
       {
         "sha": "55c29ed6f007c97d1c0b3fc2667f4d2f58dbdee3",
         "html_url": "https://github.com/freeappstore-online/converter/commit/55c29ed6f007c97d1c0b3fc2667f4d2f58dbdee3",
@@ -336,25 +356,25 @@
             "date": "2026-05-04T11:02:15Z"
           }
         }
-      },
-      {
-        "sha": "2f8c82925432566632a323742524a10d8a9a1cd4",
-        "html_url": "https://github.com/freeappstore-online/converter/commit/2f8c82925432566632a323742524a10d8a9a1cd4",
-        "commit": {
-          "message": "Add auto-deploy workflow",
-          "author": {
-            "date": "2026-05-04T10:59:23Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/qrcode": {
     "meta": {
       "created_at": "2026-05-04T10:58:07Z",
-      "pushed_at": "2026-05-04T11:05:24Z"
+      "pushed_at": "2026-05-14T05:29:54Z"
     },
     "commits": [
+      {
+        "sha": "e2fa8eabd14a52b56bb713a9ad2a5dd54bb1dadb",
+        "html_url": "https://github.com/freeappstore-online/qrcode/commit/e2fa8eabd14a52b56bb713a9ad2a5dd54bb1dadb",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:54Z"
+          }
+        }
+      },
       {
         "sha": "19917fa1dcd7a6583e8e71b7ab00f4b209494143",
         "html_url": "https://github.com/freeappstore-online/qrcode/commit/19917fa1dcd7a6583e8e71b7ab00f4b209494143",
@@ -372,16 +392,6 @@
           "message": "QR Code app — generate, customize, download QR codes\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-04T11:03:00Z"
-          }
-        }
-      },
-      {
-        "sha": "85dfc62ba14415c7aa077e0613a5d08481915c41",
-        "html_url": "https://github.com/freeappstore-online/qrcode/commit/85dfc62ba14415c7aa077e0613a5d08481915c41",
-        "commit": {
-          "message": "Add auto-deploy workflow",
-          "author": {
-            "date": "2026-05-04T10:59:24Z"
           }
         }
       }
@@ -428,9 +438,19 @@
   "freeappstore-online/habits": {
     "meta": {
       "created_at": "2026-05-04T10:58:17Z",
-      "pushed_at": "2026-05-04T11:05:11Z"
+      "pushed_at": "2026-05-14T05:29:48Z"
     },
     "commits": [
+      {
+        "sha": "fe9cf892ded99281f7e809faad3f9ed149d02538",
+        "html_url": "https://github.com/freeappstore-online/habits/commit/fe9cf892ded99281f7e809faad3f9ed149d02538",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:48Z"
+          }
+        }
+      },
       {
         "sha": "36313e16533165d76e2d46d77afb96e4e8466018",
         "html_url": "https://github.com/freeappstore-online/habits/commit/36313e16533165d76e2d46d77afb96e4e8466018",
@@ -450,25 +470,25 @@
             "date": "2026-05-04T11:03:26Z"
           }
         }
-      },
-      {
-        "sha": "a847fa740de452fd196de896c3a4808bf2f777c1",
-        "html_url": "https://github.com/freeappstore-online/habits/commit/a847fa740de452fd196de896c3a4808bf2f777c1",
-        "commit": {
-          "message": "Add auto-deploy workflow",
-          "author": {
-            "date": "2026-05-04T10:59:24Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/colorpicker": {
     "meta": {
       "created_at": "2026-05-04T10:58:10Z",
-      "pushed_at": "2026-05-04T11:05:04Z"
+      "pushed_at": "2026-05-14T05:29:42Z"
     },
     "commits": [
+      {
+        "sha": "8d4ef7dc33f8e9b2070b9cf6fa34f09f3cbf9ed9",
+        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/8d4ef7dc33f8e9b2070b9cf6fa34f09f3cbf9ed9",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:42Z"
+          }
+        }
+      },
       {
         "sha": "614255639fcc99f0bfb45c56e569c3459169056d",
         "html_url": "https://github.com/freeappstore-online/colorpicker/commit/614255639fcc99f0bfb45c56e569c3459169056d",
@@ -486,16 +506,6 @@
           "message": "Color Picker app — pick colors, copy HEX/RGB/HSL, save palette\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-04T11:03:19Z"
-          }
-        }
-      },
-      {
-        "sha": "efa4c72fc0553fa8f79aa951bdab90a3852aa6de",
-        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/efa4c72fc0553fa8f79aa951bdab90a3852aa6de",
-        "commit": {
-          "message": "Add auto-deploy workflow",
-          "author": {
-            "date": "2026-05-04T10:59:24Z"
           }
         }
       }
@@ -542,9 +552,19 @@
   "freeappstore-online/flashcards": {
     "meta": {
       "created_at": "2026-05-04T10:58:15Z",
-      "pushed_at": "2026-05-04T11:05:08Z"
+      "pushed_at": "2026-05-14T05:29:47Z"
     },
     "commits": [
+      {
+        "sha": "0c7c0e1c2b4a618ef45adf8989f487b1e8b7ec59",
+        "html_url": "https://github.com/freeappstore-online/flashcards/commit/0c7c0e1c2b4a618ef45adf8989f487b1e8b7ec59",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:47Z"
+          }
+        }
+      },
       {
         "sha": "7de4f4ef0b9a7e806368e6a71ca79992b04f6bda",
         "html_url": "https://github.com/freeappstore-online/flashcards/commit/7de4f4ef0b9a7e806368e6a71ca79992b04f6bda",
@@ -564,25 +584,25 @@
             "date": "2026-05-04T11:03:50Z"
           }
         }
-      },
-      {
-        "sha": "c415de456fb6b22b3037159646642d0b1f3f0e5b",
-        "html_url": "https://github.com/freeappstore-online/flashcards/commit/c415de456fb6b22b3037159646642d0b1f3f0e5b",
-        "commit": {
-          "message": "Add auto-deploy workflow",
-          "author": {
-            "date": "2026-05-04T10:59:24Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-04T11:05:31Z"
+      "pushed_at": "2026-05-14T05:30:00Z"
     },
     "commits": [
+      {
+        "sha": "c34c5e70df5c6bd94d4b74533eec164d605fefe4",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/c34c5e70df5c6bd94d4b74533eec164d605fefe4",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:30:00Z"
+          }
+        }
+      },
       {
         "sha": "513315608d761d9cd9e9182e2a0896c1feaef899",
         "html_url": "https://github.com/freeappstore-online/whiteboard/commit/513315608d761d9cd9e9182e2a0896c1feaef899",
@@ -608,9 +628,19 @@
   "freeappstore-online/password": {
     "meta": {
       "created_at": "2026-05-04T10:58:11Z",
-      "pushed_at": "2026-05-04T11:05:20Z"
+      "pushed_at": "2026-05-14T05:29:51Z"
     },
     "commits": [
+      {
+        "sha": "c44d81fcdb8462de41a01bfadc72405d055b0d1d",
+        "html_url": "https://github.com/freeappstore-online/password/commit/c44d81fcdb8462de41a01bfadc72405d055b0d1d",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:51Z"
+          }
+        }
+      },
       {
         "sha": "f96904ce2a20b9c114dbfb7bda218a23e8f4516e",
         "html_url": "https://github.com/freeappstore-online/password/commit/f96904ce2a20b9c114dbfb7bda218a23e8f4516e",
@@ -630,25 +660,25 @@
             "date": "2026-05-04T11:02:44Z"
           }
         }
-      },
-      {
-        "sha": "6b79e4853eba0ae150203dfbe1e62b4164e52f69",
-        "html_url": "https://github.com/freeappstore-online/password/commit/6b79e4853eba0ae150203dfbe1e62b4164e52f69",
-        "commit": {
-          "message": "Add auto-deploy workflow",
-          "author": {
-            "date": "2026-05-04T10:59:24Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/tip": {
     "meta": {
       "created_at": "2026-05-06T01:00:51Z",
-      "pushed_at": "2026-05-06T01:01:20Z"
+      "pushed_at": "2026-05-14T05:29:57Z"
     },
     "commits": [
+      {
+        "sha": "8dd42aff190229472400b3cdefd0050aca1bf62b",
+        "html_url": "https://github.com/freeappstore-online/tip/commit/8dd42aff190229472400b3cdefd0050aca1bf62b",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:57Z"
+          }
+        }
+      },
       {
         "sha": "cc7e6997d03027d375d0589d9635f6c0c107bc80",
         "html_url": "https://github.com/freeappstore-online/tip/commit/cc7e6997d03027d375d0589d9635f6c0c107bc80",
@@ -664,9 +694,19 @@
   "freeappstore-online/weather": {
     "meta": {
       "created_at": "2026-05-04T10:58:19Z",
-      "pushed_at": "2026-05-04T11:05:29Z"
+      "pushed_at": "2026-05-14T05:29:59Z"
     },
     "commits": [
+      {
+        "sha": "6006e05ac38dfd4beff1242832aee2c950c49dd9",
+        "html_url": "https://github.com/freeappstore-online/weather/commit/6006e05ac38dfd4beff1242832aee2c950c49dd9",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:58Z"
+          }
+        }
+      },
       {
         "sha": "0b340429d29ca49ac7e4316c1ad9cda6a16e7b1c",
         "html_url": "https://github.com/freeappstore-online/weather/commit/0b340429d29ca49ac7e4316c1ad9cda6a16e7b1c",
@@ -686,25 +726,25 @@
             "date": "2026-05-04T11:03:24Z"
           }
         }
-      },
-      {
-        "sha": "45a38a56ca6777e8b2e46cf2b453949335f34d1f",
-        "html_url": "https://github.com/freeappstore-online/weather/commit/45a38a56ca6777e8b2e46cf2b453949335f34d1f",
-        "commit": {
-          "message": "Add auto-deploy workflow",
-          "author": {
-            "date": "2026-05-04T10:59:24Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/pomodoro": {
     "meta": {
       "created_at": "2026-05-04T10:58:05Z",
-      "pushed_at": "2026-05-04T11:05:22Z"
+      "pushed_at": "2026-05-14T05:29:53Z"
     },
     "commits": [
+      {
+        "sha": "4f07f9a8da19a57e3048ac9cb9f7cc842308d01c",
+        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/4f07f9a8da19a57e3048ac9cb9f7cc842308d01c",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:53Z"
+          }
+        }
+      },
       {
         "sha": "660cec94b78f2c3a8a9ec713223c396df15e717b",
         "html_url": "https://github.com/freeappstore-online/pomodoro/commit/660cec94b78f2c3a8a9ec713223c396df15e717b",
@@ -730,9 +770,19 @@
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-05-14T05:01:01Z"
+      "pushed_at": "2026-05-14T05:30:45Z"
     },
     "commits": [
+      {
+        "sha": "528ed4977325562d855f95265b61d02e2e4cd34a",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/528ed4977325562d855f95265b61d02e2e4cd34a",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:30:45Z"
+          }
+        }
+      },
       {
         "sha": "00bb8183217bbb5982a9fda877d44a539deeb658",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/00bb8183217bbb5982a9fda877d44a539deeb658",
@@ -752,25 +802,25 @@
             "date": "2026-05-14T04:37:46Z"
           }
         }
-      },
-      {
-        "sha": "15c850314c0255fd331b935fb7da3834a841a933",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/15c850314c0255fd331b935fb7da3834a841a933",
-        "commit": {
-          "message": "Add keyboard shortcuts: Space / L / R",
-          "author": {
-            "date": "2026-05-06T03:17:36Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/calculator": {
     "meta": {
       "created_at": "2026-05-04T05:30:50Z",
-      "pushed_at": "2026-05-04T11:05:01Z"
+      "pushed_at": "2026-05-14T05:29:41Z"
     },
     "commits": [
+      {
+        "sha": "f76d5a9f0426bf03af06dcb6edfc0fff70dbd715",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/f76d5a9f0426bf03af06dcb6edfc0fff70dbd715",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:41Z"
+          }
+        }
+      },
       {
         "sha": "fa0880132de149ebbaaf0ab68cc0955c49f9350d",
         "html_url": "https://github.com/freeappstore-online/calculator/commit/fa0880132de149ebbaaf0ab68cc0955c49f9350d",
@@ -790,25 +840,25 @@
             "date": "2026-05-04T05:53:46Z"
           }
         }
-      },
-      {
-        "sha": "9b575963b16da279f76c9b0551d4f286020e5e1a",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/9b575963b16da279f76c9b0551d4f286020e5e1a",
-        "commit": {
-          "message": "Fix font loading: add Google Fonts link to HTML",
-          "author": {
-            "date": "2026-05-04T05:48:18Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/counter": {
     "meta": {
       "created_at": "2026-05-06T00:20:38Z",
-      "pushed_at": "2026-05-06T00:20:41Z"
+      "pushed_at": "2026-05-14T05:29:45Z"
     },
     "commits": [
+      {
+        "sha": "f87bf0e01dea722388486795e3ae3d4c782cc45f",
+        "html_url": "https://github.com/freeappstore-online/counter/commit/f87bf0e01dea722388486795e3ae3d4c782cc45f",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:29:45Z"
+          }
+        }
+      },
       {
         "sha": "2960963c0c994187ff478666f48504b0514980d2",
         "html_url": "https://github.com/freeappstore-online/counter/commit/2960963c0c994187ff478666f48504b0514980d2",
@@ -842,9 +892,19 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-14T05:00:58Z"
+      "pushed_at": "2026-05-14T05:30:43Z"
     },
     "commits": [
+      {
+        "sha": "3c5057eb553f83d9d089b1ec9d3569262f5a7842",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/3c5057eb553f83d9d089b1ec9d3569262f5a7842",
+        "commit": {
+          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
+          "author": {
+            "date": "2026-05-14T05:30:43Z"
+          }
+        }
+      },
       {
         "sha": "3ff2a9a353407a9f995ec06eeaec0e775954324c",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/3ff2a9a353407a9f995ec06eeaec0e775954324c",
@@ -862,16 +922,6 @@
           "message": "docs: point SKILLS.md links at the public storefront copy\n\nThe previous URL pointed at freeappstore-online/ops, a private repo whose\nraw URLs 404 for non-org-members (two contributors hit this). The file is\nnow mirrored at freeappstore-online/freeappstore/SKILLS.md (public).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-14T04:37:40Z"
-          }
-        }
-      },
-      {
-        "sha": "24f7c2434f09d1fdaf60614e5c62238e909f86ad",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/24f7c2434f09d1fdaf60614e5c62238e909f86ad",
-        "commit": {
-          "message": "Fullscreen: request inside the click gesture; sync with OS fullscreen\n\nTwo bugs in the practice fullscreen mode:\n\n1. requestFullscreen was called from FullscreenView's mount-effect,\n   which runs AFTER the click handler returns. iOS Safari and\n   strict desktop browsers require the request to fire inside an\n   active user gesture, so the request was silently rejected and\n   the device chrome / notch stayed visible. Moving the call into\n   the trigger button's onClick fixes this.\n\n2. If the user pressed Esc / F11 / swiped down to leave OS\n   fullscreen, our modal stayed open with no chrome cue to exit.\n   Now listening for fullscreenchange so the modal closes in sync.",
-          "author": {
-            "date": "2026-05-06T05:19:28Z"
           }
         }
       }
