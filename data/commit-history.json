@@ -730,9 +730,19 @@
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-05-14T04:37:49Z"
+      "pushed_at": "2026-05-14T05:01:01Z"
     },
     "commits": [
+      {
+        "sha": "00bb8183217bbb5982a9fda877d44a539deeb658",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/00bb8183217bbb5982a9fda877d44a539deeb658",
+        "commit": {
+          "message": "docs(CLAUDE): drop stale platform/ + infra/ path segments\n\nThese paths never existed for external contributors and the auditor\nrepo is private. AI agents reading this CLAUDE.md were being told to\nlook in directories that don't resolve. Aligned with the post-sweep\nflat layout described in the public SKILLS.md.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-14T05:00:59Z"
+          }
+        }
+      },
       {
         "sha": "4e694717ecc29f4aab82343a4f914ea49530c0d5",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/4e694717ecc29f4aab82343a4f914ea49530c0d5",
@@ -750,16 +760,6 @@
           "message": "Add keyboard shortcuts: Space / L / R",
           "author": {
             "date": "2026-05-06T03:17:36Z"
-          }
-        }
-      },
-      {
-        "sha": "b5d4fd4ea3eb326c85105531c4116bfaa20de486",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/b5d4fd4ea3eb326c85105531c4116bfaa20de486",
-        "commit": {
-          "message": "Stopwatch v1: start/stop, lap splits, persistent history",
-          "author": {
-            "date": "2026-05-06T03:11:18Z"
           }
         }
       }
@@ -842,9 +842,19 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-14T04:37:43Z"
+      "pushed_at": "2026-05-14T05:00:58Z"
     },
     "commits": [
+      {
+        "sha": "3ff2a9a353407a9f995ec06eeaec0e775954324c",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/3ff2a9a353407a9f995ec06eeaec0e775954324c",
+        "commit": {
+          "message": "docs(CLAUDE): drop stale platform/ + infra/ path segments\n\nThese paths never existed for external contributors and the auditor\nrepo is private. AI agents reading this CLAUDE.md were being told to\nlook in directories that don't resolve. Aligned with the post-sweep\nflat layout described in the public SKILLS.md.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-14T05:00:56Z"
+          }
+        }
+      },
       {
         "sha": "2b20ea4a747eaf0be844a6788339b64851773906",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/2b20ea4a747eaf0be844a6788339b64851773906",
@@ -862,16 +872,6 @@
           "message": "Fullscreen: request inside the click gesture; sync with OS fullscreen\n\nTwo bugs in the practice fullscreen mode:\n\n1. requestFullscreen was called from FullscreenView's mount-effect,\n   which runs AFTER the click handler returns. iOS Safari and\n   strict desktop browsers require the request to fire inside an\n   active user gesture, so the request was silently rejected and\n   the device chrome / notch stayed visible. Moving the call into\n   the trigger button's onClick fixes this.\n\n2. If the user pressed Esc / F11 / swiped down to leave OS\n   fullscreen, our modal stayed open with no chrome cue to exit.\n   Now listening for fullscreenchange so the modal closes in sync.",
           "author": {
             "date": "2026-05-06T05:19:28Z"
-          }
-        }
-      },
-      {
-        "sha": "36c3f77ea8adbcb357c2e1c36edadea339fce914",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/36c3f77ea8adbcb357c2e1c36edadea339fce914",
-        "commit": {
-          "message": "Practice fullscreen: big text, tap halves to navigate\n\nAdds a fullscreen presentation mode in Practice view so people can\nhand the phone to whoever they're talking with and step through\nphrases at meetup speed.\n\n- \"⛶ Full screen\" button enters a viewport-covering modal with the\n  current phrase rendered at clamp(2rem, 9vw, 5rem) — readable from\n  arm's length across a table.\n- Left half of the screen is a transparent tap-zone for previous;\n  right half is next. No tiny buttons to fumble for.\n- Keyboard: ← / → to navigate, Esc to exit.\n- Engages the browser's real fullscreen API where available so the\n  notch / browser chrome get out of the way; falls back gracefully\n  when the API is denied.\n- Pronunciation + native meaning still visible underneath the\n  target text in case the speaker needs a quick prompt.",
-          "author": {
-            "date": "2026-05-06T04:40:08Z"
           }
         }
       }
