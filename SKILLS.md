@@ -9,6 +9,41 @@ See https://raw.githubusercontent.com/freeappstore-online/freeappstore/main/SKIL
 
 ---
 
+## Per-repo CLAUDE.md convention
+
+Every app/game/template repo on the platform ships its own `CLAUDE.md`. **Keep it minimal — only what's unique to that repo.** Anything in this SKILLS.md (tech stack, brand, deploy flow, mobile-first rules, publish flow, paths) does *not* belong in a per-repo CLAUDE.md, because copies drift out of sync with the platform and produce subtly-wrong instructions for AI agents.
+
+Use this slim template:
+
+````markdown
+# <name>
+
+<one-line description of what this app/game does>
+
+- Subdomain: `<name>.freeappstore.online`   <!-- or .freegamestore.online -->
+- Dev:    `pnpm install && pnpm dev`
+- Build:  `pnpm build`
+- Deploy: `git push origin main` (auto-deploys via Cloudflare Pages)
+
+Free, MIT-licensed, no tracking. For platform conventions, read
+https://raw.githubusercontent.com/freeappstore-online/freeappstore/main/SKILLS.md
+before writing or changing anything.
+````
+
+If your repo has setup steps, architecture notes, or rules that *don't* apply platform-wide (a specific OAuth flow, an unusual toolchain, an architecture diagram), add them as additional sections **below** the slim block. Those are genuinely repo-local and belong there.
+
+What does *not* belong in a per-repo CLAUDE.md:
+
+- Tech stack list (it's here, in SKILLS.md, and changes platform-wide)
+- Brand guidelines (here)
+- Deploy mechanism details beyond "push to main" (here)
+- Mobile-first / viewport rules (here, with the auditor section)
+- Storefront paths or registry locations (here)
+
+Drift is the failure mode. If we ever update the platform conventions, only this file should need editing — never 80 per-repo copies.
+
+---
+
 ## Creator Program
 
 People join as creators to build apps/games. The flow:
