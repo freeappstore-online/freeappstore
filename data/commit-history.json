@@ -2,9 +2,19 @@
   "freeappstore-online/language": {
     "meta": {
       "created_at": "2026-05-03T02:32:50Z",
-      "pushed_at": "2026-05-04T05:29:35Z"
+      "pushed_at": "2026-05-14T11:06:48Z"
     },
     "commits": [
+      {
+        "sha": "f49de0209033f3c6cf11cb536c036c97ca952748",
+        "html_url": "https://github.com/freeappstore-online/language/commit/f49de0209033f3c6cf11cb536c036c97ca952748",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:48Z"
+          }
+        }
+      },
       {
         "sha": "eb759d0845037f6659a62145693a9f68b792c586",
         "html_url": "https://github.com/freeappstore-online/language/commit/eb759d0845037f6659a62145693a9f68b792c586",
@@ -24,25 +34,25 @@
             "date": "2026-05-04T05:26:44Z"
           }
         }
-      },
-      {
-        "sha": "769b5c25e46a4eda1f6f54f850fe2d5248a19080",
-        "html_url": "https://github.com/freeappstore-online/language/commit/769b5c25e46a4eda1f6f54f850fe2d5248a19080",
-        "commit": {
-          "message": "Update compliance workflow",
-          "author": {
-            "date": "2026-05-04T05:11:09Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/quiz": {
     "meta": {
       "created_at": "2026-05-03T02:32:57Z",
-      "pushed_at": "2026-05-04T05:29:43Z"
+      "pushed_at": "2026-05-14T11:06:48Z"
     },
     "commits": [
+      {
+        "sha": "f63ac25ff3b893ffcd0779db5dedda224669f2fb",
+        "html_url": "https://github.com/freeappstore-online/quiz/commit/f63ac25ff3b893ffcd0779db5dedda224669f2fb",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:48Z"
+          }
+        }
+      },
       {
         "sha": "dc994d47ee5cebd6a2eb2177eb01fe724f2134e9",
         "html_url": "https://github.com/freeappstore-online/quiz/commit/dc994d47ee5cebd6a2eb2177eb01fe724f2134e9",
@@ -62,25 +72,25 @@
             "date": "2026-05-04T05:26:52Z"
           }
         }
-      },
-      {
-        "sha": "9ecf12cb976a41f2206d22ba5faf89b54ba9e81a",
-        "html_url": "https://github.com/freeappstore-online/quiz/commit/9ecf12cb976a41f2206d22ba5faf89b54ba9e81a",
-        "commit": {
-          "message": "Update compliance workflow",
-          "author": {
-            "date": "2026-05-04T05:11:15Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/chessclock": {
     "meta": {
       "created_at": "2026-05-04T10:01:30Z",
-      "pushed_at": "2026-05-04T10:02:41Z"
+      "pushed_at": "2026-05-14T11:06:47Z"
     },
     "commits": [
+      {
+        "sha": "f2fb78212defb65e22ccf47c027f18f066cb1c89",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/f2fb78212defb65e22ccf47c027f18f066cb1c89",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:46Z"
+          }
+        }
+      },
       {
         "sha": "34053aeb36927f6b7b3501a1215ea5725b4ab3e4",
         "html_url": "https://github.com/freeappstore-online/chessclock/commit/34053aeb36927f6b7b3501a1215ea5725b4ab3e4",
@@ -106,9 +116,19 @@
   "freeappstore-online/timer": {
     "meta": {
       "created_at": "2026-05-04T10:57:59Z",
-      "pushed_at": "2026-05-14T05:29:56Z"
+      "pushed_at": "2026-05-14T11:06:21Z"
     },
     "commits": [
+      {
+        "sha": "0320521f7541193923e6862fcfe6997d034037ad",
+        "html_url": "https://github.com/freeappstore-online/timer/commit/0320521f7541193923e6862fcfe6997d034037ad",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:21Z"
+          }
+        }
+      },
       {
         "sha": "2a8b63c315cc76c9c354ebf6c802461a1d9b529b",
         "html_url": "https://github.com/freeappstore-online/timer/commit/2a8b63c315cc76c9c354ebf6c802461a1d9b529b",
@@ -128,25 +148,25 @@
             "date": "2026-05-04T11:05:25Z"
           }
         }
-      },
-      {
-        "sha": "2db2e95b0df347dd6da0f85c734605d64e15b61d",
-        "html_url": "https://github.com/freeappstore-online/timer/commit/2db2e95b0df347dd6da0f85c734605d64e15b61d",
-        "commit": {
-          "message": "Timer app — stopwatch and countdown with presets\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T11:02:52Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/books": {
     "meta": {
       "created_at": "2026-05-04T00:16:25Z",
-      "pushed_at": "2026-05-04T05:29:45Z"
+      "pushed_at": "2026-05-14T11:06:47Z"
     },
     "commits": [
+      {
+        "sha": "0db73a6e7b9f5f448bf65bf8bb2ddac80181e9ca",
+        "html_url": "https://github.com/freeappstore-online/books/commit/0db73a6e7b9f5f448bf65bf8bb2ddac80181e9ca",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:47Z"
+          }
+        }
+      },
       {
         "sha": "746bbdec812423f6c992117f0e0c11d15fd7aadf",
         "html_url": "https://github.com/freeappstore-online/books/commit/746bbdec812423f6c992117f0e0c11d15fd7aadf",
@@ -166,25 +186,25 @@
             "date": "2026-05-04T05:26:54Z"
           }
         }
-      },
-      {
-        "sha": "a1c2479e5a54eaacc50a4dc6d1bc14a5ea561ea3",
-        "html_url": "https://github.com/freeappstore-online/books/commit/a1c2479e5a54eaacc50a4dc6d1bc14a5ea561ea3",
-        "commit": {
-          "message": "Add color-scheme declaration for compliance",
-          "author": {
-            "date": "2026-05-04T05:13:50Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/todo": {
     "meta": {
       "created_at": "2026-05-04T13:08:17Z",
-      "pushed_at": "2026-05-14T05:29:40Z"
+      "pushed_at": "2026-05-14T11:06:41Z"
     },
     "commits": [
+      {
+        "sha": "564bdce40ee2ced01bcaa816d6dc5a1cde4ca355",
+        "html_url": "https://github.com/freeappstore-online/todo/commit/564bdce40ee2ced01bcaa816d6dc5a1cde4ca355",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:40Z"
+          }
+        }
+      },
       {
         "sha": "d0b84f2989b4a7d2d429bb709d9c0462010e0a10",
         "html_url": "https://github.com/freeappstore-online/todo/commit/d0b84f2989b4a7d2d429bb709d9c0462010e0a10",
@@ -210,9 +230,19 @@
   "freeappstore-online/notes": {
     "meta": {
       "created_at": "2026-05-04T10:58:03Z",
-      "pushed_at": "2026-05-14T05:29:49Z"
+      "pushed_at": "2026-05-14T11:06:39Z"
     },
     "commits": [
+      {
+        "sha": "5b8b99cd855035dd2ad5c180abe41195f76cca09",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/5b8b99cd855035dd2ad5c180abe41195f76cca09",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:39Z"
+          }
+        }
+      },
       {
         "sha": "cec03b61aa8bfea927f12cdc4a59df5546684ca9",
         "html_url": "https://github.com/freeappstore-online/notes/commit/cec03b61aa8bfea927f12cdc4a59df5546684ca9",
@@ -232,25 +262,25 @@
             "date": "2026-05-04T11:05:16Z"
           }
         }
-      },
-      {
-        "sha": "f126cd3988bf58752b84027dd186863826547ff4",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/f126cd3988bf58752b84027dd186863826547ff4",
-        "commit": {
-          "message": "Notes app — create, edit, search notes in localStorage\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T11:02:25Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/math": {
     "meta": {
       "created_at": "2026-05-03T02:32:52Z",
-      "pushed_at": "2026-05-04T05:29:37Z"
+      "pushed_at": "2026-05-14T11:06:48Z"
     },
     "commits": [
+      {
+        "sha": "9e76ce9055f14959343c4bc50563b892e46fd643",
+        "html_url": "https://github.com/freeappstore-online/math/commit/9e76ce9055f14959343c4bc50563b892e46fd643",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:48Z"
+          }
+        }
+      },
       {
         "sha": "abab9597f907f3ddd481f070a66f853125589db7",
         "html_url": "https://github.com/freeappstore-online/math/commit/abab9597f907f3ddd481f070a66f853125589db7",
@@ -270,25 +300,25 @@
             "date": "2026-05-04T05:26:46Z"
           }
         }
-      },
-      {
-        "sha": "f3f4dbfdbba5f0114fd6fd59c264efa3fe18df1c",
-        "html_url": "https://github.com/freeappstore-online/math/commit/f3f4dbfdbba5f0114fd6fd59c264efa3fe18df1c",
-        "commit": {
-          "message": "Update compliance workflow",
-          "author": {
-            "date": "2026-05-04T05:11:11Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/bandmates": {
     "meta": {
       "created_at": "2026-05-04T01:43:04Z",
-      "pushed_at": "2026-05-04T05:29:49Z"
+      "pushed_at": "2026-05-14T11:06:47Z"
     },
     "commits": [
+      {
+        "sha": "bd492380305c07c92de8e328b2b8b65d1bc8d46a",
+        "html_url": "https://github.com/freeappstore-online/bandmates/commit/bd492380305c07c92de8e328b2b8b65d1bc8d46a",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:46Z"
+          }
+        }
+      },
       {
         "sha": "9264337a7424bebd828ef68e7399354e7919fa7a",
         "html_url": "https://github.com/freeappstore-online/bandmates/commit/9264337a7424bebd828ef68e7399354e7919fa7a",
@@ -308,25 +338,25 @@
             "date": "2026-05-04T05:26:58Z"
           }
         }
-      },
-      {
-        "sha": "02b6977585942d960de4a0710f1c4cecac815134",
-        "html_url": "https://github.com/freeappstore-online/bandmates/commit/02b6977585942d960de4a0710f1c4cecac815134",
-        "commit": {
-          "message": "Update compliance workflow",
-          "author": {
-            "date": "2026-05-04T05:11:17Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/converter": {
     "meta": {
       "created_at": "2026-05-04T10:58:01Z",
-      "pushed_at": "2026-05-14T05:29:44Z"
+      "pushed_at": "2026-05-14T11:06:41Z"
     },
     "commits": [
+      {
+        "sha": "0b6feef2dfa5006ce9eafd0506c3d70f0ac558fa",
+        "html_url": "https://github.com/freeappstore-online/converter/commit/0b6feef2dfa5006ce9eafd0506c3d70f0ac558fa",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:41Z"
+          }
+        }
+      },
       {
         "sha": "0cf87233f17373a0878a914466c3304a5fb313fb",
         "html_url": "https://github.com/freeappstore-online/converter/commit/0cf87233f17373a0878a914466c3304a5fb313fb",
@@ -346,25 +376,25 @@
             "date": "2026-05-04T11:05:04Z"
           }
         }
-      },
-      {
-        "sha": "7488c65d7c2844d70c313c6289af57bc90a3c9d0",
-        "html_url": "https://github.com/freeappstore-online/converter/commit/7488c65d7c2844d70c313c6289af57bc90a3c9d0",
-        "commit": {
-          "message": "Converter app — length, weight, temp, volume, speed\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T11:02:15Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/qrcode": {
     "meta": {
       "created_at": "2026-05-04T10:58:07Z",
-      "pushed_at": "2026-05-14T05:29:54Z"
+      "pushed_at": "2026-05-14T11:06:36Z"
     },
     "commits": [
+      {
+        "sha": "63f2e289d4b74c52e1779c52de167077d3eca012",
+        "html_url": "https://github.com/freeappstore-online/qrcode/commit/63f2e289d4b74c52e1779c52de167077d3eca012",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:36Z"
+          }
+        }
+      },
       {
         "sha": "e2fa8eabd14a52b56bb713a9ad2a5dd54bb1dadb",
         "html_url": "https://github.com/freeappstore-online/qrcode/commit/e2fa8eabd14a52b56bb713a9ad2a5dd54bb1dadb",
@@ -384,25 +414,25 @@
             "date": "2026-05-04T11:05:22Z"
           }
         }
-      },
-      {
-        "sha": "849bad4cc632058fc8cacf4bed8168088cc18d28",
-        "html_url": "https://github.com/freeappstore-online/qrcode/commit/849bad4cc632058fc8cacf4bed8168088cc18d28",
-        "commit": {
-          "message": "QR Code app — generate, customize, download QR codes\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T11:03:00Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/meetup": {
     "meta": {
       "created_at": "2026-05-04T01:43:06Z",
-      "pushed_at": "2026-05-04T09:52:41Z"
+      "pushed_at": "2026-05-14T11:06:46Z"
     },
     "commits": [
+      {
+        "sha": "4e8ef13498ea55fa7c8978c8d7f12c2c2393119c",
+        "html_url": "https://github.com/freeappstore-online/meetup/commit/4e8ef13498ea55fa7c8978c8d7f12c2c2393119c",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:46Z"
+          }
+        }
+      },
       {
         "sha": "02ab496a302f16e0e2dd5452c334e3edfa3de932",
         "html_url": "https://github.com/freeappstore-online/meetup/commit/02ab496a302f16e0e2dd5452c334e3edfa3de932",
@@ -422,25 +452,25 @@
             "date": "2026-05-04T09:13:49Z"
           }
         }
-      },
-      {
-        "sha": "176be3e60ef952f2b1c123a78dd237d222595607",
-        "html_url": "https://github.com/freeappstore-online/meetup/commit/176be3e60ef952f2b1c123a78dd237d222595607",
-        "commit": {
-          "message": "Switch meetup from Firebase to FreeAppStore platform API\n\nUses @freeappstore/sdk to talk to api.freeappstore.online (CF Workers + D1).\nFirebase completely removed — bundle dropped from 622KB to 428KB.\nEvents now served from D1 with local seed data as fallback.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T08:51:15Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/habits": {
     "meta": {
       "created_at": "2026-05-04T10:58:17Z",
-      "pushed_at": "2026-05-14T05:29:48Z"
+      "pushed_at": "2026-05-14T11:06:41Z"
     },
     "commits": [
+      {
+        "sha": "2267053b128b1c9ba9033cb627403696cc29701f",
+        "html_url": "https://github.com/freeappstore-online/habits/commit/2267053b128b1c9ba9033cb627403696cc29701f",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:41Z"
+          }
+        }
+      },
       {
         "sha": "fe9cf892ded99281f7e809faad3f9ed149d02538",
         "html_url": "https://github.com/freeappstore-online/habits/commit/fe9cf892ded99281f7e809faad3f9ed149d02538",
@@ -460,25 +490,25 @@
             "date": "2026-05-04T11:05:08Z"
           }
         }
-      },
-      {
-        "sha": "dd3e1e6c65d388da3d624901a3f552aeca46a1f2",
-        "html_url": "https://github.com/freeappstore-online/habits/commit/dd3e1e6c65d388da3d624901a3f552aeca46a1f2",
-        "commit": {
-          "message": "Habits app — daily tracker with streaks and calendar heatmap\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T11:03:26Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/colorpicker": {
     "meta": {
       "created_at": "2026-05-04T10:58:10Z",
-      "pushed_at": "2026-05-14T05:29:42Z"
+      "pushed_at": "2026-05-14T11:06:41Z"
     },
     "commits": [
+      {
+        "sha": "5cce6850b8bd2318f0b507c0b77d49e4a7419af2",
+        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/5cce6850b8bd2318f0b507c0b77d49e4a7419af2",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:41Z"
+          }
+        }
+      },
       {
         "sha": "8d4ef7dc33f8e9b2070b9cf6fa34f09f3cbf9ed9",
         "html_url": "https://github.com/freeappstore-online/colorpicker/commit/8d4ef7dc33f8e9b2070b9cf6fa34f09f3cbf9ed9",
@@ -498,25 +528,25 @@
             "date": "2026-05-04T11:05:02Z"
           }
         }
-      },
-      {
-        "sha": "8821100cf2d9d5bca8220d095083ee3483df4e75",
-        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/8821100cf2d9d5bca8220d095083ee3483df4e75",
-        "commit": {
-          "message": "Color Picker app — pick colors, copy HEX/RGB/HSL, save palette\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T11:03:19Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/music": {
     "meta": {
       "created_at": "2026-05-03T02:32:53Z",
-      "pushed_at": "2026-05-04T06:35:46Z"
+      "pushed_at": "2026-05-14T11:06:45Z"
     },
     "commits": [
+      {
+        "sha": "7df3c91c0e11c890694df1beb36f6534eda46e1c",
+        "html_url": "https://github.com/freeappstore-online/music/commit/7df3c91c0e11c890694df1beb36f6534eda46e1c",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:45Z"
+          }
+        }
+      },
       {
         "sha": "27eb91dccfa8ea4856706f704b66edf098610226",
         "html_url": "https://github.com/freeappstore-online/music/commit/27eb91dccfa8ea4856706f704b66edf098610226",
@@ -536,25 +566,25 @@
             "date": "2026-05-04T05:29:37Z"
           }
         }
-      },
-      {
-        "sha": "9cd0492f0be4fd02a894914aa02c15ae83911968",
-        "html_url": "https://github.com/freeappstore-online/music/commit/9cd0492f0be4fd02a894914aa02c15ae83911968",
-        "commit": {
-          "message": "Add HTML meta tag compliance checks",
-          "author": {
-            "date": "2026-05-04T05:26:48Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/flashcards": {
     "meta": {
       "created_at": "2026-05-04T10:58:15Z",
-      "pushed_at": "2026-05-14T05:29:47Z"
+      "pushed_at": "2026-05-14T11:06:39Z"
     },
     "commits": [
+      {
+        "sha": "4fb381a6b760ed1de6f50d85d295532fd8e39a52",
+        "html_url": "https://github.com/freeappstore-online/flashcards/commit/4fb381a6b760ed1de6f50d85d295532fd8e39a52",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:39Z"
+          }
+        }
+      },
       {
         "sha": "0c7c0e1c2b4a618ef45adf8989f487b1e8b7ec59",
         "html_url": "https://github.com/freeappstore-online/flashcards/commit/0c7c0e1c2b4a618ef45adf8989f487b1e8b7ec59",
@@ -574,25 +604,25 @@
             "date": "2026-05-04T11:05:06Z"
           }
         }
-      },
-      {
-        "sha": "24fbba4aee443f6a83cad9ee5dd32e43d0dda07b",
-        "html_url": "https://github.com/freeappstore-online/flashcards/commit/24fbba4aee443f6a83cad9ee5dd32e43d0dda07b",
-        "commit": {
-          "message": "Flashcards app — create decks, study with spaced repetition\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T11:03:50Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-14T05:30:00Z"
+      "pushed_at": "2026-05-14T11:06:37Z"
     },
     "commits": [
+      {
+        "sha": "7aed00cb16256088c4118503b3bc5f0d3674c385",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/7aed00cb16256088c4118503b3bc5f0d3674c385",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:37Z"
+          }
+        }
+      },
       {
         "sha": "c34c5e70df5c6bd94d4b74533eec164d605fefe4",
         "html_url": "https://github.com/freeappstore-online/whiteboard/commit/c34c5e70df5c6bd94d4b74533eec164d605fefe4",
@@ -612,25 +642,25 @@
             "date": "2026-05-04T11:05:29Z"
           }
         }
-      },
-      {
-        "sha": "4a457fc9f70c343c7bc0a30f158a280b2482beaf",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/4a457fc9f70c343c7bc0a30f158a280b2482beaf",
-        "commit": {
-          "message": "Whiteboard app — drawing canvas with brush, eraser, undo, download\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T11:03:22Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/password": {
     "meta": {
       "created_at": "2026-05-04T10:58:11Z",
-      "pushed_at": "2026-05-14T05:29:51Z"
+      "pushed_at": "2026-05-14T11:06:39Z"
     },
     "commits": [
+      {
+        "sha": "dd7b835eb8ee70a004147f2b96f8078345b134ba",
+        "html_url": "https://github.com/freeappstore-online/password/commit/dd7b835eb8ee70a004147f2b96f8078345b134ba",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:39Z"
+          }
+        }
+      },
       {
         "sha": "c44d81fcdb8462de41a01bfadc72405d055b0d1d",
         "html_url": "https://github.com/freeappstore-online/password/commit/c44d81fcdb8462de41a01bfadc72405d055b0d1d",
@@ -650,25 +680,25 @@
             "date": "2026-05-04T11:05:18Z"
           }
         }
-      },
-      {
-        "sha": "a2032d9999b0420da9716bac0bf0ab2a4c36e182",
-        "html_url": "https://github.com/freeappstore-online/password/commit/a2032d9999b0420da9716bac0bf0ab2a4c36e182",
-        "commit": {
-          "message": "Password app — secure generator with strength indicator\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T11:02:44Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/tip": {
     "meta": {
       "created_at": "2026-05-06T01:00:51Z",
-      "pushed_at": "2026-05-14T05:29:57Z"
+      "pushed_at": "2026-05-14T11:06:37Z"
     },
     "commits": [
+      {
+        "sha": "05479cfe0e6fcbf77c9060f18d486e39ccc5c2ca",
+        "html_url": "https://github.com/freeappstore-online/tip/commit/05479cfe0e6fcbf77c9060f18d486e39ccc5c2ca",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:37Z"
+          }
+        }
+      },
       {
         "sha": "8dd42aff190229472400b3cdefd0050aca1bf62b",
         "html_url": "https://github.com/freeappstore-online/tip/commit/8dd42aff190229472400b3cdefd0050aca1bf62b",
@@ -694,9 +724,19 @@
   "freeappstore-online/weather": {
     "meta": {
       "created_at": "2026-05-04T10:58:19Z",
-      "pushed_at": "2026-05-14T05:29:59Z"
+      "pushed_at": "2026-05-14T11:06:36Z"
     },
     "commits": [
+      {
+        "sha": "90d5b41b7403c62c82af2f8775ccc45e593295ff",
+        "html_url": "https://github.com/freeappstore-online/weather/commit/90d5b41b7403c62c82af2f8775ccc45e593295ff",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:36Z"
+          }
+        }
+      },
       {
         "sha": "6006e05ac38dfd4beff1242832aee2c950c49dd9",
         "html_url": "https://github.com/freeappstore-online/weather/commit/6006e05ac38dfd4beff1242832aee2c950c49dd9",
@@ -716,25 +756,25 @@
             "date": "2026-05-04T11:05:27Z"
           }
         }
-      },
-      {
-        "sha": "6d3769052b0dba1410e5d42b27c2db8f4499a2bd",
-        "html_url": "https://github.com/freeappstore-online/weather/commit/6d3769052b0dba1410e5d42b27c2db8f4499a2bd",
-        "commit": {
-          "message": "Weather app — current conditions and 7-day forecast via Open-Meteo\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T11:03:24Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/pomodoro": {
     "meta": {
       "created_at": "2026-05-04T10:58:05Z",
-      "pushed_at": "2026-05-14T05:29:53Z"
+      "pushed_at": "2026-05-14T11:06:38Z"
     },
     "commits": [
+      {
+        "sha": "aeaf33010fe5162abfedb51fe3c227b0375c4596",
+        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/aeaf33010fe5162abfedb51fe3c227b0375c4596",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:38Z"
+          }
+        }
+      },
       {
         "sha": "4f07f9a8da19a57e3048ac9cb9f7cc842308d01c",
         "html_url": "https://github.com/freeappstore-online/pomodoro/commit/4f07f9a8da19a57e3048ac9cb9f7cc842308d01c",
@@ -754,25 +794,25 @@
             "date": "2026-05-04T11:05:20Z"
           }
         }
-      },
-      {
-        "sha": "d7f734bd1ba1d2c0b19b249cec8e68349fa9b1ca",
-        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/d7f734bd1ba1d2c0b19b249cec8e68349fa9b1ca",
-        "commit": {
-          "message": "Pomodoro app — focus timer with work/break cycles\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T11:01:57Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-05-14T05:30:45Z"
+      "pushed_at": "2026-05-14T11:06:37Z"
     },
     "commits": [
+      {
+        "sha": "b4f89d5aabe1a0e95ce6be237b53426004aff78f",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/b4f89d5aabe1a0e95ce6be237b53426004aff78f",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:37Z"
+          }
+        }
+      },
       {
         "sha": "528ed4977325562d855f95265b61d02e2e4cd34a",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/528ed4977325562d855f95265b61d02e2e4cd34a",
@@ -792,25 +832,25 @@
             "date": "2026-05-14T05:00:59Z"
           }
         }
-      },
-      {
-        "sha": "4e694717ecc29f4aab82343a4f914ea49530c0d5",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/4e694717ecc29f4aab82343a4f914ea49530c0d5",
-        "commit": {
-          "message": "docs: point SKILLS.md links at the public storefront copy\n\nThe previous URL pointed at freeappstore-online/ops, a private repo whose\nraw URLs 404 for non-org-members (two contributors hit this). The file is\nnow mirrored at freeappstore-online/freeappstore/SKILLS.md (public).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-14T04:37:46Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/calculator": {
     "meta": {
       "created_at": "2026-05-04T05:30:50Z",
-      "pushed_at": "2026-05-14T05:29:41Z"
+      "pushed_at": "2026-05-14T11:06:42Z"
     },
     "commits": [
+      {
+        "sha": "de6dda33b3ae8fd805be65909542608344807c72",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/de6dda33b3ae8fd805be65909542608344807c72",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:42Z"
+          }
+        }
+      },
       {
         "sha": "f76d5a9f0426bf03af06dcb6edfc0fff70dbd715",
         "html_url": "https://github.com/freeappstore-online/calculator/commit/f76d5a9f0426bf03af06dcb6edfc0fff70dbd715",
@@ -830,25 +870,25 @@
             "date": "2026-05-04T11:04:59Z"
           }
         }
-      },
-      {
-        "sha": "38248e57d8fead4ec8b2eb25e89d684518439ea4",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/38248e57d8fead4ec8b2eb25e89d684518439ea4",
-        "commit": {
-          "message": "Fix fonts: remove broken @font-face, use Google Fonts link",
-          "author": {
-            "date": "2026-05-04T05:53:46Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/counter": {
     "meta": {
       "created_at": "2026-05-06T00:20:38Z",
-      "pushed_at": "2026-05-14T05:29:45Z"
+      "pushed_at": "2026-05-14T11:06:40Z"
     },
     "commits": [
+      {
+        "sha": "c25568b82bd96d0c29e4be82cef86fde5e83d327",
+        "html_url": "https://github.com/freeappstore-online/counter/commit/c25568b82bd96d0c29e4be82cef86fde5e83d327",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:39Z"
+          }
+        }
+      },
       {
         "sha": "f87bf0e01dea722388486795e3ae3d4c782cc45f",
         "html_url": "https://github.com/freeappstore-online/counter/commit/f87bf0e01dea722388486795e3ae3d4c782cc45f",
@@ -892,9 +932,19 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-14T05:30:43Z"
+      "pushed_at": "2026-05-14T11:06:37Z"
     },
     "commits": [
+      {
+        "sha": "ce0c90f6ae52b9d1d8a103ff91a67b3e76bbc495",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/ce0c90f6ae52b9d1d8a103ff91a67b3e76bbc495",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:36Z"
+          }
+        }
+      },
       {
         "sha": "3c5057eb553f83d9d089b1ec9d3569262f5a7842",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/3c5057eb553f83d9d089b1ec9d3569262f5a7842",
@@ -914,25 +964,25 @@
             "date": "2026-05-14T05:00:56Z"
           }
         }
-      },
-      {
-        "sha": "2b20ea4a747eaf0be844a6788339b64851773906",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/2b20ea4a747eaf0be844a6788339b64851773906",
-        "commit": {
-          "message": "docs: point SKILLS.md links at the public storefront copy\n\nThe previous URL pointed at freeappstore-online/ops, a private repo whose\nraw URLs 404 for non-org-members (two contributors hit this). The file is\nnow mirrored at freeappstore-online/freeappstore/SKILLS.md (public).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-14T04:37:40Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/joke-generator": {
     "meta": {
       "created_at": "2026-05-09T12:38:29Z",
-      "pushed_at": "2026-05-09T12:59:28Z"
+      "pushed_at": "2026-05-14T11:06:44Z"
     },
     "commits": [
+      {
+        "sha": "4405965ea7253ccdbf1ad13c3e55f6893be990a9",
+        "html_url": "https://github.com/freeappstore-online/joke-generator/commit/4405965ea7253ccdbf1ad13c3e55f6893be990a9",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:44Z"
+          }
+        }
+      },
       {
         "sha": "646f3b6d4a184d1f3c36c692ba59db9d3958d7c0",
         "html_url": "https://github.com/freeappstore-online/joke-generator/commit/646f3b6d4a184d1f3c36c692ba59db9d3958d7c0",
@@ -950,16 +1000,6 @@
           "message": "Fix web/package.json: add build scripts and dependencies",
           "author": {
             "date": "2026-05-09T12:57:29Z"
-          }
-        }
-      },
-      {
-        "sha": "507b2a46700eafc6b0546cff1e2cd559f5382d62",
-        "html_url": "https://github.com/freeappstore-online/joke-generator/commit/507b2a46700eafc6b0546cff1e2cd559f5382d62",
-        "commit": {
-          "message": "Trigger CF Pages build",
-          "author": {
-            "date": "2026-05-09T12:55:14Z"
           }
         }
       }
