@@ -55,7 +55,7 @@
   <main class="container">
 
     <h1>Aider on FreeAppStore</h1>
-    <p class="ai-lead">Build a free app using Aider. The agent reads the platform's <a href="https://raw.githubusercontent.com/freeappstore-online/ops/main/SKILLS.md">SKILLS.md</a> and knows the brand rules, the CLI, and the deploy flow before it writes a line of code.</p>
+    <p class="ai-lead">Build a free app using Aider. The agent reads the platform's <a href="https://raw.githubusercontent.com/freeappstore-online/freeappstore/main/SKILLS.md">SKILLS.md</a> and knows the brand rules, the CLI, and the deploy flow before it writes a line of code.</p>
 
     <div class="callout">
       <strong>Before you start:</strong> install Node 22+ and the FreeAppStore CLI.
@@ -83,7 +83,7 @@ cd my-app</div>
 
 # FreeAppStore platform conventions
 
-Source of truth: https://raw.githubusercontent.com/freeappstore-online/ops/main/SKILLS.md
+Source of truth: https://raw.githubusercontent.com/freeappstore-online/freeappstore/main/SKILLS.md
 
 - Manrope + Fraunces fonts only.
 - Brand CSS tokens via var(--accent), var(--ink), var(--paper).
@@ -94,7 +94,7 @@ EOF</div>
       </li>
       <li>
         <strong>Start a session with the conventions loaded</strong>
-        <div class="cmd">aider --read CONVENTIONS.md --read https://raw.githubusercontent.com/freeappstore-online/ops/main/SKILLS.md</div>
+        <div class="cmd">aider --read CONVENTIONS.md --read https://raw.githubusercontent.com/freeappstore-online/freeappstore/main/SKILLS.md</div>
         <p>The <code>--read</code> flag pre-loads context that's always available without consuming chat tokens.</p>
       </li>
     </ol>
