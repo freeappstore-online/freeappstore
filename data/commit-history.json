@@ -730,9 +730,19 @@
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-05-06T03:17:38Z"
+      "pushed_at": "2026-05-14T04:37:49Z"
     },
     "commits": [
+      {
+        "sha": "4e694717ecc29f4aab82343a4f914ea49530c0d5",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/4e694717ecc29f4aab82343a4f914ea49530c0d5",
+        "commit": {
+          "message": "docs: point SKILLS.md links at the public storefront copy\n\nThe previous URL pointed at freeappstore-online/ops, a private repo whose\nraw URLs 404 for non-org-members (two contributors hit this). The file is\nnow mirrored at freeappstore-online/freeappstore/SKILLS.md (public).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-14T04:37:46Z"
+          }
+        }
+      },
       {
         "sha": "15c850314c0255fd331b935fb7da3834a841a933",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/15c850314c0255fd331b935fb7da3834a841a933",
@@ -750,16 +760,6 @@
           "message": "Stopwatch v1: start/stop, lap splits, persistent history",
           "author": {
             "date": "2026-05-06T03:11:18Z"
-          }
-        }
-      },
-      {
-        "sha": "5e2e9a8e119cbd78cc8877e25399dc9ab7a737e8",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/5e2e9a8e119cbd78cc8877e25399dc9ab7a737e8",
-        "commit": {
-          "message": "Initial commit from standalone template",
-          "author": {
-            "date": "2026-05-06T03:04:41Z"
           }
         }
       }
@@ -842,9 +842,19 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-06T05:19:30Z"
+      "pushed_at": "2026-05-14T04:37:43Z"
     },
     "commits": [
+      {
+        "sha": "2b20ea4a747eaf0be844a6788339b64851773906",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/2b20ea4a747eaf0be844a6788339b64851773906",
+        "commit": {
+          "message": "docs: point SKILLS.md links at the public storefront copy\n\nThe previous URL pointed at freeappstore-online/ops, a private repo whose\nraw URLs 404 for non-org-members (two contributors hit this). The file is\nnow mirrored at freeappstore-online/freeappstore/SKILLS.md (public).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-14T04:37:40Z"
+          }
+        }
+      },
       {
         "sha": "24f7c2434f09d1fdaf60614e5c62238e909f86ad",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/24f7c2434f09d1fdaf60614e5c62238e909f86ad",
@@ -862,16 +872,6 @@
           "message": "Practice fullscreen: big text, tap halves to navigate\n\nAdds a fullscreen presentation mode in Practice view so people can\nhand the phone to whoever they're talking with and step through\nphrases at meetup speed.\n\n- \"⛶ Full screen\" button enters a viewport-covering modal with the\n  current phrase rendered at clamp(2rem, 9vw, 5rem) — readable from\n  arm's length across a table.\n- Left half of the screen is a transparent tap-zone for previous;\n  right half is next. No tiny buttons to fumble for.\n- Keyboard: ← / → to navigate, Esc to exit.\n- Engages the browser's real fullscreen API where available so the\n  notch / browser chrome get out of the way; falls back gracefully\n  when the API is denied.\n- Pronunciation + native meaning still visible underneath the\n  target text in case the speaker needs a quick prompt.",
           "author": {
             "date": "2026-05-06T04:40:08Z"
-          }
-        }
-      },
-      {
-        "sha": "436f3f08df890b601b0dbfba9af100fa5850bd97",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/436f3f08df890b601b0dbfba9af100fa5850bd97",
-        "commit": {
-          "message": "Multilingual support — any language pair, not just Mandarin/English\n\nThe app is now structured around a generic native↔target language\npair instead of a hardcoded Mandarin↔English direction enum:\n\n- Phrases carry their own nativeLang and targetLang strings, so\n  one user can prep Spanish↔English in one tab and Japanese↔English\n  in another without losing data.\n- Pair picker at the top lists every pair the user already has\n  phrases for, plus a \"+ Pair\" button to add a new one.\n- \"Pinyin\" → \"Pronunciation\" (works for romaji, IPA, etc.).\n- Migrates v1 localStorage on first load: rows with the old\n  direction enum become English↔Mandarin pairs; pinyin becomes\n  pronunciation. No data loss for existing users.",
-          "author": {
-            "date": "2026-05-06T04:34:35Z"
           }
         }
       }
