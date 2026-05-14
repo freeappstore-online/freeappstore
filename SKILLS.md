@@ -44,6 +44,33 @@ Drift is the failure mode. If we ever update the platform conventions, only this
 
 ---
 
+## Publishing platform packages — never manually
+
+**All npm publishes are automated via GitHub Actions** (`.github/workflows/publish.yml` in `freeappstore-online/platform`). Manual `npm publish` is not part of any release flow on this platform.
+
+Affected packages: `@freeappstore/{sdk,cli,compliance,quality}`, `@freegamestore/{cli,games}`. The same workflow handles all of them.
+
+**Release flow** (the only flow):
+
+```bash
+cd packages/<name>          # e.g. packages/sdk
+npm version patch           # or minor / major. bumps version + creates a commit + tag
+git push --follow-tags      # CI sees local version != npm version → publishes with provenance
+```
+
+That's it. No `npm publish`. No `npm login`. No npm token request. No local build-and-push.
+
+**Why this matters:** the workflow uses `pnpm publish --provenance`, which attaches a signed attestation linking the tarball to a specific GitHub Actions run. Manual publishes bypass the attestation, the audit trail, and the workspace-dependency rewriting that `pnpm publish` does (without it, consumers get `EUNSUPPORTEDPROTOCOL workspace:` on install). They can also race against CI and publish from a dirty / unbuilt local tree.
+
+**Same pattern across the family:**
+
+- App / game repos auto-deploy to Cloudflare Pages on push to `main` — never `wrangler pages deploy` manually.
+- The backend Worker (`packages/backend`) is the one exception: it's not on a push-trigger workflow, so `wrangler deploy` is the right command. Check `.github/workflows/` first to confirm before running anything that ends in "deploy" or "publish".
+
+**As an AI agent:** if a user asks "how do I publish the SDK", the answer is the three commands in the Release flow box above. Do not suggest `npm publish`. Do not ask for an npm token.
+
+---
+
 ## Creator Program
 
 People join as creators to build apps/games. The flow:
