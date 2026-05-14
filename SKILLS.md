@@ -37,30 +37,24 @@ People join as creators to build apps/games. The flow:
 | **Accent color** | Blue (#2563eb) | Emerald (#10b981) |
 | **Logo** | Free **Apps** | Free **Games** |
 | **Admin** | admin.freeappstore.online | admin.freegamestore.online |
-| **Publish portal** | publish.freeappstore.online | publish.freeappstore.online |
+| **Publish portal** | publish.freeappstore.online | publish.freegamestore.online |
 | **Local path** | ~/dev/fas/ | ~/dev/fgs/ |
-| **Store site path** | ~/dev/fas/platform/freeappstore/ | ~/dev/fgs/platform/freegamestore/ |
+| **Storefront repo** | ~/dev/fas/freeappstore/ | ~/dev/fgs/freegamestore/ |
 
 ## Workspace Layout
 
-Clone repos into the platform directories:
+Each app/game is its own GitHub repo. Clone whichever ones you work on flat under `~/dev/fas/` (or `~/dev/fgs/`):
 
 ```
-~/dev/fas/                        ~/dev/fgs/
-  apps/                             games/
-    timer/                            chess/
-    notes/                            tetris/
-    calculator/                       racing/
-    ...                               ...
-  platform/                         platform/
-    freeappstore/                     freegamestore/
-    admin/                            admin/
-    template-standalone/              auditor/
-    sdk/                              template-game-canvas/
-    ...                               ...
+~/dev/fas/                       ~/dev/fgs/
+  freeappstore/   (storefront)     freegamestore/   (storefront)
+  timer/                           chess/
+  notes/                           tetris/
+  calculator/                      racing/
+  ...                              ...
 ```
 
-Apps/games go in `apps/` or `games/`. Platform infra goes in `platform/`. Never mix them at the root.
+The path is a suggestion, not a requirement — the CLI doesn't care where the repo lives. The convention just keeps apps and games visually separated when you have several.
 
 ## IMPORTANT: What NOT to do
 
@@ -290,16 +284,19 @@ FreeGameStore is a **mobile-first gaming platform**. Test on phone viewports fir
 
 ### Quality Auditor
 
-The platform auditor tests every game with Playwright at mobile viewports. **Any scroll = fail.**
+The platform runs an internal Playwright auditor against every live game at mobile viewports. **Any scroll = fail.** You don't run this yourself — it runs against your URL after deploy and the result determines whether your game stays in the registry.
+
+What you *can* run pre-publish, locally, is the same scroll check on a single viewport:
 
 ```bash
-# Dev: test your game locally
-cd ~/dev/fgs/platform/auditor
-npx tsx audit.ts http://localhost:5173
+# Apps:
+fas screencheck
 
-# Platform: audit all live games
-npx tsx audit.ts --all --output quality-results.json
+# Games:
+fgs screencheck
 ```
+
+It builds, serves, drives a real Chromium at the declared `min_viewport_width` in portrait + landscape, and fails if the page scrolls. Recommended before every publish.
 
 ### Reference viewports (mobile priority)
 
