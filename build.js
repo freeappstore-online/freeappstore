@@ -568,10 +568,12 @@ if (fs.existsSync(fixtureSrcDir)) {
   }
 }
 
-// SKILLS.md → dist/skills.md (lowercase for URL compatibility)
-const skillsSrc = path.join(ROOT, 'SKILLS.md');
-if (fs.existsSync(skillsSrc)) {
-  fs.copyFileSync(skillsSrc, path.join(DIST, 'skills.md'));
+// Markdown files → dist (lowercase for URL compatibility)
+for (const md of ['SKILLS.md', 'claude-code.md']) {
+  const src = path.join(ROOT, md);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(DIST, md.toLowerCase()));
+  }
 }
 
 console.log(`Built ${apps.length} app cards into dist/index.html`);
