@@ -55,7 +55,7 @@
   <main class="container">
 
     <h1>Zed on FreeAppStore</h1>
-    <p class="ai-lead">Build a free app using Zed. The agent reads the platform's <a href="https://raw.githubusercontent.com/freeappstore-online/freeappstore/main/SKILLS.md">SKILLS.md</a> and knows the brand rules, the CLI, and the deploy flow before it writes a line of code.</p>
+    <p class="ai-lead">Build a free app using Zed. The agent reads the platform's <a href="https://freeappstore.online/skills.md">SKILLS.md</a> and knows the brand rules, the CLI, and the deploy flow before it writes a line of code.</p>
 
     <div class="callout">
       <strong>Before you start:</strong> install Node 22+ and the FreeAppStore CLI.
@@ -82,7 +82,7 @@ zed my-app</div>
 
 # Platform: FreeAppStore
 
-See https://raw.githubusercontent.com/freeappstore-online/freeappstore/main/SKILLS.md for the canonical guide.
+See https://freeappstore.online/skills.md for the canonical guide.
 
 Constraints:
 - Manrope + Fraunces only — no custom display fonts.
@@ -137,6 +137,19 @@ EOF</div>
       <li>Never ask you for Cloudflare or GitHub tokens.</li>
     </ul>
     <p>The compliance suite (<code>fas check</code>) enforces all of the above on every push, so even if the AI slips, the platform catches it.</p>
+
+
+    <h2>Add user accounts &amp; cloud storage</h2>
+    <p>Standalone apps use localStorage. If you need GitHub sign-in, per-user cloud storage, realtime rooms, or a secret-injecting API proxy, add the SDK:</p>
+    <div class="cmd">pnpm add @freeappstore/sdk</div>
+    <p>The SDK gives you four modules — all talk to the platform API at <code>api.freeappstore.online</code>:</p>
+    <ul>
+      <li><strong>Auth</strong> — GitHub OAuth. <code>fas.auth.signIn()</code> / <code>fas.auth.user</code></li>
+      <li><strong>KV</strong> — Per-user key-value store. <code>fas.kv.set('key', value)</code> / <code>fas.kv.get('key')</code></li>
+      <li><strong>Rooms</strong> — Realtime WebSocket fan-out. <code>fas.rooms.join('lobby')</code></li>
+      <li><strong>Proxy</strong> — Call third-party APIs without exposing keys. <code>fas.proxy.fetch('api.example.com/data')</code></li>
+    </ul>
+    <p>Full docs: <a href="https://github.com/freeappstore-online/platform/tree/main/packages/sdk#readme">SDK README</a></p>
 
     <h2>Get the source</h2>
     <p>The CLI, SDK, and compliance package live at <a href="https://github.com/freeappstore-online/platform">https://github.com/freeappstore-online/platform</a>. Reading the source is allowed — and often illuminating when you're trying to coax a difficult prompt.</p>
