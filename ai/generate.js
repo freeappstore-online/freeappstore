@@ -244,9 +244,9 @@ function html(tool) {
       <a href="/" class="logo">Free <span>Apps</span></a>
       <nav>
         <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
         <a href="/about.html">About</a>
-        <a href="/contribute.html">Build</a>
-        <a href="/build-with-ai.html">Guides</a>
+        <a href="/build-with-ai.html">Build</a>
         <a href="https://create.freeappstore.online">VibeCode</a>
         <a href="/guidelines.html">Guidelines</a>
         <a href="https://proappstore.online" class="pro-link">Pro</a>
@@ -321,8 +321,7 @@ ${tipsList}
       </div>
       <div class="footer-links">
         <a href="/about.html">About</a>
-        <a href="/contribute.html">Build</a>
-        <a href="/build-with-ai.html">Guides</a>
+        <a href="/build-with-ai.html">Build</a>
         <a href="https://create.freeappstore.online">VibeCode</a>
         <a href="/guidelines.html">Guidelines</a>
         <a href="/quality.html">Quality</a>
