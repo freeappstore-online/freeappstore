@@ -95,8 +95,8 @@ People join as creators to build apps/games. The flow:
 | **GitHub org** | freeappstore-online | freegamestore-online |
 | **Store repo** | freeappstore-online/freeappstore | freegamestore-online/freegamestore |
 | **Registry file** | `registry.json` in store repo | `registry.json` in store repo |
-| **Templates** | template-standalone, template-connected | template-game-canvas, template-game-cards, template-game-grid, template-game-3d |
-| **Accent color** | Blue (#2563eb) | Emerald (#10b981) |
+| **Templates** | template-standalone | template-game-canvas, template-game-cards, template-game-grid, template-game-3d |
+| **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, rooms, proxy) | — || **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, rooms, proxy) | — || **Accent color** | Blue (#2563eb) | Emerald (#10b981) |
 | **Logo** | Free **Apps** | Free **Games** |
 | **Admin** | admin.freeappstore.online | admin.freegamestore.online |
 | **Publish portal** | publish.freeappstore.online | publish.freegamestore.online |
@@ -172,7 +172,7 @@ No further API calls or manual steps needed. Ever.
 
 - ONE environment: production only. Push to `main` = deploy. Fix forward.
 - Static hosting on Cloudflare Pages. No server-side code.
-- Backend (if needed): Firebase or Supabase only.
+- Backend (if needed): `@freeappstore/sdk` (auth, KV, rooms, proxy). `npm i @freeappstore/sdk`.
 - Free means free forever. No monetization in the free version.
 
 ## Tech Stack (required)
@@ -401,7 +401,7 @@ The auditor tests 12 viewports. Mobile phones are weighted highest:
 ## Privacy Rules
 
 - ZERO analytics, tracking, cookies
-- All user data in localStorage (standalone) or Firebase (connected)
+- All user data in localStorage (standalone) or `@freeappstore/sdk` KV (connected)
 - No third-party scripts except Google Fonts CDN
 
 ## Compliance Checks (automated on push)
