@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>FreeAppStore — Beautiful, Free-Forever Web Apps</title>
+  <meta name="description" content="A platform of free-forever web apps. No charges, no plans, no paywalls. Works on mobile, tablet, and desktop. Open source." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="FreeAppStore — Beautiful, Free-Forever Web Apps" />
+  <meta property="og:description" content="A platform of free-forever web apps. No charges, no plans, no paywalls. Works on mobile, tablet, and desktop. Open source." />
+  <meta property="og:url" content="https://freeappstore.online/" />
+  <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free <span>Apps</span></a>
+      <nav>
+        <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
+        <a href="/about.html">About</a>
+        <a href="/build-with-ai.html">Build</a>
+        <a href="https://create.freeappstore.online">VibeCode</a>
+        <a href="/guidelines.html">Guidelines</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+        <span id="navAuth"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="apps-section" id="apps" style="padding-top: 2rem;">
+      <div class="search-bar">
+        <input
+          type="search"
+          id="storefront-search"
+          placeholder="Search apps + games…"
+          autocomplete="off"
+          aria-label="Search apps and games"
+        />
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="learning">Learning</button>
+        <button class="filter-btn" data-filter="discovery">Discovery</button>
+        <button class="filter-btn" data-filter="social">Social</button>
+        <button class="filter-btn" data-filter="utilities">Utilities</button>
+        <button class="filter-btn" data-filter="Utilities">Utilities</button>
+        <button class="filter-btn" data-filter="Social">Social</button>
+        <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+      </div>
+      <div class="apps-grid" id="apps-grid">
+                <div class="app-card" data-category="learning" data-about="/apps/language.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #eff6ff;">&#127463;</div>
+            <div>
+              <h3>Language</h3>
+              <div class="tag">Learning</div>
+            </div>
+          </div>
+          <p>Flashcards, cloze exercises, and speech practice across multiple languages.</p>
+          <div class="app-actions"><a href="https://language.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="learning" data-about="/apps/math.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #fef3c7;">&#128290;</div>
+            <div>
+              <h3>Math</h3>
+              <div class="tag">Learning</div>
+            </div>
+          </div>
+          <p>Arithmetic, algebra, and problem-solving with adaptive difficulty and progress tracking.</p>
+          <div class="app-actions"><a href="https://math.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="discovery" data-about="/apps/music.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #fdf2f8;">&#127925;</div>
+            <div>
+              <h3>Music</h3>
+              <div class="tag">Discovery</div>
+            </div>
+          </div>
+          <p>Explore classical, jazz, and blues. Discover composers, listen to works, build your library.</p>
+          <div class="app-actions"><a href="https://music.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="learning" data-about="/apps/quiz.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #ecfdf5;">&#128218;</div>
+            <div>
+              <h3>Quiz</h3>
+              <div class="tag">Learning</div>
+            </div>
+          </div>
+          <p>Swipe-based quiz cards covering science, programming, chemistry, and more.</p>
+          <div class="app-actions"><a href="https://quiz.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="learning" data-about="/apps/books.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #fef9ee;">&#128214;</div>
+            <div>
+              <h3>Books</h3>
+              <div class="tag">Learning</div>
+            </div>
+          </div>
+          <p>Listen to 130+ classic audiobooks with text-to-speech. Read or listen — your progress saves automatically.</p>
+          <div class="app-actions"><a href="https://books.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="learning" data-about="/apps/life.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f0fdf9;">&#127793;</div>
+            <div>
+              <h3>Life</h3>
+              <div class="tag">Learning</div>
+            </div>
+          </div>
+          <p>Track life goals, visualize your time, and stay on course with a personalized life expectancy dashboard.</p>
+          <div class="app-actions"><a href="https://life.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="social" data-about="/apps/messenger.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #eff6ff;">&#128172;</div>
+            <div>
+              <h3>Messenger</h3>
+              <div class="tag">Social</div>
+            </div>
+          </div>
+          <p>Private peer-to-peer messaging. WebRTC-powered, end-to-end encrypted, messages stay on your devices.</p>
+          <div class="app-actions"><a href="https://messenger.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="social" data-about="/apps/bandmates.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #fef2f2;">&#127928;</div>
+            <div>
+              <h3>Bandmates</h3>
+              <div class="tag">Social</div>
+            </div>
+          </div>
+          <p>Discover bands, browse musician profiles, and find people to play with in your area.</p>
+          <div class="app-actions"><a href="https://bandmates.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="social" data-about="/apps/meetup.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f0fdf4;">&#128197;</div>
+            <div>
+              <h3>Meetup</h3>
+              <div class="tag">Social</div>
+            </div>
+          </div>
+          <p>Browse local events, RSVP, and discover communities. Find things to do with people near you.</p>
+          <div class="app-actions"><a href="https://meetup.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/calculator.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f0f9ff;">&#128290;</div>
+            <div>
+              <h3>Calculator</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Clean, simple calculator. Standard operations, percent, negate. Works offline, instant.</p>
+          <div class="app-actions"><a href="https://calculator.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/chessclock.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f0f4ff;">&#9823;</div>
+            <div>
+              <h3>Chess Clock</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Beautiful chess clock for over-the-board play. 12 time controls, increment support, tap to switch.</p>
+          <div class="app-actions"><a href="https://chessclock.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/timer.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #fef3c7;">&#9201;</div>
+            <div>
+              <h3>Timer</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Stopwatch and countdown timer. Lap times, presets, custom duration. Alarm when done.</p>
+          <div class="app-actions"><a href="https://timer.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/converter.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #eff6ff;">&#8644;</div>
+            <div>
+              <h3>Converter</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Unit converter for length, weight, temperature, volume, and speed. Instant results.</p>
+          <div class="app-actions"><a href="https://converter.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/notes.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #fef9ee;">&#128221;</div>
+            <div>
+              <h3>Notes</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Simple notepad. Create, edit, search notes. All data stays on your device.</p>
+          <div class="app-actions"><a href="https://notes.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/pomodoro.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #fef2f2;">&#127813;</div>
+            <div>
+              <h3>Pomodoro</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Focus timer with work and break cycles. 25/5/15 minute intervals. Session tracking.</p>
+          <div class="app-actions"><a href="https://pomodoro.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/qrcode.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f5f3ff;">&#9641;</div>
+            <div>
+              <h3>QR Code</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Generate QR codes from any text or URL. Custom colors, multiple sizes, download as PNG.</p>
+          <div class="app-actions"><a href="https://qrcode.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/colorpicker.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #fce7f3;">&#127912;</div>
+            <div>
+              <h3>Color Picker</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Pick colors, copy HEX/RGB/HSL values, save a palette. Quick and simple.</p>
+          <div class="app-actions"><a href="https://colorpicker.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/password.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #ecfdf5;">&#128272;</div>
+            <div>
+              <h3>Password</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Secure password generator. Adjustable length, character types, strength indicator.</p>
+          <div class="app-actions"><a href="https://password.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/whiteboard.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f0f9ff;">&#128396;</div>
+            <div>
+              <h3>Whiteboard</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Simple drawing canvas. Brush colors, sizes, eraser, undo. Download as PNG.</p>
+          <div class="app-actions"><a href="https://whiteboard.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="learning" data-about="/apps/flashcards.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #eff6ff;">&#128196;</div>
+            <div>
+              <h3>Flashcards</h3>
+              <div class="tag">Learning</div>
+            </div>
+          </div>
+          <p>Create decks, study with card flips, spaced repetition. All data saved locally.</p>
+          <div class="app-actions"><a href="https://flashcards.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/habits.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #ecfdf5;">&#9989;</div>
+            <div>
+              <h3>Habits</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Daily habit tracker with streaks, calendar heatmap, and progress visualization.</p>
+          <div class="app-actions"><a href="https://habits.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/weather.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #eff6ff;">&#9925;</div>
+            <div>
+              <h3>Weather</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Current weather and 7-day forecast. Location-based, city search, C/F toggle. No API key needed.</p>
+          <div class="app-actions"><a href="https://weather.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="utilities" data-about="/apps/todo.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #eff6ff;">&#9745;</div>
+            <div>
+              <h3>Todo</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Simple task list. Add, complete, delete tasks. All data saved locally.</p>
+          <div class="app-actions"><a href="https://todo.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="Utilities" data-about="/apps/counter.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f3f4f6;">🔢</div>
+            <div>
+              <h3>Counter</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>counter test</p>
+          <div class="app-actions"><a href="https://counter.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="Utilities" data-about="/apps/tip.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f3f4f6;">💰</div>
+            <div>
+              <h3>Tip Calculator</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>A tip calculator</p>
+          <div class="app-actions"><a href="https://tip.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="Utilities" data-about="/apps/stopwatch.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f3f4f6;">⏱</div>
+            <div>
+              <h3>Stopwatch</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>Track time with start/stop, lap splits, and persistent history. Works offline.</p>
+          <div class="app-actions"><a href="https://stopwatch.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="Social" data-about="/apps/mandarin-english.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f3f4f6;">🇨🇳</div>
+            <div>
+              <h3>Mandarin English</h3>
+              <div class="tag">Social</div>
+            </div>
+          </div>
+          <p>Prepare phrases for Mandarin/English language exchange meetups.</p>
+          <div class="app-actions"><a href="https://mandarin-english.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="lifestyle" data-about="/apps/joke-generator.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f0f9ff;">&#128514;</div>
+            <div>
+              <h3>Joke Generator</h3>
+              <div class="tag">Lifestyle</div>
+            </div>
+          </div>
+          <p>A fun app that generates random jokes at the click of a button! 😂</p>
+          <div class="app-actions"><a href="https://joke-generator.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+
+        <div class="app-card" data-category="Utilities" data-about="/apps/demo-todo.html">
+          <div class="app-card-header">
+            <div class="app-icon" style="background: #f3f4f6;">🚀</div>
+            <div>
+              <h3>demo-todo</h3>
+              <div class="tag">Utilities</div>
+            </div>
+          </div>
+          <p>A simple todo list app</p>
+          <div class="app-actions"><a href="https://demo-todo.freeappstore.online" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+        </div>
+      </div>
+      <p id="search-empty" hidden style="text-align: center; color: var(--muted); padding: 2rem 0;">No apps match your search here.</p>
+
+      <section id="cross-store-results" hidden style="margin-top: 2.5rem;">
+        <h2 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--muted);">Also matching on FreeGameStore</h2>
+        <div class="apps-grid" id="cross-store-grid"></div>
+      </section>
+    </section>
+
+    <script type="application/json" id="cross-store-registry">{"items":[{"id":"2048","name":"2048","category":"brain-training","icon":"&#128290;","iconBg":"#fef3c7","description":"Slide and merge tiles to reach 2048. Swipe on mobile, arrow keys on desktop. Best score saved.","appUrl":"https://2048.freegamestore.online","repo":"freegamestore-online/2048","cfProject":"free2048","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.1.0","firstPublished":"2026-04-25","lastUpdated":"2026-05-04","versions":[{"version":"1.1.0","date":"2026-05-04","notes":"Improved how-to-play instructions explaining tile merging and game over."},{"version":"1.0.0","date":"2026-04-25","notes":"Initial release with swipe and keyboard controls."}]},{"id":"asteroids","name":"Asteroids","category":"arcade","icon":"&#9732;","iconBg":"#f0f9ff","description":"Classic vector-style space shooter. Rotate, thrust, shoot asteroids. Wrap-around screen.","appUrl":"https://asteroids.freegamestore.online","repo":"freegamestore-online/asteroids","cfProject":"freeasteroidsapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with momentum physics and screen wrap."}]},{"id":"billiards","name":"Billiards","category":"strategy","icon":"&#127921;","iconBg":"#065f46","description":"8-ball pool with touch aiming and ball physics.","appUrl":"https://billiards.freegamestore.online","repo":"freegamestore-online/billiards","cfProject":"freebilliardsapp","type":"standalone","developer":"FreeGameStore"},{"id":"bowling","name":"Bowling","category":"sports","icon":"&#127923;","iconBg":"#fef3c7","description":"3D bowling with Babylon.js. Aim, set power, and knock down pins. Full 10-frame scoring with strikes and spares.","appUrl":"https://bowling.freegamestore.online","repo":"freegamestore-online/bowling","cfProject":"freebowlingapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with physics-based pin interaction."}]},{"id":"breakout","name":"Breakout","category":"arcade","icon":"&#129513;","iconBg":"#fce7f3","description":"Breakout built with PixiJS. Break all the bricks with the ball. Multiple levels, increasing speed.","appUrl":"https://breakout.freegamestore.online","repo":"freegamestore-online/breakout","cfProject":"freebreakoutapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with multi-level brick layouts."}]},{"id":"checkers","name":"Checkers","category":"strategy","icon":"&#9898;","iconBg":"#fef2f2","description":"Classic checkers vs AI. Mandatory jumps, multi-captures, king promotion. Minimax AI.","appUrl":"https://checkers.freegamestore.online","repo":"freegamestore-online/checkers","cfProject":"freecheckersapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with minimax AI and multi-jump chains."}]},{"id":"chess","name":"Chess","category":"strategy","icon":"&#9822;","iconBg":"#f0fdf4","description":"Play against the engine, analyze positions, and sharpen your tactics with puzzles.","appUrl":"https://chess.freegamestore.online","repo":"freegamestore-online/chess","cfProject":"freechessapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-04-15","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-04-15","notes":"Initial release with engine play and puzzle mode."}]},{"id":"coinflip","name":"coinflip","category":"casual","icon":"🎮","iconBg":"#f3f4f6","description":"Tap to flip a coin. Tracks the last 20.","appUrl":"https://coinflip.freegamestore.online","repo":"freegamestore-online/coinflip","cfProject":"freecoinflipapp","type":"standalone","developer":"FreeGameStore"},{"id":"connect4","name":"Connect 4","category":"strategy","icon":"&#128308;","iconBg":"#eff6ff","description":"Drop discs, connect four in a row. Play against minimax AI. Tap to drop.","appUrl":"https://connect4.freegamestore.online","repo":"freegamestore-online/connect4","cfProject":"freeconnect4app","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with minimax AI and drop animation."}]},{"id":"dice","name":"dice","category":"casual","icon":"🎮","iconBg":"#f3f4f6","description":"Roll up to 6 dice. Tap to throw, sum auto-totals.","appUrl":"https://dice.freegamestore.online","repo":"freegamestore-online/dice","cfProject":"freediceapp","type":"standalone","developer":"FreeGameStore"},{"id":"flappy","name":"Flappy Bird","category":"arcade","icon":"&#128038;","iconBg":"#ecfdf5","description":"Tap to fly through pipes. Simple, addictive, unforgiving. How far can you get?","appUrl":"https://flappy.freegamestore.online","repo":"freegamestore-online/flappy","cfProject":"freeflappyapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with pipe gap difficulty scaling."}]},{"id":"frogger","name":"Frogger","category":"arcade","icon":"&#128056;","iconBg":"#ecfdf5","description":"Cross roads and rivers to reach home. Dodge traffic, ride logs. Classic arcade action.","appUrl":"https://frogger.freegamestore.online","repo":"freegamestore-online/frogger","cfProject":"freefroggerapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with road and river lanes."}]},{"id":"hangman","name":"Hangman","category":"brain-training","icon":"&#128100;","iconBg":"#f5f3ff","description":"Guess the word letter by letter. Four categories. Canvas-drawn hangman. On-screen keyboard.","appUrl":"https://hangman.freegamestore.online","repo":"freegamestore-online/hangman","cfProject":"freehangmanapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with 4 word categories."}]},{"id":"highlow","name":"highlow","category":"cards","icon":"🎮","iconBg":"#f3f4f6","description":"Will the next card be higher or lower? Build a streak.","appUrl":"https://highlow.freegamestore.online","repo":"freegamestore-online/highlow","cfProject":"freehighlowapp","type":"standalone","developer":"FreeGameStore"},{"id":"mahjong","name":"Mahjong","category":"brain-training","icon":"&#126980;","iconBg":"#fef3c7","description":"Mahjong Solitaire tile matching. Find and remove matching free pairs. Hint and shuffle.","appUrl":"https://mahjong.freegamestore.online","repo":"freegamestore-online/mahjong","cfProject":"freemahjongapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with turtle layout, hint, and shuffle."}]},{"id":"match3","name":"Match 3","category":"brain-training","icon":"&#128142;","iconBg":"#fce7f3","description":"Swap gems to match 3 or more. Cascades, combos, 60-second timed mode.","appUrl":"https://match3.freegamestore.online","repo":"freegamestore-online/match3","cfProject":"freematch3app","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with cascade combos and timed mode."}]},{"id":"memory","name":"Memory","category":"brain-training","icon":"&#129504;","iconBg":"#ecfdf5","description":"Flip cards and find matching pairs. Three grid sizes. CSS 3D flip animations.","appUrl":"https://memory.freegamestore.online","repo":"freegamestore-online/memory","cfProject":"freememoryapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with three difficulty levels."}]},{"id":"memorymatch","name":"memorymatch","category":"brain-training","icon":"🎮","iconBg":"#f3f4f6","description":"Match the pairs. Time and move counter included.","appUrl":"https://memorymatch.freegamestore.online","repo":"freegamestore-online/memorymatch","cfProject":"freememorymatchapp","type":"standalone","developer":"FreeGameStore"},{"id":"minesweeper","name":"Minesweeper","category":"brain-training","icon":"&#128163;","iconBg":"#f0f9ff","description":"Classic mine-finding puzzle. Three difficulties. Flag mines, reveal safe cells, clear the board.","appUrl":"https://minesweeper.freegamestore.online","repo":"freegamestore-online/minesweeper","cfProject":"freeminesweeper","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-04-22","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-04-22","notes":"Initial release with easy, medium, and hard modes."}]},{"id":"pacman","name":"Pac-Man","category":"arcade","icon":"&#127918;","iconBg":"#fef9c3","description":"Classic maze chase. Eat dots, avoid ghosts, grab power pellets. Canvas-drawn, touch controls.","appUrl":"https://pacman.freegamestore.online","repo":"freegamestore-online/pacman","cfProject":"freepacmanapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with 4 ghosts, power pellets, and swipe controls."}]},{"id":"platformer","name":"Platformer","category":"arcade","icon":"&#127939;","iconBg":"#ecfdf5","description":"Endless platformer built with Kaplay. Jump between platforms, collect coins, don't fall.","appUrl":"https://platformer.freegamestore.online","repo":"freegamestore-online/platformer","cfProject":"freeplatformerapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with procedural level generation."}]},{"id":"pong","name":"Pong","category":"arcade","icon":"&#127955;","iconBg":"#f0f9ff","description":"The original video game. Play against AI. First to 11 wins. Touch drag to move paddle.","appUrl":"https://pong.freegamestore.online","repo":"freegamestore-online/pong","cfProject":"freepongapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with AI opponent and touch controls."}]},{"id":"puzzle","name":"Puzzle","category":"brain-training","icon":"&#129513;","iconBg":"#f5f3ff","description":"Logic puzzles, pattern recognition, and spatial reasoning challenges.","appUrl":"https://puzzle.freegamestore.online","repo":"freegamestore-online/puzzle","cfProject":"freepuzzle","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-04-15","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-04-15","notes":"Initial release with logic and pattern puzzles."}]},{"id":"racing","name":"Racing","category":"racing","icon":"&#127950;","iconBg":"#eff6ff","description":"3D endless runner. Dodge traffic, change lanes, speed increases over time. Keyboard and touch controls.","appUrl":"https://racing.freegamestore.online","repo":"freegamestore-online/racing","cfProject":"freeracingapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with Three.js 3D rendering and 3-lane gameplay."}]},{"id":"simon","name":"Simon","category":"brain-training","icon":"&#127912;","iconBg":"#fef2f2","description":"Memory sequence game. Watch the pattern, repeat it. How many rounds can you remember?","appUrl":"https://simon.freegamestore.online","repo":"freegamestore-online/simon","cfProject":"freesimonapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with audio tones and speed ramp."}]},{"id":"slither","name":"Slither","category":"brain-training","icon":"&#128013;","iconBg":"#ecfdf5","description":"Slither.io-style snake game. Eat, grow, survive against AI bots.","appUrl":"https://slither.freegamestore.online","repo":"freegamestore-online/slither","cfProject":"freeslitherapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-04-28","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-04-28","notes":"Initial release with AI bots and boost mechanic."}]},{"id":"snake","name":"Snake","category":"brain-training","icon":"&#128013;","iconBg":"#ecfdf5","description":"Classic snake game. Eat food, grow longer, don't hit yourself. Speed increases with score.","appUrl":"https://snake.freegamestore.online","repo":"freegamestore-online/snake","cfProject":"freesnake","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-04-20","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-04-20","notes":"Initial release with swipe and keyboard controls."}]},{"id":"solitaire","name":"Solitaire","category":"cards","icon":"&#127183;","iconBg":"#f0fdf4","description":"Klondike Solitaire. Draw 1 or 3. Undo, auto-complete, two-tap controls for touch.","appUrl":"https://solitaire.freegamestore.online","repo":"freegamestore-online/solitaire","cfProject":"freesolitaireapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with Draw 1/3, undo, and auto-complete."}]},{"id":"spaceshooter","name":"Space Shooter","category":"arcade","icon":"&#128640;","iconBg":"#eef2ff","description":"Classic space shooter built with Phaser. Destroy enemies, dodge fire, survive as long as you can.","appUrl":"https://spaceshooter.freegamestore.online","repo":"freegamestore-online/spaceshooter","cfProject":"freespaceshooterapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with enemy waves and power-ups."}]},{"id":"sudoku","name":"Sudoku","category":"brain-training","icon":"&#129519;","iconBg":"#eff6ff","description":"Classic 9x9 Sudoku. Three difficulties, pencil marks, timer. Fully playable on touch.","appUrl":"https://sudoku.freegamestore.online","repo":"freegamestore-online/sudoku","cfProject":"freesudokuapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with three difficulty levels and leaderboard."}]},{"id":"tetris","name":"Tetris","category":"brain-training","icon":"&#127918;","iconBg":"#fef2f2","description":"Classic block-stacking puzzle. Seven pieces, line clearing, increasing speed. Touch and keyboard controls.","appUrl":"https://tetris.freegamestore.online","repo":"freegamestore-online/tetris","cfProject":"freetetris","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-04-20","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-04-20","notes":"Initial release with classic gameplay and level progression."}]},{"id":"whackamole","name":"Whack-a-Mole","category":"arcade","icon":"&#128056;","iconBg":"#fef3c7","description":"Whack moles as they pop up! Avoid red ones. Catch golden ones for bonus. 30-second frenzy.","appUrl":"https://whackamole.freegamestore.online","repo":"freegamestore-online/whackamole","cfProject":"freewhackamoleapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with 3 mole types and 30s timer."}]},{"id":"wordsearch","name":"Word Search","category":"brain-training","icon":"&#128269;","iconBg":"#eff6ff","description":"Find hidden words in a letter grid. Five themes. Drag to select. Timer challenge.","appUrl":"https://wordsearch.freegamestore.online","repo":"freegamestore-online/wordsearch","cfProject":"freewordsearchapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with 5 word themes."}]},{"id":"wordle","name":"Wordle","category":"brain-training","icon":"&#129518;","iconBg":"#f0fdf4","description":"Guess the 5-letter word in 6 tries. Daily challenge and practice mode. On-screen keyboard.","appUrl":"https://wordle.freegamestore.online","repo":"freegamestore-online/wordle","cfProject":"freewordleapp","type":"standalone","developer":"FreeGameStore","author":"FreeGameStore Team","version":"1.0.0","firstPublished":"2026-05-04","lastUpdated":"2026-05-04","versions":[{"version":"1.0.0","date":"2026-05-04","notes":"Initial release with daily and practice modes."}]}],"domain":"freegamestore.online","path":"games"}</script>
+    <script src="/search.js" defer></script>
+
+    <aside style="text-align: center; padding: 1.5rem 0 0.5rem; font-size: 0.9rem; color: var(--muted);">
+      Looking for games? Visit <a href="https://freegamestore.online" style="color: var(--accent); font-weight: 600;">FreeGameStore</a> — free-forever web games.
+    </aside>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free <span>Apps</span></a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/build-with-ai.html">Build</a>
+        <a href="https://create.freeappstore.online">VibeCode</a>
+        <a href="/guidelines.html">Guidelines</a>
+        <a href="/quality.html">Quality</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.app-card').forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.removeAttribute('hidden');
+          } else {
+            card.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+
+    document.querySelectorAll('.app-card').forEach(card => {
+      const aboutUrl = card.dataset.about;
+      if (aboutUrl) {
+        card.querySelector('.app-about').href = aboutUrl;
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', e => {
+          if (!e.target.closest('.app-btn-open')) {
+            window.location.href = aboutUrl;
+          }
+        });
+      }
+    });
+  </script>
+  <script src="/auth.js"></script>
+</body>
+</html>

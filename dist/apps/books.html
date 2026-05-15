@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>{{NAME}} — FreeAppStore</title>
-  <meta name="description" content="Free {{NAME_LOWER}} app. {{DESCRIPTION}} Works offline, no account needed." />
+  <title>Books — FreeAppStore</title>
+  <meta name="description" content="Free books app. Listen to 130+ classic audiobooks with text-to-speech. Read or listen — your progress saves automatically. Works offline, no account needed." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="{{NAME}} — FreeAppStore" />
-  <meta property="og:description" content="Free {{NAME_LOWER}} app. {{DESCRIPTION}}" />
-  <meta property="og:url" content="https://freeappstore.online/apps/{{ID}}.html" />
+  <meta property="og:title" content="Books — FreeAppStore" />
+  <meta property="og:description" content="Free books app. Listen to 130+ classic audiobooks with text-to-speech. Read or listen — your progress saves automatically." />
+  <meta property="og:url" content="https://freeappstore.online/apps/books.html" />
   <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
   <meta name="twitter:card" content="summary" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -51,18 +51,18 @@
     <div class="app-split">
       <div class="app-split-info">
         <div class="app-hero">
-          <div class="app-hero-icon" style="background: {{ICON_BG}};">{{ICON}}</div>
+          <div class="app-hero-icon" style="background: #fef9ee;">&#128214;</div>
           <div>
-            <h1>{{NAME}}</h1>
-            <div class="tag">{{CATEGORY_LABEL}}</div>
+            <h1>Books</h1>
+            <div class="tag">Learning</div>
           </div>
         </div>
 
-        <p class="app-description">{{DESCRIPTION}}</p>
+        <p class="app-description">Listen to 130+ classic audiobooks with text-to-speech. Read or listen — your progress saves automatically.</p>
 
-        {{PUBLISHED_LINE}}
-        {{AUDIT_BADGE}}
-        {{VIEWPORT_BADGE}}
+        <p class="published-line">First published <time datetime="2026-05-04">May 4, 2026</time> &middot; last updated <time datetime="2026-05-14">May 14, 2026</time></p>
+        <p class="audit-badge audit-fail"><span class="dot"></span> 2 compliance failures of 5 checks &middot; <a href="https://api.freeappstore.online/v1/audit?app=books">details</a></p>
+        <p class="audit-badge audit-pass"><span class="dot"></span> Works on ~96% of devices · portrait + landscape · min 360px wide</p>
 
         <div class="app-meta">
       <div class="app-meta-item">
@@ -75,15 +75,15 @@
       </div>
       <div class="app-meta-item">
         <div class="label">Offline</div>
-        <div class="value">{{OFFLINE}}</div>
+        <div class="value">Yes</div>
       </div>
       <div class="app-meta-item">
         <div class="label">Account</div>
-        <div class="value">{{ACCOUNT}}</div>
+        <div class="value">Not required</div>
       </div>
       <div class="app-meta-item">
         <div class="label">Source</div>
-        <div class="value"><a href="https://github.com/{{REPO}}" class="source-link">GitHub</a></div>
+        <div class="value"><a href="https://github.com/freeappstore-online/books" class="source-link">GitHub</a></div>
       </div>
     </div>
       </div>
@@ -91,8 +91,8 @@
       <aside class="app-split-phone">
         <div class="phone-frame">
           <iframe
-            src="{{APP_URL}}"
-            title="{{NAME}} live preview"
+            src="https://books.freeappstore.online"
+            title="Books live preview"
             loading="lazy"
             referrerpolicy="no-referrer"
             sandbox="allow-scripts allow-same-origin"
@@ -100,7 +100,7 @@
           ></iframe>
         </div>
         <div class="preview-actions">
-          <a class="app-cta" href="{{APP_URL}}" target="_blank" rel="noopener">Open in new tab &rarr;</a>
+          <a class="app-cta" href="https://books.freeappstore.online" target="_blank" rel="noopener">Open in new tab &rarr;</a>
           <button type="button" class="app-btn-secondary" data-action="reload-preview">Reload</button>
         </div>
         <p class="preview-note">If the preview doesn't load, open in a new tab.</p>
@@ -122,22 +122,42 @@
 
     <section class="app-section">
       <h2>About</h2>
-      <p>{{DESCRIPTION}}</p>
-      <p style="margin-top: 0.75rem;"><strong>Type:</strong> {{TYPE_LABEL}} &middot; <strong>Developer:</strong> {{DEVELOPER}}</p>
+      <p>Listen to 130+ classic audiobooks with text-to-speech. Read or listen — your progress saves automatically.</p>
+      <p style="margin-top: 0.75rem;"><strong>Type:</strong> Standalone (works offline) &middot; <strong>Developer:</strong> FreeAppStore</p>
     </section>
 
     <section class="app-section">
       <h2>Privacy</h2>
-      <p>{{NAME}} collects zero data. No analytics, no tracking, no cookies. Nothing leaves your browser.</p>
+      <p>Books collects zero data. No analytics, no tracking, no cookies. Nothing leaves your browser.</p>
     </section>
 
     <section class="app-section">
       <h2>Open Source</h2>
       <p>Fully open source under the MIT license. Inspect the code, report bugs, or contribute improvements.</p>
-      <a href="https://github.com/{{REPO}}" class="source-link">View source on GitHub &rarr;</a>
+      <a href="https://github.com/freeappstore-online/books" class="source-link">View source on GitHub &rarr;</a>
     </section>
 
-    {{HISTORY_SECTION}}
+    <section class="app-section">
+      <h2>Recent updates</h2>
+      <ul class="version-log">
+<li class="version-row">
+      <time datetime="2026-05-14" class="version-date">May 14, 2026</time>
+      <span class="version-msg">fix(manifest): add orientation + min_viewport_width</span>
+      <a class="version-sha" href="https://github.com/freeappstore-online/books/commit/0db73a6e7b9f5f448bf65bf8bb2ddac80181e9ca" target="_blank" rel="noopener">0db73a6</a>
+    </li>
+<li class="version-row">
+      <time datetime="2026-05-04" class="version-date">May 4, 2026</time>
+      <span class="version-msg">Add PWA meta tag compliance check</span>
+      <a class="version-sha" href="https://github.com/freeappstore-online/books/commit/746bbdec812423f6c992117f0e0c11d15fd7aadf" target="_blank" rel="noopener">746bbde</a>
+    </li>
+<li class="version-row">
+      <time datetime="2026-05-04" class="version-date">May 4, 2026</time>
+      <span class="version-msg">Add HTML meta tag compliance checks</span>
+      <a class="version-sha" href="https://github.com/freeappstore-online/books/commit/fd1bf75b914bbcd3abac7c20e15c4cf54fde57b7" target="_blank" rel="noopener">fd1bf75</a>
+    </li>
+      </ul>
+      <p style="margin-top: 0.75rem;"><a class="source-link" href="https://github.com/freeappstore-online/books/commits/main" target="_blank" rel="noopener">See full history on GitHub &rarr;</a></p>
+    </section>
     <aside style="text-align: center; padding: 1rem 0; font-size: 0.9rem; color: var(--muted);">
       Looking for free games? Visit <a href="https://freegamestore.online" style="color: var(--accent); font-weight: 600;">FreeGameStore</a>
     </aside>
@@ -178,7 +198,7 @@
   <script src="/auth.js"></script>
   <script>
   (function() {
-    var APP_ID = '{{ID}}';
+    var APP_ID = 'books';
     var STORE = 'apps';
     var API = 'https://api.freeappstore.online';
     var KEY = 'fas_voted_' + APP_ID;

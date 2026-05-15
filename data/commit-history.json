@@ -1022,5 +1022,81 @@
         }
       }
     ]
+  },
+  "freeappstore-online/messenger": {
+    "meta": {
+      "created_at": "2025-07-25T08:11:37Z",
+      "pushed_at": "2026-03-02T13:07:16Z"
+    },
+    "commits": [
+      {
+        "sha": "e655e08cfd7c1934ea1f28fc19d2d801741cde94",
+        "html_url": "https://github.com/freeappstore-online/messenger/commit/e655e08cfd7c1934ea1f28fc19d2d801741cde94",
+        "commit": {
+          "message": "Add web tests for E2EE and notification mute logic",
+          "author": {
+            "date": "2026-03-02T13:07:06Z"
+          }
+        }
+      },
+      {
+        "sha": "aebf011c739977897f452bdd6536a40779185ef0",
+        "html_url": "https://github.com/freeappstore-online/messenger/commit/aebf011c739977897f452bdd6536a40779185ef0",
+        "commit": {
+          "message": "Add E2EE for P2P direct and channel transport",
+          "author": {
+            "date": "2026-03-02T12:26:27Z"
+          }
+        }
+      },
+      {
+        "sha": "19e33e64d23dab9c4649b0553a019442875e20d3",
+        "html_url": "https://github.com/freeappstore-online/messenger/commit/19e33e64d23dab9c4649b0553a019442875e20d3",
+        "commit": {
+          "message": "Add offline sync status badges and retry actions",
+          "author": {
+            "date": "2026-03-02T11:55:18Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/life": {
+    "meta": {
+      "created_at": "2026-01-13T12:53:30Z",
+      "pushed_at": "2026-05-04T04:40:57Z"
+    },
+    "commits": [
+      {
+        "sha": "44f06b651b02696e871c2b6e38868e0a3392a4f9",
+        "html_url": "https://github.com/freeappstore-online/life/commit/44f06b651b02696e871c2b6e38868e0a3392a4f9",
+        "commit": {
+          "message": "Remove .env.production — Firebase config now in CF Pages env vars\n\nDeployment config is centralized in Cloudflare Pages project settings,\nnot in the repo. Developers don't need env files.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-04T04:40:55Z"
+          }
+        }
+      },
+      {
+        "sha": "13ecc578055e6310371fdf329cf4ba1b90e92f99",
+        "html_url": "https://github.com/freeappstore-online/life/commit/13ecc578055e6310371fdf329cf4ba1b90e92f99",
+        "commit": {
+          "message": "Add .env.production with Firebase client config for CF Pages build\n\nVite requires VITE_FIREBASE_* env vars at build time (they get inlined\ninto the JS bundle). Without these, the app crashes at runtime because\nFirebase SDK receives undefined config values. These are public client\nconfig values, not secrets.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-04T03:30:12Z"
+          }
+        }
+      },
+      {
+        "sha": "05523cf6b97e669176ece7ad319d1b20f4cee0a6",
+        "html_url": "https://github.com/freeappstore-online/life/commit/05523cf6b97e669176ece7ad319d1b20f4cee0a6",
+        "commit": {
+          "message": "Merge pull request #88 from brightside-life/copilot/fix-ci-merge-blocker\n\nFix CI: resolve react-simple-maps/React 18 peer conflict, update workflows to Node 22 + Node 24 actions runtime",
+          "author": {
+            "date": "2026-04-20T02:20:59Z"
+          }
+        }
+      }
+    ]
   }
 }

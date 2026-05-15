@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>{{NAME}} — FreeAppStore</title>
-  <meta name="description" content="Free {{NAME_LOWER}} app. {{DESCRIPTION}} Works offline, no account needed." />
+  <title>Habits — FreeAppStore</title>
+  <meta name="description" content="Free habits app. Daily habit tracker with streaks, calendar heatmap, and progress visualization. Works offline, no account needed." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="{{NAME}} — FreeAppStore" />
-  <meta property="og:description" content="Free {{NAME_LOWER}} app. {{DESCRIPTION}}" />
-  <meta property="og:url" content="https://freeappstore.online/apps/{{ID}}.html" />
+  <meta property="og:title" content="Habits — FreeAppStore" />
+  <meta property="og:description" content="Free habits app. Daily habit tracker with streaks, calendar heatmap, and progress visualization." />
+  <meta property="og:url" content="https://freeappstore.online/apps/habits.html" />
   <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
   <meta name="twitter:card" content="summary" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -51,18 +51,18 @@
     <div class="app-split">
       <div class="app-split-info">
         <div class="app-hero">
-          <div class="app-hero-icon" style="background: {{ICON_BG}};">{{ICON}}</div>
+          <div class="app-hero-icon" style="background: #ecfdf5;">&#9989;</div>
           <div>
-            <h1>{{NAME}}</h1>
-            <div class="tag">{{CATEGORY_LABEL}}</div>
+            <h1>Habits</h1>
+            <div class="tag">Utilities</div>
           </div>
         </div>
 
-        <p class="app-description">{{DESCRIPTION}}</p>
+        <p class="app-description">Daily habit tracker with streaks, calendar heatmap, and progress visualization.</p>
 
-        {{PUBLISHED_LINE}}
-        {{AUDIT_BADGE}}
-        {{VIEWPORT_BADGE}}
+        <p class="published-line">First published <time datetime="2026-05-04">May 4, 2026</time> &middot; last updated <time datetime="2026-05-14">May 14, 2026</time></p>
+        <p class="audit-badge audit-pass"><span class="dot"></span> 5/5 compliance checks pass</p>
+        <p class="audit-badge audit-pass"><span class="dot"></span> Works on ~96% of devices · portrait + landscape · min 360px wide</p>
 
         <div class="app-meta">
       <div class="app-meta-item">
@@ -75,15 +75,15 @@
       </div>
       <div class="app-meta-item">
         <div class="label">Offline</div>
-        <div class="value">{{OFFLINE}}</div>
+        <div class="value">Yes</div>
       </div>
       <div class="app-meta-item">
         <div class="label">Account</div>
-        <div class="value">{{ACCOUNT}}</div>
+        <div class="value">Not required</div>
       </div>
       <div class="app-meta-item">
         <div class="label">Source</div>
-        <div class="value"><a href="https://github.com/{{REPO}}" class="source-link">GitHub</a></div>
+        <div class="value"><a href="https://github.com/freeappstore-online/habits" class="source-link">GitHub</a></div>
       </div>
     </div>
       </div>
@@ -91,8 +91,8 @@
       <aside class="app-split-phone">
         <div class="phone-frame">
           <iframe
-            src="{{APP_URL}}"
-            title="{{NAME}} live preview"
+            src="https://habits.freeappstore.online"
+            title="Habits live preview"
             loading="lazy"
             referrerpolicy="no-referrer"
             sandbox="allow-scripts allow-same-origin"
@@ -100,7 +100,7 @@
           ></iframe>
         </div>
         <div class="preview-actions">
-          <a class="app-cta" href="{{APP_URL}}" target="_blank" rel="noopener">Open in new tab &rarr;</a>
+          <a class="app-cta" href="https://habits.freeappstore.online" target="_blank" rel="noopener">Open in new tab &rarr;</a>
           <button type="button" class="app-btn-secondary" data-action="reload-preview">Reload</button>
         </div>
         <p class="preview-note">If the preview doesn't load, open in a new tab.</p>
@@ -122,22 +122,42 @@
 
     <section class="app-section">
       <h2>About</h2>
-      <p>{{DESCRIPTION}}</p>
-      <p style="margin-top: 0.75rem;"><strong>Type:</strong> {{TYPE_LABEL}} &middot; <strong>Developer:</strong> {{DEVELOPER}}</p>
+      <p>Daily habit tracker with streaks, calendar heatmap, and progress visualization.</p>
+      <p style="margin-top: 0.75rem;"><strong>Type:</strong> Standalone (works offline) &middot; <strong>Developer:</strong> FreeAppStore</p>
     </section>
 
     <section class="app-section">
       <h2>Privacy</h2>
-      <p>{{NAME}} collects zero data. No analytics, no tracking, no cookies. Nothing leaves your browser.</p>
+      <p>Habits collects zero data. No analytics, no tracking, no cookies. Nothing leaves your browser.</p>
     </section>
 
     <section class="app-section">
       <h2>Open Source</h2>
       <p>Fully open source under the MIT license. Inspect the code, report bugs, or contribute improvements.</p>
-      <a href="https://github.com/{{REPO}}" class="source-link">View source on GitHub &rarr;</a>
+      <a href="https://github.com/freeappstore-online/habits" class="source-link">View source on GitHub &rarr;</a>
     </section>
 
-    {{HISTORY_SECTION}}
+    <section class="app-section">
+      <h2>Recent updates</h2>
+      <ul class="version-log">
+<li class="version-row">
+      <time datetime="2026-05-14" class="version-date">May 14, 2026</time>
+      <span class="version-msg">fix(manifest): add orientation + min_viewport_width</span>
+      <a class="version-sha" href="https://github.com/freeappstore-online/habits/commit/2267053b128b1c9ba9033cb627403696cc29701f" target="_blank" rel="noopener">2267053</a>
+    </li>
+<li class="version-row">
+      <time datetime="2026-05-14" class="version-date">May 14, 2026</time>
+      <span class="version-msg">docs(CLAUDE): adopt slim per-repo shape</span>
+      <a class="version-sha" href="https://github.com/freeappstore-online/habits/commit/fe9cf892ded99281f7e809faad3f9ed149d02538" target="_blank" rel="noopener">fe9cf89</a>
+    </li>
+<li class="version-row">
+      <time datetime="2026-05-04" class="version-date">May 4, 2026</time>
+      <span class="version-msg">Add platform docs link to CLAUDE.md</span>
+      <a class="version-sha" href="https://github.com/freeappstore-online/habits/commit/36313e16533165d76e2d46d77afb96e4e8466018" target="_blank" rel="noopener">36313e1</a>
+    </li>
+      </ul>
+      <p style="margin-top: 0.75rem;"><a class="source-link" href="https://github.com/freeappstore-online/habits/commits/main" target="_blank" rel="noopener">See full history on GitHub &rarr;</a></p>
+    </section>
     <aside style="text-align: center; padding: 1rem 0; font-size: 0.9rem; color: var(--muted);">
       Looking for free games? Visit <a href="https://freegamestore.online" style="color: var(--accent); font-weight: 600;">FreeGameStore</a>
     </aside>
@@ -178,7 +198,7 @@
   <script src="/auth.js"></script>
   <script>
   (function() {
-    var APP_ID = '{{ID}}';
+    var APP_ID = 'habits';
     var STORE = 'apps';
     var API = 'https://api.freeappstore.online';
     var KEY = 'fas_voted_' + APP_ID;
