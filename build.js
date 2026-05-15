@@ -568,6 +568,12 @@ if (fs.existsSync(fixtureSrcDir)) {
   }
 }
 
+// SKILLS.md → dist/skills.md (lowercase for URL compatibility)
+const skillsSrc = path.join(ROOT, 'SKILLS.md');
+if (fs.existsSync(skillsSrc)) {
+  fs.copyFileSync(skillsSrc, path.join(DIST, 'skills.md'));
+}
+
 console.log(`Built ${apps.length} app cards into dist/index.html`);
 console.log(`Generated ${apps.length} detail pages in dist/apps/`);
 console.log('Generated dist/sitemap.xml');
