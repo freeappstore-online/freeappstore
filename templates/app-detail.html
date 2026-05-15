@@ -187,15 +187,10 @@
     var countDown = document.getElementById('count-down');
     var status = document.getElementById('rating-status');
 
-    // Load current rating
-    fetch(API + '/ratings?ids=' + STORE + ':' + APP_ID)
-      .then(function(r) { return r.json(); })
-      .then(function(data) {
-        var rating = data[STORE + ':' + APP_ID] || { up: 0, down: 0 };
-        countUp.textContent = rating.up;
-        countDown.textContent = rating.down;
-      })
-      .catch(function() {});
+    // Ratings are stored locally until a backend endpoint is available
+    var stored = JSON.parse(localStorage.getItem('fas_ratings_' + APP_ID) || '{"up":0,"down":0}');
+    countUp.textContent = stored.up;
+    countDown.textContent = stored.down;
 
     // Check if already voted
     var voted = localStorage.getItem(KEY);
@@ -215,14 +210,12 @@
       downBtn.disabled = true;
       upBtn.style.opacity = dir === 'up' ? '1' : '0.4';
       downBtn.style.opacity = dir === 'down' ? '1' : '0.4';
-      // Optimistic update
       var el = dir === 'up' ? countUp : countDown;
       el.textContent = parseInt(el.textContent) + 1;
-      fetch(API + '/ratings', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: APP_ID, store: STORE, vote: dir })
-      }).catch(function() {});
+      // Persist locally
+      var r = JSON.parse(localStorage.getItem('fas_ratings_' + APP_ID) || '{"up":0,"down":0}');
+      r[dir]++;
+      localStorage.setItem('fas_ratings_' + APP_ID, JSON.stringify(r));
     }
 
     upBtn.addEventListener('click', function() { vote('up'); });
