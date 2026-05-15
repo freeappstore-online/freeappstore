@@ -189,14 +189,14 @@ function renderDetail(appEntry, mode) {
     const scale = Math.min(cardWidth / r.width, cardWidth / r.height);
     const wrapH = Math.round(r.height * scale);
     return `
-      <div class="q-cell q-pending" data-vp="${r.id}">
+      <div class="q-cell q-pending" data-vp="${esc(r.id)}">
         <div class="q-cell-head">
-          <span>${r.label}</span>
+          <span>${esc(r.label)}</span>
           <span class="badge">…</span>
         </div>
         <div class="q-frame-wrap" style="height: ${wrapH}px;">
           <iframe
-            src="${appEntry.appUrl}"
+            src="${esc(appEntry.appUrl)}"
             width="${r.width}"
             height="${r.height}"
             style="width:${r.width}px;height:${r.height}px;transform:scale(${scale.toFixed(4)});"

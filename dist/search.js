@@ -65,7 +65,7 @@
   function buildCrossCard(item) {
     const a = document.createElement('a');
     a.className = 'app-card';
-    a.href = `https://${item.domain}/${item.path}/${item.id}.html`;
+    a.href = `https://${esc(item.domain)}/${esc(item.path)}/${esc(item.id)}.html`;
     a.target = '_blank';
     a.rel = 'noopener';
     a.style.textDecoration = 'none';

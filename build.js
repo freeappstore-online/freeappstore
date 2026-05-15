@@ -227,16 +227,16 @@ const filterButtons = [
 
 // Build app cards
 const appCards = apps.map(app => {
-  return `        <div class="app-card" data-category="${app.category}" data-about="/apps/${app.id}.html">
+  return `        <div class="app-card" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}.html">
           <div class="app-card-header">
-            <div class="app-icon" style="background: ${app.iconBg};">${app.icon}</div>
+            <div class="app-icon" style="background: ${escapeHtml(app.iconBg)};">${escapeHtml(app.icon)}</div>
             <div>
-              <h3>${app.name}</h3>
-              <div class="tag">${categoryLabel(app.category)}</div>
+              <h3>${escapeHtml(app.name)}</h3>
+              <div class="tag">${escapeHtml(categoryLabel(app.category))}</div>
             </div>
           </div>
-          <p>${app.description}</p>
-          <div class="app-actions"><a href="${app.appUrl}" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+          <p>${escapeHtml(app.description)}</p>
+          <div class="app-actions"><a href="${escapeHtml(app.appUrl)}" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
         </div>`;
 }).join('\n\n');
 
