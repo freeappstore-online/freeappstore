@@ -1004,5 +1004,23 @@
         }
       }
     ]
+  },
+  "freeappstore-online/demo-todo": {
+    "meta": {
+      "created_at": "2026-05-15T04:13:05Z",
+      "pushed_at": "2026-05-15T04:13:22Z"
+    },
+    "commits": [
+      {
+        "sha": "986836b967bc52551c493aca9ce2ccf10db5f81f",
+        "html_url": "https://github.com/freeappstore-online/demo-todo/commit/986836b967bc52551c493aca9ce2ccf10db5f81f",
+        "commit": {
+          "message": "Initial commit from standalone template",
+          "author": {
+            "date": "2026-05-15T04:11:47Z"
+          }
+        }
+      }
+    ]
   }
 }
