@@ -6,13 +6,31 @@ You are building a free app for [freeappstore.online](https://freeappstore.onlin
 
 ```bash
 npm i -g @freeappstore/cli
-fas login
 fas init my-app
 cd my-app
 pnpm install
 ```
 
 This gives you a runnable React + TypeScript + Vite + Tailwind project with the platform's brand, layout, and PWA manifest already configured.
+
+### Authenticate for publishing
+
+If `gh` CLI is logged in, authenticate `fas` non-interactively:
+
+```bash
+mkdir -p ~/.fas
+GH_TOKEN=$(gh auth token)
+SESSION=$(curl -s -X POST https://api.freeappstore.online/v1/auth/exchange \
+  -H 'Content-Type: application/json' \
+  -d "{\"githubToken\": \"$GH_TOKEN\"}" | python3 -c "import sys,json; print(json.load(sys.stdin)['sessionToken'])")
+GH_LOGIN=$(gh api user --jq '.login')
+cat > ~/.fas/config.json << EOF
+{"apiBase":"https://api.freeappstore.online","github":{"accessToken":"$GH_TOKEN","login":"$GH_LOGIN","obtainedAt":$(date +%s)000},"session":{"token":"$SESSION","obtainedAt":$(date +%s)000}}
+EOF
+chmod 600 ~/.fas/config.json
+```
+
+If `gh` is not available, run `fas login` (opens browser for GitHub device flow).
 
 ## Tech stack (mandatory, no substitutions)
 
@@ -120,12 +138,21 @@ This verifies: MIT license, no tracking SDKs, brand fonts (Manrope + Fraunces), 
 ## Publishing
 
 ```bash
-fas publish
+pnpm build
+fas check
+fas publish --yes --name my-app --category Utilities --type standalone --oneliner "One-line description"
 ```
 
 This atomically: creates `github.com/freeappstore-online/my-app`, provisions Cloudflare Pages, adds DNS CNAME, sets up custom domain at `my-app.freeappstore.online`, and adds the app to the store registry.
 
-After publish, every `git push origin main` auto-deploys in ~30 seconds.
+After publish, push your code to the new repo:
+
+```bash
+git remote add upstream https://github.com/freeappstore-online/my-app.git
+git push upstream main
+```
+
+Every subsequent `git push upstream main` auto-deploys in ~30 seconds.
 
 ## What NOT to do
 

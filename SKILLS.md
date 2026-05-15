@@ -4,7 +4,7 @@ Point your Claude Code, Codex, or any AI agent to this file for platform-aware d
 
 **Add to your CLAUDE.md or agent config:**
 ```
-See https://raw.githubusercontent.com/freeappstore-online/freeappstore/main/SKILLS.md for platform skills.
+See https://freeappstore.online/skills.md for platform skills.
 ```
 
 ---
@@ -26,7 +26,7 @@ Use this slim template:
 - Deploy: `git push origin main` (auto-deploys via Cloudflare Pages)
 
 Free, MIT-licensed, no tracking. For platform conventions, read
-https://raw.githubusercontent.com/freeappstore-online/freeappstore/main/SKILLS.md
+https://freeappstore.online/skills.md
 before writing or changing anything.
 ````
 
