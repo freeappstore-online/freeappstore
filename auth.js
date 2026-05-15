@@ -80,7 +80,11 @@
     a.href = "https://create.freeappstore.online/profile";
     a.title = user.login || "Profile";
     if (user.avatarUrl) {
-      a.innerHTML = '<img class="nav-avatar" src="' + user.avatarUrl + '" alt="' + (user.login || "") + '" />';
+      var img = document.createElement("img");
+      img.className = "nav-avatar";
+      img.src = user.avatarUrl;
+      img.alt = user.login || "";
+      a.appendChild(img);
     } else {
       a.textContent = user.login || "Profile";
       a.className = "nav-signin";
