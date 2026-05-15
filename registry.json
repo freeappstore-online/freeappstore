@@ -376,6 +376,19 @@
       "cfProject": "freedemo-todoapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "watertracker",
+      "name": "watertracker",
+      "category": "Health & Fitness",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Simple hydration tracker. Set custom goals, log daily intake, and review your full hydration history. Works offline, all data stays on your device.",
+      "appUrl": "https://watertracker.freeappstore.online",
+      "repo": "freeappstore-online/watertracker",
+      "cfProject": "freewatertrackerapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
