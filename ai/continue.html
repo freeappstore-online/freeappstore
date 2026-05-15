@@ -13,27 +13,20 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="/style.css" />
   <style>
-    .ai-hero { padding: 2rem 0 1rem; }
-    .ai-hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1rem; }
     .ai-lead { font-size: 1.15rem; color: var(--muted); line-height: 1.6; max-width: 720px; margin-bottom: 2rem; }
-    .ai-tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin: 1.5rem 0 3rem; }
-    .ai-tool { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); transition: border-color 0.15s; text-decoration: none; color: var(--ink); display: block; }
-    .ai-tool:hover { border-color: var(--accent); text-decoration: none; }
-    .ai-tool h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-    .ai-tool p { font-size: 0.9rem; color: var(--muted); }
-    .ai-tool .tag { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem; }
     .steps { counter-reset: step; list-style: none; padding: 0; }
     .steps li { counter-increment: step; margin-bottom: 1.5rem; padding-left: 2.5rem; position: relative; }
     .steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
     .cmd { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.1rem; margin: 0.5rem 0; font-family: ui-monospace, SF Mono, Menlo, monospace; font-size: 0.88rem; overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
+    .cmd:hover { border-color: var(--accent); }
     .callout { padding: 1.25rem 1.5rem; border-left: 4px solid var(--accent); background: var(--accent-soft, var(--panel)); border-radius: 0 0.75rem 0.75rem 0; margin: 1.5rem 0; }
     .callout strong { color: var(--ink); }
     h2 { font-size: 1.4rem; font-weight: 800; margin: 2.5rem 0 1rem; }
-    h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
-    .crumbs { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
-    .crumbs a { color: var(--muted); }
     .ai-prompt { background: var(--surface); border: 1px dashed var(--border); border-radius: 0.75rem; padding: 1rem 1.25rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.55; color: var(--ink); }
     .ai-prompt::before { content: 'Prompt'; display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.5rem; }
+    .tool-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+    .tool-nav a { padding: 0.4rem 0.8rem; border: 1px solid var(--border); border-radius: 0.5rem; font-size: 0.82rem; font-weight: 600; color: var(--muted); text-decoration: none; }
+    .tool-nav a:hover, .tool-nav a.active { border-color: var(--accent); color: var(--accent); }
   </style>
 </head>
 <body>
@@ -52,116 +45,79 @@
     </div>
   </header>
 
-  <main class="container">
+  <main class="container" style="max-width:720px;">
 
-    <h1>Continue on FreeAppStore</h1>
-    <p class="ai-lead">Build a free app using Continue. The agent reads the platform's <a href="https://freeappstore.online/skills.md">SKILLS.md</a> and knows the brand rules, the CLI, and the deploy flow before it writes a line of code.</p>
-
-    <div class="callout">
-      <strong>Before you start:</strong> install Node 22+ and the FreeAppStore CLI.
-      <div class="cmd">npm i -g @freeappstore/cli
-fas login</div>
+    <div class="tool-nav">
+      <a href="/ai/claude-code.html">Claude Code</a>
+      <a href="/ai/cursor.html">Cursor</a>
+      <a href="/ai/codex.html">Codex</a>
+      <a href="/ai/windsurf.html">Windsurf</a>
+      <a href="/ai/cline.html">Cline</a>
+      <a href="/ai/github-copilot.html">GitHub Copilot</a>
+      <a href="/ai/aider.html">Aider</a>
+      <a href="/ai/continue.html" class="active">Continue</a>
+      <a href="/ai/zed.html">Zed</a>
+      <a href="/ai/chatgpt-web.html">ChatGPT</a>
     </div>
 
+    <h1>Continue on FreeAppStore</h1>
+    <p class="ai-lead">Open-source AI assistant for VS Code and JetBrains. Add the platform guide as a context doc.</p>
 
-    <h2>Set up Continue</h2>
+    <h2>Setup</h2>
     <ol class="steps">
       <li>
-        <strong>Install the Continue extension</strong>
-        <p>VS Code: search "Continue" in Extensions and install. JetBrains: install from the marketplace.</p>
+        <strong>Install FreeAppStore CLI</strong>
+        <div class="cmd" onclick="navigator.clipboard.writeText(this.textContent.trim())" style="cursor:pointer;" title="Click to copy">npm i -g @freeappstore/cli &amp;&amp; fas login</div>
       </li>
       <li>
-        <strong>Scaffold the app</strong>
-        <div class="cmd">fas init my-app
-code my-app</div>
-      </li>
-      <li>
-        <strong>Add platform context to <code>.continue/rules</code></strong>
-        <p>Continue reads custom rules from <code>.continue/rules</code>:</p>
-        <div class="cmd">mkdir -p .continue/rules &amp;&amp; cat &gt; .continue/rules/freeappstore.md &lt;&lt;'EOF'
-
-# Platform: FreeAppStore
-
-Always follow https://freeappstore.online/skills.md.
-
-Constraints:
-- Manrope + Fraunces fonts only.
-- Brand CSS tokens via var(--accent), var(--ink), var(--paper).
-- Zero tracking SDKs.
-- Use the Shell component.
-- Push to main = deploy.
-EOF</div>
-      </li>
-      <li>
-        <strong>Open Continue chat (Cmd-L in VS Code)</strong>
-        <p>Pick a model in the dropdown. Continue supports OpenAI, Anthropic, Mistral, Ollama (local), Together, etc.</p>
+        <strong>Scaffold your app</strong>
+        <div class="cmd" onclick="navigator.clipboard.writeText(this.textContent.trim())" style="cursor:pointer;" title="Click to copy">fas init my-app &amp;&amp; cd my-app &amp;&amp; pnpm install</div>
       </li>
     </ol>
 
-    <h2>Prompt the build</h2>
-    <div class="ai-prompt">@codebase Build a unit-converter app: category picker (length, weight, temperature) on the left, input/output on the right. Persist last unit pair per category. Use the Shell layout.</div>
-    <div class="ai-prompt">@codebase Add fuzzy search across phrase target and meaning to my mandarin-english app. Highlight matches.</div>
+    <h2>Build</h2>
+    <p>Open in your IDE with Continue, and prompt: "Build me a unit converter app using the Shell layout."</p>
 
-    <h2>Iterate</h2>
+    <h2>Give it context</h2>
+    <p>In Continue settings, add <code>https://freeappstore.online/skills.md</code> as a context document. It will be loaded for every chat.</p>
+
+    <h2>Publish</h2>
     <ol class="steps">
       <li>
-        <strong>Run the dev server</strong>
-        <div class="cmd">cd my-app &amp;&amp; pnpm install &amp;&amp; pnpm dev</div>
-        <p>The agent will tell you which file it edited; refresh the browser to see the change.</p>
+        <strong>Check compliance</strong>
+        <div class="cmd" onclick="navigator.clipboard.writeText(this.textContent.trim())" style="cursor:pointer;" title="Click to copy">fas check</div>
       </li>
       <li>
-        <strong>Run compliance checks</strong>
-        <div class="cmd">fas check</div>
-        <p>Catches missing brand fonts, tracking SDKs, oversized bundles, and missing PWA manifest before publish.</p>
+        <strong>Publish to the store</strong>
+        <div class="cmd" onclick="navigator.clipboard.writeText(this.textContent.trim())" style="cursor:pointer;" title="Click to copy">fas publish</div>
+        <p>Creates repo, Cloudflare Pages, DNS, custom domain, and store listing — all at once.</p>
       </li>
       <li>
-        <strong>Publish</strong>
-        <div class="cmd">fas publish</div>
-        <p>Provisions <code>github.com/freeappstore-online/my-app</code>, the Cloudflare Pages project, the DNS record, custom subdomain at <code>my-app.freeappstore.online</code>, and the storefront entry — atomically.</p>
-      </li>
-      <li>
-        <strong>Push your code</strong>
-        <div class="cmd">git push upstream main</div>
-        <p>Auto-deploys via Cloudflare Pages in ~30 seconds. Future commits to <code>main</code> deploy automatically.</p>
+        <strong>Future updates</strong>
+        <div class="cmd" onclick="navigator.clipboard.writeText(this.textContent.trim())" style="cursor:pointer;" title="Click to copy">git push origin main</div>
+        <p>Auto-deploys in ~30 seconds.</p>
       </li>
     </ol>
-
-    <h2>What the AI knows (and doesn't ask you for)</h2>
-    <p>Once SKILLS.md is loaded, the agent will:</p>
-    <ul>
-      <li>Use the platform's CSS tokens (<code>--accent</code>, <code>--ink</code>, <code>--paper</code>, …) — never redefine them.</li>
-      <li>Use Manrope (body) + Fraunces (display) — never custom display fonts.</li>
-      <li>Refuse to add Google Analytics, Plausible, Mixpanel, or any tracker.</li>
-      <li>Use <code>localStorage</code> for persistence (or <code>@freeappstore/sdk</code> KV for connected apps).</li>
-      <li>Push to <code>main</code> for deploy. Never <code>wrangler pages deploy</code> manually.</li>
-      <li>Never ask you for Cloudflare or GitHub tokens.</li>
-    </ul>
-    <p>The compliance suite (<code>fas check</code>) enforces all of the above on every push, so even if the AI slips, the platform catches it.</p>
-
 
     <h2>Add user accounts &amp; cloud storage</h2>
-    <p>Standalone apps use localStorage. If you need GitHub sign-in, per-user cloud storage, realtime rooms, or a secret-injecting API proxy, add the SDK:</p>
-    <div class="cmd">pnpm add @freeappstore/sdk</div>
-    <p>The SDK gives you four modules — all talk to the platform API at <code>api.freeappstore.online</code>:</p>
+    <p>Standalone apps use localStorage. If you need GitHub sign-in, per-user cloud storage, realtime rooms, or a secret-injecting API proxy:</p>
+    <div class="cmd" onclick="navigator.clipboard.writeText(this.textContent.trim())" style="cursor:pointer;" title="Click to copy">cd web && pnpm add @freeappstore/sdk</div>
     <ul>
-      <li><strong>Auth</strong> — GitHub OAuth. <code>fas.auth.signIn()</code> / <code>fas.auth.user</code></li>
-      <li><strong>KV</strong> — Per-user key-value store. <code>fas.kv.set('key', value)</code> / <code>fas.kv.get('key')</code></li>
-      <li><strong>Rooms</strong> — Realtime WebSocket fan-out. <code>fas.rooms.join('lobby')</code></li>
-      <li><strong>Proxy</strong> — Call third-party APIs without exposing keys. <code>fas.proxy.fetch('api.example.com/data')</code></li>
+      <li><strong>Auth</strong> — GitHub OAuth. <code>fas.auth.signIn()</code></li>
+      <li><strong>KV</strong> — Per-user storage. <code>fas.kv.set('key', value)</code></li>
+      <li><strong>Rooms</strong> — Realtime WebSocket. <code>fas.rooms.join('lobby')</code></li>
+      <li><strong>Proxy</strong> — Server-side API keys. <code>fas.proxy.fetch('api.example.com/data')</code></li>
     </ul>
-    <p>Full docs: <a href="https://github.com/freeappstore-online/platform/tree/main/packages/sdk#readme">SDK README</a></p>
+    <p><a href="https://github.com/freeappstore-online/platform/tree/main/packages/sdk#readme">SDK docs</a></p>
 
-    <h2>Get the source</h2>
-    <p>The CLI, SDK, and compliance package live at <a href="https://github.com/freeappstore-online/platform">https://github.com/freeappstore-online/platform</a>. Reading the source is allowed — and often illuminating when you're trying to coax a difficult prompt.</p>
-
-
-    <h2>Tips for Continue specifically</h2>
+    <h2>Tips</h2>
     <ul>
-      <li><strong>@codebase</strong> in chat lets the agent search across the whole repo.</li>
-      <li><strong>Cmd-I</strong> for inline edits in the current file.</li>
-      <li>Configure local models via Ollama for offline coding — Continue's strength.</li>
-      <li>The <code>config.json</code> in <code>~/.continue/</code> lets you fine-tune system prompts per model.</li>
+      <li>Continue supports both VS Code and JetBrains IDEs.</li>
+      <li>Run <code>fas check && fas publish</code> from the terminal.</li>
     </ul>
+
+    <p style="margin-top:2rem;"><a href="https://github.com/freeappstore-online/platform">Platform source</a> · <a href="https://freeappstore.online/skills.md">Full platform guide</a></p>
+
   </main>
 
   <footer>
@@ -175,6 +131,8 @@ EOF</div>
         <a href="/contribute.html">Build</a>
         <a href="https://create.freeappstore.online">VibeCode</a>
         <a href="/guidelines.html">Guidelines</a>
+        <a href="/quality.html">Quality</a>
+        <a href="/pricing.html">Pricing</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
         <a href="https://github.com/freeappstore-online">GitHub</a>
