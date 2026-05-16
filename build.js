@@ -233,7 +233,7 @@ const filterButtons = [
 const appCards = apps.map(app => {
   const q = qualityScores[app.id];
   const qualityBadge = q && q.grade
-    ? `<a href="/quality/${escapeHtml(app.id)}/report.json" class="quality-badge grade-${q.grade.toLowerCase()}" title="Code quality: ${q.score}/100">${q.grade}</a>`
+    ? `<a href="/quality/${escapeHtml(app.id)}/" class="quality-badge grade-${q.grade.toLowerCase()}" title="Code quality: ${q.score}/100">${q.grade}</a>`
     : '';
   return `        <div class="app-card" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}">
           <div class="app-card-header">

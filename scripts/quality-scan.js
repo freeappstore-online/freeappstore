@@ -36,32 +36,34 @@ for (const app of REGISTRY.apps) {
       execSync(`git clone --depth 1 https://github.com/${app.repo}.git ${appDir}`, { stdio: 'pipe' });
     }
 
-    // Run vibecodeqa CLI
-    const jsonOut = execSync('npx --yes @vibecodeqa/cli --json 2>/dev/null', {
-      cwd: appDir,
-      encoding: 'utf8',
-      timeout: 60000,
-    });
-
-    const report = JSON.parse(jsonOut);
-    scores[app.id] = { score: report.score, grade: report.grade };
-
-    // Generate HTML report
+    // Run vibecodeqa CLI (generates both HTML + JSON in .vibe-check/)
     execSync('npx --yes @vibecodeqa/cli 2>/dev/null || true', {
       cwd: appDir,
       timeout: 60000,
       stdio: 'pipe',
     });
 
-    // Find and copy the HTML report
-    const htmlReport = path.join(appDir, 'vibe-check-report.html');
-    if (fs.existsSync(htmlReport)) {
-      fs.copyFileSync(htmlReport, path.join(reportDir, 'index.html'));
-      console.log(`  Score: ${report.score} (${report.grade}) — report saved`);
+    // Read JSON report
+    const jsonPath = path.join(appDir, '.vibe-check', 'report.json');
+    const htmlPath = path.join(appDir, '.vibe-check', 'report', 'index.html');
+
+    if (fs.existsSync(jsonPath)) {
+      const report = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+      scores[app.id] = { score: report.score, grade: report.grade };
+
+      // Copy JSON
+      fs.writeFileSync(path.join(reportDir, 'report.json'), JSON.stringify(report, null, 2));
+
+      // Copy HTML report
+      if (fs.existsSync(htmlPath)) {
+        fs.copyFileSync(htmlPath, path.join(reportDir, 'index.html'));
+        console.log(`  Score: ${report.score} (${report.grade}) — HTML + JSON saved`);
+      } else {
+        console.log(`  Score: ${report.score} (${report.grade}) — JSON only`);
+      }
     } else {
-      // Save JSON as fallback
-      fs.writeFileSync(path.join(reportDir, 'report.json'), jsonOut);
-      console.log(`  Score: ${report.score} (${report.grade}) — JSON only`);
+      console.log(`  WARN: no report.json generated`);
+      scores[app.id] = { score: null, grade: null, error: 'no report generated' };
     }
   } catch (err) {
     console.log(`  FAILED: ${err.message?.slice(0, 80)}`);

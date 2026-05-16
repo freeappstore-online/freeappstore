@@ -20,9 +20,8 @@
     "grade": "C"
   },
   "life": {
-    "score": null,
-    "grade": null,
-    "error": "spawnSync /bin/sh ETIMEDOUT"
+    "score": 49,
+    "grade": "D"
   },
   "messenger": {
     "score": 49,

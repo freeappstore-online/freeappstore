@@ -1,1 +1,597 @@
-{"version":"0.22.0","timestamp":"2026-05-16T21:16:25.177Z","score":73,"grade":"C","checks":[{"name":"structure","score":70,"grade":"C","details":{"found":["package.json","LICENSE",".gitignore","lockfile"],"missing":["tsconfig.json","README.md"],"srcFiles":8,"testFiles":0,"testRatio":"0%"},"issues":[{"severity":"warning","message":"Missing tsconfig.json — TypeScript configuration","rule":"missing-file"},{"severity":"warning","message":"Missing README.md — Project documentation","rule":"missing-file"},{"severity":"error","message":"No test files found (8 source files with zero tests)","rule":"no-tests"},{"severity":"warning","message":"No 'test' script in package.json","rule":"no-test-script"}],"duration":3},{"name":"lint","score":0,"grade":"F","details":{"skipped":true,"reason":"no linter detected"},"issues":[],"duration":0},{"name":"types","score":0,"grade":"F","details":{"skipped":true,"reason":"no tsconfig.json"},"issues":[],"duration":0},{"name":"type-safety","score":100,"grade":"A","details":{"non-null assertion (!.)":1,"filesScanned":8,"totalUnsafe":1},"issues":[{"severity":"info","message":"non-null assertion (!.)","file":"web/src/data/catalog.ts","line":652,"rule":"unsafe-type"}],"duration":6},{"name":"standards","score":83,"grade":"B","details":{"filesScanned":8,"codeSmells":0,"largeFiles":1,"namingViolations":0},"issues":[{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useProgress.ts","file":"web/src/hooks/useProgress.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useTTS.ts","file":"web/src/hooks/useTTS.ts","rule":"file-naming"},{"severity":"warning","message":"223 lines — getting large","file":"web/src/components/Reader.tsx","rule":"large-file"},{"severity":"warning","message":"1114 lines — consider splitting (max 300)","file":"web/src/data/catalog.ts","rule":"large-file"}],"duration":9},{"name":"complexity","score":97,"grade":"A","details":{"totalFiles":8,"totalLines":1858,"longFunctions":1,"complexFunctions":0,"functionCount":13},"issues":[{"severity":"warning","message":"useTTS: 142 lines (max 60)","file":"web/src/hooks/useTTS.ts","rule":"long-function"}],"duration":6},{"name":"duplication","score":100,"grade":"A","details":{"filesScanned":8,"totalSourceLines":1858,"duplicateBlocks":0,"duplicationPct":"0%"},"issues":[],"duration":10},{"name":"error-handling","score":100,"grade":"A","details":{"emptyCatch":0,"throwString":0,"hasErrorBoundary":"n/a"},"issues":[],"duration":4},{"name":"react","score":100,"grade":"A","details":{"skipped":true,"reason":"not a React project"},"issues":[],"duration":0},{"name":"accessibility","score":80,"grade":"B","details":{"jsxFiles":5,"missingAlt":0,"clickDiv":1,"missingLabel":4,"missingLang":0,"autofocus":0,"positiveTabindex":0},"issues":[{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/components/AudioControls.tsx","line":85,"rule":"form-label"},{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/components/AudioControls.tsx","line":95,"rule":"form-label"},{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/components/Library.tsx","line":63,"rule":"form-label"},{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/components/Library.tsx","line":70,"rule":"form-label"},{"severity":"warning","message":"Click handler on non-interactive element without role + keyboard handler","file":"web/src/components/Reader.tsx","line":126,"rule":"click-events"}],"duration":3},{"name":"docs","score":0,"grade":"F","details":{"readmeLines":0,"totalExports":6,"documentedExports":0,"documentedPct":"0%"},"issues":[{"severity":"error","message":"No README.md — project has no documentation","rule":"no-readme"},{"severity":"warning","message":"Only 0% of exports have documentation (0/6)","rule":"undocumented-exports"}],"duration":2},{"name":"best-practices","score":40,"grade":"D","details":{"practicesChecked":20,"practicesFollowed":8,"adherence":"40%"},"issues":[{"severity":"warning","message":"compliance.yml: no explicit permissions block — defaults to read-write (overly permissive)","file":".github/workflows/compliance.yml","rule":"explicit-permissions"},{"severity":"info","message":"package.json missing repository field — provenance attestation won't link to source","rule":"repository-field"},{"severity":"info","message":"No SECURITY.md — users don't know how to report vulnerabilities","rule":"security-policy"},{"severity":"info","message":"No CODEOWNERS file — no mandatory reviewers for critical paths","rule":"codeowners"},{"severity":"info","message":"No CONTRIBUTING.md — onboarding is harder for new contributors","rule":"contributing-guide"},{"severity":"info","message":"No pre-commit hooks (husky/lefthook) — lint/format not enforced before commit","rule":"pre-commit-hooks"},{"severity":"info","message":"No Dependabot/Renovate — dependency updates are manual and often forgotten","rule":"automated-deps"},{"severity":"warning","message":"No linter config (ESLint/Biome/dart analyze) — code style not enforced","rule":"linter-config"},{"severity":"info","message":"No formatter config (Prettier/Biome/.editorconfig) — inconsistent code formatting","rule":"formatter-config"},{"severity":"warning","message":"No test script in package.json — testing not configured","rule":"test-script"},{"severity":"info","message":"No test coverage configuration — coverage thresholds not enforced","rule":"coverage-config"},{"severity":"info","message":"No commit convention enforcement (commitlint/changesets) — changelog generation is manual","rule":"conventional-commits"}],"duration":2},{"name":"testing","score":0,"grade":"F","details":{"reason":"No test files found","srcFiles":8,"testFiles":0,"pyramid":{"unit":0,"integration":0,"component":0,"e2e":0}},"issues":[{"severity":"error","message":"8 source files with zero tests","rule":"no-tests"}],"duration":2},{"name":"secrets","score":100,"grade":"A","details":{"secretsFound":0},"issues":[],"duration":189},{"name":"security","score":100,"grade":"A","details":{"filesScanned":8,"patterns":1,"cweCategories":0,"errors":0,"warnings":0},"issues":[{"severity":"info","message":"No Content-Security-Policy meta tag in HTML","file":"web/index.html","rule":"CWE-1021"}],"duration":11},{"name":"dependencies","score":100,"grade":"A","details":{"vulnerabilities":{"critical":0,"high":0,"moderate":0,"low":0},"outdated":0,"majorOutdated":0},"issues":[],"duration":1399},{"name":"architecture","score":100,"grade":"A","details":{"totalModules":8,"circularDeps":0,"godModules":0,"orphans":0,"highFanOut":0,"connectors":0,"graph":{"web/src/App.tsx":{"imports":["web/src/data/catalog.ts","web/src/components/Library.tsx","web/src/components/Reader.tsx"],"importedBy":["web/src/main.tsx"],"dir":"web/src"},"web/src/components/AudioControls.tsx":{"imports":[],"importedBy":["web/src/components/Reader.tsx"],"dir":"web/src/components"},"web/src/components/Library.tsx":{"imports":["web/src/data/catalog.ts","web/src/hooks/useProgress.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/components"},"web/src/components/Reader.tsx":{"imports":["web/src/data/catalog.ts","web/src/hooks/useProgress.ts","web/src/hooks/useTTS.ts","web/src/components/AudioControls.tsx"],"importedBy":["web/src/App.tsx"],"dir":"web/src/components"},"web/src/data/catalog.ts":{"imports":[],"importedBy":["web/src/App.tsx","web/src/components/Library.tsx","web/src/components/Reader.tsx"],"dir":"web/src/data"},"web/src/hooks/useProgress.ts":{"imports":[],"importedBy":["web/src/components/Library.tsx","web/src/components/Reader.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useTTS.ts":{"imports":[],"importedBy":["web/src/components/Reader.tsx"],"dir":"web/src/hooks"},"web/src/main.tsx":{"imports":["web/src/App.tsx"],"importedBy":[],"dir":"web/src"}},"containerSvg":""},"issues":[],"duration":4},{"name":"performance","score":100,"grade":"A","details":{"filesScanned":8,"barrelImports":0,"heavyDeps":0,"dynamicOpportunities":0,"cssInJsRuntime":0},"issues":[],"duration":6},{"name":"confusion","score":100,"grade":"A","details":{"fileConfusability":0,"genericNames":0,"exportCollisions":0,"ambiguousAbbrevs":0,"filesScanned":8},"issues":[],"duration":6},{"name":"context","score":95,"grade":"A","details":{"filesScanned":8,"totalTokens":34728,"avgTokensPerFile":4341,"avgImportsPerFile":1.3,"highTokenFiles":1,"heavyImportFiles":0,"circularDeps":0,"contextSinks":0},"issues":[{"severity":"warning","message":"~27303 tokens (>4000) — large context cost for LLMs","file":"web/src/data/catalog.ts","rule":"high-token-count"}],"duration":3},{"name":"doc-coherence","score":0,"grade":"F","details":{"premium":true,"comingSoon":true,"reason":"LLM-powered analysis — coming soon","docFiles":[],"hasJSDoc":false,"description":"Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."},"issues":[],"duration":2},{"name":"code-coherence","score":0,"grade":"F","details":{"premium":true,"comingSoon":true,"reason":"LLM-powered analysis — coming soon","filesAnalyzed":8,"totalExports":12,"totalFunctions":10,"description":"Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."},"issues":[],"duration":6}],"meta":{"cwd":"/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/books","node":"v22.21.1","duration":1683,"stack":{"language":"unknown","framework":"none","bundler":"none","testRunner":"none","linter":"none","packageManager":"pnpm"},"repoUrl":"https://github.com/freeappstore-online/books","branch":"main"}}
+{
+  "version": "0.24.0",
+  "timestamp": "2026-05-16T22:54:21.440Z",
+  "score": 73,
+  "grade": "C",
+  "checks": [
+    {
+      "name": "structure",
+      "score": 70,
+      "grade": "C",
+      "details": {
+        "found": [
+          "package.json",
+          "LICENSE",
+          ".gitignore",
+          "lockfile"
+        ],
+        "missing": [
+          "tsconfig.json",
+          "README.md"
+        ],
+        "srcFiles": 8,
+        "testFiles": 0,
+        "testRatio": "0%"
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "Missing tsconfig.json — TypeScript configuration",
+          "rule": "missing-file"
+        },
+        {
+          "severity": "warning",
+          "message": "Missing README.md — Project documentation",
+          "rule": "missing-file"
+        },
+        {
+          "severity": "error",
+          "message": "No test files found (8 source files with zero tests)",
+          "rule": "no-tests"
+        },
+        {
+          "severity": "warning",
+          "message": "No 'test' script in package.json",
+          "rule": "no-test-script"
+        }
+      ],
+      "duration": 3
+    },
+    {
+      "name": "lint",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "skipped": true,
+        "reason": "no linter detected"
+      },
+      "issues": [],
+      "duration": 0
+    },
+    {
+      "name": "types",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "skipped": true,
+        "reason": "no tsconfig.json"
+      },
+      "issues": [],
+      "duration": 0
+    },
+    {
+      "name": "type-safety",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "non-null assertion (!.)": 1,
+        "filesScanned": 8,
+        "totalUnsafe": 1
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "message": "non-null assertion (!.)",
+          "file": "web/src/data/catalog.ts",
+          "line": 652,
+          "rule": "unsafe-type"
+        }
+      ],
+      "duration": 6
+    },
+    {
+      "name": "standards",
+      "score": 83,
+      "grade": "B",
+      "details": {
+        "filesScanned": 8,
+        "codeSmells": 0,
+        "largeFiles": 1,
+        "namingViolations": 0
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useProgress.ts",
+          "file": "web/src/hooks/useProgress.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useTTS.ts",
+          "file": "web/src/hooks/useTTS.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "223 lines — getting large",
+          "file": "web/src/components/Reader.tsx",
+          "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "1114 lines — consider splitting (max 300)",
+          "file": "web/src/data/catalog.ts",
+          "rule": "large-file"
+        }
+      ],
+      "duration": 7
+    },
+    {
+      "name": "complexity",
+      "score": 97,
+      "grade": "A",
+      "details": {
+        "totalFiles": 8,
+        "totalLines": 1858,
+        "longFunctions": 1,
+        "complexFunctions": 0,
+        "functionCount": 13
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "useTTS: 142 lines (max 60)",
+          "file": "web/src/hooks/useTTS.ts",
+          "rule": "long-function"
+        }
+      ],
+      "duration": 4
+    },
+    {
+      "name": "duplication",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "filesScanned": 8,
+        "totalSourceLines": 1858,
+        "duplicateBlocks": 0,
+        "duplicationPct": "0%"
+      },
+      "issues": [],
+      "duration": 10
+    },
+    {
+      "name": "error-handling",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "emptyCatch": 0,
+        "throwString": 0,
+        "hasErrorBoundary": "n/a"
+      },
+      "issues": [],
+      "duration": 4
+    },
+    {
+      "name": "react",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "skipped": true,
+        "reason": "not a React project"
+      },
+      "issues": [],
+      "duration": 0
+    },
+    {
+      "name": "accessibility",
+      "score": 80,
+      "grade": "B",
+      "details": {
+        "jsxFiles": 5,
+        "missingAlt": 0,
+        "clickDiv": 1,
+        "missingLabel": 4,
+        "missingLang": 0,
+        "autofocus": 0,
+        "positiveTabindex": 0
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/components/AudioControls.tsx",
+          "line": 85,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/components/AudioControls.tsx",
+          "line": 95,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/components/Library.tsx",
+          "line": 63,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/components/Library.tsx",
+          "line": 70,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Click handler on non-interactive element without role + keyboard handler",
+          "file": "web/src/components/Reader.tsx",
+          "line": 126,
+          "rule": "click-events"
+        }
+      ],
+      "duration": 5
+    },
+    {
+      "name": "docs",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "readmeLines": 0,
+        "totalExports": 6,
+        "documentedExports": 0,
+        "documentedPct": "0%"
+      },
+      "issues": [
+        {
+          "severity": "error",
+          "message": "No README.md — project has no documentation",
+          "rule": "no-readme"
+        },
+        {
+          "severity": "warning",
+          "message": "Only 0% of exports have documentation (0/6)",
+          "rule": "undocumented-exports"
+        }
+      ],
+      "duration": 3
+    },
+    {
+      "name": "best-practices",
+      "score": 40,
+      "grade": "D",
+      "details": {
+        "practicesChecked": 20,
+        "practicesFollowed": 8,
+        "adherence": "40%"
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "compliance.yml: no explicit permissions block — defaults to read-write (overly permissive)",
+          "file": ".github/workflows/compliance.yml",
+          "rule": "explicit-permissions"
+        },
+        {
+          "severity": "info",
+          "message": "package.json missing repository field — provenance attestation won't link to source",
+          "rule": "repository-field"
+        },
+        {
+          "severity": "info",
+          "message": "No SECURITY.md — users don't know how to report vulnerabilities",
+          "rule": "security-policy"
+        },
+        {
+          "severity": "info",
+          "message": "No CODEOWNERS file — no mandatory reviewers for critical paths",
+          "rule": "codeowners"
+        },
+        {
+          "severity": "info",
+          "message": "No CONTRIBUTING.md — onboarding is harder for new contributors",
+          "rule": "contributing-guide"
+        },
+        {
+          "severity": "info",
+          "message": "No pre-commit hooks (husky/lefthook) — lint/format not enforced before commit",
+          "rule": "pre-commit-hooks"
+        },
+        {
+          "severity": "info",
+          "message": "No Dependabot/Renovate — dependency updates are manual and often forgotten",
+          "rule": "automated-deps"
+        },
+        {
+          "severity": "warning",
+          "message": "No linter config (ESLint/Biome/dart analyze) — code style not enforced",
+          "rule": "linter-config"
+        },
+        {
+          "severity": "info",
+          "message": "No formatter config (Prettier/Biome/.editorconfig) — inconsistent code formatting",
+          "rule": "formatter-config"
+        },
+        {
+          "severity": "warning",
+          "message": "No test script in package.json — testing not configured",
+          "rule": "test-script"
+        },
+        {
+          "severity": "info",
+          "message": "No test coverage configuration — coverage thresholds not enforced",
+          "rule": "coverage-config"
+        },
+        {
+          "severity": "info",
+          "message": "No commit convention enforcement (commitlint/changesets) — changelog generation is manual",
+          "rule": "conventional-commits"
+        }
+      ],
+      "duration": 2
+    },
+    {
+      "name": "testing",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "reason": "No test files found",
+        "srcFiles": 8,
+        "testFiles": 0,
+        "pyramid": {
+          "unit": 0,
+          "integration": 0,
+          "component": 0,
+          "e2e": 0
+        }
+      },
+      "issues": [
+        {
+          "severity": "error",
+          "message": "8 source files with zero tests",
+          "rule": "no-tests"
+        }
+      ],
+      "duration": 2
+    },
+    {
+      "name": "secrets",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "secretsFound": 0
+      },
+      "issues": [],
+      "duration": 202
+    },
+    {
+      "name": "security",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "filesScanned": 8,
+        "patterns": 1,
+        "cweCategories": 0,
+        "errors": 0,
+        "warnings": 0
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "message": "No Content-Security-Policy meta tag in HTML",
+          "file": "web/index.html",
+          "rule": "CWE-1021"
+        }
+      ],
+      "duration": 11
+    },
+    {
+      "name": "dependencies",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "vulnerabilities": {
+          "critical": 0,
+          "high": 0,
+          "moderate": 0,
+          "low": 0
+        },
+        "outdated": 0,
+        "majorOutdated": 0
+      },
+      "issues": [],
+      "duration": 1353
+    },
+    {
+      "name": "architecture",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "totalModules": 8,
+        "circularDeps": 0,
+        "godModules": 0,
+        "orphans": 0,
+        "highFanOut": 0,
+        "connectors": 0,
+        "graph": {
+          "web/src/App.tsx": {
+            "imports": [
+              "web/src/data/catalog.ts",
+              "web/src/components/Library.tsx",
+              "web/src/components/Reader.tsx"
+            ],
+            "importedBy": [
+              "web/src/main.tsx"
+            ],
+            "dir": "web/src"
+          },
+          "web/src/components/AudioControls.tsx": {
+            "imports": [],
+            "importedBy": [
+              "web/src/components/Reader.tsx"
+            ],
+            "dir": "web/src/components"
+          },
+          "web/src/components/Library.tsx": {
+            "imports": [
+              "web/src/data/catalog.ts",
+              "web/src/hooks/useProgress.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/components"
+          },
+          "web/src/components/Reader.tsx": {
+            "imports": [
+              "web/src/data/catalog.ts",
+              "web/src/hooks/useProgress.ts",
+              "web/src/hooks/useTTS.ts",
+              "web/src/components/AudioControls.tsx"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/components"
+          },
+          "web/src/data/catalog.ts": {
+            "imports": [],
+            "importedBy": [
+              "web/src/App.tsx",
+              "web/src/components/Library.tsx",
+              "web/src/components/Reader.tsx"
+            ],
+            "dir": "web/src/data"
+          },
+          "web/src/hooks/useProgress.ts": {
+            "imports": [],
+            "importedBy": [
+              "web/src/components/Library.tsx",
+              "web/src/components/Reader.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useTTS.ts": {
+            "imports": [],
+            "importedBy": [
+              "web/src/components/Reader.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/main.tsx": {
+            "imports": [
+              "web/src/App.tsx"
+            ],
+            "importedBy": [],
+            "dir": "web/src"
+          }
+        },
+        "containerSvg": ""
+      },
+      "issues": [],
+      "duration": 3
+    },
+    {
+      "name": "performance",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "filesScanned": 8,
+        "barrelImports": 0,
+        "heavyDeps": 0,
+        "dynamicOpportunities": 0,
+        "cssInJsRuntime": 0
+      },
+      "issues": [],
+      "duration": 5
+    },
+    {
+      "name": "confusion",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "fileConfusability": 0,
+        "genericNames": 0,
+        "exportCollisions": 0,
+        "ambiguousAbbrevs": 0,
+        "filesScanned": 8
+      },
+      "issues": [],
+      "duration": 4
+    },
+    {
+      "name": "context",
+      "score": 95,
+      "grade": "A",
+      "details": {
+        "filesScanned": 8,
+        "totalTokens": 34728,
+        "avgTokensPerFile": 4341,
+        "avgImportsPerFile": 1.3,
+        "highTokenFiles": 1,
+        "heavyImportFiles": 0,
+        "circularDeps": 0,
+        "contextSinks": 0
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "~27303 tokens (>4000) — large context cost for LLMs",
+          "file": "web/src/data/catalog.ts",
+          "rule": "high-token-count"
+        }
+      ],
+      "duration": 2
+    },
+    {
+      "name": "doc-coherence",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "premium": true,
+        "comingSoon": true,
+        "reason": "LLM-powered analysis — coming soon",
+        "docFiles": [],
+        "hasJSDoc": false,
+        "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
+      },
+      "issues": [],
+      "duration": 2
+    },
+    {
+      "name": "code-coherence",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "premium": true,
+        "comingSoon": true,
+        "reason": "LLM-powered analysis — coming soon",
+        "filesAnalyzed": 8,
+        "totalExports": 12,
+        "totalFunctions": 10,
+        "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
+      },
+      "issues": [],
+      "duration": 2
+    }
+  ],
+  "meta": {
+    "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/books",
+    "node": "v22.21.1",
+    "duration": 1644,
+    "stack": {
+      "language": "unknown",
+      "framework": "none",
+      "bundler": "none",
+      "testRunner": "none",
+      "linter": "none",
+      "packageManager": "pnpm"
+    },
+    "repoUrl": "https://github.com/freeappstore-online/books",
+    "branch": "main"
+  }
+}

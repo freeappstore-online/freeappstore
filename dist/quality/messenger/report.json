@@ -1,1 +1,1667 @@
-{"version":"0.22.0","timestamp":"2026-05-16T21:18:05.261Z","score":49,"grade":"D","checks":[{"name":"structure","score":60,"grade":"C","details":{"found":["package.json",".gitignore","README.md","lockfile"],"missing":["tsconfig.json","LICENSE"],"srcFiles":39,"testFiles":0,"testRatio":"0%"},"issues":[{"severity":"warning","message":"Missing tsconfig.json — TypeScript configuration","rule":"missing-file"},{"severity":"error","message":"Missing LICENSE — Open source license","rule":"missing-file"},{"severity":"error","message":"No test files found (39 source files with zero tests)","rule":"no-tests"},{"severity":"warning","message":"No 'test' script in package.json","rule":"no-test-script"}],"duration":12},{"name":"lint","score":0,"grade":"F","details":{"skipped":true,"reason":"no linter detected"},"issues":[],"duration":0},{"name":"types","score":0,"grade":"F","details":{"skipped":true,"reason":"no tsconfig.json"},"issues":[],"duration":0},{"name":"type-safety","score":100,"grade":"A","details":{"non-null assertion (!.)":1,"filesScanned":39,"totalUnsafe":1},"issues":[{"severity":"info","message":"non-null assertion (!.)","file":"web/src/screens/ChannelListScreen.tsx","line":83,"rule":"unsafe-type"}],"duration":38},{"name":"standards","score":0,"grade":"F","details":{"filesScanned":39,"codeSmells":14,"largeFiles":2,"namingViolations":0},"issues":[{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useAuth.ts","file":"web/src/hooks/useAuth.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useCall.ts","file":"web/src/hooks/useCall.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useChannelPeers.ts","file":"web/src/hooks/useChannelPeers.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useChannelPosts.ts","file":"web/src/hooks/useChannelPosts.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useChannels.ts","file":"web/src/hooks/useChannels.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useContactChannels.ts","file":"web/src/hooks/useContactChannels.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useContactSettings.ts","file":"web/src/hooks/useContactSettings.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useContacts.ts","file":"web/src/hooks/useContacts.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useConversations.ts","file":"web/src/hooks/useConversations.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useMessages.ts","file":"web/src/hooks/useMessages.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useNotifications.ts","file":"web/src/hooks/useNotifications.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: usePeerChannel.ts","file":"web/src/hooks/usePeerChannel.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: usePresence.ts","file":"web/src/hooks/usePresence.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useUnreadCount.ts","file":"web/src/hooks/useUnreadCount.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useUserNames.ts","file":"web/src/hooks/useUserNames.ts","rule":"file-naming"},{"severity":"warning","message":"TS file uses PascalCase but doesn't export a class: useWsClient.ts","file":"web/src/hooks/useWsClient.ts","rule":"file-naming"},{"severity":"warning","message":"298 lines — getting large","file":"web/src/App.tsx","rule":"large-file"},{"severity":"warning","message":"270 lines — getting large","file":"web/src/components/MessageBubble.tsx","rule":"large-file"},{"severity":"warning","message":"268 lines — getting large","file":"web/src/hooks/useCall.ts","rule":"large-file"},{"severity":"warning","message":"402 lines — consider splitting (max 300)","file":"web/src/hooks/useChannelPeers.ts","rule":"large-file"},{"severity":"warning","message":"209 lines — getting large","file":"web/src/hooks/useChannelPosts.ts","rule":"large-file"},{"severity":"warning","message":"367 lines — consider splitting (max 300)","file":"web/src/hooks/usePeerChannel.ts","rule":"large-file"},{"severity":"warning","message":"241 lines — getting large","file":"web/src/screens/ChatScreen.tsx","rule":"large-file"},{"severity":"warning","message":"265 lines — getting large","file":"web/src/screens/ContactSettingsScreen.tsx","rule":"large-file"},{"severity":"warning","message":"console.log in production code","file":"web/src/hooks/useCall.ts","line":110,"rule":"console.log"},{"severity":"warning","message":"console.log in production code","file":"web/src/hooks/useCall.ts","line":214,"rule":"console.log"},{"severity":"warning","message":"console.log in production code","file":"web/src/hooks/useCall.ts","line":219,"rule":"console.log"},{"severity":"warning","message":"console.log in production code","file":"web/src/hooks/useCall.ts","line":224,"rule":"console.log"},{"severity":"warning","message":"console.log in production code","file":"web/src/hooks/useCall.ts","line":235,"rule":"console.log"},{"severity":"warning","message":"console.log in production code","file":"web/src/hooks/useCall.ts","line":241,"rule":"console.log"},{"severity":"warning","message":"Use === instead of ==","file":"web/src/hooks/useChannels.ts","line":47,"rule":"loose equality"},{"severity":"warning","message":"Use === instead of ==","file":"web/src/hooks/useContacts.ts","line":30,"rule":"loose equality"},{"severity":"warning","message":"console.log in production code","file":"web/src/hooks/useMessages.ts","line":94,"rule":"console.log"},{"severity":"warning","message":"console.log in production code","file":"web/src/hooks/useMessages.ts","line":122,"rule":"console.log"},{"severity":"warning","message":"console.log in production code","file":"web/src/screens/ChatScreen.tsx","line":111,"rule":"console.log"},{"severity":"warning","message":"console.log in production code","file":"web/src/services/wsClient.ts","line":32,"rule":"console.log"},{"severity":"warning","message":"console.log in production code","file":"web/src/services/wsClient.ts","line":40,"rule":"console.log"},{"severity":"warning","message":"console.log in production code","file":"web/src/services/wsClient.ts","line":48,"rule":"console.log"}],"duration":36},{"name":"complexity","score":13,"grade":"F","details":{"totalFiles":39,"totalLines":4644,"longFunctions":14,"complexFunctions":9,"functionCount":139},"issues":[{"severity":"warning","message":"App: 262 lines (max 60)","file":"web/src/App.tsx","rule":"long-function"},{"severity":"warning","message":"App: complexity 38 (max 15)","file":"web/src/App.tsx","rule":"high-complexity"},{"severity":"warning","message":"CallOverlay: 79 lines (max 60)","file":"web/src/components/CallOverlay.tsx","rule":"long-function"},{"severity":"warning","message":"Composer: 72 lines (max 60)","file":"web/src/components/Composer.tsx","rule":"long-function"},{"severity":"warning","message":"MessageBubble: 168 lines (max 60)","file":"web/src/components/MessageBubble.tsx","rule":"long-function"},{"severity":"warning","message":"MessageBubble: complexity 17 (max 15)","file":"web/src/components/MessageBubble.tsx","rule":"high-complexity"},{"severity":"warning","message":"useCall: 221 lines (max 60)","file":"web/src/hooks/useCall.ts","rule":"long-function"},{"severity":"warning","message":"useCall: complexity 31 (max 15)","file":"web/src/hooks/useCall.ts","rule":"high-complexity"},{"severity":"warning","message":"useChannels: 83 lines (max 60)","file":"web/src/hooks/useChannels.ts","rule":"long-function"},{"severity":"warning","message":"useContacts: 85 lines (max 60)","file":"web/src/hooks/useContacts.ts","rule":"long-function"},{"severity":"warning","message":"useMessages: 136 lines (max 60)","file":"web/src/hooks/useMessages.ts","rule":"long-function"},{"severity":"warning","message":"useMessages: complexity 36 (max 15)","file":"web/src/hooks/useMessages.ts","rule":"high-complexity"},{"severity":"warning","message":"ChannelListScreen: 120 lines (max 60)","file":"web/src/screens/ChannelListScreen.tsx","rule":"long-function"},{"severity":"warning","message":"ChannelListScreen: complexity 16 (max 15)","file":"web/src/screens/ChannelListScreen.tsx","rule":"high-complexity"},{"severity":"warning","message":"ChannelScreen: 144 lines (max 60)","file":"web/src/screens/ChannelScreen.tsx","rule":"long-function"},{"severity":"warning","message":"ChannelScreen: complexity 18 (max 15)","file":"web/src/screens/ChannelScreen.tsx","rule":"high-complexity"},{"severity":"warning","message":"ChatScreen: 208 lines (max 60)","file":"web/src/screens/ChatScreen.tsx","rule":"long-function"},{"severity":"warning","message":"ChatScreen: complexity 43 (max 15)","file":"web/src/screens/ChatScreen.tsx","rule":"high-complexity"},{"severity":"warning","message":"ContactSettingsScreen: 244 lines (max 60)","file":"web/src/screens/ContactSettingsScreen.tsx","rule":"long-function"},{"severity":"warning","message":"ContactSettingsScreen: complexity 22 (max 15)","file":"web/src/screens/ContactSettingsScreen.tsx","rule":"high-complexity"},{"severity":"warning","message":"ContactsScreen: 104 lines (max 60)","file":"web/src/screens/ContactsScreen.tsx","rule":"long-function"},{"severity":"warning","message":"SettingsScreen: 121 lines (max 60)","file":"web/src/screens/SettingsScreen.tsx","rule":"long-function"},{"severity":"warning","message":"SettingsScreen: complexity 16 (max 15)","file":"web/src/screens/SettingsScreen.tsx","rule":"high-complexity"}],"duration":29},{"name":"duplication","score":0,"grade":"F","details":{"filesScanned":39,"totalSourceLines":4644,"duplicateBlocks":79,"duplicationPct":"10%"},"issues":[{"severity":"warning","message":"6-line duplicate block","file":"web/src/App.tsx:123 ↔ web/src/hooks/useChannelPosts.ts:51","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/components/MessageBubble.tsx:189 ↔ web/src/components/MessageBubble.tsx:203","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/components/MessageBubble.tsx:190 ↔ web/src/components/MessageBubble.tsx:204","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useCall.ts:112 ↔ web/src/hooks/useCall.ts:144","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useCall.ts:206 ↔ web/src/hooks/useChannelPeers.ts:260","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useCall.ts:207 ↔ web/src/hooks/useChannelPeers.ts:261","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useCall.ts:208 ↔ web/src/hooks/useChannelPeers.ts:262","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:3 ↔ web/src/hooks/usePeerChannel.ts:4","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:4 ↔ web/src/hooks/usePeerChannel.ts:5","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:5 ↔ web/src/hooks/usePeerChannel.ts:6","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:6 ↔ web/src/hooks/usePeerChannel.ts:7","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:7 ↔ web/src/hooks/usePeerChannel.ts:8","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:8 ↔ web/src/hooks/usePeerChannel.ts:9","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:9 ↔ web/src/hooks/usePeerChannel.ts:10","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:10 ↔ web/src/hooks/usePeerChannel.ts:11","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:33 ↔ web/src/hooks/usePeerChannel.ts:31","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:34 ↔ web/src/hooks/usePeerChannel.ts:32","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:35 ↔ web/src/hooks/usePeerChannel.ts:33","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:36 ↔ web/src/hooks/usePeerChannel.ts:34","rule":"duplicate-code"},{"severity":"warning","message":"6-line duplicate block","file":"web/src/hooks/useChannelPeers.ts:37 ↔ web/src/hooks/usePeerChannel.ts:35","rule":"duplicate-code"}],"duration":102},{"name":"error-handling","score":100,"grade":"A","details":{"emptyCatch":0,"throwString":0,"hasErrorBoundary":"n/a"},"issues":[],"duration":49},{"name":"react","score":100,"grade":"A","details":{"skipped":true,"reason":"not a React project"},"issues":[],"duration":0},{"name":"accessibility","score":48,"grade":"D","details":{"jsxFiles":16,"missingAlt":0,"clickDiv":4,"missingLabel":9,"missingLang":0,"autofocus":0,"positiveTabindex":0},"issues":[{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/components/Composer.tsx","line":50,"rule":"form-label"},{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/components/Composer.tsx","line":68,"rule":"form-label"},{"severity":"warning","message":"Click handler on non-interactive element without role + keyboard handler","file":"web/src/components/ContactItem.tsx","line":16,"rule":"click-events"},{"severity":"warning","message":"Click handler on non-interactive element without role + keyboard handler","file":"web/src/components/ConversationItem.tsx","line":17,"rule":"click-events"},{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/screens/ChannelListScreen.tsx","line":57,"rule":"form-label"},{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/screens/ChannelListScreen.tsx","line":63,"rule":"form-label"},{"severity":"warning","message":"Click handler on non-interactive element without role + keyboard handler","file":"web/src/screens/ChannelListScreen.tsx","line":86,"rule":"click-events"},{"severity":"warning","message":"Click handler on non-interactive element without role + keyboard handler","file":"web/src/screens/ChannelListScreen.tsx","line":112,"rule":"click-events"},{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/screens/ContactSettingsScreen.tsx","line":144,"rule":"form-label"},{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/screens/ContactSettingsScreen.tsx","line":156,"rule":"form-label"},{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/screens/ContactsScreen.tsx","line":64,"rule":"form-label"},{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/screens/LoginScreen.tsx","line":26,"rule":"form-label"},{"severity":"warning","message":"Form control without label, aria-label, or aria-labelledby","file":"web/src/screens/LoginScreen.tsx","line":33,"rule":"form-label"}],"duration":19},{"name":"docs","score":50,"grade":"D","details":{"readmeLines":125,"totalExports":65,"documentedExports":0,"documentedPct":"0%"},"issues":[{"severity":"warning","message":"Only 0% of exports have documentation (0/65)","rule":"undocumented-exports"}],"duration":32},{"name":"best-practices","score":39,"grade":"F","details":{"practicesChecked":28,"practicesFollowed":11,"adherence":"39%"},"issues":[{"severity":"warning","message":"ci.yml: no explicit permissions block — defaults to read-write (overly permissive)","file":".github/workflows/ci.yml","rule":"explicit-permissions"},{"severity":"info","message":"discord-notification.yml: CI install without frozen lockfile — builds may not be reproducible","file":".github/workflows/discord-notification.yml","rule":"frozen-lockfile-ci"},{"severity":"info","message":"firebase-hosting.yml: 1 third-party actions not pinned to SHA — vulnerable to supply chain attacks","file":".github/workflows/firebase-hosting.yml","rule":"pin-actions-to-sha"},{"severity":"warning","message":"firebase-hosting.yml: no explicit permissions block — defaults to read-write (overly permissive)","file":".github/workflows/firebase-hosting.yml","rule":"explicit-permissions"},{"severity":"info","message":"No engine constraints (engines in package.json or .nvmrc) — Node version not pinned","rule":"pin-node-version"},{"severity":"info","message":"package.json missing repository field — provenance attestation won't link to source","rule":"repository-field"},{"severity":"info","message":"No SECURITY.md — users don't know how to report vulnerabilities","rule":"security-policy"},{"severity":"info","message":"No CODEOWNERS file — no mandatory reviewers for critical paths","rule":"codeowners"},{"severity":"info","message":"No CONTRIBUTING.md — onboarding is harder for new contributors","rule":"contributing-guide"},{"severity":"info","message":"No pre-commit hooks (husky/lefthook) — lint/format not enforced before commit","rule":"pre-commit-hooks"},{"severity":"info","message":"No Dependabot/Renovate — dependency updates are manual and often forgotten","rule":"automated-deps"},{"severity":"warning","message":"No linter config (ESLint/Biome/dart analyze) — code style not enforced","rule":"linter-config"},{"severity":"info","message":"No formatter config (Prettier/Biome/.editorconfig) — inconsistent code formatting","rule":"formatter-config"},{"severity":"warning","message":"No test script in package.json — testing not configured","rule":"test-script"},{"severity":"info","message":"No test coverage configuration — coverage thresholds not enforced","rule":"coverage-config"},{"severity":"info","message":"No .dockerignore — node_modules and build artifacts will bloat Docker image","rule":"dockerignore"},{"severity":"info","message":"No commit convention enforcement (commitlint/changesets) — changelog generation is manual","rule":"conventional-commits"}],"duration":3},{"name":"testing","score":0,"grade":"F","details":{"reason":"No test files found","srcFiles":39,"testFiles":0,"pyramid":{"unit":0,"integration":0,"component":0,"e2e":0}},"issues":[{"severity":"error","message":"39 source files with zero tests","rule":"no-tests"}],"duration":10},{"name":"secrets","score":50,"grade":"D","details":{"secretsFound":2},"issues":[{"severity":"error","message":"Possible Google API Key","file":"web/public/firebase-messaging-sw.js","line":18,"rule":"secret-detected"},{"severity":"error","message":"Possible Google API Key","file":"web/src/firebase.ts","line":8,"rule":"secret-detected"}],"duration":151},{"name":"security","score":100,"grade":"A","details":{"filesScanned":39,"patterns":1,"cweCategories":0,"errors":0,"warnings":0},"issues":[{"severity":"info","message":"No Content-Security-Policy meta tag in HTML","file":"web/index.html","rule":"CWE-1021"}],"duration":80},{"name":"dependencies","score":0,"grade":"F","details":{"vulnerabilities":{"critical":2,"high":38,"moderate":36,"low":4},"outdated":0,"majorOutdated":0},"issues":[{"severity":"error","message":"2 critical vulnerabilities"},{"severity":"error","message":"38 high vulnerabilities"},{"severity":"warning","message":"36 moderate vulnerabilities"}],"duration":8248},{"name":"architecture","score":95,"grade":"A","details":{"totalModules":39,"circularDeps":0,"godModules":0,"orphans":1,"highFanOut":1,"connectors":0,"graph":{"web/src/App.tsx":{"imports":["web/src/hooks/useAuth.ts","web/src/hooks/useWsClient.ts","web/src/hooks/useConversations.ts","web/src/hooks/usePresence.ts","web/src/hooks/useContacts.ts","web/src/hooks/useContactSettings.ts","web/src/hooks/useUserNames.ts","web/src/hooks/useCall.ts","web/src/hooks/useChannelPeers.ts","web/src/hooks/useContactChannels.ts","web/src/hooks/useNotifications.ts","web/src/chat/db.ts","web/src/utils/pwa.ts","web/src/screens/LoginScreen.tsx","web/src/screens/ConversationList.tsx","web/src/screens/ChatScreen.tsx","web/src/screens/ContactsScreen.tsx","web/src/screens/ChannelListScreen.tsx","web/src/screens/ChannelScreen.tsx","web/src/screens/ContactSettingsScreen.tsx","web/src/hooks/useChannels.ts","web/src/screens/SettingsScreen.tsx","web/src/components/AppShell.tsx","web/src/components/CallOverlay.tsx"],"importedBy":["web/src/main.tsx"],"dir":"web/src"},"web/src/chat/db.ts":{"imports":[],"importedBy":["web/src/App.tsx","web/src/hooks/useChannelPosts.ts","web/src/hooks/useMessages.ts","web/src/hooks/usePeerChannel.ts","web/src/screens/ChannelScreen.tsx","web/src/screens/ChatScreen.tsx"],"dir":"web/src/chat"},"web/src/components/AppShell.tsx":{"imports":["web/src/services/wsClient.ts","web/src/hooks/useUnreadCount.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/components"},"web/src/components/CallOverlay.tsx":{"imports":["web/src/hooks/useCall.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/components"},"web/src/components/Composer.tsx":{"imports":[],"importedBy":["web/src/screens/ChannelScreen.tsx","web/src/screens/ChatScreen.tsx"],"dir":"web/src/components"},"web/src/components/ContactItem.tsx":{"imports":[],"importedBy":["web/src/screens/ContactsScreen.tsx"],"dir":"web/src/components"},"web/src/components/ConversationItem.tsx":{"imports":["web/src/hooks/useConversations.ts"],"importedBy":["web/src/screens/ConversationList.tsx"],"dir":"web/src/components"},"web/src/components/MessageBubble.tsx":{"imports":[],"importedBy":["web/src/screens/ChannelScreen.tsx","web/src/screens/ChatScreen.tsx"],"dir":"web/src/components"},"web/src/crypto/e2ee.ts":{"imports":[],"importedBy":["web/src/hooks/useChannelPeers.ts","web/src/hooks/usePeerChannel.ts"],"dir":"web/src/crypto"},"web/src/firebase.ts":{"imports":[],"importedBy":["web/src/hooks/useAuth.ts","web/src/hooks/useAuth.ts","web/src/hooks/useChannelPosts.ts","web/src/hooks/useChannels.ts","web/src/hooks/useContactChannels.ts","web/src/hooks/useContactSettings.ts","web/src/hooks/useContacts.ts","web/src/hooks/useConversations.ts","web/src/hooks/useMessages.ts","web/src/hooks/useUserNames.ts","web/src/screens/ContactsScreen.tsx","web/src/screens/SettingsScreen.tsx","web/src/services/fcm.ts"],"dir":"web/src"},"web/src/hooks/useAuth.ts":{"imports":["web/src/firebase.ts","web/src/firebase.ts"],"importedBy":["web/src/App.tsx","web/src/screens/LoginScreen.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useCall.ts":{"imports":["web/src/services/wsClient.ts"],"importedBy":["web/src/App.tsx","web/src/components/CallOverlay.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useChannelPeers.ts":{"imports":["web/src/services/wsClient.ts","web/src/crypto/e2ee.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useChannelPosts.ts":{"imports":["web/src/firebase.ts","web/src/services/wsClient.ts","web/src/chat/db.ts"],"importedBy":["web/src/screens/ChannelScreen.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useChannels.ts":{"imports":["web/src/firebase.ts"],"importedBy":["web/src/App.tsx","web/src/screens/ChannelListScreen.tsx","web/src/screens/ChannelScreen.tsx","web/src/screens/ContactSettingsScreen.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useContactChannels.ts":{"imports":["web/src/firebase.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useContactSettings.ts":{"imports":["web/src/firebase.ts"],"importedBy":["web/src/App.tsx","web/src/hooks/useNotifications.ts","web/src/screens/ChatScreen.tsx","web/src/screens/ContactSettingsScreen.tsx","web/src/screens/ContactsScreen.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useContacts.ts":{"imports":["web/src/firebase.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useConversations.ts":{"imports":["web/src/firebase.ts","web/src/services/wsClient.ts"],"importedBy":["web/src/App.tsx","web/src/components/ConversationItem.tsx","web/src/screens/ConversationList.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useMessages.ts":{"imports":["web/src/firebase.ts","web/src/chat/db.ts","web/src/services/wsClient.ts"],"importedBy":["web/src/screens/ChatScreen.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useNotifications.ts":{"imports":["web/src/utils/pwa.ts","web/src/services/fcm.ts","web/src/hooks/useContactSettings.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/hooks"},"web/src/hooks/usePeerChannel.ts":{"imports":["web/src/services/wsClient.ts","web/src/chat/db.ts","web/src/crypto/e2ee.ts"],"importedBy":["web/src/screens/ChatScreen.tsx"],"dir":"web/src/hooks"},"web/src/hooks/usePresence.ts":{"imports":["web/src/services/wsClient.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useUnreadCount.ts":{"imports":["web/src/services/wsClient.ts"],"importedBy":["web/src/components/AppShell.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useUserNames.ts":{"imports":["web/src/firebase.ts"],"importedBy":["web/src/App.tsx","web/src/screens/ChatScreen.tsx"],"dir":"web/src/hooks"},"web/src/hooks/useWsClient.ts":{"imports":["web/src/services/wsClient.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/hooks"},"web/src/main.tsx":{"imports":["web/src/App.tsx"],"importedBy":[],"dir":"web/src"},"web/src/screens/ChannelListScreen.tsx":{"imports":["web/src/hooks/useChannels.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/screens"},"web/src/screens/ChannelScreen.tsx":{"imports":["web/src/hooks/useChannelPosts.ts","web/src/components/MessageBubble.tsx","web/src/components/Composer.tsx","web/src/hooks/useChannels.ts","web/src/services/wsClient.ts","web/src/chat/db.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/screens"},"web/src/screens/ChatScreen.tsx":{"imports":["web/src/hooks/useMessages.ts","web/src/hooks/usePeerChannel.ts","web/src/hooks/useUserNames.ts","web/src/components/MessageBubble.tsx","web/src/components/Composer.tsx","web/src/chat/db.ts","web/src/services/wsClient.ts","web/src/hooks/useContactSettings.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/screens"},"web/src/screens/ContactSettingsScreen.tsx":{"imports":["web/src/hooks/useContactSettings.ts","web/src/hooks/useChannels.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/screens"},"web/src/screens/ContactsScreen.tsx":{"imports":["web/src/firebase.ts","web/src/hooks/useContactSettings.ts","web/src/components/ContactItem.tsx"],"importedBy":["web/src/App.tsx"],"dir":"web/src/screens"},"web/src/screens/ConversationList.tsx":{"imports":["web/src/hooks/useConversations.ts","web/src/components/ConversationItem.tsx"],"importedBy":["web/src/App.tsx"],"dir":"web/src/screens"},"web/src/screens/LoginScreen.tsx":{"imports":["web/src/hooks/useAuth.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/screens"},"web/src/screens/SettingsScreen.tsx":{"imports":["web/src/firebase.ts","web/src/utils/pwa.ts","web/src/services/fcm.ts"],"importedBy":["web/src/App.tsx"],"dir":"web/src/screens"},"web/src/services/fcm.ts":{"imports":["web/src/firebase.ts"],"importedBy":["web/src/hooks/useNotifications.ts","web/src/screens/SettingsScreen.tsx"],"dir":"web/src/services"},"web/src/services/wsClient.ts":{"imports":[],"importedBy":["web/src/components/AppShell.tsx","web/src/hooks/useCall.ts","web/src/hooks/useChannelPeers.ts","web/src/hooks/useChannelPosts.ts","web/src/hooks/useConversations.ts","web/src/hooks/useMessages.ts","web/src/hooks/usePeerChannel.ts","web/src/hooks/usePresence.ts","web/src/hooks/useUnreadCount.ts","web/src/hooks/useWsClient.ts","web/src/screens/ChannelScreen.tsx","web/src/screens/ChatScreen.tsx"],"dir":"web/src/services"},"web/src/utils/pwa.ts":{"imports":[],"importedBy":["web/src/App.tsx","web/src/hooks/useNotifications.ts","web/src/screens/SettingsScreen.tsx"],"dir":"web/src/utils"},"web/src/vite-env.d.ts":{"imports":[],"importedBy":[],"dir":"web/src"}},"containerSvg":"<svg viewBox=\"0 0 370 120\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;max-width:370px\"><defs><marker id=\"cont-arrow\" viewBox=\"0 0 10 7\" refX=\"10\" refY=\"3.5\" markerWidth=\"7\" markerHeight=\"5\" orient=\"auto\"><polygon points=\"0 0, 10 3.5, 0 7\" fill=\"#ffffff40\"/></marker></defs><rect x=\"30\" y=\"30\" width=\"140\" height=\"60\" rx=\"8\" fill=\"#6d78d015\" stroke=\"#6d78d050\"/><text x=\"100\" y=\"54\" text-anchor=\"middle\" fill=\"#e5e5e5\" font-size=\"10\" font-weight=\"700\">Frontend</text><text x=\"100\" y=\"70\" text-anchor=\"middle\" fill=\"#6b7280\" font-size=\"8\">[Svelte]</text><line x1=\"170\" y1=\"60\" x2=\"200\" y2=\"60\" stroke=\"#ffffff20\" stroke-width=\"1.5\" marker-end=\"url(#cont-arrow)\"/><rect x=\"200\" y=\"30\" width=\"140\" height=\"60\" rx=\"8\" fill=\"#ec489915\" stroke=\"#ec489950\"/><text x=\"270\" y=\"54\" text-anchor=\"middle\" fill=\"#e5e5e5\" font-size=\"10\" font-weight=\"700\">Firebase</text><text x=\"270\" y=\"70\" text-anchor=\"middle\" fill=\"#6b7280\" font-size=\"8\">[Firebase]</text></svg>"},"issues":[{"severity":"warning","message":"Orphan: not imported by any file (dead module?)","file":"web/src/vite-env.d.ts","rule":"orphan-module"},{"severity":"warning","message":"High fan-out: imports 24 modules — hard to test in isolation","file":"web/src/App.tsx","rule":"high-fan-out"}],"duration":12},{"name":"performance","score":100,"grade":"A","details":{"filesScanned":39,"barrelImports":0,"heavyDeps":0,"dynamicOpportunities":0,"cssInJsRuntime":0},"issues":[{"severity":"info","message":"Large destructured import — if from a barrel, only imported items should be bundled","file":"web/src/hooks/useNotifications.ts","line":3,"rule":"large-import"},{"severity":"info","message":"Large destructured import — if from a barrel, only imported items should be bundled","file":"web/src/hooks/usePeerChannel.ts","line":4,"rule":"large-import"},{"severity":"info","message":"Large destructured import — if from a barrel, only imported items should be bundled","file":"web/src/screens/ChatScreen.tsx","line":8,"rule":"large-import"},{"severity":"info","message":"Large destructured import — if from a barrel, only imported items should be bundled","file":"web/src/screens/SettingsScreen.tsx","line":6,"rule":"large-import"}],"duration":9},{"name":"confusion","score":93,"grade":"A","details":{"fileConfusability":0,"genericNames":3,"exportCollisions":0,"ambiguousAbbrevs":2,"filesScanned":39},"issues":[{"severity":"warning","message":"Generic variable: data — use a descriptive name","file":"web/src/hooks/useChannels.ts","line":78,"rule":"generic-name"},{"severity":"warning","message":"Generic variable: result — use a descriptive name","file":"web/src/hooks/useContactChannels.ts","line":23,"rule":"generic-name"},{"severity":"warning","message":"Generic variable: body — use a descriptive name","file":"web/src/hooks/useNotifications.ts","line":77,"rule":"generic-name"},{"severity":"warning","message":"Ambiguous abbreviation \"db\" in filename — could mean: database (connection? schema? query builder?)","file":"web/src/chat/db.ts","rule":"ambiguous-abbreviation"},{"severity":"warning","message":"Ambiguous abbreviation \"env\" in filename — could mean: environment (runtime? deployment? variables?)","file":"web/src/vite-env.d.ts","rule":"ambiguous-abbreviation"}],"duration":26},{"name":"context","score":97,"grade":"A","details":{"filesScanned":39,"totalTokens":46180,"avgTokensPerFile":1184,"avgImportsPerFile":2.1,"highTokenFiles":0,"heavyImportFiles":1,"circularDeps":0,"contextSinks":0},"issues":[{"severity":"warning","message":"24 imports (>15) — consider splitting or co-locating","file":"web/src/App.tsx","rule":"heavy-imports"}],"duration":7},{"name":"doc-coherence","score":0,"grade":"F","details":{"premium":true,"comingSoon":true,"reason":"LLM-powered analysis — coming soon","docFiles":["README.md","CLAUDE.md","ARCHITECTURE.md"],"hasJSDoc":false,"description":"Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."},"issues":[],"duration":6},{"name":"code-coherence","score":0,"grade":"F","details":{"premium":true,"comingSoon":true,"reason":"LLM-powered analysis — coming soon","filesAnalyzed":39,"totalExports":76,"totalFunctions":82,"description":"Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."},"issues":[],"duration":5}],"meta":{"cwd":"/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/messenger","node":"v22.21.1","duration":8887,"stack":{"language":"unknown","framework":"none","bundler":"none","testRunner":"none","linter":"none","packageManager":"pnpm"},"repoUrl":"https://github.com/freeappstore-online/messenger","branch":"main"}}
+{
+  "version": "0.25.0",
+  "timestamp": "2026-05-16T22:55:16.478Z",
+  "score": 49,
+  "grade": "D",
+  "checks": [
+    {
+      "name": "structure",
+      "score": 60,
+      "grade": "C",
+      "details": {
+        "found": [
+          "package.json",
+          ".gitignore",
+          "README.md",
+          "lockfile"
+        ],
+        "missing": [
+          "tsconfig.json",
+          "LICENSE"
+        ],
+        "srcFiles": 39,
+        "testFiles": 0,
+        "testRatio": "0%"
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "Missing tsconfig.json — TypeScript configuration",
+          "rule": "missing-file"
+        },
+        {
+          "severity": "error",
+          "message": "Missing LICENSE — Open source license",
+          "rule": "missing-file"
+        },
+        {
+          "severity": "error",
+          "message": "No test files found (39 source files with zero tests)",
+          "rule": "no-tests"
+        },
+        {
+          "severity": "warning",
+          "message": "No 'test' script in package.json",
+          "rule": "no-test-script"
+        }
+      ],
+      "duration": 9
+    },
+    {
+      "name": "lint",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "skipped": true,
+        "reason": "no linter detected"
+      },
+      "issues": [],
+      "duration": 0
+    },
+    {
+      "name": "types",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "skipped": true,
+        "reason": "no tsconfig.json"
+      },
+      "issues": [],
+      "duration": 0
+    },
+    {
+      "name": "type-safety",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "non-null assertion (!.)": 1,
+        "filesScanned": 39,
+        "totalUnsafe": 1
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "message": "non-null assertion (!.)",
+          "file": "web/src/screens/ChannelListScreen.tsx",
+          "line": 83,
+          "rule": "unsafe-type"
+        }
+      ],
+      "duration": 15
+    },
+    {
+      "name": "standards",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "filesScanned": 39,
+        "codeSmells": 14,
+        "largeFiles": 2,
+        "namingViolations": 0
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useAuth.ts",
+          "file": "web/src/hooks/useAuth.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useCall.ts",
+          "file": "web/src/hooks/useCall.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useChannelPeers.ts",
+          "file": "web/src/hooks/useChannelPeers.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useChannelPosts.ts",
+          "file": "web/src/hooks/useChannelPosts.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useChannels.ts",
+          "file": "web/src/hooks/useChannels.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useContactChannels.ts",
+          "file": "web/src/hooks/useContactChannels.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useContactSettings.ts",
+          "file": "web/src/hooks/useContactSettings.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useContacts.ts",
+          "file": "web/src/hooks/useContacts.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useConversations.ts",
+          "file": "web/src/hooks/useConversations.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useMessages.ts",
+          "file": "web/src/hooks/useMessages.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useNotifications.ts",
+          "file": "web/src/hooks/useNotifications.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: usePeerChannel.ts",
+          "file": "web/src/hooks/usePeerChannel.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: usePresence.ts",
+          "file": "web/src/hooks/usePresence.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useUnreadCount.ts",
+          "file": "web/src/hooks/useUnreadCount.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useUserNames.ts",
+          "file": "web/src/hooks/useUserNames.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "TS file uses PascalCase but doesn't export a class: useWsClient.ts",
+          "file": "web/src/hooks/useWsClient.ts",
+          "rule": "file-naming"
+        },
+        {
+          "severity": "warning",
+          "message": "298 lines — getting large",
+          "file": "web/src/App.tsx",
+          "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "270 lines — getting large",
+          "file": "web/src/components/MessageBubble.tsx",
+          "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "268 lines — getting large",
+          "file": "web/src/hooks/useCall.ts",
+          "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "402 lines — consider splitting (max 300)",
+          "file": "web/src/hooks/useChannelPeers.ts",
+          "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "209 lines — getting large",
+          "file": "web/src/hooks/useChannelPosts.ts",
+          "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "367 lines — consider splitting (max 300)",
+          "file": "web/src/hooks/usePeerChannel.ts",
+          "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "241 lines — getting large",
+          "file": "web/src/screens/ChatScreen.tsx",
+          "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "265 lines — getting large",
+          "file": "web/src/screens/ContactSettingsScreen.tsx",
+          "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/hooks/useCall.ts",
+          "line": 110,
+          "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/hooks/useCall.ts",
+          "line": 214,
+          "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/hooks/useCall.ts",
+          "line": 219,
+          "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/hooks/useCall.ts",
+          "line": 224,
+          "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/hooks/useCall.ts",
+          "line": 235,
+          "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/hooks/useCall.ts",
+          "line": 241,
+          "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "Use === instead of ==",
+          "file": "web/src/hooks/useChannels.ts",
+          "line": 47,
+          "rule": "loose equality"
+        },
+        {
+          "severity": "warning",
+          "message": "Use === instead of ==",
+          "file": "web/src/hooks/useContacts.ts",
+          "line": 30,
+          "rule": "loose equality"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/hooks/useMessages.ts",
+          "line": 94,
+          "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/hooks/useMessages.ts",
+          "line": 122,
+          "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/screens/ChatScreen.tsx",
+          "line": 111,
+          "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/services/wsClient.ts",
+          "line": 32,
+          "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/services/wsClient.ts",
+          "line": 40,
+          "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "console.log in production code",
+          "file": "web/src/services/wsClient.ts",
+          "line": 48,
+          "rule": "console.log"
+        }
+      ],
+      "duration": 17
+    },
+    {
+      "name": "complexity",
+      "score": 13,
+      "grade": "F",
+      "details": {
+        "totalFiles": 39,
+        "totalLines": 4644,
+        "longFunctions": 14,
+        "complexFunctions": 9,
+        "functionCount": 139
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "App: 262 lines (max 60)",
+          "file": "web/src/App.tsx",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "App: complexity 38 (max 15)",
+          "file": "web/src/App.tsx",
+          "rule": "high-complexity"
+        },
+        {
+          "severity": "warning",
+          "message": "CallOverlay: 79 lines (max 60)",
+          "file": "web/src/components/CallOverlay.tsx",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "Composer: 72 lines (max 60)",
+          "file": "web/src/components/Composer.tsx",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "MessageBubble: 168 lines (max 60)",
+          "file": "web/src/components/MessageBubble.tsx",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "MessageBubble: complexity 17 (max 15)",
+          "file": "web/src/components/MessageBubble.tsx",
+          "rule": "high-complexity"
+        },
+        {
+          "severity": "warning",
+          "message": "useCall: 221 lines (max 60)",
+          "file": "web/src/hooks/useCall.ts",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "useCall: complexity 31 (max 15)",
+          "file": "web/src/hooks/useCall.ts",
+          "rule": "high-complexity"
+        },
+        {
+          "severity": "warning",
+          "message": "useChannels: 83 lines (max 60)",
+          "file": "web/src/hooks/useChannels.ts",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "useContacts: 85 lines (max 60)",
+          "file": "web/src/hooks/useContacts.ts",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "useMessages: 136 lines (max 60)",
+          "file": "web/src/hooks/useMessages.ts",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "useMessages: complexity 36 (max 15)",
+          "file": "web/src/hooks/useMessages.ts",
+          "rule": "high-complexity"
+        },
+        {
+          "severity": "warning",
+          "message": "ChannelListScreen: 120 lines (max 60)",
+          "file": "web/src/screens/ChannelListScreen.tsx",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "ChannelListScreen: complexity 16 (max 15)",
+          "file": "web/src/screens/ChannelListScreen.tsx",
+          "rule": "high-complexity"
+        },
+        {
+          "severity": "warning",
+          "message": "ChannelScreen: 144 lines (max 60)",
+          "file": "web/src/screens/ChannelScreen.tsx",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "ChannelScreen: complexity 18 (max 15)",
+          "file": "web/src/screens/ChannelScreen.tsx",
+          "rule": "high-complexity"
+        },
+        {
+          "severity": "warning",
+          "message": "ChatScreen: 208 lines (max 60)",
+          "file": "web/src/screens/ChatScreen.tsx",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "ChatScreen: complexity 43 (max 15)",
+          "file": "web/src/screens/ChatScreen.tsx",
+          "rule": "high-complexity"
+        },
+        {
+          "severity": "warning",
+          "message": "ContactSettingsScreen: 244 lines (max 60)",
+          "file": "web/src/screens/ContactSettingsScreen.tsx",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "ContactSettingsScreen: complexity 22 (max 15)",
+          "file": "web/src/screens/ContactSettingsScreen.tsx",
+          "rule": "high-complexity"
+        },
+        {
+          "severity": "warning",
+          "message": "ContactsScreen: 104 lines (max 60)",
+          "file": "web/src/screens/ContactsScreen.tsx",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "SettingsScreen: 121 lines (max 60)",
+          "file": "web/src/screens/SettingsScreen.tsx",
+          "rule": "long-function"
+        },
+        {
+          "severity": "warning",
+          "message": "SettingsScreen: complexity 16 (max 15)",
+          "file": "web/src/screens/SettingsScreen.tsx",
+          "rule": "high-complexity"
+        }
+      ],
+      "duration": 18
+    },
+    {
+      "name": "duplication",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "filesScanned": 39,
+        "totalSourceLines": 4644,
+        "duplicateBlocks": 79,
+        "duplicationPct": "10%"
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/App.tsx:123 ↔ web/src/hooks/useChannelPosts.ts:51",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/components/MessageBubble.tsx:189 ↔ web/src/components/MessageBubble.tsx:203",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/components/MessageBubble.tsx:190 ↔ web/src/components/MessageBubble.tsx:204",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useCall.ts:112 ↔ web/src/hooks/useCall.ts:144",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useCall.ts:206 ↔ web/src/hooks/useChannelPeers.ts:260",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useCall.ts:207 ↔ web/src/hooks/useChannelPeers.ts:261",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useCall.ts:208 ↔ web/src/hooks/useChannelPeers.ts:262",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:3 ↔ web/src/hooks/usePeerChannel.ts:4",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:4 ↔ web/src/hooks/usePeerChannel.ts:5",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:5 ↔ web/src/hooks/usePeerChannel.ts:6",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:6 ↔ web/src/hooks/usePeerChannel.ts:7",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:7 ↔ web/src/hooks/usePeerChannel.ts:8",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:8 ↔ web/src/hooks/usePeerChannel.ts:9",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:9 ↔ web/src/hooks/usePeerChannel.ts:10",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:10 ↔ web/src/hooks/usePeerChannel.ts:11",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:33 ↔ web/src/hooks/usePeerChannel.ts:31",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:34 ↔ web/src/hooks/usePeerChannel.ts:32",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:35 ↔ web/src/hooks/usePeerChannel.ts:33",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:36 ↔ web/src/hooks/usePeerChannel.ts:34",
+          "rule": "duplicate-code"
+        },
+        {
+          "severity": "warning",
+          "message": "6-line duplicate block",
+          "file": "web/src/hooks/useChannelPeers.ts:37 ↔ web/src/hooks/usePeerChannel.ts:35",
+          "rule": "duplicate-code"
+        }
+      ],
+      "duration": 20
+    },
+    {
+      "name": "error-handling",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "emptyCatch": 0,
+        "throwString": 0,
+        "hasErrorBoundary": "n/a"
+      },
+      "issues": [],
+      "duration": 7
+    },
+    {
+      "name": "react",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "skipped": true,
+        "reason": "not a React project"
+      },
+      "issues": [],
+      "duration": 0
+    },
+    {
+      "name": "accessibility",
+      "score": 48,
+      "grade": "D",
+      "details": {
+        "jsxFiles": 16,
+        "missingAlt": 0,
+        "clickDiv": 4,
+        "missingLabel": 9,
+        "missingLang": 0,
+        "autofocus": 0,
+        "positiveTabindex": 0
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/components/Composer.tsx",
+          "line": 50,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/components/Composer.tsx",
+          "line": 68,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Click handler on non-interactive element without role + keyboard handler",
+          "file": "web/src/components/ContactItem.tsx",
+          "line": 16,
+          "rule": "click-events"
+        },
+        {
+          "severity": "warning",
+          "message": "Click handler on non-interactive element without role + keyboard handler",
+          "file": "web/src/components/ConversationItem.tsx",
+          "line": 17,
+          "rule": "click-events"
+        },
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/screens/ChannelListScreen.tsx",
+          "line": 57,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/screens/ChannelListScreen.tsx",
+          "line": 63,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Click handler on non-interactive element without role + keyboard handler",
+          "file": "web/src/screens/ChannelListScreen.tsx",
+          "line": 86,
+          "rule": "click-events"
+        },
+        {
+          "severity": "warning",
+          "message": "Click handler on non-interactive element without role + keyboard handler",
+          "file": "web/src/screens/ChannelListScreen.tsx",
+          "line": 112,
+          "rule": "click-events"
+        },
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/screens/ContactSettingsScreen.tsx",
+          "line": 144,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/screens/ContactSettingsScreen.tsx",
+          "line": 156,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/screens/ContactsScreen.tsx",
+          "line": 64,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/screens/LoginScreen.tsx",
+          "line": 26,
+          "rule": "form-label"
+        },
+        {
+          "severity": "warning",
+          "message": "Form control without label, aria-label, or aria-labelledby",
+          "file": "web/src/screens/LoginScreen.tsx",
+          "line": 33,
+          "rule": "form-label"
+        }
+      ],
+      "duration": 8
+    },
+    {
+      "name": "docs",
+      "score": 50,
+      "grade": "D",
+      "details": {
+        "readmeLines": 125,
+        "totalExports": 65,
+        "documentedExports": 0,
+        "documentedPct": "0%"
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "Only 0% of exports have documentation (0/65)",
+          "rule": "undocumented-exports"
+        }
+      ],
+      "duration": 5
+    },
+    {
+      "name": "best-practices",
+      "score": 39,
+      "grade": "F",
+      "details": {
+        "practicesChecked": 28,
+        "practicesFollowed": 11,
+        "adherence": "39%"
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "ci.yml: no explicit permissions block — defaults to read-write (overly permissive)",
+          "file": ".github/workflows/ci.yml",
+          "rule": "explicit-permissions"
+        },
+        {
+          "severity": "info",
+          "message": "discord-notification.yml: CI install without frozen lockfile — builds may not be reproducible",
+          "file": ".github/workflows/discord-notification.yml",
+          "rule": "frozen-lockfile-ci"
+        },
+        {
+          "severity": "info",
+          "message": "firebase-hosting.yml: 1 third-party actions not pinned to SHA — vulnerable to supply chain attacks",
+          "file": ".github/workflows/firebase-hosting.yml",
+          "rule": "pin-actions-to-sha"
+        },
+        {
+          "severity": "warning",
+          "message": "firebase-hosting.yml: no explicit permissions block — defaults to read-write (overly permissive)",
+          "file": ".github/workflows/firebase-hosting.yml",
+          "rule": "explicit-permissions"
+        },
+        {
+          "severity": "info",
+          "message": "No engine constraints (engines in package.json or .nvmrc) — Node version not pinned",
+          "rule": "pin-node-version"
+        },
+        {
+          "severity": "info",
+          "message": "package.json missing repository field — provenance attestation won't link to source",
+          "rule": "repository-field"
+        },
+        {
+          "severity": "info",
+          "message": "No SECURITY.md — users don't know how to report vulnerabilities",
+          "rule": "security-policy"
+        },
+        {
+          "severity": "info",
+          "message": "No CODEOWNERS file — no mandatory reviewers for critical paths",
+          "rule": "codeowners"
+        },
+        {
+          "severity": "info",
+          "message": "No CONTRIBUTING.md — onboarding is harder for new contributors",
+          "rule": "contributing-guide"
+        },
+        {
+          "severity": "info",
+          "message": "No pre-commit hooks (husky/lefthook) — lint/format not enforced before commit",
+          "rule": "pre-commit-hooks"
+        },
+        {
+          "severity": "info",
+          "message": "No Dependabot/Renovate — dependency updates are manual and often forgotten",
+          "rule": "automated-deps"
+        },
+        {
+          "severity": "warning",
+          "message": "No linter config (ESLint/Biome/dart analyze) — code style not enforced",
+          "rule": "linter-config"
+        },
+        {
+          "severity": "info",
+          "message": "No formatter config (Prettier/Biome/.editorconfig) — inconsistent code formatting",
+          "rule": "formatter-config"
+        },
+        {
+          "severity": "warning",
+          "message": "No test script in package.json — testing not configured",
+          "rule": "test-script"
+        },
+        {
+          "severity": "info",
+          "message": "No test coverage configuration — coverage thresholds not enforced",
+          "rule": "coverage-config"
+        },
+        {
+          "severity": "info",
+          "message": "No .dockerignore — node_modules and build artifacts will bloat Docker image",
+          "rule": "dockerignore"
+        },
+        {
+          "severity": "info",
+          "message": "No commit convention enforcement (commitlint/changesets) — changelog generation is manual",
+          "rule": "conventional-commits"
+        }
+      ],
+      "duration": 3
+    },
+    {
+      "name": "testing",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "reason": "No test files found",
+        "srcFiles": 39,
+        "testFiles": 0,
+        "pyramid": {
+          "unit": 0,
+          "integration": 0,
+          "component": 0,
+          "e2e": 0
+        }
+      },
+      "issues": [
+        {
+          "severity": "error",
+          "message": "39 source files with zero tests",
+          "rule": "no-tests"
+        }
+      ],
+      "duration": 7
+    },
+    {
+      "name": "secrets",
+      "score": 50,
+      "grade": "D",
+      "details": {
+        "secretsFound": 2
+      },
+      "issues": [
+        {
+          "severity": "error",
+          "message": "Possible Google API Key",
+          "file": "web/public/firebase-messaging-sw.js",
+          "line": 18,
+          "rule": "secret-detected"
+        },
+        {
+          "severity": "error",
+          "message": "Possible Google API Key",
+          "file": "web/src/firebase.ts",
+          "line": 8,
+          "rule": "secret-detected"
+        }
+      ],
+      "duration": 51
+    },
+    {
+      "name": "security",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "filesScanned": 39,
+        "patterns": 1,
+        "cweCategories": 0,
+        "errors": 0,
+        "warnings": 0
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "message": "No Content-Security-Policy meta tag in HTML",
+          "file": "web/index.html",
+          "rule": "CWE-1021"
+        }
+      ],
+      "duration": 19
+    },
+    {
+      "name": "dependencies",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "vulnerabilities": {
+          "critical": 2,
+          "high": 38,
+          "moderate": 36,
+          "low": 4
+        },
+        "outdated": 0,
+        "majorOutdated": 0
+      },
+      "issues": [
+        {
+          "severity": "error",
+          "message": "2 critical vulnerabilities"
+        },
+        {
+          "severity": "error",
+          "message": "38 high vulnerabilities"
+        },
+        {
+          "severity": "warning",
+          "message": "36 moderate vulnerabilities"
+        }
+      ],
+      "duration": 2169
+    },
+    {
+      "name": "architecture",
+      "score": 95,
+      "grade": "A",
+      "details": {
+        "totalModules": 39,
+        "circularDeps": 0,
+        "godModules": 0,
+        "orphans": 1,
+        "highFanOut": 1,
+        "connectors": 0,
+        "graph": {
+          "web/src/App.tsx": {
+            "imports": [
+              "web/src/hooks/useAuth.ts",
+              "web/src/hooks/useWsClient.ts",
+              "web/src/hooks/useConversations.ts",
+              "web/src/hooks/usePresence.ts",
+              "web/src/hooks/useContacts.ts",
+              "web/src/hooks/useContactSettings.ts",
+              "web/src/hooks/useUserNames.ts",
+              "web/src/hooks/useCall.ts",
+              "web/src/hooks/useChannelPeers.ts",
+              "web/src/hooks/useContactChannels.ts",
+              "web/src/hooks/useNotifications.ts",
+              "web/src/chat/db.ts",
+              "web/src/utils/pwa.ts",
+              "web/src/screens/LoginScreen.tsx",
+              "web/src/screens/ConversationList.tsx",
+              "web/src/screens/ChatScreen.tsx",
+              "web/src/screens/ContactsScreen.tsx",
+              "web/src/screens/ChannelListScreen.tsx",
+              "web/src/screens/ChannelScreen.tsx",
+              "web/src/screens/ContactSettingsScreen.tsx",
+              "web/src/hooks/useChannels.ts",
+              "web/src/screens/SettingsScreen.tsx",
+              "web/src/components/AppShell.tsx",
+              "web/src/components/CallOverlay.tsx"
+            ],
+            "importedBy": [
+              "web/src/main.tsx"
+            ],
+            "dir": "web/src"
+          },
+          "web/src/chat/db.ts": {
+            "imports": [],
+            "importedBy": [
+              "web/src/App.tsx",
+              "web/src/hooks/useChannelPosts.ts",
+              "web/src/hooks/useMessages.ts",
+              "web/src/hooks/usePeerChannel.ts",
+              "web/src/screens/ChannelScreen.tsx",
+              "web/src/screens/ChatScreen.tsx"
+            ],
+            "dir": "web/src/chat"
+          },
+          "web/src/components/AppShell.tsx": {
+            "imports": [
+              "web/src/services/wsClient.ts",
+              "web/src/hooks/useUnreadCount.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/components"
+          },
+          "web/src/components/CallOverlay.tsx": {
+            "imports": [
+              "web/src/hooks/useCall.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/components"
+          },
+          "web/src/components/Composer.tsx": {
+            "imports": [],
+            "importedBy": [
+              "web/src/screens/ChannelScreen.tsx",
+              "web/src/screens/ChatScreen.tsx"
+            ],
+            "dir": "web/src/components"
+          },
+          "web/src/components/ContactItem.tsx": {
+            "imports": [],
+            "importedBy": [
+              "web/src/screens/ContactsScreen.tsx"
+            ],
+            "dir": "web/src/components"
+          },
+          "web/src/components/ConversationItem.tsx": {
+            "imports": [
+              "web/src/hooks/useConversations.ts"
+            ],
+            "importedBy": [
+              "web/src/screens/ConversationList.tsx"
+            ],
+            "dir": "web/src/components"
+          },
+          "web/src/components/MessageBubble.tsx": {
+            "imports": [],
+            "importedBy": [
+              "web/src/screens/ChannelScreen.tsx",
+              "web/src/screens/ChatScreen.tsx"
+            ],
+            "dir": "web/src/components"
+          },
+          "web/src/crypto/e2ee.ts": {
+            "imports": [],
+            "importedBy": [
+              "web/src/hooks/useChannelPeers.ts",
+              "web/src/hooks/usePeerChannel.ts"
+            ],
+            "dir": "web/src/crypto"
+          },
+          "web/src/firebase.ts": {
+            "imports": [],
+            "importedBy": [
+              "web/src/hooks/useAuth.ts",
+              "web/src/hooks/useAuth.ts",
+              "web/src/hooks/useChannelPosts.ts",
+              "web/src/hooks/useChannels.ts",
+              "web/src/hooks/useContactChannels.ts",
+              "web/src/hooks/useContactSettings.ts",
+              "web/src/hooks/useContacts.ts",
+              "web/src/hooks/useConversations.ts",
+              "web/src/hooks/useMessages.ts",
+              "web/src/hooks/useUserNames.ts",
+              "web/src/screens/ContactsScreen.tsx",
+              "web/src/screens/SettingsScreen.tsx",
+              "web/src/services/fcm.ts"
+            ],
+            "dir": "web/src"
+          },
+          "web/src/hooks/useAuth.ts": {
+            "imports": [
+              "web/src/firebase.ts",
+              "web/src/firebase.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx",
+              "web/src/screens/LoginScreen.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useCall.ts": {
+            "imports": [
+              "web/src/services/wsClient.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx",
+              "web/src/components/CallOverlay.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useChannelPeers.ts": {
+            "imports": [
+              "web/src/services/wsClient.ts",
+              "web/src/crypto/e2ee.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useChannelPosts.ts": {
+            "imports": [
+              "web/src/firebase.ts",
+              "web/src/services/wsClient.ts",
+              "web/src/chat/db.ts"
+            ],
+            "importedBy": [
+              "web/src/screens/ChannelScreen.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useChannels.ts": {
+            "imports": [
+              "web/src/firebase.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx",
+              "web/src/screens/ChannelListScreen.tsx",
+              "web/src/screens/ChannelScreen.tsx",
+              "web/src/screens/ContactSettingsScreen.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useContactChannels.ts": {
+            "imports": [
+              "web/src/firebase.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useContactSettings.ts": {
+            "imports": [
+              "web/src/firebase.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx",
+              "web/src/hooks/useNotifications.ts",
+              "web/src/screens/ChatScreen.tsx",
+              "web/src/screens/ContactSettingsScreen.tsx",
+              "web/src/screens/ContactsScreen.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useContacts.ts": {
+            "imports": [
+              "web/src/firebase.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useConversations.ts": {
+            "imports": [
+              "web/src/firebase.ts",
+              "web/src/services/wsClient.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx",
+              "web/src/components/ConversationItem.tsx",
+              "web/src/screens/ConversationList.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useMessages.ts": {
+            "imports": [
+              "web/src/firebase.ts",
+              "web/src/chat/db.ts",
+              "web/src/services/wsClient.ts"
+            ],
+            "importedBy": [
+              "web/src/screens/ChatScreen.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useNotifications.ts": {
+            "imports": [
+              "web/src/utils/pwa.ts",
+              "web/src/services/fcm.ts",
+              "web/src/hooks/useContactSettings.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/usePeerChannel.ts": {
+            "imports": [
+              "web/src/services/wsClient.ts",
+              "web/src/chat/db.ts",
+              "web/src/crypto/e2ee.ts"
+            ],
+            "importedBy": [
+              "web/src/screens/ChatScreen.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/usePresence.ts": {
+            "imports": [
+              "web/src/services/wsClient.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useUnreadCount.ts": {
+            "imports": [
+              "web/src/services/wsClient.ts"
+            ],
+            "importedBy": [
+              "web/src/components/AppShell.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useUserNames.ts": {
+            "imports": [
+              "web/src/firebase.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx",
+              "web/src/screens/ChatScreen.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/hooks/useWsClient.ts": {
+            "imports": [
+              "web/src/services/wsClient.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/hooks"
+          },
+          "web/src/main.tsx": {
+            "imports": [
+              "web/src/App.tsx"
+            ],
+            "importedBy": [],
+            "dir": "web/src"
+          },
+          "web/src/screens/ChannelListScreen.tsx": {
+            "imports": [
+              "web/src/hooks/useChannels.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/screens"
+          },
+          "web/src/screens/ChannelScreen.tsx": {
+            "imports": [
+              "web/src/hooks/useChannelPosts.ts",
+              "web/src/components/MessageBubble.tsx",
+              "web/src/components/Composer.tsx",
+              "web/src/hooks/useChannels.ts",
+              "web/src/services/wsClient.ts",
+              "web/src/chat/db.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/screens"
+          },
+          "web/src/screens/ChatScreen.tsx": {
+            "imports": [
+              "web/src/hooks/useMessages.ts",
+              "web/src/hooks/usePeerChannel.ts",
+              "web/src/hooks/useUserNames.ts",
+              "web/src/components/MessageBubble.tsx",
+              "web/src/components/Composer.tsx",
+              "web/src/chat/db.ts",
+              "web/src/services/wsClient.ts",
+              "web/src/hooks/useContactSettings.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/screens"
+          },
+          "web/src/screens/ContactSettingsScreen.tsx": {
+            "imports": [
+              "web/src/hooks/useContactSettings.ts",
+              "web/src/hooks/useChannels.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/screens"
+          },
+          "web/src/screens/ContactsScreen.tsx": {
+            "imports": [
+              "web/src/firebase.ts",
+              "web/src/hooks/useContactSettings.ts",
+              "web/src/components/ContactItem.tsx"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/screens"
+          },
+          "web/src/screens/ConversationList.tsx": {
+            "imports": [
+              "web/src/hooks/useConversations.ts",
+              "web/src/components/ConversationItem.tsx"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/screens"
+          },
+          "web/src/screens/LoginScreen.tsx": {
+            "imports": [
+              "web/src/hooks/useAuth.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/screens"
+          },
+          "web/src/screens/SettingsScreen.tsx": {
+            "imports": [
+              "web/src/firebase.ts",
+              "web/src/utils/pwa.ts",
+              "web/src/services/fcm.ts"
+            ],
+            "importedBy": [
+              "web/src/App.tsx"
+            ],
+            "dir": "web/src/screens"
+          },
+          "web/src/services/fcm.ts": {
+            "imports": [
+              "web/src/firebase.ts"
+            ],
+            "importedBy": [
+              "web/src/hooks/useNotifications.ts",
+              "web/src/screens/SettingsScreen.tsx"
+            ],
+            "dir": "web/src/services"
+          },
+          "web/src/services/wsClient.ts": {
+            "imports": [],
+            "importedBy": [
+              "web/src/components/AppShell.tsx",
+              "web/src/hooks/useCall.ts",
+              "web/src/hooks/useChannelPeers.ts",
+              "web/src/hooks/useChannelPosts.ts",
+              "web/src/hooks/useConversations.ts",
+              "web/src/hooks/useMessages.ts",
+              "web/src/hooks/usePeerChannel.ts",
+              "web/src/hooks/usePresence.ts",
+              "web/src/hooks/useUnreadCount.ts",
+              "web/src/hooks/useWsClient.ts",
+              "web/src/screens/ChannelScreen.tsx",
+              "web/src/screens/ChatScreen.tsx"
+            ],
+            "dir": "web/src/services"
+          },
+          "web/src/utils/pwa.ts": {
+            "imports": [],
+            "importedBy": [
+              "web/src/App.tsx",
+              "web/src/hooks/useNotifications.ts",
+              "web/src/screens/SettingsScreen.tsx"
+            ],
+            "dir": "web/src/utils"
+          },
+          "web/src/vite-env.d.ts": {
+            "imports": [],
+            "importedBy": [],
+            "dir": "web/src"
+          }
+        },
+        "containerSvg": "<svg viewBox=\"0 0 370 120\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;max-width:370px\"><defs><marker id=\"cont-arrow\" viewBox=\"0 0 10 7\" refX=\"10\" refY=\"3.5\" markerWidth=\"7\" markerHeight=\"5\" orient=\"auto\"><polygon points=\"0 0, 10 3.5, 0 7\" fill=\"#ffffff40\"/></marker></defs><rect x=\"30\" y=\"30\" width=\"140\" height=\"60\" rx=\"8\" fill=\"#6d78d015\" stroke=\"#6d78d050\"/><text x=\"100\" y=\"54\" text-anchor=\"middle\" fill=\"#e5e5e5\" font-size=\"10\" font-weight=\"700\">Frontend</text><text x=\"100\" y=\"70\" text-anchor=\"middle\" fill=\"#6b7280\" font-size=\"8\">[Svelte]</text><line x1=\"170\" y1=\"60\" x2=\"200\" y2=\"60\" stroke=\"#ffffff20\" stroke-width=\"1.5\" marker-end=\"url(#cont-arrow)\"/><rect x=\"200\" y=\"30\" width=\"140\" height=\"60\" rx=\"8\" fill=\"#ec489915\" stroke=\"#ec489950\"/><text x=\"270\" y=\"54\" text-anchor=\"middle\" fill=\"#e5e5e5\" font-size=\"10\" font-weight=\"700\">Firebase</text><text x=\"270\" y=\"70\" text-anchor=\"middle\" fill=\"#6b7280\" font-size=\"8\">[Firebase]</text></svg>",
+        "assessment": {
+          "pattern": "modular",
+          "patternDescription": "Modular architecture — code organized by feature/responsibility.",
+          "layering": "tangled",
+          "stability": [
+            {
+              "package": "web/src",
+              "instability": 0.64,
+              "role": "balanced"
+            },
+            {
+              "package": "web/src/chat",
+              "instability": 0,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "web/src/components",
+              "instability": 0.33,
+              "role": "balanced"
+            },
+            {
+              "package": "web/src/crypto",
+              "instability": 0,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "web/src/hooks",
+              "instability": 0.49,
+              "role": "balanced"
+            },
+            {
+              "package": "web/src/screens",
+              "instability": 0.76,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "web/src/services",
+              "instability": 0.07,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "web/src/utils",
+              "instability": 0,
+              "role": "stable (hard to change)"
+            }
+          ],
+          "crossCoupling": 58,
+          "cohesion": 2,
+          "rating": "poor",
+          "insights": [
+            "High cross-coupling (58%) — packages depend heavily on each other.",
+            "Stable foundation detected — core modules rarely change.",
+            "No god modules — healthy dependency distribution."
+          ]
+        }
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "Orphan: not imported by any file (dead module?)",
+          "file": "web/src/vite-env.d.ts",
+          "rule": "orphan-module"
+        },
+        {
+          "severity": "warning",
+          "message": "High fan-out: imports 24 modules — hard to test in isolation",
+          "file": "web/src/App.tsx",
+          "rule": "high-fan-out"
+        }
+      ],
+      "duration": 9
+    },
+    {
+      "name": "performance",
+      "score": 100,
+      "grade": "A",
+      "details": {
+        "filesScanned": 39,
+        "barrelImports": 0,
+        "heavyDeps": 0,
+        "dynamicOpportunities": 0,
+        "cssInJsRuntime": 0
+      },
+      "issues": [
+        {
+          "severity": "info",
+          "message": "Large destructured import — if from a barrel, only imported items should be bundled",
+          "file": "web/src/hooks/useNotifications.ts",
+          "line": 3,
+          "rule": "large-import"
+        },
+        {
+          "severity": "info",
+          "message": "Large destructured import — if from a barrel, only imported items should be bundled",
+          "file": "web/src/hooks/usePeerChannel.ts",
+          "line": 4,
+          "rule": "large-import"
+        },
+        {
+          "severity": "info",
+          "message": "Large destructured import — if from a barrel, only imported items should be bundled",
+          "file": "web/src/screens/ChatScreen.tsx",
+          "line": 8,
+          "rule": "large-import"
+        },
+        {
+          "severity": "info",
+          "message": "Large destructured import — if from a barrel, only imported items should be bundled",
+          "file": "web/src/screens/SettingsScreen.tsx",
+          "line": 6,
+          "rule": "large-import"
+        }
+      ],
+      "duration": 8
+    },
+    {
+      "name": "confusion",
+      "score": 93,
+      "grade": "A",
+      "details": {
+        "fileConfusability": 0,
+        "genericNames": 3,
+        "exportCollisions": 0,
+        "ambiguousAbbrevs": 2,
+        "filesScanned": 39
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "Generic variable: data — use a descriptive name",
+          "file": "web/src/hooks/useChannels.ts",
+          "line": 78,
+          "rule": "generic-name"
+        },
+        {
+          "severity": "warning",
+          "message": "Generic variable: result — use a descriptive name",
+          "file": "web/src/hooks/useContactChannels.ts",
+          "line": 23,
+          "rule": "generic-name"
+        },
+        {
+          "severity": "warning",
+          "message": "Generic variable: body — use a descriptive name",
+          "file": "web/src/hooks/useNotifications.ts",
+          "line": 77,
+          "rule": "generic-name"
+        },
+        {
+          "severity": "warning",
+          "message": "Ambiguous abbreviation \"db\" in filename — could mean: database (connection? schema? query builder?)",
+          "file": "web/src/chat/db.ts",
+          "rule": "ambiguous-abbreviation"
+        },
+        {
+          "severity": "warning",
+          "message": "Ambiguous abbreviation \"env\" in filename — could mean: environment (runtime? deployment? variables?)",
+          "file": "web/src/vite-env.d.ts",
+          "rule": "ambiguous-abbreviation"
+        }
+      ],
+      "duration": 23
+    },
+    {
+      "name": "context",
+      "score": 97,
+      "grade": "A",
+      "details": {
+        "filesScanned": 39,
+        "totalTokens": 46180,
+        "avgTokensPerFile": 1184,
+        "avgImportsPerFile": 2.1,
+        "highTokenFiles": 0,
+        "heavyImportFiles": 1,
+        "circularDeps": 0,
+        "contextSinks": 0
+      },
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "24 imports (>15) — consider splitting or co-locating",
+          "file": "web/src/App.tsx",
+          "rule": "heavy-imports"
+        }
+      ],
+      "duration": 6
+    },
+    {
+      "name": "doc-coherence",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "premium": true,
+        "comingSoon": true,
+        "reason": "LLM-powered analysis — coming soon",
+        "docFiles": [
+          "README.md",
+          "CLAUDE.md",
+          "ARCHITECTURE.md"
+        ],
+        "hasJSDoc": false,
+        "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
+      },
+      "issues": [],
+      "duration": 4
+    },
+    {
+      "name": "code-coherence",
+      "score": 0,
+      "grade": "F",
+      "details": {
+        "premium": true,
+        "comingSoon": true,
+        "reason": "LLM-powered analysis — coming soon",
+        "filesAnalyzed": 39,
+        "totalExports": 76,
+        "totalFunctions": 82,
+        "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
+      },
+      "issues": [],
+      "duration": 5
+    }
+  ],
+  "meta": {
+    "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/messenger",
+    "node": "v22.21.1",
+    "duration": 2414,
+    "stack": {
+      "language": "unknown",
+      "framework": "none",
+      "bundler": "none",
+      "testRunner": "none",
+      "linter": "none",
+      "packageManager": "pnpm"
+    },
+    "repoUrl": "https://github.com/freeappstore-online/messenger",
+    "branch": "main"
+  }
+}
