@@ -446,10 +446,20 @@ const qualityRegistry = {
       description: 'Deliberately-broken control cases. Each scenario reproduces a known layout bug to verify the platform auditor flags it correctly.' },
   ],
 };
-const qualityHtml = qualityTemplate.replace(
-  '{{REGISTRIES_JSON}}',
-  JSON.stringify(qualityRegistry).replace(/</g, '\\u003c'),
-);
+// Build code quality cards for the quality page
+const codeQualityCards = apps
+  .map(app => {
+    const q = qualityScores[app.id];
+    if (!q || !q.grade) return '';
+    const gradeClass = q.score >= 80 ? 'ok' : q.score >= 60 ? 'warn' : 'bad';
+    return `<a href="/quality/${escapeHtml(app.id)}/" class="q-card"><div class="q-card-head"><span class="name">${escapeHtml(app.name)}</span><span class="index ${gradeClass}">${q.grade}</span></div><div class="meta">${q.score}/100</div></a>`;
+  })
+  .filter(Boolean)
+  .join('\n        ');
+
+const qualityHtml = qualityTemplate
+  .replace('{{CODE_QUALITY_CARDS}}', codeQualityCards)
+  .replace('{{REGISTRIES_JSON}}', JSON.stringify(qualityRegistry).replace(/</g, '\\u003c'));
 fs.writeFileSync(path.join(DIST, 'quality.html'), qualityHtml);
 console.log(`  /quality dashboard generated for ${qualityRegistry.apps.length} apps + ${qualityRegistry.games.length} games`);
 console.log(`  ${crossRegistry.items.length} games available for cross-store search`);

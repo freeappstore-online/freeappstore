@@ -69,8 +69,20 @@
   </header>
 
   <main class="container">
+    <!-- Code Quality Reports (powered by VibeCode QA) -->
+    <section style="margin-top: 1.5rem; margin-bottom: 2.5rem;">
+      <h1>Code Quality</h1>
+      <p style="color: var(--muted); max-width: 680px; margin-bottom: 1rem;">
+        Every app is scanned with <a href="https://vibecodeqa.online" style="color: var(--accent);">VibeCode QA</a> — 22 automated checks covering types, tests, security, architecture, and more. Click a grade to see the full report.
+      </p>
+      <div class="q-summary" id="code-quality-grid">{{CODE_QUALITY_CARDS}}</div>
+    </section>
+
+    <hr style="border: none; border-top: 1px solid var(--border); margin: 2rem 0;" />
+
+    <!-- Viewport Audit -->
     <div id="q-summary-view">
-      <h1 style="margin-top: 1.5rem;">Quality Dashboard</h1>
+      <h1 style="margin-top: 1.5rem;">Viewport Audit</h1>
       <p style="color: var(--muted); max-width: 680px;">
         Every app on FreeAppStore is loaded in iframes at every reference viewport
         and audited live for fit, scroll, and clipping. Click an app to see its
