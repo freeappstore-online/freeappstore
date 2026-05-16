@@ -2,9 +2,19 @@
   "freeappstore-online/language": {
     "meta": {
       "created_at": "2026-05-03T02:32:50Z",
-      "pushed_at": "2026-05-14T11:06:48Z"
+      "pushed_at": "2026-05-16T23:31:23Z"
     },
     "commits": [
+      {
+        "sha": "1c462ef896cde6ef5753b35c165328c096b2b1b0",
+        "html_url": "https://github.com/freeappstore-online/language/commit/1c462ef896cde6ef5753b35c165328c096b2b1b0",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:31:21Z"
+          }
+        }
+      },
       {
         "sha": "f49de0209033f3c6cf11cb536c036c97ca952748",
         "html_url": "https://github.com/freeappstore-online/language/commit/f49de0209033f3c6cf11cb536c036c97ca952748",
@@ -24,25 +34,25 @@
             "date": "2026-05-04T05:29:33Z"
           }
         }
-      },
-      {
-        "sha": "8c8a39a6ad317fcb7c166c73fbd14796f15cda97",
-        "html_url": "https://github.com/freeappstore-online/language/commit/8c8a39a6ad317fcb7c166c73fbd14796f15cda97",
-        "commit": {
-          "message": "Add HTML meta tag compliance checks",
-          "author": {
-            "date": "2026-05-04T05:26:44Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/quiz": {
     "meta": {
       "created_at": "2026-05-03T02:32:57Z",
-      "pushed_at": "2026-05-14T11:06:48Z"
+      "pushed_at": "2026-05-16T23:31:33Z"
     },
     "commits": [
+      {
+        "sha": "b215f70865a557002e3ba2eab2ac13974684be61",
+        "html_url": "https://github.com/freeappstore-online/quiz/commit/b215f70865a557002e3ba2eab2ac13974684be61",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:31:31Z"
+          }
+        }
+      },
       {
         "sha": "f63ac25ff3b893ffcd0779db5dedda224669f2fb",
         "html_url": "https://github.com/freeappstore-online/quiz/commit/f63ac25ff3b893ffcd0779db5dedda224669f2fb",
@@ -62,25 +72,25 @@
             "date": "2026-05-04T05:29:41Z"
           }
         }
-      },
-      {
-        "sha": "d19cd619e25057a37e4364fb5b071b8b15672398",
-        "html_url": "https://github.com/freeappstore-online/quiz/commit/d19cd619e25057a37e4364fb5b071b8b15672398",
-        "commit": {
-          "message": "Add HTML meta tag compliance checks",
-          "author": {
-            "date": "2026-05-04T05:26:52Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/chessclock": {
     "meta": {
       "created_at": "2026-05-04T10:01:30Z",
-      "pushed_at": "2026-05-14T11:06:47Z"
+      "pushed_at": "2026-05-16T23:31:59Z"
     },
     "commits": [
+      {
+        "sha": "b52af8748a5670765626126346a2a91a07a7a248",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/b52af8748a5670765626126346a2a91a07a7a248",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:31:57Z"
+          }
+        }
+      },
       {
         "sha": "f2fb78212defb65e22ccf47c027f18f066cb1c89",
         "html_url": "https://github.com/freeappstore-online/chessclock/commit/f2fb78212defb65e22ccf47c027f18f066cb1c89",
@@ -100,25 +110,25 @@
             "date": "2026-05-04T10:02:40Z"
           }
         }
-      },
-      {
-        "sha": "741e0025656cc7c3f46053217324aec6557a19f0",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/741e0025656cc7c3f46053217324aec6557a19f0",
-        "commit": {
-          "message": "Chess Clock — beautiful timer for over-the-board play\n\n12 preset time controls (bullet, blitz, rapid, classical) with\nincrement support. Tap to switch, pause/resume, move counter,\nred time warning under 30s, tenths display under 20s. Top player\nrotated 180 degrees for face-to-face play. 202KB bundle, offline PWA.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T10:01:23Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/timer": {
     "meta": {
       "created_at": "2026-05-04T10:57:59Z",
-      "pushed_at": "2026-05-14T11:06:21Z"
+      "pushed_at": "2026-05-16T23:32:02Z"
     },
     "commits": [
+      {
+        "sha": "f4da36b32252cb9a9f78d5fde765e77bf375b64f",
+        "html_url": "https://github.com/freeappstore-online/timer/commit/f4da36b32252cb9a9f78d5fde765e77bf375b64f",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:00Z"
+          }
+        }
+      },
       {
         "sha": "0320521f7541193923e6862fcfe6997d034037ad",
         "html_url": "https://github.com/freeappstore-online/timer/commit/0320521f7541193923e6862fcfe6997d034037ad",
@@ -138,25 +148,25 @@
             "date": "2026-05-14T05:29:56Z"
           }
         }
-      },
-      {
-        "sha": "375a9d8b829f1217c83bf6d3cf8b6e37eae6cbab",
-        "html_url": "https://github.com/freeappstore-online/timer/commit/375a9d8b829f1217c83bf6d3cf8b6e37eae6cbab",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:05:25Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/books": {
     "meta": {
       "created_at": "2026-05-04T00:16:25Z",
-      "pushed_at": "2026-05-14T11:06:47Z"
+      "pushed_at": "2026-05-16T23:31:38Z"
     },
     "commits": [
+      {
+        "sha": "4e5434c4cfaf6ab69cb2246b7a4ef4cc464d54f9",
+        "html_url": "https://github.com/freeappstore-online/books/commit/4e5434c4cfaf6ab69cb2246b7a4ef4cc464d54f9",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:31:35Z"
+          }
+        }
+      },
       {
         "sha": "0db73a6e7b9f5f448bf65bf8bb2ddac80181e9ca",
         "html_url": "https://github.com/freeappstore-online/books/commit/0db73a6e7b9f5f448bf65bf8bb2ddac80181e9ca",
@@ -174,16 +184,6 @@
           "message": "Add PWA meta tag compliance check",
           "author": {
             "date": "2026-05-04T05:29:43Z"
-          }
-        }
-      },
-      {
-        "sha": "fd1bf75b914bbcd3abac7c20e15c4cf54fde57b7",
-        "html_url": "https://github.com/freeappstore-online/books/commit/fd1bf75b914bbcd3abac7c20e15c4cf54fde57b7",
-        "commit": {
-          "message": "Add HTML meta tag compliance checks",
-          "author": {
-            "date": "2026-05-04T05:26:54Z"
           }
         }
       }
@@ -230,9 +230,19 @@
   "freeappstore-online/notes": {
     "meta": {
       "created_at": "2026-05-04T10:58:03Z",
-      "pushed_at": "2026-05-14T11:06:39Z"
+      "pushed_at": "2026-05-16T23:32:08Z"
     },
     "commits": [
+      {
+        "sha": "548ffeabccf4ea3c9a5c4d7f4b8e6952be749e11",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/548ffeabccf4ea3c9a5c4d7f4b8e6952be749e11",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:06Z"
+          }
+        }
+      },
       {
         "sha": "5b8b99cd855035dd2ad5c180abe41195f76cca09",
         "html_url": "https://github.com/freeappstore-online/notes/commit/5b8b99cd855035dd2ad5c180abe41195f76cca09",
@@ -252,25 +262,25 @@
             "date": "2026-05-14T05:29:49Z"
           }
         }
-      },
-      {
-        "sha": "88d23f61fc4465cc5d0039d57f2c4a1495adc78e",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/88d23f61fc4465cc5d0039d57f2c4a1495adc78e",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:05:16Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/math": {
     "meta": {
       "created_at": "2026-05-03T02:32:52Z",
-      "pushed_at": "2026-05-14T11:06:48Z"
+      "pushed_at": "2026-05-16T23:31:27Z"
     },
     "commits": [
+      {
+        "sha": "ad97798cce41ca4431ef6a779ff3e2920ad9c60c",
+        "html_url": "https://github.com/freeappstore-online/math/commit/ad97798cce41ca4431ef6a779ff3e2920ad9c60c",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:31:25Z"
+          }
+        }
+      },
       {
         "sha": "9e76ce9055f14959343c4bc50563b892e46fd643",
         "html_url": "https://github.com/freeappstore-online/math/commit/9e76ce9055f14959343c4bc50563b892e46fd643",
@@ -290,25 +300,25 @@
             "date": "2026-05-04T05:29:35Z"
           }
         }
-      },
-      {
-        "sha": "5b2e1be6c173015f7896456ef32466d6267557f5",
-        "html_url": "https://github.com/freeappstore-online/math/commit/5b2e1be6c173015f7896456ef32466d6267557f5",
-        "commit": {
-          "message": "Add HTML meta tag compliance checks",
-          "author": {
-            "date": "2026-05-04T05:26:46Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/bandmates": {
     "meta": {
       "created_at": "2026-05-04T01:43:04Z",
-      "pushed_at": "2026-05-14T11:06:47Z"
+      "pushed_at": "2026-05-16T23:31:50Z"
     },
     "commits": [
+      {
+        "sha": "18f3856e9cf79f8e2ce1542ae27b562eeec1d255",
+        "html_url": "https://github.com/freeappstore-online/bandmates/commit/18f3856e9cf79f8e2ce1542ae27b562eeec1d255",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:31:48Z"
+          }
+        }
+      },
       {
         "sha": "bd492380305c07c92de8e328b2b8b65d1bc8d46a",
         "html_url": "https://github.com/freeappstore-online/bandmates/commit/bd492380305c07c92de8e328b2b8b65d1bc8d46a",
@@ -328,25 +338,25 @@
             "date": "2026-05-04T05:29:48Z"
           }
         }
-      },
-      {
-        "sha": "20f6a4bf2f34ede6074e58ace6de36dec6455ece",
-        "html_url": "https://github.com/freeappstore-online/bandmates/commit/20f6a4bf2f34ede6074e58ace6de36dec6455ece",
-        "commit": {
-          "message": "Add HTML meta tag compliance checks",
-          "author": {
-            "date": "2026-05-04T05:26:58Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/converter": {
     "meta": {
       "created_at": "2026-05-04T10:58:01Z",
-      "pushed_at": "2026-05-14T11:06:41Z"
+      "pushed_at": "2026-05-16T23:32:05Z"
     },
     "commits": [
+      {
+        "sha": "8474b4a829b4dc70d38497a34f9cb7317c1d9bbf",
+        "html_url": "https://github.com/freeappstore-online/converter/commit/8474b4a829b4dc70d38497a34f9cb7317c1d9bbf",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:03Z"
+          }
+        }
+      },
       {
         "sha": "0b6feef2dfa5006ce9eafd0506c3d70f0ac558fa",
         "html_url": "https://github.com/freeappstore-online/converter/commit/0b6feef2dfa5006ce9eafd0506c3d70f0ac558fa",
@@ -366,25 +376,25 @@
             "date": "2026-05-14T05:29:44Z"
           }
         }
-      },
-      {
-        "sha": "55c29ed6f007c97d1c0b3fc2667f4d2f58dbdee3",
-        "html_url": "https://github.com/freeappstore-online/converter/commit/55c29ed6f007c97d1c0b3fc2667f4d2f58dbdee3",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:05:04Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/qrcode": {
     "meta": {
       "created_at": "2026-05-04T10:58:07Z",
-      "pushed_at": "2026-05-14T11:06:36Z"
+      "pushed_at": "2026-05-16T23:32:14Z"
     },
     "commits": [
+      {
+        "sha": "b060cf2f9c105fc75a7ae4d600e58c7e478c456e",
+        "html_url": "https://github.com/freeappstore-online/qrcode/commit/b060cf2f9c105fc75a7ae4d600e58c7e478c456e",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:12Z"
+          }
+        }
+      },
       {
         "sha": "63f2e289d4b74c52e1779c52de167077d3eca012",
         "html_url": "https://github.com/freeappstore-online/qrcode/commit/63f2e289d4b74c52e1779c52de167077d3eca012",
@@ -404,25 +414,25 @@
             "date": "2026-05-14T05:29:54Z"
           }
         }
-      },
-      {
-        "sha": "19917fa1dcd7a6583e8e71b7ab00f4b209494143",
-        "html_url": "https://github.com/freeappstore-online/qrcode/commit/19917fa1dcd7a6583e8e71b7ab00f4b209494143",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:05:22Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/meetup": {
     "meta": {
       "created_at": "2026-05-04T01:43:06Z",
-      "pushed_at": "2026-05-14T11:06:46Z"
+      "pushed_at": "2026-05-16T23:31:53Z"
     },
     "commits": [
+      {
+        "sha": "7b193f4161fafdd1d674e36380da67cd87707920",
+        "html_url": "https://github.com/freeappstore-online/meetup/commit/7b193f4161fafdd1d674e36380da67cd87707920",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:31:51Z"
+          }
+        }
+      },
       {
         "sha": "4e8ef13498ea55fa7c8978c8d7f12c2c2393119c",
         "html_url": "https://github.com/freeappstore-online/meetup/commit/4e8ef13498ea55fa7c8978c8d7f12c2c2393119c",
@@ -442,25 +452,25 @@
             "date": "2026-05-04T09:52:39Z"
           }
         }
-      },
-      {
-        "sha": "7b34fa295b2c412f391bc661f086b381d68818f4",
-        "html_url": "https://github.com/freeappstore-online/meetup/commit/7b34fa295b2c412f391bc661f086b381d68818f4",
-        "commit": {
-          "message": "Fix: remove dead Firebase, wire RSVP to API, fix SPA routing\n\n- Remove firebase dependency and lib/firebase.ts (dead code)\n- RSVP button now calls platform API (POST/DELETE /meetup/events/:id/rsvp)\n- Add _redirects for CF Pages SPA routing (fixes 404 on direct links)\n- Fix useAuth to use UserWithRoles type from SDK\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T09:13:49Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/habits": {
     "meta": {
       "created_at": "2026-05-04T10:58:17Z",
-      "pushed_at": "2026-05-14T11:06:41Z"
+      "pushed_at": "2026-05-16T23:32:29Z"
     },
     "commits": [
+      {
+        "sha": "6684ab70ea82514045ea736e021ff87da2cd8522",
+        "html_url": "https://github.com/freeappstore-online/habits/commit/6684ab70ea82514045ea736e021ff87da2cd8522",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:27Z"
+          }
+        }
+      },
       {
         "sha": "2267053b128b1c9ba9033cb627403696cc29701f",
         "html_url": "https://github.com/freeappstore-online/habits/commit/2267053b128b1c9ba9033cb627403696cc29701f",
@@ -480,25 +490,25 @@
             "date": "2026-05-14T05:29:48Z"
           }
         }
-      },
-      {
-        "sha": "36313e16533165d76e2d46d77afb96e4e8466018",
-        "html_url": "https://github.com/freeappstore-online/habits/commit/36313e16533165d76e2d46d77afb96e4e8466018",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:05:08Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/colorpicker": {
     "meta": {
       "created_at": "2026-05-04T10:58:10Z",
-      "pushed_at": "2026-05-14T11:06:41Z"
+      "pushed_at": "2026-05-16T23:32:17Z"
     },
     "commits": [
+      {
+        "sha": "fb3522c0b757df3d2b6c33dc8cd0440d54227753",
+        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/fb3522c0b757df3d2b6c33dc8cd0440d54227753",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:15Z"
+          }
+        }
+      },
       {
         "sha": "5cce6850b8bd2318f0b507c0b77d49e4a7419af2",
         "html_url": "https://github.com/freeappstore-online/colorpicker/commit/5cce6850b8bd2318f0b507c0b77d49e4a7419af2",
@@ -518,25 +528,25 @@
             "date": "2026-05-14T05:29:42Z"
           }
         }
-      },
-      {
-        "sha": "614255639fcc99f0bfb45c56e569c3459169056d",
-        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/614255639fcc99f0bfb45c56e569c3459169056d",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:05:02Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/music": {
     "meta": {
       "created_at": "2026-05-03T02:32:53Z",
-      "pushed_at": "2026-05-14T11:06:45Z"
+      "pushed_at": "2026-05-16T23:31:30Z"
     },
     "commits": [
+      {
+        "sha": "7afc1c6b1c6ae7b321e45b2549d94097597eed5a",
+        "html_url": "https://github.com/freeappstore-online/music/commit/7afc1c6b1c6ae7b321e45b2549d94097597eed5a",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:31:28Z"
+          }
+        }
+      },
       {
         "sha": "7df3c91c0e11c890694df1beb36f6534eda46e1c",
         "html_url": "https://github.com/freeappstore-online/music/commit/7df3c91c0e11c890694df1beb36f6534eda46e1c",
@@ -556,25 +566,25 @@
             "date": "2026-05-04T06:35:44Z"
           }
         }
-      },
-      {
-        "sha": "9427e4d4a968abf8cc99556c4eeb172e0870b8ab",
-        "html_url": "https://github.com/freeappstore-online/music/commit/9427e4d4a968abf8cc99556c4eeb172e0870b8ab",
-        "commit": {
-          "message": "Add PWA meta tag compliance check",
-          "author": {
-            "date": "2026-05-04T05:29:37Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/flashcards": {
     "meta": {
       "created_at": "2026-05-04T10:58:15Z",
-      "pushed_at": "2026-05-14T11:06:39Z"
+      "pushed_at": "2026-05-16T23:32:26Z"
     },
     "commits": [
+      {
+        "sha": "2b81dc82d10c600d91cac3b066a2493e601074ae",
+        "html_url": "https://github.com/freeappstore-online/flashcards/commit/2b81dc82d10c600d91cac3b066a2493e601074ae",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:24Z"
+          }
+        }
+      },
       {
         "sha": "4fb381a6b760ed1de6f50d85d295532fd8e39a52",
         "html_url": "https://github.com/freeappstore-online/flashcards/commit/4fb381a6b760ed1de6f50d85d295532fd8e39a52",
@@ -594,25 +604,25 @@
             "date": "2026-05-14T05:29:47Z"
           }
         }
-      },
-      {
-        "sha": "7de4f4ef0b9a7e806368e6a71ca79992b04f6bda",
-        "html_url": "https://github.com/freeappstore-online/flashcards/commit/7de4f4ef0b9a7e806368e6a71ca79992b04f6bda",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:05:06Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-14T11:06:37Z"
+      "pushed_at": "2026-05-16T23:32:23Z"
     },
     "commits": [
+      {
+        "sha": "0934d898eead605abb3363a128c376ca0c6e6d7e",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/0934d898eead605abb3363a128c376ca0c6e6d7e",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:21Z"
+          }
+        }
+      },
       {
         "sha": "7aed00cb16256088c4118503b3bc5f0d3674c385",
         "html_url": "https://github.com/freeappstore-online/whiteboard/commit/7aed00cb16256088c4118503b3bc5f0d3674c385",
@@ -632,25 +642,25 @@
             "date": "2026-05-14T05:30:00Z"
           }
         }
-      },
-      {
-        "sha": "513315608d761d9cd9e9182e2a0896c1feaef899",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/513315608d761d9cd9e9182e2a0896c1feaef899",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:05:29Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/password": {
     "meta": {
       "created_at": "2026-05-04T10:58:11Z",
-      "pushed_at": "2026-05-14T11:06:39Z"
+      "pushed_at": "2026-05-16T23:32:20Z"
     },
     "commits": [
+      {
+        "sha": "5b4b649e5935296342bbe83e2f092571e41ab38b",
+        "html_url": "https://github.com/freeappstore-online/password/commit/5b4b649e5935296342bbe83e2f092571e41ab38b",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:18Z"
+          }
+        }
+      },
       {
         "sha": "dd7b835eb8ee70a004147f2b96f8078345b134ba",
         "html_url": "https://github.com/freeappstore-online/password/commit/dd7b835eb8ee70a004147f2b96f8078345b134ba",
@@ -668,16 +678,6 @@
           "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
           "author": {
             "date": "2026-05-14T05:29:51Z"
-          }
-        }
-      },
-      {
-        "sha": "f96904ce2a20b9c114dbfb7bda218a23e8f4516e",
-        "html_url": "https://github.com/freeappstore-online/password/commit/f96904ce2a20b9c114dbfb7bda218a23e8f4516e",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:05:18Z"
           }
         }
       }
@@ -724,9 +724,19 @@
   "freeappstore-online/weather": {
     "meta": {
       "created_at": "2026-05-04T10:58:19Z",
-      "pushed_at": "2026-05-14T11:06:36Z"
+      "pushed_at": "2026-05-16T23:32:32Z"
     },
     "commits": [
+      {
+        "sha": "15a1c03475addee683a6096cf3ca9068a78d8978",
+        "html_url": "https://github.com/freeappstore-online/weather/commit/15a1c03475addee683a6096cf3ca9068a78d8978",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:30Z"
+          }
+        }
+      },
       {
         "sha": "90d5b41b7403c62c82af2f8775ccc45e593295ff",
         "html_url": "https://github.com/freeappstore-online/weather/commit/90d5b41b7403c62c82af2f8775ccc45e593295ff",
@@ -746,25 +756,25 @@
             "date": "2026-05-14T05:29:58Z"
           }
         }
-      },
-      {
-        "sha": "0b340429d29ca49ac7e4316c1ad9cda6a16e7b1c",
-        "html_url": "https://github.com/freeappstore-online/weather/commit/0b340429d29ca49ac7e4316c1ad9cda6a16e7b1c",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:05:27Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/pomodoro": {
     "meta": {
       "created_at": "2026-05-04T10:58:05Z",
-      "pushed_at": "2026-05-14T11:06:38Z"
+      "pushed_at": "2026-05-16T23:32:11Z"
     },
     "commits": [
+      {
+        "sha": "21444b8142754e21181867113a3a87259a99e019",
+        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/21444b8142754e21181867113a3a87259a99e019",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:09Z"
+          }
+        }
+      },
       {
         "sha": "aeaf33010fe5162abfedb51fe3c227b0375c4596",
         "html_url": "https://github.com/freeappstore-online/pomodoro/commit/aeaf33010fe5162abfedb51fe3c227b0375c4596",
@@ -784,25 +794,25 @@
             "date": "2026-05-14T05:29:53Z"
           }
         }
-      },
-      {
-        "sha": "660cec94b78f2c3a8a9ec713223c396df15e717b",
-        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/660cec94b78f2c3a8a9ec713223c396df15e717b",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:05:20Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-05-14T11:06:37Z"
+      "pushed_at": "2026-05-16T23:32:35Z"
     },
     "commits": [
+      {
+        "sha": "792bf09143adaa641e6c3da7aa9ff36d2bffacf4",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/792bf09143adaa641e6c3da7aa9ff36d2bffacf4",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:33Z"
+          }
+        }
+      },
       {
         "sha": "b4f89d5aabe1a0e95ce6be237b53426004aff78f",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/b4f89d5aabe1a0e95ce6be237b53426004aff78f",
@@ -822,25 +832,25 @@
             "date": "2026-05-14T05:30:45Z"
           }
         }
-      },
-      {
-        "sha": "00bb8183217bbb5982a9fda877d44a539deeb658",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/00bb8183217bbb5982a9fda877d44a539deeb658",
-        "commit": {
-          "message": "docs(CLAUDE): drop stale platform/ + infra/ path segments\n\nThese paths never existed for external contributors and the auditor\nrepo is private. AI agents reading this CLAUDE.md were being told to\nlook in directories that don't resolve. Aligned with the post-sweep\nflat layout described in the public SKILLS.md.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-14T05:00:59Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/calculator": {
     "meta": {
       "created_at": "2026-05-04T05:30:50Z",
-      "pushed_at": "2026-05-14T11:06:42Z"
+      "pushed_at": "2026-05-16T23:31:56Z"
     },
     "commits": [
+      {
+        "sha": "ba585e41bbf6f26a84c9157a8751dc721cacdbcb",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/ba585e41bbf6f26a84c9157a8751dc721cacdbcb",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:31:54Z"
+          }
+        }
+      },
       {
         "sha": "de6dda33b3ae8fd805be65909542608344807c72",
         "html_url": "https://github.com/freeappstore-online/calculator/commit/de6dda33b3ae8fd805be65909542608344807c72",
@@ -858,16 +868,6 @@
           "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
           "author": {
             "date": "2026-05-14T05:29:41Z"
-          }
-        }
-      },
-      {
-        "sha": "fa0880132de149ebbaaf0ab68cc0955c49f9350d",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/fa0880132de149ebbaaf0ab68cc0955c49f9350d",
-        "commit": {
-          "message": "Add platform docs link to CLAUDE.md",
-          "author": {
-            "date": "2026-05-04T11:04:59Z"
           }
         }
       }
@@ -932,9 +932,19 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-14T11:06:37Z"
+      "pushed_at": "2026-05-16T23:32:38Z"
     },
     "commits": [
+      {
+        "sha": "2f6f6f23dae3542644cff1c020e709989078a4c8",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/2f6f6f23dae3542644cff1c020e709989078a4c8",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:32:36Z"
+          }
+        }
+      },
       {
         "sha": "ce0c90f6ae52b9d1d8a103ff91a67b3e76bbc495",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/ce0c90f6ae52b9d1d8a103ff91a67b3e76bbc495",
@@ -952,16 +962,6 @@
           "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
           "author": {
             "date": "2026-05-14T05:30:43Z"
-          }
-        }
-      },
-      {
-        "sha": "3ff2a9a353407a9f995ec06eeaec0e775954324c",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/3ff2a9a353407a9f995ec06eeaec0e775954324c",
-        "commit": {
-          "message": "docs(CLAUDE): drop stale platform/ + infra/ path segments\n\nThese paths never existed for external contributors and the auditor\nrepo is private. AI agents reading this CLAUDE.md were being told to\nlook in directories that don't resolve. Aligned with the post-sweep\nflat layout described in the public SKILLS.md.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-14T05:00:56Z"
           }
         }
       }
