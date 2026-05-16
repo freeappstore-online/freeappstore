@@ -235,7 +235,7 @@ const appCards = apps.map(app => {
   const qualityBadge = q && q.grade
     ? `<a href="/quality/${escapeHtml(app.id)}/" class="quality-badge grade-${q.grade.toLowerCase()}" title="Code quality: ${q.score}/100">${q.grade}</a>`
     : '';
-  return `        <div class="app-card" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}.html">
+  return `        <div class="app-card" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}">
           <div class="app-card-header">
             <div class="app-icon" style="background: ${escapeHtml(app.iconBg)};">${app.icon}</div>
             <div>
