@@ -287,19 +287,6 @@
       "developer": "FreeAppStore"
     },
     {
-      "id": "todo",
-      "name": "Todo",
-      "category": "utilities",
-      "icon": "&#9745;",
-      "iconBg": "#eff6ff",
-      "description": "Simple task list. Add, complete, delete tasks. All data saved locally.",
-      "appUrl": "https://todo.freeappstore.online",
-      "repo": "freeappstore-online/todo",
-      "cfProject": "freetodoapp",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
       "id": "counter",
       "name": "Counter",
       "category": "Utilities",
@@ -352,19 +339,6 @@
       "developer": "FreeAppStore"
     },
     {
-      "id": "joke-generator",
-      "name": "Joke Generator",
-      "category": "lifestyle",
-      "icon": "&#128514;",
-      "iconBg": "#f0f9ff",
-      "description": "A fun app that generates random jokes at the click of a button! 😂",
-      "appUrl": "https://joke-generator.freeappstore.online",
-      "repo": "freeappstore-online/joke-generator",
-      "cfProject": "freejokegeneratorapp",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
       "id": "demo-todo",
       "name": "demo-todo",
       "category": "Utilities",
@@ -374,19 +348,6 @@
       "appUrl": "https://demo-todo.freeappstore.online",
       "repo": "freeappstore-online/demo-todo",
       "cfProject": "freedemo-todoapp",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
-      "id": "watertracker",
-      "name": "watertracker",
-      "category": "Health & Fitness",
-      "icon": "🚀",
-      "iconBg": "#f3f4f6",
-      "description": "Simple hydration tracker. Set custom goals, log daily intake, and review your full hydration history. Works offline, all data stays on your device.",
-      "appUrl": "https://watertracker.freeappstore.online",
-      "repo": "freeappstore-online/watertracker",
-      "cfProject": "freewatertrackerapp",
       "type": "standalone",
       "developer": "FreeAppStore"
     }
