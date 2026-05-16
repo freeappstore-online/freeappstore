@@ -1,22 +1,22 @@
 {
-  "version": "0.27.0",
-  "timestamp": "2026-05-16T23:24:16.898Z",
-  "score": 50,
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:33:52.210Z",
+  "score": 54,
   "grade": "D",
   "checks": [
     {
       "name": "structure",
-      "score": 70,
-      "grade": "C",
+      "score": 80,
+      "grade": "B",
       "details": {
         "found": [
           "package.json",
+          "tsconfig.json",
           "LICENSE",
           ".gitignore",
           "lockfile"
         ],
         "missing": [
-          "tsconfig.json",
           "README.md"
         ],
         "srcFiles": 51,
@@ -26,11 +26,6 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "Missing tsconfig.json — TypeScript configuration",
-          "rule": "missing-file"
-        },
-        {
-          "severity": "warning",
           "message": "Missing README.md — Project documentation",
           "rule": "missing-file"
         },
@@ -38,14 +33,9 @@
           "severity": "error",
           "message": "No test files found (51 source files with zero tests)",
           "rule": "no-tests"
-        },
-        {
-          "severity": "warning",
-          "message": "No 'test' script in package.json",
-          "rule": "no-test-script"
         }
       ],
-      "duration": 10
+      "duration": 12
     },
     {
       "name": "lint",
@@ -60,14 +50,14 @@
     },
     {
       "name": "types",
-      "score": 0,
-      "grade": "F",
+      "score": 100,
+      "grade": "A",
       "details": {
-        "skipped": true,
-        "reason": "no tsconfig.json"
+        "errors": 0,
+        "ok": true
       },
       "issues": [],
-      "duration": 0
+      "duration": 7917
     },
     {
       "name": "type-safety",
@@ -78,11 +68,11 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 18
+      "duration": 46
     },
     {
       "name": "standards",
-      "score": 63,
+      "score": 60,
       "grade": "C",
       "details": {
         "filesScanned": 51,
@@ -144,9 +134,14 @@
           "message": "201 lines — getting large",
           "file": "web/src/services/jazz.ts",
           "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "TypeScript strict mode not enabled — add \"strict\": true to tsconfig",
+          "rule": "ts-strict"
         }
       ],
-      "duration": 22
+      "duration": 37
     },
     {
       "name": "complexity",
@@ -335,7 +330,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 22
+      "duration": 59
     },
     {
       "name": "duplication",
@@ -350,126 +345,126 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): { id: 'styles', label: 'Styles' }, | { id: 'eras', label: 'Eras' },",
           "file": "web/src/components/BluesTab.tsx:13 ↔ web/src/components/JazzTab.tsx:17",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): { id: 'eras', label: 'Eras' }, | { id: 'instruments', label: 'Instruments' },",
           "file": "web/src/components/BluesTab.tsx:14 ↔ web/src/components/JazzTab.tsx:18",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): switch (section) { | case 'artists': return ARTISTS",
           "file": "web/src/components/BluesTab.tsx:21 ↔ web/src/components/JazzTab.tsx:25",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): case 'artists': return ARTISTS | case 'styles': return STYLES",
           "file": "web/src/components/BluesTab.tsx:22 ↔ web/src/components/JazzTab.tsx:26",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): case 'styles': return STYLES | case 'instruments': return INSTRUMENTS",
           "file": "web/src/components/BluesTab.tsx:23 ↔ web/src/components/JazzTab.tsx:27",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): case 'instruments': return INSTRUMENTS | case 'moods': return MOODS",
           "file": "web/src/components/BluesTab.tsx:24 ↔ web/src/components/JazzTab.tsx:28",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): const [tracks, setTracks] = useState<Track[]>([]) | const [stations, setStations...",
           "file": "web/src/components/BluesTab.tsx:34 ↔ web/src/components/ClassicalTab.tsx:38",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): const [tracks, setTracks] = useState<Track[]>([]) | const [stations, setStations...",
           "file": "web/src/components/ClassicalTab.tsx:38 ↔ web/src/components/JazzTab.tsx:38",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): const [stations, setStations] = useState<RadioStation[]>([]) | const [loading, s...",
           "file": "web/src/components/BluesTab.tsx:35 ↔ web/src/components/ClassicalTab.tsx:39",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): const [stations, setStations] = useState<RadioStation[]>([]) | const [loading, s...",
           "file": "web/src/components/ClassicalTab.tsx:39 ↔ web/src/components/JazzTab.tsx:39",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): setTracks(t) | setLoading(false)",
           "file": "web/src/components/BluesTab.tsx:47 ↔ web/src/components/JazzTab.tsx:51",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): setLoading(false) | const doSearch = async () => {",
           "file": "web/src/components/BluesTab.tsx:55 ↔ web/src/components/ClassicalTab.tsx:63",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): setLoading(false) | const doSearch = async () => {",
           "file": "web/src/components/ClassicalTab.tsx:63 ↔ web/src/components/JazzTab.tsx:62",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): const items = getItems(section) | return (",
           "file": "web/src/components/BluesTab.tsx:65 ↔ web/src/components/JazzTab.tsx:74",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): </div> | </form>",
           "file": "web/src/components/BluesTab.tsx:79 ↔ web/src/components/JazzTab.tsx:94",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): </form> | {searching ? (",
           "file": "web/src/components/BluesTab.tsx:80 ↔ web/src/components/JazzTab.tsx:95",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): {searching ? ( | <div className=\"flex items-center justify-center py-8\"><Spinner...",
           "file": "web/src/components/BluesTab.tsx:81 ↔ web/src/components/JazzTab.tsx:96",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): {searching ? ( | <div className=\"flex items-center justify-center py-8\"><Spinner...",
           "file": "web/src/components/BluesTab.tsx:82 ↔ web/src/components/ClassicalTab.tsx:101",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): {searching ? ( | <div className=\"flex items-center justify-center py-8\"><Spinner...",
           "file": "web/src/components/ClassicalTab.tsx:101 ↔ web/src/components/JazzTab.tsx:97",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <div className=\"flex items-center justify-center py-8\"><Spinner /></div> | ) : s...",
           "file": "web/src/components/BluesTab.tsx:83 ↔ web/src/components/JazzTab.tsx:98",
           "rule": "duplicate-code"
         }
       ],
-      "duration": 23
+      "duration": 34
     },
     {
       "name": "error-handling",
@@ -481,7 +476,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 8
+      "duration": 11
     },
     {
       "name": "react",
@@ -628,7 +623,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 11
+      "duration": 32
     },
     {
       "name": "docs",
@@ -652,16 +647,16 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 8
+      "duration": 12
     },
     {
       "name": "best-practices",
-      "score": 40,
+      "score": 45,
       "grade": "D",
       "details": {
         "practicesChecked": 20,
-        "practicesFollowed": 8,
-        "adherence": "40%"
+        "practicesFollowed": 9,
+        "adherence": "45%"
       },
       "issues": [
         {
@@ -669,11 +664,6 @@
           "message": "compliance.yml: no explicit permissions block — defaults to read-write (overly permissive)",
           "file": ".github/workflows/compliance.yml",
           "rule": "explicit-permissions"
-        },
-        {
-          "severity": "info",
-          "message": "package.json missing repository field — provenance attestation won't link to source",
-          "rule": "repository-field"
         },
         {
           "severity": "info",
@@ -711,9 +701,9 @@
           "rule": "formatter-config"
         },
         {
-          "severity": "warning",
-          "message": "No test script in package.json — testing not configured",
-          "rule": "test-script"
+          "severity": "info",
+          "message": "TypeScript strict mode not enabled — allows implicit any and null errors",
+          "rule": "ts-strict-mode"
         },
         {
           "severity": "info",
@@ -726,7 +716,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "testing",
@@ -750,7 +740,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 9
+      "duration": 8
     },
     {
       "name": "secrets",
@@ -760,7 +750,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 35
+      "duration": 57
     },
     {
       "name": "security",
@@ -781,7 +771,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 26
+      "duration": 49
     },
     {
       "name": "dependencies",
@@ -798,7 +788,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1363
+      "duration": 2090
     },
     {
       "name": "architecture",
@@ -1620,7 +1610,7 @@
           "rule": "connector-module"
         }
       ],
-      "duration": 11
+      "duration": 14
     },
     {
       "name": "performance",
@@ -1960,7 +1950,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 24
+      "duration": 29
     },
     {
       "name": "context",
@@ -2014,7 +2004,7 @@
           "rule": "context-sink"
         }
       ],
-      "duration": 7
+      "duration": 10
     },
     {
       "name": "doc-coherence",
@@ -2029,7 +2019,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "code-coherence",
@@ -2051,9 +2041,9 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/music",
     "node": "v22.21.1",
-    "duration": 1639,
+    "duration": 10459,
     "stack": {
-      "language": "unknown",
+      "language": "typescript",
       "framework": "none",
       "bundler": "none",
       "testRunner": "none",

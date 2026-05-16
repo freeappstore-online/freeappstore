@@ -1,22 +1,22 @@
 {
   "version": "0.28.0",
-  "timestamp": "2026-05-16T23:25:46.057Z",
-  "score": 64,
+  "timestamp": "2026-05-16T23:36:40.058Z",
+  "score": 67,
   "grade": "C",
   "checks": [
     {
       "name": "structure",
-      "score": 70,
-      "grade": "C",
+      "score": 80,
+      "grade": "B",
       "details": {
         "found": [
           "package.json",
+          "tsconfig.json",
           "LICENSE",
           ".gitignore",
           "lockfile"
         ],
         "missing": [
-          "tsconfig.json",
           "README.md"
         ],
         "srcFiles": 26,
@@ -26,11 +26,6 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "Missing tsconfig.json — TypeScript configuration",
-          "rule": "missing-file"
-        },
-        {
-          "severity": "warning",
           "message": "Missing README.md — Project documentation",
           "rule": "missing-file"
         },
@@ -38,14 +33,9 @@
           "severity": "error",
           "message": "No test files found (26 source files with zero tests)",
           "rule": "no-tests"
-        },
-        {
-          "severity": "warning",
-          "message": "No 'test' script in package.json",
-          "rule": "no-test-script"
         }
       ],
-      "duration": 6
+      "duration": 10
     },
     {
       "name": "lint",
@@ -60,14 +50,14 @@
     },
     {
       "name": "types",
-      "score": 0,
-      "grade": "F",
+      "score": 100,
+      "grade": "A",
       "details": {
-        "skipped": true,
-        "reason": "no tsconfig.json"
+        "errors": 0,
+        "ok": true
       },
       "issues": [],
-      "duration": 0
+      "duration": 7153
     },
     {
       "name": "type-safety",
@@ -82,7 +72,7 @@
     },
     {
       "name": "standards",
-      "score": 83,
+      "score": 80,
       "grade": "B",
       "details": {
         "filesScanned": 26,
@@ -114,9 +104,14 @@
           "message": "444 lines — consider splitting (max 300)",
           "file": "web/src/data/events.ts",
           "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "TypeScript strict mode not enabled — add \"strict\": true to tsconfig",
+          "rule": "ts-strict"
         }
       ],
-      "duration": 10
+      "duration": 11
     },
     {
       "name": "complexity",
@@ -319,7 +314,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 10
+      "duration": 11
     },
     {
       "name": "error-handling",
@@ -358,7 +353,7 @@
         "positiveTabindex": 0
       },
       "issues": [],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "docs",
@@ -382,16 +377,16 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "best-practices",
-      "score": 35,
-      "grade": "F",
+      "score": 40,
+      "grade": "D",
       "details": {
         "practicesChecked": 20,
-        "practicesFollowed": 7,
-        "adherence": "35%"
+        "practicesFollowed": 8,
+        "adherence": "40%"
       },
       "issues": [
         {
@@ -404,11 +399,6 @@
           "severity": "info",
           "message": "No engine constraints (engines in package.json or .nvmrc) — Node version not pinned",
           "rule": "pin-node-version"
-        },
-        {
-          "severity": "info",
-          "message": "package.json missing repository field — provenance attestation won't link to source",
-          "rule": "repository-field"
         },
         {
           "severity": "info",
@@ -446,9 +436,9 @@
           "rule": "formatter-config"
         },
         {
-          "severity": "warning",
-          "message": "No test script in package.json — testing not configured",
-          "rule": "test-script"
+          "severity": "info",
+          "message": "TypeScript strict mode not enabled — allows implicit any and null errors",
+          "rule": "ts-strict-mode"
         },
         {
           "severity": "info",
@@ -461,7 +451,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "testing",
@@ -495,7 +485,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 14
+      "duration": 15
     },
     {
       "name": "security",
@@ -516,7 +506,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 12
+      "duration": 10
     },
     {
       "name": "dependencies",
@@ -533,7 +523,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1337
+      "duration": 1436
     },
     {
       "name": "architecture",
@@ -887,7 +877,7 @@
           "rule": "god-module"
         }
       ],
-      "duration": 7
+      "duration": 9
     },
     {
       "name": "performance",
@@ -908,7 +898,7 @@
           "rule": "barrel-import"
         }
       ],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "confusion",
@@ -1025,7 +1015,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 11
+      "duration": 12
     },
     {
       "name": "context",
@@ -1049,7 +1039,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 8
+      "duration": 7
     },
     {
       "name": "doc-coherence",
@@ -1064,7 +1054,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 8
+      "duration": 3
     },
     {
       "name": "code-coherence",
@@ -1080,15 +1070,15 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 3
+      "duration": 5
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/meetup",
     "node": "v22.21.1",
-    "duration": 1482,
+    "duration": 8744,
     "stack": {
-      "language": "unknown",
+      "language": "typescript",
       "framework": "none",
       "bundler": "none",
       "testRunner": "none",

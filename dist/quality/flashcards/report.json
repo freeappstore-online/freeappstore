@@ -1,22 +1,22 @@
 {
   "version": "0.28.0",
-  "timestamp": "2026-05-16T23:27:32.365Z",
-  "score": 72,
-  "grade": "C",
+  "timestamp": "2026-05-16T23:41:32.551Z",
+  "score": 75,
+  "grade": "B",
   "checks": [
     {
       "name": "structure",
-      "score": 70,
-      "grade": "C",
+      "score": 80,
+      "grade": "B",
       "details": {
         "found": [
           "package.json",
+          "tsconfig.json",
           "LICENSE",
           ".gitignore",
           "lockfile"
         ],
         "missing": [
-          "tsconfig.json",
           "README.md"
         ],
         "srcFiles": 4,
@@ -26,11 +26,6 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "Missing tsconfig.json — TypeScript configuration",
-          "rule": "missing-file"
-        },
-        {
-          "severity": "warning",
           "message": "Missing README.md — Project documentation",
           "rule": "missing-file"
         },
@@ -38,14 +33,9 @@
           "severity": "error",
           "message": "No test files found (4 source files with zero tests)",
           "rule": "no-tests"
-        },
-        {
-          "severity": "warning",
-          "message": "No 'test' script in package.json",
-          "rule": "no-test-script"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "lint",
@@ -60,14 +50,14 @@
     },
     {
       "name": "types",
-      "score": 0,
-      "grade": "F",
+      "score": 100,
+      "grade": "A",
       "details": {
-        "skipped": true,
-        "reason": "no tsconfig.json"
+        "errors": 0,
+        "ok": true
       },
       "issues": [],
-      "duration": 0
+      "duration": 8205
     },
     {
       "name": "type-safety",
@@ -78,12 +68,12 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 3
+      "duration": 5
     },
     {
       "name": "standards",
-      "score": 92,
-      "grade": "A",
+      "score": 89,
+      "grade": "B",
       "details": {
         "filesScanned": 4,
         "codeSmells": 0,
@@ -96,9 +86,14 @@
           "message": "761 lines — consider splitting (max 300)",
           "file": "web/src/App.tsx",
           "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "TypeScript strict mode not enabled — add \"strict\": true to tsconfig",
+          "rule": "ts-strict"
         }
       ],
-      "duration": 4
+      "duration": 8
     },
     {
       "name": "complexity",
@@ -143,7 +138,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 4
+      "duration": 7
     },
     {
       "name": "duplication",
@@ -169,7 +164,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 5
+      "duration": 8
     },
     {
       "name": "error-handling",
@@ -181,7 +176,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 2
+      "duration": 5
     },
     {
       "name": "react",
@@ -237,7 +232,7 @@
           "rule": "no-autofocus"
         }
       ],
-      "duration": 2
+      "duration": 5
     },
     {
       "name": "docs",
@@ -265,12 +260,12 @@
     },
     {
       "name": "best-practices",
-      "score": 44,
+      "score": 48,
       "grade": "D",
       "details": {
         "practicesChecked": 25,
-        "practicesFollowed": 11,
-        "adherence": "44%"
+        "practicesFollowed": 12,
+        "adherence": "48%"
       },
       "issues": [
         {
@@ -284,11 +279,6 @@
           "message": "compliance.yml: no explicit permissions block — defaults to read-write (overly permissive)",
           "file": ".github/workflows/compliance.yml",
           "rule": "explicit-permissions"
-        },
-        {
-          "severity": "info",
-          "message": "package.json missing repository field — provenance attestation won't link to source",
-          "rule": "repository-field"
         },
         {
           "severity": "info",
@@ -326,9 +316,9 @@
           "rule": "formatter-config"
         },
         {
-          "severity": "warning",
-          "message": "No test script in package.json — testing not configured",
-          "rule": "test-script"
+          "severity": "info",
+          "message": "TypeScript strict mode not enabled — allows implicit any and null errors",
+          "rule": "ts-strict-mode"
         },
         {
           "severity": "info",
@@ -341,7 +331,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 6
     },
     {
       "name": "testing",
@@ -365,7 +355,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "secrets",
@@ -375,7 +365,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 8
+      "duration": 16
     },
     {
       "name": "security",
@@ -396,7 +386,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "dependencies",
@@ -413,7 +403,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1314
+      "duration": 1823
     },
     {
       "name": "architecture",
@@ -492,7 +482,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "performance",
@@ -520,7 +510,7 @@
         "filesScanned": 4
       },
       "issues": [],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "context",
@@ -544,7 +534,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "doc-coherence",
@@ -583,9 +573,9 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/flashcards",
     "node": "v22.21.1",
-    "duration": 1381,
+    "duration": 10124,
     "stack": {
-      "language": "unknown",
+      "language": "typescript",
       "framework": "none",
       "bundler": "none",
       "testRunner": "none",

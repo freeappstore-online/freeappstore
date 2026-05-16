@@ -1,22 +1,22 @@
 {
-  "version": "0.27.0",
-  "timestamp": "2026-05-16T23:24:08.345Z",
-  "score": 68,
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:33:29.170Z",
+  "score": 71,
   "grade": "C",
   "checks": [
     {
       "name": "structure",
-      "score": 70,
-      "grade": "C",
+      "score": 80,
+      "grade": "B",
       "details": {
         "found": [
           "package.json",
+          "tsconfig.json",
           "LICENSE",
           ".gitignore",
           "lockfile"
         ],
         "missing": [
-          "tsconfig.json",
           "README.md"
         ],
         "srcFiles": 15,
@@ -26,11 +26,6 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "Missing tsconfig.json — TypeScript configuration",
-          "rule": "missing-file"
-        },
-        {
-          "severity": "warning",
           "message": "Missing README.md — Project documentation",
           "rule": "missing-file"
         },
@@ -38,14 +33,9 @@
           "severity": "error",
           "message": "No test files found (15 source files with zero tests)",
           "rule": "no-tests"
-        },
-        {
-          "severity": "warning",
-          "message": "No 'test' script in package.json",
-          "rule": "no-test-script"
         }
       ],
-      "duration": 7
+      "duration": 6
     },
     {
       "name": "lint",
@@ -60,14 +50,14 @@
     },
     {
       "name": "types",
-      "score": 0,
-      "grade": "F",
+      "score": 100,
+      "grade": "A",
       "details": {
-        "skipped": true,
-        "reason": "no tsconfig.json"
+        "errors": 0,
+        "ok": true
       },
       "issues": [],
-      "duration": 0
+      "duration": 8087
     },
     {
       "name": "type-safety",
@@ -78,11 +68,11 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 18
+      "duration": 28
     },
     {
       "name": "standards",
-      "score": 52,
+      "score": 49,
       "grade": "D",
       "details": {
         "filesScanned": 15,
@@ -161,9 +151,14 @@
           "file": "web/src/services/rating.ts",
           "line": 15,
           "rule": "magic number"
+        },
+        {
+          "severity": "warning",
+          "message": "TypeScript strict mode not enabled — add \"strict\": true to tsconfig",
+          "rule": "ts-strict"
         }
       ],
-      "duration": 20
+      "duration": 26
     },
     {
       "name": "complexity",
@@ -229,108 +224,108 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): {LEVEL_CATEGORIES.map((category) => ( | <LevelCategorySection",
           "file": "web/src/App.tsx:107 ↔ web/src/App.tsx:160",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <LevelCategorySection | key={category.id}",
           "file": "web/src/App.tsx:108 ↔ web/src/App.tsx:161",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): options={[ | { value: 'small', label: 'S' },",
           "file": "web/src/components/PreferencesTab.tsx:69 ↔ web/src/components/PreferencesTab.tsx:80",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 24: 'Big mixed', | 25: 'Master mix',",
           "file": "web/src/services/i18n.ts:169 ↔ web/src/services/problems.ts:530",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 25: 'Master mix', | 26: 'Geometry perimeter',",
           "file": "web/src/services/i18n.ts:170 ↔ web/src/services/problems.ts:531",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 26: 'Geometry perimeter', | 27: 'Geometry area',",
           "file": "web/src/services/i18n.ts:171 ↔ web/src/services/problems.ts:532",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 27: 'Geometry area', | 28: 'Angles',",
           "file": "web/src/services/i18n.ts:172 ↔ web/src/services/problems.ts:533",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 28: 'Angles', | 29: 'Coordinate slope',",
           "file": "web/src/services/i18n.ts:173 ↔ web/src/services/problems.ts:534",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 29: 'Coordinate slope', | 30: 'GCD',",
           "file": "web/src/services/i18n.ts:174 ↔ web/src/services/problems.ts:535",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 30: 'GCD', | 31: 'LCM',",
           "file": "web/src/services/i18n.ts:175 ↔ web/src/services/problems.ts:536",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 31: 'LCM', | 32: 'Mod arithmetic',",
           "file": "web/src/services/i18n.ts:176 ↔ web/src/services/problems.ts:537",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 32: 'Mod arithmetic', | 33: 'Prime factors',",
           "file": "web/src/services/i18n.ts:177 ↔ web/src/services/problems.ts:538",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 33: 'Prime factors', | 34: 'Exponents',",
           "file": "web/src/services/i18n.ts:178 ↔ web/src/services/problems.ts:539",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 34: 'Exponents', | 35: 'Roots',",
           "file": "web/src/services/i18n.ts:179 ↔ web/src/services/problems.ts:540",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 35: 'Roots', | 36: 'Limits',",
           "file": "web/src/services/i18n.ts:180 ↔ web/src/services/problems.ts:541",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 36: 'Limits', | 37: 'Percentages',",
           "file": "web/src/services/i18n.ts:181 ↔ web/src/services/problems.ts:542",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): 37: 'Percentages', | 38: 'Ratios',",
           "file": "web/src/services/i18n.ts:182 ↔ web/src/services/problems.ts:543",
           "rule": "duplicate-code"
         }
       ],
-      "duration": 79
+      "duration": 27
     },
     {
       "name": "error-handling",
@@ -342,7 +337,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 10
+      "duration": 21
     },
     {
       "name": "react",
@@ -377,7 +372,7 @@
           "rule": "click-events"
         }
       ],
-      "duration": 6
+      "duration": 7
     },
     {
       "name": "docs",
@@ -401,16 +396,16 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "best-practices",
-      "score": 40,
+      "score": 45,
       "grade": "D",
       "details": {
         "practicesChecked": 20,
-        "practicesFollowed": 8,
-        "adherence": "40%"
+        "practicesFollowed": 9,
+        "adherence": "45%"
       },
       "issues": [
         {
@@ -418,11 +413,6 @@
           "message": "compliance.yml: no explicit permissions block — defaults to read-write (overly permissive)",
           "file": ".github/workflows/compliance.yml",
           "rule": "explicit-permissions"
-        },
-        {
-          "severity": "info",
-          "message": "package.json missing repository field — provenance attestation won't link to source",
-          "rule": "repository-field"
         },
         {
           "severity": "info",
@@ -460,9 +450,9 @@
           "rule": "formatter-config"
         },
         {
-          "severity": "warning",
-          "message": "No test script in package.json — testing not configured",
-          "rule": "test-script"
+          "severity": "info",
+          "message": "TypeScript strict mode not enabled — allows implicit any and null errors",
+          "rule": "ts-strict-mode"
         },
         {
           "severity": "info",
@@ -475,7 +465,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 6
+      "duration": 4
     },
     {
       "name": "testing",
@@ -499,7 +489,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 6
+      "duration": 4
     },
     {
       "name": "secrets",
@@ -509,7 +499,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 44
+      "duration": 36
     },
     {
       "name": "security",
@@ -530,7 +520,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 31
+      "duration": 33
     },
     {
       "name": "dependencies",
@@ -547,7 +537,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 3678
+      "duration": 2835
     },
     {
       "name": "architecture",
@@ -769,7 +759,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 5
+      "duration": 7
     },
     {
       "name": "performance",
@@ -889,7 +879,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 10
+      "duration": 8
     },
     {
       "name": "context",
@@ -931,7 +921,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "doc-coherence",
@@ -946,7 +936,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "code-coherence",
@@ -968,9 +958,9 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/math",
     "node": "v22.21.1",
-    "duration": 3972,
+    "duration": 11182,
     "stack": {
-      "language": "unknown",
+      "language": "typescript",
       "framework": "none",
       "bundler": "none",
       "testRunner": "none",

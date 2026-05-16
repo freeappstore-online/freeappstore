@@ -1,22 +1,22 @@
 {
-  "version": "0.27.0",
-  "timestamp": "2026-05-16T23:24:26.315Z",
-  "score": 60,
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:34:14.879Z",
+  "score": 64,
   "grade": "C",
   "checks": [
     {
       "name": "structure",
-      "score": 70,
-      "grade": "C",
+      "score": 80,
+      "grade": "B",
       "details": {
         "found": [
           "package.json",
+          "tsconfig.json",
           "LICENSE",
           ".gitignore",
           "lockfile"
         ],
         "missing": [
-          "tsconfig.json",
           "README.md"
         ],
         "srcFiles": 18,
@@ -26,11 +26,6 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "Missing tsconfig.json — TypeScript configuration",
-          "rule": "missing-file"
-        },
-        {
-          "severity": "warning",
           "message": "Missing README.md — Project documentation",
           "rule": "missing-file"
         },
@@ -38,14 +33,9 @@
           "severity": "error",
           "message": "No test files found (18 source files with zero tests)",
           "rule": "no-tests"
-        },
-        {
-          "severity": "warning",
-          "message": "No 'test' script in package.json",
-          "rule": "no-test-script"
         }
       ],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "lint",
@@ -60,14 +50,14 @@
     },
     {
       "name": "types",
-      "score": 0,
-      "grade": "F",
+      "score": 100,
+      "grade": "A",
       "details": {
-        "skipped": true,
-        "reason": "no tsconfig.json"
+        "errors": 0,
+        "ok": true
       },
       "issues": [],
-      "duration": 0
+      "duration": 9205
     },
     {
       "name": "type-safety",
@@ -78,12 +68,12 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 13
+      "duration": 17
     },
     {
       "name": "standards",
-      "score": 42,
-      "grade": "D",
+      "score": 39,
+      "grade": "F",
       "details": {
         "filesScanned": 18,
         "codeSmells": 2,
@@ -158,9 +148,14 @@
           "file": "web/src/services/programmingProblems.ts",
           "line": 256,
           "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "TypeScript strict mode not enabled — add \"strict\": true to tsconfig",
+          "rule": "ts-strict"
         }
       ],
-      "duration": 14
+      "duration": 16
     },
     {
       "name": "complexity",
@@ -226,126 +221,126 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <LanguagePicker | compact",
           "file": "web/src/App.tsx:83 ↔ web/src/App.tsx:182",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): {levels.map((level) => ( | <button",
           "file": "web/src/App.tsx:133 ↔ web/src/App.tsx:202",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <button | key={level}",
           "file": "web/src/App.tsx:134 ↔ web/src/App.tsx:203",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): key={level} | className={`flex w-full items-center gap-2 rounded-[0.75rem] px-3 ...",
           "file": "web/src/App.tsx:135 ↔ web/src/App.tsx:204",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): type=\"button\" | disabled={!subjectDefinition}",
           "file": "web/src/App.tsx:142 ↔ web/src/App.tsx:214",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): disabled={!subjectDefinition} | >",
           "file": "web/src/App.tsx:143 ↔ web/src/App.tsx:215",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): > | <span className=\"font-bold\">{level}</span>",
           "file": "web/src/App.tsx:144 ↔ web/src/App.tsx:216",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): className={`flex w-full items-center gap-3 rounded-[1rem] px-3 py-3 text-sm ${ |...",
           "file": "web/src/components/LanguagePicker.tsx:54 ↔ web/src/components/SubjectPicker.tsx:39",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): active | ? 'text-[var(--ink)]'",
           "file": "web/src/components/LanguagePicker.tsx:55 ↔ web/src/components/SubjectPicker.tsx:40",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (recognitionRef.current) { | recognitionRef.current.onstart = null",
           "file": "web/src/components/PracticeTab.tsx:123 ↔ web/src/components/PracticeTab.tsx:229",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): recognitionRef.current.onstart = null | recognitionRef.current.onresult = null",
           "file": "web/src/components/PracticeTab.tsx:124 ↔ web/src/components/PracticeTab.tsx:230",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): recognitionRef.current.onresult = null | recognitionRef.current.onerror = null",
           "file": "web/src/components/PracticeTab.tsx:125 ↔ web/src/components/PracticeTab.tsx:231",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): recognitionRef.current.onerror = null | recognitionRef.current.onend = null",
           "file": "web/src/components/PracticeTab.tsx:126 ↔ web/src/components/PracticeTab.tsx:232",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): options={[ | { value: 'small', label: 'S' },",
           "file": "web/src/components/PreferencesTab.tsx:84 ↔ web/src/components/PreferencesTab.tsx:95",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): CardContentFormat, | CardIllustration,",
           "file": "web/src/services/chemistryProblems.ts:1 ↔ web/src/services/programmingProblems.ts:1",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): CardContentFormat, | CardIllustration,",
           "file": "web/src/services/chemistryProblems.ts:2 ↔ web/src/services/programmingProblems.ts:2",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): CardIllustration, | ComprehensionCard,",
           "file": "web/src/services/chemistryProblems.ts:3 ↔ web/src/services/programmingProblems.ts:3",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): ComprehensionCard, | LanguageCode,",
           "file": "web/src/services/chemistryProblems.ts:4 ↔ web/src/services/programmingProblems.ts:4",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): LanguageCode, | QuestionRound,",
           "file": "web/src/services/chemistryProblems.ts:5 ↔ web/src/services/programmingProblems.ts:5",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): QuestionRound, | QuestionSkill,",
           "file": "web/src/services/chemistryProblems.ts:6 ↔ web/src/services/programmingProblems.ts:6",
           "rule": "duplicate-code"
         }
       ],
-      "duration": 22
+      "duration": 23
     },
     {
       "name": "error-handling",
@@ -357,7 +352,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 6
+      "duration": 8
     },
     {
       "name": "react",
@@ -406,7 +401,7 @@
           "rule": "click-events"
         }
       ],
-      "duration": 5
+      "duration": 7
     },
     {
       "name": "docs",
@@ -430,16 +425,16 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "best-practices",
-      "score": 40,
+      "score": 45,
       "grade": "D",
       "details": {
         "practicesChecked": 20,
-        "practicesFollowed": 8,
-        "adherence": "40%"
+        "practicesFollowed": 9,
+        "adherence": "45%"
       },
       "issues": [
         {
@@ -447,11 +442,6 @@
           "message": "compliance.yml: no explicit permissions block — defaults to read-write (overly permissive)",
           "file": ".github/workflows/compliance.yml",
           "rule": "explicit-permissions"
-        },
-        {
-          "severity": "info",
-          "message": "package.json missing repository field — provenance attestation won't link to source",
-          "rule": "repository-field"
         },
         {
           "severity": "info",
@@ -489,9 +479,9 @@
           "rule": "formatter-config"
         },
         {
-          "severity": "warning",
-          "message": "No test script in package.json — testing not configured",
-          "rule": "test-script"
+          "severity": "info",
+          "message": "TypeScript strict mode not enabled — allows implicit any and null errors",
+          "rule": "ts-strict-mode"
         },
         {
           "severity": "info",
@@ -504,7 +494,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 5
     },
     {
       "name": "testing",
@@ -528,7 +518,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 2
+      "duration": 7
     },
     {
       "name": "secrets",
@@ -538,7 +528,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 21
+      "duration": 27
     },
     {
       "name": "security",
@@ -559,7 +549,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 18
+      "duration": 21
     },
     {
       "name": "dependencies",
@@ -576,7 +566,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 2156
+      "duration": 2519
     },
     {
       "name": "architecture",
@@ -862,7 +852,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "performance",
@@ -905,7 +895,7 @@
           "rule": "large-import"
         }
       ],
-      "duration": 4
+      "duration": 7
     },
     {
       "name": "confusion",
@@ -964,7 +954,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 9
+      "duration": 16
     },
     {
       "name": "context",
@@ -1043,15 +1033,15 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 3
+      "duration": 4
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/quiz",
     "node": "v22.21.1",
-    "duration": 2317,
+    "duration": 11931,
     "stack": {
-      "language": "unknown",
+      "language": "typescript",
       "framework": "none",
       "bundler": "none",
       "testRunner": "none",

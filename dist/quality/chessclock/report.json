@@ -1,21 +1,21 @@
 {
   "version": "0.28.0",
-  "timestamp": "2026-05-16T23:26:02.752Z",
-  "score": 73,
-  "grade": "C",
+  "timestamp": "2026-05-16T23:37:38.074Z",
+  "score": 75,
+  "grade": "B",
   "checks": [
     {
       "name": "structure",
-      "score": 55,
-      "grade": "D",
+      "score": 65,
+      "grade": "C",
       "details": {
         "found": [
           "package.json",
+          "tsconfig.json",
           ".gitignore",
           "lockfile"
         ],
         "missing": [
-          "tsconfig.json",
           "LICENSE",
           "README.md"
         ],
@@ -24,11 +24,6 @@
         "testRatio": "0%"
       },
       "issues": [
-        {
-          "severity": "warning",
-          "message": "Missing tsconfig.json — TypeScript configuration",
-          "rule": "missing-file"
-        },
         {
           "severity": "error",
           "message": "Missing LICENSE — Open source license",
@@ -43,14 +38,9 @@
           "severity": "error",
           "message": "No test files found (2 source files with zero tests)",
           "rule": "no-tests"
-        },
-        {
-          "severity": "warning",
-          "message": "No 'test' script in package.json",
-          "rule": "no-test-script"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "lint",
@@ -65,14 +55,14 @@
     },
     {
       "name": "types",
-      "score": 0,
-      "grade": "F",
+      "score": 100,
+      "grade": "A",
       "details": {
-        "skipped": true,
-        "reason": "no tsconfig.json"
+        "errors": 0,
+        "ok": true
       },
       "issues": [],
-      "duration": 0
+      "duration": 13055
     },
     {
       "name": "type-safety",
@@ -83,12 +73,12 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "standards",
-      "score": 92,
-      "grade": "A",
+      "score": 89,
+      "grade": "B",
       "details": {
         "filesScanned": 2,
         "codeSmells": 0,
@@ -101,9 +91,14 @@
           "message": "421 lines — consider splitting (max 300)",
           "file": "web/src/App.tsx",
           "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "TypeScript strict mode not enabled — add \"strict\": true to tsconfig",
+          "rule": "ts-strict"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "complexity",
@@ -149,7 +144,7 @@
         "duplicationPct": "0%"
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "error-handling",
@@ -161,7 +156,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "react",
@@ -188,7 +183,7 @@
         "positiveTabindex": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "docs",
@@ -216,23 +211,18 @@
     },
     {
       "name": "best-practices",
-      "score": 33,
+      "score": 39,
       "grade": "F",
       "details": {
         "practicesChecked": 18,
-        "practicesFollowed": 6,
-        "adherence": "33%"
+        "practicesFollowed": 7,
+        "adherence": "39%"
       },
       "issues": [
         {
           "severity": "warning",
           "message": "No .github/workflows/ — no CI/CD automation. Add GitHub Actions for automated testing and deployment.",
           "rule": "no-ci"
-        },
-        {
-          "severity": "info",
-          "message": "package.json missing repository field — provenance attestation won't link to source",
-          "rule": "repository-field"
         },
         {
           "severity": "info",
@@ -270,9 +260,9 @@
           "rule": "formatter-config"
         },
         {
-          "severity": "warning",
-          "message": "No test script in package.json — testing not configured",
-          "rule": "test-script"
+          "severity": "info",
+          "message": "TypeScript strict mode not enabled — allows implicit any and null errors",
+          "rule": "ts-strict-mode"
         },
         {
           "severity": "info",
@@ -285,7 +275,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "testing",
@@ -319,7 +309,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 7
+      "duration": 10
     },
     {
       "name": "security",
@@ -357,7 +347,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1332
+      "duration": 2257
     },
     {
       "name": "architecture",
@@ -409,7 +399,7 @@
         }
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "performance",
@@ -454,7 +444,7 @@
         "contextSinks": 0
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "doc-coherence",
@@ -485,15 +475,15 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/chessclock",
     "node": "v22.21.1",
-    "duration": 1382,
+    "duration": 15381,
     "stack": {
-      "language": "unknown",
+      "language": "typescript",
       "framework": "none",
       "bundler": "none",
       "testRunner": "none",

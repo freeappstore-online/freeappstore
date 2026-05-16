@@ -1,36 +1,29 @@
 {
   "version": "0.28.0",
-  "timestamp": "2026-05-16T23:28:12.069Z",
-  "score": 84,
+  "timestamp": "2026-05-16T23:42:39.252Z",
+  "score": 85,
   "grade": "B",
   "checks": [
     {
       "name": "structure",
-      "score": 95,
+      "score": 100,
       "grade": "A",
       "details": {
         "found": [
           "package.json",
+          "tsconfig.json",
           "LICENSE",
           ".gitignore",
           "README.md",
           "lockfile"
         ],
-        "missing": [
-          "tsconfig.json"
-        ],
+        "missing": [],
         "srcFiles": 4,
         "testFiles": 3,
         "testRatio": "75%"
       },
-      "issues": [
-        {
-          "severity": "warning",
-          "message": "Missing tsconfig.json — TypeScript configuration",
-          "rule": "missing-file"
-        }
-      ],
-      "duration": 3
+      "issues": [],
+      "duration": 4
     },
     {
       "name": "lint",
@@ -45,14 +38,14 @@
     },
     {
       "name": "types",
-      "score": 0,
-      "grade": "F",
+      "score": 100,
+      "grade": "A",
       "details": {
-        "skipped": true,
-        "reason": "no tsconfig.json"
+        "errors": 0,
+        "ok": true
       },
       "issues": [],
-      "duration": 0
+      "duration": 5952
     },
     {
       "name": "type-safety",
@@ -63,12 +56,12 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "standards",
-      "score": 92,
-      "grade": "A",
+      "score": 89,
+      "grade": "B",
       "details": {
         "filesScanned": 4,
         "codeSmells": 0,
@@ -81,9 +74,14 @@
           "message": "1136 lines — consider splitting (max 300)",
           "file": "web/src/App.tsx",
           "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "TypeScript strict mode not enabled — add \"strict\": true to tsconfig",
+          "rule": "ts-strict"
         }
       ],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "complexity",
@@ -134,7 +132,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "duplication",
@@ -166,7 +164,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 6
+      "duration": 9
     },
     {
       "name": "error-handling",
@@ -178,7 +176,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "react",
@@ -220,7 +218,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 4
+      "duration": 6
     },
     {
       "name": "docs",
@@ -239,7 +237,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "best-practices",
@@ -262,11 +260,6 @@
           "message": "compliance.yml: no explicit permissions block — defaults to read-write (overly permissive)",
           "file": ".github/workflows/compliance.yml",
           "rule": "explicit-permissions"
-        },
-        {
-          "severity": "info",
-          "message": "package.json missing repository field — provenance attestation won't link to source",
-          "rule": "repository-field"
         },
         {
           "severity": "info",
@@ -305,6 +298,11 @@
         },
         {
           "severity": "info",
+          "message": "TypeScript strict mode not enabled — allows implicit any and null errors",
+          "rule": "ts-strict-mode"
+        },
+        {
+          "severity": "info",
           "message": "No test coverage configuration — coverage thresholds not enforced",
           "rule": "coverage-config"
         },
@@ -314,7 +312,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "testing",
@@ -357,7 +355,7 @@
           "rule": "untested-file"
         }
       ],
-      "duration": 3
+      "duration": 5
     },
     {
       "name": "secrets",
@@ -367,7 +365,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 11
+      "duration": 18
     },
     {
       "name": "security",
@@ -388,7 +386,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 6
+      "duration": 9
     },
     {
       "name": "dependencies",
@@ -405,7 +403,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1262
+      "duration": 1547
     },
     {
       "name": "architecture",
@@ -498,7 +496,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "confusion",
@@ -520,7 +518,7 @@
           "rule": "generic-name"
         }
       ],
-      "duration": 5
+      "duration": 3
     },
     {
       "name": "context",
@@ -544,7 +542,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 4
+      "duration": 1
     },
     {
       "name": "doc-coherence",
@@ -562,7 +560,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "code-coherence",
@@ -578,15 +576,15 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 2
+      "duration": 1
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/mandarin-english",
     "node": "v22.21.1",
-    "duration": 1347,
+    "duration": 7599,
     "stack": {
-      "language": "unknown",
+      "language": "typescript",
       "framework": "none",
       "bundler": "none",
       "testRunner": "none",

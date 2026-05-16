@@ -1,22 +1,22 @@
 {
-  "version": "0.27.0",
-  "timestamp": "2026-05-16T23:23:54.956Z",
-  "score": 49,
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:33:08.162Z",
+  "score": 53,
   "grade": "D",
   "checks": [
     {
       "name": "structure",
-      "score": 85,
-      "grade": "B",
+      "score": 90,
+      "grade": "A",
       "details": {
         "found": [
           "package.json",
+          "tsconfig.json",
           "LICENSE",
           ".gitignore",
           "lockfile"
         ],
         "missing": [
-          "tsconfig.json",
           "README.md"
         ],
         "srcFiles": 83,
@@ -24,11 +24,6 @@
         "testRatio": "17%"
       },
       "issues": [
-        {
-          "severity": "warning",
-          "message": "Missing tsconfig.json — TypeScript configuration",
-          "rule": "missing-file"
-        },
         {
           "severity": "warning",
           "message": "Missing README.md — Project documentation",
@@ -40,7 +35,7 @@
           "rule": "low-test-ratio"
         }
       ],
-      "duration": 29
+      "duration": 49
     },
     {
       "name": "lint",
@@ -55,14 +50,14 @@
     },
     {
       "name": "types",
-      "score": 0,
-      "grade": "F",
+      "score": 100,
+      "grade": "A",
       "details": {
-        "skipped": true,
-        "reason": "no tsconfig.json"
+        "errors": 0,
+        "ok": true
       },
       "issues": [],
-      "duration": 0
+      "duration": 9587
     },
     {
       "name": "type-safety",
@@ -73,7 +68,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 40
+      "duration": 42
     },
     {
       "name": "standards",
@@ -254,9 +249,14 @@
           "file": "web/src/services/speech.ts",
           "line": 145,
           "rule": "console.log"
+        },
+        {
+          "severity": "warning",
+          "message": "TypeScript strict mode not enabled — add \"strict\": true to tsconfig",
+          "rule": "ts-strict"
         }
       ],
-      "duration": 45
+      "duration": 51
     },
     {
       "name": "complexity",
@@ -403,7 +403,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 31
+      "duration": 46
     },
     {
       "name": "duplication",
@@ -418,126 +418,126 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): }, { | onError: (error) => {",
           "file": "web/src/components/ClozeTab.tsx:201 ↔ web/src/components/SpeakTab.tsx:244",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): onError: (error) => { | if (runId !== speakRunId.current) return",
           "file": "web/src/components/ClozeTab.tsx:202 ↔ web/src/components/SpeakTab.tsx:245",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (runId !== speakRunId.current) return | if (error === 'not-allowed' || error ...",
           "file": "web/src/components/ClozeTab.tsx:203 ↔ web/src/components/MissingLetterTab.tsx:234",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (runId !== speakRunId.current) return | if (error === 'not-allowed' || error ...",
           "file": "web/src/components/MissingLetterTab.tsx:234 ↔ web/src/components/SpeakTab.tsx:246",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (runId !== speakRunId.current) return | if (error === 'not-allowed' || error ...",
           "file": "web/src/components/SpeakTab.tsx:246 ↔ web/src/hooks/useVoiceCycle.ts:51",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (error === 'not-allowed' || error === 'service-not-allowed') { | setSpeakStat...",
           "file": "web/src/components/ClozeTab.tsx:204 ↔ web/src/components/MissingLetterTab.tsx:235",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (error === 'not-allowed' || error === 'service-not-allowed') { | setSpeakStat...",
           "file": "web/src/components/MissingLetterTab.tsx:235 ↔ web/src/components/SpeakTab.tsx:247",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (error === 'not-allowed' || error === 'service-not-allowed') { | setSpeakStat...",
           "file": "web/src/components/SpeakTab.tsx:247 ↔ web/src/hooks/useVoiceCycle.ts:52",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): setSpeakStatus('blocked') | return",
           "file": "web/src/components/ClozeTab.tsx:205 ↔ web/src/components/MissingLetterTab.tsx:236",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): setSpeakStatus('blocked') | return",
           "file": "web/src/components/MissingLetterTab.tsx:236 ↔ web/src/components/SpeakTab.tsx:248",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): setSpeakStatus('blocked') | return",
           "file": "web/src/components/SpeakTab.tsx:248 ↔ web/src/hooks/useVoiceCycle.ts:53",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): return | if (error === 'Speech recognition not supported') {",
           "file": "web/src/components/ClozeTab.tsx:206 ↔ web/src/components/MissingLetterTab.tsx:237",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): return | if (error === 'Speech recognition not supported') {",
           "file": "web/src/components/MissingLetterTab.tsx:237 ↔ web/src/components/SpeakTab.tsx:249",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): return | if (error === 'Speech recognition not supported') {",
           "file": "web/src/components/SpeakTab.tsx:249 ↔ web/src/hooks/useVoiceCycle.ts:54",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (error === 'Speech recognition not supported') { | setSpeakStatus('unsupporte...",
           "file": "web/src/components/ClozeTab.tsx:207 ↔ web/src/components/MissingLetterTab.tsx:238",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (error === 'Speech recognition not supported') { | setSpeakStatus('unsupporte...",
           "file": "web/src/components/MissingLetterTab.tsx:238 ↔ web/src/components/SpeakTab.tsx:250",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (error === 'Speech recognition not supported') { | setSpeakStatus('unsupporte...",
           "file": "web/src/components/SpeakTab.tsx:250 ↔ web/src/hooks/useVoiceCycle.ts:55",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): }, | })",
           "file": "web/src/components/ClozeTab.tsx:215 ↔ web/src/components/SpeakTab.tsx:258",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): void runAutoPrompt() | return () => {",
           "file": "web/src/components/ClozeTab.tsx:225 ↔ web/src/components/SpeakTab.tsx:268",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): void runAutoPrompt() | return () => {",
           "file": "web/src/components/ClozeTab.tsx:226 ↔ web/src/components/SpeakTab.tsx:269",
           "rule": "duplicate-code"
         }
       ],
-      "duration": 49
+      "duration": 181
     },
     {
       "name": "error-handling",
@@ -549,7 +549,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 22
+      "duration": 38
     },
     {
       "name": "react",
@@ -605,7 +605,7 @@
           "rule": "click-events"
         }
       ],
-      "duration": 18
+      "duration": 30
     },
     {
       "name": "docs",
@@ -629,7 +629,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 23
+      "duration": 26
     },
     {
       "name": "best-practices",
@@ -646,11 +646,6 @@
           "message": "compliance.yml: no explicit permissions block — defaults to read-write (overly permissive)",
           "file": ".github/workflows/compliance.yml",
           "rule": "explicit-permissions"
-        },
-        {
-          "severity": "info",
-          "message": "package.json missing repository field — provenance attestation won't link to source",
-          "rule": "repository-field"
         },
         {
           "severity": "info",
@@ -689,6 +684,11 @@
         },
         {
           "severity": "info",
+          "message": "TypeScript strict mode not enabled — allows implicit any and null errors",
+          "rule": "ts-strict-mode"
+        },
+        {
+          "severity": "info",
           "message": "No test coverage configuration — coverage thresholds not enforced",
           "rule": "coverage-config"
         },
@@ -698,7 +698,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "testing",
@@ -769,7 +769,7 @@
           "rule": "untested-file"
         }
       ],
-      "duration": 16
+      "duration": 34
     },
     {
       "name": "secrets",
@@ -779,7 +779,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 40
+      "duration": 65
     },
     {
       "name": "security",
@@ -800,7 +800,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 40
+      "duration": 49
     },
     {
       "name": "dependencies",
@@ -817,7 +817,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1915
+      "duration": 3021
     },
     {
       "name": "architecture",
@@ -2023,7 +2023,7 @@
           "rule": "high-fan-out"
         }
       ],
-      "duration": 17
+      "duration": 78
     },
     {
       "name": "performance",
@@ -2108,7 +2108,7 @@
           "rule": "large-import"
         }
       ],
-      "duration": 16
+      "duration": 29
     },
     {
       "name": "confusion",
@@ -4484,7 +4484,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 53
+      "duration": 74
     },
     {
       "name": "context",
@@ -4676,7 +4676,7 @@
           "rule": "context-sink"
         }
       ],
-      "duration": 13
+      "duration": 17
     },
     {
       "name": "doc-coherence",
@@ -4691,7 +4691,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 10
+      "duration": 13
     },
     {
       "name": "code-coherence",
@@ -4707,15 +4707,15 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 11
+      "duration": 13
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/language",
     "node": "v22.21.1",
-    "duration": 2405,
+    "duration": 13464,
     "stack": {
-      "language": "unknown",
+      "language": "typescript",
       "framework": "none",
       "bundler": "none",
       "testRunner": "none",

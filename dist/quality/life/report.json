@@ -1,6 +1,6 @@
 {
-  "version": "0.27.0",
-  "timestamp": "2026-05-16T23:25:16.995Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:44:54.846Z",
   "score": 49,
   "grade": "D",
   "checks": [
@@ -35,7 +35,7 @@
           "rule": "low-test-ratio"
         }
       ],
-      "duration": 23
+      "duration": 24
     },
     {
       "name": "lint",
@@ -47,7 +47,7 @@
         "linter": "eslint"
       },
       "issues": [],
-      "duration": 6162
+      "duration": 5950
     },
     {
       "name": "types",
@@ -58,7 +58,7 @@
         "ok": true
       },
       "issues": [],
-      "duration": 6308
+      "duration": 5220
     },
     {
       "name": "type-safety",
@@ -563,7 +563,7 @@
           "rule": "unsafe-type"
         }
       ],
-      "duration": 56
+      "duration": 55
     },
     {
       "name": "standards",
@@ -869,7 +869,7 @@
           "rule": "prefer-tailwind"
         }
       ],
-      "duration": 60
+      "duration": 59
     },
     {
       "name": "complexity",
@@ -926,7 +926,7 @@
           "rule": "high-complexity"
         }
       ],
-      "duration": 41
+      "duration": 42
     },
     {
       "name": "duplication",
@@ -941,126 +941,126 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): onClick={(e) => { | if (e.target === e.currentTarget) {",
           "file": "src/components/ConfirmDialog.tsx:35 ↔ src/components/Modal.tsx:31",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <h1 | onClick={() => handleNavClick('/')}",
           "file": "src/components/Layout.tsx:128 ↔ src/components/Layout.tsx:183",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): return ( | <div",
           "file": "src/components/SummaryCharts.tsx:120 ↔ src/components/SummaryCharts.tsx:179",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): setThemePreferenceState(preference); | const resolved = resolveTheme(preference)...",
           "file": "src/contexts/ThemeContext.tsx:79 ↔ src/contexts/ThemeContext.tsx:106",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): } as Record<AgeRange, AgeSpecificData>, | 'Dementia (including Alzheimer\\'s)': {",
           "file": "src/data/causesOfDeathAgeSpecific.ts:23 ↔ src/data/causesOfDeathAgeSpecific.ts:121",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): > | <div className=\"flex justify-between items-start mb-2\">",
           "file": "src/pages/Ancestry/index.tsx:279 ↔ src/pages/Ancestry/index.tsx:337",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <div className=\"flex justify-between items-start mb-2\"> | <div>",
           "file": "src/pages/Ancestry/index.tsx:280 ↔ src/pages/Ancestry/index.tsx:338",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <div> | <h3 className=\"text-lg font-semibold text-gray-900 dark:text-white\">",
           "file": "src/pages/Ancestry/index.tsx:281 ↔ src/pages/Ancestry/index.tsx:339",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <h3 className=\"text-lg font-semibold text-gray-900 dark:text-white\"> | {getFullN...",
           "file": "src/pages/Ancestry/index.tsx:282 ↔ src/pages/Ancestry/index.tsx:340",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): {getFullName(member)} | </h3>",
           "file": "src/pages/Ancestry/index.tsx:283 ↔ src/pages/Ancestry/index.tsx:341",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): </h3> | <p className=\"text-sm text-gray-600 dark:text-gray-400\">",
           "file": "src/pages/Ancestry/index.tsx:284 ↔ src/pages/Ancestry/index.tsx:342",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <p className=\"text-sm text-gray-600 dark:text-gray-400\"> | {formatRelationship(m...",
           "file": "src/pages/Ancestry/index.tsx:285 ↔ src/pages/Ancestry/index.tsx:343",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): {formatRelationship(member.relationship)} | </p>",
           "file": "src/pages/Ancestry/index.tsx:286 ↔ src/pages/Ancestry/index.tsx:344",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): </p> | </div>",
           "file": "src/pages/Ancestry/index.tsx:287 ↔ src/pages/Ancestry/index.tsx:345",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): </div> | <div className=\"flex gap-2\">",
           "file": "src/pages/Ancestry/index.tsx:288 ↔ src/pages/Ancestry/index.tsx:346",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <div className=\"flex gap-2\"> | <button",
           "file": "src/pages/Ancestry/index.tsx:289 ↔ src/pages/Ancestry/index.tsx:347",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <button | onClick={() => handleEdit(member)}",
           "file": "src/pages/Ancestry/index.tsx:290 ↔ src/pages/Ancestry/index.tsx:348",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): onClick={() => handleEdit(member)} | className=\"text-blue-600 hover:text-blue-70...",
           "file": "src/pages/Ancestry/index.tsx:291 ↔ src/pages/Ancestry/index.tsx:349",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): className=\"text-blue-600 hover:text-blue-700 text-sm\" | >",
           "file": "src/pages/Ancestry/index.tsx:292 ↔ src/pages/Ancestry/index.tsx:350",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): > | Edit",
           "file": "src/pages/Ancestry/index.tsx:293 ↔ src/pages/Ancestry/index.tsx:351",
           "rule": "duplicate-code"
         }
       ],
-      "duration": 116
+      "duration": 104
     },
     {
       "name": "error-handling",
@@ -1072,7 +1072,7 @@
         "hasErrorBoundary": true
       },
       "issues": [],
-      "duration": 33
+      "duration": 27
     },
     {
       "name": "react",
@@ -1261,7 +1261,7 @@
           "rule": "inline-handlers"
         }
       ],
-      "duration": 36
+      "duration": 43
     },
     {
       "name": "accessibility",
@@ -1455,12 +1455,12 @@
     },
     {
       "name": "best-practices",
-      "score": 45,
+      "score": 48,
       "grade": "D",
       "details": {
         "practicesChecked": 29,
-        "practicesFollowed": 13,
-        "adherence": "45%"
+        "practicesFollowed": 14,
+        "adherence": "48%"
       },
       "issues": [
         {
@@ -1498,11 +1498,6 @@
           "message": "seed-dev-account.yml: CI install without frozen lockfile — builds may not be reproducible",
           "file": ".github/workflows/seed-dev-account.yml",
           "rule": "frozen-lockfile-ci"
-        },
-        {
-          "severity": "info",
-          "message": "package.json missing repository field — provenance attestation won't link to source",
-          "rule": "repository-field"
         },
         {
           "severity": "info",
@@ -1631,7 +1626,7 @@
           "rule": "over-mocked"
         }
       ],
-      "duration": 12086
+      "duration": 11250
     },
     {
       "name": "secrets",
@@ -1641,7 +1636,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 60
+      "duration": 64
     },
     {
       "name": "security",
@@ -1662,7 +1657,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 59
+      "duration": 54
     },
     {
       "name": "dependencies",
@@ -1692,7 +1687,7 @@
           "message": "7 moderate vulnerabilities"
         }
       ],
-      "duration": 6968
+      "duration": 3033
     },
     {
       "name": "architecture",
@@ -2982,7 +2977,7 @@
           "rule": "connector-module"
         }
       ],
-      "duration": 22
+      "duration": 32
     },
     {
       "name": "performance",
@@ -3064,7 +3059,7 @@
           "rule": "heavy-dependency"
         }
       ],
-      "duration": 27
+      "duration": 35
     },
     {
       "name": "confusion",
@@ -3345,7 +3340,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 60
+      "duration": 62
     },
     {
       "name": "context",
@@ -3566,7 +3561,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 14
+      "duration": 12
     },
     {
       "name": "code-coherence",
@@ -3586,9 +3581,9 @@
     }
   ],
   "meta": {
-    "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/life",
+    "cwd": "/private/tmp/life-scan",
     "node": "v22.21.1",
-    "duration": 32227,
+    "duration": 26164,
     "stack": {
       "language": "typescript",
       "framework": "react",

@@ -1,22 +1,22 @@
 {
   "version": "0.28.0",
-  "timestamp": "2026-05-16T23:26:20.435Z",
-  "score": 70,
+  "timestamp": "2026-05-16T23:38:28.565Z",
+  "score": 73,
   "grade": "C",
   "checks": [
     {
       "name": "structure",
-      "score": 70,
-      "grade": "C",
+      "score": 80,
+      "grade": "B",
       "details": {
         "found": [
           "package.json",
+          "tsconfig.json",
           "LICENSE",
           ".gitignore",
           "lockfile"
         ],
         "missing": [
-          "tsconfig.json",
           "README.md"
         ],
         "srcFiles": 4,
@@ -26,11 +26,6 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "Missing tsconfig.json — TypeScript configuration",
-          "rule": "missing-file"
-        },
-        {
-          "severity": "warning",
           "message": "Missing README.md — Project documentation",
           "rule": "missing-file"
         },
@@ -38,14 +33,9 @@
           "severity": "error",
           "message": "No test files found (4 source files with zero tests)",
           "rule": "no-tests"
-        },
-        {
-          "severity": "warning",
-          "message": "No 'test' script in package.json",
-          "rule": "no-test-script"
         }
       ],
-      "duration": 2
+      "duration": 6
     },
     {
       "name": "lint",
@@ -60,14 +50,14 @@
     },
     {
       "name": "types",
-      "score": 0,
-      "grade": "F",
+      "score": 100,
+      "grade": "A",
       "details": {
-        "skipped": true,
-        "reason": "no tsconfig.json"
+        "errors": 0,
+        "ok": true
       },
       "issues": [],
-      "duration": 0
+      "duration": 9870
     },
     {
       "name": "type-safety",
@@ -82,8 +72,8 @@
     },
     {
       "name": "standards",
-      "score": 92,
-      "grade": "A",
+      "score": 89,
+      "grade": "B",
       "details": {
         "filesScanned": 4,
         "codeSmells": 0,
@@ -96,9 +86,14 @@
           "message": "354 lines — consider splitting (max 300)",
           "file": "web/src/App.tsx",
           "rule": "large-file"
+        },
+        {
+          "severity": "warning",
+          "message": "TypeScript strict mode not enabled — add \"strict\": true to tsconfig",
+          "rule": "ts-strict"
         }
       ],
-      "duration": 3
+      "duration": 7
     },
     {
       "name": "complexity",
@@ -199,7 +194,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 8
+      "duration": 5
     },
     {
       "name": "error-handling",
@@ -260,7 +255,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "docs",
@@ -284,16 +279,16 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "best-practices",
-      "score": 44,
+      "score": 48,
       "grade": "D",
       "details": {
         "practicesChecked": 25,
-        "practicesFollowed": 11,
-        "adherence": "44%"
+        "practicesFollowed": 12,
+        "adherence": "48%"
       },
       "issues": [
         {
@@ -307,11 +302,6 @@
           "message": "compliance.yml: no explicit permissions block — defaults to read-write (overly permissive)",
           "file": ".github/workflows/compliance.yml",
           "rule": "explicit-permissions"
-        },
-        {
-          "severity": "info",
-          "message": "package.json missing repository field — provenance attestation won't link to source",
-          "rule": "repository-field"
         },
         {
           "severity": "info",
@@ -349,9 +339,9 @@
           "rule": "formatter-config"
         },
         {
-          "severity": "warning",
-          "message": "No test script in package.json — testing not configured",
-          "rule": "test-script"
+          "severity": "info",
+          "message": "TypeScript strict mode not enabled — allows implicit any and null errors",
+          "rule": "ts-strict-mode"
         },
         {
           "severity": "info",
@@ -364,7 +354,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "testing",
@@ -388,7 +378,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "secrets",
@@ -398,7 +388,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 10
+      "duration": 12
     },
     {
       "name": "security",
@@ -436,7 +426,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1423
+      "duration": 1981
     },
     {
       "name": "architecture",
@@ -517,7 +507,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 4
+      "duration": 2
     },
     {
       "name": "performance",
@@ -531,7 +521,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "confusion",
@@ -609,9 +599,9 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/converter",
     "node": "v22.21.1",
-    "duration": 1497,
+    "duration": 11931,
     "stack": {
-      "language": "unknown",
+      "language": "typescript",
       "framework": "none",
       "bundler": "none",
       "testRunner": "none",

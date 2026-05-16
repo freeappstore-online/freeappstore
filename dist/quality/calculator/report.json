@@ -1,22 +1,22 @@
 {
   "version": "0.28.0",
-  "timestamp": "2026-05-16T23:25:54.510Z",
-  "score": 75,
+  "timestamp": "2026-05-16T23:37:07.499Z",
+  "score": 77,
   "grade": "B",
   "checks": [
     {
       "name": "structure",
-      "score": 70,
-      "grade": "C",
+      "score": 80,
+      "grade": "B",
       "details": {
         "found": [
           "package.json",
+          "tsconfig.json",
           "LICENSE",
           ".gitignore",
           "lockfile"
         ],
         "missing": [
-          "tsconfig.json",
           "README.md"
         ],
         "srcFiles": 4,
@@ -26,11 +26,6 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "Missing tsconfig.json — TypeScript configuration",
-          "rule": "missing-file"
-        },
-        {
-          "severity": "warning",
           "message": "Missing README.md — Project documentation",
           "rule": "missing-file"
         },
@@ -38,14 +33,9 @@
           "severity": "error",
           "message": "No test files found (4 source files with zero tests)",
           "rule": "no-tests"
-        },
-        {
-          "severity": "warning",
-          "message": "No 'test' script in package.json",
-          "rule": "no-test-script"
         }
       ],
-      "duration": 2
+      "duration": 7
     },
     {
       "name": "lint",
@@ -60,14 +50,14 @@
     },
     {
       "name": "types",
-      "score": 0,
-      "grade": "F",
+      "score": 100,
+      "grade": "A",
       "details": {
-        "skipped": true,
-        "reason": "no tsconfig.json"
+        "errors": 0,
+        "ok": true
       },
       "issues": [],
-      "duration": 0
+      "duration": 14437
     },
     {
       "name": "type-safety",
@@ -78,11 +68,11 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "standards",
-      "score": 100,
+      "score": 97,
       "grade": "A",
       "details": {
         "filesScanned": 4,
@@ -90,8 +80,14 @@
         "largeFiles": 0,
         "namingViolations": 0
       },
-      "issues": [],
-      "duration": 3
+      "issues": [
+        {
+          "severity": "warning",
+          "message": "TypeScript strict mode not enabled — add \"strict\": true to tsconfig",
+          "rule": "ts-strict"
+        }
+      ],
+      "duration": 4
     },
     {
       "name": "complexity",
@@ -118,7 +114,7 @@
         "duplicationPct": "0%"
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "error-handling",
@@ -130,7 +126,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "react",
@@ -157,7 +153,7 @@
         "positiveTabindex": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 6
     },
     {
       "name": "docs",
@@ -181,16 +177,16 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 0
+      "duration": 1
     },
     {
       "name": "best-practices",
-      "score": 41,
+      "score": 45,
       "grade": "D",
       "details": {
         "practicesChecked": 22,
-        "practicesFollowed": 9,
-        "adherence": "41%"
+        "practicesFollowed": 10,
+        "adherence": "45%"
       },
       "issues": [
         {
@@ -204,11 +200,6 @@
           "message": "compliance.yml: no explicit permissions block — defaults to read-write (overly permissive)",
           "file": ".github/workflows/compliance.yml",
           "rule": "explicit-permissions"
-        },
-        {
-          "severity": "info",
-          "message": "package.json missing repository field — provenance attestation won't link to source",
-          "rule": "repository-field"
         },
         {
           "severity": "info",
@@ -246,9 +237,9 @@
           "rule": "formatter-config"
         },
         {
-          "severity": "warning",
-          "message": "No test script in package.json — testing not configured",
-          "rule": "test-script"
+          "severity": "info",
+          "message": "TypeScript strict mode not enabled — allows implicit any and null errors",
+          "rule": "ts-strict-mode"
         },
         {
           "severity": "info",
@@ -285,7 +276,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "secrets",
@@ -295,7 +286,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 8
+      "duration": 12
     },
     {
       "name": "security",
@@ -333,7 +324,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1225
+      "duration": 2197
     },
     {
       "name": "architecture",
@@ -412,7 +403,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "performance",
@@ -462,7 +453,7 @@
           "rule": "generic-name"
         }
       ],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "context",
@@ -518,9 +509,9 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/calculator",
     "node": "v22.21.1",
-    "duration": 1273,
+    "duration": 16715,
     "stack": {
-      "language": "unknown",
+      "language": "typescript",
       "framework": "none",
       "bundler": "none",
       "testRunner": "none",
