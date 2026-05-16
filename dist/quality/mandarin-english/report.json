@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T22:58:03.790Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:11:11.604Z",
   "score": 84,
   "grade": "B",
   "checks": [
@@ -134,7 +134,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 7
+      "duration": 6
     },
     {
       "name": "duplication",
@@ -166,7 +166,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "error-handling",
@@ -220,7 +220,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "docs",
@@ -239,7 +239,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "best-practices",
@@ -367,7 +367,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 10
+      "duration": 11
     },
     {
       "name": "security",
@@ -388,7 +388,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 6
+      "duration": 7
     },
     {
       "name": "dependencies",
@@ -405,7 +405,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1468
+      "duration": 1288
     },
     {
       "name": "architecture",
@@ -498,7 +498,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 4
+      "duration": 2
     },
     {
       "name": "confusion",
@@ -544,7 +544,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "doc-coherence",
@@ -584,7 +584,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/mandarin-english",
     "node": "v22.21.1",
-    "duration": 1551,
+    "duration": 1368,
     "stack": {
       "language": "unknown",
       "framework": "none",

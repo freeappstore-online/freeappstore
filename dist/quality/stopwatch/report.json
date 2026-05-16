@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T22:57:54.740Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:11:02.877Z",
   "score": 84,
   "grade": "B",
   "checks": [
@@ -68,7 +68,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "standards",
@@ -88,7 +88,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "complexity",
@@ -102,7 +102,7 @@
         "functionCount": 8
       },
       "issues": [],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "duplication",
@@ -134,7 +134,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "react",
@@ -260,7 +260,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "testing",
@@ -303,7 +303,7 @@
           "rule": "untested-file"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "secrets",
@@ -313,7 +313,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 16
+      "duration": 9
     },
     {
       "name": "security",
@@ -334,7 +334,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 14
+      "duration": 4
     },
     {
       "name": "dependencies",
@@ -351,7 +351,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1615
+      "duration": 1309
     },
     {
       "name": "architecture",
@@ -430,7 +430,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "performance",
@@ -514,7 +514,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/stopwatch",
     "node": "v22.21.1",
-    "duration": 1692,
+    "duration": 1369,
     "stack": {
       "language": "unknown",
       "framework": "none",

@@ -1,6 +1,6 @@
 {
-  "version": "0.24.0",
-  "timestamp": "2026-05-16T22:53:45.971Z",
+  "version": "0.25.0",
+  "timestamp": "2026-05-16T23:07:36.887Z",
   "score": 49,
   "grade": "D",
   "checks": [
@@ -40,7 +40,7 @@
           "rule": "low-test-ratio"
         }
       ],
-      "duration": 20
+      "duration": 28
     },
     {
       "name": "lint",
@@ -73,7 +73,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 33
+      "duration": 44
     },
     {
       "name": "standards",
@@ -256,7 +256,7 @@
           "rule": "console.log"
         }
       ],
-      "duration": 45
+      "duration": 51
     },
     {
       "name": "complexity",
@@ -403,7 +403,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 28
+      "duration": 38
     },
     {
       "name": "duplication",
@@ -537,7 +537,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 39
+      "duration": 55
     },
     {
       "name": "error-handling",
@@ -549,7 +549,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 17
+      "duration": 23
     },
     {
       "name": "react",
@@ -605,7 +605,7 @@
           "rule": "click-events"
         }
       ],
-      "duration": 15
+      "duration": 22
     },
     {
       "name": "docs",
@@ -629,7 +629,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 18
+      "duration": 25
     },
     {
       "name": "best-practices",
@@ -769,7 +769,7 @@
           "rule": "untested-file"
         }
       ],
-      "duration": 16
+      "duration": 23
     },
     {
       "name": "secrets",
@@ -779,7 +779,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 34
+      "duration": 54
     },
     {
       "name": "security",
@@ -800,7 +800,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 35
+      "duration": 62
     },
     {
       "name": "dependencies",
@@ -817,7 +817,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 2073
+      "duration": 2727
     },
     {
       "name": "architecture",
@@ -1657,7 +1657,57 @@
             "dir": "web/src"
           }
         },
-        "containerSvg": ""
+        "containerSvg": "",
+        "assessment": {
+          "pattern": "modular",
+          "patternDescription": "Modular architecture — code organized by feature/responsibility.",
+          "layering": "tangled",
+          "stability": [
+            {
+              "package": "web/src",
+              "instability": 0.14,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "web/src/components",
+              "instability": 0.87,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "web/src/components/practice",
+              "instability": 0.61,
+              "role": "balanced"
+            },
+            {
+              "package": "web/src/data",
+              "instability": 1,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "web/src/hooks",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "web/src/services",
+              "instability": 0.15,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "web/src/shells",
+              "instability": 0.88,
+              "role": "unstable (easy to change)"
+            }
+          ],
+          "crossCoupling": 10,
+          "cohesion": 13,
+          "rating": "poor",
+          "insights": [
+            "Low cross-coupling (10%) — packages are well-isolated.",
+            "Stable foundation detected — core modules rarely change.",
+            "1 god module(s) — consider splitting into focused interfaces."
+          ]
+        }
       },
       "issues": [
         {
@@ -1973,7 +2023,7 @@
           "rule": "high-fan-out"
         }
       ],
-      "duration": 17
+      "duration": 19
     },
     {
       "name": "performance",
@@ -2058,7 +2108,7 @@
           "rule": "large-import"
         }
       ],
-      "duration": 17
+      "duration": 18
     },
     {
       "name": "confusion",
@@ -4434,7 +4484,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 53
+      "duration": 57
     },
     {
       "name": "context",
@@ -4626,7 +4676,7 @@
           "rule": "context-sink"
         }
       ],
-      "duration": 16
+      "duration": 14
     },
     {
       "name": "doc-coherence",
@@ -4663,7 +4713,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/language",
     "node": "v22.21.1",
-    "duration": 2513,
+    "duration": 3303,
     "stack": {
       "language": "unknown",
       "framework": "none",

@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T22:56:42.392Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:10:07.435Z",
   "score": 71,
   "grade": "C",
   "checks": [
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "standards",
@@ -98,7 +98,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "complexity",
@@ -181,7 +181,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "error-handling",
@@ -346,7 +346,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "testing",
@@ -380,7 +380,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 9
+      "duration": 7
     },
     {
       "name": "security",
@@ -401,7 +401,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "dependencies",
@@ -418,7 +418,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1309
+      "duration": 1490
     },
     {
       "name": "architecture",
@@ -511,7 +511,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "confusion",
@@ -525,7 +525,7 @@
         "filesScanned": 4
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "context",
@@ -581,7 +581,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/qrcode",
     "node": "v22.21.1",
-    "duration": 1366,
+    "duration": 1536,
     "stack": {
       "language": "unknown",
       "framework": "none",

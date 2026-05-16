@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T22:55:59.692Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:09:39.661Z",
   "score": 68,
   "grade": "C",
   "checks": [
@@ -98,7 +98,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "complexity",
@@ -417,7 +417,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "testing",
@@ -472,7 +472,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "dependencies",
@@ -489,7 +489,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1239
+      "duration": 1096
     },
     {
       "name": "architecture",
@@ -568,7 +568,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "performance",
@@ -582,7 +582,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "confusion",
@@ -645,7 +645,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 1
+      "duration": 0
     },
     {
       "name": "code-coherence",
@@ -667,7 +667,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/timer",
     "node": "v22.21.1",
-    "duration": 1289,
+    "duration": 1144,
     "stack": {
       "language": "unknown",
       "framework": "none",

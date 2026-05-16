@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T22:55:26.479Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:09:11.265Z",
   "score": 74,
   "grade": "C",
   "checks": [
@@ -45,7 +45,7 @@
           "rule": "no-test-script"
         }
       ],
-      "duration": 5
+      "duration": 3
     },
     {
       "name": "lint",
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 4
+      "duration": 2
     },
     {
       "name": "standards",
@@ -116,7 +116,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "complexity",
@@ -130,7 +130,7 @@
         "functionCount": 11
       },
       "issues": [],
-      "duration": 6
+      "duration": 4
     },
     {
       "name": "duplication",
@@ -150,7 +150,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "error-handling",
@@ -162,7 +162,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 4
+      "duration": 2
     },
     {
       "name": "react",
@@ -343,7 +343,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 11
+      "duration": 9
     },
     {
       "name": "security",
@@ -364,7 +364,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "dependencies",
@@ -381,7 +381,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 2308
+      "duration": 1867
     },
     {
       "name": "architecture",
@@ -542,7 +542,7 @@
         }
       },
       "issues": [],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "performance",
@@ -556,7 +556,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "confusion",
@@ -585,7 +585,7 @@
           "rule": "generic-name"
         }
       ],
-      "duration": 5
+      "duration": 3
     },
     {
       "name": "context",
@@ -602,7 +602,7 @@
         "contextSinks": 0
       },
       "issues": [],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "doc-coherence",
@@ -633,13 +633,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 2
+      "duration": 1
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/bandmates",
     "node": "v22.21.1",
-    "duration": 2390,
+    "duration": 1930,
     "stack": {
       "language": "unknown",
       "framework": "none",

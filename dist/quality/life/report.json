@@ -1,6 +1,6 @@
 {
-  "version": "0.24.0",
-  "timestamp": "2026-05-16T22:55:03.227Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:08:54.589Z",
   "score": 49,
   "grade": "D",
   "checks": [
@@ -35,7 +35,7 @@
           "rule": "low-test-ratio"
         }
       ],
-      "duration": 22
+      "duration": 38
     },
     {
       "name": "lint",
@@ -47,7 +47,7 @@
         "linter": "eslint"
       },
       "issues": [],
-      "duration": 5666
+      "duration": 5896
     },
     {
       "name": "types",
@@ -58,7 +58,7 @@
         "ok": true
       },
       "issues": [],
-      "duration": 5951
+      "duration": 5812
     },
     {
       "name": "type-safety",
@@ -563,7 +563,7 @@
           "rule": "unsafe-type"
         }
       ],
-      "duration": 55
+      "duration": 59
     },
     {
       "name": "standards",
@@ -869,7 +869,7 @@
           "rule": "prefer-tailwind"
         }
       ],
-      "duration": 62
+      "duration": 59
     },
     {
       "name": "complexity",
@@ -926,7 +926,7 @@
           "rule": "high-complexity"
         }
       ],
-      "duration": 37
+      "duration": 35
     },
     {
       "name": "duplication",
@@ -1072,7 +1072,7 @@
         "hasErrorBoundary": true
       },
       "issues": [],
-      "duration": 32
+      "duration": 28
     },
     {
       "name": "react",
@@ -1261,7 +1261,7 @@
           "rule": "inline-handlers"
         }
       ],
-      "duration": 36
+      "duration": 40
     },
     {
       "name": "accessibility",
@@ -1432,7 +1432,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 33
+      "duration": 35
     },
     {
       "name": "docs",
@@ -1451,7 +1451,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 22
+      "duration": 21
     },
     {
       "name": "best-practices",
@@ -1550,7 +1550,7 @@
           "rule": "error-tracking"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "testing",
@@ -1631,7 +1631,7 @@
           "rule": "over-mocked"
         }
       ],
-      "duration": 14026
+      "duration": 12518
     },
     {
       "name": "secrets",
@@ -1641,7 +1641,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 71
+      "duration": 66
     },
     {
       "name": "security",
@@ -1662,7 +1662,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 75
+      "duration": 57
     },
     {
       "name": "dependencies",
@@ -1692,7 +1692,7 @@
           "message": "7 moderate vulnerabilities"
         }
       ],
-      "duration": 8173
+      "duration": 8977
     },
     {
       "name": "architecture",
@@ -2715,7 +2715,217 @@
             "dir": "src"
           }
         },
-        "containerSvg": "<svg viewBox=\"0 0 370 120\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;max-width:370px\"><defs><marker id=\"cont-arrow\" viewBox=\"0 0 10 7\" refX=\"10\" refY=\"3.5\" markerWidth=\"7\" markerHeight=\"5\" orient=\"auto\"><polygon points=\"0 0, 10 3.5, 0 7\" fill=\"#ffffff40\"/></marker></defs><rect x=\"30\" y=\"30\" width=\"140\" height=\"60\" rx=\"8\" fill=\"#6d78d015\" stroke=\"#6d78d050\"/><text x=\"100\" y=\"54\" text-anchor=\"middle\" fill=\"#e5e5e5\" font-size=\"10\" font-weight=\"700\">Frontend</text><text x=\"100\" y=\"70\" text-anchor=\"middle\" fill=\"#6b7280\" font-size=\"8\">[React]</text><line x1=\"170\" y1=\"60\" x2=\"200\" y2=\"60\" stroke=\"#ffffff20\" stroke-width=\"1.5\" marker-end=\"url(#cont-arrow)\"/><rect x=\"200\" y=\"30\" width=\"140\" height=\"60\" rx=\"8\" fill=\"#ec489915\" stroke=\"#ec489950\"/><text x=\"270\" y=\"54\" text-anchor=\"middle\" fill=\"#e5e5e5\" font-size=\"10\" font-weight=\"700\">Firebase</text><text x=\"270\" y=\"70\" text-anchor=\"middle\" fill=\"#6b7280\" font-size=\"8\">[Firebase]</text></svg>"
+        "containerSvg": "<svg viewBox=\"0 0 370 120\" xmlns=\"http://www.w3.org/2000/svg\" style=\"width:100%;max-width:370px\"><defs><marker id=\"cont-arrow\" viewBox=\"0 0 10 7\" refX=\"10\" refY=\"3.5\" markerWidth=\"7\" markerHeight=\"5\" orient=\"auto\"><polygon points=\"0 0, 10 3.5, 0 7\" fill=\"#ffffff40\"/></marker></defs><rect x=\"30\" y=\"30\" width=\"140\" height=\"60\" rx=\"8\" fill=\"#6d78d015\" stroke=\"#6d78d050\"/><text x=\"100\" y=\"54\" text-anchor=\"middle\" fill=\"#e5e5e5\" font-size=\"10\" font-weight=\"700\">Frontend</text><text x=\"100\" y=\"70\" text-anchor=\"middle\" fill=\"#6b7280\" font-size=\"8\">[React]</text><line x1=\"170\" y1=\"60\" x2=\"200\" y2=\"60\" stroke=\"#ffffff20\" stroke-width=\"1.5\" marker-end=\"url(#cont-arrow)\"/><rect x=\"200\" y=\"30\" width=\"140\" height=\"60\" rx=\"8\" fill=\"#ec489915\" stroke=\"#ec489950\"/><text x=\"270\" y=\"54\" text-anchor=\"middle\" fill=\"#e5e5e5\" font-size=\"10\" font-weight=\"700\">Firebase</text><text x=\"270\" y=\"70\" text-anchor=\"middle\" fill=\"#6b7280\" font-size=\"8\">[Firebase]</text></svg>",
+        "assessment": {
+          "pattern": "modular",
+          "patternDescription": "Modular architecture — code organized by feature/responsibility.",
+          "layering": "tangled",
+          "stability": [
+            {
+              "package": "src",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/components",
+              "instability": 0.14,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "src/components/retrospective",
+              "instability": 0.5,
+              "role": "balanced"
+            },
+            {
+              "package": "src/contexts",
+              "instability": 0.58,
+              "role": "balanced"
+            },
+            {
+              "package": "src/data",
+              "instability": 0.22,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "src/hooks",
+              "instability": 0.03,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "src/pages",
+              "instability": 0.79,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Ancestry",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Awards",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Career",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Certifications",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/ChatAssistant",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Citizenship",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/CriminalHistory",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Dashboard",
+              "instability": 0.86,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Education",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/FavoritePlaces",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Goals",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Habits",
+              "instability": 0.67,
+              "role": "balanced"
+            },
+            {
+              "package": "src/pages/Health",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Hobbies",
+              "instability": 0.67,
+              "role": "balanced"
+            },
+            {
+              "package": "src/pages/Languages",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Licenses",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Memberships",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Military",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/People",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Pets",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Profile",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Progress",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Publications",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Religion",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Residences",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Timeline",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/TravelMap",
+              "instability": 0.8,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Vehicles",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/pages/Volunteer",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/routes",
+              "instability": 0.95,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "src/services",
+              "instability": 0.27,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "src/types",
+              "instability": 0,
+              "role": "stable (hard to change)"
+            }
+          ],
+          "crossCoupling": 20,
+          "cohesion": 17,
+          "rating": "poor",
+          "insights": [
+            "Low cross-coupling (20%) — packages are well-isolated.",
+            "Stable foundation detected — core modules rarely change.",
+            "No god modules — healthy dependency distribution."
+          ]
+        }
       },
       "issues": [
         {
@@ -2772,7 +2982,7 @@
           "rule": "connector-module"
         }
       ],
-      "duration": 23
+      "duration": 22
     },
     {
       "name": "performance",
@@ -2854,7 +3064,7 @@
           "rule": "heavy-dependency"
         }
       ],
-      "duration": 33
+      "duration": 25
     },
     {
       "name": "confusion",
@@ -3135,7 +3345,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 67
+      "duration": 52
     },
     {
       "name": "context",
@@ -3338,7 +3548,7 @@
           "rule": "context-sink"
         }
       ],
-      "duration": 20
+      "duration": 14
     },
     {
       "name": "doc-coherence",
@@ -3356,7 +3566,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 14
+      "duration": 10
     },
     {
       "name": "code-coherence",
@@ -3372,13 +3582,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 16
+      "duration": 11
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/life",
     "node": "v22.21.1",
-    "duration": 34551,
+    "duration": 33896,
     "stack": {
       "language": "typescript",
       "framework": "react",

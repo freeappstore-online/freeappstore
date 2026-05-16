@@ -1,6 +1,6 @@
 {
-  "version": "0.24.0",
-  "timestamp": "2026-05-16T22:54:04.271Z",
+  "version": "0.25.0",
+  "timestamp": "2026-05-16T23:07:54.503Z",
   "score": 50,
   "grade": "D",
   "checks": [
@@ -45,7 +45,7 @@
           "rule": "no-test-script"
         }
       ],
-      "duration": 10
+      "duration": 11
     },
     {
       "name": "lint",
@@ -146,7 +146,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 24
+      "duration": 26
     },
     {
       "name": "complexity",
@@ -335,7 +335,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 25
+      "duration": 22
     },
     {
       "name": "duplication",
@@ -469,7 +469,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 28
+      "duration": 24
     },
     {
       "name": "error-handling",
@@ -481,7 +481,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 8
+      "duration": 10
     },
     {
       "name": "react",
@@ -628,7 +628,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 11
+      "duration": 10
     },
     {
       "name": "docs",
@@ -652,7 +652,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 8
+      "duration": 10
     },
     {
       "name": "best-practices",
@@ -760,7 +760,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 36
+      "duration": 39
     },
     {
       "name": "security",
@@ -781,7 +781,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 25
+      "duration": 28
     },
     {
       "name": "dependencies",
@@ -798,7 +798,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1254
+      "duration": 1302
     },
     {
       "name": "architecture",
@@ -1541,7 +1541,52 @@
             "dir": "web/src"
           }
         },
-        "containerSvg": ""
+        "containerSvg": "",
+        "assessment": {
+          "pattern": "modular",
+          "patternDescription": "Modular architecture — code organized by feature/responsibility.",
+          "layering": "tangled",
+          "stability": [
+            {
+              "package": "web/src",
+              "instability": 0.24,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "web/src/components",
+              "instability": 0.75,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "web/src/components/home",
+              "instability": 0.83,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "web/src/components/ui",
+              "instability": 0.04,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "web/src/lib",
+              "instability": 0,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "web/src/services",
+              "instability": 0.3,
+              "role": "balanced"
+            }
+          ],
+          "crossCoupling": 8,
+          "cohesion": 37,
+          "rating": "poor",
+          "insights": [
+            "Low cross-coupling (8%) — packages are well-isolated.",
+            "Stable foundation detected — core modules rarely change.",
+            "1 god module(s) — consider splitting into focused interfaces."
+          ]
+        }
       },
       "issues": [
         {
@@ -1575,7 +1620,7 @@
           "rule": "connector-module"
         }
       ],
-      "duration": 8
+      "duration": 10
     },
     {
       "name": "performance",
@@ -1915,7 +1960,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 22
+      "duration": 21
     },
     {
       "name": "context",
@@ -1969,7 +2014,7 @@
           "rule": "context-sink"
         }
       ],
-      "duration": 7
+      "duration": 6
     },
     {
       "name": "doc-coherence",
@@ -1984,7 +2029,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "code-coherence",
@@ -2000,13 +2045,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 6
+      "duration": 5
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/music",
     "node": "v22.21.1",
-    "duration": 1523,
+    "duration": 1580,
     "stack": {
       "language": "unknown",
       "framework": "none",

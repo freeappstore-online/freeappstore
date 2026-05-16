@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T22:55:16.478Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:09:03.844Z",
   "score": 49,
   "grade": "D",
   "checks": [
@@ -45,7 +45,7 @@
           "rule": "no-test-script"
         }
       ],
-      "duration": 9
+      "duration": 7
     },
     {
       "name": "lint",
@@ -87,7 +87,7 @@
           "rule": "unsafe-type"
         }
       ],
-      "duration": 15
+      "duration": 13
     },
     {
       "name": "standards",
@@ -343,7 +343,7 @@
           "rule": "console.log"
         }
       ],
-      "duration": 17
+      "duration": 16
     },
     {
       "name": "complexity",
@@ -496,7 +496,7 @@
           "rule": "high-complexity"
         }
       ],
-      "duration": 18
+      "duration": 16
     },
     {
       "name": "duplication",
@@ -630,7 +630,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 20
+      "duration": 17
     },
     {
       "name": "error-handling",
@@ -642,7 +642,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 7
+      "duration": 5
     },
     {
       "name": "react",
@@ -882,7 +882,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "testing",
@@ -906,7 +906,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 7
+      "duration": 5
     },
     {
       "name": "secrets",
@@ -931,7 +931,7 @@
           "rule": "secret-detected"
         }
       ],
-      "duration": 51
+      "duration": 43
     },
     {
       "name": "security",
@@ -952,7 +952,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 19
+      "duration": 18
     },
     {
       "name": "dependencies",
@@ -982,7 +982,7 @@
           "message": "36 moderate vulnerabilities"
         }
       ],
-      "duration": 2169
+      "duration": 1991
     },
     {
       "name": "architecture",
@@ -1496,7 +1496,7 @@
           "rule": "high-fan-out"
         }
       ],
-      "duration": 9
+      "duration": 8
     },
     {
       "name": "performance",
@@ -1539,7 +1539,7 @@
           "rule": "large-import"
         }
       ],
-      "duration": 8
+      "duration": 7
     },
     {
       "name": "confusion",
@@ -1587,7 +1587,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 23
+      "duration": 17
     },
     {
       "name": "context",
@@ -1611,7 +1611,7 @@
           "rule": "heavy-imports"
         }
       ],
-      "duration": 6
+      "duration": 4
     },
     {
       "name": "doc-coherence",
@@ -1630,7 +1630,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "code-coherence",
@@ -1646,13 +1646,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 5
+      "duration": 4
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/messenger",
     "node": "v22.21.1",
-    "duration": 2414,
+    "duration": 2196,
     "stack": {
       "language": "unknown",
       "framework": "none",

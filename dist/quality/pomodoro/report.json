@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T22:56:29.958Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:10:00.221Z",
   "score": 72,
   "grade": "C",
   "checks": [
@@ -119,7 +119,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "duplication",
@@ -175,7 +175,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 4
+      "duration": 2
     },
     {
       "name": "error-handling",
@@ -187,7 +187,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "react",
@@ -318,7 +318,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "testing",
@@ -352,7 +352,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 9
+      "duration": 7
     },
     {
       "name": "security",
@@ -390,7 +390,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1809
+      "duration": 1159
     },
     {
       "name": "architecture",
@@ -469,7 +469,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "performance",
@@ -483,7 +483,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "confusion",
@@ -497,7 +497,7 @@
         "filesScanned": 4
       },
       "issues": [],
-      "duration": 3
+      "duration": 1
     },
     {
       "name": "context",
@@ -514,7 +514,7 @@
         "contextSinks": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "doc-coherence",
@@ -547,13 +547,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/pomodoro",
     "node": "v22.21.1",
-    "duration": 1868,
+    "duration": 1205,
     "stack": {
       "language": "unknown",
       "framework": "none",

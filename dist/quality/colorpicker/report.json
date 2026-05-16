@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T22:56:53.892Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:10:14.462Z",
   "score": 71,
   "grade": "C",
   "checks": [
@@ -98,7 +98,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 6
+      "duration": 4
     },
     {
       "name": "complexity",
@@ -241,7 +241,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 7
+      "duration": 5
     },
     {
       "name": "error-handling",
@@ -288,7 +288,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "docs",
@@ -312,7 +312,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "best-practices",
@@ -426,7 +426,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 11
+      "duration": 9
     },
     {
       "name": "security",
@@ -447,7 +447,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 8
+      "duration": 5
     },
     {
       "name": "dependencies",
@@ -464,7 +464,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1995
+      "duration": 1206
     },
     {
       "name": "architecture",
@@ -543,7 +543,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 4
+      "duration": 2
     },
     {
       "name": "performance",
@@ -571,7 +571,7 @@
         "filesScanned": 4
       },
       "issues": [],
-      "duration": 6
+      "duration": 2
     },
     {
       "name": "context",
@@ -595,7 +595,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "doc-coherence",
@@ -612,7 +612,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     },
     {
       "name": "code-coherence",
@@ -628,13 +628,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/colorpicker",
     "node": "v22.21.1",
-    "duration": 2076,
+    "duration": 1269,
     "stack": {
       "language": "unknown",
       "framework": "none",

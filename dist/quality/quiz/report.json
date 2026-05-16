@@ -1,6 +1,6 @@
 {
-  "version": "0.24.0",
-  "timestamp": "2026-05-16T22:54:13.710Z",
+  "version": "0.25.0",
+  "timestamp": "2026-05-16T23:08:03.357Z",
   "score": 60,
   "grade": "C",
   "checks": [
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 12
+      "duration": 11
     },
     {
       "name": "standards",
@@ -160,7 +160,7 @@
           "rule": "console.log"
         }
       ],
-      "duration": 15
+      "duration": 14
     },
     {
       "name": "complexity",
@@ -345,7 +345,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 18
+      "duration": 17
     },
     {
       "name": "error-handling",
@@ -357,7 +357,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 8
+      "duration": 7
     },
     {
       "name": "react",
@@ -430,7 +430,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "best-practices",
@@ -538,7 +538,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 27
+      "duration": 21
     },
     {
       "name": "security",
@@ -559,7 +559,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 22
+      "duration": 18
     },
     {
       "name": "dependencies",
@@ -576,7 +576,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 2712
+      "duration": 2206
     },
     {
       "name": "architecture",
@@ -798,7 +798,37 @@
             "dir": "web/src"
           }
         },
-        "containerSvg": ""
+        "containerSvg": "",
+        "assessment": {
+          "pattern": "modular",
+          "patternDescription": "Modular architecture — code organized by feature/responsibility.",
+          "layering": "clean",
+          "stability": [
+            {
+              "package": "web/src",
+              "instability": 0.41,
+              "role": "balanced"
+            },
+            {
+              "package": "web/src/components",
+              "instability": 0.76,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "web/src/services",
+              "instability": 0.38,
+              "role": "balanced"
+            }
+          ],
+          "crossCoupling": 75,
+          "cohesion": 27,
+          "rating": "fair",
+          "insights": [
+            "Clean layering — dependencies flow in one direction without violations.",
+            "High cross-coupling (75%) — packages depend heavily on each other.",
+            "1 god module(s) — consider splitting into focused interfaces."
+          ]
+        }
       },
       "issues": [
         {
@@ -832,7 +862,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "performance",
@@ -982,7 +1012,7 @@
           "rule": "context-sink"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "doc-coherence",
@@ -1019,7 +1049,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/quiz",
     "node": "v22.21.1",
-    "duration": 2877,
+    "duration": 2362,
     "stack": {
       "language": "unknown",
       "framework": "none",

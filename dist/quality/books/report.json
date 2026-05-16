@@ -1,6 +1,6 @@
 {
-  "version": "0.24.0",
-  "timestamp": "2026-05-16T22:54:21.440Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:08:13.526Z",
   "score": 73,
   "grade": "C",
   "checks": [
@@ -125,7 +125,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 7
+      "duration": 8
     },
     {
       "name": "complexity",
@@ -146,7 +146,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "duplication",
@@ -159,7 +159,7 @@
         "duplicationPct": "0%"
       },
       "issues": [],
-      "duration": 10
+      "duration": 12
     },
     {
       "name": "error-handling",
@@ -171,7 +171,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 4
+      "duration": 6
     },
     {
       "name": "react",
@@ -182,7 +182,7 @@
         "reason": "not a React project"
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     },
     {
       "name": "accessibility",
@@ -234,7 +234,7 @@
           "rule": "click-events"
         }
       ],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "docs",
@@ -258,7 +258,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "best-practices",
@@ -332,7 +332,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "testing",
@@ -366,7 +366,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 202
+      "duration": 192
     },
     {
       "name": "security",
@@ -387,7 +387,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 11
+      "duration": 9
     },
     {
       "name": "dependencies",
@@ -404,7 +404,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1353
+      "duration": 1271
     },
     {
       "name": "architecture",
@@ -490,10 +490,45 @@
             "dir": "web/src"
           }
         },
-        "containerSvg": ""
+        "containerSvg": "",
+        "assessment": {
+          "pattern": "modular",
+          "patternDescription": "Modular architecture — code organized by feature/responsibility.",
+          "layering": "mixed",
+          "stability": [
+            {
+              "package": "web/src",
+              "instability": 0.8,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "web/src/components",
+              "instability": 0.67,
+              "role": "balanced"
+            },
+            {
+              "package": "web/src/data",
+              "instability": 0,
+              "role": "stable (hard to change)"
+            },
+            {
+              "package": "web/src/hooks",
+              "instability": 0,
+              "role": "stable (hard to change)"
+            }
+          ],
+          "crossCoupling": 20,
+          "cohesion": 21,
+          "rating": "fair",
+          "insights": [
+            "Low cross-coupling (20%) — packages are well-isolated.",
+            "Stable foundation detected — core modules rarely change.",
+            "No god modules — healthy dependency distribution."
+          ]
+        }
       },
       "issues": [],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "performance",
@@ -507,7 +542,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 5
+      "duration": 3
     },
     {
       "name": "confusion",
@@ -582,7 +617,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/books",
     "node": "v22.21.1",
-    "duration": 1644,
+    "duration": 1549,
     "stack": {
       "language": "unknown",
       "framework": "none",

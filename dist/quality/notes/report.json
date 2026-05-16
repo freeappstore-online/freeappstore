@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T22:56:18.285Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:09:53.317Z",
   "score": 70,
   "grade": "C",
   "checks": [
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "standards",
@@ -98,7 +98,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "complexity",
@@ -119,7 +119,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "duplication",
@@ -211,7 +211,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "error-handling",
@@ -272,7 +272,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "docs",
@@ -376,7 +376,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "testing",
@@ -410,7 +410,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 8
+      "duration": 7
     },
     {
       "name": "security",
@@ -431,7 +431,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "dependencies",
@@ -448,7 +448,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1488
+      "duration": 1174
     },
     {
       "name": "architecture",
@@ -529,7 +529,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "performance",
@@ -589,7 +589,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "doc-coherence",
@@ -628,7 +628,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/notes",
     "node": "v22.21.1",
-    "duration": 1547,
+    "duration": 1225,
     "stack": {
       "language": "unknown",
       "framework": "none",

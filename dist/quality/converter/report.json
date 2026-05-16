@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T22:56:09.987Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:09:46.468Z",
   "score": 70,
   "grade": "C",
   "checks": [
@@ -45,7 +45,7 @@
           "rule": "no-test-script"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "lint",
@@ -98,7 +98,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "complexity",
@@ -119,7 +119,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 5
+      "duration": 3
     },
     {
       "name": "duplication",
@@ -199,7 +199,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "error-handling",
@@ -211,7 +211,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "react",
@@ -398,7 +398,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 9
+      "duration": 7
     },
     {
       "name": "security",
@@ -419,7 +419,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "dependencies",
@@ -436,7 +436,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1345
+      "duration": 1176
     },
     {
       "name": "architecture",
@@ -517,7 +517,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "performance",
@@ -587,7 +587,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 1
+      "duration": 0
     },
     {
       "name": "code-coherence",
@@ -609,7 +609,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/converter",
     "node": "v22.21.1",
-    "duration": 1405,
+    "duration": 1222,
     "stack": {
       "language": "unknown",
       "framework": "none",

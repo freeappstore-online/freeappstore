@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T22:55:36.223Z",
+  "version": "0.26.0",
+  "timestamp": "2026-05-16T23:09:18.605Z",
   "score": 64,
   "grade": "C",
   "checks": [
@@ -45,7 +45,7 @@
           "rule": "no-test-script"
         }
       ],
-      "duration": 8
+      "duration": 5
     },
     {
       "name": "lint",
@@ -67,7 +67,7 @@
         "reason": "no tsconfig.json"
       },
       "issues": [],
-      "duration": 1
+      "duration": 0
     },
     {
       "name": "type-safety",
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 11
+      "duration": 8
     },
     {
       "name": "standards",
@@ -116,7 +116,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 11
+      "duration": 10
     },
     {
       "name": "complexity",
@@ -185,7 +185,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 11
+      "duration": 7
     },
     {
       "name": "duplication",
@@ -319,7 +319,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 11
+      "duration": 10
     },
     {
       "name": "error-handling",
@@ -331,7 +331,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "react",
@@ -358,7 +358,7 @@
         "positiveTabindex": 0
       },
       "issues": [],
-      "duration": 6
+      "duration": 4
     },
     {
       "name": "docs",
@@ -382,7 +382,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "best-practices",
@@ -461,7 +461,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "testing",
@@ -485,7 +485,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 5
+      "duration": 3
     },
     {
       "name": "secrets",
@@ -495,7 +495,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 17
+      "duration": 12
     },
     {
       "name": "security",
@@ -516,7 +516,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 14
+      "duration": 11
     },
     {
       "name": "dependencies",
@@ -533,7 +533,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1470
+      "duration": 1149
     },
     {
       "name": "architecture",
@@ -887,7 +887,7 @@
           "rule": "god-module"
         }
       ],
-      "duration": 8
+      "duration": 6
     },
     {
       "name": "performance",
@@ -908,7 +908,7 @@
           "rule": "barrel-import"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "confusion",
@@ -1025,7 +1025,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 11
+      "duration": 9
     },
     {
       "name": "context",
@@ -1080,13 +1080,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 3
+      "duration": 2
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/meetup",
     "node": "v22.21.1",
-    "duration": 1621,
+    "duration": 1266,
     "stack": {
       "language": "unknown",
       "framework": "none",

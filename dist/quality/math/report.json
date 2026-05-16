@@ -1,6 +1,6 @@
 {
-  "version": "0.24.0",
-  "timestamp": "2026-05-16T22:53:54.896Z",
+  "version": "0.25.0",
+  "timestamp": "2026-05-16T23:07:46.013Z",
   "score": 68,
   "grade": "C",
   "checks": [
@@ -56,7 +56,7 @@
         "reason": "no linter detected"
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     },
     {
       "name": "types",
@@ -163,7 +163,7 @@
           "rule": "magic number"
         }
       ],
-      "duration": 16
+      "duration": 15
     },
     {
       "name": "complexity",
@@ -214,7 +214,7 @@
           "rule": "high-complexity"
         }
       ],
-      "duration": 11
+      "duration": 9
     },
     {
       "name": "duplication",
@@ -330,7 +330,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 20
+      "duration": 16
     },
     {
       "name": "error-handling",
@@ -342,7 +342,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 6
+      "duration": 4
     },
     {
       "name": "react",
@@ -377,7 +377,7 @@
           "rule": "click-events"
         }
       ],
-      "duration": 6
+      "duration": 4
     },
     {
       "name": "docs",
@@ -475,7 +475,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "testing",
@@ -499,7 +499,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "secrets",
@@ -509,7 +509,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 27
+      "duration": 24
     },
     {
       "name": "security",
@@ -530,7 +530,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 21
+      "duration": 17
     },
     {
       "name": "dependencies",
@@ -547,7 +547,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 2277
+      "duration": 1941
     },
     {
       "name": "architecture",
@@ -723,7 +723,37 @@
             "dir": "web/src"
           }
         },
-        "containerSvg": ""
+        "containerSvg": "",
+        "assessment": {
+          "pattern": "modular",
+          "patternDescription": "Modular architecture — code organized by feature/responsibility.",
+          "layering": "mixed",
+          "stability": [
+            {
+              "package": "web/src",
+              "instability": 0.59,
+              "role": "balanced"
+            },
+            {
+              "package": "web/src/components",
+              "instability": 0.82,
+              "role": "unstable (easy to change)"
+            },
+            {
+              "package": "web/src/services",
+              "instability": 0.25,
+              "role": "stable (hard to change)"
+            }
+          ],
+          "crossCoupling": 23,
+          "cohesion": 29,
+          "rating": "fair",
+          "insights": [
+            "Low cross-coupling (23%) — packages are well-isolated.",
+            "Stable foundation detected — core modules rarely change.",
+            "1 god module(s) — consider splitting into focused interfaces."
+          ]
+        }
       },
       "issues": [
         {
@@ -789,7 +819,7 @@
           "rule": "large-import"
         }
       ],
-      "duration": 5
+      "duration": 4
     },
     {
       "name": "confusion",
@@ -859,7 +889,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 8
+      "duration": 9
     },
     {
       "name": "context",
@@ -901,7 +931,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "doc-coherence",
@@ -916,7 +946,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "code-coherence",
@@ -938,7 +968,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/math",
     "node": "v22.21.1",
-    "duration": 2442,
+    "duration": 2090,
     "stack": {
       "language": "unknown",
       "framework": "none",

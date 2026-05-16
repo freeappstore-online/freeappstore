@@ -54,9 +54,12 @@ for (const app of REGISTRY.apps) {
       // Copy JSON
       fs.writeFileSync(path.join(reportDir, 'report.json'), JSON.stringify(report, null, 2));
 
-      // Copy HTML report
-      if (fs.existsSync(htmlPath)) {
-        fs.copyFileSync(htmlPath, path.join(reportDir, 'index.html'));
+      // Copy all HTML report pages
+      const htmlDir = path.join(appDir, '.vibe-check', 'report');
+      if (fs.existsSync(htmlDir)) {
+        for (const file of fs.readdirSync(htmlDir)) {
+          fs.copyFileSync(path.join(htmlDir, file), path.join(reportDir, file));
+        }
         console.log(`  Score: ${report.score} (${report.grade}) — HTML + JSON saved`);
       } else {
         console.log(`  Score: ${report.score} (${report.grade}) — JSON only`);
