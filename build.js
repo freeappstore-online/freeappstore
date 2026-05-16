@@ -229,7 +229,7 @@ const filterButtons = [
 const appCards = apps.map(app => {
   return `        <div class="app-card" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}.html">
           <div class="app-card-header">
-            <div class="app-icon" style="background: ${escapeHtml(app.iconBg)};">${escapeHtml(app.icon)}</div>
+            <div class="app-icon" style="background: ${escapeHtml(app.iconBg)};">${app.icon}</div>
             <div>
               <h3>${escapeHtml(app.name)}</h3>
               <div class="tag">${escapeHtml(categoryLabel(app.category))}</div>
