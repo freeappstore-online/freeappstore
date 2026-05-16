@@ -287,32 +287,6 @@
       "developer": "FreeAppStore"
     },
     {
-      "id": "counter",
-      "name": "Counter",
-      "category": "Utilities",
-      "icon": "🔢",
-      "iconBg": "#f3f4f6",
-      "description": "counter test",
-      "appUrl": "https://counter.freeappstore.online",
-      "repo": "freeappstore-online/counter",
-      "cfProject": "freecounterapp",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
-      "id": "tip",
-      "name": "Tip Calculator",
-      "category": "Utilities",
-      "icon": "💰",
-      "iconBg": "#f3f4f6",
-      "description": "A tip calculator",
-      "appUrl": "https://tip.freeappstore.online",
-      "repo": "freeappstore-online/tip",
-      "cfProject": "freetipapp",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
       "id": "stopwatch",
       "name": "Stopwatch",
       "category": "Utilities",
@@ -335,19 +309,6 @@
       "appUrl": "https://mandarin-english.freeappstore.online",
       "repo": "freeappstore-online/mandarin-english",
       "cfProject": "freemandarin-englishapp",
-      "type": "standalone",
-      "developer": "FreeAppStore"
-    },
-    {
-      "id": "demo-todo",
-      "name": "demo-todo",
-      "category": "Utilities",
-      "icon": "🚀",
-      "iconBg": "#f3f4f6",
-      "description": "A simple todo list app",
-      "appUrl": "https://demo-todo.freeappstore.online",
-      "repo": "freeappstore-online/demo-todo",
-      "cfProject": "freedemo-todoapp",
       "type": "standalone",
       "developer": "FreeAppStore"
     }
