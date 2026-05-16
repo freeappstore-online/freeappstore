@@ -287,6 +287,13 @@ async function fetchAuditSummary() {
   }
 }
 
+function renderCodeQualityBadge(appId) {
+  const q = qualityScores[appId];
+  if (!q || !q.grade) return '';
+  const cls = q.score >= 80 ? 'audit-pass' : q.score >= 60 ? 'audit-warn' : 'audit-fail';
+  return `<p class="audit-badge ${cls}"><span class="dot"></span> Code quality: <strong>${q.grade}</strong> (${q.score}/100) &middot; <a href="/quality/${escapeHtml(appId)}/">full report</a></p>`;
+}
+
 function renderAuditBadge(summary) {
   if (!summary) {
     return '<p class="audit-badge audit-pending"><span class="dot"></span> Not yet audited</p>';
@@ -490,6 +497,7 @@ apps.forEach((app, i) => {
     .replace(/\{\{PUBLISHED_LINE\}\}/g, renderPublishedLine(history))
     .replace(/\{\{HISTORY_SECTION\}\}/g, renderHistorySection(app.repo, history))
     .replace(/\{\{AUDIT_BADGE\}\}/g, renderAuditBadge(auditMap.get(app.id)))
+    .replace(/\{\{CODE_QUALITY_BADGE\}\}/g, renderCodeQualityBadge(app.id))
     .replace(/\{\{VIEWPORT_BADGE\}\}/g, renderViewportBadge(manifests[i]));
 
   fs.writeFileSync(path.join(DIST, 'apps', `${app.id}.html`), html);
