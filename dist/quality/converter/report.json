@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:09:46.468Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:26:20.435Z",
   "score": 70,
   "grade": "C",
   "checks": [
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "standards",
@@ -119,7 +119,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 3
+      "duration": 5
     },
     {
       "name": "duplication",
@@ -134,72 +134,72 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): style={{ | flex: 1,",
           "file": "web/src/App.tsx:215 ↔ web/src/App.tsx:260",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): flex: 1, | padding: \"0.75rem 1rem\",",
           "file": "web/src/App.tsx:216 ↔ web/src/App.tsx:261",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): padding: \"0.75rem 1rem\", | fontSize: \"1rem\",",
           "file": "web/src/App.tsx:217 ↔ web/src/App.tsx:262",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): fontSize: \"1rem\", | background: \"var(--color-panel)\",",
           "file": "web/src/App.tsx:218 ↔ web/src/App.tsx:263",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): background: \"var(--color-panel)\", | color: \"var(--color-ink)\",",
           "file": "web/src/App.tsx:219 ↔ web/src/App.tsx:264",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): color: \"var(--color-ink)\", | border: \"1px solid var(--color-line)\",",
           "file": "web/src/App.tsx:220 ↔ web/src/App.tsx:265",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): border: \"1px solid var(--color-line)\", | borderRadius: \"var(--radius-btn)\",",
           "file": "web/src/App.tsx:221 ↔ web/src/App.tsx:266",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): borderRadius: \"var(--radius-btn)\", | fontFamily: \"var(--font-body)\",",
           "file": "web/src/App.tsx:222 ↔ web/src/App.tsx:267",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): fontFamily: \"var(--font-body)\", | cursor: \"pointer\",",
           "file": "web/src/App.tsx:223 ↔ web/src/App.tsx:268",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): cursor: \"pointer\", | }}",
           "file": "web/src/App.tsx:224 ↔ web/src/App.tsx:269",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): }} | >",
           "file": "web/src/App.tsx:225 ↔ web/src/App.tsx:270",
           "rule": "duplicate-code"
         }
       ],
-      "duration": 2
+      "duration": 8
     },
     {
       "name": "error-handling",
@@ -388,7 +388,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "secrets",
@@ -398,7 +398,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 7
+      "duration": 10
     },
     {
       "name": "security",
@@ -419,7 +419,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "dependencies",
@@ -436,7 +436,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1176
+      "duration": 1423
     },
     {
       "name": "architecture",
@@ -517,7 +517,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "performance",
@@ -531,7 +531,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "confusion",
@@ -587,7 +587,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     },
     {
       "name": "code-coherence",
@@ -603,13 +603,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/converter",
     "node": "v22.21.1",
-    "duration": 1222,
+    "duration": 1497,
     "stack": {
       "language": "unknown",
       "framework": "none",

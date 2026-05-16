@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:09:25.831Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:25:54.510Z",
   "score": 75,
   "grade": "B",
   "checks": [
@@ -91,7 +91,7 @@
         "namingViolations": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "complexity",
@@ -105,7 +105,7 @@
         "functionCount": 9
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "duplication",
@@ -118,7 +118,7 @@
         "duplicationPct": "0%"
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "error-handling",
@@ -181,7 +181,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 1
+      "duration": 0
     },
     {
       "name": "best-practices",
@@ -285,7 +285,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "secrets",
@@ -295,7 +295,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 7
+      "duration": 8
     },
     {
       "name": "security",
@@ -316,7 +316,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "dependencies",
@@ -333,7 +333,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1178
+      "duration": 1225
     },
     {
       "name": "architecture",
@@ -412,7 +412,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "performance",
@@ -518,7 +518,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/calculator",
     "node": "v22.21.1",
-    "duration": 1223,
+    "duration": 1273,
     "stack": {
       "language": "unknown",
       "framework": "none",

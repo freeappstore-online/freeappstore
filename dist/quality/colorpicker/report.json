@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:10:14.462Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:27:01.947Z",
   "score": 71,
   "grade": "C",
   "checks": [
@@ -98,7 +98,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "complexity",
@@ -125,7 +125,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 5
+      "duration": 10
     },
     {
       "name": "duplication",
@@ -140,103 +140,103 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): }, | [onChange],",
           "file": "web/src/App.tsx:135 ↔ web/src/App.tsx:219",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): [onChange], | );",
           "file": "web/src/App.tsx:136 ↔ web/src/App.tsx:220",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): ); | useEffect(() => {",
           "file": "web/src/App.tsx:137 ↔ web/src/App.tsx:221",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): useEffect(() => { | const up = () => {",
           "file": "web/src/App.tsx:138 ↔ web/src/App.tsx:222",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): useEffect(() => { | const up = () => {",
           "file": "web/src/App.tsx:139 ↔ web/src/App.tsx:223",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): const up = () => { | dragging.current = false;",
           "file": "web/src/App.tsx:140 ↔ web/src/App.tsx:224",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): }; | window.addEventListener(\"pointerup\", up);",
           "file": "web/src/App.tsx:147 ↔ web/src/App.tsx:231",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): window.addEventListener(\"pointerup\", up); | window.addEventListener(\"pointermove...",
           "file": "web/src/App.tsx:148 ↔ web/src/App.tsx:232",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): window.addEventListener(\"pointermove\", move); | return () => {",
           "file": "web/src/App.tsx:149 ↔ web/src/App.tsx:233",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): return () => { | window.removeEventListener(\"pointerup\", up);",
           "file": "web/src/App.tsx:150 ↔ web/src/App.tsx:234",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): return ( | <div",
           "file": "web/src/App.tsx:159 ↔ web/src/App.tsx:239",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): return ( | <div",
           "file": "web/src/App.tsx:160 ↔ web/src/App.tsx:240",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <section> | <h2",
           "file": "web/src/App.tsx:599 ↔ web/src/App.tsx:627",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <h2 | style={{",
           "file": "web/src/App.tsx:600 ↔ web/src/App.tsx:628",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): style={{ | fontSize: \"0.8rem\",",
           "file": "web/src/App.tsx:601 ↔ web/src/App.tsx:629",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): fontSize: \"0.8rem\", | fontWeight: 600,",
           "file": "web/src/App.tsx:602 ↔ web/src/App.tsx:630",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): fontWeight: 600, | color: \"var(--color-muted)\",",
           "file": "web/src/App.tsx:603 ↔ web/src/App.tsx:631",
           "rule": "duplicate-code"
         }
@@ -253,7 +253,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 1
+      "duration": 3
     },
     {
       "name": "react",
@@ -288,7 +288,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "docs",
@@ -312,7 +312,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "best-practices",
@@ -392,7 +392,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 6
     },
     {
       "name": "testing",
@@ -416,7 +416,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 2
+      "duration": 1
     },
     {
       "name": "secrets",
@@ -426,7 +426,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 9
+      "duration": 11
     },
     {
       "name": "security",
@@ -447,7 +447,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "dependencies",
@@ -464,7 +464,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1206
+      "duration": 1407
     },
     {
       "name": "architecture",
@@ -571,7 +571,7 @@
         "filesScanned": 4
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "context",
@@ -612,7 +612,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "code-coherence",
@@ -634,7 +634,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/colorpicker",
     "node": "v22.21.1",
-    "duration": 1269,
+    "duration": 1489,
     "stack": {
       "language": "unknown",
       "framework": "none",

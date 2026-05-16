@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:10:45.327Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:27:42.426Z",
   "score": 73,
   "grade": "C",
   "checks": [
@@ -45,7 +45,7 @@
           "rule": "no-test-script"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "lint",
@@ -98,7 +98,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "complexity",
@@ -146,12 +146,12 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): fontSize: 14, | border: \"1px solid var(--color-line)\",",
           "file": "web/src/App.tsx:573 ↔ web/src/App.tsx:591",
           "rule": "duplicate-code"
         }
       ],
-      "duration": 4
+      "duration": 6
     },
     {
       "name": "error-handling",
@@ -163,7 +163,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "react",
@@ -205,7 +205,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "docs",
@@ -309,7 +309,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "testing",
@@ -333,7 +333,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "secrets",
@@ -343,7 +343,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 7
+      "duration": 11
     },
     {
       "name": "security",
@@ -364,7 +364,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 5
+      "duration": 7
     },
     {
       "name": "dependencies",
@@ -381,7 +381,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1271
+      "duration": 1530
     },
     {
       "name": "architecture",
@@ -474,7 +474,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "confusion",
@@ -537,7 +537,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 0
+      "duration": 2
     },
     {
       "name": "code-coherence",
@@ -559,7 +559,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/habits",
     "node": "v22.21.1",
-    "duration": 1330,
+    "duration": 1607,
     "stack": {
       "language": "unknown",
       "framework": "none",

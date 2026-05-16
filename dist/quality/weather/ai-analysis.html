@@ -90,13 +90,10 @@ h3{font-size:0.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:
 
 /* ── Category pages ── */
 .cat-head{margin-bottom:0.3rem}
-.bar2{height:4px;background:var(--card);border-radius:2px;margin-bottom:1rem;overflow:hidden}
+.bar2{height:4px;background:var(--card);border-radius:2px;margin-bottom:1.5rem;overflow:hidden}
 .bf2{height:100%;border-radius:2px}
-.sub-nav{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:1rem;flex-wrap:wrap}
-.sn{padding:0.5rem 0.8rem;font-size:0.75rem;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent}
-.sn:hover{color:var(--text)}
-.sn.active{color:var(--text);border-bottom-color:var(--accent)}
-.sp{display:none}.sp.active{display:block}
+.check-section{margin-bottom:2.5rem;padding-top:0.5rem;border-top:1px solid var(--border)}
+.check-section:first-of-type{border-top:none}
 
 /* ── Check detail ── */
 .ch-head{display:flex;align-items:center;gap:0.7rem;margin-bottom:0.8rem}
@@ -231,33 +228,30 @@ h3{font-size:0.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:
   <div class="nav-scroll"><a class="tn" href="index.html">Overview</a><a class="tn active" href="foundations.html">Checks</a><a class="tn" href="trends.html">Trends</a><a class="tn" href="issues.html">Issues (31)</a><a class="tn" href="files.html">Files</a></div>
 </nav>
 
-<aside class="side" id="sidebar"><div class="side-section"><div class="side-label">Score</div><div class="side-score" style="color:#eab308">C 74</div></div><div class="side-section"><a class="side-cat" href="foundations.html">Foundations <span style="color:#84cc16">87</span></a><a class="side-cat" href="quality.html">Quality <span style="color:#84cc16">75</span></a><a class="side-cat" href="testing.html">Testing <span style="color:#ef4444">0</span></a><a class="side-cat" href="architecture.html">Architecture <span style="color:#22c55e">99</span></a><a class="side-cat" href="security.html">Security <span style="color:#22c55e">100</span></a><a class="side-cat" href="ai-readiness.html">AI Readiness <span style="color:#22c55e">97</span></a><a class="side-cat side-cat-active" href="ai-analysis.html">AI Analysis <span class="pro-badge" style="font-size:0.5rem;padding:0.08rem 0.35rem">PRO</span></a><a class="side-check" onclick="let t=document.querySelector('[data-sub=\'ai-doc-coherence\']');if(t)sub(t,'ai')" title="Doc Coherence"><span style="color:#6366f1">PRO</span> Doc Coherence</a><a class="side-check" onclick="let t=document.querySelector('[data-sub=\'ai-code-coherence\']');if(t)sub(t,'ai')" title="Code Coherence"><span style="color:#6366f1">PRO</span> Code Coherence</a></div><div class="side-section side-views"><div class="side-label" style="margin-top:0.3rem">Views</div><a class="side-check" href="issues.html">Issues <span style="color:var(--muted)">31</span></a><a class="side-check" href="files.html">Files <span style="color:var(--muted)">5</span></a></div></aside>
+<aside class="side" id="sidebar"><div class="side-section"><div class="side-label">Score</div><div class="side-score" style="color:#eab308">C 74</div></div><div class="side-section"><a class="side-cat" href="foundations.html">Foundations <span style="color:#84cc16">87</span></a><a class="side-cat" href="quality.html">Quality <span style="color:#84cc16">75</span></a><a class="side-cat" href="testing.html">Testing <span style="color:#ef4444">0</span></a><a class="side-cat" href="architecture.html">Architecture <span style="color:#22c55e">99</span></a><a class="side-cat" href="security.html">Security <span style="color:#22c55e">100</span></a><a class="side-cat" href="ai-readiness.html">AI Readiness <span style="color:#22c55e">97</span></a><a class="side-cat side-cat-active" href="ai-analysis.html">AI Analysis <span class="pro-badge" style="font-size:0.5rem;padding:0.08rem 0.35rem">PRO</span></a><a class="side-check" href="ai-analysis.html#doc-coherence" title="Doc Coherence"><span style="color:#6366f1">PRO</span> Doc Coherence</a><a class="side-check" href="ai-analysis.html#code-coherence" title="Code Coherence"><span style="color:#6366f1">PRO</span> Code Coherence</a></div><div class="side-section side-views"><div class="side-label" style="margin-top:0.3rem">Views</div><a class="side-check" href="issues.html">Issues <span style="color:var(--muted)">31</span></a><a class="side-check" href="files.html">Files <span style="color:var(--muted)">5</span></a></div></aside>
 
 <div class="content">
   
 <div class="cat-head"><span style="color:#ef4444;font-size:1.8rem;font-weight:900">0</span><span style="color:#ef4444">/100</span><span style="color:var(--muted);margin-left:0.5rem">AI Analysis</span></div>
 <div class="bar2"><div class="bf2" style="width:0%;background:#ef4444"></div></div>
-<div class="sub-nav"><a class="sn active sn-pro" data-sub="ai-doc-coherence" onclick="sub(this,'ai')">doc-coherence <span style="color:#6366f1">PRO</span></a><a class="sn sn-pro" data-sub="ai-code-coherence" onclick="sub(this,'ai')">code-coherence <span style="color:#6366f1">PRO</span></a></div>
-<div class="sp active" data-sub="ai-doc-coherence">
+<section class="check-section" id="doc-coherence">
 <div class="pro-card">
 <div class="pro-badge">PRO</div>
 <h3 style="margin-bottom:0.5rem;color:var(--text)">Doc Coherence</h3>
 <p class="pro-desc">Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments.</p>
 <div class="info-panel"><div class="ip-row"><span class="ip-label">Risk</span><span>Stale documentation is worse than no documentation — it actively misleads developers and LLMs. When README says &#39;supports X&#39; but the feature was removed, new contributors waste time. When JSDoc says a param is required but code treats it as optional, callers crash.</span></div></div>
-<div class="kvs" style="margin-top:0.8rem"><div class="kv"><span class="k">docFiles</span><span class="v">CLAUDE.md</span></div><div class="kv"><span class="k">hasJSDoc</span><span class="v">false</span></div></div>
 <p class="pro-cta">Coming soon with VibeCode QA Pro</p>
 </div>
-</div><div class="sp" data-sub="ai-code-coherence">
+</section><section class="check-section" id="code-coherence">
 <div class="pro-card">
 <div class="pro-badge">PRO</div>
 <h3 style="margin-bottom:0.5rem;color:var(--text)">Code Coherence</h3>
 <p class="pro-desc">Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules.</p>
 <div class="info-panel"><div class="ip-row"><span class="ip-label">Risk</span><span>Incoherent codebases are the #1 source of &#39;it works on my machine&#39; bugs. When module A validates email with regex and module B uses a different regex, some emails pass one and fail the other. When timeouts differ across modules, race conditions emerge under load.</span></div></div>
-<div class="kvs" style="margin-top:0.8rem"><div class="kv"><span class="k">filesAnalyzed</span><span class="v">4</span></div><div class="kv"><span class="k">totalExports</span><span class="v">3</span></div><div class="kv"><span class="k">totalFunctions</span><span class="v">14</span></div></div>
 <p class="pro-cta">Coming soon with VibeCode QA Pro</p>
 </div>
-</div>
-  <div class="footer">Generated by <a href="https://vibecodeqa.online">VibeCode QA</a> v0.26.0 &mdash; <code>npx @vibecodeqa/cli</code></div>
+</section>
+  <div class="footer">Generated by <a href="https://vibecodeqa.online">VibeCode QA</a> v0.28.0 &mdash; <code>npx @vibecodeqa/cli</code></div>
 </div>
 
 <script>

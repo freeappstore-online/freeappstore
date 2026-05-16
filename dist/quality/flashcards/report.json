@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:10:37.147Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:27:32.365Z",
   "score": 72,
   "grade": "C",
   "checks": [
@@ -45,7 +45,7 @@
           "rule": "no-test-script"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "lint",
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "standards",
@@ -158,13 +158,13 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): return ( | <div>",
           "file": "web/src/App.tsx:352 ↔ web/src/App.tsx:525",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): return ( | <div>",
           "file": "web/src/App.tsx:525 ↔ web/src/App.tsx:658",
           "rule": "duplicate-code"
         }
@@ -181,7 +181,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "react",
@@ -237,7 +237,7 @@
           "rule": "no-autofocus"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "docs",
@@ -261,7 +261,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "best-practices",
@@ -341,7 +341,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "testing",
@@ -396,7 +396,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "dependencies",
@@ -413,7 +413,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1300
+      "duration": 1314
     },
     {
       "name": "architecture",
@@ -492,7 +492,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "performance",
@@ -506,7 +506,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "confusion",
@@ -520,7 +520,7 @@
         "filesScanned": 4
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "context",
@@ -544,7 +544,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "doc-coherence",
@@ -561,7 +561,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     },
     {
       "name": "code-coherence",
@@ -583,7 +583,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/flashcards",
     "node": "v22.21.1",
-    "duration": 1361,
+    "duration": 1381,
     "stack": {
       "language": "unknown",
       "framework": "none",

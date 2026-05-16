@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:09:03.844Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:25:28.052Z",
   "score": 49,
   "grade": "D",
   "checks": [
@@ -45,7 +45,7 @@
           "rule": "no-test-script"
         }
       ],
-      "duration": 7
+      "duration": 8
     },
     {
       "name": "lint",
@@ -87,7 +87,7 @@
           "rule": "unsafe-type"
         }
       ],
-      "duration": 13
+      "duration": 14
     },
     {
       "name": "standards",
@@ -343,7 +343,7 @@
           "rule": "console.log"
         }
       ],
-      "duration": 16
+      "duration": 17
     },
     {
       "name": "complexity",
@@ -496,7 +496,7 @@
           "rule": "high-complexity"
         }
       ],
-      "duration": 16
+      "duration": 21
     },
     {
       "name": "duplication",
@@ -511,126 +511,126 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (item.sentTo.includes(peerId)) continue; | const sent = await p2p.sendToPeer(...",
           "file": "web/src/App.tsx:123 ↔ web/src/hooks/useChannelPosts.ts:51",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): loading=\"lazy\" | className=\"max-h-64 w-full rounded-lg object-cover border borde...",
           "file": "web/src/components/MessageBubble.tsx:189 ↔ web/src/components/MessageBubble.tsx:203",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): className=\"max-h-64 w-full rounded-lg object-cover border border-black/10\" | />",
           "file": "web/src/components/MessageBubble.tsx:190 ↔ web/src/components/MessageBubble.tsx:204",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (!wsClient.connected) { | window.alert('Realtime connection is offline. Pleas...",
           "file": "web/src/hooks/useCall.ts:112 ↔ web/src/hooks/useCall.ts:144",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): useEffect(() => { | if (!currentUserId) return;",
           "file": "web/src/hooks/useCall.ts:206 ↔ web/src/hooks/useChannelPeers.ts:260",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): useEffect(() => { | if (!currentUserId) return;",
           "file": "web/src/hooks/useCall.ts:207 ↔ web/src/hooks/useChannelPeers.ts:261",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (!currentUserId) return; | return wsClient.onMessage((msg) => {",
           "file": "web/src/hooks/useCall.ts:208 ↔ web/src/hooks/useChannelPeers.ts:262",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): decryptFromPeer, | encryptForPeer,",
           "file": "web/src/hooks/useChannelPeers.ts:3 ↔ web/src/hooks/usePeerChannel.ts:4",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): decryptFromPeer, | encryptForPeer,",
           "file": "web/src/hooks/useChannelPeers.ts:4 ↔ web/src/hooks/usePeerChannel.ts:5",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): decryptFromPeer, | encryptForPeer,",
           "file": "web/src/hooks/useChannelPeers.ts:5 ↔ web/src/hooks/usePeerChannel.ts:6",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): encryptForPeer, | getIdentityPublicJwk,",
           "file": "web/src/hooks/useChannelPeers.ts:6 ↔ web/src/hooks/usePeerChannel.ts:7",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): getIdentityPublicJwk, | isEncryptedPayload,",
           "file": "web/src/hooks/useChannelPeers.ts:7 ↔ web/src/hooks/usePeerChannel.ts:8",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): isEncryptedPayload, | rememberPeerPublicKey,",
           "file": "web/src/hooks/useChannelPeers.ts:8 ↔ web/src/hooks/usePeerChannel.ts:9",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): rememberPeerPublicKey, | } from '../crypto/e2ee';",
           "file": "web/src/hooks/useChannelPeers.ts:9 ↔ web/src/hooks/usePeerChannel.ts:10",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): } from '../crypto/e2ee'; | const ICE_SERVERS: RTCIceServer[] = [",
           "file": "web/src/hooks/useChannelPeers.ts:10 ↔ web/src/hooks/usePeerChannel.ts:11",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): totalChunks: number; | chunks: string[];",
           "file": "web/src/hooks/useChannelPeers.ts:33 ↔ web/src/hooks/usePeerChannel.ts:31",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): chunks: string[]; | interface EncryptedWirePacket {",
           "file": "web/src/hooks/useChannelPeers.ts:34 ↔ web/src/hooks/usePeerChannel.ts:32",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): interface EncryptedWirePacket { | type: 'e2ee';",
           "file": "web/src/hooks/useChannelPeers.ts:35 ↔ web/src/hooks/usePeerChannel.ts:33",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): interface EncryptedWirePacket { | type: 'e2ee';",
           "file": "web/src/hooks/useChannelPeers.ts:36 ↔ web/src/hooks/usePeerChannel.ts:34",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): interface EncryptedWirePacket { | type: 'e2ee';",
           "file": "web/src/hooks/useChannelPeers.ts:37 ↔ web/src/hooks/usePeerChannel.ts:35",
           "rule": "duplicate-code"
         }
       ],
-      "duration": 17
+      "duration": 19
     },
     {
       "name": "error-handling",
@@ -642,7 +642,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "react",
@@ -780,7 +780,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "best-practices",
@@ -882,7 +882,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "testing",
@@ -931,7 +931,7 @@
           "rule": "secret-detected"
         }
       ],
-      "duration": 43
+      "duration": 45
     },
     {
       "name": "security",
@@ -952,7 +952,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 18
+      "duration": 17
     },
     {
       "name": "dependencies",
@@ -982,7 +982,7 @@
           "message": "36 moderate vulnerabilities"
         }
       ],
-      "duration": 1991
+      "duration": 2039
     },
     {
       "name": "architecture",
@@ -1539,7 +1539,7 @@
           "rule": "large-import"
         }
       ],
-      "duration": 7
+      "duration": 6
     },
     {
       "name": "confusion",
@@ -1587,7 +1587,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 17
+      "duration": 18
     },
     {
       "name": "context",
@@ -1611,7 +1611,7 @@
           "rule": "heavy-imports"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "doc-coherence",
@@ -1630,7 +1630,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "code-coherence",
@@ -1652,7 +1652,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/messenger",
     "node": "v22.21.1",
-    "duration": 2196,
+    "duration": 2262,
     "stack": {
       "language": "unknown",
       "framework": "none",

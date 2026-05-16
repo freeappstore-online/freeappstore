@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:08:54.589Z",
+  "version": "0.27.0",
+  "timestamp": "2026-05-16T23:25:16.995Z",
   "score": 49,
   "grade": "D",
   "checks": [
@@ -35,7 +35,7 @@
           "rule": "low-test-ratio"
         }
       ],
-      "duration": 38
+      "duration": 23
     },
     {
       "name": "lint",
@@ -47,7 +47,7 @@
         "linter": "eslint"
       },
       "issues": [],
-      "duration": 5896
+      "duration": 6162
     },
     {
       "name": "types",
@@ -58,7 +58,7 @@
         "ok": true
       },
       "issues": [],
-      "duration": 5812
+      "duration": 6308
     },
     {
       "name": "type-safety",
@@ -563,7 +563,7 @@
           "rule": "unsafe-type"
         }
       ],
-      "duration": 59
+      "duration": 56
     },
     {
       "name": "standards",
@@ -869,7 +869,7 @@
           "rule": "prefer-tailwind"
         }
       ],
-      "duration": 59
+      "duration": 60
     },
     {
       "name": "complexity",
@@ -926,7 +926,7 @@
           "rule": "high-complexity"
         }
       ],
-      "duration": 35
+      "duration": 41
     },
     {
       "name": "duplication",
@@ -1060,7 +1060,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 103
+      "duration": 116
     },
     {
       "name": "error-handling",
@@ -1072,7 +1072,7 @@
         "hasErrorBoundary": true
       },
       "issues": [],
-      "duration": 28
+      "duration": 33
     },
     {
       "name": "react",
@@ -1261,7 +1261,7 @@
           "rule": "inline-handlers"
         }
       ],
-      "duration": 40
+      "duration": 36
     },
     {
       "name": "accessibility",
@@ -1432,7 +1432,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 35
+      "duration": 33
     },
     {
       "name": "docs",
@@ -1451,7 +1451,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 21
+      "duration": 22
     },
     {
       "name": "best-practices",
@@ -1550,7 +1550,7 @@
           "rule": "error-tracking"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "testing",
@@ -1631,7 +1631,7 @@
           "rule": "over-mocked"
         }
       ],
-      "duration": 12518
+      "duration": 12086
     },
     {
       "name": "secrets",
@@ -1641,7 +1641,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 66
+      "duration": 60
     },
     {
       "name": "security",
@@ -1662,7 +1662,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 57
+      "duration": 59
     },
     {
       "name": "dependencies",
@@ -1692,7 +1692,7 @@
           "message": "7 moderate vulnerabilities"
         }
       ],
-      "duration": 8977
+      "duration": 6968
     },
     {
       "name": "architecture",
@@ -3064,7 +3064,7 @@
           "rule": "heavy-dependency"
         }
       ],
-      "duration": 25
+      "duration": 27
     },
     {
       "name": "confusion",
@@ -3345,7 +3345,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 52
+      "duration": 60
     },
     {
       "name": "context",
@@ -3548,7 +3548,7 @@
           "rule": "context-sink"
         }
       ],
-      "duration": 14
+      "duration": 15
     },
     {
       "name": "doc-coherence",
@@ -3566,7 +3566,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 10
+      "duration": 14
     },
     {
       "name": "code-coherence",
@@ -3582,13 +3582,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 11
+      "duration": 13
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/life",
     "node": "v22.21.1",
-    "duration": 33896,
+    "duration": 32227,
     "stack": {
       "language": "typescript",
       "framework": "react",

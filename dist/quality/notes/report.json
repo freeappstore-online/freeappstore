@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:09:53.317Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:26:31.221Z",
   "score": 70,
   "grade": "C",
   "checks": [
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "standards",
@@ -98,7 +98,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "complexity",
@@ -134,84 +134,84 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <input | type=\"text\"",
           "file": "web/src/App.tsx:158 ↔ web/src/App.tsx:420",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): </p> | )}",
           "file": "web/src/App.tsx:198 ↔ web/src/App.tsx:449",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): )} | {filtered.map((note) => (",
           "file": "web/src/App.tsx:199 ↔ web/src/App.tsx:450",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): {filtered.map((note) => ( | <button",
           "file": "web/src/App.tsx:200 ↔ web/src/App.tsx:451",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <button | key={note.id}",
           "file": "web/src/App.tsx:201 ↔ web/src/App.tsx:452",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): key={note.id} | onClick={() => openNote(note.id)}",
           "file": "web/src/App.tsx:202 ↔ web/src/App.tsx:453",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): fontWeight: 500, | color: \"var(--color-ink)\",",
           "file": "web/src/App.tsx:221 ↔ web/src/App.tsx:469",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): color: \"var(--color-ink)\", | whiteSpace: \"nowrap\",",
           "file": "web/src/App.tsx:222 ↔ web/src/App.tsx:470",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): whiteSpace: \"nowrap\", | overflow: \"hidden\",",
           "file": "web/src/App.tsx:223 ↔ web/src/App.tsx:471",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): overflow: \"hidden\", | textOverflow: \"ellipsis\",",
           "file": "web/src/App.tsx:224 ↔ web/src/App.tsx:472",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): whiteSpace: \"nowrap\", | overflow: \"hidden\",",
           "file": "web/src/App.tsx:233 ↔ web/src/App.tsx:481",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): overflow: \"hidden\", | textOverflow: \"ellipsis\",",
           "file": "web/src/App.tsx:234 ↔ web/src/App.tsx:482",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): }}> | <a",
           "file": "web/src/App.tsx:356 ↔ web/src/App.tsx:503",
           "rule": "duplicate-code"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "error-handling",
@@ -296,7 +296,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "best-practices",
@@ -410,7 +410,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 7
+      "duration": 8
     },
     {
       "name": "security",
@@ -431,7 +431,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "dependencies",
@@ -448,7 +448,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1174
+      "duration": 1405
     },
     {
       "name": "architecture",
@@ -529,7 +529,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "performance",
@@ -565,7 +565,7 @@
           "rule": "generic-name"
         }
       ],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "context",
@@ -589,7 +589,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "doc-coherence",
@@ -606,7 +606,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     },
     {
       "name": "code-coherence",
@@ -628,7 +628,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/notes",
     "node": "v22.21.1",
-    "duration": 1225,
+    "duration": 1469,
     "stack": {
       "language": "unknown",
       "framework": "none",

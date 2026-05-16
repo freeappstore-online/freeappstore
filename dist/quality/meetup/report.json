@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:09:18.605Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:25:46.057Z",
   "score": 64,
   "grade": "C",
   "checks": [
@@ -45,7 +45,7 @@
           "rule": "no-test-script"
         }
       ],
-      "duration": 5
+      "duration": 6
     },
     {
       "name": "lint",
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 8
+      "duration": 9
     },
     {
       "name": "standards",
@@ -185,7 +185,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 7
+      "duration": 9
     },
     {
       "name": "duplication",
@@ -200,121 +200,121 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): weekday: \"short\", | month: \"short\",",
           "file": "web/src/components/EventCard.tsx:19 ↔ web/src/components/EventMap.tsx:10",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): month: \"short\", | day: \"numeric\",",
           "file": "web/src/components/EventCard.tsx:20 ↔ web/src/components/EventMap.tsx:11",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): function categoryColor(cat: string): string { | const colors: Record<string, str...",
           "file": "web/src/components/EventCard.tsx:27 ↔ web/src/components/EventDetail.tsx:18",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): function categoryColor(cat: string): string { | const colors: Record<string, str...",
           "file": "web/src/components/EventDetail.tsx:18 ↔ web/src/components/EventMap.tsx:16",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): function categoryColor(cat: string): string { | const colors: Record<string, str...",
           "file": "web/src/components/EventCard.tsx:28 ↔ web/src/components/EventDetail.tsx:19",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): function categoryColor(cat: string): string { | const colors: Record<string, str...",
           "file": "web/src/components/EventDetail.tsx:19 ↔ web/src/components/EventMap.tsx:17",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): function categoryColor(cat: string): string { | const colors: Record<string, str...",
           "file": "web/src/components/EventCard.tsx:29 ↔ web/src/components/EventDetail.tsx:20",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): function categoryColor(cat: string): string { | const colors: Record<string, str...",
           "file": "web/src/components/EventDetail.tsx:20 ↔ web/src/components/EventMap.tsx:18",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): const colors: Record<string, string> = { | tech: \"#6366f1\",",
           "file": "web/src/components/EventCard.tsx:30 ↔ web/src/components/EventDetail.tsx:21",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): const colors: Record<string, string> = { | tech: \"#6366f1\",",
           "file": "web/src/components/EventDetail.tsx:21 ↔ web/src/components/EventMap.tsx:19",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): tech: \"#6366f1\", | music: \"#ec4899\",",
           "file": "web/src/components/EventCard.tsx:31 ↔ web/src/components/EventDetail.tsx:22",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): tech: \"#6366f1\", | music: \"#ec4899\",",
           "file": "web/src/components/EventDetail.tsx:22 ↔ web/src/components/EventMap.tsx:20",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): music: \"#ec4899\", | sports: \"#f59e0b\",",
           "file": "web/src/components/EventCard.tsx:32 ↔ web/src/components/EventDetail.tsx:23",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): music: \"#ec4899\", | sports: \"#f59e0b\",",
           "file": "web/src/components/EventDetail.tsx:23 ↔ web/src/components/EventMap.tsx:21",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): sports: \"#f59e0b\", | arts: \"#8b5cf6\",",
           "file": "web/src/components/EventCard.tsx:33 ↔ web/src/components/EventDetail.tsx:24",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): sports: \"#f59e0b\", | arts: \"#8b5cf6\",",
           "file": "web/src/components/EventDetail.tsx:24 ↔ web/src/components/EventMap.tsx:22",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): arts: \"#8b5cf6\", | social: \"#10b981\",",
           "file": "web/src/components/EventCard.tsx:34 ↔ web/src/components/EventDetail.tsx:25",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): arts: \"#8b5cf6\", | social: \"#10b981\",",
           "file": "web/src/components/EventDetail.tsx:25 ↔ web/src/components/EventMap.tsx:23",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): social: \"#10b981\", | outdoor: \"#22c55e\",",
           "file": "web/src/components/EventCard.tsx:35 ↔ web/src/components/EventDetail.tsx:26",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): social: \"#10b981\", | outdoor: \"#22c55e\",",
           "file": "web/src/components/EventDetail.tsx:26 ↔ web/src/components/EventMap.tsx:24",
           "rule": "duplicate-code"
         }
@@ -331,7 +331,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "react",
@@ -461,7 +461,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "testing",
@@ -485,7 +485,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 3
+      "duration": 5
     },
     {
       "name": "secrets",
@@ -495,7 +495,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 12
+      "duration": 14
     },
     {
       "name": "security",
@@ -516,7 +516,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 11
+      "duration": 12
     },
     {
       "name": "dependencies",
@@ -533,7 +533,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1149
+      "duration": 1337
     },
     {
       "name": "architecture",
@@ -887,7 +887,7 @@
           "rule": "god-module"
         }
       ],
-      "duration": 6
+      "duration": 7
     },
     {
       "name": "performance",
@@ -908,7 +908,7 @@
           "rule": "barrel-import"
         }
       ],
-      "duration": 3
+      "duration": 5
     },
     {
       "name": "confusion",
@@ -1025,7 +1025,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 9
+      "duration": 11
     },
     {
       "name": "context",
@@ -1049,7 +1049,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 4
+      "duration": 8
     },
     {
       "name": "doc-coherence",
@@ -1064,7 +1064,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 3
+      "duration": 8
     },
     {
       "name": "code-coherence",
@@ -1080,13 +1080,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/meetup",
     "node": "v22.21.1",
-    "duration": 1266,
+    "duration": 1482,
     "stack": {
       "language": "unknown",
       "framework": "none",

@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T23:07:54.503Z",
+  "version": "0.27.0",
+  "timestamp": "2026-05-16T23:24:16.898Z",
   "score": 50,
   "grade": "D",
   "checks": [
@@ -45,7 +45,7 @@
           "rule": "no-test-script"
         }
       ],
-      "duration": 11
+      "duration": 10
     },
     {
       "name": "lint",
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 20
+      "duration": 18
     },
     {
       "name": "standards",
@@ -146,7 +146,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 26
+      "duration": 22
     },
     {
       "name": "complexity",
@@ -469,7 +469,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 24
+      "duration": 23
     },
     {
       "name": "error-handling",
@@ -481,7 +481,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 10
+      "duration": 8
     },
     {
       "name": "react",
@@ -628,7 +628,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 10
+      "duration": 11
     },
     {
       "name": "docs",
@@ -652,7 +652,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 10
+      "duration": 8
     },
     {
       "name": "best-practices",
@@ -726,7 +726,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 5
     },
     {
       "name": "testing",
@@ -750,7 +750,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 8
+      "duration": 9
     },
     {
       "name": "secrets",
@@ -760,7 +760,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 39
+      "duration": 35
     },
     {
       "name": "security",
@@ -781,7 +781,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 28
+      "duration": 26
     },
     {
       "name": "dependencies",
@@ -798,7 +798,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1302
+      "duration": 1363
     },
     {
       "name": "architecture",
@@ -1620,7 +1620,7 @@
           "rule": "connector-module"
         }
       ],
-      "duration": 10
+      "duration": 11
     },
     {
       "name": "performance",
@@ -1747,7 +1747,7 @@
           "rule": "large-import"
         }
       ],
-      "duration": 8
+      "duration": 11
     },
     {
       "name": "confusion",
@@ -1960,7 +1960,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 21
+      "duration": 24
     },
     {
       "name": "context",
@@ -2014,7 +2014,7 @@
           "rule": "context-sink"
         }
       ],
-      "duration": 6
+      "duration": 7
     },
     {
       "name": "doc-coherence",
@@ -2045,13 +2045,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 5
+      "duration": 6
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/music",
     "node": "v22.21.1",
-    "duration": 1580,
+    "duration": 1639,
     "stack": {
       "language": "unknown",
       "framework": "none",

@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T23:08:03.357Z",
+  "version": "0.27.0",
+  "timestamp": "2026-05-16T23:24:26.315Z",
   "score": 60,
   "grade": "C",
   "checks": [
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 11
+      "duration": 13
     },
     {
       "name": "standards",
@@ -211,7 +211,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 10
+      "duration": 11
     },
     {
       "name": "duplication",
@@ -345,7 +345,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 17
+      "duration": 22
     },
     {
       "name": "error-handling",
@@ -357,7 +357,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 7
+      "duration": 6
     },
     {
       "name": "react",
@@ -406,7 +406,7 @@
           "rule": "click-events"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "docs",
@@ -430,7 +430,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "best-practices",
@@ -504,7 +504,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "testing",
@@ -528,7 +528,7 @@
           "rule": "no-tests"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "secrets",
@@ -576,7 +576,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 2206
+      "duration": 2156
     },
     {
       "name": "architecture",
@@ -862,7 +862,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 6
+      "duration": 5
     },
     {
       "name": "performance",
@@ -1049,7 +1049,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/quiz",
     "node": "v22.21.1",
-    "duration": 2362,
+    "duration": 2317,
     "stack": {
       "language": "unknown",
       "framework": "none",

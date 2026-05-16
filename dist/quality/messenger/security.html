@@ -90,13 +90,10 @@ h3{font-size:0.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:
 
 /* ── Category pages ── */
 .cat-head{margin-bottom:0.3rem}
-.bar2{height:4px;background:var(--card);border-radius:2px;margin-bottom:1rem;overflow:hidden}
+.bar2{height:4px;background:var(--card);border-radius:2px;margin-bottom:1.5rem;overflow:hidden}
 .bf2{height:100%;border-radius:2px}
-.sub-nav{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:1rem;flex-wrap:wrap}
-.sn{padding:0.5rem 0.8rem;font-size:0.75rem;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent}
-.sn:hover{color:var(--text)}
-.sn.active{color:var(--text);border-bottom-color:var(--accent)}
-.sp{display:none}.sp.active{display:block}
+.check-section{margin-bottom:2.5rem;padding-top:0.5rem;border-top:1px solid var(--border)}
+.check-section:first-of-type{border-top:none}
 
 /* ── Check detail ── */
 .ch-head{display:flex;align-items:center;gap:0.7rem;margin-bottom:0.8rem}
@@ -231,15 +228,14 @@ h3{font-size:0.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:
   <div class="nav-scroll"><a class="tn" href="index.html">Overview</a><a class="tn active" href="foundations.html">Checks</a><a class="tn" href="trends.html">Trends</a><a class="tn" href="issues.html">Issues (136)</a><a class="tn" href="files.html">Files</a></div>
 </nav>
 
-<aside class="side" id="sidebar"><div class="side-section"><div class="side-label">Score</div><div class="side-score" style="color:#f97316">D 49</div></div><div class="side-section"><a class="side-cat" href="foundations.html">Foundations <span style="color:#f97316">53</span></a><a class="side-cat" href="quality.html">Quality <span style="color:#f97316">42</span></a><a class="side-cat" href="testing.html">Testing <span style="color:#ef4444">0</span></a><a class="side-cat" href="architecture.html">Architecture <span style="color:#22c55e">98</span></a><a class="side-cat side-cat-active" href="security.html">Security <span style="color:#f97316">50</span></a><a class="side-check" onclick="let t=document.querySelector('[data-sub=\'security-secrets\']');if(t)sub(t,'security')" title="Secrets"><span style="color:#f97316">D 50</span> Secrets</a><a class="side-check" onclick="let t=document.querySelector('[data-sub=\'security-security\']');if(t)sub(t,'security')" title="Security Patterns"><span style="color:#22c55e">A 100</span> Security Patterns</a><a class="side-check" onclick="let t=document.querySelector('[data-sub=\'security-dependencies\']');if(t)sub(t,'security')" title="Dependencies"><span style="color:#ef4444">F 0</span> Dependencies</a><a class="side-cat" href="ai-readiness.html">AI Readiness <span style="color:#22c55e">95</span></a><a class="side-cat" href="ai-analysis.html">AI Analysis <span class="pro-badge" style="font-size:0.5rem;padding:0.08rem 0.35rem">PRO</span></a></div><div class="side-section side-views"><div class="side-label" style="margin-top:0.3rem">Views</div><a class="side-check" href="issues.html">Issues <span style="color:var(--muted)">136</span></a><a class="side-check" href="files.html">Files <span style="color:var(--muted)">38</span></a></div></aside>
+<aside class="side" id="sidebar"><div class="side-section"><div class="side-label">Score</div><div class="side-score" style="color:#f97316">D 49</div></div><div class="side-section"><a class="side-cat" href="foundations.html">Foundations <span style="color:#f97316">53</span></a><a class="side-cat" href="quality.html">Quality <span style="color:#f97316">42</span></a><a class="side-cat" href="testing.html">Testing <span style="color:#ef4444">0</span></a><a class="side-cat" href="architecture.html">Architecture <span style="color:#22c55e">98</span></a><a class="side-cat side-cat-active" href="security.html">Security <span style="color:#f97316">50</span></a><a class="side-check" href="security.html#secrets" title="Secrets"><span style="color:#f97316">D 50</span> Secrets</a><a class="side-check" href="security.html#security" title="Security Patterns"><span style="color:#22c55e">A 100</span> Security Patterns</a><a class="side-check" href="security.html#dependencies" title="Dependencies"><span style="color:#ef4444">F 0</span> Dependencies</a><a class="side-cat" href="ai-readiness.html">AI Readiness <span style="color:#22c55e">95</span></a><a class="side-cat" href="ai-analysis.html">AI Analysis <span class="pro-badge" style="font-size:0.5rem;padding:0.08rem 0.35rem">PRO</span></a></div><div class="side-section side-views"><div class="side-label" style="margin-top:0.3rem">Views</div><a class="side-check" href="issues.html">Issues <span style="color:var(--muted)">136</span></a><a class="side-check" href="files.html">Files <span style="color:var(--muted)">38</span></a></div></aside>
 
 <div class="content">
   
 <div class="cat-head"><span style="color:#f97316;font-size:1.8rem;font-weight:900">50</span><span style="color:#f97316">/100</span><span style="color:var(--muted);margin-left:0.5rem">Security</span></div>
 <div class="bar2"><div class="bf2" style="width:50%;background:#f97316"></div></div>
-<div class="sub-nav"><a class="sn active" data-sub="security-secrets" onclick="sub(this,'security')">secrets <span style="color:#f97316">D</span></a><a class="sn" data-sub="security-security" onclick="sub(this,'security')">security <span style="color:#22c55e">A</span></a><a class="sn" data-sub="security-dependencies" onclick="sub(this,'security')">dependencies <span style="color:#ef4444">F</span></a></div>
-<div class="sp active" data-sub="security-secrets">
-<div class="ch-head"><span class="ch-g" style="color:#f97316">D</span><div><b>Secrets</b><span class="ch-s">50/100 · weight 6% · 43ms · 2 issues</span></div><span class="pri" style="color:#ef4444">critical</span></div>
+<section class="check-section" id="secrets">
+<div class="ch-head"><span class="ch-g" style="color:#f97316">D</span><div><b>Secrets</b><span class="ch-s">50/100 · weight 6% · 45ms · 2 issues</span></div><span class="pri" style="color:#ef4444">critical</span></div>
 <div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Scans source files for hardcoded secrets: AWS keys, GitHub tokens, Stripe keys, OpenAI/Anthropic API keys, Google API keys, private keys, and generic secret patterns. Checks 13 regex patterns against every non-test source file.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Hardcoded secrets in source code are the #1 cause of credential leaks. Once pushed to Git, secrets are in the history forever — even if deleted in a later commit. Leaked API keys can be exploited within minutes by automated scanners.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Never hardcode secrets. Use environment variables or a secret manager (Bitwarden, AWS Secrets Manager, Cloudflare Secrets). If a secret was committed, rotate it immediately — deleting the file is not enough.</span></div></div>
 
 
@@ -250,8 +246,8 @@ error: Possible Google API Key (secret-detected)
 Check: secrets" title="Copy fix prompt">📋</button></div></div><div class="fg"><div class="fn"><a href="https://github.com/freeappstore-online/messenger/blob/main/web/src/firebase.ts" target="_blank" rel="noopener" class="flink">web/src/firebase.ts</a> <span class="fc">1</span></div><div class="ir error"><span class="is">E</span><span class="il">8</span><span class="im">Possible Google API Key</span><span class="iru">secret-detected</span><button class="cp-btn" data-prompt="Fix this issue in web/src/firebase.ts:8
 error: Possible Google API Key (secret-detected)
 Check: secrets" title="Copy fix prompt">📋</button></div></div></div>
-</div><div class="sp" data-sub="security-security">
-<div class="ch-head"><span class="ch-g" style="color:#22c55e">A</span><div><b>Security Patterns</b><span class="ch-s">100/100 · weight 5% · 18ms · 1 issues</span></div><span class="pri" style="color:#ef4444">critical</span></div>
+</section><section class="check-section" id="security">
+<div class="ch-head"><span class="ch-g" style="color:#22c55e">A</span><div><b>Security Patterns</b><span class="ch-s">100/100 · weight 5% · 17ms · 1 issues</span></div><span class="pri" style="color:#ef4444">critical</span></div>
 <div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Static analysis for 15 vulnerability patterns mapped to CWE (Common Weakness Enumeration) IDs. Covers: XSS (innerHTML, dangerouslySetInnerHTML, document.write), injection (eval, new Function, SQL template literals, command injection), weak crypto (Math.random for tokens, MD5/SHA1), prototype pollution, path traversal, SSRF, and missing security headers.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>These patterns represent the most commonly exploited vulnerabilities in web applications (OWASP Top 10). A single XSS or injection vulnerability can lead to account takeover, data theft, or complete system compromise.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Replace innerHTML with textContent or DOM APIs. Never use eval(). Use parameterized queries for SQL. Use crypto.randomUUID() instead of Math.random() for tokens. Validate all user input before use in file paths or URLs.</span></div></div>
 
 
@@ -260,16 +256,16 @@ Check: secrets" title="Copy fix prompt">📋</button></div></div></div>
 <div class="iss-list"><div class="fg"><div class="fn"><a href="https://github.com/freeappstore-online/messenger/blob/main/web/index.html" target="_blank" rel="noopener" class="flink">web/index.html</a> <span class="fc">1</span></div><div class="ir info"><span class="is">I</span><span class="im">No Content-Security-Policy meta tag in HTML</span><span class="iru">CWE-1021</span><button class="cp-btn" data-prompt="Fix this issue in web/index.html
 info: No Content-Security-Policy meta tag in HTML (CWE-1021)
 Check: security" title="Copy fix prompt">📋</button></div></div></div>
-</div><div class="sp" data-sub="security-dependencies">
-<div class="ch-head"><span class="ch-g" style="color:#ef4444">F</span><div><b>Dependencies</b><span class="ch-s">0/100 · weight 5% · 1991ms · 3 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
+</section><section class="check-section" id="dependencies">
+<div class="ch-head"><span class="ch-g" style="color:#ef4444">F</span><div><b>Dependencies</b><span class="ch-s">0/100 · weight 5% · 2039ms · 3 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
 <div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Runs npm/pnpm audit to find known vulnerabilities (CVEs) in dependencies. Also checks for outdated packages — major version gaps indicate potential security debt and breaking API changes.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Vulnerable dependencies are the most common attack vector for supply chain attacks. 84% of codebases contain at least one known vulnerability in their dependencies (Synopsys OSSRA 2024). Outdated major versions often have unpatched security issues.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Run &#39;pnpm audit&#39; regularly and fix critical/high vulnerabilities immediately. Keep dependencies updated — use Dependabot or Renovate for automated PRs. Pin versions with a lockfile.</span></div></div>
 
 
 
 <div class="kvs"><div class="kv"><span class="k">vulnerabilities</span><span class="v">{&quot;critical&quot;:2,&quot;high&quot;:38,&quot;moderate&quot;:36,&quot;low&quot;:4}</span></div><div class="kv"><span class="k">outdated</span><span class="v">0</span></div><div class="kv"><span class="k">majorOutdated</span><span class="v">0</span></div></div>
 <div class="iss-list"><div class="fg"><div class="fn">General</div><div class="ir error"><span class="is">E</span><span class="im">2 critical vulnerabilities</span></div><div class="ir error"><span class="is">E</span><span class="im">38 high vulnerabilities</span></div><div class="ir warning"><span class="is">W</span><span class="im">36 moderate vulnerabilities</span></div></div></div>
-</div>
-  <div class="footer">Generated by <a href="https://vibecodeqa.online">VibeCode QA</a> v0.26.0 &mdash; <code>npx @vibecodeqa/cli</code></div>
+</section>
+  <div class="footer">Generated by <a href="https://vibecodeqa.online">VibeCode QA</a> v0.28.0 &mdash; <code>npx @vibecodeqa/cli</code></div>
 </div>
 
 <script>

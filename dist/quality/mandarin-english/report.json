@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:11:11.604Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:28:12.069Z",
   "score": 84,
   "grade": "B",
   "checks": [
@@ -83,7 +83,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 6
+      "duration": 5
     },
     {
       "name": "complexity",
@@ -134,7 +134,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 6
+      "duration": 5
     },
     {
       "name": "duplication",
@@ -149,19 +149,19 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): padding: \"0.55rem 1.1rem\", | borderRadius: \"0.5rem\",",
           "file": "web/src/App.tsx:1106 ↔ web/src/App.tsx:1118",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): borderRadius: \"0.5rem\", | fontFamily: \"inherit\",",
           "file": "web/src/App.tsx:1107 ↔ web/src/App.tsx:1119",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): fontFamily: \"inherit\", | fontWeight: 600,",
           "file": "web/src/App.tsx:1108 ↔ web/src/App.tsx:1120",
           "rule": "duplicate-code"
         }
@@ -357,7 +357,7 @@
           "rule": "untested-file"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "secrets",
@@ -388,7 +388,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 7
+      "duration": 6
     },
     {
       "name": "dependencies",
@@ -405,7 +405,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1288
+      "duration": 1262
     },
     {
       "name": "architecture",
@@ -484,7 +484,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "performance",
@@ -498,7 +498,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "confusion",
@@ -520,7 +520,7 @@
           "rule": "generic-name"
         }
       ],
-      "duration": 3
+      "duration": 5
     },
     {
       "name": "context",
@@ -544,7 +544,7 @@
           "rule": "high-token-count"
         }
       ],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "doc-coherence",
@@ -562,7 +562,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "code-coherence",
@@ -578,13 +578,13 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     }
   ],
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/mandarin-english",
     "node": "v22.21.1",
-    "duration": 1368,
+    "duration": 1347,
     "stack": {
       "language": "unknown",
       "framework": "none",

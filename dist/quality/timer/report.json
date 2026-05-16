@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:09:39.661Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:26:11.690Z",
   "score": 68,
   "grade": "C",
   "checks": [
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "standards",
@@ -98,7 +98,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 4
+      "duration": 3
     },
     {
       "name": "complexity",
@@ -140,121 +140,121 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <div | style={{",
           "file": "web/src/App.tsx:254 ↔ web/src/App.tsx:390",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): style={{ | display: \"flex\",",
           "file": "web/src/App.tsx:255 ↔ web/src/App.tsx:391",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): display: \"flex\", | flexDirection: \"column\",",
           "file": "web/src/App.tsx:256 ↔ web/src/App.tsx:392",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): flexDirection: \"column\", | alignItems: \"center\",",
           "file": "web/src/App.tsx:257 ↔ web/src/App.tsx:393",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): alignItems: \"center\", | gap: \"1.5rem\",",
           "file": "web/src/App.tsx:258 ↔ web/src/App.tsx:394",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): gap: \"1.5rem\", | }}",
           "file": "web/src/App.tsx:259 ↔ web/src/App.tsx:395",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): }} | >",
           "file": "web/src/App.tsx:260 ↔ web/src/App.tsx:396",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): > | {/* Time display */}",
           "file": "web/src/App.tsx:261 ↔ web/src/App.tsx:397",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): {/* Time display */} | <div",
           "file": "web/src/App.tsx:262 ↔ web/src/App.tsx:398",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <div | style={{",
           "file": "web/src/App.tsx:263 ↔ web/src/App.tsx:399",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): style={{ | ...btnBase,",
           "file": "web/src/App.tsx:281 ↔ web/src/App.tsx:443",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): ...btnBase, | background: \"var(--color-accent)\",",
           "file": "web/src/App.tsx:282 ↔ web/src/App.tsx:444",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): style={{ | ...btnBase,",
           "file": "web/src/App.tsx:305 ↔ web/src/App.tsx:558",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): style={{ | ...btnBase,",
           "file": "web/src/App.tsx:318 ↔ web/src/App.tsx:456",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): ...btnBase, | background: \"var(--color-panel)\",",
           "file": "web/src/App.tsx:319 ↔ web/src/App.tsx:457",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): background: \"var(--color-panel)\", | color: \"var(--color-muted)\",",
           "file": "web/src/App.tsx:320 ↔ web/src/App.tsx:458",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): color: \"var(--color-muted)\", | }}",
           "file": "web/src/App.tsx:321 ↔ web/src/App.tsx:459",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): onKeyDown={(e) => { | if (e.key === \"Enter\") handleCustomSet();",
           "file": "web/src/App.tsx:516 ↔ web/src/App.tsx:541",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (e.key === \"Enter\") handleCustomSet(); | }}",
           "file": "web/src/App.tsx:517 ↔ web/src/App.tsx:542",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): }} | style={{",
           "file": "web/src/App.tsx:518 ↔ web/src/App.tsx:543",
           "rule": "duplicate-code"
         }
@@ -337,7 +337,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 1
+      "duration": 0
     },
     {
       "name": "best-practices",
@@ -451,7 +451,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 7
+      "duration": 8
     },
     {
       "name": "security",
@@ -489,7 +489,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1096
+      "duration": 1295
     },
     {
       "name": "architecture",
@@ -582,7 +582,7 @@
         "cssInJsRuntime": 0
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "confusion",
@@ -645,7 +645,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     },
     {
       "name": "code-coherence",
@@ -667,7 +667,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/timer",
     "node": "v22.21.1",
-    "duration": 1144,
+    "duration": 1351,
     "stack": {
       "language": "unknown",
       "framework": "none",

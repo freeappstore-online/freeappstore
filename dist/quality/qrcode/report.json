@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:10:07.435Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:26:50.656Z",
   "score": 71,
   "grade": "C",
   "checks": [
@@ -78,7 +78,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "standards",
@@ -98,7 +98,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "complexity",
@@ -134,49 +134,49 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): if (!text) return; | const canvas = document.createElement(\"canvas\");",
           "file": "web/src/App.tsx:26 ↔ web/src/App.tsx:41",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): const canvas = document.createElement(\"canvas\"); | canvas.width = px;",
           "file": "web/src/App.tsx:27 ↔ web/src/App.tsx:42",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): canvas.width = px; | canvas.height = px;",
           "file": "web/src/App.tsx:28 ↔ web/src/App.tsx:43",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): className=\"w-10 h-10 border-none cursor-pointer\" | style={{",
           "file": "web/src/App.tsx:146 ↔ web/src/App.tsx:174",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): style={{ | borderRadius: \"var(--radius-btn)\",",
           "file": "web/src/App.tsx:147 ↔ web/src/App.tsx:175",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): borderRadius: \"var(--radius-btn)\", | background: \"var(--color-panel)\",",
           "file": "web/src/App.tsx:148 ↔ web/src/App.tsx:176",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): background: \"var(--color-panel)\", | }}",
           "file": "web/src/App.tsx:149 ↔ web/src/App.tsx:177",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): }} | />",
           "file": "web/src/App.tsx:150 ↔ web/src/App.tsx:178",
           "rule": "duplicate-code"
         }
@@ -242,7 +242,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "docs",
@@ -346,7 +346,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "testing",
@@ -380,7 +380,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 7
+      "duration": 8
     },
     {
       "name": "security",
@@ -401,7 +401,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "dependencies",
@@ -418,7 +418,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1490
+      "duration": 1378
     },
     {
       "name": "architecture",
@@ -497,7 +497,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 2
+      "duration": 5
     },
     {
       "name": "performance",
@@ -581,7 +581,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/qrcode",
     "node": "v22.21.1",
-    "duration": 1536,
+    "duration": 1435,
     "stack": {
       "language": "unknown",
       "framework": "none",

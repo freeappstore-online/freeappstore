@@ -1,6 +1,6 @@
 {
-  "version": "0.25.0",
-  "timestamp": "2026-05-16T23:07:36.887Z",
+  "version": "0.27.0",
+  "timestamp": "2026-05-16T23:23:54.956Z",
   "score": 49,
   "grade": "D",
   "checks": [
@@ -40,7 +40,7 @@
           "rule": "low-test-ratio"
         }
       ],
-      "duration": 28
+      "duration": 29
     },
     {
       "name": "lint",
@@ -73,7 +73,7 @@
         "totalUnsafe": 0
       },
       "issues": [],
-      "duration": 44
+      "duration": 40
     },
     {
       "name": "standards",
@@ -256,7 +256,7 @@
           "rule": "console.log"
         }
       ],
-      "duration": 51
+      "duration": 45
     },
     {
       "name": "complexity",
@@ -403,7 +403,7 @@
           "rule": "long-function"
         }
       ],
-      "duration": 38
+      "duration": 31
     },
     {
       "name": "duplication",
@@ -537,7 +537,7 @@
           "rule": "duplicate-code"
         }
       ],
-      "duration": 55
+      "duration": 49
     },
     {
       "name": "error-handling",
@@ -549,7 +549,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 23
+      "duration": 22
     },
     {
       "name": "react",
@@ -605,7 +605,7 @@
           "rule": "click-events"
         }
       ],
-      "duration": 22
+      "duration": 18
     },
     {
       "name": "docs",
@@ -629,7 +629,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 25
+      "duration": 23
     },
     {
       "name": "best-practices",
@@ -698,7 +698,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 3
+      "duration": 2
     },
     {
       "name": "testing",
@@ -769,7 +769,7 @@
           "rule": "untested-file"
         }
       ],
-      "duration": 23
+      "duration": 16
     },
     {
       "name": "secrets",
@@ -779,7 +779,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 54
+      "duration": 40
     },
     {
       "name": "security",
@@ -800,7 +800,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 62
+      "duration": 40
     },
     {
       "name": "dependencies",
@@ -817,7 +817,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 2727
+      "duration": 1915
     },
     {
       "name": "architecture",
@@ -2023,7 +2023,7 @@
           "rule": "high-fan-out"
         }
       ],
-      "duration": 19
+      "duration": 17
     },
     {
       "name": "performance",
@@ -2108,7 +2108,7 @@
           "rule": "large-import"
         }
       ],
-      "duration": 18
+      "duration": 16
     },
     {
       "name": "confusion",
@@ -4484,7 +4484,7 @@
           "rule": "ambiguous-abbreviation"
         }
       ],
-      "duration": 57
+      "duration": 53
     },
     {
       "name": "context",
@@ -4676,7 +4676,7 @@
           "rule": "context-sink"
         }
       ],
-      "duration": 14
+      "duration": 13
     },
     {
       "name": "doc-coherence",
@@ -4691,7 +4691,7 @@
         "description": "Detects contradictions between documentation and code. Finds stale README claims, incorrect JSDoc, outdated API docs, and misleading comments."
       },
       "issues": [],
-      "duration": 12
+      "duration": 10
     },
     {
       "name": "code-coherence",
@@ -4713,7 +4713,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/language",
     "node": "v22.21.1",
-    "duration": 3303,
+    "duration": 2405,
     "stack": {
       "language": "unknown",
       "framework": "none",

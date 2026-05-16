@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:11:02.877Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:28:02.932Z",
   "score": 84,
   "grade": "B",
   "checks": [
@@ -35,7 +35,7 @@
           "rule": "missing-file"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "lint",
@@ -88,7 +88,7 @@
           "rule": "large-file"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "complexity",
@@ -102,7 +102,7 @@
         "functionCount": 8
       },
       "issues": [],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "duplication",
@@ -117,12 +117,12 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): border: \"1px solid var(--line, #e5e5e5)\", | padding: \"0.85rem 2rem\",",
           "file": "web/src/App.tsx:173 ↔ web/src/App.tsx:193",
           "rule": "duplicate-code"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "error-handling",
@@ -161,7 +161,7 @@
         "positiveTabindex": 0
       },
       "issues": [],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "docs",
@@ -185,7 +185,7 @@
           "rule": "undocumented-exports"
         }
       ],
-      "duration": 1
+      "duration": 2
     },
     {
       "name": "best-practices",
@@ -260,7 +260,7 @@
           "rule": "conventional-commits"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "testing",
@@ -303,7 +303,7 @@
           "rule": "untested-file"
         }
       ],
-      "duration": 3
+      "duration": 4
     },
     {
       "name": "secrets",
@@ -351,7 +351,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1309
+      "duration": 1298
     },
     {
       "name": "architecture",
@@ -430,7 +430,7 @@
           "rule": "orphan-module"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "performance",
@@ -508,7 +508,7 @@
         "description": "Detects internal contradictions: inconsistent validation, conflicting defaults, naming drift, dead config flags, and behavioral mismatches across modules."
       },
       "issues": [],
-      "duration": 1
+      "duration": 2
     }
   ],
   "meta": {

@@ -1,6 +1,6 @@
 {
-  "version": "0.26.0",
-  "timestamp": "2026-05-16T23:10:28.538Z",
+  "version": "0.28.0",
+  "timestamp": "2026-05-16T23:27:22.093Z",
   "score": 68,
   "grade": "C",
   "checks": [
@@ -45,7 +45,7 @@
           "rule": "no-test-script"
         }
       ],
-      "duration": 1
+      "duration": 4
     },
     {
       "name": "lint",
@@ -67,7 +67,7 @@
         "reason": "no tsconfig.json"
       },
       "issues": [],
-      "duration": 0
+      "duration": 1
     },
     {
       "name": "type-safety",
@@ -125,7 +125,7 @@
           "rule": "high-complexity"
         }
       ],
-      "duration": 4
+      "duration": 8
     },
     {
       "name": "duplication",
@@ -140,126 +140,126 @@
       "issues": [
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): }); | ctx.putImageData(last, 0, 0);",
           "file": "web/src/App.tsx:78 ↔ web/src/App.tsx:99",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): {PRESET_COLORS.map((c) => ( | <button",
           "file": "web/src/App.tsx:280 ↔ web/src/App.tsx:422",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <button | key={c}",
           "file": "web/src/App.tsx:281 ↔ web/src/App.tsx:423",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): background: c, | border:",
           "file": "web/src/App.tsx:292 ↔ web/src/App.tsx:433",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): border: | color === c && !eraser",
           "file": "web/src/App.tsx:293 ↔ web/src/App.tsx:434",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): > | +",
           "file": "web/src/App.tsx:319 ↔ web/src/App.tsx:460",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): + | <input",
           "file": "web/src/App.tsx:320 ↔ web/src/App.tsx:461",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <input | type=\"color\"",
           "file": "web/src/App.tsx:321 ↔ web/src/App.tsx:462",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): type=\"color\" | value={color}",
           "file": "web/src/App.tsx:322 ↔ web/src/App.tsx:463",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): value={color} | onChange={(e) => {",
           "file": "web/src/App.tsx:323 ↔ web/src/App.tsx:464",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): onChange={(e) => { | setColor(e.target.value);",
           "file": "web/src/App.tsx:324 ↔ web/src/App.tsx:465",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): setColor(e.target.value); | setEraser(false);",
           "file": "web/src/App.tsx:325 ↔ web/src/App.tsx:466",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): setEraser(false); | }}",
           "file": "web/src/App.tsx:326 ↔ web/src/App.tsx:467",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): }} | style={{",
           "file": "web/src/App.tsx:327 ↔ web/src/App.tsx:468",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): style={{ | position: \"absolute\",",
           "file": "web/src/App.tsx:328 ↔ web/src/App.tsx:469",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): position: \"absolute\", | inset: 0,",
           "file": "web/src/App.tsx:329 ↔ web/src/App.tsx:470",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): inset: 0, | opacity: 0,",
           "file": "web/src/App.tsx:330 ↔ web/src/App.tsx:471",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): opacity: 0, | cursor: \"pointer\",",
           "file": "web/src/App.tsx:331 ↔ web/src/App.tsx:472",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): <input | type=\"range\"",
           "file": "web/src/App.tsx:342 ↔ web/src/App.tsx:478",
           "rule": "duplicate-code"
         },
         {
           "severity": "warning",
-          "message": "6-line duplicate block",
+          "message": "Duplicate (6 lines): style={{ | ...btnStyle,",
           "file": "web/src/App.tsx:515 ↔ web/src/App.tsx:527",
           "rule": "duplicate-code"
         }
       ],
-      "duration": 4
+      "duration": 6
     },
     {
       "name": "error-handling",
@@ -271,7 +271,7 @@
         "hasErrorBoundary": "n/a"
       },
       "issues": [],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "react",
@@ -327,7 +327,7 @@
           "rule": "form-label"
         }
       ],
-      "duration": 2
+      "duration": 4
     },
     {
       "name": "docs",
@@ -465,7 +465,7 @@
         "secretsFound": 0
       },
       "issues": [],
-      "duration": 7
+      "duration": 8
     },
     {
       "name": "security",
@@ -486,7 +486,7 @@
           "rule": "CWE-1021"
         }
       ],
-      "duration": 4
+      "duration": 5
     },
     {
       "name": "dependencies",
@@ -503,7 +503,7 @@
         "majorOutdated": 0
       },
       "issues": [],
-      "duration": 1700
+      "duration": 1567
     },
     {
       "name": "architecture",
@@ -618,7 +618,7 @@
           "rule": "generic-name"
         }
       ],
-      "duration": 2
+      "duration": 3
     },
     {
       "name": "context",
@@ -681,7 +681,7 @@
   "meta": {
     "cwd": "/private/var/folders/h5/p1y3w72x0fv9kjfgh5p_csg80000gn/T/fas-quality-scan/whiteboard",
     "node": "v22.21.1",
-    "duration": 1755,
+    "duration": 1643,
     "stack": {
       "language": "unknown",
       "framework": "none",
