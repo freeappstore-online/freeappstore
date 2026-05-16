@@ -289,7 +289,7 @@
     {
       "id": "stopwatch",
       "name": "Stopwatch",
-      "category": "Utilities",
+      "category": "utilities",
       "icon": "⏱",
       "iconBg": "#f3f4f6",
       "description": "Track time with start/stop, lap splits, and persistent history. Works offline.",
@@ -302,7 +302,7 @@
     {
       "id": "mandarin-english",
       "name": "Mandarin English",
-      "category": "Social",
+      "category": "social",
       "icon": "🇨🇳",
       "iconBg": "#f3f4f6",
       "description": "Prepare phrases for Mandarin/English language exchange meetups.",

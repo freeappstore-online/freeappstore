@@ -545,6 +545,7 @@ const filesToCopy = [
   'style.css',
   'search.js',
   'quality.js',
+  'manifest.json',
   'favicon.svg',
   'apple-touch-icon.png',
   'icon-192.png',
