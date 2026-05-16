@@ -1,0 +1,99 @@
+{
+  "language": {
+    "score": 49,
+    "grade": "D"
+  },
+  "math": {
+    "score": 68,
+    "grade": "C"
+  },
+  "music": {
+    "score": 50,
+    "grade": "D"
+  },
+  "quiz": {
+    "score": 60,
+    "grade": "C"
+  },
+  "books": {
+    "score": 73,
+    "grade": "C"
+  },
+  "life": {
+    "score": null,
+    "grade": null,
+    "error": "spawnSync /bin/sh ETIMEDOUT"
+  },
+  "messenger": {
+    "score": 49,
+    "grade": "D"
+  },
+  "bandmates": {
+    "score": 74,
+    "grade": "C"
+  },
+  "meetup": {
+    "score": 64,
+    "grade": "C"
+  },
+  "calculator": {
+    "score": 75,
+    "grade": "B"
+  },
+  "chessclock": {
+    "score": 73,
+    "grade": "C"
+  },
+  "timer": {
+    "score": 68,
+    "grade": "C"
+  },
+  "converter": {
+    "score": 70,
+    "grade": "C"
+  },
+  "notes": {
+    "score": 70,
+    "grade": "C"
+  },
+  "pomodoro": {
+    "score": 72,
+    "grade": "C"
+  },
+  "qrcode": {
+    "score": 71,
+    "grade": "C"
+  },
+  "colorpicker": {
+    "score": 71,
+    "grade": "C"
+  },
+  "password": {
+    "score": 74,
+    "grade": "C"
+  },
+  "whiteboard": {
+    "score": 68,
+    "grade": "C"
+  },
+  "flashcards": {
+    "score": 72,
+    "grade": "C"
+  },
+  "habits": {
+    "score": 73,
+    "grade": "C"
+  },
+  "weather": {
+    "score": 74,
+    "grade": "C"
+  },
+  "stopwatch": {
+    "score": 84,
+    "grade": "B"
+  },
+  "mandarin-english": {
+    "score": 84,
+    "grade": "B"
+  }
+}

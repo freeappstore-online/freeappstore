@@ -893,3 +893,29 @@ footer .container {
 .search-bar input[type="search"]::placeholder {
   color: var(--muted);
 }
+
+/* Quality badges */
+.quality-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.3rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-decoration: none;
+  vertical-align: middle;
+}
+.quality-badge.grade-a { background: #dcfce7; color: #166534; }
+.quality-badge.grade-b { background: #dbeafe; color: #1e40af; }
+.quality-badge.grade-c { background: #fef3c7; color: #92400e; }
+.quality-badge.grade-d { background: #fee2e2; color: #991b1b; }
+.quality-badge.grade-f { background: #fecaca; color: #7f1d1d; }
+@media (prefers-color-scheme: dark) {
+  .quality-badge.grade-a { background: #052e16; color: #86efac; }
+  .quality-badge.grade-b { background: #172554; color: #93c5fd; }
+  .quality-badge.grade-c { background: #451a03; color: #fcd34d; }
+  .quality-badge.grade-d { background: #450a0a; color: #fca5a5; }
+  .quality-badge.grade-f { background: #450a0a; color: #fca5a5; }
+}
