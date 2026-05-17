@@ -8,7 +8,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Pricing — FreeAppStore" />
   <meta property="og:description" content="Free forever, with sensible caps. Pro lifts them for $9/mo. Transparent." />
-  <meta property="og:url" content="https://freeappstore.online/pricing.html" />
+  <meta property="og:url" content="https://freeappstore.online/pricing" />
   <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
   <meta name="twitter:card" content="summary" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -48,10 +48,10 @@
       <nav>
         <a href="/">Apps</a>
         <a href="https://freegamestore.online">Games</a>
-        <a href="/about.html">About</a>
-        <a href="/build-with-ai.html">Build</a>
+        <a href="/about">About</a>
+        <a href="/build-with-ai">Build</a>
         <a href="https://create.freeappstore.online">VibeCode</a>
-        <a href="/guidelines.html">Guidelines</a>
+        <a href="/guidelines">Guidelines</a>
         <a href="https://proappstore.online" class="pro-link">Pro</a>
         <span id="navAuth"></span>
       </nav>
@@ -72,14 +72,17 @@
           <p class="blurb">Everything most apps need, with sensible caps. No credit card, no trial.</p>
           <ul>
             <li>Static hosting + GitHub CI<small>Unlimited; CF Pages + Actions free tier</small></li>
-            <li>Identity (sign in with GitHub)<small>One identity across the whole platform</small></li>
-            <li>Per-user key-value storage<small>1MB per user; 100 active users/day per app; 1k ops/min</small></li>
-            <li>Real-time rooms (WebSocket)<small>Up to 5 concurrent rooms × 25 users × 50 user-hours/day</small></li>
+            <li>Identity (sign in with GitHub)<small>One identity, SSO across all apps</small></li>
+            <li>Per-user KV storage<small>1MB/user; list, getMany, prefix filter; AbortSignal</small></li>
+            <li>Shared counters<small>Atomic cross-user counters for votes, views, leaderboards</small></li>
+            <li>Real-time rooms (WebSocket)<small>Up to 5 rooms x 25 peers x 50 user-hours/day</small></li>
+            <li>Secret-injecting API proxy<small>Call third-party APIs without exposing keys</small></li>
+            <li>Code quality reports<small>Automated VibeCode QA scans on every app</small></li>
             <li>Compliance audit + uptime monitoring<small>Weekly cron, automatic</small></li>
             <li>Default subdomain<small>your-app.freeappstore.online</small></li>
             <li>Open source, MIT-licensed<small>Required for publication</small></li>
           </ul>
-          <a href="/contribute.html" class="cta">Start building free</a>
+          <a href="https://create.freeappstore.online" class="cta">Start building free</a>
         </div>
 
         <div class="tier pro">
@@ -87,14 +90,16 @@
           <div class="price">$9<small>/month per creator</small></div>
           <p class="blurb">All your apps under one subscription. Caps lifted, premium primitives unlocked.</p>
           <ul>
-            <li>Everything in Free, with caps lifted (or 10×)</li>
+            <li>Everything in Free, with caps lifted (or 10x)</li>
             <li>Real-time rooms with no soft cap<small>For multiplayer, collab, live games</small></li>
-            <li>Server-side AI<small>~$10/mo of Workers AI tokens included</small></li>
+            <li>Server-side AI proxy with token metering<small>~$10/mo Workers AI included</small></li>
             <li>Cron jobs + scheduled workers<small>For digests, reminders, batch processing</small></li>
             <li>Custom domain<small>your-domain.com instead of *.freeappstore.online</small></li>
             <li>Transactional email<small>~1k sends/mo included</small></li>
             <li>Higher KV: 10MB per user, no user-count cap</li>
+            <li>Shared counters: no rate limit</li>
             <li>Priority support + faster compliance review</li>
+            <li>Marketplace mechanics<small>Stripe Connect for developer payouts</small></li>
           </ul>
           <a href="https://proappstore.online" class="cta">Upgrade to Pro</a>
         </div>
@@ -116,6 +121,8 @@
             <tr><td>Concurrent rooms (per app)</td><td>5</td><td>New room creation refused with 429</td></tr>
             <tr><td>Connections per room</td><td>25</td><td>26th connection refused</td></tr>
             <tr><td>Room duration per day (per app)</td><td>50 user-hours</td><td>New connections refused for the rest of the day</td></tr>
+            <tr><td>Counters per app</td><td>1,000</td><td>New counter creation refused</td></tr>
+            <tr><td>Counter increment range</td><td>-1000 to +1000</td><td>Returns 400</td></tr>
             <tr><td>Server-side AI</td><td>not available</td><td>Pro feature</td></tr>
             <tr><td>Cron / scheduled jobs</td><td>not available</td><td>Pro feature</td></tr>
           </tbody>
@@ -151,14 +158,14 @@
         <p>Free forever, open source, privacy-first.</p>
       </div>
       <div class="footer-links">
-        <a href="/about.html">About</a>
-        <a href="/build-with-ai.html">Build</a>
+        <a href="/about">About</a>
+        <a href="/build-with-ai">Build</a>
         <a href="https://create.freeappstore.online">VibeCode</a>
-        <a href="/guidelines.html">Guidelines</a>
-        <a href="/quality.html">Quality</a>
-        <a href="/pricing.html">Pricing</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
+        <a href="/guidelines">Guidelines</a>
+        <a href="/quality">Quality</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
         <a href="https://github.com/freeappstore-online">GitHub</a>
       </div>
     </div>
