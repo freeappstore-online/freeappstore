@@ -1026,9 +1026,19 @@
   "freeappstore-online/messenger": {
     "meta": {
       "created_at": "2025-07-25T08:11:37Z",
-      "pushed_at": "2026-03-02T13:07:16Z"
+      "pushed_at": "2026-05-16T23:31:47Z"
     },
     "commits": [
+      {
+        "sha": "faa83cfc9a6339677043f18721d355adecb8e4c6",
+        "html_url": "https://github.com/freeappstore-online/messenger/commit/faa83cfc9a6339677043f18721d355adecb8e4c6",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:31:45Z"
+          }
+        }
+      },
       {
         "sha": "e655e08cfd7c1934ea1f28fc19d2d801741cde94",
         "html_url": "https://github.com/freeappstore-online/messenger/commit/e655e08cfd7c1934ea1f28fc19d2d801741cde94",
@@ -1048,25 +1058,25 @@
             "date": "2026-03-02T12:26:27Z"
           }
         }
-      },
-      {
-        "sha": "19e33e64d23dab9c4649b0553a019442875e20d3",
-        "html_url": "https://github.com/freeappstore-online/messenger/commit/19e33e64d23dab9c4649b0553a019442875e20d3",
-        "commit": {
-          "message": "Add offline sync status badges and retry actions",
-          "author": {
-            "date": "2026-03-02T11:55:18Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/life": {
     "meta": {
       "created_at": "2026-01-13T12:53:30Z",
-      "pushed_at": "2026-05-04T04:40:57Z"
+      "pushed_at": "2026-05-16T23:31:42Z"
     },
     "commits": [
+      {
+        "sha": "fa603034488070cccb6db698ee3c33ab670ef27b",
+        "html_url": "https://github.com/freeappstore-online/life/commit/fa603034488070cccb6db698ee3c33ab670ef27b",
+        "commit": {
+          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "author": {
+            "date": "2026-05-16T23:31:40Z"
+          }
+        }
+      },
       {
         "sha": "44f06b651b02696e871c2b6e38868e0a3392a4f9",
         "html_url": "https://github.com/freeappstore-online/life/commit/44f06b651b02696e871c2b6e38868e0a3392a4f9",
@@ -1084,16 +1094,6 @@
           "message": "Add .env.production with Firebase client config for CF Pages build\n\nVite requires VITE_FIREBASE_* env vars at build time (they get inlined\ninto the JS bundle). Without these, the app crashes at runtime because\nFirebase SDK receives undefined config values. These are public client\nconfig values, not secrets.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-04T03:30:12Z"
-          }
-        }
-      },
-      {
-        "sha": "05523cf6b97e669176ece7ad319d1b20f4cee0a6",
-        "html_url": "https://github.com/freeappstore-online/life/commit/05523cf6b97e669176ece7ad319d1b20f4cee0a6",
-        "commit": {
-          "message": "Merge pull request #88 from brightside-life/copilot/fix-ci-merge-blocker\n\nFix CI: resolve react-simple-maps/React 18 peer conflict, update workflows to Node 22 + Node 24 actions runtime",
-          "author": {
-            "date": "2026-04-20T02:20:59Z"
           }
         }
       }
