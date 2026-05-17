@@ -311,6 +311,19 @@
       "cfProject": "freemandarin-englishapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "snowman",
+      "name": "snowman",
+      "category": "News & Weather",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Where can I build a snowman right now?",
+      "appUrl": "https://snowman.freeappstore.online",
+      "repo": "freeappstore-online/snowman",
+      "cfProject": "freesnowmanapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
