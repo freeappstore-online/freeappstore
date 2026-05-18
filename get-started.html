@@ -50,6 +50,16 @@
 
     .replay-btn { display: inline-block; margin-top: 1rem; font-size: 0.8rem; color: var(--muted); cursor: pointer; border: 1px solid var(--border); padding: 0.3rem 0.75rem; border-radius: 0.4rem; background: none; }
     .replay-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .terminal-line.copyable { cursor: pointer; position: relative; border-radius: 0.25rem; margin: 0 -0.35rem; padding: 0 0.35rem; }
+    .terminal-line.copyable:hover { background: rgba(255,255,255,0.05); }
+    .terminal-line.copyable::after { content: 'click to copy'; position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); font-size: 0.65rem; color: #6c7086; opacity: 0; transition: opacity 0.15s; pointer-events: none; }
+    .terminal-line.copyable:hover::after { opacity: 1; }
+    .terminal-line.copied::after { content: 'copied!'; color: #a6e3a1; opacity: 1; }
+    .copy-line { cursor: pointer; position: relative; border-radius: 0.25rem; margin: 0 -0.25rem; padding: 0.1rem 0.25rem; }
+    .copy-line:hover { background: rgba(255,255,255,0.05); }
+    .copy-line::after { content: 'click to copy'; position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); font-size: 0.65rem; color: #6c7086; opacity: 0; transition: opacity 0.15s; pointer-events: none; }
+    .copy-line:hover::after { opacity: 1; }
+    .copy-line.copied::after { content: 'copied!'; color: #a6e3a1; opacity: 1; }
   </style>
 </head>
 <body>
@@ -325,6 +335,8 @@
 
         if (line.type === 'cmd') {
           div.innerHTML = `<span class="prompt">${line.prompt} </span><span class="typed"></span><span class="cursor"></span>`;
+          div.classList.add('copyable');
+          div.dataset.cmd = line.text;
           term.appendChild(div);
           div.classList.add('visible');
           await typeLine(div, line.text, line.delay);
@@ -343,6 +355,46 @@
     }
 
     runDemo();
+
+    // Click to copy on animated terminal command lines
+    document.getElementById('term').addEventListener('click', (e) => {
+      const line = e.target.closest('.copyable');
+      if (!line) return;
+      const cmd = line.dataset.cmd;
+      if (!cmd) return;
+      navigator.clipboard.writeText(cmd);
+      line.classList.add('copied');
+      setTimeout(() => line.classList.remove('copied'), 1500);
+    });
+
+    // Click to copy on static terminal blocks
+    document.querySelectorAll('.terminal-body .terminal-line.visible').forEach(el => {
+      const prompt = el.querySelector('.prompt');
+      const cmd = el.querySelector('.cmd');
+      if (!prompt || !cmd) return;
+      el.classList.add('copy-line');
+      el.dataset.cmd = cmd.textContent;
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(el.dataset.cmd);
+        el.classList.add('copied');
+        setTimeout(() => el.classList.remove('copied'), 1500);
+      });
+    });
+
+    // Also make URL lines copyable
+    document.querySelectorAll('.terminal-body .terminal-line.visible').forEach(el => {
+      const url = el.querySelector('.url');
+      if (!url || el.classList.contains('copy-line')) return;
+      const text = url.textContent.trim();
+      if (!text.startsWith('http') && !text.startsWith('See ')) return;
+      el.classList.add('copy-line');
+      el.dataset.cmd = text;
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(text);
+        el.classList.add('copied');
+        setTimeout(() => el.classList.remove('copied'), 1500);
+      });
+    });
   </script>
   <script src="/auth.js"></script>
 </body>
