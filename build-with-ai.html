@@ -2,38 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Build with AI — FreeAppStore</title>
-  <meta name="description" content="Build a free app on FreeAppStore with Claude Code, Cursor, GitHub Copilot, Aider, Codex, or any AI coding tool." />
+  <meta name="description" content="Step-by-step guide to building a free app with Claude Code, Cursor, Copilot, or any AI tool. From zero to deployed in 10 minutes." />
   <meta property="og:title" content="Build with AI — FreeAppStore" />
-  <meta property="og:description" content="Build a free app on FreeAppStore with Claude Code, Cursor, GitHub Copilot, Aider, Codex, or any AI coding tool." />
+  <meta property="og:description" content="Build a free app with AI. Step-by-step from install to deploy." />
   <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://freeappstore.online/build-with-ai" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="/style.css" />
   <style>
     .ai-hero { padding: 2rem 0 1rem; }
-    .ai-hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1rem; }
-    .ai-lead { font-size: 1.15rem; color: var(--muted); line-height: 1.6; max-width: 720px; margin-bottom: 2rem; }
-    .ai-tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin: 1.5rem 0 3rem; }
-    .ai-tool { padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); transition: border-color 0.15s; text-decoration: none; color: var(--ink); display: block; }
-    .ai-tool:hover { border-color: var(--accent); text-decoration: none; }
-    .ai-tool h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-    .ai-tool p { font-size: 0.9rem; color: var(--muted); }
-    .ai-tool .tag { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.5rem; }
+    .ai-hero h1 { font-size: clamp(2rem, 5vw, 2.5rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .ai-lead { font-size: 1.05rem; color: var(--muted); line-height: 1.6; max-width: 700px; margin-bottom: 2rem; }
     .steps { counter-reset: step; list-style: none; padding: 0; }
-    .steps li { counter-increment: step; margin-bottom: 1.5rem; padding-left: 2.5rem; position: relative; }
-    .steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
-    .cmd { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.1rem; margin: 0.5rem 0; font-family: ui-monospace, SF Mono, Menlo, monospace; font-size: 0.88rem; overflow-x: auto; white-space: pre-wrap; word-break: break-word; }
-    .callout { padding: 1.25rem 1.5rem; border-left: 4px solid var(--accent); background: var(--accent-soft, var(--panel)); border-radius: 0 0.75rem 0.75rem 0; margin: 1.5rem 0; }
+    .steps > li { counter-increment: step; margin-bottom: 2.5rem; padding-left: 2.5rem; position: relative; }
+    .steps > li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+    .steps h3 { font-size: 1.1rem; font-weight: 800; margin: 0 0 0.5rem; }
+    .steps p { font-size: 0.92rem; color: var(--muted); margin: 0.35rem 0; }
+    .cmd { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.1rem; margin: 0.75rem 0; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 0.85rem; overflow-x: auto; white-space: pre; line-height: 1.6; }
+    .cmd .comment { color: var(--muted); }
+    .cmd .output { color: var(--muted); font-style: italic; }
+    .callout { padding: 1.25rem 1.5rem; border-left: 4px solid var(--accent); background: var(--accent-soft, var(--panel)); border-radius: 0 0.75rem 0.75rem 0; margin: 1.5rem 0; font-size: 0.9rem; }
     .callout strong { color: var(--ink); }
-    h2 { font-size: 1.4rem; font-weight: 800; margin: 2.5rem 0 1rem; }
-    h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
-    .crumbs { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
-    .crumbs a { color: var(--muted); }
-    .ai-prompt { background: var(--surface); border: 1px dashed var(--border); border-radius: 0.75rem; padding: 1rem 1.25rem; margin: 1rem 0; font-size: 0.92rem; line-height: 1.55; color: var(--ink); }
-    .ai-prompt::before { content: 'Prompt'; display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.5rem; }
+    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; margin: 1rem 0 2rem; }
+    .tool-card { padding: 1rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); }
+    .tool-card h4 { font-size: 0.95rem; margin: 0 0 0.25rem; }
+    .tool-card p { font-size: 0.8rem; color: var(--muted); margin: 0 0 0.35rem; }
+    .tool-card code { font-size: 0.75rem; background: var(--accent-soft); color: var(--accent); padding: 0.1rem 0.3rem; border-radius: 0.2rem; }
+    .tag { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.3rem; }
+    h2 { font-size: 1.4rem; font-weight: 800; margin: 3rem 0 1rem; letter-spacing: -0.01em; }
   </style>
 </head>
 <body>
@@ -55,96 +53,293 @@
 
     <div class="ai-hero">
       <h1>Build a free app with AI.</h1>
-      <p class="ai-lead">FreeAppStore is AI-first. Drop our <a href="https://freeappstore.online/skills.md">SKILLS.md</a> into your AI tool of choice, and the agent already knows the brand rules, the privacy mandates, the CLI, and the deploy flow before it writes a line of code. Ship a real, free, MIT-licensed app in an afternoon.</p>
+      <p class="ai-lead">Follow these steps to go from zero to a deployed app on FreeAppStore. Works with Claude Code, Cursor, Copilot, or any AI tool. Your app gets free hosting, a subdomain, and a listing in the store.</p>
     </div>
 
-    <h2>Pick your tool</h2>
-    <div class="ai-tools">
-      <a href="/ai/claude-code.html" class="ai-tool">
-        <span class="tag">Terminal</span>
-        <h3>Claude Code</h3>
-        <p>Anthropic's official terminal CLI. Best fit if you live in a shell.</p>
-      </a>
-      <a href="/ai/cursor.html" class="ai-tool">
-        <span class="tag">Editor</span>
-        <h3>Cursor</h3>
-        <p>AI-native fork of VS Code. Best fit if you want a polished editor UI.</p>
-      </a>
-      <a href="/ai/github-copilot.html" class="ai-tool">
-        <span class="tag">Editor</span>
-        <h3>GitHub Copilot</h3>
-        <p>Built into VS Code, JetBrains, and the GitHub web UI. Best fit if you want zero install friction.</p>
-      </a>
-      <a href="/ai/aider.html" class="ai-tool">
-        <span class="tag">Terminal</span>
-        <h3>Aider</h3>
-        <p>Open-source AI pair programming in your terminal. Best fit if you want to swap models freely.</p>
-      </a>
-      <a href="/ai/codex.html" class="ai-tool">
-        <span class="tag">Terminal</span>
-        <h3>Codex CLI</h3>
-        <p>OpenAI's open-source terminal agent. Best fit if you prefer GPT-5 / o4 models.</p>
-      </a>
-      <a href="/ai/windsurf.html" class="ai-tool">
-        <span class="tag">Editor</span>
-        <h3>Windsurf</h3>
-        <p>Codeium's AI-native editor with Cascade for multi-step tasks. Best fit if you want agentic flows in an IDE.</p>
-      </a>
-      <a href="/ai/zed.html" class="ai-tool">
-        <span class="tag">Editor</span>
-        <h3>Zed</h3>
-        <p>Fast Rust-based editor with multi-model AI. Best fit if you want low-latency editing + AI in one tool.</p>
-      </a>
-      <a href="/ai/continue.html" class="ai-tool">
-        <span class="tag">Editor</span>
-        <h3>Continue</h3>
-        <p>Open-source AI extension for VS Code and JetBrains. Best fit if you want full local-model freedom.</p>
-      </a>
-      <a href="/ai/cline.html" class="ai-tool">
-        <span class="tag">Editor</span>
-        <h3>Cline</h3>
-        <p>Autonomous AI coding agent for VS Code. Best fit if you want the agent to plan and act without hand-holding.</p>
-      </a>
-      <a href="/ai/chatgpt-web.html" class="ai-tool">
-        <span class="tag">Web</span>
-        <h3>ChatGPT (web)</h3>
-        <p>Build via the ChatGPT browser UI when you don't want a local agent. Best fit for one-shot prototyping.</p>
-      </a>
-    </div>
+    <!-- ==================== PREREQUISITES ==================== -->
+    <h2>Prerequisites</h2>
+    <p style="font-size:0.92rem;color:var(--muted);margin-bottom:1rem">You need Node.js and pnpm installed. If you already have them, skip to Step 1.</p>
 
-    <h2>Or any other tool</h2>
-    <p>Roo Code, Sweep, Open Hands, Smol Developer, the new Anthropic SDK agent — all of them work. The pattern is the same:</p>
+    <div class="cmd"><span class="comment"># Check if Node is installed (need v20+)</span>
+node --version
+<span class="output"># v20.x.x or higher? You're good. If not:</span>
+
+<span class="comment"># Install Node.js (macOS)</span>
+brew install node
+
+<span class="comment"># Install Node.js (Windows) — download from nodejs.org</span>
+<span class="comment"># Install Node.js (Linux)</span>
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs</div>
+
+    <div class="cmd"><span class="comment"># Install pnpm (the package manager)</span>
+npm install -g pnpm
+
+<span class="comment"># Verify</span>
+pnpm --version
+<span class="output"># Should print 10.x.x</span></div>
+
+    <!-- ==================== STEP BY STEP ==================== -->
+    <h2>Step-by-step: Claude Code (terminal)</h2>
+    <p style="font-size:0.92rem;color:var(--muted);margin-bottom:1.5rem">Full walkthrough using Claude Code. Other tools follow the same steps — see <a href="#other-tools">tool-specific setup</a> below.</p>
+
     <ol class="steps">
-      <li><strong>Install the FreeAppStore CLI:</strong> <code>npm i -g @freeappstore/cli</code> then <code>fas login</code>.</li>
-      <li><strong>Scaffold:</strong> <code>fas init my-app</code>.</li>
-      <li><strong>Tell your AI tool to read SKILLS.md.</strong> Drop the URL in the project's instruction file (CLAUDE.md, .cursorrules, .github/copilot-instructions.md, AGENTS.md, CONVENTIONS.md, system prompt, …).</li>
-      <li><strong>Build.</strong> The agent edits <code>web/src/App.tsx</code> and supporting files using the Shell layout, brand tokens, and brand fonts.</li>
-      <li><strong>Run <code>fas check</code>.</strong> Compliance enforced.</li>
-      <li><strong>Run <code>fas publish</code>.</strong> Provisions repo + hosting + DNS.</li>
-      <li><strong>Push to main.</strong> Auto-deploys in ~30 seconds.</li>
+      <li>
+        <h3>Install Claude Code and the FreeAppStore CLI</h3>
+        <div class="cmd"><span class="comment"># Install Claude Code (Anthropic's terminal AI)</span>
+npm install -g @anthropic-ai/claude-code
+
+<span class="comment"># Install the FreeAppStore CLI</span>
+npm install -g @freeappstore/cli
+
+<span class="comment"># Verify both installed</span>
+claude --version
+fas --version</div>
+      </li>
+
+      <li>
+        <h3>Log in to FreeAppStore</h3>
+        <div class="cmd"><span class="comment"># Sign in with your GitHub account</span>
+fas login
+
+<span class="output"># Opens GitHub in your browser for OAuth.
+# Once approved, you'll see:
+# ✓ Logged in as your-username</span></div>
+      </li>
+
+      <li>
+        <h3>Create your app from a template</h3>
+        <div class="cmd"><span class="comment"># Scaffold a new app</span>
+fas init my-app
+
+<span class="output"># Output:
+#   Creating my-app...
+#   [1/3] Cloning template-standalone...
+#   [2/3] Installing dependencies...
+#   [3/3] Initializing git...
+#   Done!</span>
+
+<span class="comment"># Go into the project</span>
+cd my-app</div>
+        <p>This creates a React + Vite + Tailwind project with the FreeAppStore design system, fonts, and CSS variables already set up.</p>
+      </li>
+
+      <li>
+        <h3>Start Claude Code</h3>
+        <div class="cmd"><span class="comment"># Launch Claude Code in the project</span>
+claude</div>
+        <p>Claude Code reads <code>CLAUDE.md</code> automatically. That file says:</p>
+        <div class="cmd" style="font-size:0.8rem"><span class="output">See https://freeappstore.online/skills.md
+for platform conventions.</span></div>
+        <p>Claude now knows the design system (Manrope + Fraunces fonts, CSS variables, dark mode), the SDK (<code>@freeappstore/sdk</code>), and the deploy flow.</p>
+      </li>
+
+      <li>
+        <h3>Tell Claude what to build</h3>
+        <p>Type your prompt in the Claude Code terminal. Be specific.</p>
+        <div class="cmd" style="border-style:dashed"><span class="comment"># Example prompts:</span>
+
+Build a pomodoro timer with work and break sessions.
+25 min work, 5 min break, 15 min long break. Show
+session count. Play a sound when the timer ends.
+Save progress in localStorage.
+
+<span class="comment"># Or with the SDK for connected features:</span>
+
+Build a flashcard app. Let users create decks and
+cards. Use app.kv to save cards per user. Add a
+shared counter with app.counters to track total
+cards created across all users. Use useAuth for
+sign-in.</div>
+        <p>Claude edits <code>web/src/App.tsx</code> and creates any files needed. It follows the design system from skills.md.</p>
+      </li>
+
+      <li>
+        <h3>Run it locally</h3>
+        <div class="cmd"><span class="comment"># Start the dev server</span>
+pnpm dev
+
+<span class="output"># Output:
+#   VITE v8.x.x ready in 200ms
+#   ➜  Local:   http://localhost:5173/</span>
+
+<span class="comment"># Open http://localhost:5173 in your browser</span></div>
+        <p>Make changes, and the page updates instantly (hot reload).</p>
+      </li>
+
+      <li>
+        <h3>Check compliance</h3>
+        <div class="cmd"><span class="comment"># Run the platform compliance checker</span>
+fas check
+
+<span class="output"># ✓ TypeScript strict mode
+# ✓ No tracking/analytics
+# ✓ No cookies
+# ✓ Manrope + Fraunces fonts
+# ✓ Dark mode supported
+# ✓ PWA manifest present
+# ✓ MIT license
+# All checks passed!</span></div>
+        <p>If anything fails, Claude Code can fix it — just tell it which check failed.</p>
+      </li>
+
+      <li>
+        <h3>Publish and deploy</h3>
+        <div class="cmd"><span class="comment"># Publish to the store (creates repo + hosting + DNS)</span>
+fas publish
+
+<span class="output"># ✓ Created repo: freeappstore-online/my-app
+# ✓ Created CF Pages project
+# ✓ DNS configured: my-app.freeappstore.online
+# ✓ First deploy triggered</span>
+
+<span class="comment"># Future deploys: just push to main</span>
+git push origin main
+
+<span class="output"># Your app is live at:
+# https://my-app.freeappstore.online</span></div>
+      </li>
     </ol>
 
     <div class="callout">
-      <strong>The platform context lives at:</strong>
-      <div class="cmd">https://freeappstore.online/skills.md</div>
-      <p>Drop that URL in your tool's instruction file. The agent fetches it on demand and writes platform-aware code.</p>
+      <strong>That's it.</strong> Eight steps from zero to a published app on FreeAppStore. Free hosting, free subdomain, listed in the store. All free, forever.
     </div>
 
-    <h2>What "AI-first" actually means here</h2>
-    <p>Three things, enforced by tooling:</p>
-    <ul>
-      <li><strong>Brand and privacy are not negotiable.</strong> Your agent will try to add Google Analytics or a custom display font. <code>fas check</code> rejects the publish. The mandates exist precisely so that AI-generated apps stay consistent.</li>
-      <li><strong>Provisioning is one command.</strong> No copy-pasting Cloudflare tokens. No DNS dashboards. No CI YAML. <code>fas publish</code> handles everything atomically.</li>
-      <li><strong>Deploy is a push.</strong> The agent doesn't need a deploy script. <code>git push</code> triggers Cloudflare Pages, the storefront refreshes within hours.</li>
-    </ul>
-    <p>The mandates aren't to slow agents down — they're to let agents go fast without breaking the platform.</p>
+    <!-- ==================== OTHER TOOLS ==================== -->
+    <h2 id="other-tools">Other AI tools</h2>
+    <p style="font-size:0.92rem;color:var(--muted);margin-bottom:1rem">Steps 1-3 and 6-8 are the same for every tool. The only difference is Step 4 — how you tell the AI about the platform. Add this line to the tool's instruction file:</p>
+    <div class="cmd">See https://freeappstore.online/skills.md for platform conventions.</div>
+
+    <p style="font-size:0.92rem;color:var(--muted);margin:1rem 0">Here's where that line goes for each tool:</p>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <span class="tag">Terminal</span>
+        <h4>Claude Code</h4>
+        <p>Auto-reads from project root.</p>
+        <code>CLAUDE.md</code>
+      </div>
+      <div class="tool-card">
+        <span class="tag">Editor</span>
+        <h4>Cursor</h4>
+        <p>Create in project root.</p>
+        <code>.cursorrules</code>
+      </div>
+      <div class="tool-card">
+        <span class="tag">Editor</span>
+        <h4>GitHub Copilot</h4>
+        <p>Create in .github folder.</p>
+        <code>.github/copilot-instructions.md</code>
+      </div>
+      <div class="tool-card">
+        <span class="tag">Terminal</span>
+        <h4>Codex CLI</h4>
+        <p>Create in project root.</p>
+        <code>AGENTS.md</code>
+      </div>
+      <div class="tool-card">
+        <span class="tag">Terminal</span>
+        <h4>Aider</h4>
+        <p>Create in project root.</p>
+        <code>CONVENTIONS.md</code>
+      </div>
+      <div class="tool-card">
+        <span class="tag">Editor</span>
+        <h4>Windsurf</h4>
+        <p>Create in project root.</p>
+        <code>.windsurfrules</code>
+      </div>
+      <div class="tool-card">
+        <span class="tag">Editor</span>
+        <h4>Cline</h4>
+        <p>Paste in custom instructions.</p>
+        <code>Settings → Custom</code>
+      </div>
+      <div class="tool-card">
+        <span class="tag">Editor</span>
+        <h4>Zed</h4>
+        <p>Paste in assistant context.</p>
+        <code>Assistant panel</code>
+      </div>
+      <div class="tool-card">
+        <span class="tag">Editor</span>
+        <h4>Continue</h4>
+        <p>Create in project root.</p>
+        <code>.continuerules</code>
+      </div>
+      <div class="tool-card">
+        <span class="tag">Web</span>
+        <h4>ChatGPT</h4>
+        <p>Paste skills.md into chat.</p>
+        <code>Paste in chat</code>
+      </div>
+    </div>
+
+    <!-- ==================== SDK CHEAT SHEET ==================== -->
+    <h2>SDK cheat sheet</h2>
+    <p style="font-size:0.92rem;color:var(--muted);margin-bottom:1rem">Copy-paste these into your AI prompts for connected apps (apps that need sign-in, storage, or real-time features).</p>
+
+    <div class="cmd"><span class="comment">// Add the SDK to your project</span>
+pnpm add @freeappstore/sdk
+
+<span class="comment">// Initialize</span>
+import { init } from '@freeappstore/sdk'
+const app = init({ appId: 'my-app' })
+
+<span class="comment">// Auth (sign in with GitHub)</span>
+await app.auth.init()
+app.auth.signIn()
+app.auth.onChange(user => console.log(user))
+
+<span class="comment">// Per-user storage (each user gets their own data)</span>
+await app.kv.set('notes', ['Buy milk', 'Walk dog'])
+const notes = await app.kv.get('notes')
+await app.kv.delete('notes')
+
+<span class="comment">// Shared counters (visible to all users)</span>
+await app.counters.increment('page-views')
+const count = await app.counters.get('page-views')
+
+<span class="comment">// Real-time rooms (chat, multiplayer)</span>
+const room = app.rooms.join('lobby')
+room.send({ text: 'hello' })
+room.onMessage(msg => console.log(msg))
+room.onPeers(peers => console.log(peers.length, 'online'))</div>
+
+    <!-- ==================== STANDALONE VS CONNECTED ==================== -->
+    <h2>Standalone vs Connected apps</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0 2rem">
+      <div style="padding:1.25rem;border:1px solid var(--border);border-radius:0.75rem">
+        <h3 style="margin:0 0 0.5rem;font-size:1rem">Standalone</h3>
+        <p style="font-size:0.85rem;color:var(--muted);margin:0">No sign-in needed. Data saved in localStorage on the user's device. Works fully offline. Timer, calculator, notes, converter — most apps are this type.</p>
+      </div>
+      <div style="padding:1.25rem;border:1px solid var(--accent);border-radius:0.75rem">
+        <h3 style="margin:0 0 0.5rem;font-size:1rem;color:var(--accent)">Connected</h3>
+        <p style="font-size:0.85rem;color:var(--muted);margin:0">Uses <code>@freeappstore/sdk</code> for sign-in, per-user cloud storage, shared counters, and real-time rooms. Messenger, social apps, collaborative tools.</p>
+      </div>
+    </div>
+
+    <!-- ==================== ALSO ==================== -->
+    <h2>Also available</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0">
+      <div style="padding:1.25rem;border:1px solid var(--border);border-radius:0.75rem">
+        <h3 style="margin:0 0 0.5rem;font-size:1rem">VibeCode (no-code)</h3>
+        <p style="font-size:0.85rem;color:var(--muted);margin:0">Don't want to use a terminal? <a href="https://create.freeappstore.online">create.freeappstore.online</a> lets you describe your app in plain English and AI builds it for you in the browser.</p>
+      </div>
+      <div style="padding:1.25rem;border:1px solid var(--pro,#7c3aed);border-radius:0.75rem">
+        <h3 style="margin:0 0 0.5rem;font-size:1rem;color:var(--pro,#7c3aed)">Need a database?</h3>
+        <p style="font-size:0.85rem;color:var(--muted);margin:0">Free apps use localStorage. If you need SQL databases, file uploads, maps, or payments, check <a href="https://proappstore.online/build-with-ai" style="color:var(--pro,#7c3aed);font-weight:600">ProAppStore</a>.</p>
+      </div>
+    </div>
 
     <h2>Other reading</h2>
-    <ul>
-      <li><a href="/build-with-ai">Manual / non-AI build flow</a> — the same steps without an agent.</li>
-      <li><a href="/guidelines">Platform guidelines</a> — what gets approved and what doesn't.</li>
-      <li><a href="https://github.com/freeappstore-online/platform">FreeAppStore SDK source</a> — CLI, compliance package, backend.</li>
-      <li><a href="https://freegamestore.online/build-with-ai">FreeGameStore's AI guide</a> — sister storefront, same flow.</li>
+    <ul style="font-size:0.92rem;line-height:2">
+      <li><a href="/guidelines">Platform guidelines</a> — design system, privacy rules, compliance checks</li>
+      <li><a href="/pricing">Pricing</a> — free tier caps and what Pro unlocks</li>
+      <li><a href="https://freeappstore.online/skills.md">skills.md</a> — the machine-readable platform reference your AI tool reads</li>
+      <li><a href="https://github.com/freeappstore-online/platform">Platform source code</a> — SDK, CLI, backend</li>
+      <li><a href="https://freegamestore.online/build-with-ai">FreeGameStore build guide</a> — same flow for games</li>
+      <li><a href="https://proappstore.online/build-with-ai">ProAppStore build guide</a> — paid tier with databases and storage</li>
     </ul>
 
   </main>
