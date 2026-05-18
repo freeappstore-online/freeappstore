@@ -1098,5 +1098,43 @@
         }
       }
     ]
+  },
+  "freeappstore-online/snowman": {
+    "meta": {
+      "created_at": "2026-05-17T15:41:58Z",
+      "pushed_at": "2026-05-18T08:03:31Z"
+    },
+    "commits": [
+      {
+        "sha": "0fd5ac4098a406b47cc25c3cdc16839a64b219b0",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/0fd5ac4098a406b47cc25c3cdc16839a64b219b0",
+        "commit": {
+          "message": "Convert all components to Tailwind CSS, fix panel-close map interaction, add form field names\n\n- Replace all inline style objects with Tailwind utility classes across App.tsx,\n  Shell.tsx, Nav.tsx, Profile.tsx, Create.tsx, SnowmanNav.tsx, WorldMap.tsx\n- Fix clicking outside Snow Near Me / About panels triggering country focus by\n  adding a full-screen overlay (z-198) that intercepts mousedown before it reaches\n  the map SVG\n- Add name/autocomplete attributes to all form fields to suppress browser autofill warnings\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-18T05:22:15Z"
+          }
+        }
+      },
+      {
+        "sha": "1046b402aeabf08197c6ac578f331b946de4997e",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/1046b402aeabf08197c6ac578f331b946de4997e",
+        "commit": {
+          "message": "Improve snow detection accuracy, map borders, and interaction fixes\n\n- Replace SAMPLE_POINTS with Goldilocks ERA5-validated coordinates (seasonal\n  snow only — melts in summer, maximises winter depth) for 27 countries;\n  keep manual fallbacks where grid drift would cross borders\n- Add Australia (Mount Kosciuszko), fix Kyrgyzstan/Tajikistan/Pakistan to\n  valley coords, fix Greenland to Summit Camp (permanent ice), restore\n  Antarctica (Vinson Massif) to Snow Near Me radar\n- Switch country borders from per-polygon stroke to topojson.mesh (a !== b),\n  eliminating the dateline slash through Russia/Fiji/Aleutians\n- Fix map interaction: ignore mouseup/country-click when mousedown originated\n  outside the SVG (prevents text-selection drag from focusing a country)\n- Move d3-geo deps from root to web/package.json; remove unused @turf/turf\n- Clean up old Python snow-finder scripts, keep find_snow.py (Goldilocks)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-17T15:45:19Z"
+          }
+        }
+      },
+      {
+        "sha": "cad85ba812e4df9650e5170ef9382c9fb132f080",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/cad85ba812e4df9650e5170ef9382c9fb132f080",
+        "commit": {
+          "message": "Polish nav UX: search island, panel alignment, ghost text, mobile fixes\n\n- Search bar moved out of nav into a floating island panel on desktop\n- All floating panels (search, Snow Near Me, About) width-aligned to nav via ResizeObserver\n- Ghost autocomplete text added to search bar (hover/arrow only, no default pre-select)\n- Mobile: nav hides when viewing a country; legend + zoom buttons drop to bottom: 16\n- Narrowed search results dropdown gap to kiss the panel bottom edge\n- Increased nav right padding so search icon isn't flush with edge\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-17T12:08:05Z"
+          }
+        }
+      }
+    ]
   }
 }
