@@ -1102,9 +1102,19 @@
   "freeappstore-online/snowman": {
     "meta": {
       "created_at": "2026-05-17T15:41:58Z",
-      "pushed_at": "2026-05-18T10:04:20Z"
+      "pushed_at": "2026-05-18T11:27:19Z"
     },
     "commits": [
+      {
+        "sha": "b3ef641fc561f508851c7d232aca23179cea6cad",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/b3ef641fc561f508851c7d232aca23179cea6cad",
+        "commit": {
+          "message": "Use translate3d + transformOrigin 0 0 for GPU-accelerated map pan\n\nSwitches applyTransform from SVG setAttribute to CSS translate3d so the\nbrowser composites the map on the GPU. Pinning transformOrigin to 0 0\nprevents the bounding-box drift that broke the earlier CSS approach.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-18T11:27:14Z"
+          }
+        }
+      },
       {
         "sha": "a1417b24cf74e42d4b7d845d663ee89a6b0140c3",
         "html_url": "https://github.com/freeappstore-online/snowman/commit/a1417b24cf74e42d4b7d845d663ee89a6b0140c3",
@@ -1122,16 +1132,6 @@
           "message": "Switch map pan/zoom to GPU-composited CSS matrix transform\n\nSVG transform attribute changes require CPU rasterization on every frame.\nReplacing with CSS matrix() on the <g> element lets the browser compositor\nhandle pan/zoom on a dedicated GPU layer — same mechanism as Google Maps.\n\nFormula: matrix(k,0,0,k, S*x + tx*(1-k), S*y + ty*(1-k)) where S/tx/ty\ncome from the SVG's getScreenCTM(), cached in ctmRef and refreshed on resize.\nFalls back to SVG attribute if CTM is unavailable (first paint race).\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-18T08:55:11Z"
-          }
-        }
-      },
-      {
-        "sha": "1615386a4749e7dd64c036874298c7b4c5c784fe",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/1615386a4749e7dd64c036874298c7b4c5c784fe",
-        "commit": {
-          "message": "Improve mobile FPS: memoize fill layer, reduce React reconciliation\n\n- Extract country fill paths into React.memo FillLayer component — during\n  pan/zoom the 750+ SVG path elements are skipped entirely by React reconciler\n- Remove dynamic cursor inline style from paths (replaced with className) so\n  memo comparison stays stable\n- Add will-change:transform to map group for GPU compositing hint\n- Increase state-sync debounce from 150ms to 400ms to reduce reconciliation rate\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-18T08:38:48Z"
           }
         }
       }
