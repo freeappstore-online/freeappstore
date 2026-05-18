@@ -1064,9 +1064,19 @@
   "freeappstore-online/life": {
     "meta": {
       "created_at": "2026-01-13T12:53:30Z",
-      "pushed_at": "2026-05-16T23:31:42Z"
+      "pushed_at": "2026-05-18T02:34:18Z"
     },
     "commits": [
+      {
+        "sha": "b08ceb9a5e8f59d7947f3a31d4f7e45390999742",
+        "html_url": "https://github.com/freeappstore-online/life/commit/b08ceb9a5e8f59d7947f3a31d4f7e45390999742",
+        "commit": {
+          "message": "Merge pull request #89 from freeappstore-online/feature/date-issue\n\nDate issues fixed",
+          "author": {
+            "date": "2026-05-18T02:23:56Z"
+          }
+        }
+      },
       {
         "sha": "fa603034488070cccb6db698ee3c33ab670ef27b",
         "html_url": "https://github.com/freeappstore-online/life/commit/fa603034488070cccb6db698ee3c33ab670ef27b",
@@ -1084,16 +1094,6 @@
           "message": "Remove .env.production — Firebase config now in CF Pages env vars\n\nDeployment config is centralized in Cloudflare Pages project settings,\nnot in the repo. Developers don't need env files.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-04T04:40:55Z"
-          }
-        }
-      },
-      {
-        "sha": "13ecc578055e6310371fdf329cf4ba1b90e92f99",
-        "html_url": "https://github.com/freeappstore-online/life/commit/13ecc578055e6310371fdf329cf4ba1b90e92f99",
-        "commit": {
-          "message": "Add .env.production with Firebase client config for CF Pages build\n\nVite requires VITE_FIREBASE_* env vars at build time (they get inlined\ninto the JS bundle). Without these, the app crashes at runtime because\nFirebase SDK receives undefined config values. These are public client\nconfig values, not secrets.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-04T03:30:12Z"
           }
         }
       }

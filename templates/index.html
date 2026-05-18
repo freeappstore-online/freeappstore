@@ -25,9 +25,6 @@
         <a href="/">Apps</a>
         <a href="https://freegamestore.online">Games</a>
         <a href="/about">About</a>
-        <a href="/build-with-ai">Build</a>
-        <a href="https://create.freeappstore.online">VibeCode</a>
-        <a href="/guidelines">Guidelines</a>
         <a href="https://proappstore.online" class="pro-link">Pro</a>
         <span id="navAuth"></span>
       </nav>
@@ -35,7 +32,18 @@
   </header>
 
   <main class="container">
-    <section class="apps-section" id="apps" style="padding-top: 2rem;">
+    <section class="hero" style="text-align:center;padding:2.5rem 0 1rem">
+      <h1 style="font-size:2rem;font-weight:800;letter-spacing:-0.03em">Free apps that just work</h1>
+      <p style="color:var(--muted);font-size:1rem;max-width:520px;margin:0.5rem auto 0">Beautiful web apps you can use right now. No downloads, no accounts, no ads, no subscriptions. Just open and go.</p>
+      <div style="margin-top:1.25rem;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;font-size:0.85rem;color:var(--muted)">
+        <span>🌐 Works in any browser</span>
+        <span>📱 Install on your phone</span>
+        <span>🔒 Private — no tracking</span>
+        <span>📖 Open source</span>
+      </div>
+    </section>
+
+    <section class="apps-section" id="apps" style="padding-top: 1rem;">
       <div class="search-bar">
         <input
           type="search"
@@ -65,6 +73,24 @@
     <aside style="text-align: center; padding: 1.5rem 0 0.5rem; font-size: 0.9rem; color: var(--muted);">
       Looking for games? Visit <a href="https://freegamestore.online" style="color: var(--accent); font-weight: 600;">FreeGameStore</a> — free-forever web games.
     </aside>
+
+    <section style="margin:2.5rem 0 1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem">
+      <div style="padding:1.25rem;border:1px solid var(--border,#e5e5e5);border-radius:0.75rem">
+        <strong>What is FreeAppStore?</strong>
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:0.35rem">A collection of free web apps that work in your browser. No downloads, no accounts needed. Every app is open source and private by default.</p>
+        <p style="margin-top:0.5rem"><a href="/about" style="font-size:0.85rem;font-weight:600">Learn more</a></p>
+      </div>
+      <div style="padding:1.25rem;border:1px solid var(--border,#e5e5e5);border-radius:0.75rem">
+        <strong>Want cloud features?</strong>
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:0.35rem">ProAppStore has apps with cloud databases, file uploads, real-time collaboration, and maps. Same account works on both. $9/month.</p>
+        <p style="margin-top:0.5rem"><a href="https://proappstore.online" style="font-size:0.85rem;font-weight:600;color:var(--pro,#7c3aed)">Visit ProAppStore</a></p>
+      </div>
+      <div style="padding:1.25rem;border:1px solid var(--border,#e5e5e5);border-radius:0.75rem">
+        <strong>Build your own app</strong>
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:0.35rem">Use VibeCode to create an app with AI, or build from scratch with our SDK. Free hosting, auto-deploy, listed in the store.</p>
+        <p style="margin-top:0.5rem"><a href="/build-with-ai" style="font-size:0.85rem;font-weight:600">Start building</a></p>
+      </div>
+    </section>
   </main>
 
   <footer>
