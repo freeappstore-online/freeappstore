@@ -1102,9 +1102,19 @@
   "freeappstore-online/snowman": {
     "meta": {
       "created_at": "2026-05-17T15:41:58Z",
-      "pushed_at": "2026-05-18T08:55:12Z"
+      "pushed_at": "2026-05-18T10:04:20Z"
     },
     "commits": [
+      {
+        "sha": "a1417b24cf74e42d4b7d845d663ee89a6b0140c3",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/a1417b24cf74e42d4b7d845d663ee89a6b0140c3",
+        "commit": {
+          "message": "Fix infinite pan teleport and FPS bugs in WorldMap\n\n- Replace CSS matrix transform with SVG setAttribute: CSS transforms on SVG\n  elements scale from the bounding-box center (not SVG origin), causing\n  massive drift when 3 world copies are rendered, exposing blank edges and\n  jarring teleport jumps on modulo wrap\n- Center the x modulo wrap at [-ww/2, +ww/2) so the seam fires while safely\n  inside the drawn copies, never at a visible edge\n- Stop spamming setTransform on every pan frame at min zoom: only trigger\n  React re-render when crossing a zoom limit boundary\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-18T10:04:15Z"
+          }
+        }
+      },
       {
         "sha": "e2fe30be2e2ae0578c3e645a87607c4546c8848b",
         "html_url": "https://github.com/freeappstore-online/snowman/commit/e2fe30be2e2ae0578c3e645a87607c4546c8848b",
@@ -1124,14 +1134,42 @@
             "date": "2026-05-18T08:38:48Z"
           }
         }
+      }
+    ]
+  },
+  "freeappstore-online/typeflow": {
+    "meta": {
+      "created_at": "2026-05-18T09:59:33Z",
+      "pushed_at": "2026-05-18T10:02:57Z"
+    },
+    "commits": [
+      {
+        "sha": "8ac20c759d3c5293f99c838218d46778d4735516",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/8ac20c759d3c5293f99c838218d46778d4735516",
+        "commit": {
+          "message": "Update README.md",
+          "author": {
+            "date": "2026-05-18T10:02:57Z"
+          }
+        }
       },
       {
-        "sha": "a709403d6870ef18a0cf48057e998d5efe87d625",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/a709403d6870ef18a0cf48057e998d5efe87d625",
+        "sha": "e59242d2d5f2416ec862c32c073fb67b4db4a354",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/e59242d2d5f2416ec862c32c073fb67b4db4a354",
         "commit": {
-          "message": "Fix mobile panel alignment and input zoom\n\n- Use left:8/right:8 on mobile panels to exactly mirror the nav header instead of\n  computing from getBoundingClientRect (avoids float/timing drift)\n- Add maximum-scale=1.0 to viewport meta to prevent iOS input-focus zoom\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Update README.md",
           "author": {
-            "date": "2026-05-18T08:29:33Z"
+            "date": "2026-05-18T10:02:26Z"
+          }
+        }
+      },
+      {
+        "sha": "886910cf874d95a80a89f9f87924bc1b221a728b",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/886910cf874d95a80a89f9f87924bc1b221a728b",
+        "commit": {
+          "message": "fix: remove platform-owned CSS tokens from my-app to pass FreeAppStore compliance\n\nSurgically removed all 12 FAS-reserved variables (--paper, --ink, --muted,\n--line, --line-strong, --panel, --glass, --dock, --accent, --success,\n--warning, --error) from both :root and :root[data-theme='dark'] blocks in\nmy-app/web/src/index.css. Only app-specific tokens retained.\n\nAlso adds my-app/ scaffold and workspace pnpm-lock.yaml to version control.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-18T09:24:14Z"
           }
         }
       }
