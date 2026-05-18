@@ -88,12 +88,45 @@
     </div>
 
     <div class="gs-after">
-      <h2>That's it. Your app is live.</h2>
-      <p>Free hosting on Cloudflare's global network. Auto-deploy on every <code>git push</code>. Open source, private by default, no tracking.</p>
+      <h2>Your app is running locally.</h2>
+      <p>Now build it with your AI tool, then submit it to get listed in the store with free hosting.</p>
       <div style="margin-top:1.25rem">
         <a href="/build-with-ai" class="gs-btn">Full build guide</a>
         <a href="/guidelines" class="gs-btn-outline">Guidelines</a>
       </div>
+    </div>
+
+    <!-- HOW TO PUBLISH -->
+    <h2 style="text-align:center;font-size:1.4rem;font-weight:800;margin:3rem 0 0.5rem">When you're ready to publish</h2>
+    <p style="text-align:center;font-size:0.95rem;color:var(--muted);max-width:520px;margin:0 auto 1.5rem">After building and testing locally, submit your app to get free hosting and a subdomain.</p>
+
+    <div class="terminal" style="margin:1.5rem auto">
+      <div class="terminal-bar">
+        <span class="terminal-dot red"></span><span class="terminal-dot yellow"></span><span class="terminal-dot green"></span>
+        <span class="terminal-title">Publishing</span>
+      </div>
+      <div class="terminal-body" style="min-height:auto;padding:1rem 1.25rem">
+        <div class="terminal-line visible"><span class="comment" style="color:#6c7086"># Run compliance checks first</span></div>
+        <div class="terminal-line visible"><span class="prompt">my-app $</span> <span class="cmd">fas check</span></div>
+        <div class="terminal-line visible"><span class="success">  ✓ All checks passed</span></div>
+        <div class="terminal-line visible"><span class="output"></span></div>
+        <div class="terminal-line visible"><span class="comment" style="color:#6c7086"># Submit to the store</span></div>
+        <div class="terminal-line visible"><span class="prompt">my-app $</span> <span class="cmd">fas publish</span></div>
+        <div class="terminal-line visible"><span class="output"></span></div>
+        <div class="terminal-line visible"><span class="output">  Submitting my-app for review...</span></div>
+        <div class="terminal-line visible"><span class="success">  ✓ Submission created</span></div>
+        <div class="terminal-line visible"><span class="output"></span></div>
+        <div class="terminal-line visible"><span class="highlight">  What happens next:</span></div>
+        <div class="terminal-line visible"><span class="output">  1. We review your app (usually within 48 hours)</span></div>
+        <div class="terminal-line visible"><span class="output">  2. We create a repo + hosting + subdomain for you</span></div>
+        <div class="terminal-line visible"><span class="output">  3. You push your code, it auto-deploys</span></div>
+        <div class="terminal-line visible"><span class="output"></span></div>
+        <div class="terminal-line visible"><span class="url">  Your app will be at: https://my-app.freeappstore.online</span></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin:1rem 0 2rem">
+      <p style="font-size:0.88rem;color:var(--muted);max-width:480px;margin:0 auto">Don't want to wait? Use <a href="https://create.freeappstore.online" style="font-weight:700">VibeCode</a> to build and deploy instantly in your browser — no CLI, no review wait.</p>
     </div>
 
     <!-- AI TOOL EXAMPLES -->
