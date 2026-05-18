@@ -237,7 +237,7 @@ const appCards = apps.map(app => {
     : '';
   return `        <div class="app-card" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}">
           <div class="app-card-header">
-            <div class="app-icon" style="background: ${escapeHtml(app.iconBg)};">${app.icon}</div>
+            <div class="app-icon" style="background: ${escapeHtml(app.iconBg)};"><img src="${escapeHtml(app.appUrl)}/apple-touch-icon.png" alt="" onerror="this.parentElement.textContent='${app.icon}'" style="width:100%;height:100%;border-radius:inherit;object-fit:cover;" /></div>
             <div>
               <h3>${escapeHtml(app.name)}${qualityBadge}</h3>
               <div class="tag">${escapeHtml(categoryLabel(app.category))}</div>
