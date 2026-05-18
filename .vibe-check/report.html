@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VibeCode QA — freeappstore</title>
+<style>
+:root{--bg:#09090b;--card:#111115;--border:#1e1e24;--text:#e5e5e5;--muted:#6b7280;--pass:#22c55e;--fail:#ef4444;--warn:#eab308;--info:#6366f1;--accent:#818cf8}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+code{font-family:"SF Mono",Menlo,monospace;font-size:0.85em}
+
+/* Top nav — split into dimensions (left) and views (right) */
+.top{position:sticky;top:0;z-index:20;background:#0c0c0fcc;backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;gap:0}
+.logo{font-weight:800;font-size:1rem;margin-right:1.5rem;padding:0.7rem 0;flex-shrink:0}
+.logo span{color:var(--accent)}
+.nav-dims{display:flex;align-items:center;gap:0}
+.nav-views{margin-left:auto;display:flex;align-items:center;gap:0;border-left:1px solid var(--border);padding-left:0.3rem}
+.tn{padding:0.7rem 0.8rem;font-size:0.78rem;color:var(--muted);text-decoration:none;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.15s}
+.tn:hover{color:var(--text)}
+.tn.active{color:var(--text);border-bottom-color:var(--accent)}
+.tn-view{font-size:0.72rem;opacity:0.8}
+.tn-view.active{opacity:1}
+
+/* Sidebar */
+.side{position:fixed;top:42px;left:0;bottom:0;width:200px;background:#0c0c0f;border-right:1px solid var(--border);overflow-y:auto;padding:0.8rem 0;font-size:0.7rem;z-index:10}
+.side-section{padding:0.3rem 0;border-bottom:1px solid var(--border)}
+.side-section:last-child{border-bottom:none}
+.side-score{font-size:1.4rem;font-weight:900;padding:0.3rem 0.8rem}
+.side-cat{display:block;padding:0.3rem 0.8rem;color:var(--text);font-weight:700;cursor:pointer;text-decoration:none;font-size:0.72rem}
+.side-cat:hover{background:#14141a}
+.side-check{display:block;padding:0.2rem 0.8rem 0.2rem 1.2rem;color:var(--muted);cursor:pointer;text-decoration:none;font-size:0.65rem}
+.side-check:hover{color:var(--text);background:#14141a}
+.side-check span{display:inline-block;width:1rem;font-weight:800;text-align:center}
+.side-views{padding-top:0.5rem}
+.side-views-label{padding:0.2rem 0.8rem;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.05em;color:#444;font-weight:600}
+.side-views .side-check{padding-left:0.8rem}
+
+/* Content */
+.content{max-width:900px;margin-left:200px;padding:2rem}
+.page{display:none;animation:fadeIn 0.15s}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* Overview */
+.dash{display:flex;gap:2rem;margin-bottom:2rem;align-items:center;flex-wrap:wrap}
+.hero{display:flex;align-items:center;gap:1rem}
+.hero svg{width:100px;height:100px}
+.hc{display:flex;flex-direction:column}
+.hg{font-size:2.5rem;font-weight:900;line-height:1}
+.hs{font-size:1rem;font-weight:600}
+.hd{font-size:0.68rem;color:var(--muted)}
+.radar{flex:1;display:flex;justify-content:center}
+.radar svg{max-width:240px;width:100%}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0.6rem;margin-bottom:2rem}
+.cc{background:var(--card);border:1px solid var(--border);border-radius:0.6rem;padding:0.8rem;cursor:pointer;transition:border-color 0.15s}
+.cc:hover{border-color:var(--accent)}
+.cc-s{font-size:1.8rem;font-weight:900}
+.cc-l{font-size:0.75rem;color:var(--muted)}
+.cc-m{margin-top:0.3rem;display:flex;gap:0.25rem}
+.mc{font-size:0.65rem;font-weight:800}
+h3{font-size:0.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.5rem}
+
+/* Overview sections */
+.ov-section{margin-bottom:1.5rem}
+.ov-issue{font-size:0.68rem;font-family:"SF Mono",monospace;padding:0.2rem 0;display:flex;gap:0.4rem;align-items:baseline;border-bottom:1px solid var(--border)}
+.ov-issue .is{flex-shrink:0}
+.ov-issue.error .is{color:var(--fail)}
+.ov-issue.warning .is{color:var(--warn)}
+.ov-check{color:var(--muted);width:70px;flex-shrink:0;font-size:0.62rem}
+.ov-loc{color:var(--accent);flex-shrink:0;font-size:0.62rem;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ov-msg{flex:1;word-break:break-word}
+.ov-link{display:block;margin-top:0.5rem;font-size:0.72rem;color:var(--accent);cursor:pointer;text-decoration:none}
+.ov-link:hover{text-decoration:underline}
+
+/* Timeline */
+.timeline{margin:0.5rem 0;overflow-x:auto}
+.timeline svg{max-width:100%}
+
+/* Bar chart */
+.bars{margin-bottom:1.5rem}
+.brow{display:flex;align-items:center;gap:0.4rem;margin-bottom:0.25rem;font-size:0.72rem}
+.bl{width:90px;text-align:right;color:var(--muted);flex-shrink:0}
+.bb{flex:1;height:14px;background:var(--card);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
+.bf{height:100%;border-radius:2px}
+.bv{width:36px;font-weight:700;font-size:0.68rem}
+.stack{display:flex;gap:0.35rem;flex-wrap:wrap;margin-top:1rem}
+.stack span{background:var(--card);border:1px solid var(--border);padding:0.1rem 0.45rem;border-radius:9999px;font-size:0.62rem;color:var(--muted)}
+
+/* Category pages */
+.cat-head{margin-bottom:0.3rem}
+.bar2{height:4px;background:var(--card);border-radius:2px;margin-bottom:1rem;overflow:hidden}
+.bf2{height:100%;border-radius:2px}
+.sub-nav{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:1rem;flex-wrap:wrap}
+.sn{padding:0.5rem 0.8rem;font-size:0.75rem;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent}
+.sn:hover{color:var(--text)}
+.sn.active{color:var(--text);border-bottom-color:var(--accent)}
+.sp{display:none}.sp.active{display:block}
+
+/* Check detail */
+.ch-head{display:flex;align-items:center;gap:0.7rem;margin-bottom:0.8rem}
+.ch-g{font-size:2rem;font-weight:900}
+.ch-s{display:block;font-size:0.7rem;color:var(--muted)}
+.pri{font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;padding:0.15rem 0.5rem;border-radius:9999px;border:1px solid currentColor;flex-shrink:0}
+.info-panel{background:#0d0d12;border:1px solid var(--border);border-radius:0.5rem;padding:0.7rem 0.9rem;margin-bottom:1rem;font-size:0.72rem;line-height:1.6}
+.ip-row{margin-bottom:0.4rem;display:flex;gap:0.5rem}
+.ip-row:last-child{margin-bottom:0}
+.ip-label{color:var(--accent);font-weight:700;min-width:2.5rem;flex-shrink:0}
+.skip-r{color:var(--muted);font-style:italic;font-size:0.78rem}
+.kvs{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1rem}
+.kv{background:var(--card);border:1px solid var(--border);border-radius:0.4rem;padding:0.3rem 0.6rem;font-size:0.7rem}
+.k{color:var(--muted);margin-right:0.3rem}
+.v{font-weight:600}
+
+/* Issue list grouped by file */
+.iss-list{margin-top:1rem}
+.fg{margin-bottom:0.8rem}
+.fn{font-size:0.72rem;font-weight:600;font-family:"SF Mono",monospace;padding:0.3rem 0;border-bottom:1px solid var(--border);margin-bottom:0.2rem;display:flex;align-items:center;gap:0.5rem}
+.fc{background:var(--border);border-radius:9999px;padding:0 0.4rem;font-size:0.6rem;color:var(--muted)}
+.ir{font-size:0.65rem;font-family:"SF Mono",monospace;padding:0.12rem 0 0.12rem 0.5rem;display:flex;gap:0.4rem;align-items:baseline}
+.is{font-weight:800;font-size:0.55rem;width:0.9rem;text-align:center;border-radius:2px;flex-shrink:0}
+.ir.error .is{color:var(--fail);background:#ef444418}
+.ir.warning .is{color:var(--warn);background:#eab30818}
+.il{color:var(--accent);min-width:2rem;flex-shrink:0}
+.im{flex:1;word-break:break-word}
+.iru{color:#555;font-size:0.55rem}
+
+/* All issues table */
+.isf{color:var(--muted);font-size:0.75rem;margin-bottom:0.8rem}
+.it{width:100%;border-collapse:collapse;font-size:0.68rem}
+.it th{text-align:left;padding:0.35rem 0.4rem;color:var(--muted);font-size:0.62rem;text-transform:uppercase;border-bottom:1px solid var(--border)}
+.it td{padding:0.25rem 0.4rem;border-bottom:1px solid var(--border);font-family:"SF Mono",monospace;font-size:0.62rem}
+.it tr.error .is2{color:var(--fail)}
+.it tr.warning .is2{color:var(--warn)}
+.is2{font-weight:800;width:1rem}
+.ic2{color:var(--muted);width:70px}
+.il2{color:var(--muted)}
+.iru2{color:#555;font-size:0.58rem}
+
+/* File health (merged file map + heatmap) */
+.fr{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;font-size:0.7rem}
+.ff{width:200px;font-family:"SF Mono",monospace;font-size:0.65rem;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fb{flex:1;height:12px;background:var(--card);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
+.fbf{height:100%;border-radius:2px}
+.fv{width:50px;font-size:0.65rem;color:var(--muted);flex-shrink:0}
+.fcs{font-size:0.6rem;color:#555}
+.hm-row{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.2rem;font-size:0.7rem}
+.hm-name{width:200px;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:"SF Mono",monospace;font-size:0.65rem}
+.hm-bar{height:14px;border-radius:3px;min-width:4px}
+.hm-count{color:var(--muted);font-size:0.65rem;flex-shrink:0;min-width:50px}
+.hm-checks{font-size:0.58rem;color:#555;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.footer{text-align:center;color:var(--muted);font-size:0.58rem;margin-top:2rem;padding:0.8rem 0;border-top:1px solid var(--border)}
+.footer a{color:var(--muted)}
+.flink{color:var(--accent);text-decoration:none;font-family:"SF Mono",monospace}.flink:hover{text-decoration:underline}
+.arch-svg{margin:1rem 0;overflow-x:auto}
+.arch-svg svg{border-radius:8px}
+.cp-btn{background:none;border:none;cursor:pointer;font-size:0.6rem;opacity:0.3;padding:0 0.2rem;flex-shrink:0}.cp-btn:hover{opacity:1}
+.ir:hover .cp-btn{opacity:0.6}
+@media(max-width:768px){.side{display:none}.content{margin-left:0;padding:1rem}.cats{grid-template-columns:1fr 1fr}.dash{flex-direction:column}.nav-views{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="logo"><span>VibeCode</span> QA</div>
+  <div class="nav-dims"><a class="tn" data-page="overview" onclick="go('overview')">Overview</a><a class="tn" data-page="foundations" onclick="go('foundations')">Foundations</a><a class="tn" data-page="quality" onclick="go('quality')">Quality</a><a class="tn" data-page="testing" onclick="go('testing')">Testing</a><a class="tn" data-page="arch" onclick="go('arch')">Architecture</a><a class="tn" data-page="security" onclick="go('security')">Security</a><a class="tn" data-page="llm" onclick="go('llm')">AI Readiness</a></div>
+  <div class="nav-views"><a class="tn tn-view" data-page="issues" onclick="go('issues')">Issues (8)</a><a class="tn tn-view" data-page="files" onclick="go('files')">Files</a></div>
+</nav>
+
+<aside class="side">
+  <div class="side-section">Score<div class="side-score" style="color:#f97316">D 57</div></div>
+  <div class="side-section"><a class="side-cat" onclick="go('foundations')">Foundations <span style="color:#84cc16">75</span></a><a class="side-check" onclick="go('foundations')" title="Project Structure"><span style="color:#f97316">D</span> Project Structure</a><a class="side-check" onclick="go('foundations')" title="Lint"><span style="color:#555">—</span> Lint</a><a class="side-check" onclick="go('foundations')" title="Type Check"><span style="color:#555">—</span> Type Check</a><a class="side-check" onclick="go('foundations')" title="Type Safety"><span style="color:#555">—</span> Type Safety</a><a class="side-check" onclick="go('foundations')" title="Code Standards"><span style="color:#22c55e">A</span> Code Standards</a></div><div class="side-section"><a class="side-cat" onclick="go('quality')">Quality <span style="color:#84cc16">83</span></a><a class="side-check" onclick="go('quality')" title="Complexity"><span style="color:#22c55e">A</span> Complexity</a><a class="side-check" onclick="go('quality')" title="Duplication"><span style="color:#22c55e">A</span> Duplication</a><a class="side-check" onclick="go('quality')" title="Error Handling"><span style="color:#555">—</span> Error Handling</a><a class="side-check" onclick="go('quality')" title="React Patterns"><span style="color:#555">—</span> React Patterns</a><a class="side-check" onclick="go('quality')" title="Accessibility"><span style="color:#555">—</span> Accessibility</a><a class="side-check" onclick="go('quality')" title="Documentation"><span style="color:#f97316">D</span> Documentation</a></div><div class="side-section"><a class="side-cat" onclick="go('testing')">Testing <span style="color:#ef4444">0</span></a><a class="side-check" onclick="go('testing')" title="Testing"><span style="color:#ef4444">F</span> Testing</a></div><div class="side-section"><a class="side-cat" onclick="go('arch')">Architecture <span style="color:#ef4444">0</span></a><a class="side-check" onclick="go('arch')" title="Architecture"><span style="color:#555">—</span> Architecture</a></div><div class="side-section"><a class="side-cat" onclick="go('security')">Security <span style="color:#22c55e">100</span></a><a class="side-check" onclick="go('security')" title="Secrets"><span style="color:#22c55e">A</span> Secrets</a><a class="side-check" onclick="go('security')" title="Security Patterns"><span style="color:#555">—</span> Security Patterns</a><a class="side-check" onclick="go('security')" title="Dependencies"><span style="color:#22c55e">A</span> Dependencies</a></div><div class="side-section"><a class="side-cat" onclick="go('llm')">AI Readiness <span style="color:#ef4444">0</span></a><a class="side-check" onclick="go('llm')" title="Confusion Index"><span style="color:#555">—</span> Confusion Index</a><a class="side-check" onclick="go('llm')" title="Context Locality"><span style="color:#555">—</span> Context Locality</a></div>
+  <div class="side-section side-views"><div class="side-views-label">Views</div><a class="side-check" onclick="go('issues')">Issues <span style="color:var(--muted)">8</span></a><a class="side-check" onclick="go('files')">Files <span style="color:var(--muted)">0</span></a></div>
+</aside>
+<div class="content">
+  <div id="p-overview" class="page active">
+<div class="dash">
+  <div class="hero">
+    <svg viewBox="0 0 100 100" style="width:100px;height:100px"><circle cx="50" cy="50" r="42" fill="none" stroke="#1e1e24" stroke-width="7"/><circle cx="50" cy="50" r="42" fill="none" stroke="#f97316" stroke-width="7" stroke-dasharray="263.89378290154264" stroke-dashoffset="113.47432664766333" stroke-linecap="round" transform="rotate(-90 50 50)"/></svg>
+    <div class="hc">
+      <span class="hg" style="color:#f97316">D</span>
+      <span class="hs" style="color:#f97316">57/100</span>
+      <span class="hd">8 checks · 8 issues · 1267ms</span>
+    </div>
+  </div>
+  <div class="radar"><svg viewBox="0 0 240 240"><polygon points="120,97.5 139.48557158514987,108.75 139.48557158514987,131.25 120,142.5 100.51442841485013,131.25 100.51442841485013,108.75000000000001" fill="none" stroke="#1e1e24" stroke-width="0.7"/><polygon points="120,75 158.97114317029974,97.5 158.97114317029974,142.5 120,165 81.02885682970026,142.5 81.02885682970025,97.50000000000003" fill="none" stroke="#1e1e24" stroke-width="0.7"/><polygon points="120,52.5 178.4567147554496,86.25 178.4567147554496,153.75 120,187.5 61.543285244550404,153.75000000000003 61.54328524455036,86.25000000000004" fill="none" stroke="#1e1e24" stroke-width="0.7"/><polygon points="120,30 197.94228634059948,75 197.94228634059948,165 120,210 42.057713659400534,165.00000000000003 42.05771365940049,75.00000000000006" fill="none" stroke="#1e1e24" stroke-width="0.7"/><line x1="120" y1="120" x2="120" y2="30" stroke="#1e1e24" stroke-width="0.7"/><text x="120" y="14" text-anchor="middle" dominant-baseline="middle" fill="#6b7280" font-size="9" font-weight="600">Foundations</text><line x1="120" y1="120" x2="197.94228634059948" y2="75" stroke="#1e1e24" stroke-width="0.7"/><text x="211.79869280115048" y="67" text-anchor="middle" dominant-baseline="middle" fill="#6b7280" font-size="9" font-weight="600">Quality</text><line x1="120" y1="120" x2="197.94228634059948" y2="165" stroke="#1e1e24" stroke-width="0.7"/><text x="211.7986928011505" y="173" text-anchor="middle" dominant-baseline="middle" fill="#6b7280" font-size="9" font-weight="600">Testing</text><line x1="120" y1="120" x2="120" y2="210" stroke="#1e1e24" stroke-width="0.7"/><text x="120" y="226" text-anchor="middle" dominant-baseline="middle" fill="#6b7280" font-size="9" font-weight="600">Architecture</text><line x1="120" y1="120" x2="42.057713659400534" y2="165.00000000000003" stroke="#1e1e24" stroke-width="0.7"/><text x="28.20130719884952" y="173.00000000000003" text-anchor="middle" dominant-baseline="middle" fill="#6b7280" font-size="9" font-weight="600">Security</text><line x1="120" y1="120" x2="42.05771365940049" y2="75.00000000000006" stroke="#1e1e24" stroke-width="0.7"/><text x="28.201307198849463" y="67.00000000000006" text-anchor="middle" dominant-baseline="middle" fill="#6b7280" font-size="9" font-weight="600">AI Readiness</text><polygon points="120,52.5 184.69209766269756,82.65 120,120 120,120 42.057713659400534,165.00000000000003 120,120" fill="#818cf825" stroke="#818cf8" stroke-width="1.5"/><circle cx="120" cy="52.5" r="3.5" fill="#818cf8"/><circle cx="184.69209766269756" cy="82.65" r="3.5" fill="#818cf8"/><circle cx="120" cy="120" r="3.5" fill="#818cf8"/><circle cx="120" cy="120" r="3.5" fill="#818cf8"/><circle cx="42.057713659400534" cy="165.00000000000003" r="3.5" fill="#818cf8"/><circle cx="120" cy="120" r="3.5" fill="#818cf8"/></svg></div>
+</div>
+<div class="cats"><div class="cc" onclick="go('foundations')"><div class="cc-s" style="color:#84cc16">75</div><div class="cc-l">Foundations</div><div class="cc-m"><span class="mc" style="color:#f97316" title="structure: 50">D</span><span class="mc" style="color:#555" title="lint: skip">—</span><span class="mc" style="color:#555" title="types: skip">—</span><span class="mc" style="color:#555" title="type-safety: skip">—</span><span class="mc" style="color:#22c55e" title="standards: 100">A</span></div></div><div class="cc" onclick="go('quality')"><div class="cc-s" style="color:#84cc16">83</div><div class="cc-l">Quality</div><div class="cc-m"><span class="mc" style="color:#22c55e" title="complexity: 100">A</span><span class="mc" style="color:#22c55e" title="duplication: 100">A</span><span class="mc" style="color:#555" title="error-handling: skip">—</span><span class="mc" style="color:#555" title="react: skip">—</span><span class="mc" style="color:#555" title="accessibility: skip">—</span><span class="mc" style="color:#f97316" title="docs: 50">D</span></div></div><div class="cc" onclick="go('testing')"><div class="cc-s" style="color:#ef4444">0</div><div class="cc-l">Testing</div><div class="cc-m"><span class="mc" style="color:#ef4444" title="testing: 0">F</span></div></div><div class="cc" onclick="go('arch')"><div class="cc-s" style="color:#ef4444">0</div><div class="cc-l">Architecture</div><div class="cc-m"><span class="mc" style="color:#555" title="architecture: skip">—</span></div></div><div class="cc" onclick="go('security')"><div class="cc-s" style="color:#22c55e">100</div><div class="cc-l">Security</div><div class="cc-m"><span class="mc" style="color:#22c55e" title="secrets: 100">A</span><span class="mc" style="color:#555" title="security: skip">—</span><span class="mc" style="color:#22c55e" title="dependencies: 100">A</span></div></div><div class="cc" onclick="go('llm')"><div class="cc-s" style="color:#ef4444">0</div><div class="cc-l">AI Readiness</div><div class="cc-m"><span class="mc" style="color:#555" title="confusion: skip">—</span><span class="mc" style="color:#555" title="context: skip">—</span></div></div></div>
+
+<div class="ov-section"><h3>All Checks</h3><div class="bars"><div class="brow"><span class="bl">testing</span><div class="bb"><div class="bf" style="width:0%;background:#ef4444"></div></div><span class="bv" style="color:#ef4444">F 0</span></div><div class="brow"><span class="bl">structure</span><div class="bb"><div class="bf" style="width:50%;background:#f97316"></div></div><span class="bv" style="color:#f97316">D 50</span></div><div class="brow"><span class="bl">docs</span><div class="bb"><div class="bf" style="width:50%;background:#f97316"></div></div><span class="bv" style="color:#f97316">D 50</span></div><div class="brow"><span class="bl">standards</span><div class="bb"><div class="bf" style="width:100%;background:#22c55e"></div></div><span class="bv" style="color:#22c55e">A 100</span></div><div class="brow"><span class="bl">complexity</span><div class="bb"><div class="bf" style="width:100%;background:#22c55e"></div></div><span class="bv" style="color:#22c55e">A 100</span></div><div class="brow"><span class="bl">duplication</span><div class="bb"><div class="bf" style="width:100%;background:#22c55e"></div></div><span class="bv" style="color:#22c55e">A 100</span></div><div class="brow"><span class="bl">secrets</span><div class="bb"><div class="bf" style="width:100%;background:#22c55e"></div></div><span class="bv" style="color:#22c55e">A 100</span></div><div class="brow"><span class="bl">dependencies</span><div class="bb"><div class="bf" style="width:100%;background:#22c55e"></div></div><span class="bv" style="color:#22c55e">A 100</span></div></div></div>
+<div class="ov-section"><h3>Top Issues</h3><div class="ov-issue error"><span class="is">E</span><span class="ov-check">structure</span><span class="ov-msg">Missing LICENSE — Open source license</span></div><div class="ov-issue error"><span class="is">E</span><span class="ov-check">structure</span><span class="ov-msg">No src/ directory found</span></div><div class="ov-issue error"><span class="is">E</span><span class="ov-check">docs</span><span class="ov-msg">No README.md — project has no documentation</span></div><div class="ov-issue error"><span class="is">E</span><span class="ov-check">testing</span><span class="ov-msg">0 source files with zero tests</span></div><div class="ov-issue warning"><span class="is">W</span><span class="ov-check">structure</span><span class="ov-msg">Missing tsconfig.json — TypeScript configuration</span></div><div class="ov-issue warning"><span class="is">W</span><span class="ov-check">structure</span><span class="ov-msg">Missing README.md — Project documentation</span></div><div class="ov-issue warning"><span class="is">W</span><span class="ov-check">structure</span><span class="ov-msg">No lockfile found — builds may not be reproducible</span></div><div class="ov-issue warning"><span class="is">W</span><span class="ov-check">structure</span><span class="ov-msg">No &#39;test&#39; script in package.json</span></div></div>
+
+<div class="stack"><span>packageManager: <b>npm</b></span></div>
+</div>
+  <div id="p-foundations" class="page">
+<div class="cat-head"><span style="color:#84cc16;font-size:1.8rem;font-weight:900">75</span><span style="color:#84cc16">/100</span><span style="color:var(--muted);margin-left:0.5rem">Foundations</span></div>
+<div class="bar2"><div class="bf2" style="width:75%;background:#84cc16"></div></div>
+<div class="sub-nav"><a class="sn active" data-sub="foundations-structure" onclick="sub(this,'foundations')">structure <span style="color:#f97316">D</span></a><a class="sn" data-sub="foundations-lint" onclick="sub(this,'foundations')">lint <span style="color:#555">—</span></a><a class="sn" data-sub="foundations-types" onclick="sub(this,'foundations')">types <span style="color:#555">—</span></a><a class="sn" data-sub="foundations-type-safety" onclick="sub(this,'foundations')">type-safety <span style="color:#555">—</span></a><a class="sn" data-sub="foundations-standards" onclick="sub(this,'foundations')">standards <span style="color:#22c55e">A</span></a></div>
+<div class="sp active" data-sub="foundations-structure">
+<div class="ch-head"><span class="ch-g" style="color:#f97316">D</span><div><b>Project Structure</b><span class="ch-s">50/100 · weight 6% · 1ms · 6 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Checks for standard project files: package.json, tsconfig.json, LICENSE, README, .gitignore, lockfile. Verifies test-to-source file ratio and that essential scripts (test, build) exist.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Missing config files cause build failures in CI. Missing LICENSE makes the project legally ambiguous. No lockfile means non-reproducible builds — a dependency update can break production silently.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Ensure every project has package.json, tsconfig.json, LICENSE, .gitignore, and a lockfile. Add &#39;test&#39; and &#39;build&#39; scripts. Aim for at least one test file per source file.</span></div></div>
+
+
+
+<div class="kvs"><div class="kv"><span class="k">found</span><span class="v">package.json, .gitignore</span></div><div class="kv"><span class="k">missing</span><span class="v">tsconfig.json, LICENSE, README.md</span></div><div class="kv"><span class="k">srcFiles</span><span class="v">0</span></div><div class="kv"><span class="k">testFiles</span><span class="v">0</span></div><div class="kv"><span class="k">testRatio</span><span class="v">0%</span></div></div>
+<div class="iss-list"><div class="fg"><div class="fn">General</div><div class="ir warning"><span class="is">W</span><span class="im">Missing tsconfig.json — TypeScript configuration</span><span class="iru">missing-file</span></div><div class="ir error"><span class="is">E</span><span class="im">Missing LICENSE — Open source license</span><span class="iru">missing-file</span></div><div class="ir warning"><span class="is">W</span><span class="im">Missing README.md — Project documentation</span><span class="iru">missing-file</span></div><div class="ir warning"><span class="is">W</span><span class="im">No lockfile found — builds may not be reproducible</span><span class="iru">missing-lockfile</span></div><div class="ir error"><span class="is">E</span><span class="im">No src/ directory found</span><span class="iru">no-src</span></div><div class="ir warning"><span class="is">W</span><span class="im">No &#39;test&#39; script in package.json</span><span class="iru">no-test-script</span></div></div></div>
+</div><div class="sp" data-sub="foundations-lint">
+<div class="ch-head"><span class="ch-g" style="color:#555">—</span><div><b>Lint</b><span class="ch-s">skipped · weight 5% · 0ms · 0 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Runs the project&#39;s linter (Biome or ESLint, auto-detected) and counts errors and warnings. Lint rules catch bugs, enforce consistency, and prevent common mistakes before they reach production.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Unlinted code accumulates inconsistencies and latent bugs. Studies show that projects with active linting have 15-20% fewer production defects (Microsoft Research, 2019).</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Fix all lint errors. Warnings can be addressed incrementally. If no linter is configured, add Biome (@biomejs/biome) — it&#39;s the fastest linter for TypeScript with zero config needed.</span></div></div>
+<p class="skip-r">no linter detected</p>
+
+
+
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div><div class="sp" data-sub="foundations-types">
+<div class="ch-head"><span class="ch-g" style="color:#555">—</span><div><b>Type Check</b><span class="ch-s">skipped · weight 6% · 0ms · 0 issues</span></div><span class="pri" style="color:#ef4444">critical</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Runs tsc --noEmit to find TypeScript compilation errors. Type errors mean the code may crash at runtime in ways the compiler could have prevented.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Type errors are bugs. Every unresolved type error is a potential runtime crash. TypeScript&#39;s type system exists to prevent entire categories of bugs — ignoring it negates its value.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Fix all type errors. If you&#39;re migrating from JavaScript, enable strict mode gradually — start with &#39;strict: true&#39; and fix errors file by file.</span></div></div>
+<p class="skip-r">no tsconfig.json</p>
+
+
+
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div><div class="sp" data-sub="foundations-type-safety">
+<div class="ch-head"><span class="ch-g" style="color:#555">—</span><div><b>Type Safety</b><span class="ch-s">skipped · weight 3% · 0ms · 0 issues</span></div><span class="pri" style="color:#eab308">medium</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Counts unsafe type patterns: &#39;as any&#39; casts, explicit &#39;: any&#39; annotations, @ts-ignore directives, @ts-nocheck, and non-null assertions (!.). Each weakens the type system&#39;s protection.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>&#39;as any&#39; silences the type checker at that point — any bug the types would have caught now slips through. @ts-ignore and @ts-nocheck disable type checking entirely for a line or file. Accumulated &#39;any&#39; usage correlates with higher defect density.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Replace &#39;as any&#39; with proper types or type guards. Use &#39;unknown&#39; instead of &#39;any&#39; when the type is genuinely unknown. Remove @ts-ignore comments by fixing the underlying type issue.</span></div></div>
+<p class="skip-r">no source files</p>
+
+
+
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div><div class="sp" data-sub="foundations-standards">
+<div class="ch-head"><span class="ch-g" style="color:#22c55e">A</span><div><b>Code Standards</b><span class="ch-s">100/100 · weight 3% · 1ms · 0 issues</span></div><span class="pri" style="color:#eab308">medium</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Checks coding conventions: file naming (PascalCase for components, kebab-case for modules), file size limits (&gt;300 lines flagged), code smells (console.log, var, ==, eval, innerHTML, TODO/FIXME), config hygiene (strict mode), and framework best practices (Tailwind vs inline styles).</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Large files are hard to review and test. console.log in production leaks internal data. var causes hoisting bugs. == causes type coercion surprises. eval/innerHTML are security vulnerabilities. Inconsistent naming makes the codebase harder to navigate.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Split files over 300 lines. Replace console.log with a proper logger or remove it. Use const/let, ===, and safe DOM APIs. Enable TypeScript strict mode.</span></div></div>
+
+
+
+<div class="kvs"><div class="kv"><span class="k">filesScanned</span><span class="v">0</span></div><div class="kv"><span class="k">codeSmells</span><span class="v">0</span></div><div class="kv"><span class="k">largeFiles</span><span class="v">0</span></div><div class="kv"><span class="k">namingViolations</span><span class="v">0</span></div></div>
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div>
+</div><div id="p-quality" class="page">
+<div class="cat-head"><span style="color:#84cc16;font-size:1.8rem;font-weight:900">83</span><span style="color:#84cc16">/100</span><span style="color:var(--muted);margin-left:0.5rem">Quality</span></div>
+<div class="bar2"><div class="bf2" style="width:83%;background:#84cc16"></div></div>
+<div class="sub-nav"><a class="sn active" data-sub="quality-complexity" onclick="sub(this,'quality')">complexity <span style="color:#22c55e">A</span></a><a class="sn" data-sub="quality-duplication" onclick="sub(this,'quality')">duplication <span style="color:#22c55e">A</span></a><a class="sn" data-sub="quality-error-handling" onclick="sub(this,'quality')">error-handling <span style="color:#555">—</span></a><a class="sn" data-sub="quality-react" onclick="sub(this,'quality')">react <span style="color:#555">—</span></a><a class="sn" data-sub="quality-accessibility" onclick="sub(this,'quality')">accessibility <span style="color:#555">—</span></a><a class="sn" data-sub="quality-docs" onclick="sub(this,'quality')">docs <span style="color:#f97316">D</span></a></div>
+<div class="sp active" data-sub="quality-complexity">
+<div class="ch-head"><span class="ch-g" style="color:#22c55e">A</span><div><b>Complexity</b><span class="ch-s">100/100 · weight 5% · 0ms · 0 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Measures cognitive complexity of each function: how many branches (if/else/switch/for/while/ternary/&amp;&amp;/||) and how many lines. Functions over 60 lines or with complexity over 15 are flagged.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Complex functions are the #1 source of bugs. Research shows defect density increases exponentially with cyclomatic complexity above 10 (McCabe, 1976). Complex code is also harder to review, test, and modify safely.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Extract complex functions into smaller ones. Use early returns to reduce nesting. Replace conditional chains with lookup tables or strategy patterns. Aim for functions under 30 lines with complexity under 10.</span></div></div>
+
+
+
+<div class="kvs"><div class="kv"><span class="k">totalFiles</span><span class="v">0</span></div><div class="kv"><span class="k">totalLines</span><span class="v">0</span></div><div class="kv"><span class="k">longFunctions</span><span class="v">0</span></div><div class="kv"><span class="k">complexFunctions</span><span class="v">0</span></div><div class="kv"><span class="k">functionCount</span><span class="v">0</span></div></div>
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div><div class="sp" data-sub="quality-duplication">
+<div class="ch-head"><span class="ch-g" style="color:#22c55e">A</span><div><b>Duplication</b><span class="ch-s">100/100 · weight 5% · 0ms · 0 issues</span></div><span class="pri" style="color:#eab308">medium</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Detects copy-pasted code blocks of 6+ lines across source files. Duplication is measured as a percentage of total source lines involved in duplicate blocks.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Duplicated code means bugs must be fixed in multiple places. Miss one copy and the bug persists. DRY (Don&#39;t Repeat Yourself) violations increase maintenance cost linearly with each copy.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Extract duplicated logic into shared functions or modules. If two files share the same pattern, create a helper. If the duplication is across repos, consider vendoring a shared module.</span></div></div>
+
+
+
+<div class="kvs"><div class="kv"><span class="k">filesScanned</span><span class="v">0</span></div><div class="kv"><span class="k">duplicates</span><span class="v">0</span></div></div>
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div><div class="sp" data-sub="quality-error-handling">
+<div class="ch-head"><span class="ch-g" style="color:#555">—</span><div><b>Error Handling</b><span class="ch-s">skipped · weight 3% · 0ms · 0 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Detects poor error handling: empty catch blocks, throw with string literals, catch-and-rethrow without context, Promise.then() without .catch(), missing React Error Boundaries.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Empty catch blocks silently swallow errors. throw &#39;string&#39; loses stack traces. Missing Error Boundaries in React cause the entire app to crash on render errors.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Handle or log every catch. Use throw new Error() for stack traces. Add Error Boundaries in React. Chain .catch() on promises.</span></div></div>
+<p class="skip-r">no source files</p>
+
+
+
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div><div class="sp" data-sub="quality-react">
+<div class="ch-head"><span class="ch-g" style="color:#555">—</span><div><b>React Patterns</b><span class="ch-s">skipped · weight 3% · 0ms · 0 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Checks React-specific patterns: conditional hook calls (violates Rules of Hooks), missing key props in .map(), index as key, prop spreading on DOM elements, and excessive inline handlers.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Conditional hooks cause React to crash at runtime. Missing keys cause incorrect reconciliation — items can swap, duplicate, or lose state. Index keys break when lists are reordered or filtered.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Never call hooks inside conditions, loops, or nested functions. Always provide a unique, stable key in .map(). Avoid spreading unknown props onto DOM elements. Extract inline handlers for readability.</span></div></div>
+<p class="skip-r">not a React project</p>
+
+
+
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div><div class="sp" data-sub="quality-accessibility">
+<div class="ch-head"><span class="ch-g" style="color:#555">—</span><div><b>Accessibility</b><span class="ch-s">skipped · weight 4% · 0ms · 0 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Checks common accessibility violations: images without alt text, click handlers on non-interactive elements without keyboard support, form controls without labels, autoFocus usage, positive tabIndex, and missing html lang attribute.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>1 in 4 adults has a disability (CDC). Missing alt text makes images invisible to screen readers. Click-only divs exclude keyboard users. Unlabeled inputs are unusable with assistive technology. Missing lang attribute breaks screen reader pronunciation.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Add alt text to all images (use alt=&quot;&quot; for decorative). Use &lt;button&gt; for clickable elements, not &lt;div onClick&gt;. Label all form controls with &lt;label&gt;, aria-label, or aria-labelledby. Set lang on &lt;html&gt;.</span></div></div>
+<p class="skip-r">no JSX/TSX files</p>
+
+
+
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div><div class="sp" data-sub="quality-docs">
+<div class="ch-head"><span class="ch-g" style="color:#f97316">D</span><div><b>Documentation</b><span class="ch-s">50/100 · weight 3% · 0ms · 1 issues</span></div><span class="pri" style="color:#6b7280">low</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Checks README quality (existence, length, sections) and JSDoc coverage (what percentage of exported functions/classes have documentation comments).</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Undocumented code is hard to onboard to and easy to misuse. Missing README means new contributors can&#39;t get started. Undocumented exports become tribal knowledge that leaves when people leave.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Write a README with: what it does, how to install, how to run, how to develop. Add JSDoc comments to all public exports — even a one-line description helps.</span></div></div>
+
+
+
+<div class="kvs"><div class="kv"><span class="k">readmeLines</span><span class="v">0</span></div><div class="kv"><span class="k">totalExports</span><span class="v">0</span></div><div class="kv"><span class="k">documentedExports</span><span class="v">0</span></div><div class="kv"><span class="k">documentedPct</span><span class="v">n/a</span></div></div>
+<div class="iss-list"><div class="fg"><div class="fn">General</div><div class="ir error"><span class="is">E</span><span class="im">No README.md — project has no documentation</span><span class="iru">no-readme</span></div></div></div>
+</div>
+</div><div id="p-testing" class="page">
+<div class="cat-head"><span style="color:#ef4444;font-size:1.8rem;font-weight:900">0</span><span style="color:#ef4444">/100</span><span style="color:var(--muted);margin-left:0.5rem">Testing</span></div>
+<div class="bar2"><div class="bf2" style="width:0%;background:#ef4444"></div></div>
+<div class="sub-nav"><a class="sn active" data-sub="testing-testing" onclick="sub(this,'testing')">testing <span style="color:#ef4444">F</span></a></div>
+<div class="sp active" data-sub="testing-testing">
+<div class="ch-head"><span class="ch-g" style="color:#ef4444">F</span><div><b>Testing</b><span class="ch-s">0/100 · weight 17% · 1ms · 1 issues</span></div><span class="pri" style="color:#ef4444">critical</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Deep assessment of test quality across 6 dimensions: pyramid presence (unit/integration/component/E2E layers), test execution (pass/fail), coverage (statement/branch/line/function), file pairing (test file per source file), test quality (assertion density, mock ratio, snapshot ratio), and E2E tool detection (Playwright/Cypress).</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Code without tests is code you can&#39;t safely change. Missing test layers mean entire categories of bugs go undetected: unit tests catch logic bugs, integration tests catch API contract breaks, E2E tests catch user-visible regressions. Low coverage means large portions of code are never exercised.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Follow the testing pyramid: many unit tests, some integration tests, fewer E2E tests. Aim for &gt;80% branch coverage. Every source file should have a corresponding test file. Use Playwright for E2E if you have a web frontend.</span></div></div>
+
+
+<div class="arch-svg"></div>
+<div class="kvs"><div class="kv"><span class="k">srcFiles</span><span class="v">0</span></div><div class="kv"><span class="k">testFiles</span><span class="v">0</span></div><div class="kv"><span class="k">pyramid</span><span class="v">{&quot;unit&quot;:0,&quot;integration&quot;:0,&quot;component&quot;:0,&quot;e2e&quot;:0}</span></div></div>
+<div class="iss-list"><div class="fg"><div class="fn">General</div><div class="ir error"><span class="is">E</span><span class="im">0 source files with zero tests</span><span class="iru">no-tests</span></div></div></div>
+</div>
+</div><div id="p-arch" class="page">
+<div class="cat-head"><span style="color:#ef4444;font-size:1.8rem;font-weight:900">0</span><span style="color:#ef4444">/100</span><span style="color:var(--muted);margin-left:0.5rem">Architecture</span></div>
+<div class="bar2"><div class="bf2" style="width:0%;background:#ef4444"></div></div>
+<div class="sub-nav"><a class="sn active" data-sub="arch-architecture" onclick="sub(this,'arch')">architecture <span style="color:#555">—</span></a></div>
+<div class="sp active" data-sub="arch-architecture">
+<div class="ch-head"><span class="ch-g" style="color:#555">—</span><div><b>Architecture</b><span class="ch-s">skipped · weight 6% · 0ms · 0 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Analyzes the import graph to detect structural problems: circular dependencies, god modules (imported by &gt;50% of files), orphan modules (dead code), high fan-out (importing too many modules), and connector modules (high coupling). Generates an SVG architecture diagram.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Circular dependencies create build order issues and make refactoring impossible without breaking changes. God modules become bottlenecks — any change ripples through the entire codebase. High coupling means you can&#39;t change one module without testing everything it touches.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Break circular deps by extracting shared types to a separate file. Split god modules by concern. Reduce fan-out by co-locating related code. Use dependency injection for loose coupling.</span></div></div>
+<p class="skip-r">fewer than 2 source files</p>
+
+
+
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div>
+</div><div id="p-security" class="page">
+<div class="cat-head"><span style="color:#22c55e;font-size:1.8rem;font-weight:900">100</span><span style="color:#22c55e">/100</span><span style="color:var(--muted);margin-left:0.5rem">Security</span></div>
+<div class="bar2"><div class="bf2" style="width:100%;background:#22c55e"></div></div>
+<div class="sub-nav"><a class="sn active" data-sub="security-secrets" onclick="sub(this,'security')">secrets <span style="color:#22c55e">A</span></a><a class="sn" data-sub="security-security" onclick="sub(this,'security')">security <span style="color:#555">—</span></a><a class="sn" data-sub="security-dependencies" onclick="sub(this,'security')">dependencies <span style="color:#22c55e">A</span></a></div>
+<div class="sp active" data-sub="security-secrets">
+<div class="ch-head"><span class="ch-g" style="color:#22c55e">A</span><div><b>Secrets</b><span class="ch-s">100/100 · weight 6% · 14ms · 0 issues</span></div><span class="pri" style="color:#ef4444">critical</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Scans source files for hardcoded secrets: AWS keys, GitHub tokens, Stripe keys, OpenAI/Anthropic API keys, Google API keys, private keys, and generic secret patterns. Checks 13 regex patterns against every non-test source file.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Hardcoded secrets in source code are the #1 cause of credential leaks. Once pushed to Git, secrets are in the history forever — even if deleted in a later commit. Leaked API keys can be exploited within minutes by automated scanners.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Never hardcode secrets. Use environment variables or a secret manager (Bitwarden, AWS Secrets Manager, Cloudflare Secrets). If a secret was committed, rotate it immediately — deleting the file is not enough.</span></div></div>
+
+
+
+<div class="kvs"><div class="kv"><span class="k">secretsFound</span><span class="v">0</span></div></div>
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div><div class="sp" data-sub="security-security">
+<div class="ch-head"><span class="ch-g" style="color:#555">—</span><div><b>Security Patterns</b><span class="ch-s">skipped · weight 7% · 0ms · 0 issues</span></div><span class="pri" style="color:#ef4444">critical</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Static analysis for 15 vulnerability patterns mapped to CWE (Common Weakness Enumeration) IDs. Covers: XSS (innerHTML, dangerouslySetInnerHTML, document.write), injection (eval, new Function, SQL template literals, command injection), weak crypto (Math.random for tokens, MD5/SHA1), prototype pollution, path traversal, SSRF, and missing security headers.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>These patterns represent the most commonly exploited vulnerabilities in web applications (OWASP Top 10). A single XSS or injection vulnerability can lead to account takeover, data theft, or complete system compromise.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Replace innerHTML with textContent or DOM APIs. Never use eval(). Use parameterized queries for SQL. Use crypto.randomUUID() instead of Math.random() for tokens. Validate all user input before use in file paths or URLs.</span></div></div>
+<p class="skip-r">no source files</p>
+
+
+
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div><div class="sp" data-sub="security-dependencies">
+<div class="ch-head"><span class="ch-g" style="color:#22c55e">A</span><div><b>Dependencies</b><span class="ch-s">100/100 · weight 5% · 1247ms · 0 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Runs npm/pnpm audit to find known vulnerabilities (CVEs) in dependencies. Also checks for outdated packages — major version gaps indicate potential security debt and breaking API changes.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Vulnerable dependencies are the most common attack vector for supply chain attacks. 84% of codebases contain at least one known vulnerability in their dependencies (Synopsys OSSRA 2024). Outdated major versions often have unpatched security issues.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Run &#39;pnpm audit&#39; regularly and fix critical/high vulnerabilities immediately. Keep dependencies updated — use Dependabot or Renovate for automated PRs. Pin versions with a lockfile.</span></div></div>
+
+
+
+<div class="kvs"><div class="kv"><span class="k">vulnerabilities</span><span class="v">{&quot;critical&quot;:0,&quot;high&quot;:0,&quot;moderate&quot;:0,&quot;low&quot;:0}</span></div><div class="kv"><span class="k">outdated</span><span class="v">0</span></div><div class="kv"><span class="k">majorOutdated</span><span class="v">0</span></div></div>
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div>
+</div><div id="p-llm" class="page">
+<div class="cat-head"><span style="color:#ef4444;font-size:1.8rem;font-weight:900">0</span><span style="color:#ef4444">/100</span><span style="color:var(--muted);margin-left:0.5rem">AI Readiness</span></div>
+<div class="bar2"><div class="bf2" style="width:0%;background:#ef4444"></div></div>
+<div class="sub-nav"><a class="sn active" data-sub="llm-confusion" onclick="sub(this,'llm')">confusion <span style="color:#555">—</span></a><a class="sn" data-sub="llm-context" onclick="sub(this,'llm')">context <span style="color:#555">—</span></a></div>
+<div class="sp active" data-sub="llm-confusion">
+<div class="ch-head"><span class="ch-g" style="color:#555">—</span><div><b>Confusion Index</b><span class="ch-s">skipped · weight 7% · 0ms · 0 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Measures naming ambiguity that causes LLMs to misunderstand or edit the wrong code. Checks: file name confusability (Levenshtein distance + synonym detection), generic function/variable names, export name collisions across files, and ambiguous abbreviations.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>GPT-4o drops 28.6 percentage points on code summarization when names are ambiguous (arXiv:2510.03178). LLMs editing similar-named files is the #1 reported failure mode in AI-assisted development. Generic names like process(), handle(), data cause models to misinterpret intent.</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Use descriptive, unique names. Avoid synonym files (utils.ts + helpers.ts — pick one). Avoid generic exports. Disambiguate abbreviations (use &#39;authentication&#39; not &#39;auth&#39; if both auth meanings exist in the codebase).</span></div></div>
+<p class="skip-r">no source files</p>
+
+
+
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div><div class="sp" data-sub="llm-context">
+<div class="ch-head"><span class="ch-g" style="color:#555">—</span><div><b>Context Locality</b><span class="ch-s">skipped · weight 6% · 0ms · 0 issues</span></div><span class="pri" style="color:#f97316">high</span></div>
+<div class="info-panel"><div class="ip-row"><span class="ip-label">What</span><span>Measures how self-contained code is for LLM consumption. Checks: token density per file, import count, circular dependencies, and context sinks (files that import many modules but export little). Based on the finding that LLMs lose 30%+ accuracy for information in the middle of long contexts.</span></div><div class="ip-row"><span class="ip-label">Risk</span><span>Files over ~4000 tokens exceed the &#39;sweet spot&#39; for LLM attention (Liu et al. 2023 &#39;Lost in the Middle&#39;). Circular dependencies create infinite loops in LLM code navigation. Heavy import chains force LLMs to load many files, burning context window budget (Chroma &#39;Context Rot&#39; 2025).</span></div><div class="ip-row"><span class="ip-label">Fix</span><span>Keep files under 400 lines / 4000 tokens. Limit imports to &lt;15 per file. Break circular dependencies. Co-locate related code to reduce cross-file jumps.</span></div></div>
+<p class="skip-r">no source files</p>
+
+
+
+<p style="color:var(--muted);font-size:0.8rem;margin-top:1rem">No issues found.</p>
+</div>
+</div>
+  <div id="p-issues" class="page">
+<h2>All Issues <span style="color:var(--muted);font-weight:400">8</span></h2>
+<div class="isf"><span style="color:var(--fail)">4 errors</span> · <span style="color:var(--warn)">4 warnings</span></div>
+<table class="it"><thead><tr><th></th><th>Check</th><th>Location</th><th>Message</th><th>Rule</th></tr></thead><tbody><tr class="error"><td class="is2">E</td><td class="ic2">structure</td><td class="il2"></td><td>Missing LICENSE — Open source license</td><td class="iru2">missing-file</td></tr><tr class="error"><td class="is2">E</td><td class="ic2">structure</td><td class="il2"></td><td>No src/ directory found</td><td class="iru2">no-src</td></tr><tr class="error"><td class="is2">E</td><td class="ic2">docs</td><td class="il2"></td><td>No README.md — project has no documentation</td><td class="iru2">no-readme</td></tr><tr class="error"><td class="is2">E</td><td class="ic2">testing</td><td class="il2"></td><td>0 source files with zero tests</td><td class="iru2">no-tests</td></tr><tr class="warning"><td class="is2">W</td><td class="ic2">structure</td><td class="il2"></td><td>Missing tsconfig.json — TypeScript configuration</td><td class="iru2">missing-file</td></tr><tr class="warning"><td class="is2">W</td><td class="ic2">structure</td><td class="il2"></td><td>Missing README.md — Project documentation</td><td class="iru2">missing-file</td></tr><tr class="warning"><td class="is2">W</td><td class="ic2">structure</td><td class="il2"></td><td>No lockfile found — builds may not be reproducible</td><td class="iru2">missing-lockfile</td></tr><tr class="warning"><td class="is2">W</td><td class="ic2">structure</td><td class="il2"></td><td>No &#39;test&#39; script in package.json</td><td class="iru2">no-test-script</td></tr></tbody></table>
+
+</div>
+  <div id="p-files" class="page"><h2>File Health</h2><p style="color:var(--muted)">No file-level issues found.</p></div>
+  <div class="footer">Generated by <a href="https://vibecodeqa.online">VibeCode QA</a> v0.17.0 &mdash; <code>npx @vibecodeqa/cli</code></div>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.tn').forEach(n=>{n.classList.toggle('active',n.dataset.page===id)});
+  document.querySelectorAll('.page').forEach(p=>{p.classList.toggle('active',p.id==='p-'+id)});
+  window.scrollTo(0,0);
+}
+function sub(el,cat){
+  const id=el.dataset.sub;
+  el.parentElement.querySelectorAll('.sn').forEach(n=>n.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#p-'+cat+' .sp').forEach(s=>{s.classList.toggle('active',s.dataset.sub===id)});
+}
+// Copy-prompt buttons
+document.addEventListener('click',function(ev){
+  var btn=ev.target.closest('.cp-btn');
+  if(!btn)return;
+  navigator.clipboard.writeText(btn.dataset.prompt||'');
+  btn.textContent='\u2713';setTimeout(function(){btn.textContent='\ud83d\udccb'},1000);
+});
+// Init: show overview
+document.querySelector('.tn').classList.add('active');
+</script>
+</body></html>
