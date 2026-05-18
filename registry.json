@@ -324,6 +324,19 @@
       "cfProject": "freesnowmanapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "typeflow",
+      "name": "typeflow",
+      "category": "Brain Training",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "TypeFlow - Modern typing speed test PWA",
+      "appUrl": "https://typeflow.freeappstore.online",
+      "repo": "freeappstore-online/typeflow",
+      "cfProject": "freetypeflowapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
