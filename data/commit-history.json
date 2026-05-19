@@ -1102,9 +1102,19 @@
   "freeappstore-online/snowman": {
     "meta": {
       "created_at": "2026-05-17T15:41:58Z",
-      "pushed_at": "2026-05-18T11:27:19Z"
+      "pushed_at": "2026-05-19T07:27:27Z"
     },
     "commits": [
+      {
+        "sha": "9a668ae0fd5282fc7ce09f7ccc72ac01fa11590c",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/9a668ae0fd5282fc7ce09f7ccc72ac01fa11590c",
+        "commit": {
+          "message": "Expand to full ISO 3166-1 country list via REST Countries API\n\n- countries.ts: replace hand-curated ~190 countries with exhaustive 250-entry\n  list generated from restcountries.com, adding Malaysia, Singapore, Seychelles,\n  Ivory Coast, territories and island states previously missing\n- WorldMap ADM0_TO_NUMERIC: replace with full API-generated 249-entry mapping\n  covering every alpha-3 code; add XKX for Kosovo (no ccn3 in ISO standard)\n- useSnowData SAMPLE_POINTS: add 19 snow-capable countries that were missing\n  (Andorra, Armenia, Azerbaijan, Belarus, Bosnia, Estonia, Kosovo, Latvia,\n  Lebanon, Lesotho, Liechtenstein, Luxembourg, Moldova, Montenegro, Serbia,\n  Slovakia, Slovenia, Turkmenistan, North Macedonia) — 93 total, under 100 cap\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-19T07:27:25Z"
+          }
+        }
+      },
       {
         "sha": "b3ef641fc561f508851c7d232aca23179cea6cad",
         "html_url": "https://github.com/freeappstore-online/snowman/commit/b3ef641fc561f508851c7d232aca23179cea6cad",
@@ -1122,16 +1132,6 @@
           "message": "Fix infinite pan teleport and FPS bugs in WorldMap\n\n- Replace CSS matrix transform with SVG setAttribute: CSS transforms on SVG\n  elements scale from the bounding-box center (not SVG origin), causing\n  massive drift when 3 world copies are rendered, exposing blank edges and\n  jarring teleport jumps on modulo wrap\n- Center the x modulo wrap at [-ww/2, +ww/2) so the seam fires while safely\n  inside the drawn copies, never at a visible edge\n- Stop spamming setTransform on every pan frame at min zoom: only trigger\n  React re-render when crossing a zoom limit boundary\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-18T10:04:15Z"
-          }
-        }
-      },
-      {
-        "sha": "e2fe30be2e2ae0578c3e645a87607c4546c8848b",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/e2fe30be2e2ae0578c3e645a87607c4546c8848b",
-        "commit": {
-          "message": "Switch map pan/zoom to GPU-composited CSS matrix transform\n\nSVG transform attribute changes require CPU rasterization on every frame.\nReplacing with CSS matrix() on the <g> element lets the browser compositor\nhandle pan/zoom on a dedicated GPU layer — same mechanism as Google Maps.\n\nFormula: matrix(k,0,0,k, S*x + tx*(1-k), S*y + ty*(1-k)) where S/tx/ty\ncome from the SVG's getScreenCTM(), cached in ctmRef and refreshed on resize.\nFalls back to SVG attribute if CTM is unavailable (first paint race).\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-18T08:55:11Z"
           }
         }
       }
