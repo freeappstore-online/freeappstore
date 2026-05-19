@@ -337,6 +337,19 @@
       "cfProject": "freetypeflowapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "streak",
+      "name": "streak",
+      "category": "Health & Fitness",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Daily habits with live buddy grids",
+      "appUrl": "https://streak.freeappstore.online",
+      "repo": "freeappstore-online/streak",
+      "cfProject": "freestreakapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
