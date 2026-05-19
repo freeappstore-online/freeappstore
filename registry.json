@@ -350,6 +350,19 @@
       "cfProject": "freestreakapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "spending",
+      "name": "spending",
+      "category": "Finance",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "GCP spending & visibility dashboard — live, no backend",
+      "appUrl": "https://spending.freeappstore.online",
+      "repo": "freeappstore-online/spending",
+      "cfProject": "freespendingapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
