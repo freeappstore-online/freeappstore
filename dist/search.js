@@ -64,26 +64,23 @@
 
   function buildCrossCard(item) {
     const a = document.createElement('a');
-    a.className = 'app-card';
+    a.className = 'app-card compact';
     a.href = `https://${esc(item.domain)}/${esc(item.path)}/${esc(item.id)}.html`;
     a.target = '_blank';
     a.rel = 'noopener';
     a.style.textDecoration = 'none';
+    const letter = (item.name || '?').trim().charAt(0).toUpperCase();
+    const iconBg = item.iconBg || '#2563eb';
     a.innerHTML = `
-      <div class="app-card-header">
-        <div class="app-icon" style="background: ${esc(item.iconBg)};">${esc(item.icon)}</div>
-        <div>
-          <h3>${esc(item.name)}</h3>
-          <div class="tag">${esc(categoryLabel(item.category))} · ${esc(item.domain.replace(
-            '.online',
-            '',
-          ))}</div>
-        </div>
+      <div class="app-icon" style="background: ${esc(iconBg)};">${esc(letter)}</div>
+      <div class="app-body">
+        <span class="app-name">${esc(item.name)}</span>
+        <span class="app-meta">${esc(categoryLabel(item.category))} · on ${esc(item.domain.replace('.online', ''))}</span>
       </div>
-      <p>${esc(item.description)}</p>
-      <div class="app-actions">
-        <span class="app-link">Open on ${esc(item.domain)} →</span>
-      </div>
+      <span class="app-cta" aria-hidden="true">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="6,4 20,12 6,20"/></svg>
+        Open
+      </span>
     `;
     return a;
   }

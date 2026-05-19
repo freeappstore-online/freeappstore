@@ -220,39 +220,36 @@ fs.mkdirSync(path.join(DIST, 'apps'), { recursive: true });
 
 // --- Generate index.html ---
 
-// Build filter buttons
-const categories = [...new Set(apps.map(a => a.category))];
-const filterButtons = [
-  '<button class="filter-btn active" data-filter="all">All</button>',
-  ...categories.map(cat =>
-    `<button class="filter-btn" data-filter="${cat}">${categoryLabel(cat)}</button>`
-  )
-].join('\n        ');
-
-// Build app cards
+// Build app cards — compact letter-badge layout, Figma 2026
 const appCards = apps.map(app => {
   const q = qualityScores[app.id];
   const qualityBadge = q && q.grade
     ? `<a href="/quality/${escapeHtml(app.id)}/" class="quality-badge grade-${q.grade.toLowerCase()}" title="Code quality: ${q.score}/100">${q.grade}</a>`
     : '';
-  return `        <div class="app-card" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}">
-          <div class="app-card-header">
-            <div class="app-icon" style="background: ${escapeHtml(app.iconBg)};"><img src="${escapeHtml(app.appUrl)}/apple-touch-icon.png" alt="" onerror="this.parentElement.textContent='${app.icon}'" style="width:100%;height:100%;border-radius:inherit;object-fit:cover;" /></div>
-            <div>
-              <h3>${escapeHtml(app.name)}${qualityBadge}</h3>
-              <div class="tag">${escapeHtml(categoryLabel(app.category))}</div>
-            </div>
+  // First letter on a colored square as the icon. apple-touch-icon overrides
+  // the letter when it loads; fallback handles missing icons gracefully.
+  const letter = (app.name || '?').trim().charAt(0).toUpperCase();
+  const iconBg = escapeHtml(app.iconBg || '#2563eb');
+  return `        <div class="app-card compact" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}">
+          <div class="app-icon" style="background: ${iconBg};">
+            <img src="${escapeHtml(app.appUrl)}/apple-touch-icon.png" alt="" onerror="this.replaceWith(document.createTextNode('${letter}'))" />
           </div>
-          <p>${escapeHtml(app.description)}</p>
-          <div class="app-actions"><a href="${escapeHtml(app.appUrl)}" target="_blank" rel="noopener" class="app-btn-open">Open</a><a href="" class="app-link app-about">About &rarr;</a></div>
+          <div class="app-body">
+            <span class="app-name">${escapeHtml(app.name)}${qualityBadge}</span>
+            <span class="app-meta">${escapeHtml(categoryLabel(app.category))}</span>
+          </div>
+          <a href="${escapeHtml(app.appUrl)}" target="_blank" rel="noopener" class="app-cta" aria-label="Open ${escapeHtml(app.name)}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="6,4 20,12 6,20" /></svg>
+            Open
+          </a>
         </div>`;
 }).join('\n\n');
 
 // indexHtml is finalized inside the async IIFE below — cross-store
 // registry fetch is async, and we want to embed it into the page.
 let indexHtml = indexTemplate
-  .replace('{{FILTER_BUTTONS}}', filterButtons)
-  .replace('{{APPS_GRID}}', appCards);
+  .replace('{{APPS_GRID}}', appCards)
+  .replace('{{APPS_COUNT}}', String(apps.length));
 
 // --- Generate app detail pages ---
 // Fetch histories in parallel — 26 apps × 2 calls = 52 requests, well under

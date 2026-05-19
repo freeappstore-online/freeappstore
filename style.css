@@ -1,42 +1,59 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #fafaf9;
+  --bg: #f8fafc;
   --surface: #ffffff;
-  --ink: #1a1a1a;
-  --muted: #6b6b6b;
+  --surface-2: #f1f5f9;
+  --ink: #1e293b;
+  --ink-strong: #0f172a;
+  --muted: #64748b;
+  --muted-soft: #94a3b8;
   --accent: #2563eb;
+  --accent-hover: #1d4ed8;
   --accent-soft: #eff6ff;
   --pro: #7c3aed;
   --pro-soft: #f5f3ff;
-  --border: #e5e5e5;
-  --radius: 1.25rem;
-  --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06);
-  --shadow-lg: 0 4px 20px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06);
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --logo-grad: linear-gradient(to bottom right, #2563eb 0%, #7c3aed 100%);
+  --radius-sm: 0.5rem;
+  --radius: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px -1px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 10px 25px -8px rgba(15, 23, 42, 0.15), 0 4px 10px -4px rgba(15, 23, 42, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f0f0f;
-    --surface: #1a1a1a;
-    --ink: #f0f0f0;
-    --muted: #999;
-    --accent: #60a5fa;
-    --accent-soft: #1e293b;
-    --pro: #a78bfa;
-    --pro-soft: #1e1b2e;
-    --border: #2a2a2a;
-    --shadow: 0 1px 3px rgba(0,0,0,0.2), 0 4px 12px rgba(0,0,0,0.3);
-    --shadow-lg: 0 4px 20px rgba(0,0,0,0.3), 0 8px 32px rgba(0,0,0,0.4);
-  }
+html.dark {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-2: #0f172a;
+  --ink: #f1f5f9;
+  --ink-strong: #ffffff;
+  --muted: #94a3b8;
+  --muted-soft: #64748b;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-soft: #1e3a8a33;
+  --pro: #a78bfa;
+  --pro-soft: #4c1d9533;
+  --border: #334155;
+  --border-strong: #475569;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 25px -8px rgba(0, 0, 0, 0.5), 0 4px 10px -4px rgba(0, 0, 0, 0.3);
 }
+
+html { color-scheme: light; }
+html.dark { color-scheme: dark; }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
   background: var(--bg);
   color: var(--ink);
-  line-height: 1.6;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 
 .container {
@@ -50,8 +67,9 @@ a:hover { text-decoration: underline; }
 
 /* Header */
 header {
-  padding: 1.5rem 0;
+  padding: 1.25rem 0;
   border-bottom: 1px solid var(--border);
+  background: var(--bg);
 }
 
 header .container {
@@ -62,6 +80,7 @@ header .container {
   gap: 1rem;
 }
 
+/* Word-mark fallback logo (kept for footer / pages where the new mark isn't used) */
 .logo {
   font-size: 1.4rem;
   font-weight: 800;
@@ -72,6 +91,143 @@ header .container {
 
 .logo:hover { text-decoration: none; }
 .logo span { color: var(--accent); }
+
+/* New gradient-square brand mark used in the storefront header */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand:hover { text-decoration: none; }
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-image: var(--logo-grad);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+}
+
+.brand-mark svg {
+  width: 22px;
+  height: 22px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink-strong);
+  letter-spacing: -0.01em;
+}
+
+.brand-tag {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Header right-cluster: nav + theme toggle + sign in */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  padding: 0;
+  font-family: inherit;
+}
+
+.theme-toggle:hover {
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Sun icon only shows in dark mode, moon only in light */
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+html.dark .theme-toggle .icon-sun { display: block; }
+html.dark .theme-toggle .icon-moon { display: none; }
+
+/* Primary "Sign In" pill */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 12px;
+  padding: 0.6rem 1.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: var(--shadow);
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.btn-primary:hover { background: var(--accent-hover); text-decoration: none; color: #fff; }
+.btn-primary:active { transform: translateY(1px); }
+
+/* Promote auth.js's Sign-in link to the same blue pill in the storefront header. */
+.header-right .nav-signin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  padding: 0.6rem 1.25rem;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: background 0.15s ease;
+}
+.header-right .nav-signin:hover {
+  background: var(--accent-hover);
+  color: #fff;
+  text-decoration: none;
+}
 
 nav {
   display: flex;
@@ -912,10 +1068,334 @@ footer .container {
 .quality-badge.grade-c { background: #fef3c7; color: #92400e; }
 .quality-badge.grade-d { background: #fee2e2; color: #991b1b; }
 .quality-badge.grade-f { background: #fecaca; color: #7f1d1d; }
-@media (prefers-color-scheme: dark) {
-  .quality-badge.grade-a { background: #052e16; color: #86efac; }
-  .quality-badge.grade-b { background: #172554; color: #93c5fd; }
-  .quality-badge.grade-c { background: #451a03; color: #fcd34d; }
-  .quality-badge.grade-d { background: #450a0a; color: #fca5a5; }
-  .quality-badge.grade-f { background: #450a0a; color: #fca5a5; }
+html.dark .quality-badge.grade-a { background: #052e16; color: #86efac; }
+html.dark .quality-badge.grade-b { background: #172554; color: #93c5fd; }
+html.dark .quality-badge.grade-c { background: #451a03; color: #fcd34d; }
+html.dark .quality-badge.grade-d { background: #450a0a; color: #fca5a5; }
+html.dark .quality-badge.grade-f { background: #450a0a; color: #fca5a5; }
+
+/* =====================================================================
+ * Storefront 2026 — new layout (segmented control, AI input, apps grid)
+ * Built to match the Figma design at civil-pacing-00361020.figma.site
+ * ===================================================================== */
+
+/* Mode picker: "AI Assistant" / "Simple Search" segmented control */
+.mode-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 1.25rem 0 0.75rem;
+  padding: 0;
+  background: transparent;
+}
+
+.mode-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.mode-tab:hover {
+  background: var(--surface-2);
+  color: var(--ink);
+}
+
+.mode-tab.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.mode-tab.active:hover { background: var(--accent-hover); }
+
+.mode-tab svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* AI prompt input + simple search input share a common look */
+.prompt-input,
+.search-input {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.25rem 1rem 3rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.prompt-input:focus,
+.search-input:focus {
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.prompt-input::placeholder,
+.search-input::placeholder {
+  color: var(--muted);
+}
+
+.input-wrap {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.input-wrap .input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+  pointer-events: none;
+}
+
+.input-wrap .input-icon.muted { color: var(--muted); }
+
+/* Apps section: heading row + right-aligned tabs */
+.apps-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.apps-header-title h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink-strong);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.apps-header-title .count {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.apps-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.apps-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.apps-tab:hover { background: var(--surface-2); color: var(--ink); }
+
+.apps-tab.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.apps-tab.active:hover { background: var(--accent-hover); }
+
+.apps-tab svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* New compact app card */
+.apps-grid.compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 1rem;
+}
+
+.app-card.compact {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: var(--shadow);
+}
+
+.app-card.compact:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
+}
+
+.app-card.compact .app-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink-strong);
+  flex-shrink: 0;
+  overflow: hidden;
+  background: var(--accent);
+  line-height: 1;
+}
+
+.app-card.compact .app-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.app-card.compact .app-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.app-card.compact .app-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-strong);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-card.compact .app-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.app-card.compact .app-meta .dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.app-card.compact .app-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease;
+  flex-shrink: 0;
+}
+
+.app-card.compact .app-cta:hover { background: var(--accent-hover); text-decoration: none; color: #fff; }
+
+.app-card.compact .app-cta svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+/* Quality badge tweaks for compact cards */
+.app-card.compact .quality-badge {
+  font-size: 0.65rem;
+  padding: 0.1rem 0.35rem;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+/* Search-empty state in new layout */
+#search-empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+/* Cross-store results heading in new layout */
+#cross-store-results h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .apps-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .apps-tabs {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    padding-bottom: 0.25rem;
+  }
+
+  .app-card.compact { padding: 0.75rem 0.85rem; gap: 0.7rem; }
+  .app-card.compact .app-icon { width: 38px; height: 38px; border-radius: 10px; }
+
+  /* Tighten the storefront header on small viewports so brand + theme + Sign In
+   * fit on one row alongside auth.js's hamburger button. */
+  .brand-tag { display: none; }
+  .brand-name { font-size: 1.1rem; }
+  .brand-mark { width: 36px; height: 36px; border-radius: 10px; }
+  .brand-mark svg { width: 20px; height: 20px; }
+
+  .header-right { gap: 0.5rem; }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 10px; }
+  .header-right .nav-signin {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.88rem;
+    border-radius: 10px;
+  }
 }
