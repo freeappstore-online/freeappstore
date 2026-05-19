@@ -239,7 +239,7 @@ const appCards = apps.map(app => {
   // the letter when it loads; fallback handles missing icons gracefully.
   const letter = (app.name || '?').trim().charAt(0).toUpperCase();
   const iconBg = escapeHtml(app.iconBg || '#2563eb');
-  return `        <div class="app-card compact" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}">
+  return `        <div class="app-card compact" data-id="${escapeHtml(app.id)}" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}">
           <div class="app-icon" style="background: ${iconBg};">
             <img src="${escapeHtml(app.appUrl)}/apple-touch-icon.png" alt="" onerror="this.replaceWith(document.createTextNode('${letter}'))" />
           </div>
@@ -559,6 +559,7 @@ fs.writeFileSync(path.join(DIST, 'sitemap.xml'), sitemap);
 const filesToCopy = [
   'style.css',
   'search.js',
+  'storefront.js',
   'quality.js',
   'manifest.json',
   'favicon.svg',
