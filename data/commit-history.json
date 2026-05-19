@@ -800,9 +800,19 @@
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-05-16T23:32:35Z"
+      "pushed_at": "2026-05-19T22:24:46Z"
     },
     "commits": [
+      {
+        "sha": "8f3c2cba239437794290ff0bbac99b2bfb9d0edb",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/8f3c2cba239437794290ff0bbac99b2bfb9d0edb",
+        "commit": {
+          "message": "Convert into an installable PWA (platform mandate)\n\nWas failing the new PWA offline correctness check: index.html linked\n/manifest.json but vite.config.ts had no VitePWA, so no service worker\nwas ever registered. Installing the app would deposit an icon, then\ntapping it would fail offline.\n\nFix mirrors the canonical pattern in the freeappstore template + the\nFGS games:\n  - Add vite-plugin-pwa to devDependencies, refresh lockfile.\n  - Replace vite.config.ts with a full VitePWA setup — proper\n    workbox config (raised cap, fonts runtime caching, wasm/json in\n    globPatterns), and manifest defined inline so the plugin\n    generates manifest.webmanifest at build.\n  - Drop the static <link rel=\"manifest\"> from index.html (plugin\n    injects its own).\n  - Delete web/public/manifest.json (plugin generates).\n  - Copy icon-192.png and icon-512.png from the canonical FAS set\n    (freeappstore marketing repo).\n\nPreserves the app's existing theme_color, background_color, and\norientation from the prior manifest.json.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-19T22:24:43Z"
+          }
+        }
+      },
       {
         "sha": "792bf09143adaa641e6c3da7aa9ff36d2bffacf4",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/792bf09143adaa641e6c3da7aa9ff36d2bffacf4",
@@ -820,16 +830,6 @@
           "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
           "author": {
             "date": "2026-05-14T11:06:37Z"
-          }
-        }
-      },
-      {
-        "sha": "528ed4977325562d855f95265b61d02e2e4cd34a",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/528ed4977325562d855f95265b61d02e2e4cd34a",
-        "commit": {
-          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
-          "author": {
-            "date": "2026-05-14T05:30:45Z"
           }
         }
       }
@@ -932,9 +932,19 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-16T23:32:38Z"
+      "pushed_at": "2026-05-19T22:24:46Z"
     },
     "commits": [
+      {
+        "sha": "8276386dade4c42b5da77569ea9e84a0238ec850",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/8276386dade4c42b5da77569ea9e84a0238ec850",
+        "commit": {
+          "message": "Convert into an installable PWA (platform mandate)\n\nWas failing the new PWA offline correctness check: index.html linked\n/manifest.json but vite.config.ts had no VitePWA, so no service worker\nwas ever registered. Installing the app would deposit an icon, then\ntapping it would fail offline.\n\nFix mirrors the canonical pattern in the freeappstore template + the\nFGS games:\n  - Add vite-plugin-pwa to devDependencies, refresh lockfile.\n  - Replace vite.config.ts with a full VitePWA setup — proper\n    workbox config (raised cap, fonts runtime caching, wasm/json in\n    globPatterns), and manifest defined inline so the plugin\n    generates manifest.webmanifest at build.\n  - Drop the static <link rel=\"manifest\"> from index.html (plugin\n    injects its own).\n  - Delete web/public/manifest.json (plugin generates).\n  - Copy icon-192.png and icon-512.png from the canonical FAS set\n    (freeappstore marketing repo).\n\nPreserves the app's existing theme_color, background_color, and\norientation from the prior manifest.json.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-19T22:24:44Z"
+          }
+        }
+      },
       {
         "sha": "2f6f6f23dae3542644cff1c020e709989078a4c8",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/2f6f6f23dae3542644cff1c020e709989078a4c8",
@@ -952,16 +962,6 @@
           "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
           "author": {
             "date": "2026-05-14T11:06:36Z"
-          }
-        }
-      },
-      {
-        "sha": "3c5057eb553f83d9d089b1ec9d3569262f5a7842",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/3c5057eb553f83d9d089b1ec9d3569262f5a7842",
-        "commit": {
-          "message": "docs(CLAUDE): adopt slim per-repo shape\n\nRefactors this CLAUDE.md to the slim convention documented in\nSKILLS.md. Platform-wide knowledge (tech stack, brand, deploy,\nmobile rules, paths) lives in SKILLS.md as the single source of\ntruth -- duplicating it per repo just creates drift surface area\nthat breaks AI agents over time. This file now only carries\nwhat is unique to this repo.",
-          "author": {
-            "date": "2026-05-14T05:30:43Z"
           }
         }
       }
@@ -1178,9 +1178,19 @@
   "freeappstore-online/streak": {
     "meta": {
       "created_at": "2026-05-19T21:30:48Z",
-      "pushed_at": "2026-05-19T21:31:44Z"
+      "pushed_at": "2026-05-19T22:24:46Z"
     },
     "commits": [
+      {
+        "sha": "3709927f1614284f727bfdafcffe596a943aec84",
+        "html_url": "https://github.com/freeappstore-online/streak/commit/3709927f1614284f727bfdafcffe596a943aec84",
+        "commit": {
+          "message": "Convert into an installable PWA (platform mandate)\n\nWas failing the new PWA offline correctness check: index.html linked\n/manifest.json but vite.config.ts had no VitePWA, so no service worker\nwas ever registered. Installing the app would deposit an icon, then\ntapping it would fail offline.\n\nFix mirrors the canonical pattern in the freeappstore template + the\nFGS games:\n  - Add vite-plugin-pwa to devDependencies, refresh lockfile.\n  - Replace vite.config.ts with a full VitePWA setup — proper\n    workbox config (raised cap, fonts runtime caching, wasm/json in\n    globPatterns), and manifest defined inline so the plugin\n    generates manifest.webmanifest at build.\n  - Drop the static <link rel=\"manifest\"> from index.html (plugin\n    injects its own).\n  - Delete web/public/manifest.json (plugin generates).\n  - Copy icon-192.png and icon-512.png from the canonical FAS set\n    (freeappstore marketing repo).\n\nPreserves the app's existing theme_color, background_color, and\norientation from the prior manifest.json.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-19T22:24:43Z"
+          }
+        }
+      },
       {
         "sha": "1564f94d5bdb98d58cca328fef47a4748330abce",
         "html_url": "https://github.com/freeappstore-online/streak/commit/1564f94d5bdb98d58cca328fef47a4748330abce",
