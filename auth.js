@@ -1,9 +1,53 @@
-/** Shared auth + mobile nav: runs on every page.
- *  - Adds avatar or sign-in link to <span id="navAuth">
- *  - Adds hamburger menu button + overlay for mobile nav */
+/** Shared auth + mobile nav + theme toggle: runs on every page.
+ *  - Applies stored or system theme (storefront also applies it inline in <head>
+ *    to avoid flash; this handles non-storefront pages that lack the preload).
+ *  - Injects a moon/sun theme-toggle button into the header on pages that
+ *    don't already have one (the storefront ships it in the template).
+ *  - Adds avatar or sign-in link to <span id="navAuth">.
+ *  - Adds hamburger menu button + overlay for mobile nav. */
 
 (function () {
   var API = "https://api.freeappstore.online";
+
+  // ── Theme: apply stored / preferred mode ──
+  try {
+    var stored = localStorage.getItem("fas-theme");
+    var preferDark = stored ? stored === "dark"
+      : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (preferDark) document.documentElement.classList.add("dark");
+  } catch (e) {}
+
+  // ── Theme toggle button (skip if storefront already shipped one) ──
+  if (!document.getElementById("themeToggle")) {
+    var headerC = document.querySelector("header .container");
+    if (headerC) {
+      var tt = document.createElement("button");
+      tt.id = "themeToggle";
+      tt.className = "theme-toggle";
+      tt.type = "button";
+      tt.setAttribute("aria-label", "Toggle dark mode");
+      tt.title = "Toggle dark mode";
+      tt.innerHTML =
+        '<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>' +
+        '<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+      // Insert just before the navAuth (or at the start of header container)
+      var anchor = document.getElementById("navAuth");
+      if (anchor && anchor.parentNode) {
+        anchor.parentNode.insertBefore(tt, anchor);
+      } else {
+        headerC.appendChild(tt);
+      }
+    }
+  }
+  // Wire click on whichever toggle ended up in the DOM.
+  var themeBtn = document.getElementById("themeToggle");
+  if (themeBtn && !themeBtn.dataset.bound) {
+    themeBtn.dataset.bound = "1";
+    themeBtn.addEventListener("click", function () {
+      var isDark = document.documentElement.classList.toggle("dark");
+      try { localStorage.setItem("fas-theme", isDark ? "dark" : "light"); } catch (e) {}
+    });
+  }
 
   // ── Mobile hamburger menu ──
   var nav = document.querySelector("header nav");
