@@ -87,10 +87,13 @@ describe("quality.js security", () => {
   });
 });
 
-// ── dist/auth.js uses safe DOM APIs ──
+// ── auth.js uses safe DOM APIs ──
+// Reads the source file (build.js just copies it to dist/ verbatim).
+// Pre-2026-05-20 this test read dist/auth.js, but dist/ is now a
+// gitignored build artifact so source-of-truth is at the repo root.
 
-describe("dist/auth.js security", () => {
-  const authJs = readFileSync("dist/auth.js", "utf-8");
+describe("auth.js security", () => {
+  const authJs = readFileSync("auth.js", "utf-8");
 
   it("does not use innerHTML with user data", () => {
     // The only innerHTML usages should be for static HTML entities (hamburger/close icons)
