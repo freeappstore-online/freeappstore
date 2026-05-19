@@ -1174,5 +1174,23 @@
         }
       }
     ]
+  },
+  "freeappstore-online/streak": {
+    "meta": {
+      "created_at": "2026-05-19T21:30:48Z",
+      "pushed_at": "2026-05-19T21:31:44Z"
+    },
+    "commits": [
+      {
+        "sha": "1564f94d5bdb98d58cca328fef47a4748330abce",
+        "html_url": "https://github.com/freeappstore-online/streak/commit/1564f94d5bdb98d58cca328fef47a4748330abce",
+        "commit": {
+          "message": "Initial: Streak — daily habits with live buddy grids\n\nShowcase app for FreeAppStore demonstrating all 4 SDK primitives\nload-bearingly: auth + kv + db + rooms-as-presence.\n\n- auth: GitHub OAuth identity (user.login as handle)\n- kv: private config (habits, buddies, tz, cached doc ids)\n- db: public 'grids' (one doc/user) + 'profiles' (login lookup) collections\n- rooms: ephemeral 'streak-pulse-${login}' channels for live buddy updates\n\nArchitecture notes:\n- recordCheck does read-modify-write to avoid shallow-merge races on db.update\n- gridDocId cached in kv.config after first lookup with explicit\n  orderBy:'created_at',order:'asc' to match backend default\n- Own squares animate from local state; buddies' from incoming room pulses\n  (DO broadcast excludes sender)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-19T21:31:30Z"
+          }
+        }
+      }
+    ]
   }
 }
