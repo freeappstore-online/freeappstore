@@ -1367,6 +1367,168 @@ html.dark .quality-badge.grade-f { background: #450a0a; color: #fca5a5; }
   margin-bottom: 0.75rem;
 }
 
+/* =====================================================================
+ * Split-pane preview (≥1024px): app list on left, live iframe on right.
+ * Below that breakpoint the layout collapses to the single-column default.
+ * ===================================================================== */
+.split-layout { display: contents; }
+.apps-pane { display: contents; }
+.preview-pane { display: none; }
+
+@media (min-width: 1024px) {
+  /* Make room for both panes side-by-side */
+  body:has(.split-layout) main.container { max-width: 1400px; }
+
+  .split-layout {
+    display: grid;
+    grid-template-columns: minmax(360px, 420px) 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  /* Left: scrolling app list (one card per row at this width is intentional) */
+  .apps-pane .apps-grid.compact {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    padding-right: 0.25rem;
+  }
+
+  /* Right: sticky preview that stays in view as the list scrolls */
+  .preview-pane {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 1rem;
+    height: calc(100vh - 2rem);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .preview-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.85rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-2);
+    min-height: 48px;
+  }
+
+  .preview-title {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink-strong);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .preview-title .preview-host {
+    color: var(--muted);
+    font-weight: 400;
+    margin-left: 0.5rem;
+  }
+
+  .preview-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .preview-btn:hover {
+    background: var(--surface);
+    color: var(--ink-strong);
+    border-color: var(--border);
+  }
+  .preview-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .preview-btn[hidden] { display: none; }
+
+  .preview-body {
+    flex: 1;
+    position: relative;
+    background: var(--bg);
+  }
+
+  .preview-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: var(--bg);
+  }
+  .preview-frame[hidden] { display: none; }
+
+  .preview-empty {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+  }
+  .preview-empty[hidden] { display: none; }
+  .preview-empty .empty-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+  }
+  .preview-empty .empty-icon svg { width: 24px; height: 24px; }
+  .preview-empty .empty-title { font-size: 1.05rem; font-weight: 600; color: var(--ink-strong); }
+  .preview-empty .empty-tip { font-size: 0.875rem; max-width: 32ch; }
+
+  /* Active card highlight in the list */
+  .app-card.compact.is-active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent), var(--shadow);
+  }
+
+  /* In split mode the card body becomes the trigger; the CTA shrinks to an icon */
+  .apps-pane .app-card.compact .app-cta {
+    padding: 0.4rem 0.6rem;
+  }
+  .apps-pane .app-card.compact .app-cta .cta-label { display: none; }
+
+  /* Loading shimmer while the iframe loads */
+  .preview-pane.is-loading .preview-frame { opacity: 0.35; }
+  .preview-pane.is-loading::after {
+    content: "";
+    position: absolute;
+    top: 48px; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    background-size: 200% 100%;
+    animation: preview-loading 1.2s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes preview-loading {
+    from { background-position: 100% 0; }
+    to   { background-position: -100% 0; }
+  }
+}
+
 @media (max-width: 640px) {
   .apps-header {
     align-items: flex-start;

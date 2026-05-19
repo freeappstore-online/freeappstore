@@ -116,16 +116,45 @@
         </div>
       </div>
 
-      <div class="apps-grid compact" id="apps-grid">
-        {{APPS_GRID}}
+      <div class="split-layout">
+        <div class="apps-pane">
+          <div class="apps-grid compact" id="apps-grid">
+            {{APPS_GRID}}
+          </div>
+
+          <p id="search-empty" hidden>No apps match your search here.</p>
+
+          <section id="cross-store-results" hidden style="margin-top: 2.5rem;">
+            <h2>Also matching on FreeGameStore</h2>
+            <div class="apps-grid compact" id="cross-store-grid"></div>
+          </section>
+        </div>
+
+        <aside class="preview-pane" id="previewPane" aria-label="App preview">
+          <div class="preview-toolbar">
+            <div class="preview-title" id="previewTitle">No app selected<span class="preview-host"></span></div>
+            <button class="preview-btn" id="previewAbout" type="button" title="View details" aria-label="View details" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </button>
+            <button class="preview-btn" id="previewNewTab" type="button" title="Open in new tab" aria-label="Open in new tab" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 13v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h7"/></svg>
+            </button>
+            <button class="preview-btn" id="previewClose" type="button" title="Close preview" aria-label="Close preview" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="preview-body">
+            <div class="preview-empty" id="previewEmpty">
+              <span class="empty-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6,4 20,12 6,20"/></svg>
+              </span>
+              <span class="empty-title">Pick any app to launch it here</span>
+              <span class="empty-tip">Click an app on the left and it loads instantly in this pane. Use <strong>↗</strong> to pop it into a new tab.</span>
+            </div>
+            <iframe class="preview-frame" id="previewFrame" title="App preview" sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-downloads" referrerpolicy="no-referrer-when-downgrade" loading="lazy" hidden></iframe>
+          </div>
+        </aside>
       </div>
-
-      <p id="search-empty" hidden>No apps match your search here.</p>
-
-      <section id="cross-store-results" hidden style="margin-top: 2.5rem;">
-        <h2>Also matching on FreeGameStore</h2>
-        <div class="apps-grid compact" id="cross-store-grid"></div>
-      </section>
     </section>
 
     <script type="application/json" id="cross-store-registry">{{CROSS_STORE_REGISTRY}}</script>
@@ -215,17 +244,142 @@
       });
     });
 
-    // --- Card click → about page (preserved from old layout) ---
-    document.querySelectorAll('.app-card').forEach(function (card) {
-      var aboutUrl = card.dataset.about;
-      if (!aboutUrl) return;
-      card.style.cursor = 'pointer';
-      card.addEventListener('click', function (e) {
-        if (!e.target.closest('.app-cta')) {
-          window.location.href = aboutUrl;
+    // --- Split-pane preview: load apps inline on desktop, fall back to new tab on mobile ---
+    (function () {
+      var SPLIT_MQ = window.matchMedia('(min-width: 1024px)');
+      var pane = document.getElementById('previewPane');
+      var frame = document.getElementById('previewFrame');
+      var empty = document.getElementById('previewEmpty');
+      var title = document.getElementById('previewTitle');
+      var btnNewTab = document.getElementById('previewNewTab');
+      var btnAbout = document.getElementById('previewAbout');
+      var btnClose = document.getElementById('previewClose');
+      var current = null; // { id, name, url, aboutUrl }
+
+      function activate(card) {
+        document.querySelectorAll('.app-card.compact.is-active').forEach(function (c) {
+          c.classList.remove('is-active');
+        });
+        if (card) card.classList.add('is-active');
+      }
+
+      function setTitle(name, url) {
+        var host = '';
+        try { host = url ? new URL(url).host : ''; } catch (e) {}
+        title.innerHTML = '';
+        title.appendChild(document.createTextNode(name || 'No app selected'));
+        if (host) {
+          var hs = document.createElement('span');
+          hs.className = 'preview-host';
+          hs.textContent = host;
+          title.appendChild(hs);
         }
+      }
+
+      function loadInPane(meta, card) {
+        current = meta;
+        pane.classList.add('is-loading');
+        frame.hidden = false;
+        empty.hidden = true;
+        btnNewTab.hidden = false;
+        btnAbout.hidden = false;
+        btnClose.hidden = false;
+        setTitle(meta.name, meta.url);
+        frame.src = meta.url;
+        activate(card);
+        frame.addEventListener('load', function once() {
+          pane.classList.remove('is-loading');
+          frame.removeEventListener('load', once);
+        });
+        // Update URL without reloading
+        try {
+          var u = new URL(window.location.href);
+          u.searchParams.set('app', meta.id);
+          history.replaceState(null, '', u.toString());
+        } catch (e) {}
+      }
+
+      function clearPane() {
+        current = null;
+        frame.removeAttribute('src');
+        frame.hidden = true;
+        empty.hidden = false;
+        btnNewTab.hidden = true;
+        btnAbout.hidden = true;
+        btnClose.hidden = true;
+        setTitle(null, '');
+        activate(null);
+        pane.classList.remove('is-loading');
+        try {
+          var u = new URL(window.location.href);
+          u.searchParams.delete('app');
+          history.replaceState(null, '', u.pathname + (u.search ? u.search : '') + u.hash);
+        } catch (e) {}
+      }
+
+      function cardMeta(card) {
+        var cta = card.querySelector('.app-cta');
+        var name = card.querySelector('.app-name');
+        // .app-name may contain a quality-badge child — only take the first text node.
+        var nameText = 'App';
+        if (name) {
+          var n = name.firstChild;
+          while (n && n.nodeType !== Node.TEXT_NODE) n = n.nextSibling;
+          nameText = (n && n.textContent.trim()) || name.textContent.trim();
+        }
+        return {
+          id: (card.dataset.about || '').split('/').pop() || '',
+          name: nameText,
+          url: cta ? cta.getAttribute('href') : null,
+          aboutUrl: card.dataset.about || null,
+        };
+      }
+
+      // Card / CTA click handler
+      document.querySelectorAll('#apps-grid .app-card.compact').forEach(function (card) {
+        var aboutUrl = card.dataset.about;
+        card.style.cursor = 'pointer';
+
+        card.addEventListener('click', function (e) {
+          // CTA in split mode also loads in pane; in single-column mode it follows its href (new tab)
+          var onCta = !!e.target.closest('.app-cta');
+
+          if (SPLIT_MQ.matches) {
+            e.preventDefault();
+            loadInPane(cardMeta(card), card);
+            return;
+          }
+          // Single-column mode (mobile/tablet): card body → about page, CTA → app URL (default <a> behavior)
+          if (!onCta && aboutUrl) {
+            window.location.href = aboutUrl;
+          }
+        });
       });
-    });
+
+      // Toolbar buttons
+      btnNewTab.addEventListener('click', function () {
+        if (current && current.url) window.open(current.url, '_blank', 'noopener');
+      });
+      btnAbout.addEventListener('click', function () {
+        if (current && current.aboutUrl) window.location.href = current.aboutUrl;
+      });
+      btnClose.addEventListener('click', clearPane);
+
+      // Deep link: ?app=<id>
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var wantId = params.get('app');
+        if (wantId && SPLIT_MQ.matches) {
+          var match = document.querySelector('#apps-grid .app-card.compact[data-about$="/' + wantId + '"]');
+          if (match) loadInPane(cardMeta(match), match);
+        }
+      } catch (e) {}
+
+      // If the viewport crosses the breakpoint and the pane disappears, clear active state.
+      SPLIT_MQ.addEventListener && SPLIT_MQ.addEventListener('change', function (e) {
+        if (!e.matches) activate(null);
+      });
+    })();
   </script>
   <script src="/auth.js"></script>
 </body>

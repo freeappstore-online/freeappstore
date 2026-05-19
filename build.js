@@ -240,7 +240,7 @@ const appCards = apps.map(app => {
           </div>
           <a href="${escapeHtml(app.appUrl)}" target="_blank" rel="noopener" class="app-cta" aria-label="Open ${escapeHtml(app.name)}">
             <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="6,4 20,12 6,20" /></svg>
-            Open
+            <span class="cta-label">Open</span>
           </a>
         </div>`;
 }).join('\n\n');
