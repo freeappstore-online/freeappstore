@@ -102,24 +102,44 @@
     if (raw) session = JSON.parse(raw);
   } catch (e) {}
 
-  if (session && session.token && session.user) {
+  // Tokens are opaque to us but must be safe to splice into an
+  // Authorization header. Spec-modern fetch rejects CR/LF in header values,
+  // but a charset+length check at the source defends against future browsers
+  // / non-browser callers and keeps the trust boundary tight.
+  function isPlausibleToken(t) {
+    return typeof t === "string"
+      && t.length > 0
+      && t.length <= 1024
+      && /^[A-Za-z0-9._~+/=:-]+$/.test(t);
+  }
+
+  if (session && session.token && session.user && isPlausibleToken(session.token)) {
     showUser(session.user);
-    // Verify session is still valid in background
+    // Verify session is still valid in background. On 401/403 we clear the
+    // session and replace the avatar with Sign In — no location.reload(),
+    // which used to loop on permanently-revoked sessions.
     fetch(API + "/v1/auth/me", { headers: { Authorization: "Bearer " + session.token } })
-      .then(function (r) { if (!r.ok) { localStorage.removeItem("fas:session"); location.reload(); } })
+      .then(function (r) {
+        if (r.status === 401 || r.status === 403) {
+          try { localStorage.removeItem("fas:session"); } catch (e) {}
+          el.replaceChildren();
+          showSignIn();
+        }
+      })
       .catch(function () {});
   } else {
     // Check for OAuth callback hash
     var hash = window.location.hash;
     if (hash.indexOf("#fas_session=") === 0) {
       var token = decodeURIComponent(hash.slice("#fas_session=".length));
+      // Always strip the hash so a malformed token doesn't linger in the URL.
       history.replaceState(null, "", window.location.pathname + window.location.search);
-      if (token) {
+      if (isPlausibleToken(token)) {
         fetch(API + "/v1/auth/me", { headers: { Authorization: "Bearer " + token } })
           .then(function (r) { return r.json(); })
           .then(function (user) {
             if (user && user.id) {
-              localStorage.setItem("fas:session", JSON.stringify({ token: token, user: user }));
+              try { localStorage.setItem("fas:session", JSON.stringify({ token: token, user: user })); } catch (e) {}
               showUser(user);
             } else {
               showSignIn();

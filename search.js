@@ -65,7 +65,10 @@
   function buildCrossCard(item) {
     const a = document.createElement('a');
     a.className = 'app-card compact';
-    a.href = `https://${esc(item.domain)}/${esc(item.path)}/${esc(item.id)}.html`;
+    // URL path segments: use encodeURIComponent, not HTML-escape. esc() is
+    // the wrong context — it'd let `..` or `/` ride through. Build-time
+    // validators already constrain `id`, but defense-in-depth.
+    a.href = `https://${item.domain}/${encodeURIComponent(item.path)}/${encodeURIComponent(item.id)}.html`;
     a.target = '_blank';
     a.rel = 'noopener';
     a.style.textDecoration = 'none';
