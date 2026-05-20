@@ -266,6 +266,18 @@ fs.mkdirSync(path.join(DIST, 'apps'), { recursive: true });
 // --- Generate index.html ---
 
 // Build app cards — compact letter-badge layout, Figma 2026
+// Per-card icon backgrounds are NOT inline styles. They're written to
+// dist/card-styles.css (loaded via <link>) so a malformed iconBg slipping
+// past the validator (regex regression, e.g.) cannot end up as a
+// style="..." attribute. The CSS file is `'self'` per CSP.
+const cardIconBackgrounds = apps
+  .map(app => `.app-card[data-id="${escapeAttrCss(app.id)}"] .app-icon { background: ${app.iconBg || '#2563eb'}; }`)
+  .join('\n');
+function escapeAttrCss(s) {
+  // The validator already constrains id to [a-z0-9-]+ so this is belt-and-suspenders.
+  return String(s).replace(/[^a-z0-9_-]/gi, '_');
+}
+
 const appCards = apps.map(app => {
   const q = qualityScores[app.id];
   const qualityBadge = q && q.grade
@@ -274,9 +286,8 @@ const appCards = apps.map(app => {
   // Letter fallback lives on a data-attribute; storefront.js binds the
   // img.error listener and reads it. No more JS-string-in-HTML-attribute splicing.
   const letter = escapeHtml((app.name || '?').trim().charAt(0).toUpperCase());
-  const iconBg = escapeHtml(app.iconBg || '#2563eb');
   return `        <div class="app-card compact" data-id="${escapeHtml(app.id)}" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}">
-          <div class="app-icon" data-letter="${letter}" style="background: ${iconBg};">
+          <div class="app-icon" data-letter="${letter}">
             <img src="${escapeHtml(app.appUrl)}/apple-touch-icon.png" alt="" loading="lazy" />
           </div>
           <div class="app-body">
@@ -489,6 +500,11 @@ indexHtml = indexHtml.replace(
   JSON.stringify(crossRegistry).replace(/</g, '\\u003c'),
 );
 fs.writeFileSync(path.join(DIST, 'index.html'), indexHtml);
+
+// Per-card icon backgrounds (registry-driven). Lives in its own file so
+// a malformed iconBg slipping past validation can never become an inline
+// style attribute on the card itself.
+fs.writeFileSync(path.join(DIST, 'card-styles.css'), cardIconBackgrounds + '\n');
 
 // --- Quality Dashboard ---
 // Embeds both the local apps registry and the cross-store games registry

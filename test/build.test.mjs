@@ -213,6 +213,29 @@ test("no inline onerror= attributes survive the build (data-letter pattern)", ()
   }
 });
 
+test("cards have no inline style attribute; iconBg lives in card-styles.css", () => {
+  const { tmp, tmpDist, registry } = runBuild();
+  try {
+    const indexHtml = readFileSync(join(tmpDist, "index.html"), "utf8");
+    // No `style=` on the `.app-icon` div inside cards — the registry-driven
+    // attack surface for inline styles is closed.
+    assert.ok(
+      !/<div class="app-icon" data-letter="[^"]*" style=/.test(indexHtml),
+      "inline style= leaked onto .app-icon — registry → DOM inline-style vector is open",
+    );
+    // card-styles.css exists with a rule per app.
+    const css = readFileSync(join(tmpDist, "card-styles.css"), "utf8");
+    for (const app of registry.apps) {
+      assert.ok(
+        css.includes(`.app-card[data-id="${app.id}"] .app-icon`),
+        `card-styles.css missing rule for id "${app.id}"`,
+      );
+    }
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+});
+
 test("CSP meta tag is present in index.html and _headers ships frame-ancestors", () => {
   const { tmp, tmpDist } = runBuild();
   try {
