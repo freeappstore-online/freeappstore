@@ -1430,5 +1430,43 @@
         }
       }
     ]
+  },
+  "freeappstore-online/kanban": {
+    "meta": {
+      "created_at": "2026-05-19T22:18:23Z",
+      "pushed_at": "2026-05-20T02:43:09Z"
+    },
+    "commits": [
+      {
+        "sha": "681ace5391f624524afc74d677e512c1d903b019",
+        "html_url": "https://github.com/freeappstore-online/kanban/commit/681ace5391f624524afc74d677e512c1d903b019",
+        "commit": {
+          "message": "ci: remove verify stamp (kanban green)",
+          "author": {
+            "date": "2026-05-20T02:43:06Z"
+          }
+        }
+      },
+      {
+        "sha": "2484b0a9d95fe5433bda32209f7e2af28b36ac63",
+        "html_url": "https://github.com/freeappstore-online/kanban/commit/2484b0a9d95fe5433bda32209f7e2af28b36ac63",
+        "commit": {
+          "message": "ci: re-verify after app-ci bumped to cli@0.4.9",
+          "author": {
+            "date": "2026-05-20T02:42:13Z"
+          }
+        }
+      },
+      {
+        "sha": "2ecbb33a1e08cc8c499d7c6f9549b12be4b5eb4e",
+        "html_url": "https://github.com/freeappstore-online/kanban/commit/2ecbb33a1e08cc8c499d7c6f9549b12be4b5eb4e",
+        "commit": {
+          "message": "ci: re-verify with cli@0.4.9 (workspace:* fix landed)",
+          "author": {
+            "date": "2026-05-20T02:41:20Z"
+          }
+        }
+      }
+    ]
   }
 }
