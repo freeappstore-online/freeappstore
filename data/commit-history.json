@@ -1434,9 +1434,19 @@
   "freeappstore-online/kanban": {
     "meta": {
       "created_at": "2026-05-19T22:18:23Z",
-      "pushed_at": "2026-05-20T02:43:09Z"
+      "pushed_at": "2026-05-20T02:56:33Z"
     },
     "commits": [
+      {
+        "sha": "5aadf066bd3d4c1ab85ed6b4bd0481c84873c336",
+        "html_url": "https://github.com/freeappstore-online/kanban/commit/5aadf066bd3d4c1ab85ed6b4bd0481c84873c336",
+        "commit": {
+          "message": "docs: add deployment URLs to trigger initial CF Pages build",
+          "author": {
+            "date": "2026-05-20T02:56:30Z"
+          }
+        }
+      },
       {
         "sha": "681ace5391f624524afc74d677e512c1d903b019",
         "html_url": "https://github.com/freeappstore-online/kanban/commit/681ace5391f624524afc74d677e512c1d903b019",
@@ -1454,16 +1464,6 @@
           "message": "ci: re-verify after app-ci bumped to cli@0.4.9",
           "author": {
             "date": "2026-05-20T02:42:13Z"
-          }
-        }
-      },
-      {
-        "sha": "2ecbb33a1e08cc8c499d7c6f9549b12be4b5eb4e",
-        "html_url": "https://github.com/freeappstore-online/kanban/commit/2ecbb33a1e08cc8c499d7c6f9549b12be4b5eb4e",
-        "commit": {
-          "message": "ci: re-verify with cli@0.4.9 (workspace:* fix landed)",
-          "author": {
-            "date": "2026-05-20T02:41:20Z"
           }
         }
       }
