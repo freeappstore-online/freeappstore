@@ -800,9 +800,19 @@
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-05-20T03:32:27Z"
+      "pushed_at": "2026-05-20T04:47:37Z"
     },
     "commits": [
+      {
+        "sha": "67c993cb681b3385ecf93f843fedbce8b70864bf",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/67c993cb681b3385ecf93f843fedbce8b70864bf",
+        "commit": {
+          "message": "fix: declare maskable icon purpose for Android PWA install\n\nAndroid Chrome installs PWAs as launcher shortcuts (not real apps with\ntheir own task slot) unless the manifest declares at least one icon\nwith purpose: 'maskable'. Add 'any maskable' to both 192/512 entries\nso installs land in the app drawer with an adaptive icon.",
+          "author": {
+            "date": "2026-05-20T04:47:35Z"
+          }
+        }
+      },
       {
         "sha": "9c3dd69404b2bb86abe0625bd8eeef7afd595c37",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/9c3dd69404b2bb86abe0625bd8eeef7afd595c37",
@@ -820,16 +830,6 @@
           "message": "ci: retrigger after cli 0.4.9 publish",
           "author": {
             "date": "2026-05-20T03:31:34Z"
-          }
-        }
-      },
-      {
-        "sha": "7d06865d1315590c42842a7df9eceefde5ee2ce6",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/7d06865d1315590c42842a7df9eceefde5ee2ce6",
-        "commit": {
-          "message": "ci: migrate compliance.yml to reusable FAS app-ci.yml\n\nReplaces ~70 lines of inline-grep checks with a 10-line caller that\nhands off to the central reusable workflow. Same effective coverage\n(actually broader — the CLI runs every check we publish, not just the\nhard-coded ones), pinned CLI version for supply-chain safety, and\nedits to the gate now propagate to all apps via one PR.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-20T02:36:40Z"
           }
         }
       }
@@ -932,9 +932,19 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-20T03:32:24Z"
+      "pushed_at": "2026-05-20T04:47:38Z"
     },
     "commits": [
+      {
+        "sha": "6fd676f811a139d09921524ef14b1309e751a3d6",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/6fd676f811a139d09921524ef14b1309e751a3d6",
+        "commit": {
+          "message": "fix: declare maskable icon purpose for Android PWA install\n\nAndroid Chrome installs PWAs as launcher shortcuts (not real apps with\ntheir own task slot) unless the manifest declares at least one icon\nwith purpose: 'maskable'. Add 'any maskable' to both 192/512 entries\nso installs land in the app drawer with an adaptive icon.",
+          "author": {
+            "date": "2026-05-20T04:47:35Z"
+          }
+        }
+      },
       {
         "sha": "f036f0e9fd2142e693e9f74d0e090cf9ffbd507c",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/f036f0e9fd2142e693e9f74d0e090cf9ffbd507c",
@@ -952,16 +962,6 @@
           "message": "ci: retrigger after cli 0.4.9 publish",
           "author": {
             "date": "2026-05-20T03:31:31Z"
-          }
-        }
-      },
-      {
-        "sha": "a0efab4e062c0872d45336b9c411d2e252207700",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/a0efab4e062c0872d45336b9c411d2e252207700",
-        "commit": {
-          "message": "ci: migrate compliance.yml to reusable FAS app-ci.yml\n\nReplaces ~70 lines of inline-grep checks with a 10-line caller that\nhands off to the central reusable workflow. Same effective coverage\n(actually broader — the CLI runs every check we publish, not just the\nhard-coded ones), pinned CLI version for supply-chain safety, and\nedits to the gate now propagate to all apps via one PR.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-20T02:36:40Z"
           }
         }
       }
@@ -1178,9 +1178,19 @@
   "freeappstore-online/streak": {
     "meta": {
       "created_at": "2026-05-19T21:30:48Z",
-      "pushed_at": "2026-05-20T03:32:30Z"
+      "pushed_at": "2026-05-20T04:47:38Z"
     },
     "commits": [
+      {
+        "sha": "0c1ea2a821c4535c3ee1c66bdef44d167bf66885",
+        "html_url": "https://github.com/freeappstore-online/streak/commit/0c1ea2a821c4535c3ee1c66bdef44d167bf66885",
+        "commit": {
+          "message": "fix: declare maskable icon purpose for Android PWA install\n\nAndroid Chrome installs PWAs as launcher shortcuts (not real apps with\ntheir own task slot) unless the manifest declares at least one icon\nwith purpose: 'maskable'. Add 'any maskable' to both 192/512 entries\nso installs land in the app drawer with an adaptive icon.",
+          "author": {
+            "date": "2026-05-20T04:47:35Z"
+          }
+        }
+      },
       {
         "sha": "8388479156cab27d5d8c30db73da38c7ea65394a",
         "html_url": "https://github.com/freeappstore-online/streak/commit/8388479156cab27d5d8c30db73da38c7ea65394a",
@@ -1198,16 +1208,6 @@
           "message": "ci: retrigger after cli 0.4.9 publish",
           "author": {
             "date": "2026-05-20T03:31:37Z"
-          }
-        }
-      },
-      {
-        "sha": "07fbd4358d4a3b3ee248d075ee4b63527629ab5d",
-        "html_url": "https://github.com/freeappstore-online/streak/commit/07fbd4358d4a3b3ee248d075ee4b63527629ab5d",
-        "commit": {
-          "message": "ci: migrate compliance.yml to reusable FAS app-ci.yml\n\nReplaces ~70 lines of inline-grep checks with a 10-line caller that\nhands off to the central reusable workflow. Same effective coverage\n(actually broader — the CLI runs every check we publish, not just the\nhard-coded ones), pinned CLI version for supply-chain safety, and\nedits to the gate now propagate to all apps via one PR.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-20T02:36:40Z"
           }
         }
       }
@@ -1434,9 +1434,19 @@
   "freeappstore-online/kanban": {
     "meta": {
       "created_at": "2026-05-19T22:18:23Z",
-      "pushed_at": "2026-05-20T03:50:24Z"
+      "pushed_at": "2026-05-20T04:47:38Z"
     },
     "commits": [
+      {
+        "sha": "db48b6c42844f9185be80c32199610dcee916930",
+        "html_url": "https://github.com/freeappstore-online/kanban/commit/db48b6c42844f9185be80c32199610dcee916930",
+        "commit": {
+          "message": "fix: declare maskable icon purpose for Android PWA install\n\nAndroid Chrome installs PWAs as launcher shortcuts (not real apps with\ntheir own task slot) unless the manifest declares at least one icon\nwith purpose: 'maskable'. Add 'any maskable' to both 192/512 entries\nso installs land in the app drawer with an adaptive icon.",
+          "author": {
+            "date": "2026-05-20T04:47:35Z"
+          }
+        }
+      },
       {
         "sha": "1feb2f193fd3564e6974f512fbcd419876a21fe1",
         "html_url": "https://github.com/freeappstore-online/kanban/commit/1feb2f193fd3564e6974f512fbcd419876a21fe1",
@@ -1454,16 +1464,6 @@
           "message": "feat(kanban): labels, due dates, checklists, list-level overdue badge\n\nThree feature additions + a couple of UX wins:\n\n* Labels — 6-color palette (accent/sky/mint/warning/error/muted) mapped to\n  existing design tokens so theme switches lift them in one place. Click\n  to toggle on/off in the card editor; renamable per card. Cards show\n  the chips above the title.\n\n* Due dates — datetime-local picker. Cards render a small chip with\n  urgency-coded color: red overdue, amber today, soft-accent in the\n  next 48h, neutral outline beyond that. Within a week the chip uses\n  day-of-week shorthand.\n\n* Checklists — inline subtasks with Enter-to-add. Card preview shows\n  a  chip that turns mint when complete. The card editor shows\n  a thin progress bar that fills as items get checked.\n\nUX:\n* List title shows a card-count pill (was a bare number) and a small\n  red dot if any card in the list is overdue.\n* Empty list state: a dashed-border drop-target instead of just\n  empty space, so it's clear cards can land there.\n\nAll new fields on Card are optional, so existing boards open\nunchanged — no migration needed.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-20T03:46:11Z"
-          }
-        }
-      },
-      {
-        "sha": "5aadf066bd3d4c1ab85ed6b4bd0481c84873c336",
-        "html_url": "https://github.com/freeappstore-online/kanban/commit/5aadf066bd3d4c1ab85ed6b4bd0481c84873c336",
-        "commit": {
-          "message": "docs: add deployment URLs to trigger initial CF Pages build",
-          "author": {
-            "date": "2026-05-20T02:56:30Z"
           }
         }
       }
