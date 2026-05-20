@@ -1140,36 +1140,36 @@
   "freeappstore-online/typeflow": {
     "meta": {
       "created_at": "2026-05-18T09:59:33Z",
-      "pushed_at": "2026-05-18T10:02:57Z"
+      "pushed_at": "2026-05-20T00:52:16Z"
     },
     "commits": [
       {
-        "sha": "8ac20c759d3c5293f99c838218d46778d4735516",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/8ac20c759d3c5293f99c838218d46778d4735516",
+        "sha": "b9b66d67ec02c6533a78ecc5b5b510bf8ea5b30d",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/b9b66d67ec02c6533a78ecc5b5b510bf8ea5b30d",
         "commit": {
-          "message": "Update README.md",
+          "message": "feat: desktop layout, levels system, and enhanced typing animations\n\n- Fix desktop layout: md:flex-row lobby (was lg), max-w-6xl, fluid\n  title font with clamp(), level badge in hero with next-level progress\n- Add levels system: 7 tiers (Beginner → Legend) based on best WPM,\n  exported from App so ResultsModal can show level-up celebration\n- Combo counter: 🔥 badge appears during test after 3 consecutive\n  correct words, pops in with spring animation\n- Enhanced char animations: per-character glow (textShadow) on\n  correct/incorrect keystrokes, char-pop spring animation on each\n  correctly-typed character, stronger cursor glow\n- Results: level badge + level-up banner when crossing a threshold,\n  \"X WPM away from [NextLevel]\" hint, improved sparkline\n- CSS: new keyframes (char-pop, level-up, combo-pop, border-flow),\n  progress bar now uses gradient-brand, larger LINE_HEIGHT_PX (48)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-18T10:02:57Z"
+            "date": "2026-05-20T00:48:32Z"
           }
         }
       },
       {
-        "sha": "e59242d2d5f2416ec862c32c073fb67b4db4a354",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/e59242d2d5f2416ec862c32c073fb67b4db4a354",
+        "sha": "8155b68d88f7cccc4f420dfcc67375cce278b3de",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/8155b68d88f7cccc4f420dfcc67375cce278b3de",
         "commit": {
-          "message": "Update README.md",
+          "message": "feat: full UX/TS upgrade — sound, quotes mode, sparkline, share card, PWA prompt\n\nTypeScript architecture:\n- Fix dual-input bug: single <input> in App.tsx; TypingArea no longer owns an input\n- WordOutcome type ('correct'|'incorrect'|'skipped') replaces boolean[]\n- Named constants: WORD_BUFFER_SIZE, MIN_ELAPSED_MINS, STATS_INTERVAL_MS\n- SETTINGS_VERSION guard on localStorage reads; safe safeRead/safeWrite helpers\n- history trimmed to last 20 tests (was 100), now stores wpmSamples[]\n- useStats exposes history[]; usePersistence uses generic updateSetting<K>\n\nNew features:\n- Sound feedback via Web Audio API (useSound hook) — correct word beep,\n  error buzz, end-of-test tone; toggle in settings\n- Quotes mode: 4th difficulty using 20 famous programming/literature quotes,\n  generated in sentence order via generateQuoteWords()\n- 15s duration option added\n- DifficultySelector now 2×2 grid (quotes = purple accent)\n- Progress bar: thin CTA-coloured bar above the typing area\n- Shake animation on each incorrect keystroke in active word\n- Word-flash animation: correct completions briefly highlight green before fading\n- WPM sparkline in results modal (pure SVG, no libraries), with filled area\n- Personal-best delta: \"+12 WPM above your best 🏆\" / \"−5 WPM from your best\"\n- Share result card: clipboard text with WPM/accuracy/errors + site link\n- PWA install prompt banner (beforeinstallprompt hook)\n- Recent WPM mini-sparkline on lobby after first 2 tests\n- Sound toggle switch in settings modal\n\nFreeAppStore compliance:\n- Zero platform token overrides\n- No forbidden font variables\n- Generic monospace keyword only\n- fas check: ✓ all hard checks passed (70.3 KB gzipped)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-18T10:02:26Z"
+            "date": "2026-05-19T15:32:28Z"
           }
         }
       },
       {
-        "sha": "886910cf874d95a80a89f9f87924bc1b221a728b",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/886910cf874d95a80a89f9f87924bc1b221a728b",
+        "sha": "ce59287be3667188eda68c8217bf86df28c1849a",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/ce59287be3667188eda68c8217bf86df28c1849a",
         "commit": {
-          "message": "fix: remove platform-owned CSS tokens from my-app to pass FreeAppStore compliance\n\nSurgically removed all 12 FAS-reserved variables (--paper, --ink, --muted,\n--line, --line-strong, --panel, --glass, --dock, --accent, --success,\n--warning, --error) from both :root and :root[data-theme='dark'] blocks in\nmy-app/web/src/index.css. Only app-specific tokens retained.\n\nAlso adds my-app/ scaffold and workspace pnpm-lock.yaml to version control.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Initial TypeFlow release",
           "author": {
-            "date": "2026-05-18T09:24:14Z"
+            "date": "2026-05-19T14:04:06Z"
           }
         }
       }
@@ -1198,6 +1198,34 @@
           "message": "Initial: Streak — daily habits with live buddy grids\n\nShowcase app for FreeAppStore demonstrating all 4 SDK primitives\nload-bearingly: auth + kv + db + rooms-as-presence.\n\n- auth: GitHub OAuth identity (user.login as handle)\n- kv: private config (habits, buddies, tz, cached doc ids)\n- db: public 'grids' (one doc/user) + 'profiles' (login lookup) collections\n- rooms: ephemeral 'streak-pulse-${login}' channels for live buddy updates\n\nArchitecture notes:\n- recordCheck does read-modify-write to avoid shallow-merge races on db.update\n- gridDocId cached in kv.config after first lookup with explicit\n  orderBy:'created_at',order:'asc' to match backend default\n- Own squares animate from local state; buddies' from incoming room pulses\n  (DO broadcast excludes sender)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-19T21:31:30Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/artout": {
+    "meta": {
+      "created_at": "2026-05-18T19:12:27Z",
+      "pushed_at": "2026-05-18T19:20:43Z"
+    },
+    "commits": [
+      {
+        "sha": "863ab1223b712f32b07e1ac871e8839be52977b7",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/863ab1223b712f32b07e1ac871e8839be52977b7",
+        "commit": {
+          "message": "Build ArtOut: street art photo sharing PWA\n\nFull rebuild of artout-legacy on FAS platform:\n- Map view with Google Maps markers and info popups\n- Wall view (3-column photo grid with location badges)\n- Upload flow with camera/gallery, auto-geolocation, Cloudinary\n- Places view (hierarchical location tree derived from posts)\n- Favorites (FAS KV per-user storage)\n- Full-screen lightbox gallery\n- Google auth via FAS SDK\n- Dark theme, mobile-first, PWA-ready\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-18T19:12:15Z"
+          }
+        }
+      },
+      {
+        "sha": "c1ef99ba9544427a646dd4e768dd7d6e23a2b00d",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/c1ef99ba9544427a646dd4e768dd7d6e23a2b00d",
+        "commit": {
+          "message": "Initial commit from standalone template",
+          "author": {
+            "date": "2026-05-18T19:05:59Z"
           }
         }
       }
