@@ -1344,5 +1344,81 @@
         }
       }
     ]
+  },
+  "freeappstore-online/todoly": {
+    "meta": {
+      "created_at": "2026-05-10T06:39:52Z",
+      "pushed_at": "2026-05-14T11:06:45Z"
+    },
+    "commits": [
+      {
+        "sha": "895d645fa2fa01ecd1a64fd7b1fcbb53238df1bb",
+        "html_url": "https://github.com/freeappstore-online/todoly/commit/895d645fa2fa01ecd1a64fd7b1fcbb53238df1bb",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:45Z"
+          }
+        }
+      },
+      {
+        "sha": "e3a470ee9c15a458106e7a789a256c0fa35a8a7a",
+        "html_url": "https://github.com/freeappstore-online/todoly/commit/e3a470ee9c15a458106e7a789a256c0fa35a8a7a",
+        "commit": {
+          "message": "Initial app — built with FreeAppStore AI agent",
+          "author": {
+            "date": "2026-05-10T06:40:10Z"
+          }
+        }
+      },
+      {
+        "sha": "28325bee7eb60fdeef676604b927d8bc99def5d5",
+        "html_url": "https://github.com/freeappstore-online/todoly/commit/28325bee7eb60fdeef676604b927d8bc99def5d5",
+        "commit": {
+          "message": "Initial commit",
+          "author": {
+            "date": "2026-05-10T06:39:52Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/whenly": {
+    "meta": {
+      "created_at": "2026-05-18T19:09:34Z",
+      "pushed_at": "2026-05-18T19:11:03Z"
+    },
+    "commits": [
+      {
+        "sha": "8f7cd158a8a010a6c4bb8a3eb59b53536561d1eb",
+        "html_url": "https://github.com/freeappstore-online/whenly/commit/8f7cd158a8a010a6c4bb8a3eb59b53536561d1eb",
+        "commit": {
+          "message": "Whenly: anonymous weekly time-slot voting app\n\nPort from Firebase to FAS platform. Uses @freeappstore/sdk for data:\n- polls collection for poll config (public read, owner write)\n- votes collection for per-user votes (public read, owner write)\n- GitHub OAuth via FAS shared auth\n- Tailwind v4 UI with FAS design tokens\n- Time grid with timezone conversion and auto-save voting\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-18T19:10:56Z"
+          }
+        }
+      },
+      {
+        "sha": "81444775eb7819b6c7598a5a043a61e5dc471937",
+        "html_url": "https://github.com/freeappstore-online/whenly/commit/81444775eb7819b6c7598a5a043a61e5dc471937",
+        "commit": {
+          "message": "Fix stale docs: raw GitHub URLs → freeappstore.online/skills.md, add agent auth flow\n\n- All SKILLS.md URLs now point to freeappstore.online/skills.md (was raw.githubusercontent)\n- claude-code.md: add non-interactive auth via gh CLI, full publish + push flow\n- brand/SKILLS.md: fix broken curl compliance command → fas check\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-15T04:29:00Z"
+          }
+        }
+      },
+      {
+        "sha": "4ae8ae3767aad1394a0652bd44adc151fdb188cd",
+        "html_url": "https://github.com/freeappstore-online/whenly/commit/4ae8ae3767aad1394a0652bd44adc151fdb188cd",
+        "commit": {
+          "message": "Fix README: repo URL sdk → platform\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-15T00:25:48Z"
+          }
+        }
+      }
+    ]
   }
 }
