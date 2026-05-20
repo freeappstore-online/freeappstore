@@ -249,6 +249,29 @@ test("CSP meta tag is present in index.html and _headers ships frame-ancestors",
   }
 });
 
+test("style-src is locked too (no 'unsafe-inline'), index.html has zero inline style=", () => {
+  const { tmp, tmpDist } = runBuild();
+  try {
+    const indexHtml = readFileSync(join(tmpDist, "index.html"), "utf8");
+    const csp = indexHtml.match(/Content-Security-Policy"\s+content="([^"]+)"/)?.[1] ?? '';
+    const styleSrc = (csp.match(/style-src[^;]*/) || [''])[0];
+    assert.ok(
+      !styleSrc.includes("'unsafe-inline'"),
+      `style-src still has 'unsafe-inline': ${styleSrc}`,
+    );
+    // No HTML element should have an inline style= attribute. Strip the
+    // <head> section so the literal `style="background: #abc"` inside the
+    // CSP comment doesn't trip the regex.
+    const bodyHtml = indexHtml.replace(/<head>[\s\S]*?<\/head>/, '');
+    assert.ok(
+      !/\sstyle="/.test(bodyHtml),
+      `inline style= survived in body — would break locked-down CSP`,
+    );
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+});
+
 test("CSP locks script-src with hash, no 'unsafe-inline' on scripts", () => {
   const { tmp, tmpDist } = runBuild();
   try {

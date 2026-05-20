@@ -16,11 +16,10 @@
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-  <!-- CSP: lock down what the page can load + ban iframing the storefront itself
-       (anti-clickjack). 'unsafe-inline' on script/style is required for the
-       no-flash theme preload below and inline style="background: #abc" on
-       card icons. Swap to hash-based later. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self' '{{INLINE_SCRIPT_HASH}}'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://*.freeappstore.online https://api.freeappstore.online; frame-src https://*.freeappstore.online https://*.freegamestore.online https://*.proappstore.online; base-uri 'self'; form-action 'self' https://api.freeappstore.online;" />
+  <!-- CSP: locked down. script-src whitelists only the no-flash bootstrap by
+       its SHA-256 hash. style-src is 'self' — no inline styles anywhere on
+       this page; card backgrounds load from card-styles.css. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self' '{{INLINE_SCRIPT_HASH}}'; style-src 'self'; font-src 'self'; connect-src 'self' https://*.freeappstore.online https://api.freeappstore.online; frame-src https://*.freeappstore.online https://*.freegamestore.online https://*.proappstore.online; base-uri 'self'; form-action 'self' https://api.freeappstore.online;" />
   <!-- Apply theme before paint to avoid flash. Reads localStorage then falls back to system preference. -->
   <script>
     (function(){try{var s=localStorage.getItem('fas-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();
@@ -130,7 +129,7 @@
 
           <p id="search-empty" hidden>No apps match your search here.</p>
 
-          <section id="cross-store-results" hidden style="margin-top: 2.5rem;">
+          <section id="cross-store-results" hidden class="mt-section">
             <h2>Also matching on FreeGameStore</h2>
             <div class="apps-grid compact" id="cross-store-grid"></div>
           </section>
@@ -166,45 +165,45 @@
     <script type="application/json" id="cross-store-registry">{{CROSS_STORE_REGISTRY}}</script>
     <script src="/search.js" defer></script>
 
-    <aside style="text-align: center; padding: 1.5rem 0 0.5rem; font-size: 0.9rem; color: var(--muted);">
-      Looking for games? Visit <a href="https://freegamestore.online" style="color: var(--accent); font-weight: 600;">FreeGameStore</a> — free-forever web games.
+    <aside class="aside-note">
+      Looking for games? Visit <a href="https://freegamestore.online" class="text-accent-bold">FreeGameStore</a> — free-forever web games.
     </aside>
 
-    <section id="where" style="margin: 3rem 0 2rem;">
-      <h2 style="font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.25rem;">Where everything lives</h2>
-      <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1.5rem;">A map of every URL across the stores. Bookmark this page.</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
-        <div style="padding: 1rem 1.1rem; border: 1px solid rgba(127,127,127,0.18); border-radius: 0.75rem;">
+    <section id="where" class="section-spaced">
+      <h2 class="section-h2">Where everything lives</h2>
+      <p class="lede">A map of every URL across the stores. Bookmark this page.</p>
+      <div class="tile-grid">
+        <div class="tile">
           <strong>For users</strong>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem;"><a href="https://freeappstore.online" style="color: var(--accent); font-weight: 600;">freeappstore.online</a> — free apps (you are here)<br/><a href="https://freegamestore.online" style="color: var(--accent); font-weight: 600;">freegamestore.online</a> — free games<br/><a href="https://freewebstore.online" style="color: var(--accent); font-weight: 600;">freewebstore.online</a> — one-page sites</p>
+          <p class="mt-half-small"><a href="https://freeappstore.online" class="text-accent-bold">freeappstore.online</a> — free apps (you are here)<br/><a href="https://freegamestore.online" class="text-accent-bold">freegamestore.online</a> — free games<br/><a href="https://freewebstore.online" class="text-accent-bold">freewebstore.online</a> — one-page sites</p>
         </div>
-        <div style="padding: 1rem 1.1rem; border: 1px solid rgba(127,127,127,0.18); border-radius: 0.75rem;">
+        <div class="tile">
           <strong>For developers</strong>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem;"><a href="https://create.freeappstore.online" style="color: var(--accent); font-weight: 600;">create.freeappstore.online</a> — VibeCode (browser scaffolder)<br/><a href="/build-with-ai" style="color: var(--accent); font-weight: 600;">/build-with-ai</a> — AI-assisted dev guide<br/><a href="/skills.md" style="color: var(--accent); font-weight: 600;">/skills.md</a> — SDK reference<br/><a href="https://github.com/freeappstore-online" style="color: var(--accent); font-weight: 600;">github.com/freeappstore-online</a> — source</p>
+          <p class="mt-half-small"><a href="https://create.freeappstore.online" class="text-accent-bold">create.freeappstore.online</a> — VibeCode (browser scaffolder)<br/><a href="/build-with-ai" class="text-accent-bold">/build-with-ai</a> — AI-assisted dev guide<br/><a href="/skills.md" class="text-accent-bold">/skills.md</a> — SDK reference<br/><a href="https://github.com/freeappstore-online" class="text-accent-bold">github.com/freeappstore-online</a> — source</p>
         </div>
-        <div style="padding: 1rem 1.1rem; border: 1px solid rgba(127,127,127,0.18); border-radius: 0.75rem;">
+        <div class="tile">
           <strong>CLI</strong>
-          <p style="margin-top: 0.5rem; font-family: ui-monospace, monospace; font-size: 0.85em;">npm i -g @freeappstore/cli<br/>fas init &lt;id&gt;<br/>fas publish<br/>fas check</p>
+          <p class="mt-half-mono">npm i -g @freeappstore/cli<br/>fas init &lt;id&gt;<br/>fas publish<br/>fas check</p>
         </div>
-        <div style="padding: 1rem 1.1rem; border: 1px solid rgba(127,127,127,0.18); border-radius: 0.75rem;">
+        <div class="tile">
           <strong>Admin / submission</strong>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem;"><a href="https://admin.freeappstore.online" style="color: var(--accent); font-weight: 600;">admin.freeappstore.online</a> — admin UI (Google sign-in)<br/><a href="https://github.com/freeappstore-online/submissions/issues/new" style="color: var(--accent); font-weight: 600;">file a creator application</a></p>
+          <p class="mt-half-small"><a href="https://admin.freeappstore.online" class="text-accent-bold">admin.freeappstore.online</a> — admin UI (Google sign-in)<br/><a href="https://github.com/freeappstore-online/submissions/issues/new" class="text-accent-bold">file a creator application</a></p>
         </div>
-        <div style="padding: 1rem 1.1rem; border: 1px solid rgba(127,127,127,0.18); border-radius: 0.75rem;">
+        <div class="tile">
           <strong>Pro sister stores</strong>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem;"><a href="https://proappstore.online" style="color: var(--pro, var(--accent)); font-weight: 600;">proappstore.online</a> — pro apps<br/><a href="https://console.proappstore.online" style="color: var(--pro, var(--accent)); font-weight: 600;">console.proappstore.online</a> — pro dev console<br/><a href="https://dashboard.proappstore.online" style="color: var(--pro, var(--accent)); font-weight: 600;">dashboard.proappstore.online</a> — pro user account<br/><a href="https://prowebstore.online" style="color: var(--pro, var(--accent)); font-weight: 600;">prowebstore.online</a> — KG-CMS sites</p>
+          <p class="mt-half-small"><a href="https://proappstore.online" class="text-pro-bold">proappstore.online</a> — pro apps<br/><a href="https://console.proappstore.online" class="text-pro-bold">console.proappstore.online</a> — pro dev console<br/><a href="https://dashboard.proappstore.online" class="text-pro-bold">dashboard.proappstore.online</a> — pro user account<br/><a href="https://prowebstore.online" class="text-pro-bold">prowebstore.online</a> — KG-CMS sites</p>
         </div>
-        <div style="padding: 1rem 1.1rem; border: 1px solid rgba(127,127,127,0.18); border-radius: 0.75rem;">
+        <div class="tile">
           <strong>Backend APIs</strong>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem;"><a href="https://api.freeappstore.online" style="color: var(--accent); font-weight: 600;">api.freeappstore.online</a> — free side<br/><a href="https://api.proappstore.online" style="color: var(--pro, var(--accent)); font-weight: 600;">api.proappstore.online</a> — pro side</p>
+          <p class="mt-half-small"><a href="https://api.freeappstore.online" class="text-accent-bold">api.freeappstore.online</a> — free side<br/><a href="https://api.proappstore.online" class="text-pro-bold">api.proappstore.online</a> — pro side</p>
         </div>
-        <div style="padding: 1rem 1.1rem; border: 1px solid rgba(127,127,127,0.18); border-radius: 0.75rem;">
+        <div class="tile">
           <strong>Reference</strong>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem;"><a href="/about" style="color: var(--accent); font-weight: 600;">/about</a> · <a href="/pricing" style="color: var(--accent); font-weight: 600;">/pricing</a> · <a href="/guidelines" style="color: var(--accent); font-weight: 600;">/guidelines</a><br/><a href="/quality" style="color: var(--accent); font-weight: 600;">/quality</a> — store audit dashboard<br/><a href="/privacy" style="color: var(--accent); font-weight: 600;">/privacy</a> · <a href="/terms" style="color: var(--accent); font-weight: 600;">/terms</a></p>
+          <p class="mt-half-small"><a href="/about" class="text-accent-bold">/about</a> · <a href="/pricing" class="text-accent-bold">/pricing</a> · <a href="/guidelines" class="text-accent-bold">/guidelines</a><br/><a href="/quality" class="text-accent-bold">/quality</a> — store audit dashboard<br/><a href="/privacy" class="text-accent-bold">/privacy</a> · <a href="/terms" class="text-accent-bold">/terms</a></p>
         </div>
-        <div style="padding: 1rem 1.1rem; border: 1px solid rgba(127,127,127,0.18); border-radius: 0.75rem;">
+        <div class="tile">
           <strong>All five orgs on GitHub</strong>
-          <p style="margin-top: 0.5rem; font-family: ui-monospace, monospace; font-size: 0.85em;">freeappstore-online<br/>freegamestore-online<br/>freewebstore-online<br/>proappstore-online<br/>prowebstore-online</p>
+          <p class="mt-half-mono">freeappstore-online<br/>freegamestore-online<br/>freewebstore-online<br/>proappstore-online<br/>prowebstore-online</p>
         </div>
       </div>
     </section>
@@ -226,7 +225,7 @@
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
         <a href="https://github.com/freeappstore-online">GitHub</a>
-        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
+        <a href="https://proappstore.online" class="text-pro-only">Pro</a>
       </div>
     </div>
   </footer>
