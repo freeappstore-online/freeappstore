@@ -1561,3 +1561,11 @@ html.dark .quality-badge.grade-f { background: #450a0a; color: #fca5a5; }
     border-radius: 10px;
   }
 }
+
+/* Iframe-load-failed state in the preview pane */
+.preview-empty.is-error .empty-icon {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+.preview-empty.is-error .empty-title { color: var(--ink-strong); }

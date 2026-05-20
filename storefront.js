@@ -79,6 +79,39 @@
     var btnAbout = document.getElementById('previewAbout');
     var btnClose = document.getElementById('previewClose');
     var current = null; // { id, name, url, aboutUrl }
+    var loadTimeout = null;
+    var loadToken = 0; // bumped on each loadInPane so stale fetches/timeouts no-op
+
+    // Capture the original empty-state text so we can restore it after an error.
+    var emptyTitleEl = empty && empty.querySelector('.empty-title');
+    var emptyTipEl = empty && empty.querySelector('.empty-tip');
+    var ORIGINAL_EMPTY_TITLE = emptyTitleEl ? emptyTitleEl.textContent : '';
+    var ORIGINAL_EMPTY_TIP_HTML = emptyTipEl ? emptyTipEl.innerHTML : '';
+
+    /* SECURITY: the iframe loads app URLs under *.freeappstore.online — all
+     * first-party today. Sandbox allows same-origin + scripts because apps need
+     * their own cookies / localStorage / fetch to function. Before opening
+     * third-party app submissions, revisit this: an untrusted app inside the
+     * iframe can currently use its same-origin scope freely. Tightening options
+     * include dropping allow-same-origin (breaks stateful apps) or adding
+     * `credentialless` once browser support is universal. */
+    function restoreEmpty() {
+      if (emptyTitleEl) emptyTitleEl.textContent = ORIGINAL_EMPTY_TITLE;
+      if (emptyTipEl) emptyTipEl.innerHTML = ORIGINAL_EMPTY_TIP_HTML;
+      if (empty) empty.classList.remove('is-error');
+    }
+
+    function showLoadError(meta) {
+      if (loadTimeout) { clearTimeout(loadTimeout); loadTimeout = null; }
+      pane.classList.remove('is-loading');
+      frame.hidden = true;
+      if (empty) {
+        empty.hidden = false;
+        empty.classList.add('is-error');
+        if (emptyTitleEl) emptyTitleEl.textContent = (meta.name || 'This app') + " can't embed here";
+        if (emptyTipEl) emptyTipEl.innerHTML = 'It blocks iframes. Click <strong>↗ New tab</strong> to launch it normally.';
+      }
+    }
 
     function activate(card) {
       document.querySelectorAll('.app-card.compact.is-active').forEach(function (c) {
@@ -111,6 +144,7 @@
 
     function loadInPane(meta, card) {
       current = meta;
+      restoreEmpty();
       pane.classList.add('is-loading');
       frame.hidden = false;
       empty.hidden = true;
@@ -118,20 +152,42 @@
       if (btnAbout) btnAbout.hidden = !meta.aboutUrl;
       btnClose.hidden = false;
       setTitle(meta.name, meta.url);
-      frame.src = meta.url;
       activate(card);
-      frame.addEventListener('load', function once() {
-        pane.classList.remove('is-loading');
-        frame.removeEventListener('load', once);
-      });
       setUrlParam(meta.id);
+
+      // Pre-flight reachability: catches DNS NXDOMAIN, unreachable subdomain,
+      // connection refused. Browsers fire `load` for their own "site can't be
+      // reached" pages, so we can't rely on the iframe load event alone.
+      // no-cors so we don't need the target to send CORS headers; we only care
+      // whether the fetch throws (network error) or resolves (anything else).
+      var token = ++loadToken;
+      fetch(meta.url, { method: 'GET', mode: 'no-cors', cache: 'no-store', credentials: 'omit' })
+        .then(function () {
+          if (token !== loadToken) return; // user clicked another card meanwhile
+          frame.src = meta.url;
+          if (loadTimeout) clearTimeout(loadTimeout);
+          // Safety net: 10s for genuine hangs (rare since fetch already passed).
+          loadTimeout = setTimeout(function () { showLoadError(meta); }, 10000);
+          frame.addEventListener('load', function once() {
+            pane.classList.remove('is-loading');
+            frame.removeEventListener('load', once);
+            if (loadTimeout) { clearTimeout(loadTimeout); loadTimeout = null; }
+          });
+        })
+        .catch(function () {
+          if (token !== loadToken) return;
+          showLoadError(meta);
+        });
     }
 
     function clearPane() {
       current = null;
+      loadToken++; // cancel any pending fetch / load handlers
+      if (loadTimeout) { clearTimeout(loadTimeout); loadTimeout = null; }
       frame.removeAttribute('src');
       frame.hidden = true;
       empty.hidden = false;
+      restoreEmpty();
       btnNewTab.hidden = true;
       if (btnAbout) btnAbout.hidden = true;
       btnClose.hidden = true;

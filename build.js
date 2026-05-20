@@ -237,7 +237,9 @@ const appCards = apps.map(app => {
     : '';
   // First letter on a colored square as the icon. apple-touch-icon overrides
   // the letter when it loads; fallback handles missing icons gracefully.
-  const letter = (app.name || '?').trim().charAt(0).toUpperCase();
+  // Escape the letter for safe use inside the single-quoted JS string in onerror —
+  // app names starting with ' or \ would otherwise inject markup.
+  const letter = (app.name || '?').trim().charAt(0).toUpperCase().replace(/[\\']/g, '\\$&');
   const iconBg = escapeHtml(app.iconBg || '#2563eb');
   return `        <div class="app-card compact" data-id="${escapeHtml(app.id)}" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}">
           <div class="app-icon" style="background: ${iconBg};">
