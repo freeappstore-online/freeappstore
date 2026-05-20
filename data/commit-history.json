@@ -800,9 +800,29 @@
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-05-20T02:36:42Z"
+      "pushed_at": "2026-05-20T03:32:27Z"
     },
     "commits": [
+      {
+        "sha": "9c3dd69404b2bb86abe0625bd8eeef7afd595c37",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/9c3dd69404b2bb86abe0625bd8eeef7afd595c37",
+        "commit": {
+          "message": "ci: remove verify stamp",
+          "author": {
+            "date": "2026-05-20T03:32:24Z"
+          }
+        }
+      },
+      {
+        "sha": "bb592990ef0346509407e75b9ec91ed23629793e",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/bb592990ef0346509407e75b9ec91ed23629793e",
+        "commit": {
+          "message": "ci: retrigger after cli 0.4.9 publish",
+          "author": {
+            "date": "2026-05-20T03:31:34Z"
+          }
+        }
+      },
       {
         "sha": "7d06865d1315590c42842a7df9eceefde5ee2ce6",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/7d06865d1315590c42842a7df9eceefde5ee2ce6",
@@ -810,26 +830,6 @@
           "message": "ci: migrate compliance.yml to reusable FAS app-ci.yml\n\nReplaces ~70 lines of inline-grep checks with a 10-line caller that\nhands off to the central reusable workflow. Same effective coverage\n(actually broader — the CLI runs every check we publish, not just the\nhard-coded ones), pinned CLI version for supply-chain safety, and\nedits to the gate now propagate to all apps via one PR.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-20T02:36:40Z"
-          }
-        }
-      },
-      {
-        "sha": "8f3c2cba239437794290ff0bbac99b2bfb9d0edb",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/8f3c2cba239437794290ff0bbac99b2bfb9d0edb",
-        "commit": {
-          "message": "Convert into an installable PWA (platform mandate)\n\nWas failing the new PWA offline correctness check: index.html linked\n/manifest.json but vite.config.ts had no VitePWA, so no service worker\nwas ever registered. Installing the app would deposit an icon, then\ntapping it would fail offline.\n\nFix mirrors the canonical pattern in the freeappstore template + the\nFGS games:\n  - Add vite-plugin-pwa to devDependencies, refresh lockfile.\n  - Replace vite.config.ts with a full VitePWA setup — proper\n    workbox config (raised cap, fonts runtime caching, wasm/json in\n    globPatterns), and manifest defined inline so the plugin\n    generates manifest.webmanifest at build.\n  - Drop the static <link rel=\"manifest\"> from index.html (plugin\n    injects its own).\n  - Delete web/public/manifest.json (plugin generates).\n  - Copy icon-192.png and icon-512.png from the canonical FAS set\n    (freeappstore marketing repo).\n\nPreserves the app's existing theme_color, background_color, and\norientation from the prior manifest.json.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-19T22:24:43Z"
-          }
-        }
-      },
-      {
-        "sha": "792bf09143adaa641e6c3da7aa9ff36d2bffacf4",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/792bf09143adaa641e6c3da7aa9ff36d2bffacf4",
-        "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
-          "author": {
-            "date": "2026-05-16T23:32:33Z"
           }
         }
       }
@@ -932,9 +932,29 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-20T02:36:42Z"
+      "pushed_at": "2026-05-20T03:32:24Z"
     },
     "commits": [
+      {
+        "sha": "f036f0e9fd2142e693e9f74d0e090cf9ffbd507c",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/f036f0e9fd2142e693e9f74d0e090cf9ffbd507c",
+        "commit": {
+          "message": "ci: remove verify stamp",
+          "author": {
+            "date": "2026-05-20T03:32:21Z"
+          }
+        }
+      },
+      {
+        "sha": "5b704381c178f032adac610755cd622e9e3ddc9d",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/5b704381c178f032adac610755cd622e9e3ddc9d",
+        "commit": {
+          "message": "ci: retrigger after cli 0.4.9 publish",
+          "author": {
+            "date": "2026-05-20T03:31:31Z"
+          }
+        }
+      },
       {
         "sha": "a0efab4e062c0872d45336b9c411d2e252207700",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/a0efab4e062c0872d45336b9c411d2e252207700",
@@ -942,26 +962,6 @@
           "message": "ci: migrate compliance.yml to reusable FAS app-ci.yml\n\nReplaces ~70 lines of inline-grep checks with a 10-line caller that\nhands off to the central reusable workflow. Same effective coverage\n(actually broader — the CLI runs every check we publish, not just the\nhard-coded ones), pinned CLI version for supply-chain safety, and\nedits to the gate now propagate to all apps via one PR.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-20T02:36:40Z"
-          }
-        }
-      },
-      {
-        "sha": "8276386dade4c42b5da77569ea9e84a0238ec850",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/8276386dade4c42b5da77569ea9e84a0238ec850",
-        "commit": {
-          "message": "Convert into an installable PWA (platform mandate)\n\nWas failing the new PWA offline correctness check: index.html linked\n/manifest.json but vite.config.ts had no VitePWA, so no service worker\nwas ever registered. Installing the app would deposit an icon, then\ntapping it would fail offline.\n\nFix mirrors the canonical pattern in the freeappstore template + the\nFGS games:\n  - Add vite-plugin-pwa to devDependencies, refresh lockfile.\n  - Replace vite.config.ts with a full VitePWA setup — proper\n    workbox config (raised cap, fonts runtime caching, wasm/json in\n    globPatterns), and manifest defined inline so the plugin\n    generates manifest.webmanifest at build.\n  - Drop the static <link rel=\"manifest\"> from index.html (plugin\n    injects its own).\n  - Delete web/public/manifest.json (plugin generates).\n  - Copy icon-192.png and icon-512.png from the canonical FAS set\n    (freeappstore marketing repo).\n\nPreserves the app's existing theme_color, background_color, and\norientation from the prior manifest.json.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-19T22:24:44Z"
-          }
-        }
-      },
-      {
-        "sha": "2f6f6f23dae3542644cff1c020e709989078a4c8",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/2f6f6f23dae3542644cff1c020e709989078a4c8",
-        "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
-          "author": {
-            "date": "2026-05-16T23:32:36Z"
           }
         }
       }
@@ -1178,9 +1178,29 @@
   "freeappstore-online/streak": {
     "meta": {
       "created_at": "2026-05-19T21:30:48Z",
-      "pushed_at": "2026-05-20T02:36:42Z"
+      "pushed_at": "2026-05-20T03:32:30Z"
     },
     "commits": [
+      {
+        "sha": "8388479156cab27d5d8c30db73da38c7ea65394a",
+        "html_url": "https://github.com/freeappstore-online/streak/commit/8388479156cab27d5d8c30db73da38c7ea65394a",
+        "commit": {
+          "message": "ci: remove verify stamp",
+          "author": {
+            "date": "2026-05-20T03:32:27Z"
+          }
+        }
+      },
+      {
+        "sha": "6c51bb60d0fff836d175b0f017b5cb8368533391",
+        "html_url": "https://github.com/freeappstore-online/streak/commit/6c51bb60d0fff836d175b0f017b5cb8368533391",
+        "commit": {
+          "message": "ci: retrigger after cli 0.4.9 publish",
+          "author": {
+            "date": "2026-05-20T03:31:37Z"
+          }
+        }
+      },
       {
         "sha": "07fbd4358d4a3b3ee248d075ee4b63527629ab5d",
         "html_url": "https://github.com/freeappstore-online/streak/commit/07fbd4358d4a3b3ee248d075ee4b63527629ab5d",
@@ -1188,26 +1208,6 @@
           "message": "ci: migrate compliance.yml to reusable FAS app-ci.yml\n\nReplaces ~70 lines of inline-grep checks with a 10-line caller that\nhands off to the central reusable workflow. Same effective coverage\n(actually broader — the CLI runs every check we publish, not just the\nhard-coded ones), pinned CLI version for supply-chain safety, and\nedits to the gate now propagate to all apps via one PR.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-20T02:36:40Z"
-          }
-        }
-      },
-      {
-        "sha": "3709927f1614284f727bfdafcffe596a943aec84",
-        "html_url": "https://github.com/freeappstore-online/streak/commit/3709927f1614284f727bfdafcffe596a943aec84",
-        "commit": {
-          "message": "Convert into an installable PWA (platform mandate)\n\nWas failing the new PWA offline correctness check: index.html linked\n/manifest.json but vite.config.ts had no VitePWA, so no service worker\nwas ever registered. Installing the app would deposit an icon, then\ntapping it would fail offline.\n\nFix mirrors the canonical pattern in the freeappstore template + the\nFGS games:\n  - Add vite-plugin-pwa to devDependencies, refresh lockfile.\n  - Replace vite.config.ts with a full VitePWA setup — proper\n    workbox config (raised cap, fonts runtime caching, wasm/json in\n    globPatterns), and manifest defined inline so the plugin\n    generates manifest.webmanifest at build.\n  - Drop the static <link rel=\"manifest\"> from index.html (plugin\n    injects its own).\n  - Delete web/public/manifest.json (plugin generates).\n  - Copy icon-192.png and icon-512.png from the canonical FAS set\n    (freeappstore marketing repo).\n\nPreserves the app's existing theme_color, background_color, and\norientation from the prior manifest.json.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-19T22:24:43Z"
-          }
-        }
-      },
-      {
-        "sha": "1564f94d5bdb98d58cca328fef47a4748330abce",
-        "html_url": "https://github.com/freeappstore-online/streak/commit/1564f94d5bdb98d58cca328fef47a4748330abce",
-        "commit": {
-          "message": "Initial: Streak — daily habits with live buddy grids\n\nShowcase app for FreeAppStore demonstrating all 4 SDK primitives\nload-bearingly: auth + kv + db + rooms-as-presence.\n\n- auth: GitHub OAuth identity (user.login as handle)\n- kv: private config (habits, buddies, tz, cached doc ids)\n- db: public 'grids' (one doc/user) + 'profiles' (login lookup) collections\n- rooms: ephemeral 'streak-pulse-${login}' channels for live buddy updates\n\nArchitecture notes:\n- recordCheck does read-modify-write to avoid shallow-merge races on db.update\n- gridDocId cached in kv.config after first lookup with explicit\n  orderBy:'created_at',order:'asc' to match backend default\n- Own squares animate from local state; buddies' from incoming room pulses\n  (DO broadcast excludes sender)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-19T21:31:30Z"
           }
         }
       }
@@ -1434,9 +1434,29 @@
   "freeappstore-online/kanban": {
     "meta": {
       "created_at": "2026-05-19T22:18:23Z",
-      "pushed_at": "2026-05-20T02:56:33Z"
+      "pushed_at": "2026-05-20T03:50:24Z"
     },
     "commits": [
+      {
+        "sha": "1feb2f193fd3564e6974f512fbcd419876a21fe1",
+        "html_url": "https://github.com/freeappstore-online/kanban/commit/1feb2f193fd3564e6974f512fbcd419876a21fe1",
+        "commit": {
+          "message": "fix(kanban): make checklist item remove button visible on touch (no hover)",
+          "author": {
+            "date": "2026-05-20T03:50:21Z"
+          }
+        }
+      },
+      {
+        "sha": "015a145da2d8f372165020d2ce5642f735c2a5e9",
+        "html_url": "https://github.com/freeappstore-online/kanban/commit/015a145da2d8f372165020d2ce5642f735c2a5e9",
+        "commit": {
+          "message": "feat(kanban): labels, due dates, checklists, list-level overdue badge\n\nThree feature additions + a couple of UX wins:\n\n* Labels — 6-color palette (accent/sky/mint/warning/error/muted) mapped to\n  existing design tokens so theme switches lift them in one place. Click\n  to toggle on/off in the card editor; renamable per card. Cards show\n  the chips above the title.\n\n* Due dates — datetime-local picker. Cards render a small chip with\n  urgency-coded color: red overdue, amber today, soft-accent in the\n  next 48h, neutral outline beyond that. Within a week the chip uses\n  day-of-week shorthand.\n\n* Checklists — inline subtasks with Enter-to-add. Card preview shows\n  a  chip that turns mint when complete. The card editor shows\n  a thin progress bar that fills as items get checked.\n\nUX:\n* List title shows a card-count pill (was a bare number) and a small\n  red dot if any card in the list is overdue.\n* Empty list state: a dashed-border drop-target instead of just\n  empty space, so it's clear cards can land there.\n\nAll new fields on Card are optional, so existing boards open\nunchanged — no migration needed.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-20T03:46:11Z"
+          }
+        }
+      },
       {
         "sha": "5aadf066bd3d4c1ab85ed6b4bd0481c84873c336",
         "html_url": "https://github.com/freeappstore-online/kanban/commit/5aadf066bd3d4c1ab85ed6b4bd0481c84873c336",
@@ -1444,26 +1464,6 @@
           "message": "docs: add deployment URLs to trigger initial CF Pages build",
           "author": {
             "date": "2026-05-20T02:56:30Z"
-          }
-        }
-      },
-      {
-        "sha": "681ace5391f624524afc74d677e512c1d903b019",
-        "html_url": "https://github.com/freeappstore-online/kanban/commit/681ace5391f624524afc74d677e512c1d903b019",
-        "commit": {
-          "message": "ci: remove verify stamp (kanban green)",
-          "author": {
-            "date": "2026-05-20T02:43:06Z"
-          }
-        }
-      },
-      {
-        "sha": "2484b0a9d95fe5433bda32209f7e2af28b36ac63",
-        "html_url": "https://github.com/freeappstore-online/kanban/commit/2484b0a9d95fe5433bda32209f7e2af28b36ac63",
-        "commit": {
-          "message": "ci: re-verify after app-ci bumped to cli@0.4.9",
-          "author": {
-            "date": "2026-05-20T02:42:13Z"
           }
         }
       }
