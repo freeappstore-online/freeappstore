@@ -1230,5 +1230,119 @@
         }
       }
     ]
+  },
+  "freeappstore-online/done-todo": {
+    "meta": {
+      "created_at": "2026-05-10T06:08:18Z",
+      "pushed_at": "2026-05-14T11:06:47Z"
+    },
+    "commits": [
+      {
+        "sha": "d53d49119689e796422435276e1136b9e157e7da",
+        "html_url": "https://github.com/freeappstore-online/done-todo/commit/d53d49119689e796422435276e1136b9e157e7da",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:46Z"
+          }
+        }
+      },
+      {
+        "sha": "b0792da4b5440b0ac5404e4cdc334592ce6f4ac9",
+        "html_url": "https://github.com/freeappstore-online/done-todo/commit/b0792da4b5440b0ac5404e4cdc334592ce6f4ac9",
+        "commit": {
+          "message": "Fix: remove pnpm cache (no lockfile)",
+          "author": {
+            "date": "2026-05-10T06:20:14Z"
+          }
+        }
+      },
+      {
+        "sha": "85baa86e6f9c9357824f325ee1c0ad5469cc159d",
+        "html_url": "https://github.com/freeappstore-online/done-todo/commit/85baa86e6f9c9357824f325ee1c0ad5469cc159d",
+        "commit": {
+          "message": "Fix build: skip tsc (vite plugin type mismatch)",
+          "author": {
+            "date": "2026-05-10T06:18:45Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/hello-world-greeter": {
+    "meta": {
+      "created_at": "2026-05-11T02:19:06Z",
+      "pushed_at": "2026-05-14T11:06:43Z"
+    },
+    "commits": [
+      {
+        "sha": "6b2f043388eb33b131836b73285e63b4fcb198a0",
+        "html_url": "https://github.com/freeappstore-online/hello-world-greeter/commit/6b2f043388eb33b131836b73285e63b4fcb198a0",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:43Z"
+          }
+        }
+      },
+      {
+        "sha": "b96a93a494705714efa5e70bc458acc72c45958d",
+        "html_url": "https://github.com/freeappstore-online/hello-world-greeter/commit/b96a93a494705714efa5e70bc458acc72c45958d",
+        "commit": {
+          "message": "Add text-to-speech pronunciation: tap any greeting to hear it spoken, global sound on/off toggle in sidebar/header, speaker button on cards and hero, quiz listen button, pulse animation while speaking",
+          "author": {
+            "date": "2026-05-11T02:24:12Z"
+          }
+        }
+      },
+      {
+        "sha": "9bd754759a4e3ff3ad8a7164d70f01ce6f15a896",
+        "html_url": "https://github.com/freeappstore-online/hello-world-greeter/commit/9bd754759a4e3ff3ad8a7164d70f01ce6f15a896",
+        "commit": {
+          "message": "Initial app — built with FreeAppStore AI agent",
+          "author": {
+            "date": "2026-05-11T02:19:25Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/skyview-weather": {
+    "meta": {
+      "created_at": "2026-05-10T10:52:14Z",
+      "pushed_at": "2026-05-14T11:06:43Z"
+    },
+    "commits": [
+      {
+        "sha": "7b46e5df17c60fb531a2984f3d42c840594ac169",
+        "html_url": "https://github.com/freeappstore-online/skyview-weather/commit/7b46e5df17c60fb531a2984f3d42c840594ac169",
+        "commit": {
+          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "author": {
+            "date": "2026-05-14T11:06:42Z"
+          }
+        }
+      },
+      {
+        "sha": "04060114c63799ad044241a244d8b7d7a7f6445f",
+        "html_url": "https://github.com/freeappstore-online/skyview-weather/commit/04060114c63799ad044241a244d8b7d7a7f6445f",
+        "commit": {
+          "message": "Add packageManager field",
+          "author": {
+            "date": "2026-05-10T11:02:27Z"
+          }
+        }
+      },
+      {
+        "sha": "50eb8aa8c5279a77d3305360cf5e0d798af6a8b4",
+        "html_url": "https://github.com/freeappstore-online/skyview-weather/commit/50eb8aa8c5279a77d3305360cf5e0d798af6a8b4",
+        "commit": {
+          "message": "Fix build: vite only",
+          "author": {
+            "date": "2026-05-10T11:00:58Z"
+          }
+        }
+      }
+    ]
   }
 }
