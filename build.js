@@ -687,6 +687,9 @@ const csp = [
   "form-action 'self' https://api.freeappstore.online",
   "object-src 'none'",
   "upgrade-insecure-requests",
+  // CSP3 reporting (newer). `report-uri` kept for browsers that pre-date `report-to`.
+  "report-to csp-endpoint",
+  "report-uri /v1/csp-report",
 ].join('; ');
 
 fs.writeFileSync(path.join(DIST, '_headers'), [
@@ -697,11 +700,10 @@ fs.writeFileSync(path.join(DIST, '_headers'), [
   '  Strict-Transport-Security: max-age=31536000; includeSubDomains',
   '  Cross-Origin-Opener-Policy: same-origin',
   '  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), midi=()',
+  // Reporting group referenced by CSP `report-to`. Same-origin endpoint
+  // handled by functions/v1/csp-report.js.
+  '  Reporting-Endpoints: csp-endpoint="/v1/csp-report"',
   `  Content-Security-Policy: ${csp}`,
-  // Report-Only mirror with the strictest version (no 'unsafe-*' anywhere) so
-  // we'll see CSP violations in browser consoles / report endpoints without
-  // breaking the page. Endpoint TODO — once api.freeappstore.online has a
-  // /v1/csp-report handler, wire `report-to` to it.
   `  Content-Security-Policy-Report-Only: ${csp}`,
   '',
 ].join('\n'));

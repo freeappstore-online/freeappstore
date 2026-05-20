@@ -301,6 +301,23 @@ test("img-src and connect-src allowlist specific hostnames (no broad https:)", (
   }
 });
 
+test("CSP reporting is wired (report-to + Reporting-Endpoints + handler file)", () => {
+  const { tmp, tmpDist } = runBuild();
+  try {
+    const { headers, csp } = readHeadersCsp(tmpDist);
+    assert.match(csp, /report-to csp-endpoint/);
+    assert.match(csp, /report-uri \/v1\/csp-report/); // back-compat
+    assert.match(headers, /Reporting-Endpoints: csp-endpoint="\/v1\/csp-report"/);
+    // The handler file must exist in the repo so wrangler bundles it.
+    assert.ok(
+      readFileSync(join(REPO_ROOT, "functions/v1/csp-report.js"), "utf8").includes("onRequestPost"),
+      "functions/v1/csp-report.js missing or wrong shape",
+    );
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+});
+
 test("every local <script src> has a valid SRI integrity attribute", () => {
   const { tmp, tmpDist } = runBuild();
   try {
