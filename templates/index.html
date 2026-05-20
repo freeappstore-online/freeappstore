@@ -16,10 +16,10 @@
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-  <!-- CSP: locked down. script-src whitelists only the no-flash bootstrap by
-       its SHA-256 hash. style-src is 'self' — no inline styles anywhere on
-       this page; card backgrounds load from card-styles.css. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self' '{{INLINE_SCRIPT_HASH}}'; style-src 'self'; font-src 'self'; connect-src 'self' https://*.freeappstore.online https://api.freeappstore.online; frame-src https://*.freeappstore.online https://*.freegamestore.online https://*.proappstore.online; base-uri 'self'; form-action 'self' https://api.freeappstore.online;" />
+  <!-- CSP lives in dist/_headers (HTTP-header source of truth). frame-ancestors,
+       report-to, and Strict-Transport-Security only work as real HTTP headers,
+       so duplicating CSP in <meta> creates drift; we don't. Local dev (no CF
+       Pages) runs without CSP enforcement — that's a known dev-only gap. -->
   <!-- Apply theme before paint to avoid flash. Reads localStorage then falls back to system preference. -->
   <script>
     (function(){try{var s=localStorage.getItem('fas-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();

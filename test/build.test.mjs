@@ -236,62 +236,78 @@ test("cards have no inline style attribute; iconBg lives in card-styles.css", ()
   }
 });
 
-test("CSP meta tag is present in index.html and _headers ships frame-ancestors", () => {
+// All CSP / security-header assertions read dist/_headers — the single
+// HTTP-header source of truth. The <meta http-equiv> tag was removed in the
+// "headers-only CSP" pass so we no longer test for it.
+function readHeadersCsp(tmpDist) {
+  const headers = readFileSync(join(tmpDist, "_headers"), "utf8");
+  const line = (headers.match(/Content-Security-Policy:\s*([^\n]+)/) || [])[1] || '';
+  return { headers, csp: line };
+}
+
+test("_headers ships X-Frame-Options DENY + frame-ancestors 'none' + HSTS + COOP", () => {
   const { tmp, tmpDist } = runBuild();
   try {
-    const indexHtml = readFileSync(join(tmpDist, "index.html"), "utf8");
-    assert.match(indexHtml, /Content-Security-Policy/);
-    const headers = readFileSync(join(tmpDist, "_headers"), "utf8");
+    const { headers, csp } = readHeadersCsp(tmpDist);
     assert.match(headers, /X-Frame-Options:\s*DENY/);
-    assert.match(headers, /frame-ancestors 'none'/);
+    assert.match(headers, /Strict-Transport-Security:\s*max-age=31536000/);
+    assert.match(headers, /Cross-Origin-Opener-Policy:\s*same-origin/);
+    assert.match(headers, /Referrer-Policy:\s*strict-origin-when-cross-origin/);
+    assert.match(csp, /frame-ancestors 'none'/);
+    assert.match(csp, /object-src 'none'/);
+    assert.match(csp, /upgrade-insecure-requests/);
   } finally {
     rmSync(tmp, { recursive: true, force: true });
   }
 });
 
-test("style-src is locked too (no 'unsafe-inline'), index.html has zero inline style=", () => {
+test("style-src is locked (no 'unsafe-inline'), index.html has zero inline style=", () => {
   const { tmp, tmpDist } = runBuild();
   try {
-    const indexHtml = readFileSync(join(tmpDist, "index.html"), "utf8");
-    const csp = indexHtml.match(/Content-Security-Policy"\s+content="([^"]+)"/)?.[1] ?? '';
+    const { csp } = readHeadersCsp(tmpDist);
     const styleSrc = (csp.match(/style-src[^;]*/) || [''])[0];
-    assert.ok(
-      !styleSrc.includes("'unsafe-inline'"),
-      `style-src still has 'unsafe-inline': ${styleSrc}`,
-    );
-    // No HTML element should have an inline style= attribute. Strip the
-    // <head> section so the literal `style="background: #abc"` inside the
-    // CSP comment doesn't trip the regex.
-    const bodyHtml = indexHtml.replace(/<head>[\s\S]*?<\/head>/, '');
-    assert.ok(
-      !/\sstyle="/.test(bodyHtml),
-      `inline style= survived in body — would break locked-down CSP`,
-    );
+    assert.ok(!styleSrc.includes("'unsafe-inline'"), `style-src still has 'unsafe-inline': ${styleSrc}`);
+    const bodyHtml = readFileSync(join(tmpDist, "index.html"), "utf8").replace(/<head>[\s\S]*?<\/head>/, '');
+    assert.ok(!/\sstyle="/.test(bodyHtml), `inline style= survived in body — would break locked-down CSP`);
   } finally {
     rmSync(tmp, { recursive: true, force: true });
   }
 });
 
-test("CSP locks script-src with hash, no 'unsafe-inline' on scripts", () => {
+test("script-src has sha256 hash, no 'unsafe-inline', no build-time hosts", () => {
+  const { tmp, tmpDist } = runBuild();
+  try {
+    const { csp } = readHeadersCsp(tmpDist);
+    const scriptSrc = (csp.match(/script-src[^;]*/) || [''])[0];
+    assert.ok(scriptSrc.includes("'sha256-"), `script-src must include a sha256 hash; got: ${scriptSrc}`);
+    assert.ok(!scriptSrc.includes("'unsafe-inline'"), `script-src must not include 'unsafe-inline'; got: ${scriptSrc}`);
+    assert.ok(!csp.includes("raw.githubusercontent.com"), "raw.githubusercontent.com leaked into runtime CSP");
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+});
+
+test("img-src and connect-src allowlist specific hostnames (no broad https:)", () => {
+  const { tmp, tmpDist } = runBuild();
+  try {
+    const { csp } = readHeadersCsp(tmpDist);
+    const imgSrc = (csp.match(/img-src[^;]*/) || [''])[0];
+    assert.ok(!/https:\s*[;\s]/.test(imgSrc), `img-src should not allow blanket https:; got: ${imgSrc}`);
+    assert.ok(imgSrc.includes('freeappstore.online'), `img-src missing primary store: ${imgSrc}`);
+    const connectSrc = (csp.match(/connect-src[^;]*/) || [''])[0];
+    assert.ok(connectSrc.includes('api.freeappstore.online'), `connect-src missing api: ${connectSrc}`);
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+});
+
+test("no <meta http-equiv=Content-Security-Policy> in index.html (headers only)", () => {
   const { tmp, tmpDist } = runBuild();
   try {
     const indexHtml = readFileSync(join(tmpDist, "index.html"), "utf8");
-    // Pull just the CSP meta tag.
-    const csp = indexHtml.match(/Content-Security-Policy"\s+content="([^"]+)"/)?.[1] ?? '';
-    assert.ok(csp, "CSP meta tag missing");
-    const scriptSrc = (csp.match(/script-src[^;]*/) || [''])[0];
     assert.ok(
-      scriptSrc.includes("'sha256-"),
-      `script-src must include a sha256 hash; got: ${scriptSrc}`,
-    );
-    assert.ok(
-      !scriptSrc.includes("'unsafe-inline'"),
-      `script-src must not include 'unsafe-inline'; got: ${scriptSrc}`,
-    );
-    // Build-time only host shouldn't be in the runtime CSP.
-    assert.ok(
-      !csp.includes("raw.githubusercontent.com"),
-      "raw.githubusercontent.com leaked into runtime CSP",
+      !/meta\s+http-equiv="Content-Security-Policy"/i.test(indexHtml),
+      "CSP meta tag re-appeared in index.html — headers should be the only source of truth",
     );
   } finally {
     rmSync(tmp, { recursive: true, force: true });

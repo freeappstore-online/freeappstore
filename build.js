@@ -624,6 +624,7 @@ const filesToCopy = [
   'style.css',
   'search.js',
   'storefront.js',
+  'detail-page.js',
   'quality.js',
   'manifest.json',
   'favicon.svg',
@@ -643,15 +644,40 @@ const filesToCopy = [
   'auth.js',
 ];
 
-// Security headers via CF Pages _headers file. frame-ancestors and
-// X-Frame-Options must be sent as HTTP headers — meta tags are ignored.
+// Security headers via CF Pages _headers — single source of truth for CSP and
+// every other security header. <meta> CSP is intentionally absent (frame-ancestors,
+// report-to, sandbox, and HSTS can't ride in <meta> anyway). The script-src
+// hash is computed at build time so the inline no-flash theme bootstrap is the
+// ONLY inline JS the page allows.
+const csp = [
+  "default-src 'self'",
+  "img-src 'self' https://*.freeappstore.online https://*.freegamestore.online https://avatars.githubusercontent.com data:",
+  `script-src 'self' '${inlineScriptHash}'`,
+  "style-src 'self'",
+  "font-src 'self'",
+  "connect-src 'self' https://*.freeappstore.online https://api.freeappstore.online",
+  "frame-src https://*.freeappstore.online https://*.freegamestore.online https://*.proappstore.online",
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "form-action 'self' https://api.freeappstore.online",
+  "object-src 'none'",
+  "upgrade-insecure-requests",
+].join('; ');
+
 fs.writeFileSync(path.join(DIST, '_headers'), [
   '/*',
   '  X-Frame-Options: DENY',
   '  X-Content-Type-Options: nosniff',
   '  Referrer-Policy: strict-origin-when-cross-origin',
-  '  Permissions-Policy: geolocation=(), microphone=(), camera=()',
-  '  Content-Security-Policy: frame-ancestors \'none\'',
+  '  Strict-Transport-Security: max-age=31536000; includeSubDomains',
+  '  Cross-Origin-Opener-Policy: same-origin',
+  '  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), midi=()',
+  `  Content-Security-Policy: ${csp}`,
+  // Report-Only mirror with the strictest version (no 'unsafe-*' anywhere) so
+  // we'll see CSP violations in browser consoles / report endpoints without
+  // breaking the page. Endpoint TODO — once api.freeappstore.online has a
+  // /v1/csp-report handler, wire `report-to` to it.
+  `  Content-Security-Policy-Report-Only: ${csp}`,
   '',
 ].join('\n'));
 

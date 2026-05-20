@@ -164,65 +164,9 @@
       </div>
     </div>
   </footer>
-  <script>
-    // Reload-preview button: bumps a cache-bust query so iframe re-fetches.
-    document.querySelectorAll('[data-action="reload-preview"]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const iframe = document.querySelector('.phone-frame iframe');
-        if (!iframe) return;
-        const url = new URL(iframe.src);
-        url.searchParams.set('_r', Date.now().toString(36));
-        iframe.src = url.toString();
-      });
-    });
-  </script>
+  <!-- Per-page data island; read by /detail-page.js. No inline JS so CSP can stay locked. -->
+  <script type="application/json" id="page-data">{"id":"{{ID}}"}</script>
   <script src="/auth.js"></script>
-  <script>
-  (function() {
-    var APP_ID = '{{ID}}';
-    var STORE = 'apps';
-    var API = 'https://api.freeappstore.online';
-    var KEY = 'fas_voted_' + APP_ID;
-    var upBtn = document.getElementById('rate-up');
-    var downBtn = document.getElementById('rate-down');
-    var countUp = document.getElementById('count-up');
-    var countDown = document.getElementById('count-down');
-    var status = document.getElementById('rating-status');
-
-    // Ratings are stored locally until a backend endpoint is available
-    var stored = JSON.parse(localStorage.getItem('fas_ratings_' + APP_ID) || '{"up":0,"down":0}');
-    countUp.textContent = stored.up;
-    countDown.textContent = stored.down;
-
-    // Check if already voted
-    var voted = localStorage.getItem(KEY);
-    if (voted) {
-      status.textContent = 'You voted ' + (voted === 'up' ? '\uD83D\uDC4D' : '\uD83D\uDC4E');
-      upBtn.disabled = true;
-      downBtn.disabled = true;
-      upBtn.style.opacity = voted === 'up' ? '1' : '0.4';
-      downBtn.style.opacity = voted === 'down' ? '1' : '0.4';
-    }
-
-    function vote(dir) {
-      if (localStorage.getItem(KEY)) return;
-      localStorage.setItem(KEY, dir);
-      status.textContent = 'Thanks!';
-      upBtn.disabled = true;
-      downBtn.disabled = true;
-      upBtn.style.opacity = dir === 'up' ? '1' : '0.4';
-      downBtn.style.opacity = dir === 'down' ? '1' : '0.4';
-      var el = dir === 'up' ? countUp : countDown;
-      el.textContent = parseInt(el.textContent) + 1;
-      // Persist locally
-      var r = JSON.parse(localStorage.getItem('fas_ratings_' + APP_ID) || '{"up":0,"down":0}');
-      r[dir]++;
-      localStorage.setItem('fas_ratings_' + APP_ID, JSON.stringify(r));
-    }
-
-    upBtn.addEventListener('click', function() { vote('up'); });
-    downBtn.addEventListener('click', function() { vote('down'); });
-  })();
-  </script>
+  <script src="/detail-page.js" defer></script>
 </body>
 </html>
