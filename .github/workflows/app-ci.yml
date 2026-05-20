@@ -29,7 +29,7 @@ on:
         description: "Pinned @freeappstore/cli version for the compliance gate. Bump deliberately."
         required: false
         type: string
-        default: "0.4.9"
+        default: "0.4.10"
       node_version:
         description: "Node.js major version"
         required: false
