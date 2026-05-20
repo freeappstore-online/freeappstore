@@ -163,7 +163,7 @@
     </section>
 
     <script type="application/json" id="cross-store-registry">{{CROSS_STORE_REGISTRY}}</script>
-    <script src="/search.js" defer></script>
+    <script src="/search.js" integrity="{{SRI_SEARCH_JS}}" defer></script>
 
     <aside class="aside-note">
       Looking for games? Visit <a href="https://freegamestore.online" class="text-accent-bold">FreeGameStore</a> — free-forever web games.
@@ -230,7 +230,7 @@
     </div>
   </footer>
 
-  <script src="/storefront.js" defer></script>
-  <script src="/auth.js"></script>
+  <script src="/storefront.js" integrity="{{SRI_STOREFRONT_JS}}" defer></script>
+  <script src="/auth.js" integrity="{{SRI_AUTH_JS}}"></script>
 </body>
 </html>

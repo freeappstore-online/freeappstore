@@ -313,10 +313,30 @@ if (!inlineScriptMatch) {
 }
 const inlineScriptHash = 'sha256-' + crypto.createHash('sha256').update(inlineScriptMatch[1]).digest('base64');
 
+// Subresource Integrity hashes for local script files. Each <script src="...">
+// in the templates gets an integrity="sha256-..." attribute so the browser
+// refuses to execute the file if it's been tampered with on the CDN.
+// Same-origin doesn't need crossorigin="anonymous"; we skip it to avoid CORS.
+function sriHash(filename) {
+  const content = fs.readFileSync(path.join(ROOT, filename));
+  return 'sha256-' + crypto.createHash('sha256').update(content).digest('base64');
+}
+const sriHashes = {
+  SEARCH_JS: sriHash('search.js'),
+  STOREFRONT_JS: sriHash('storefront.js'),
+  AUTH_JS: sriHash('auth.js'),
+  DETAIL_PAGE_JS: sriHash('detail-page.js'),
+};
+
 let indexHtml = indexTemplate
   .replace('{{INLINE_SCRIPT_HASH}}', inlineScriptHash)
   .replace('{{APPS_GRID}}', appCards)
   .replace('{{APPS_COUNT}}', String(apps.length));
+
+// Apply SRI hashes (placeholders look like {{SRI_AUTH_JS}}, {{SRI_SEARCH_JS}}, etc.)
+for (const [k, v] of Object.entries(sriHashes)) {
+  indexHtml = indexHtml.replaceAll(`{{SRI_${k}}}`, v);
+}
 
 // --- Generate app detail pages ---
 // Fetch histories in parallel — 26 apps × 2 calls = 52 requests, well under
@@ -578,6 +598,11 @@ apps.forEach((app, i) => {
     .replace(/\{\{AUDIT_BADGE\}\}/g, renderAuditBadge(auditMap.get(app.id)))
     .replace(/\{\{CODE_QUALITY_BADGE\}\}/g, renderCodeQualityBadge(app.id))
     .replace(/\{\{VIEWPORT_BADGE\}\}/g, renderViewportBadge(manifests[i]));
+
+  // SRI hashes (detail pages use auth.js + detail-page.js).
+  for (const [k, v] of Object.entries(sriHashes)) {
+    html = html.replaceAll(`{{SRI_${k}}}`, v);
+  }
 
   fs.writeFileSync(path.join(DIST, 'apps', `${app.id}.html`), html);
 });
