@@ -467,6 +467,19 @@
       "cfProject": "freedocbotapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "population-agent",
+      "name": "population-agent",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Ask anything about Australian population — powered by live ABS data and Claude.",
+      "appUrl": "https://population-agent.freeappstore.online",
+      "repo": "freeappstore-online/population-agent",
+      "cfProject": "freepopulation-agentapp",
+      "type": "connected",
+      "developer": "FreeAppStore"
     }
   ]
 }
