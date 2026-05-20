@@ -363,6 +363,19 @@
       "cfProject": "freespendingapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "artout",
+      "name": "artout",
+      "category": "Social",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Street art on the map, by the community",
+      "appUrl": "https://artout.freeappstore.online",
+      "repo": "freeappstore-online/artout",
+      "cfProject": "freeartoutapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
