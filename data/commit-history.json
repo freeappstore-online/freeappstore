@@ -1140,36 +1140,36 @@
   "freeappstore-online/typeflow": {
     "meta": {
       "created_at": "2026-05-18T09:59:33Z",
-      "pushed_at": "2026-05-20T09:45:40Z"
+      "pushed_at": "2026-05-20T11:10:47Z"
     },
     "commits": [
       {
-        "sha": "dce45e611e7cb59e1f4b304b63353ba8f83dc570",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/dce45e611e7cb59e1f4b304b63353ba8f83dc570",
+        "sha": "a994c1a02c8d87ba3b3624be03cc288f8631dc5f",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/a994c1a02c8d87ba3b3624be03cc288f8631dc5f",
         "commit": {
-          "message": "Merge: build TypeFlow typing speed test app",
+          "message": "Add difficulty levels, stats/levelling, theme toggle, focus UX",
           "author": {
-            "date": "2026-05-20T01:29:47Z"
+            "date": "2026-05-20T11:10:44Z"
           }
         }
       },
       {
-        "sha": "671096252427d595a996f50d66a941cf11d65c3d",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/671096252427d595a996f50d66a941cf11d65c3d",
+        "sha": "3bb13058fd755ce641c0d33230e36f8147c22d57",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/3bb13058fd755ce641c0d33230e36f8147c22d57",
         "commit": {
-          "message": "Build TypeFlow typing speed test app\n\n- Add full typing test with 15/30/60/120s modes, live WPM/accuracy, results screen\n- Add types.ts, words.ts (200-word list), useTypingTest hook, TypingArea component\n- Update Shell sidebar with keyboard tips and app tagline\n- Remove platform-owned CSS variable overrides so fas check passes\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Add difficulty levels, stats/levelling, theme toggle, focus UX\n\n- Light theme is now the default; user can toggle dark via ☾/☀ button\n  (stored in localStorage, no longer follows system preference)\n- Easy / Normal / Hard difficulty selector — each uses a distinct word\n  list (short common words / mixed / longer complex words)\n- Level system: Beginner → Novice → Apprentice → Skilled → Advanced →\n  Expert → Master, driven by personal-best WPM stored in localStorage\n- Sidebar level card shows PB, progress bar to next level, test count\n- Click-to-focus overlay on word display — clearly tells users to click\n  before typing; disappears once focused\n- Results screen shows ★ new personal best banner when PB is beaten\n- Mode and difficulty tabs now use bg-[var(--ink)] highlight so active\n  state is unambiguous in both light and dark themes\n- Wider max-w-4xl content area removes dead space on desktop\n- Timer enlarged to text-5xl display-font for better visual anchor\n- useStats / useTheme hooks extracted; App wires them to Shell + TypingArea\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-20T01:29:04Z"
+            "date": "2026-05-20T11:10:33Z"
           }
         }
       },
       {
-        "sha": "138ba9edc779d006f4d0e1f71f6f8c85769558bf",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/138ba9edc779d006f4d0e1f71f6f8c85769558bf",
+        "sha": "d0b4c8551dd6b41add1e09814b64fadcfb294f19",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/d0b4c8551dd6b41add1e09814b64fadcfb294f19",
         "commit": {
-          "message": "Initial commit from standalone template",
+          "message": "Fix typing area UI and responsiveness",
           "author": {
-            "date": "2026-05-18T08:41:58Z"
+            "date": "2026-05-20T10:54:22Z"
           }
         }
       }
@@ -1472,36 +1472,36 @@
   "freeappstore-online/docbot": {
     "meta": {
       "created_at": "2026-05-20T09:44:20Z",
-      "pushed_at": "2026-05-20T09:47:52Z"
+      "pushed_at": "2026-05-20T10:35:24Z"
     },
     "commits": [
       {
-        "sha": "e03adda9cb0f1f2c5a838bb014320e8d6864fc42",
-        "html_url": "https://github.com/freeappstore-online/docbot/commit/e03adda9cb0f1f2c5a838bb014320e8d6864fc42",
+        "sha": "794574be9ace3ba7dd4bbe0f25268da8049b5ed3",
+        "html_url": "https://github.com/freeappstore-online/docbot/commit/794574be9ace3ba7dd4bbe0f25268da8049b5ed3",
         "commit": {
-          "message": "Add key panel: view, copy, or replace the stored Anthropic key\n\nPreviously the only option was \"change key\" (destructive). Now there's a\nsmall panel with a masked-by-default key, show/hide toggle, copy-to-clipboard,\nand explicit replace.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Harden security: sanitize source links, add CSP, fence prompt context\n\nThree findings from the audit:\n\n- H1: source-link <a href> in the chat now passes through sanitizeUrl;\n  persist.loadHistory rejects entries whose `sources` shape is wrong, so a\n  tampered localStorage value can't smuggle a javascript: URL onto a clickable\n  link.\n- M1: web/public/_headers adds CSP (default-src 'self'; connect-src restricted\n  to api.anthropic.com), nosniff, no-referrer, and a strict Permissions-Policy\n  on Cloudflare Pages.\n- M2: KB context is now wrapped in <context>…</context> and the system prompt\n  tells the model to treat it as untrusted data — defense against prompt\n  injection if a future KB source is less trustworthy than freeappstore.pages.dev.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-20T09:47:50Z"
+            "date": "2026-05-20T10:35:21Z"
           }
         }
       },
       {
-        "sha": "845e96ebd6d9ef89cdfc6582fb58e30140e4065f",
-        "html_url": "https://github.com/freeappstore-online/docbot/commit/845e96ebd6d9ef89cdfc6582fb58e30140e4065f",
+        "sha": "56d74d55ca0469fcf5b40266471f55b5df63df86",
+        "html_url": "https://github.com/freeappstore-online/docbot/commit/56d74d55ca0469fcf5b40266471f55b5df63df86",
         "commit": {
-          "message": "Build docbot: support chatbot trained on FreeAppStore docs\n\nCrawls freeappstore.pages.dev into a static KB, retrieves with BM25 in-browser,\nsynthesizes answers with Claude using the user's own pasted Anthropic key\n(localStorage). FAS proxy blocks anthropic.com so BYO-key is the only option\non free tier.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add Vitest test suite with happy-dom coverage\n\n84 tests across 5 files covering the lib/* modules and the KB crawler\nhelpers:\n- markdown.test.tsx: paragraphs, lists, bold/italic/code/links,\n  malformed input, and the new sanitizeUrl (verifies javascript:,\n  data:, vbscript:, file:, and control-char-bypassed URLs all\n  collapse to \"#\").\n- persist.test.ts: missing/corrupt/non-array storage, malformed-msg\n  filtering, MAX-trim on load and save, clear behavior.\n- anthropic.test.ts: key round-trip, storage failure resilience,\n  SSE streaming including the final-unterminated-line case, and\n  fetch error-status surfacing.\n- kb.test.ts: retrieve() shape, ranking, k-cap, no-match behavior.\n- kb-helpers.test.mjs: canonicalPath, decodeEntities, extractTitle,\n  extractLinks (entity decode, asset filter, dangerous-scheme skip),\n  extractSections (script/style/nav strip, entity decode), chunkText.\n\nVitest 4 + Node 26 quirk: Node 26 ships an experimental global\nlocalStorage that pre-empts happy-dom's; vitest.setup.ts installs a\nfresh in-memory Storage on globalThis so the standard browser API\nworks in tests.\n\nCoverage: 96.7% statements / 98.4% lines / 93.1% branches on\nweb/src/lib.",
           "author": {
-            "date": "2026-05-20T09:44:56Z"
+            "date": "2026-05-20T10:28:22Z"
           }
         }
       },
       {
-        "sha": "982ac8c1d15b62621b45916ec8193e07eff1641d",
-        "html_url": "https://github.com/freeappstore-online/docbot/commit/982ac8c1d15b62621b45916ec8193e07eff1641d",
+        "sha": "afaaa83ffcc4effcda962bf29f9d356a76674e1b",
+        "html_url": "https://github.com/freeappstore-online/docbot/commit/afaaa83ffcc4effcda962bf29f9d356a76674e1b",
         "commit": {
-          "message": "Initial commit from standalone template",
+          "message": "Extract CopyButton and KeyPanel into their own component files\n\nChat.tsx was ~320 lines and held three components. Splitting the\nclipboard button and the key-management panel out leaves Chat focused\non conversation state and rendering.",
           "author": {
-            "date": "2026-05-20T09:23:03Z"
+            "date": "2026-05-20T10:28:06Z"
           }
         }
       }
@@ -1530,6 +1530,44 @@
           "message": "Initial commit from standalone template",
           "author": {
             "date": "2026-05-20T09:58:43Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/facer": {
+    "meta": {
+      "created_at": "2026-05-20T10:09:22Z",
+      "pushed_at": "2026-05-20T10:29:08Z"
+    },
+    "commits": [
+      {
+        "sha": "d0abc32ea89bd1c11ef21a1061482e1d079441bd",
+        "html_url": "https://github.com/freeappstore-online/facer/commit/d0abc32ea89bd1c11ef21a1061482e1d079441bd",
+        "commit": {
+          "message": "detector: poll for window.faceapi, inject script as fallback\n\nIf the global isn't ready when React mounts (extension blocking /vendor/,\nslow network, service-worker stale state), wait up to 6s and then dynamically\ninject the script. Throw a useful error if it still fails.",
+          "author": {
+            "date": "2026-05-20T10:29:05Z"
+          }
+        }
+      },
+      {
+        "sha": "c6ffb58f812d6861746cad01f06953937fb88e5c",
+        "html_url": "https://github.com/freeappstore-online/facer/commit/c6ffb58f812d6861746cad01f06953937fb88e5c",
+        "commit": {
+          "message": "Facer: offline face & gender recognition\n\n- Port app from vanilla HTML/JS into the standalone Vite + React template\n- Bundle face-api.js (MIT) lib + TinyFaceDetector + age/gender weights under\n  web/public/{vendor,models} so inference runs fully in-browser\n- Window-level drag-and-drop with enter/leave counter and items API fallback\n- PWA precaches model shards (globPatterns includes 'models/*') for offline use\n- Layout fits 12/12 reference viewports without scroll (min_viewport_width 320)",
+          "author": {
+            "date": "2026-05-20T10:10:18Z"
+          }
+        }
+      },
+      {
+        "sha": "a511f046dd50afb6025cfcf74f3059d34188b9f8",
+        "html_url": "https://github.com/freeappstore-online/facer/commit/a511f046dd50afb6025cfcf74f3059d34188b9f8",
+        "commit": {
+          "message": "Initial commit from standalone template",
+          "author": {
+            "date": "2026-05-20T09:55:39Z"
           }
         }
       }
