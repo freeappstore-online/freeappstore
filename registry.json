@@ -389,6 +389,19 @@
       "cfProject": "freedone-todoapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "hello-world-greeter",
+      "name": "hello-world-greeter",
+      "category": "Other (specify in description)",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Hello world demo greeter",
+      "appUrl": "https://hello-world-greeter.freeappstore.online",
+      "repo": "freeappstore-online/hello-world-greeter",
+      "cfProject": "freehello-world-greeterapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
