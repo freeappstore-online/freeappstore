@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const crypto = require('crypto');
 
 const ROOT = __dirname;
 // DIST and the registry path can be overridden via env vars so the smoke
@@ -24,17 +25,26 @@ const apps = registry.apps;
 const ID_RE = /^[a-z0-9][a-z0-9-]*$/;
 const COLOR_RE = /^#(?:[0-9a-fA-F]{3,4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$/;
 const URL_RE = /^https:\/\/[a-z0-9.-]+\.freeappstore\.online(?:\/.*)?$/;
+// Length caps prevent registry-bloat DoS (a 1MB name becomes 1MB of HTML);
+// control-char ban catches accidental \r\n breaking attribute quoting.
+function safeText(s, max) {
+  return typeof s === 'string' && s.length > 0 && s.length <= max && !/[\x00-\x1f\x7f]/.test(s);
+}
 function validateRegistry(items) {
   const errors = [];
+  const seenIds = new Set();
   for (const a of items) {
     if (!a.id || !ID_RE.test(a.id)) errors.push(`bad id: ${JSON.stringify(a.id)}`);
-    if (!a.name || typeof a.name !== 'string') errors.push(`${a.id}: missing name`);
+    else if (seenIds.has(a.id)) errors.push(`duplicate id: ${JSON.stringify(a.id)}`);
+    else seenIds.add(a.id);
+    if (!safeText(a.name, 80)) errors.push(`${a.id}: name must be 1-80 chars without control chars`);
     if (!a.appUrl || !URL_RE.test(a.appUrl)) errors.push(`${a.id}: appUrl must be https://*.freeappstore.online, got ${JSON.stringify(a.appUrl)}`);
     if (a.iconBg && !COLOR_RE.test(a.iconBg)) errors.push(`${a.id}: iconBg must be a #hex color, got ${JSON.stringify(a.iconBg)}`);
-    // Category is shown as text only (HTML-escaped). Just guard against
-    // control chars and absurd lengths; allow free-form labels.
-    if (a.category != null && (typeof a.category !== 'string' || a.category.length > 80 || /[\x00-\x1f]/.test(a.category))) {
-      errors.push(`${a.id}: bad category ${JSON.stringify(a.category)}`);
+    if (a.category != null && !safeText(a.category, 80)) errors.push(`${a.id}: bad category ${JSON.stringify(a.category)}`);
+    if (a.description != null && !safeText(a.description, 500)) errors.push(`${a.id}: description must be 1-500 chars without control chars`);
+    if (a.developer != null && !safeText(a.developer, 60)) errors.push(`${a.id}: bad developer ${JSON.stringify(a.developer)}`);
+    if (a.repo != null && (typeof a.repo !== 'string' || a.repo.length > 100 || !/^[\w.-]+\/[\w.-]+$/.test(a.repo))) {
+      errors.push(`${a.id}: repo must be "owner/name", got ${JSON.stringify(a.repo)}`);
     }
   }
   if (errors.length) {
@@ -282,7 +292,18 @@ const appCards = apps.map(app => {
 
 // indexHtml is finalized inside the async IIFE below — cross-store
 // registry fetch is async, and we want to embed it into the page.
+// Compute SHA-256 of the inline no-flash theme bootstrap so the CSP can
+// whitelist that exact script without 'unsafe-inline'. The bootstrap is the
+// first <script>…</script> block inside <head> in the template.
+const inlineScriptMatch = indexTemplate.match(/<head>[\s\S]*?<script>([\s\S]*?)<\/script>/);
+if (!inlineScriptMatch) {
+  console.error('Could not locate the inline bootstrap <script> for CSP hashing');
+  process.exit(1);
+}
+const inlineScriptHash = 'sha256-' + crypto.createHash('sha256').update(inlineScriptMatch[1]).digest('base64');
+
 let indexHtml = indexTemplate
+  .replace('{{INLINE_SCRIPT_HASH}}', inlineScriptHash)
   .replace('{{APPS_GRID}}', appCards)
   .replace('{{APPS_COUNT}}', String(apps.length));
 

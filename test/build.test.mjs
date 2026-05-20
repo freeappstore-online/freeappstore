@@ -225,3 +225,50 @@ test("CSP meta tag is present in index.html and _headers ships frame-ancestors",
     rmSync(tmp, { recursive: true, force: true });
   }
 });
+
+test("CSP locks script-src with hash, no 'unsafe-inline' on scripts", () => {
+  const { tmp, tmpDist } = runBuild();
+  try {
+    const indexHtml = readFileSync(join(tmpDist, "index.html"), "utf8");
+    // Pull just the CSP meta tag.
+    const csp = indexHtml.match(/Content-Security-Policy"\s+content="([^"]+)"/)?.[1] ?? '';
+    assert.ok(csp, "CSP meta tag missing");
+    const scriptSrc = (csp.match(/script-src[^;]*/) || [''])[0];
+    assert.ok(
+      scriptSrc.includes("'sha256-"),
+      `script-src must include a sha256 hash; got: ${scriptSrc}`,
+    );
+    assert.ok(
+      !scriptSrc.includes("'unsafe-inline'"),
+      `script-src must not include 'unsafe-inline'; got: ${scriptSrc}`,
+    );
+    // Build-time only host shouldn't be in the runtime CSP.
+    assert.ok(
+      !csp.includes("raw.githubusercontent.com"),
+      "raw.githubusercontent.com leaked into runtime CSP",
+    );
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+});
+
+test("validator rejects duplicate ids and unbounded names", () => {
+  // Duplicate id
+  let r = runBuildWithRegistry([{ ...VALID_APP }, { ...VALID_APP }]);
+  try {
+    assert.equal(r.ok, false);
+    assert.match(r.stderr, /duplicate id/);
+  } finally { rmSync(r.tmp, { recursive: true, force: true }); }
+  // 200-char name should be rejected (cap 80)
+  r = runBuildWithRegistry([{ ...VALID_APP, name: "x".repeat(200) }]);
+  try {
+    assert.equal(r.ok, false);
+    assert.match(r.stderr, /name must be 1-80 chars/);
+  } finally { rmSync(r.tmp, { recursive: true, force: true }); }
+  // Control char in name
+  r = runBuildWithRegistry([{ ...VALID_APP, name: "evil name" }]);
+  try {
+    assert.equal(r.ok, false);
+    assert.match(r.stderr, /name must be/);
+  } finally { rmSync(r.tmp, { recursive: true, force: true }); }
+});
