@@ -1140,36 +1140,36 @@
   "freeappstore-online/typeflow": {
     "meta": {
       "created_at": "2026-05-18T09:59:33Z",
-      "pushed_at": "2026-05-20T00:52:16Z"
+      "pushed_at": "2026-05-20T09:45:40Z"
     },
     "commits": [
       {
-        "sha": "b9b66d67ec02c6533a78ecc5b5b510bf8ea5b30d",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/b9b66d67ec02c6533a78ecc5b5b510bf8ea5b30d",
+        "sha": "dce45e611e7cb59e1f4b304b63353ba8f83dc570",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/dce45e611e7cb59e1f4b304b63353ba8f83dc570",
         "commit": {
-          "message": "feat: desktop layout, levels system, and enhanced typing animations\n\n- Fix desktop layout: md:flex-row lobby (was lg), max-w-6xl, fluid\n  title font with clamp(), level badge in hero with next-level progress\n- Add levels system: 7 tiers (Beginner → Legend) based on best WPM,\n  exported from App so ResultsModal can show level-up celebration\n- Combo counter: 🔥 badge appears during test after 3 consecutive\n  correct words, pops in with spring animation\n- Enhanced char animations: per-character glow (textShadow) on\n  correct/incorrect keystrokes, char-pop spring animation on each\n  correctly-typed character, stronger cursor glow\n- Results: level badge + level-up banner when crossing a threshold,\n  \"X WPM away from [NextLevel]\" hint, improved sparkline\n- CSS: new keyframes (char-pop, level-up, combo-pop, border-flow),\n  progress bar now uses gradient-brand, larger LINE_HEIGHT_PX (48)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>",
+          "message": "Merge: build TypeFlow typing speed test app",
           "author": {
-            "date": "2026-05-20T00:48:32Z"
+            "date": "2026-05-20T01:29:47Z"
           }
         }
       },
       {
-        "sha": "8155b68d88f7cccc4f420dfcc67375cce278b3de",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/8155b68d88f7cccc4f420dfcc67375cce278b3de",
+        "sha": "671096252427d595a996f50d66a941cf11d65c3d",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/671096252427d595a996f50d66a941cf11d65c3d",
         "commit": {
-          "message": "feat: full UX/TS upgrade — sound, quotes mode, sparkline, share card, PWA prompt\n\nTypeScript architecture:\n- Fix dual-input bug: single <input> in App.tsx; TypingArea no longer owns an input\n- WordOutcome type ('correct'|'incorrect'|'skipped') replaces boolean[]\n- Named constants: WORD_BUFFER_SIZE, MIN_ELAPSED_MINS, STATS_INTERVAL_MS\n- SETTINGS_VERSION guard on localStorage reads; safe safeRead/safeWrite helpers\n- history trimmed to last 20 tests (was 100), now stores wpmSamples[]\n- useStats exposes history[]; usePersistence uses generic updateSetting<K>\n\nNew features:\n- Sound feedback via Web Audio API (useSound hook) — correct word beep,\n  error buzz, end-of-test tone; toggle in settings\n- Quotes mode: 4th difficulty using 20 famous programming/literature quotes,\n  generated in sentence order via generateQuoteWords()\n- 15s duration option added\n- DifficultySelector now 2×2 grid (quotes = purple accent)\n- Progress bar: thin CTA-coloured bar above the typing area\n- Shake animation on each incorrect keystroke in active word\n- Word-flash animation: correct completions briefly highlight green before fading\n- WPM sparkline in results modal (pure SVG, no libraries), with filled area\n- Personal-best delta: \"+12 WPM above your best 🏆\" / \"−5 WPM from your best\"\n- Share result card: clipboard text with WPM/accuracy/errors + site link\n- PWA install prompt banner (beforeinstallprompt hook)\n- Recent WPM mini-sparkline on lobby after first 2 tests\n- Sound toggle switch in settings modal\n\nFreeAppStore compliance:\n- Zero platform token overrides\n- No forbidden font variables\n- Generic monospace keyword only\n- fas check: ✓ all hard checks passed (70.3 KB gzipped)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Build TypeFlow typing speed test app\n\n- Add full typing test with 15/30/60/120s modes, live WPM/accuracy, results screen\n- Add types.ts, words.ts (200-word list), useTypingTest hook, TypingArea component\n- Update Shell sidebar with keyboard tips and app tagline\n- Remove platform-owned CSS variable overrides so fas check passes\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-19T15:32:28Z"
+            "date": "2026-05-20T01:29:04Z"
           }
         }
       },
       {
-        "sha": "ce59287be3667188eda68c8217bf86df28c1849a",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/ce59287be3667188eda68c8217bf86df28c1849a",
+        "sha": "138ba9edc779d006f4d0e1f71f6f8c85769558bf",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/138ba9edc779d006f4d0e1f71f6f8c85769558bf",
         "commit": {
-          "message": "Initial TypeFlow release",
+          "message": "Initial commit from standalone template",
           "author": {
-            "date": "2026-05-19T14:04:06Z"
+            "date": "2026-05-18T08:41:58Z"
           }
         }
       }
@@ -1464,6 +1464,34 @@
           "message": "feat(kanban): labels, due dates, checklists, list-level overdue badge\n\nThree feature additions + a couple of UX wins:\n\n* Labels — 6-color palette (accent/sky/mint/warning/error/muted) mapped to\n  existing design tokens so theme switches lift them in one place. Click\n  to toggle on/off in the card editor; renamable per card. Cards show\n  the chips above the title.\n\n* Due dates — datetime-local picker. Cards render a small chip with\n  urgency-coded color: red overdue, amber today, soft-accent in the\n  next 48h, neutral outline beyond that. Within a week the chip uses\n  day-of-week shorthand.\n\n* Checklists — inline subtasks with Enter-to-add. Card preview shows\n  a  chip that turns mint when complete. The card editor shows\n  a thin progress bar that fills as items get checked.\n\nUX:\n* List title shows a card-count pill (was a bare number) and a small\n  red dot if any card in the list is overdue.\n* Empty list state: a dashed-border drop-target instead of just\n  empty space, so it's clear cards can land there.\n\nAll new fields on Card are optional, so existing boards open\nunchanged — no migration needed.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-20T03:46:11Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/docbot": {
+    "meta": {
+      "created_at": "2026-05-20T09:44:20Z",
+      "pushed_at": "2026-05-20T09:45:02Z"
+    },
+    "commits": [
+      {
+        "sha": "845e96ebd6d9ef89cdfc6582fb58e30140e4065f",
+        "html_url": "https://github.com/freeappstore-online/docbot/commit/845e96ebd6d9ef89cdfc6582fb58e30140e4065f",
+        "commit": {
+          "message": "Build docbot: support chatbot trained on FreeAppStore docs\n\nCrawls freeappstore.pages.dev into a static KB, retrieves with BM25 in-browser,\nsynthesizes answers with Claude using the user's own pasted Anthropic key\n(localStorage). FAS proxy blocks anthropic.com so BYO-key is the only option\non free tier.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-20T09:44:56Z"
+          }
+        }
+      },
+      {
+        "sha": "982ac8c1d15b62621b45916ec8193e07eff1641d",
+        "html_url": "https://github.com/freeappstore-online/docbot/commit/982ac8c1d15b62621b45916ec8193e07eff1641d",
+        "commit": {
+          "message": "Initial commit from standalone template",
+          "author": {
+            "date": "2026-05-20T09:23:03Z"
           }
         }
       }
