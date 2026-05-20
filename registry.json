@@ -441,6 +441,19 @@
       "cfProject": "freewhenlyapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "kanban",
+      "name": "kanban",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Personal kanban boards. Drag cards between lists.",
+      "appUrl": "https://kanban.freeappstore.online",
+      "repo": "freeappstore-online/kanban",
+      "cfProject": "freekanbanapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
