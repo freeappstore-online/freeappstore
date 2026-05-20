@@ -428,6 +428,19 @@
       "cfProject": "freetodolyapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "whenly",
+      "name": "whenly",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Scheduling and time-window planning",
+      "appUrl": "https://whenly.freeappstore.online",
+      "repo": "freeappstore-online/whenly",
+      "cfProject": "freewhenlyapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
