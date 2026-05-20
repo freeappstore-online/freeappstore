@@ -480,6 +480,19 @@
       "cfProject": "freepopulation-agentapp",
       "type": "connected",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "facer",
+      "name": "facer",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Offline face & gender recognition — every pixel stays on your device.",
+      "appUrl": "https://facer.freeappstore.online",
+      "repo": "freeappstore-online/facer",
+      "cfProject": "freefacerapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
