@@ -1,0 +1,61 @@
+name: App CI (reusable)
+
+# Reusable workflow that every app in freeappstore-online/* calls from
+# its own .github/workflows/compliance.yml. Replaces the ~70-line
+# inline-grep version that drifted out of sync across apps.
+#
+# Each app's caller file is ~10 lines:
+#   on:
+#     push: { branches: [main] }
+#     pull_request: { branches: [main] }
+#   jobs:
+#     ci:
+#       uses: freeappstore-online/freeappstore/.github/workflows/app-ci.yml@main
+#
+# Apps deploy via Cloudflare Pages' git integration (not GHA), so no
+# deploy job here — this workflow only gates compliance. CF Pages does
+# its own build; the apps' web/package.json prebuild hook can call
+# `@freeappstore/cli check` to gate that path too.
+#
+# Single-job design is intentional. NO secrets exist in this workflow,
+# so the S2 concern (compliance step sharing env with deploy step)
+# doesn't apply. The S1 mitigation (pinned CLI version) is set via
+# the `compliance_cli_version` input default — bump deliberately.
+
+on:
+  workflow_call:
+    inputs:
+      compliance_cli_version:
+        description: "Pinned @freeappstore/cli version for the compliance gate. Bump deliberately."
+        required: false
+        type: string
+        default: "0.4.8"
+      node_version:
+        description: "Node.js major version"
+        required: false
+        type: string
+        default: "22"
+
+jobs:
+  compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node_version }}
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      # Platform compliance — runs every check the CLI ships. Pinned
+      # version so a CLI release can't silently flip green builds to red.
+      - name: Platform compliance
+        run: npx -y "@freeappstore/cli@${{ inputs.compliance_cli_version }}" check
