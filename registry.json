@@ -415,6 +415,19 @@
       "cfProject": "freeskyview-weatherapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "todoly",
+      "name": "todoly",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Task lists and todos",
+      "appUrl": "https://todoly.freeappstore.online",
+      "repo": "freeappstore-online/todoly",
+      "cfProject": "freetodolyapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
