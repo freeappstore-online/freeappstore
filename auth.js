@@ -9,6 +9,19 @@
 (function () {
   var API = "https://api.freeappstore.online";
 
+  // ── Icon fallback (runs on every page that has .app-icon elements) ──
+  // If an apple-touch-icon fails to load, swap the <img> for a text node
+  // containing the first letter (stored on the parent as data-letter).
+  function bindIconFallback(img) {
+    function fallback() {
+      var letter = (img.parentElement && img.parentElement.dataset.letter) || '?';
+      img.replaceWith(document.createTextNode(letter));
+    }
+    if (img.complete && img.naturalHeight === 0) fallback();
+    else img.addEventListener("error", fallback, { once: true });
+  }
+  document.querySelectorAll(".app-icon img").forEach(bindIconFallback);
+
   // ── Theme: apply stored / preferred mode ──
   try {
     var stored = localStorage.getItem("fas-theme");

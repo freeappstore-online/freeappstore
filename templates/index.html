@@ -16,6 +16,11 @@
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+  <!-- CSP: lock down what the page can load + ban iframing the storefront itself
+       (anti-clickjack). 'unsafe-inline' on script/style is required for the
+       no-flash theme preload below and inline style="background: #abc" on
+       card icons. Swap to hash-based later. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://*.freeappstore.online https://api.freeappstore.online https://raw.githubusercontent.com; frame-src https://*.freeappstore.online https://*.freegamestore.online https://*.proappstore.online; base-uri 'self'; form-action 'self' https://api.freeappstore.online;" />
   <!-- Apply theme before paint to avoid flash. Reads localStorage then falls back to system preference. -->
   <script>
     (function(){try{var s=localStorage.getItem('fas-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark');}catch(e){}})();
