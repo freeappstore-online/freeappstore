@@ -454,6 +454,19 @@
       "cfProject": "freekanbanapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "docbot",
+      "name": "docbot",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Chat with the FreeAppStore docs — answers grounded in the live site.",
+      "appUrl": "https://docbot.freeappstore.online",
+      "repo": "freeappstore-online/docbot",
+      "cfProject": "freedocbotapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
