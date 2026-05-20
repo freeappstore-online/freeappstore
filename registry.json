@@ -402,6 +402,19 @@
       "cfProject": "freehello-world-greeterapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "skyview-weather",
+      "name": "skyview-weather",
+      "category": "News & Weather",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Weather forecast app",
+      "appUrl": "https://skyview-weather.freeappstore.online",
+      "repo": "freeappstore-online/skyview-weather",
+      "cfProject": "freeskyview-weatherapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
