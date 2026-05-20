@@ -800,9 +800,19 @@
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-05-19T22:24:46Z"
+      "pushed_at": "2026-05-20T02:36:42Z"
     },
     "commits": [
+      {
+        "sha": "7d06865d1315590c42842a7df9eceefde5ee2ce6",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/7d06865d1315590c42842a7df9eceefde5ee2ce6",
+        "commit": {
+          "message": "ci: migrate compliance.yml to reusable FAS app-ci.yml\n\nReplaces ~70 lines of inline-grep checks with a 10-line caller that\nhands off to the central reusable workflow. Same effective coverage\n(actually broader — the CLI runs every check we publish, not just the\nhard-coded ones), pinned CLI version for supply-chain safety, and\nedits to the gate now propagate to all apps via one PR.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-20T02:36:40Z"
+          }
+        }
+      },
       {
         "sha": "8f3c2cba239437794290ff0bbac99b2bfb9d0edb",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/8f3c2cba239437794290ff0bbac99b2bfb9d0edb",
@@ -820,16 +830,6 @@
           "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
           "author": {
             "date": "2026-05-16T23:32:33Z"
-          }
-        }
-      },
-      {
-        "sha": "b4f89d5aabe1a0e95ce6be237b53426004aff78f",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/b4f89d5aabe1a0e95ce6be237b53426004aff78f",
-        "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
-          "author": {
-            "date": "2026-05-14T11:06:37Z"
           }
         }
       }
@@ -932,9 +932,19 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-19T22:24:46Z"
+      "pushed_at": "2026-05-20T02:36:42Z"
     },
     "commits": [
+      {
+        "sha": "a0efab4e062c0872d45336b9c411d2e252207700",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/a0efab4e062c0872d45336b9c411d2e252207700",
+        "commit": {
+          "message": "ci: migrate compliance.yml to reusable FAS app-ci.yml\n\nReplaces ~70 lines of inline-grep checks with a 10-line caller that\nhands off to the central reusable workflow. Same effective coverage\n(actually broader — the CLI runs every check we publish, not just the\nhard-coded ones), pinned CLI version for supply-chain safety, and\nedits to the gate now propagate to all apps via one PR.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-20T02:36:40Z"
+          }
+        }
+      },
       {
         "sha": "8276386dade4c42b5da77569ea9e84a0238ec850",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/8276386dade4c42b5da77569ea9e84a0238ec850",
@@ -952,16 +962,6 @@
           "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
           "author": {
             "date": "2026-05-16T23:32:36Z"
-          }
-        }
-      },
-      {
-        "sha": "ce0c90f6ae52b9d1d8a103ff91a67b3e76bbc495",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/ce0c90f6ae52b9d1d8a103ff91a67b3e76bbc495",
-        "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
-          "author": {
-            "date": "2026-05-14T11:06:36Z"
           }
         }
       }
@@ -1178,9 +1178,19 @@
   "freeappstore-online/streak": {
     "meta": {
       "created_at": "2026-05-19T21:30:48Z",
-      "pushed_at": "2026-05-19T22:24:46Z"
+      "pushed_at": "2026-05-20T02:36:42Z"
     },
     "commits": [
+      {
+        "sha": "07fbd4358d4a3b3ee248d075ee4b63527629ab5d",
+        "html_url": "https://github.com/freeappstore-online/streak/commit/07fbd4358d4a3b3ee248d075ee4b63527629ab5d",
+        "commit": {
+          "message": "ci: migrate compliance.yml to reusable FAS app-ci.yml\n\nReplaces ~70 lines of inline-grep checks with a 10-line caller that\nhands off to the central reusable workflow. Same effective coverage\n(actually broader — the CLI runs every check we publish, not just the\nhard-coded ones), pinned CLI version for supply-chain safety, and\nedits to the gate now propagate to all apps via one PR.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-20T02:36:40Z"
+          }
+        }
+      },
       {
         "sha": "3709927f1614284f727bfdafcffe596a943aec84",
         "html_url": "https://github.com/freeappstore-online/streak/commit/3709927f1614284f727bfdafcffe596a943aec84",
