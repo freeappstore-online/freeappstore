@@ -376,6 +376,19 @@
       "cfProject": "freeartoutapp",
       "type": "standalone",
       "developer": "FreeAppStore"
+    },
+    {
+      "id": "done-todo",
+      "name": "done-todo",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Todo app with inbox view",
+      "appUrl": "https://done-todo.freeappstore.online",
+      "repo": "freeappstore-online/done-todo",
+      "cfProject": "freedone-todoapp",
+      "type": "standalone",
+      "developer": "FreeAppStore"
     }
   ]
 }
