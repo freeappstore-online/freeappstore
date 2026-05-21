@@ -453,7 +453,8 @@
       "repo": "freeappstore-online/kanban",
       "cfProject": "freekanbanapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "docbot",
