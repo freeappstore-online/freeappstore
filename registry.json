@@ -11,7 +11,8 @@
       "repo": "freeappstore-online/language",
       "cfProject": "freelanguageapp",
       "type": "connected",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "math",
@@ -24,7 +25,8 @@
       "repo": "freeappstore-online/math",
       "cfProject": "freemathapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "music",
@@ -37,7 +39,8 @@
       "repo": "freeappstore-online/music",
       "cfProject": "freemusic",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "quiz",
@@ -50,7 +53,8 @@
       "repo": "freeappstore-online/quiz",
       "cfProject": "freequizapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "books",
@@ -63,7 +67,8 @@
       "repo": "freeappstore-online/books",
       "cfProject": "freebooksapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "life",
@@ -102,7 +107,8 @@
       "repo": "freeappstore-online/bandmates",
       "cfProject": "freebandmatesapp",
       "type": "connected",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "meetup",
@@ -115,7 +121,8 @@
       "repo": "freeappstore-online/meetup",
       "cfProject": "freemeetupapp",
       "type": "connected",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "calculator",
@@ -128,7 +135,8 @@
       "repo": "freeappstore-online/calculator",
       "cfProject": "freecalculatorapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "chessclock",
@@ -141,7 +149,8 @@
       "repo": "freeappstore-online/chessclock",
       "cfProject": "freechessclock",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "timer",
@@ -154,7 +163,8 @@
       "repo": "freeappstore-online/timer",
       "cfProject": "freetimerapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "converter",
@@ -167,7 +177,8 @@
       "repo": "freeappstore-online/converter",
       "cfProject": "freeconverterapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "notes",
@@ -180,7 +191,8 @@
       "repo": "freeappstore-online/notes",
       "cfProject": "freenotesapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "pomodoro",
@@ -193,7 +205,8 @@
       "repo": "freeappstore-online/pomodoro",
       "cfProject": "freepomodoroapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "qrcode",
@@ -206,7 +219,8 @@
       "repo": "freeappstore-online/qrcode",
       "cfProject": "freeqrcodeapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "colorpicker",
@@ -219,7 +233,8 @@
       "repo": "freeappstore-online/colorpicker",
       "cfProject": "freecolorpickerapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "password",
@@ -232,7 +247,8 @@
       "repo": "freeappstore-online/password",
       "cfProject": "freepasswordapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "whiteboard",
@@ -245,7 +261,8 @@
       "repo": "freeappstore-online/whiteboard",
       "cfProject": "freewhiteboardapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "flashcards",
@@ -258,7 +275,8 @@
       "repo": "freeappstore-online/flashcards",
       "cfProject": "freeflashcardsapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "habits",
@@ -271,7 +289,8 @@
       "repo": "freeappstore-online/habits",
       "cfProject": "freehabitsapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "weather",
@@ -284,7 +303,8 @@
       "repo": "freeappstore-online/weather",
       "cfProject": "freeweatherapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "stopwatch",
@@ -297,7 +317,8 @@
       "repo": "freeappstore-online/stopwatch",
       "cfProject": "freestopwatchapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "mandarin-english",
@@ -310,7 +331,8 @@
       "repo": "freeappstore-online/mandarin-english",
       "cfProject": "freemandarin-englishapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "snowman",
@@ -323,7 +345,8 @@
       "repo": "freeappstore-online/snowman",
       "cfProject": "freesnowmanapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "typeflow",
@@ -336,7 +359,8 @@
       "repo": "freeappstore-online/typeflow",
       "cfProject": "freetypeflowapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "streak",
@@ -349,7 +373,8 @@
       "repo": "freeappstore-online/streak",
       "cfProject": "freestreakapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "spending",
@@ -362,7 +387,8 @@
       "repo": "freeappstore-online/spending",
       "cfProject": "freespendingapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "artout",
@@ -375,7 +401,8 @@
       "repo": "freeappstore-online/artout",
       "cfProject": "freeartoutapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "done-todo",
@@ -440,7 +467,8 @@
       "repo": "freeappstore-online/whenly",
       "cfProject": "freewhenlyapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "kanban",
@@ -467,7 +495,8 @@
       "repo": "freeappstore-online/docbot",
       "cfProject": "freedocbotapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "population-agent",
@@ -480,7 +509,8 @@
       "repo": "freeappstore-online/population-agent",
       "cfProject": "freepopulation-agentapp",
       "type": "connected",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     },
     {
       "id": "facer",
@@ -493,7 +523,8 @@
       "repo": "freeappstore-online/facer",
       "cfProject": "freefacerapp",
       "type": "standalone",
-      "developer": "FreeAppStore"
+      "developer": "FreeAppStore",
+      "hostedOn": "r2"
     }
   ]
 }
