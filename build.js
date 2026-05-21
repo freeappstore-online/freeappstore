@@ -296,7 +296,7 @@ function escapeAttrCss(s) {
   return String(s).replace(/[^a-z0-9_-]/gi, '_');
 }
 
-const appCards = apps.map(app => {
+function renderAppCard(app) {
   const q = qualityScores[app.id];
   const qualityBadge = q && q.grade
     ? `<a href="/quality/${escapeHtml(app.id)}/" class="quality-badge grade-${q.grade.toLowerCase()}" title="Code quality: ${q.score}/100">${q.grade}</a>`
@@ -317,7 +317,25 @@ const appCards = apps.map(app => {
             <span class="cta-label">Open</span>
           </a>
         </div>`;
-}).join('\n\n');
+}
+
+// Inline author attribution: a pill linking to the per-author profile page
+// at /u/<username>.html. Avatar served by avatars.githubusercontent.com
+// (already in the storefront's CSP img-src). For apps with no creatorGithub
+// yet (legacy entries pre-author-system), fall back to the plain developer
+// string with no link, so old cards keep rendering cleanly.
+const renderAuthorChip = (app) => {
+  if (app.creatorGithub) {
+    const user = escapeHtml(app.creatorGithub);
+    return `<a href="/u/${user}.html" class="author-chip">` +
+      `<img src="https://avatars.githubusercontent.com/${user}?size=40" alt="" class="author-chip-avatar" loading="lazy" width="20" height="20" />` +
+      `<span class="author-chip-name">@${user}</span>` +
+      `</a>`;
+  }
+  return escapeHtml(app.developer || 'FreeAppStore');
+};
+
+const appCards = apps.map(renderAppCard).join('\n\n');
 
 // indexHtml is finalized inside the async IIFE below — cross-store
 // registry fetch is async, and we want to embed it into the page.
@@ -618,6 +636,7 @@ apps.forEach((app, i) => {
     .replace(/\{\{REPO\}\}/g, escapeHtml(app.repo))
     .replace(/\{\{TYPE_LABEL\}\}/g, escapeHtml(typeLabel(app.type)))
     .replace(/\{\{DEVELOPER\}\}/g, escapeHtml(app.developer))
+    .replace(/\{\{AUTHOR_CHIP\}\}/g, renderAuthorChip(app))
     .replace(/\{\{OFFLINE\}\}/g, escapeHtml(offline))
     .replace(/\{\{ACCOUNT\}\}/g, escapeHtml(account))
     .replace(/\{\{PUBLISHED_LINE\}\}/g, renderPublishedLine(history))
@@ -633,6 +652,31 @@ apps.forEach((app, i) => {
 
   fs.writeFileSync(path.join(DIST, 'apps', `${app.id}.html`), html);
 });
+
+// --- Generate per-author profile pages at /u/<username>.html ---
+//
+// One page per unique creatorGithub across the registry. Pulls the avatar
+// from GitHub at render time (img tag, no API call here), lists every app
+// that author published. Apps without creatorGithub don't get an author
+// page — they render as plain "by FreeAppStore" text via renderAuthorChip.
+const authorTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'author.html'), 'utf8');
+const uniqueAuthors = [...new Set(apps.map(a => a.creatorGithub).filter(Boolean))];
+fs.mkdirSync(path.join(DIST, 'u'), { recursive: true });
+uniqueAuthors.forEach(username => {
+  const authorApps = apps.filter(a => a.creatorGithub === username);
+  const appCardsHtml = authorApps.map(renderAppCard).join('\n\n');
+  let html = authorTemplate
+    .replace('__CF_BEACON__', CF_BEACON_SNIPPET)
+    .replace(/\{\{USERNAME\}\}/g, escapeHtml(username))
+    .replace(/\{\{APP_COUNT\}\}/g, String(authorApps.length))
+    .replace(/\{\{S\}\}/g, authorApps.length === 1 ? '' : 's')
+    .replace(/\{\{APP_CARDS\}\}/g, appCardsHtml);
+  for (const [k, v] of Object.entries(sriHashes)) {
+    html = html.replaceAll(`{{SRI_${k}}}`, v);
+  }
+  fs.writeFileSync(path.join(DIST, 'u', `${username}.html`), html);
+});
+console.log(`Generated ${uniqueAuthors.length} author page(s) at /u/`);
 
 // --- Generate sitemap.xml ---
 
@@ -660,6 +704,9 @@ const sitemapEntries = [
   '  <url><loc>https://freeappstore.online/terms.html</loc><priority>0.5</priority></url>',
   ...apps.map(app =>
     `  <url><loc>https://freeappstore.online/apps/${app.id}.html</loc><priority>0.9</priority></url>`
+  ),
+  ...uniqueAuthors.map(username =>
+    `  <url><loc>https://freeappstore.online/u/${username}.html</loc><priority>0.6</priority></url>`
   )
 ];
 

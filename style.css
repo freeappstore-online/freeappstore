@@ -1872,3 +1872,59 @@ html.dark .quality-badge.grade-f { background: #450a0a; color: #fca5a5; }
 .q-heading-flat { margin: 0; }
 .q-meta-line { color: var(--muted); }
 .q-fineprint { color: var(--muted); font-size: 0.8rem; }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Author attribution
+   - .author-chip: inline pill rendered on app cards + detail pages.
+     Links to /u/<username>.html (internal) — NOT GitHub — so navigation stays
+     in-store. Avatar pulled from avatars.githubusercontent.com which the
+     storefront CSP img-src already allows.
+   - .author-hero: large header on the per-author page itself.
+   ────────────────────────────────────────────────────────────────────────── */
+.author-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.15rem 0.55rem 0.15rem 0.2rem;
+  border-radius: 9999px;
+  background: var(--surface, #f3f4f6);
+  color: var(--ink, #111827);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  line-height: 1;
+  vertical-align: middle;
+  transition: background 0.15s ease;
+}
+.author-chip:hover { background: #e0e7ff; }
+.author-chip-avatar {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: block;
+}
+.author-chip-name { line-height: 1; }
+.author-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 0 1.5rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+.author-hero-avatar {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.author-hero-meta { flex: 1; min-width: 200px; }
+.author-hero-name {
+  font-size: 2rem;
+  margin: 0 0 0.25rem;
+  font-weight: 700;
+}
+.author-hero-tagline {
+  color: var(--muted, #6b7280);
+  margin: 0 0 0.75rem;
+}

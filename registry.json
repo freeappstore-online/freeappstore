@@ -12,7 +12,8 @@
       "cfProject": "freelanguageapp",
       "type": "connected",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "math",
@@ -26,7 +27,8 @@
       "cfProject": "freemathapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "music",
@@ -40,7 +42,8 @@
       "cfProject": "freemusic",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "quiz",
@@ -54,7 +57,8 @@
       "cfProject": "freequizapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "books",
@@ -68,7 +72,8 @@
       "cfProject": "freebooksapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "bandmates",
@@ -82,7 +87,8 @@
       "cfProject": "freebandmatesapp",
       "type": "connected",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "meetup",
@@ -96,7 +102,8 @@
       "cfProject": "freemeetupapp",
       "type": "connected",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "calculator",
@@ -110,7 +117,8 @@
       "cfProject": "freecalculatorapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "chessclock",
@@ -124,7 +132,8 @@
       "cfProject": "freechessclock",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "timer",
@@ -138,7 +147,8 @@
       "cfProject": "freetimerapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "converter",
@@ -152,7 +162,8 @@
       "cfProject": "freeconverterapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "notes",
@@ -166,7 +177,8 @@
       "cfProject": "freenotesapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "pomodoro",
@@ -180,7 +192,8 @@
       "cfProject": "freepomodoroapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "qrcode",
@@ -194,7 +207,8 @@
       "cfProject": "freeqrcodeapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "colorpicker",
@@ -208,7 +222,8 @@
       "cfProject": "freecolorpickerapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "password",
@@ -222,7 +237,8 @@
       "cfProject": "freepasswordapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "whiteboard",
@@ -236,7 +252,8 @@
       "cfProject": "freewhiteboardapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "flashcards",
@@ -250,7 +267,8 @@
       "cfProject": "freeflashcardsapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "habits",
@@ -264,7 +282,8 @@
       "cfProject": "freehabitsapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "weather",
@@ -278,7 +297,8 @@
       "cfProject": "freeweatherapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "stopwatch",
@@ -292,7 +312,8 @@
       "cfProject": "freestopwatchapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "mandarin-english",
@@ -306,7 +327,8 @@
       "cfProject": "freemandarin-englishapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "snowman",
@@ -320,7 +342,8 @@
       "cfProject": "freesnowmanapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "typeflow",
@@ -334,7 +357,8 @@
       "cfProject": "freetypeflowapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "streak",
@@ -348,7 +372,8 @@
       "cfProject": "freestreakapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "spending",
@@ -362,7 +387,8 @@
       "cfProject": "freespendingapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "artout",
@@ -376,7 +402,8 @@
       "cfProject": "freeartoutapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "whenly",
@@ -390,7 +417,8 @@
       "cfProject": "freewhenlyapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "kanban",
@@ -404,7 +432,8 @@
       "cfProject": "freekanbanapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "docbot",
@@ -418,7 +447,8 @@
       "cfProject": "freedocbotapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "population-agent",
@@ -432,7 +462,8 @@
       "cfProject": "freepopulation-agentapp",
       "type": "connected",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     },
     {
       "id": "facer",
@@ -446,7 +477,8 @@
       "cfProject": "freefacerapp",
       "type": "standalone",
       "developer": "FreeAppStore",
-      "hostedOn": "r2"
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
