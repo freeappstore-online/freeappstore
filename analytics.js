@@ -121,19 +121,29 @@
     }));
   }
 
-  function renderChart(daily) {
-    if (!daily.length) return el('p', { class: 'meta' }, 'No daily data in this window.');
-    var W = 600, H = 100, gap = 2, slot = W / daily.length;
-    var maxV = Math.max(1, ...daily.map(function (d) { return d.views; }));
+  function labelForT(t, bucket) {
+    // Hour bucket: "2026-05-21 14:00:00" → "14:00".
+    // Day bucket:  "2026-05-21"          → "05-21".
+    if (bucket === 'hour') return (t || '').slice(11, 16) || t || '';
+    return (t || '').slice(5, 10) || t || '';
+  }
+
+  function renderChart(series, bucket) {
+    bucket = bucket || 'day';
+    if (!series.length) {
+      return el('p', { class: 'meta' }, 'No ' + (bucket === 'hour' ? 'hourly' : 'daily') + ' data in this window.');
+    }
+    var W = 600, H = 100, gap = 2, slot = W / series.length;
+    var maxV = Math.max(1, ...series.map(function (d) { return d.views; }));
     var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none" style="width:100%;height:100px;display:block">';
     svg += '<line x1="0" x2="' + W + '" y1="' + (H - 0.5) + '" y2="' + (H - 0.5) + '" stroke="currentColor" stroke-opacity="0.15" />';
-    daily.forEach(function (d, i) {
+    series.forEach(function (d, i) {
       var h = (d.views / maxV) * (H - 2);
-      svg += '<rect x="' + (i * slot) + '" y="' + (H - h) + '" width="' + Math.max(1, slot - gap) + '" height="' + h + '" fill="var(--accent)" opacity="' + (d.views > 0 ? 0.85 : 0.2) + '"><title>' + d.day + ': ' + d.views + ' views</title></rect>';
+      svg += '<rect x="' + (i * slot) + '" y="' + (H - h) + '" width="' + Math.max(1, slot - gap) + '" height="' + h + '" fill="var(--accent)" opacity="' + (d.views > 0 ? 0.85 : 0.2) + '"><title>' + d.t + ': ' + d.views + ' views</title></rect>';
     });
     svg += '</svg>';
     var labels = '<div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:4px">';
-    labels += '<span>' + (daily[0].day || '').slice(5) + '</span><span>peak ' + maxV + '</span><span>' + (daily[daily.length - 1].day || '').slice(5) + '</span></div>';
+    labels += '<span>' + labelForT(series[0].t, bucket) + '</span><span>peak ' + maxV + '</span><span>' + labelForT(series[series.length - 1].t, bucket) + '</span></div>';
     return el('div', { class: 'a-chart', html: svg + labels });
   }
 
@@ -224,6 +234,7 @@
     root.replaceChildren(el('p', { class: 'a-empty' }, 'Loading ' + appId + '…'));
     var days = 7;
     var kind = 'pageview';
+    var livePollerId = null;
     function isCustom() { return kind !== 'pageview'; }
     function load() {
       var qs = '?days=' + days + '&kind=' + encodeURIComponent(kind);
@@ -232,7 +243,9 @@
         call('/v1/apps/' + encodeURIComponent(appId) + '/analytics'),
         call('/v1/apps/' + encodeURIComponent(appId) + '/analytics/events?days=' + days).catch(function () { return { events: [] }; })
       ]).then(function (results) {
-        var stats = results[0].stats;
+        var statsRes = results[0];
+        var stats = statsRes.stats;
+        var bucket = statsRes.bucket || 'day';
         var config = results[1];
         var eventsList = results[2].events || [];
         var card = el('div', { class: 'a-card' });
@@ -256,7 +269,7 @@
           headerLeft,
           (function () {
             var tabs = el('div', { class: 'a-tabs' });
-            [7, 30, 90].forEach(function (d) {
+            [1, 7, 30, 90].forEach(function (d) {
               var btn = el('button', { type: 'button' }, d + 'd');
               if (d === days) btn.className = 'active';
               btn.addEventListener('click', function () { days = d; load(); });
@@ -268,18 +281,20 @@
         card.appendChild(header);
 
         var noun = isCustom() ? (kind + ' events') : 'page views';
+        var windowLabel = days === 1 ? 'in the last 24h' : ('in the last ' + days + ' days');
         if (stats.total_views === 0) {
           var emptyMsg = isCustom()
-            ? 'No ' + noun + ' in the last ' + days + ' days. Once your app calls window.fasAnalytics.event("' + kind + '", ...) and a visitor triggers it, daily counts will appear here.'
-            : 'No visitor data in the last ' + days + ' days yet.';
+            ? 'No ' + noun + ' ' + windowLabel + '. Once your app calls window.fasAnalytics.event("' + kind + '", ...) and a visitor triggers it, counts will appear here.'
+            : 'No visitor data ' + windowLabel + ' yet.';
           card.appendChild(el('p', { class: 'a-empty' }, emptyMsg));
         } else {
+          var kpiWindow = days === 1 ? '24h' : (days + 'd');
           card.appendChild(el('div', { class: 'a-kpis' }, [
-            el('div', { class: 'a-kpi' }, [el('div', { class: 'label' }, days + 'd ' + (isCustom() ? 'events' : 'views')), el('div', { class: 'value' }, fmtViews(stats.total_views))]),
+            el('div', { class: 'a-kpi' }, [el('div', { class: 'label' }, kpiWindow + ' ' + (isCustom() ? 'events' : 'views')), el('div', { class: 'value' }, fmtViews(stats.total_views))]),
             el('div', { class: 'a-kpi' }, [el('div', { class: 'label' }, isCustom() ? 'Unique paths fired on' : 'Unique paths'), el('div', { class: 'value' }, String(stats.unique_paths))]),
             el('div', { class: 'a-kpi' }, [el('div', { class: 'label' }, 'Top country'), el('div', { class: 'value' }, (stats.top_countries[0] && stats.top_countries[0].country) || '—')])
           ]));
-          card.appendChild(renderChart(stats.daily));
+          card.appendChild(renderChart(stats.series || [], bucket));
           var grid = el('div', { class: 'a-card-grid' }, [
             renderRanked(isCustom() ? 'Top pages firing event' : 'Top pages', stats.top_paths.map(function (r) { return { label: r.path, value: r.views }; })),
             renderRanked('Top referrers', stats.top_referrers.map(function (r) { return { label: r.referrer || '(direct)', value: r.views }; })),
@@ -289,6 +304,12 @@
           card.appendChild(grid);
         }
 
+        // Live "right now" widget — polled every 30s while this app's
+        // detail view is in focus. Inserted after the chart so it's a
+        // glance-able strip near the top, not buried at the bottom.
+        var liveStrip = el('div', { class: 'a-live' });
+        card.appendChild(liveStrip);
+
         // Only show the custom-events picker when we're viewing pageviews —
         // otherwise the "back to pageviews" button is the only navigation.
         if (!isCustom()) {
@@ -297,11 +318,38 @@
 
         card.appendChild(renderConfigForm(appId, config));
         root.replaceChildren(card);
+
+        // Kick off (or restart) live polling for this app. Previous timer
+        // is cleared on every load() so changing tabs / kinds doesn't leak
+        // intervals.
+        if (livePollerId !== null) window.clearInterval(livePollerId);
+        function tickLive() {
+          call('/v1/apps/' + encodeURIComponent(appId) + '/analytics/live').then(function (live) {
+            renderLiveStrip(liveStrip, live);
+          }).catch(function () { /* endpoint not deployed yet — stay silent */ });
+        }
+        tickLive();
+        livePollerId = window.setInterval(tickLive, 30000);
       }).catch(function (err) {
         root.replaceChildren(el('p', { class: 'a-empty' }, 'Error: ' + err.message));
       });
     }
     load();
+  }
+
+  function renderLiveStrip(node, live) {
+    if (!live) return;
+    var hot = '';
+    if (Array.isArray(live.top_paths) && live.top_paths.length > 0) {
+      hot = ' · hot now: ' + live.top_paths.slice(0, 3).map(function (p) {
+        return '<span class="a-live-path">' + (p.path || '/') + '</span> <span class="meta">(' + p.views + ')</span>';
+      }).join(', ');
+    }
+    var dotClass = live.views > 0 ? 'a-live-dot a-live-dot-on' : 'a-live-dot';
+    node.innerHTML =
+      '<span class="' + dotClass + '"></span>' +
+      '<span><b>' + fmtViews(live.views) + '</b> page view' + (live.views === 1 ? '' : 's') +
+      ' in the last 5 min' + hot + '</span>';
   }
 
   function main() {
