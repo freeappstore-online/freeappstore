@@ -1928,3 +1928,31 @@ html.dark .quality-badge.grade-f { background: #450a0a; color: #fca5a5; }
   color: var(--muted, #6b7280);
   margin: 0 0 0.75rem;
 }
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Author badges — derived purely from registry data at build time
+   (computeAuthorBadges in build.js). Tooltip on hover via title attribute;
+   no JS needed.
+   ────────────────────────────────────────────────────────────────────────── */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1rem;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+  background: var(--surface, #f3f4f6);
+  border: 1px solid #e5e7eb;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink, #111827);
+  line-height: 1;
+  cursor: help;
+}
+.badge-icon { font-size: 0.95rem; }
+.badge-label { line-height: 1; }

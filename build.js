@@ -662,14 +662,81 @@ apps.forEach((app, i) => {
 const authorTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'author.html'), 'utf8');
 const uniqueAuthors = [...new Set(apps.map(a => a.creatorGithub).filter(Boolean))];
 fs.mkdirSync(path.join(DIST, 'u'), { recursive: true });
+
+/**
+ * Derive earned-badges for one author from the apps they published.
+ *
+ * Pure-function from registry data — no DB schema, no per-author state to
+ * maintain. New rules should follow the same pattern: read authorApps +
+ * the existing qualityScores / auditMap closures, push `{icon,label,title}`
+ * objects, return them. Tooltip on hover comes from `title`; the rendered
+ * chip is just `icon label`.
+ */
+function computeAuthorBadges(authorApps) {
+  const badges = [];
+  const count = authorApps.length;
+  if (count >= 1)  badges.push({ icon: '🚀', label: 'First publication', title: 'Has at least one app published on FreeAppStore.' });
+  if (count >= 5)  badges.push({ icon: '⚡', label: 'Prolific', title: 'Published 5 or more apps.' });
+  if (count >= 10) badges.push({ icon: '🏗️', label: 'Established', title: 'Published 10 or more apps.' });
+  if (count >= 25) badges.push({ icon: '👑', label: 'Top creator', title: 'Published 25 or more apps.' });
+
+  // Multi-category: counts distinct categories case-insensitively (registry
+  // currently has both 'social' and 'Social' as legacy duplicates; treat them
+  // as one for the badge rule until that hygiene gets cleaned up elsewhere).
+  const cats = new Set(authorApps.map((a) => String(a.category || '').toLowerCase()).filter(Boolean));
+  if (cats.size >= 3) {
+    badges.push({ icon: '🎨', label: 'Multi-category', title: `Apps span ${cats.size} distinct categories.` });
+  }
+
+  // Quality champion: ≥75% of this author's quality-graded apps scored A.
+  const graded = authorApps.filter((a) => qualityScores[a.id]?.grade);
+  if (graded.length >= 3) {
+    const aCount = graded.filter((a) => qualityScores[a.id].grade === 'A').length;
+    if (aCount / graded.length >= 0.75) {
+      badges.push({
+        icon: '⭐',
+        label: 'Quality champion',
+        title: `${aCount} of ${graded.length} graded apps scored A.`,
+      });
+    }
+  }
+
+  // Audited: ≥75% of this author's apps have a registered audit result.
+  // Lower fraction = no badge (correctly stays dark for partial coverage).
+  if (count >= 3) {
+    const audited = authorApps.filter((a) => auditMap.get(a.id)).length;
+    if (audited / count >= 0.75) {
+      badges.push({
+        icon: '✅',
+        label: 'Audited',
+        title: `${audited} of ${count} apps have passed platform audits.`,
+      });
+    }
+  }
+  return badges;
+}
+
+function renderBadges(badges) {
+  if (badges.length === 0) return '';
+  const items = badges
+    .map(
+      (b) =>
+        `        <span class="badge" title="${escapeHtml(b.title)}"><span class="badge-icon">${b.icon}</span><span class="badge-label">${escapeHtml(b.label)}</span></span>`,
+    )
+    .join('\n');
+  return `<div class="badges">\n${items}\n      </div>`;
+}
+
 uniqueAuthors.forEach(username => {
   const authorApps = apps.filter(a => a.creatorGithub === username);
   const appCardsHtml = authorApps.map(renderAppCard).join('\n\n');
+  const badges = computeAuthorBadges(authorApps);
   let html = authorTemplate
     .replace('__CF_BEACON__', CF_BEACON_SNIPPET)
     .replace(/\{\{USERNAME\}\}/g, escapeHtml(username))
     .replace(/\{\{APP_COUNT\}\}/g, String(authorApps.length))
     .replace(/\{\{S\}\}/g, authorApps.length === 1 ? '' : 's')
+    .replace(/\{\{BADGES\}\}/g, renderBadges(badges))
     .replace(/\{\{APP_CARDS\}\}/g, appCardsHtml);
   for (const [k, v] of Object.entries(sriHashes)) {
     html = html.replaceAll(`{{SRI_${k}}}`, v);
