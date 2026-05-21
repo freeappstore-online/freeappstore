@@ -196,22 +196,64 @@
     return form;
   }
 
+  function renderCustomEventsPanel(eventsList, days, onPickKind) {
+    var panel = el('div', { class: 'a-events-panel' });
+    panel.appendChild(el('div', { class: 'a-rank-title' }, 'Custom events'));
+    if (!eventsList.length) {
+      var empty = el('p', { class: 'meta' });
+      empty.innerHTML =
+        'No custom events fired in the last ' + days + ' days. Fire one from your app code:' +
+        '<code class="a-code-block">window.fasAnalytics.event(\'purchase\', {amount: 999})</code>';
+      panel.appendChild(empty);
+    } else {
+      var list = el('ul', { class: 'a-events-list' });
+      eventsList.forEach(function (ev) {
+        var btn = el('button', { type: 'button', class: 'a-event-row' }, [
+          el('span', { class: 'a-event-kind' }, ev.kind),
+          el('span', { class: 'a-event-count' }, fmtViews(ev.count))
+        ]);
+        btn.addEventListener('click', function () { onPickKind(ev.kind); });
+        list.appendChild(el('li', null, [btn]));
+      });
+      panel.appendChild(list);
+    }
+    return panel;
+  }
+
   function renderDetail(appId) {
     root.replaceChildren(el('p', { class: 'a-empty' }, 'Loading ' + appId + '…'));
     var days = 7;
+    var kind = 'pageview';
+    function isCustom() { return kind !== 'pageview'; }
     function load() {
+      var qs = '?days=' + days + '&kind=' + encodeURIComponent(kind);
       Promise.all([
-        call('/v1/apps/' + encodeURIComponent(appId) + '/analytics/stats?days=' + days),
-        call('/v1/apps/' + encodeURIComponent(appId) + '/analytics')
+        call('/v1/apps/' + encodeURIComponent(appId) + '/analytics/stats' + qs),
+        call('/v1/apps/' + encodeURIComponent(appId) + '/analytics'),
+        call('/v1/apps/' + encodeURIComponent(appId) + '/analytics/events?days=' + days).catch(function () { return { events: [] }; })
       ]).then(function (results) {
         var stats = results[0].stats;
         var config = results[1];
+        var eventsList = results[2].events || [];
         var card = el('div', { class: 'a-card' });
+
+        var headerLeft = el('div', null);
+        if (isCustom()) {
+          var backBtn = el('button', { type: 'button', class: 'a-back-link' }, '← back to pageviews');
+          backBtn.addEventListener('click', function () { kind = 'pageview'; load(); });
+          headerLeft.appendChild(el('h2', null, [document.createTextNode('Event: '), el('code', { class: 'a-event-kind-h' }, kind)]));
+          headerLeft.appendChild(el('div', { class: 'meta' }, [
+            el('a', { class: 'a-signin', href: '/analytics.html' }, '← all apps'),
+            document.createTextNode(' · '),
+            backBtn
+          ]));
+        } else {
+          headerLeft.appendChild(el('h2', null, appId));
+          headerLeft.appendChild(el('div', { class: 'meta' }, [el('a', { class: 'a-signin', href: '/analytics.html' }, '← all apps')]));
+        }
+
         var header = el('div', { class: 'a-header-bar' }, [
-          el('div', null, [
-            el('h2', null, appId),
-            el('div', { class: 'meta' }, [el('a', { class: 'a-signin', href: '/analytics.html' }, '← all apps')])
-          ]),
+          headerLeft,
           (function () {
             var tabs = el('div', { class: 'a-tabs' });
             [7, 30, 90].forEach(function (d) {
@@ -224,23 +266,35 @@
           })()
         ]);
         card.appendChild(header);
+
+        var noun = isCustom() ? (kind + ' events') : 'page views';
         if (stats.total_views === 0) {
-          card.appendChild(el('p', { class: 'a-empty' }, 'No visitor data in the last ' + days + ' days yet.'));
+          var emptyMsg = isCustom()
+            ? 'No ' + noun + ' in the last ' + days + ' days. Once your app calls window.fasAnalytics.event("' + kind + '", ...) and a visitor triggers it, daily counts will appear here.'
+            : 'No visitor data in the last ' + days + ' days yet.';
+          card.appendChild(el('p', { class: 'a-empty' }, emptyMsg));
         } else {
           card.appendChild(el('div', { class: 'a-kpis' }, [
-            el('div', { class: 'a-kpi' }, [el('div', { class: 'label' }, days + 'd views'), el('div', { class: 'value' }, fmtViews(stats.total_views))]),
-            el('div', { class: 'a-kpi' }, [el('div', { class: 'label' }, 'Unique paths'), el('div', { class: 'value' }, String(stats.unique_paths))]),
+            el('div', { class: 'a-kpi' }, [el('div', { class: 'label' }, days + 'd ' + (isCustom() ? 'events' : 'views')), el('div', { class: 'value' }, fmtViews(stats.total_views))]),
+            el('div', { class: 'a-kpi' }, [el('div', { class: 'label' }, isCustom() ? 'Unique paths fired on' : 'Unique paths'), el('div', { class: 'value' }, String(stats.unique_paths))]),
             el('div', { class: 'a-kpi' }, [el('div', { class: 'label' }, 'Top country'), el('div', { class: 'value' }, (stats.top_countries[0] && stats.top_countries[0].country) || '—')])
           ]));
           card.appendChild(renderChart(stats.daily));
           var grid = el('div', { class: 'a-card-grid' }, [
-            renderRanked('Top pages', stats.top_paths.map(function (r) { return { label: r.path, value: r.views }; })),
+            renderRanked(isCustom() ? 'Top pages firing event' : 'Top pages', stats.top_paths.map(function (r) { return { label: r.path, value: r.views }; })),
             renderRanked('Top referrers', stats.top_referrers.map(function (r) { return { label: r.referrer || '(direct)', value: r.views }; })),
             renderRanked('Top countries', stats.top_countries.map(function (r) { return { label: r.country || '—', value: r.views }; })),
             renderRanked('Device', stats.device_split.map(function (r) { return { label: r.device, value: r.views }; }))
           ]);
           card.appendChild(grid);
         }
+
+        // Only show the custom-events picker when we're viewing pageviews —
+        // otherwise the "back to pageviews" button is the only navigation.
+        if (!isCustom()) {
+          card.appendChild(renderCustomEventsPanel(eventsList, days, function (newKind) { kind = newKind; load(); }));
+        }
+
         card.appendChild(renderConfigForm(appId, config));
         root.replaceChildren(card);
       }).catch(function (err) {
