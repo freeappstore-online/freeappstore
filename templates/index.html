@@ -11,6 +11,34 @@
   <meta property="og:url" content="https://freeappstore.online/" />
   <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
   <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://freeappstore.online/" />
+  <!-- WebSite + SearchAction JSON-LD so Google can wire its sitelinks search
+       box to our in-store search. Organization gives knowledge-panel signal. -->
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://freeappstore.online/#website",
+        "url": "https://freeappstore.online/",
+        "name": "FreeAppStore",
+        "description": "A platform of free-forever web apps. No charges, no plans, no paywalls.",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://freeappstore.online/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://freeappstore.online/#org",
+        "name": "FreeAppStore",
+        "url": "https://freeappstore.online/",
+        "logo": "https://freeappstore.online/icon-512.png",
+        "sameAs": ["https://github.com/freeappstore-online"]
+      }
+    ]
+  }</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/manifest.json" />
@@ -26,6 +54,8 @@
   </script>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="card-styles.css" />
+  <!-- CF Web Analytics — cookieless, no PII. Token injected at build time from FAS_CF_BEACON_TOKEN; omitted if unset. -->
+  __CF_BEACON__
 </head>
 <body>
   <header>

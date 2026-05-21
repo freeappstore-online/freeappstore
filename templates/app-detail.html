@@ -11,6 +11,21 @@
   <meta property="og:url" content="https://freeappstore.online/apps/{{ID}}.html" />
   <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
   <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://freeappstore.online/apps/{{ID}}.html" />
+  <!-- Per-app SoftwareApplication JSON-LD — helps Google show rich-card
+       hits for app searches (name, screenshot, free price). -->
+  <script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "{{NAME}}",
+    "description": "{{DESCRIPTION}}",
+    "applicationCategory": "{{CATEGORY_LABEL}}",
+    "operatingSystem": "Web",
+    "url": "{{APP_URL}}",
+    "image": "https://freeappstore.online/icon-512.png",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+    "isPartOf": {"@id": "https://freeappstore.online/#website"}
+  }</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="/style.css" />
