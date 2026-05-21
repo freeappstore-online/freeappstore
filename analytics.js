@@ -206,6 +206,59 @@
     return form;
   }
 
+  /**
+   * Smart empty state. Replaces the placeholder "checking why..." with a
+   * verdict-shaped hint after /analytics/diagnostics resolves. Different
+   * verdicts surface different copy + actionable next steps.
+   */
+  function renderDiagnostics(slot, diag, noun, windowLabel, isCustom, kind) {
+    if (!diag) return;
+    if (diag.verdict === 'ok') {
+      // Verdict says ok but views=0 — usually means we're viewing a custom
+      // event nobody's fired yet. Just say so simply.
+      var msg = isCustom
+        ? 'No ' + noun + ' ' + windowLabel + '. Once your app calls window.fasAnalytics.event("' + kind + '", ...) and a visitor triggers it, the counts will appear here.'
+        : 'No ' + noun + ' ' + windowLabel + ' yet.';
+      slot.replaceChildren(el('p', { class: 'a-empty' }, msg));
+      return;
+    }
+
+    var heading = el('h4', { class: 'a-diag-heading' }, 'No ' + noun + ' ' + windowLabel + '. Here\'s why:');
+    var box = el('div', { class: 'a-diag-box' }, [heading]);
+    var ul = el('ul', { class: 'a-diag-list' });
+    function step(ok, content) {
+      var li = el('li', { class: ok ? 'a-diag-step ok' : 'a-diag-step bad' });
+      li.innerHTML = (ok ? '<span class="a-diag-mark ok">✓</span>' : '<span class="a-diag-mark bad">✕</span>') + ' ' + content;
+      ul.appendChild(li);
+    }
+    var trailing = null;
+
+    if (diag.verdict === 'no_dataset_binding') {
+      step(diag.checks.dataset_bound, 'Workers Analytics Engine dataset bound on the backend Worker.');
+      step(diag.checks.stats_queryable, 'CF Analytics SQL API credentials present.');
+      trailing = el('p', { class: 'a-diag-foot', html: 'Platform-side config — the dashboard can\'t show numbers until the dataset binding is added to <code>wrangler.toml</code>. See <code>ANALYTICS-GO-LIVE.md</code> step 3.' });
+    } else if (diag.verdict === 'no_stats_query') {
+      step(true, 'Workers Analytics Engine dataset bound.');
+      step(false, 'CF Analytics SQL API credentials missing — set <code>CF_ACCOUNT_ID</code> + <code>CF_ANALYTICS_API_TOKEN</code> as worker secrets.');
+    } else if (diag.verdict === 'never_seen_event') {
+      step(true, 'Backend wired (dataset bound + queryable).');
+      step(false, 'No event has ever been recorded for this app — the loader script is probably missing from your HTML.');
+      var paste = el('pre', { class: 'a-diag-paste' }, '<script src="' + diag.loader_url + '" defer></script>');
+      trailing = el('div', null, [
+        el('p', { class: 'a-diag-foot' }, 'Paste this into web/index.html <head>:'),
+        paste
+      ]);
+    } else if (diag.verdict === 'silent_24h') {
+      step(true, 'Loader has fired before (events recorded historically).');
+      step(false, 'No events in the last 24 hours.');
+      trailing = el('p', { class: 'a-diag-foot', html: 'Either the app has no traffic right now or the loader broke. Test directly: <a class="a-signin" href="' + diag.loader_url + '" target="_blank" rel="noreferrer"><code>' + diag.loader_url + '</code></a>' });
+    }
+
+    box.appendChild(ul);
+    if (trailing) box.appendChild(trailing);
+    slot.replaceChildren(box);
+  }
+
   function renderCustomEventsPanel(eventsList, days, onPickKind) {
     var panel = el('div', { class: 'a-events-panel' });
     panel.appendChild(el('div', { class: 'a-rank-title' }, 'Custom events'));
@@ -283,10 +336,17 @@
         var noun = isCustom() ? (kind + ' events') : 'page views';
         var windowLabel = days === 1 ? 'in the last 24h' : ('in the last ' + days + ' days');
         if (stats.total_views === 0) {
-          var emptyMsg = isCustom()
-            ? 'No ' + noun + ' ' + windowLabel + '. Once your app calls window.fasAnalytics.event("' + kind + '", ...) and a visitor triggers it, counts will appear here.'
-            : 'No visitor data ' + windowLabel + ' yet.';
-          card.appendChild(el('p', { class: 'a-empty' }, emptyMsg));
+          // Render diagnostics-aware empty state. Placeholder first so the
+          // dashboard structure doesn't reflow when the diag query resolves.
+          var diagSlot = el('div', { class: 'a-diag-slot' }, [
+            el('p', { class: 'a-empty' }, 'No ' + noun + ' ' + windowLabel + '. Checking why…')
+          ]);
+          card.appendChild(diagSlot);
+          call('/v1/apps/' + encodeURIComponent(appId) + '/analytics/diagnostics')
+            .then(function (diag) { renderDiagnostics(diagSlot, diag, noun, windowLabel, isCustom(), kind); })
+            .catch(function () {
+              // Diagnostics endpoint not deployed yet — leave the simple message.
+            });
         } else {
           var kpiWindow = days === 1 ? '24h' : (days + 'd');
           card.appendChild(el('div', { class: 'a-kpis' }, [
