@@ -1102,36 +1102,36 @@
   "freeappstore-online/snowman": {
     "meta": {
       "created_at": "2026-05-17T15:41:58Z",
-      "pushed_at": "2026-05-19T07:27:27Z"
+      "pushed_at": "2026-05-21T15:16:56Z"
     },
     "commits": [
       {
-        "sha": "9a668ae0fd5282fc7ce09f7ccc72ac01fa11590c",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/9a668ae0fd5282fc7ce09f7ccc72ac01fa11590c",
+        "sha": "b3b59bd49981507463b6645cfd7ff154a2c7a177",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/b3b59bd49981507463b6645cfd7ff154a2c7a177",
         "commit": {
-          "message": "Expand to full ISO 3166-1 country list via REST Countries API\n\n- countries.ts: replace hand-curated ~190 countries with exhaustive 250-entry\n  list generated from restcountries.com, adding Malaysia, Singapore, Seychelles,\n  Ivory Coast, territories and island states previously missing\n- WorldMap ADM0_TO_NUMERIC: replace with full API-generated 249-entry mapping\n  covering every alpha-3 code; add XKX for Kosovo (no ccn3 in ISO standard)\n- useSnowData SAMPLE_POINTS: add 19 snow-capable countries that were missing\n  (Andorra, Armenia, Azerbaijan, Belarus, Bosnia, Estonia, Kosovo, Latvia,\n  Lebanon, Lesotho, Liechtenstein, Luxembourg, Moldova, Montenegro, Serbia,\n  Slovakia, Slovenia, Turkmenistan, North Macedonia) — 93 total, under 100 cap\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Polish UI: island layout, tips, animations, and interactions\n\n- Island uses w-max + max-w-[calc(100vw-2rem)] to expand horizontally\n  then wrap vertically; Viewing: label wraps below on overflow\n- State/province label picks correct term per country, defaults to\n  state/province for ambiguous cases\n- Click same state again to return to country view; ocean click quits\n  viewing completely\n- Snow fetch error shows red tip; clears when fetch succeeds\n- Country highlight uses CSS transitions instead of keyframes for fluid\n  fade-out at any brightness level\n- Fix panel toggle close-on-reclick via navHeaderRef mousedown exclusion\n- Fix zoom while panels open (replace backdrop div with document listener)\n- Logo links to freeappstore.online/apps/snowman in new tab\n- Search bar placeholder updated to Enter a country to view snow...\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-19T07:27:25Z"
+            "date": "2026-05-21T15:16:37Z"
           }
         }
       },
       {
-        "sha": "b3ef641fc561f508851c7d232aca23179cea6cad",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/b3ef641fc561f508851c7d232aca23179cea6cad",
+        "sha": "c6674e3def86d35a4cee019d58b34b53620ab0b9",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/c6674e3def86d35a4cee019d58b34b53620ab0b9",
         "commit": {
-          "message": "Use translate3d + transformOrigin 0 0 for GPU-accelerated map pan\n\nSwitches applyTransform from SVG setAttribute to CSS translate3d so the\nbrowser composites the map on the GPU. Pinning transformOrigin to 0 0\nprevents the bounding-box drift that broke the earlier CSS approach.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Add fitToCountry dynamic zoom and improve map interaction\n\n- fitToCountry: compute zoom from D3 bounds with COUNTRY_EXTENT_POINTS\n  fallback for antimeridian countries (Russia); cap auto-zoom at 12x\n- Resort dots: r=11 on mobile with 44px transparent tap target overlay\n- Zoom buttons sit at bottom on screens ≥ 370px (reactive to resize)\n- Snow fetch error/success callbacks (onSnowError, onSnowLoad) threaded\n  from useStateSnow up through WorldMap to App\n- Fetching snow data text pulses with brightness animation\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-18T11:27:14Z"
+            "date": "2026-05-21T15:16:24Z"
           }
         }
       },
       {
-        "sha": "a1417b24cf74e42d4b7d845d663ee89a6b0140c3",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/a1417b24cf74e42d4b7d845d663ee89a6b0140c3",
+        "sha": "da6de4ea2b57038d1d632cd62a0d9ff83cb6cc15",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/da6de4ea2b57038d1d632cd62a0d9ff83cb6cc15",
         "commit": {
-          "message": "Fix infinite pan teleport and FPS bugs in WorldMap\n\n- Replace CSS matrix transform with SVG setAttribute: CSS transforms on SVG\n  elements scale from the bounding-box center (not SVG origin), causing\n  massive drift when 3 world copies are rendered, exposing blank edges and\n  jarring teleport jumps on modulo wrap\n- Center the x modulo wrap at [-ww/2, +ww/2) so the seam fires while safely\n  inside the drawn copies, never at a visible edge\n- Stop spamming setTransform on every pan frame at min zoom: only trigger\n  React re-render when crossing a zoom limit boundary\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Upgrade Snow Near Me to A* search with seasonal + geographic heuristic\n\n- Replace BFS with blended A* score (distance − snow bonus − season bonus)\n- Add true Dijkstra stopping condition: keep searching until bestCandidate\n  beats all remaining queue entries, fixing India→Russia skip-Uzbekistan bug\n- Add seasonal magnet: pull toward winter hemisphere based on current month\n- Ghost through tropical countries instantly with no API call or delay\n- Generate COUNTRY_NEIGHBORS from REST Countries API (~178 entries) with\n  maritime bridges for island nations\n- Add Southern Ocean bridges (Antarctica ↔ Argentina, Chile, South Africa,\n  New Zealand, Australia)\n- Pan map to origin country at min zoom when search starts; clear viewing session\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-18T10:04:15Z"
+            "date": "2026-05-21T15:16:04Z"
           }
         }
       }
