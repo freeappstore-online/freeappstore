@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Analytics — FreeAppStore</title>
+  <meta name="description" content="Visit your apps' analytics. Cookieless, no PII. Powered by Cloudflare Web Analytics + first-party page-view tracking." />
+  <link rel="canonical" href="https://freeappstore.online/analytics.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .a-section { max-width: 64rem; margin: 0 auto; padding: 1rem 0 3rem; }
+    .a-heading { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .a-lede { color: var(--muted); margin-bottom: 1.5rem; }
+    .a-card { border: 1px solid var(--border); border-radius: 1rem; padding: 1.25rem; background: var(--panel); margin-bottom: 1rem; }
+    .a-card h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .a-card .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.75rem; }
+    .a-card-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+    @media (min-width: 640px) { .a-card-grid { grid-template-columns: repeat(2, 1fr); } }
+    .a-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1rem; }
+    .a-kpi { border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.75rem; }
+    .a-kpi .label { color: var(--muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+    .a-kpi .value { font-size: 1.6rem; font-weight: 800; margin-top: 0.25rem; }
+    .a-chart { border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.5rem; background: var(--panel); margin-bottom: 1rem; }
+    .a-rank-title { color: var(--muted); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .a-rank-row { font-size: 0.85rem; margin-bottom: 0.5rem; }
+    .a-rank-row .label { display: flex; justify-content: space-between; margin-bottom: 0.15rem; }
+    .a-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .a-bar > div { height: 4px; background: var(--accent); }
+    .a-tabs { display: flex; gap: 0.25rem; }
+    .a-tabs button { padding: 0.25rem 0.75rem; font-size: 0.85rem; border: 1px solid var(--border); border-radius: 0.5rem; background: transparent; color: var(--muted); cursor: pointer; }
+    .a-tabs button.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+    .a-form { border-top: 1px solid var(--border); margin-top: 1.25rem; padding-top: 1.25rem; }
+    .a-form label { display: block; margin-bottom: 0.75rem; font-size: 0.85rem; }
+    .a-form label span { display: block; color: var(--muted); font-size: 0.75rem; margin-bottom: 0.25rem; }
+    .a-form input, .a-form textarea { width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border); border-radius: 0.5rem; background: transparent; color: var(--ink); font-size: 0.9rem; font-family: inherit; }
+    .a-form textarea { font-family: monospace; font-size: 0.75rem; }
+    .a-form button { padding: 0.5rem 1rem; font-weight: 600; border-radius: 0.5rem; background: var(--accent); color: var(--paper); border: none; cursor: pointer; }
+    .a-form button:disabled { opacity: 0.5; }
+    .a-form .ok { color: var(--success); font-size: 0.8rem; margin-left: 0.5rem; }
+    .a-form .err { color: var(--error); font-size: 0.8rem; margin-left: 0.5rem; }
+    .a-empty { color: var(--muted); text-align: center; padding: 2rem 0; }
+    .a-signin { color: var(--accent); }
+    .a-header-bar { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+  </style>
+  <!-- CF Web Analytics for the storefront itself. -->
+  __CF_BEACON__
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free <span>Apps</span></a>
+      <nav>
+        <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
+        <a href="/about.html">About</a>
+        <a href="/build-with-ai.html">Build</a>
+        <a href="https://create.freeappstore.online">VibeCode</a>
+        <a href="/guidelines.html">Guidelines</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+        <span id="navAuth"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="a-section">
+      <h1 class="a-heading">Your analytics</h1>
+      <p class="a-lede">
+        Cookieless, no PII. The platform records page views and SPA route changes from every visitor;
+        you can also wire Google Analytics, Plausible, or a custom &lt;head&gt; tag per app. Updated within a minute.
+      </p>
+      <div id="a-content">
+        <p class="a-empty">Loading…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free <span>Apps</span></a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/quality.html">Quality</a>
+        <a href="/analytics.html">Analytics</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/auth.js" integrity="{{SRI_AUTH_JS}}"></script>
+  <script src="/analytics.js" integrity="{{SRI_ANALYTICS_JS}}" defer></script>
+</body>
+</html>

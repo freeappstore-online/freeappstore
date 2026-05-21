@@ -346,6 +346,7 @@ const sriHashes = {
   DETAIL_PAGE_JS: sriHash('detail-page.js'),
   GET_STARTED_JS: sriHash('get-started.js'),
   QUALITY_JS: sriHash('quality.js'),
+  ANALYTICS_JS: sriHash('analytics.js'),
 };
 
 let indexHtml = indexTemplate
@@ -678,6 +679,7 @@ const filesToCopy = [
   'storefront.js',
   'detail-page.js',
   'quality.js',
+  'analytics.js',
   'manifest.json',
   'favicon.svg',
   'apple-touch-icon.png',
@@ -694,6 +696,7 @@ const filesToCopy = [
   'pricing.html',
   'get-started.html',
   'get-started.js',
+  'analytics.html',
   'auth.js',
 ];
 
@@ -748,6 +751,7 @@ filesToCopy.forEach(file => {
     for (const [k, v] of Object.entries(sriHashes)) {
       html = html.replaceAll(`{{SRI_${k}}}`, v);
     }
+    html = html.replaceAll('__CF_BEACON__', CF_BEACON_SNIPPET);
     if (/{{SRI_[A-Z_]+}}/.test(html)) {
       console.error(`Unsubstituted {{SRI_*}} placeholder in ${file}`);
       process.exit(1);
