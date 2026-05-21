@@ -11,28 +11,6 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="/style.css" />
-  <style>
-    .ai-hero { padding: 2rem 0 1rem; }
-    .ai-hero h1 { font-size: clamp(2rem, 5vw, 2.5rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
-    .ai-lead { font-size: 1.05rem; color: var(--muted); line-height: 1.6; max-width: 700px; margin-bottom: 2rem; }
-    .steps { counter-reset: step; list-style: none; padding: 0; }
-    .steps > li { counter-increment: step; margin-bottom: 2.5rem; padding-left: 2.5rem; position: relative; }
-    .steps > li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
-    .steps h3 { font-size: 1.1rem; font-weight: 800; margin: 0 0 0.5rem; }
-    .steps p { font-size: 0.92rem; color: var(--muted); margin: 0.35rem 0; }
-    .cmd { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.1rem; margin: 0.75rem 0; font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 0.85rem; overflow-x: auto; white-space: pre; line-height: 1.6; }
-    .cmd .comment { color: var(--muted); }
-    .cmd .output { color: var(--muted); font-style: italic; }
-    .callout { padding: 1.25rem 1.5rem; border-left: 4px solid var(--accent); background: var(--accent-soft, var(--panel)); border-radius: 0 0.75rem 0.75rem 0; margin: 1.5rem 0; font-size: 0.9rem; }
-    .callout strong { color: var(--ink); }
-    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; margin: 1rem 0 2rem; }
-    .tool-card { padding: 1rem; border: 1px solid var(--border); border-radius: 0.75rem; background: var(--surface); }
-    .tool-card h4 { font-size: 0.95rem; margin: 0 0 0.25rem; }
-    .tool-card p { font-size: 0.8rem; color: var(--muted); margin: 0 0 0.35rem; }
-    .tool-card code { font-size: 0.75rem; background: var(--accent-soft); color: var(--accent); padding: 0.1rem 0.3rem; border-radius: 0.2rem; }
-    .tag { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.3rem; }
-    h2 { font-size: 1.4rem; font-weight: 800; margin: 3rem 0 1rem; letter-spacing: -0.01em; }
-  </style>
 </head>
 <body>
   <header>
@@ -58,10 +36,10 @@
     </div>
 
     <!-- ==================== PREREQUISITES ==================== -->
-    <h2>Prerequisites</h2>
-    <p style="font-size:0.92rem;color:var(--muted);margin-bottom:1rem">You need Node.js and pnpm installed. If you already have them, skip to Step 1.</p>
+    <h2 class="ai-h2">Prerequisites</h2>
+    <p class="ai-note-small">You need Node.js and pnpm installed. If you already have them, skip to Step 1.</p>
 
-    <div class="cmd"><span class="comment"># Check if Node is installed (need v20+)</span>
+    <div class="ai-cmd"><span class="comment"># Check if Node is installed (need v20+)</span>
 node --version
 <span class="output"># v20.x.x or higher? You're good. If not:</span>
 
@@ -73,7 +51,7 @@ brew install node
 curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
 sudo apt-get install -y nodejs</div>
 
-    <div class="cmd"><span class="comment"># Install pnpm (the package manager)</span>
+    <div class="ai-cmd"><span class="comment"># Install pnpm (the package manager)</span>
 npm install -g pnpm
 
 <span class="comment"># Verify</span>
@@ -81,13 +59,13 @@ pnpm --version
 <span class="output"># Should print 10.x.x</span></div>
 
     <!-- ==================== STEP BY STEP ==================== -->
-    <h2>Step-by-step: Claude Code (terminal)</h2>
-    <p style="font-size:0.92rem;color:var(--muted);margin-bottom:1.5rem">Full walkthrough using Claude Code. Other tools follow the same steps — see <a href="#other-tools">tool-specific setup</a> below.</p>
+    <h2 class="ai-h2">Step-by-step: Claude Code (terminal)</h2>
+    <p class="ai-note-small-tight">Full walkthrough using Claude Code. Other tools follow the same steps — see <a href="#other-tools">tool-specific setup</a> below.</p>
 
-    <ol class="steps">
+    <ol class="ai-steps">
       <li>
         <h3>Install Claude Code and the FreeAppStore CLI</h3>
-        <div class="cmd"><span class="comment"># Install Claude Code (Anthropic's terminal AI)</span>
+        <div class="ai-cmd"><span class="comment"># Install Claude Code (Anthropic's terminal AI)</span>
 npm install -g @anthropic-ai/claude-code
 
 <span class="comment"># Install the FreeAppStore CLI</span>
@@ -100,7 +78,7 @@ fas --version</div>
 
       <li>
         <h3>Log in to FreeAppStore</h3>
-        <div class="cmd"><span class="comment"># Sign in with your GitHub account</span>
+        <div class="ai-cmd"><span class="comment"># Sign in with your GitHub account</span>
 fas login
 
 <span class="output"># Opens GitHub in your browser for OAuth.
@@ -110,7 +88,7 @@ fas login
 
       <li>
         <h3>Create your app from a template</h3>
-        <div class="cmd"><span class="comment"># Scaffold a new app</span>
+        <div class="ai-cmd"><span class="comment"># Scaffold a new app</span>
 fas init my-app
 
 <span class="output"># Output:
@@ -127,10 +105,10 @@ cd my-app</div>
 
       <li>
         <h3>Start Claude Code</h3>
-        <div class="cmd"><span class="comment"># Launch Claude Code in the project</span>
+        <div class="ai-cmd"><span class="comment"># Launch Claude Code in the project</span>
 claude</div>
         <p>Claude Code reads <code>CLAUDE.md</code> automatically. That file says:</p>
-        <div class="cmd" style="font-size:0.8rem"><span class="output">See https://freeappstore.online/skills.md
+        <div class="ai-cmd is-small"><span class="output">See https://freeappstore.online/skills.md
 for platform conventions.</span></div>
         <p>Claude now knows the design system (Manrope + Fraunces fonts, CSS variables, dark mode), the SDK (<code>@freeappstore/sdk</code>), and the deploy flow.</p>
       </li>
@@ -138,7 +116,7 @@ for platform conventions.</span></div>
       <li>
         <h3>Tell Claude what to build</h3>
         <p>Type your prompt in the Claude Code terminal. Be specific.</p>
-        <div class="cmd" style="border-style:dashed"><span class="comment"># Example prompts:</span>
+        <div class="ai-cmd is-dashed"><span class="comment"># Example prompts:</span>
 
 Build a pomodoro timer with work and break sessions.
 25 min work, 5 min break, 15 min long break. Show
@@ -157,7 +135,7 @@ sign-in.</div>
 
       <li>
         <h3>Run it locally</h3>
-        <div class="cmd"><span class="comment"># Start the dev server</span>
+        <div class="ai-cmd"><span class="comment"># Start the dev server</span>
 pnpm dev
 
 <span class="output"># Output:
@@ -170,7 +148,7 @@ pnpm dev
 
       <li>
         <h3>Check compliance</h3>
-        <div class="cmd"><span class="comment"># Run the platform compliance checker</span>
+        <div class="ai-cmd"><span class="comment"># Run the platform compliance checker</span>
 fas check
 
 <span class="output"># ✓ TypeScript strict mode
@@ -186,7 +164,7 @@ fas check
 
       <li>
         <h3>Publish and deploy</h3>
-        <div class="cmd"><span class="comment"># Publish to the store (creates repo + hosting + DNS)</span>
+        <div class="ai-cmd"><span class="comment"># Publish to the store (creates repo + hosting + DNS)</span>
 fas publish
 
 <span class="output"># ✓ Created repo: freeappstore-online/my-app
@@ -202,74 +180,74 @@ git push origin main
       </li>
     </ol>
 
-    <div class="callout">
+    <div class="ai-callout">
       <strong>That's it.</strong> Eight steps from zero to a published app on FreeAppStore. Free hosting, free subdomain, listed in the store. All free, forever.
     </div>
 
     <!-- ==================== OTHER TOOLS ==================== -->
-    <h2 id="other-tools">Other AI tools</h2>
-    <p style="font-size:0.92rem;color:var(--muted);margin-bottom:1rem">Steps 1-3 and 6-8 are the same for every tool. The only difference is Step 4 — how you tell the AI about the platform. Add this line to the tool's instruction file:</p>
-    <div class="cmd">See https://freeappstore.online/skills.md for platform conventions.</div>
+    <h2 id="other-tools" class="ai-h2">Other AI tools</h2>
+    <p class="ai-note-small">Steps 1-3 and 6-8 are the same for every tool. The only difference is Step 4 — how you tell the AI about the platform. Add this line to the tool's instruction file:</p>
+    <div class="ai-cmd">See https://freeappstore.online/skills.md for platform conventions.</div>
 
-    <p style="font-size:0.92rem;color:var(--muted);margin:1rem 0">Here's where that line goes for each tool:</p>
+    <p class="ai-note-small-mid">Here's where that line goes for each tool:</p>
 
     <div class="tool-grid">
       <div class="tool-card">
-        <span class="tag">Terminal</span>
+        <span class="ai-tag">Terminal</span>
         <h4>Claude Code</h4>
         <p>Auto-reads from project root.</p>
         <code>CLAUDE.md</code>
       </div>
       <div class="tool-card">
-        <span class="tag">Editor</span>
+        <span class="ai-tag">Editor</span>
         <h4>Cursor</h4>
         <p>Create in project root.</p>
         <code>.cursorrules</code>
       </div>
       <div class="tool-card">
-        <span class="tag">Editor</span>
+        <span class="ai-tag">Editor</span>
         <h4>GitHub Copilot</h4>
         <p>Create in .github folder.</p>
         <code>.github/copilot-instructions.md</code>
       </div>
       <div class="tool-card">
-        <span class="tag">Terminal</span>
+        <span class="ai-tag">Terminal</span>
         <h4>Codex CLI</h4>
         <p>Create in project root.</p>
         <code>AGENTS.md</code>
       </div>
       <div class="tool-card">
-        <span class="tag">Terminal</span>
+        <span class="ai-tag">Terminal</span>
         <h4>Aider</h4>
         <p>Create in project root.</p>
         <code>CONVENTIONS.md</code>
       </div>
       <div class="tool-card">
-        <span class="tag">Editor</span>
+        <span class="ai-tag">Editor</span>
         <h4>Windsurf</h4>
         <p>Create in project root.</p>
         <code>.windsurfrules</code>
       </div>
       <div class="tool-card">
-        <span class="tag">Editor</span>
+        <span class="ai-tag">Editor</span>
         <h4>Cline</h4>
         <p>Paste in custom instructions.</p>
         <code>Settings → Custom</code>
       </div>
       <div class="tool-card">
-        <span class="tag">Editor</span>
+        <span class="ai-tag">Editor</span>
         <h4>Zed</h4>
         <p>Paste in assistant context.</p>
         <code>Assistant panel</code>
       </div>
       <div class="tool-card">
-        <span class="tag">Editor</span>
+        <span class="ai-tag">Editor</span>
         <h4>Continue</h4>
         <p>Create in project root.</p>
         <code>.continuerules</code>
       </div>
       <div class="tool-card">
-        <span class="tag">Web</span>
+        <span class="ai-tag">Web</span>
         <h4>ChatGPT</h4>
         <p>Paste skills.md into chat.</p>
         <code>Paste in chat</code>
@@ -277,10 +255,10 @@ git push origin main
     </div>
 
     <!-- ==================== SDK CHEAT SHEET ==================== -->
-    <h2>SDK cheat sheet</h2>
-    <p style="font-size:0.92rem;color:var(--muted);margin-bottom:1rem">Copy-paste these into your AI prompts for connected apps (apps that need sign-in, storage, or real-time features).</p>
+    <h2 class="ai-h2">SDK cheat sheet</h2>
+    <p class="ai-note-small">Copy-paste these into your AI prompts for connected apps (apps that need sign-in, storage, or real-time features).</p>
 
-    <div class="cmd"><span class="comment">// Add the SDK to your project</span>
+    <div class="ai-cmd"><span class="comment">// Add the SDK to your project</span>
 pnpm add @freeappstore/sdk
 
 <span class="comment">// Initialize</span>
@@ -308,33 +286,33 @@ room.onMessage(msg => console.log(msg))
 room.onPeers(peers => console.log(peers.length, 'online'))</div>
 
     <!-- ==================== STANDALONE VS CONNECTED ==================== -->
-    <h2>Standalone vs Connected apps</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0 2rem">
-      <div style="padding:1.25rem;border:1px solid var(--border);border-radius:0.75rem">
-        <h3 style="margin:0 0 0.5rem;font-size:1rem">Standalone</h3>
-        <p style="font-size:0.85rem;color:var(--muted);margin:0">No sign-in needed. Data saved in localStorage on the user's device. Works fully offline. Timer, calculator, notes, converter — most apps are this type.</p>
+    <h2 class="ai-h2">Standalone vs Connected apps</h2>
+    <div class="ai-two-col">
+      <div class="ai-pane">
+        <h3>Standalone</h3>
+        <p>No sign-in needed. Data saved in localStorage on the user's device. Works fully offline. Timer, calculator, notes, converter — most apps are this type.</p>
       </div>
-      <div style="padding:1.25rem;border:1px solid var(--accent);border-radius:0.75rem">
-        <h3 style="margin:0 0 0.5rem;font-size:1rem;color:var(--accent)">Connected</h3>
-        <p style="font-size:0.85rem;color:var(--muted);margin:0">Uses <code>@freeappstore/sdk</code> for sign-in, per-user cloud storage, shared counters, and real-time rooms. Messenger, social apps, collaborative tools.</p>
+      <div class="ai-pane is-accent">
+        <h3 class="is-accent">Connected</h3>
+        <p>Uses <code>@freeappstore/sdk</code> for sign-in, per-user cloud storage, shared counters, and real-time rooms. Messenger, social apps, collaborative tools.</p>
       </div>
     </div>
 
     <!-- ==================== ALSO ==================== -->
-    <h2>Also available</h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0">
-      <div style="padding:1.25rem;border:1px solid var(--border);border-radius:0.75rem">
-        <h3 style="margin:0 0 0.5rem;font-size:1rem">VibeCode (no-code)</h3>
-        <p style="font-size:0.85rem;color:var(--muted);margin:0">Don't want to use a terminal? <a href="https://create.freeappstore.online">create.freeappstore.online</a> lets you describe your app in plain English and AI builds it for you in the browser.</p>
+    <h2 class="ai-h2">Also available</h2>
+    <div class="ai-two-col-mid">
+      <div class="ai-pane">
+        <h3>VibeCode (no-code)</h3>
+        <p>Don't want to use a terminal? <a href="https://create.freeappstore.online">create.freeappstore.online</a> lets you describe your app in plain English and AI builds it for you in the browser.</p>
       </div>
-      <div style="padding:1.25rem;border:1px solid var(--pro,#7c3aed);border-radius:0.75rem">
-        <h3 style="margin:0 0 0.5rem;font-size:1rem;color:var(--pro,#7c3aed)">Need a database?</h3>
-        <p style="font-size:0.85rem;color:var(--muted);margin:0">Free apps use localStorage. If you need SQL databases, file uploads, maps, or payments, check <a href="https://proappstore.online/build-with-ai" style="color:var(--pro,#7c3aed);font-weight:600">ProAppStore</a>.</p>
+      <div class="ai-pane is-pro">
+        <h3 class="is-pro">Need a database?</h3>
+        <p>Free apps use localStorage. If you need SQL databases, file uploads, maps, or payments, check <a href="https://proappstore.online/build-with-ai" class="ai-pane-pro-link">ProAppStore</a>.</p>
       </div>
     </div>
 
-    <h2>Other reading</h2>
-    <ul style="font-size:0.92rem;line-height:2">
+    <h2 class="ai-h2">Other reading</h2>
+    <ul class="ai-reading-list">
       <li><a href="/guidelines">Platform guidelines</a> — design system, privacy rules, compliance checks</li>
       <li><a href="/pricing">Pricing</a> — free tier caps and what Pro unlocks</li>
       <li><a href="https://freeappstore.online/skills.md">skills.md</a> — the machine-readable platform reference your AI tool reads</li>
@@ -361,10 +339,10 @@ room.onPeers(peers => console.log(peers.length, 'online'))</div>
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
         <a href="https://github.com/freeappstore-online">GitHub</a>
-        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
+        <a href="https://proappstore.online" class="footer-link-pro">Pro</a>
       </div>
     </div>
   </footer>
-  <script src="/auth.js"></script>
+  <script src="/auth.js" integrity="{{SRI_AUTH_JS}}"></script>
 </body>
 </html>

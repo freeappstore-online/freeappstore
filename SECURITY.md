@@ -55,8 +55,20 @@ enforces this.
 - CSP has no broad `https:` source in `img-src`.
 - `_headers` ships HSTS, COOP, frame-ancestors, X-Frame-Options.
 - No CSP `<meta>` tag in any built HTML.
+- **Every shipped `.html` is CSP-clean** — auto-discovered from `dist/` (top level + `dist/apps/`). No inline `<style>` blocks, no `style="..."` attrs, no executable inline `<script>`, no `on*=` event handlers. JSON islands (`<script type="application/json">`) are fine — browsers treat them as inert data. (See "CSP-clean static pages" below for the dev rule.)
 
 A regression in any of these fails the build. That's the contract.
+
+## CSP-clean static pages — dev rule
+
+The site-wide CSP (`/*` in `dist/_headers`) is `script-src 'self' 'sha256-<one-hash>'; style-src 'self';`. The one whitelisted script hash matches the no-flash theme bootstrap in `templates/index.html` — nothing else. So **any** new HTML you ship at `dist/` root or under `dist/apps/` must be CSP-clean:
+
+- **No inline `<style>` blocks.** Put page-specific styles in `style.css` with a page-prefixed class (`.gs-*`, `.ai-*`, `.contrib-*`, `.tier-*`, `.guide-*`, etc.). Reuse the utility classes from the bottom of `style.css` (`.text-accent-bold`, `.text-pro-bold`, `.lede`, `.section-h2`, `.tile`, `.tile-grid`, `.mt-half`, `.aside-note`, `.footer-link-pro`, …) before inventing new ones.
+- **No `style="..."` attributes.** Same rule. For dynamic values (e.g. per-app icon backgrounds), use the `card-styles.css` pattern: generate a single stylesheet at build time with one rule per `data-id`, and reference the data via attribute selectors instead of inline style.
+- **No executable inline `<script>`.** Extract to a file in the project root, add it to `filesToCopy[]` in `build.js`, and reference it with `<script src="/foo.js" integrity="{{SRI_FOO_JS}}"></script>`. The build pipeline computes the SRI hash at build time and substitutes the placeholder. JSON data islands (`<script type="application/json">`) are fine — they're data, not code.
+- **No `onclick=`, `onerror=`, or other `on*=` attributes.** Use `addEventListener` from your external script. Hook elements by `id` or a data attribute.
+
+The regression test (`test/build.test.mjs`, `every shipped .html is CSP-clean`) walks every `.html` under `dist/` and asserts all four rules. Adding a new page without following them fails CI before the page can ship broken.
 
 ## Known open questions
 

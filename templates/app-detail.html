@@ -14,21 +14,11 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="/style.css" />
-  <style>
-    .app-hero { display: flex; align-items: center; gap: 1.5rem; padding: 2rem 0 3rem; }
-    .app-hero-icon { width: 80px; height: 80px; border-radius: 1.25rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; flex-shrink: 0; }
-    .app-hero h1 { margin-bottom: 0.25rem; }
-    .app-hero .tag { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); background: var(--accent-soft, #eff6ff); padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; }
-    .app-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; padding: 1.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
-    .app-meta-item { text-align: center; }
-    .app-meta-item .label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-    .app-meta-item .value { font-size: 1.1rem; font-weight: 700; margin-top: 0.25rem; }
-    .app-cta { display: inline-block; background: var(--accent); color: white; padding: 0.75rem 2rem; border-radius: 0.75rem; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: opacity 0.2s; }
-    .app-cta:hover { opacity: 0.9; }
-    .app-section { margin-bottom: 3rem; }
-    .app-section h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; }
-    .source-link { font-size: 0.88rem; color: var(--accent); text-decoration: none; font-weight: 600; }
-  </style>
+  <!-- Per-app icon backgrounds live here (one rule per data-id) so we can
+       keep CSP style-src 'self' with no 'unsafe-inline'. -->
+  <link rel="stylesheet" href="/card-styles.css" />
+  <!-- CF Web Analytics — cookieless, no PII. Token injected at build time. -->
+  __CF_BEACON__
 </head>
 <body>
   <header>
@@ -51,7 +41,7 @@
     <div class="app-split">
       <div class="app-split-info">
         <div class="app-hero">
-          <div class="app-hero-icon app-icon" data-letter="{{LETTER}}" style="background: {{ICON_BG}};"><img src="{{APP_URL}}/apple-touch-icon.png" alt="" loading="lazy" style="width:100%;height:100%;border-radius:inherit;object-fit:cover;" /></div>
+          <div class="app-hero-icon app-icon" data-letter="{{LETTER}}" data-id="{{ID}}"><img src="{{APP_URL}}/apple-touch-icon.png" alt="" loading="lazy" class="app-hero-icon-img" /></div>
           <div>
             <h1>{{NAME}}</h1>
             <div class="tag">{{CATEGORY_LABEL}}</div>
@@ -110,21 +100,21 @@
 
     <section class="app-section" id="rating-section">
       <h2>Rate this app</h2>
-      <div id="rating-widget" style="display: flex; align-items: center; gap: 1rem;">
-        <button id="rate-up" style="font-size: 1.5rem; background: none; border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.5rem 1rem; cursor: pointer; color: var(--ink);" title="Like">
-          <span style="margin-right: 0.3rem;">&#128077;</span><span id="count-up">0</span>
+      <div id="rating-widget" class="rating-widget">
+        <button id="rate-up" type="button" class="rate-btn" title="Like">
+          <span class="rate-emoji">&#128077;</span><span id="count-up">0</span>
         </button>
-        <button id="rate-down" style="font-size: 1.5rem; background: none; border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.5rem 1rem; cursor: pointer; color: var(--ink);" title="Dislike">
-          <span style="margin-right: 0.3rem;">&#128078;</span><span id="count-down">0</span>
+        <button id="rate-down" type="button" class="rate-btn" title="Dislike">
+          <span class="rate-emoji">&#128078;</span><span id="count-down">0</span>
         </button>
-        <span id="rating-status" style="font-size: 0.8rem; color: var(--muted);"></span>
+        <span id="rating-status" class="rating-status"></span>
       </div>
     </section>
 
     <section class="app-section">
       <h2>About</h2>
       <p>{{DESCRIPTION}}</p>
-      <p style="margin-top: 0.75rem;"><strong>Type:</strong> {{TYPE_LABEL}} &middot; <strong>Developer:</strong> {{DEVELOPER}}</p>
+      <p class="mt-half"><strong>Type:</strong> {{TYPE_LABEL}} &middot; <strong>Developer:</strong> {{DEVELOPER}}</p>
     </section>
 
     <section class="app-section">
@@ -139,8 +129,8 @@
     </section>
 
     {{HISTORY_SECTION}}
-    <aside style="text-align: center; padding: 1rem 0; font-size: 0.9rem; color: var(--muted);">
-      Looking for free games? Visit <a href="https://freegamestore.online" style="color: var(--accent); font-weight: 600;">FreeGameStore</a>
+    <aside class="detail-aside-games">
+      Looking for free games? Visit <a href="https://freegamestore.online" class="text-accent-bold">FreeGameStore</a>
     </aside>
   </main>
 
@@ -160,7 +150,7 @@
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
         <a href="https://github.com/freeappstore-online">GitHub</a>
-        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
+        <a href="https://proappstore.online" class="footer-link-pro">Pro</a>
       </div>
     </div>
   </footer>

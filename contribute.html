@@ -8,17 +8,6 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .steps { counter-reset: step; list-style: none; padding: 0; }
-    .steps li { counter-increment: step; margin-bottom: 1.5rem; padding-left: 2.5rem; position: relative; }
-    .steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
-    .cmd { background: var(--surface, #1a1a1a); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1rem 1.25rem; margin: 0.75rem 0; font-family: monospace; font-size: 0.9rem; overflow-x: auto; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-    .card { background: var(--surface, #1a1a1a); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
-    .card h3 { margin-bottom: 0.5rem; }
-    .card p { font-size: 0.9rem; color: var(--muted); }
-    .highlight { background: var(--accent-soft, #eff6ff); border: 1px solid var(--accent); border-radius: var(--radius); padding: 1.5rem; margin: 1.5rem 0; }
-  </style>
 </head>
 <body>
   <header>
@@ -44,25 +33,25 @@
 
     <div class="page-content">
 
-      <div class="highlight" style="border-left: 4px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0;">
-        <h3 style="margin-bottom: 0.5rem;">Building with AI? Start there.</h3>
-        <p style="margin-bottom: 0.75rem;">FreeAppStore is AI-first. Drop our <a href="https://freeappstore.online/skills.md">SKILLS.md</a> into Claude Code, Cursor, GitHub Copilot, Aider, or Codex — your agent already knows the brand rules, the privacy mandates, the CLI, and the deploy flow before it writes a line of code.</p>
+      <div class="contrib-highlight is-cta">
+        <h3>Building with AI? Start there.</h3>
+        <p>FreeAppStore is AI-first. Drop our <a href="https://freeappstore.online/skills.md">SKILLS.md</a> into Claude Code, Cursor, GitHub Copilot, Aider, or Codex — your agent already knows the brand rules, the privacy mandates, the CLI, and the deploy flow before it writes a line of code.</p>
         <a href="/build-with-ai" class="btn">Build with AI &rarr;</a>
       </div>
 
       <!-- Section 1: Use an existing app -->
       <h2>Use an existing app</h2>
       <p>Every app on FreeAppStore is open source. You can contribute without building something new.</p>
-      <div class="cards">
-        <div class="card">
+      <div class="contrib-cards">
+        <div class="contrib-card">
           <h3>Browse apps</h3>
           <p>Explore the <a href="/">app catalog</a> and use what's already built. All apps are free, private, and work offline.</p>
         </div>
-        <div class="card">
+        <div class="contrib-card">
           <h3>Fix bugs</h3>
           <p>Found a bug? Every app has a public repo on <a href="https://github.com/freeappstore-online">GitHub</a>. Fork it, fix it, open a PR. We review within 48 hours.</p>
         </div>
-        <div class="card">
+        <div class="contrib-card">
           <h3>Suggest features</h3>
           <p>Have an idea for an existing app? Open a <a href="https://github.com/freeappstore-online">GitHub Issue</a> on that app's repo. Describe what you'd like and why.</p>
         </div>
@@ -72,7 +61,7 @@
       <h2>Become a Creator</h2>
       <p>Apply to join the creators program and ship your own app under the FreeAppStore platform.</p>
 
-      <div class="highlight">
+      <div class="contrib-highlight">
         <h3>What creators get</h3>
         <ul>
           <li>Your own app at <code>yourapp.freeappstore.online</code></li>
@@ -82,7 +71,7 @@
       </div>
 
       <h3>How to apply</h3>
-      <ol class="steps">
+      <ol class="contrib-steps">
         <li>
           <strong>Open an issue</strong>
           <p>Go to <a href="https://github.com/freeappstore-online/submissions/issues/new">github.com/freeappstore-online/submissions</a> and describe your app idea. Include your GitHub username.</p>
@@ -108,12 +97,12 @@
       <!-- Section 3: Workspace Setup -->
       <h2>Workspace Setup</h2>
       <p>Organize your repos under a consistent folder so every tool — and every AI agent — knows where to find things.</p>
-      <div class="cmd">mkdir -p ~/dev/fas/apps && cd ~/dev/fas/apps</div>
+      <div class="contrib-cmd">mkdir -p ~/dev/fas/apps && cd ~/dev/fas/apps</div>
       <p>Clone each app repo into the <code>apps/</code> folder:</p>
-      <div class="cmd">git clone https://github.com/freeappstore-online/my-app.git
+      <div class="contrib-cmd">git clone https://github.com/freeappstore-online/my-app.git
 # Result: ~/dev/fas/apps/my-app/</div>
       <p>The recommended layout:</p>
-      <div class="cmd" style="white-space:pre;">~/dev/fas/
+      <div class="contrib-cmd is-pre">~/dev/fas/
   apps/             ← your app repos
     timer/
     notes/
@@ -125,46 +114,46 @@
       <h2>Start Building</h2>
       <p>The <code>fas</code> CLI handles everything end-to-end — scaffold, check, publish, list, logs.</p>
 
-      <ol class="steps">
+      <ol class="contrib-steps">
         <li>
           <strong>Install the CLI</strong>
-          <div class="cmd">npm i -g @freeappstore/cli</div>
+          <div class="contrib-cmd">npm i -g @freeappstore/cli</div>
           <p>Requires Node 22+. Source on <a href="https://github.com/freeappstore-online/platform">github.com/freeappstore-online/platform</a>; package on <a href="https://www.npmjs.com/package/@freeappstore/cli">npm</a>.</p>
         </li>
         <li>
           <strong>Sign in with GitHub</strong>
-          <div class="cmd">fas login</div>
+          <div class="contrib-cmd">fas login</div>
           <p>Device-flow OAuth — no password leaves your terminal. Token cached at <code>~/.fas/config.json</code> (mode 0600).</p>
         </li>
         <li>
           <strong>Scaffold a new app</strong>
-          <div class="cmd">fas init my-app</div>
+          <div class="contrib-cmd">fas init my-app</div>
           <p>Clones the standalone template, replaces <code>APPNAME</code> placeholders, runs <code>git init</code>, makes the first commit. Use <code>--template connected</code> if your app needs the platform backend (auth + KV + rooms).</p>
         </li>
         <li>
           <strong>Develop locally</strong>
-          <div class="cmd">cd my-app && pnpm install && pnpm dev</div>
+          <div class="contrib-cmd">cd my-app && pnpm install && pnpm dev</div>
           <p>Edit <code>web/src/App.tsx</code>. The <code>Shell</code> component gives you the sidebar layout, brand fonts, and dark mode for free.</p>
         </li>
         <li>
           <strong>Run compliance checks</strong>
-          <div class="cmd">fas check</div>
+          <div class="contrib-cmd">fas check</div>
           <p>Catches missing brand fonts, tracking SDKs, oversized bundles, missing PWA manifest, and unsubstituted template placeholders before you publish.</p>
         </li>
         <li>
           <strong>Verify the layout fits (recommended)</strong>
-          <div class="cmd">fas screencheck</div>
+          <div class="contrib-cmd">fas screencheck</div>
           <p>Builds, serves the dist locally, and drives a real Chromium at the <code>min_viewport_width</code> declared in your manifest in both portrait and landscape. Fails if the page actually scrolls — the static check only sees what you declared, this proves it works. Playwright is an opt-in peer dep; the command prompts to install on first run.</p>
         </li>
         <li>
           <strong>Publish</strong>
-          <div class="cmd">fas publish</div>
+          <div class="contrib-cmd">fas publish</div>
           <p>Provisions your repo at <code>github.com/freeappstore-online/my-app</code>, the Cloudflare Pages project, the DNS record, the custom subdomain, and the storefront entry. Prints the <code>git remote add</code> + <code>git push</code> commands when done.</p>
-          <p style="font-size: 0.88rem;">Scriptable from CI: pass <code>--name</code>, <code>--category</code>, <code>--type</code>, <code>--oneliner</code>, and <code>--yes</code>.</p>
+          <p class="contrib-small">Scriptable from CI: pass <code>--name</code>, <code>--category</code>, <code>--type</code>, <code>--oneliner</code>, and <code>--yes</code>.</p>
         </li>
         <li>
           <strong>Push your code</strong>
-          <div class="cmd">git push upstream main</div>
+          <div class="contrib-cmd">git push upstream main</div>
           <p>Auto-deploys via GitHub Actions in ~30 seconds. Future commits to <code>main</code> deploy automatically too.</p>
         </li>
       </ol>
@@ -200,13 +189,13 @@
       </ul>
 
       <p>Run them locally any time:</p>
-      <div class="cmd">fas check</div>
+      <div class="contrib-cmd">fas check</div>
       <p>Hard failures block <code>fas publish</code> (override with <code>--skip-checks</code> at your own risk; admin review will still catch issues). Warnings are advisory.</p>
 
-      <div class="highlight">
+      <div class="contrib-highlight">
         <h3>AI-assisted development</h3>
         <p>Using Claude Code, Cursor, Codex, or another AI coding tool? Add this to your agent so it knows the entire platform — tech stack, brand, how to deploy:</p>
-        <div class="cmd">Read https://freeappstore.online/skills.md</div>
+        <div class="contrib-cmd">Read https://freeappstore.online/skills.md</div>
       </div>
 
       <div class="cta-box">
@@ -233,10 +222,10 @@
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
         <a href="https://github.com/freeappstore-online">GitHub</a>
-        <a href="https://proappstore.online" style="color:var(--pro);">Pro</a>
+        <a href="https://proappstore.online" class="footer-link-pro">Pro</a>
       </div>
     </div>
   </footer>
-  <script src="/auth.js"></script>
+  <script src="/auth.js" integrity="{{SRI_AUTH_JS}}"></script>
 </body>
 </html>

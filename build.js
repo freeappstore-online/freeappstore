@@ -62,6 +62,16 @@ const qualityScores = fs.existsSync(scoresPath) ? JSON.parse(fs.readFileSync(sco
 const indexTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'index.html'), 'utf8');
 const detailTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'app-detail.html'), 'utf8');
 
+// CF Web Analytics — token comes from FAS_CF_BEACON_TOKEN at build time. If
+// unset (local dev), the placeholder is replaced with an empty string so the
+// page still validates. The CSP allowlist for static.cloudflareinsights.com
+// is added unconditionally so flipping the token on later doesn't require a
+// CSP redeploy.
+const CF_BEACON_TOKEN = (process.env.FAS_CF_BEACON_TOKEN || '').trim();
+const CF_BEACON_SNIPPET = CF_BEACON_TOKEN && /^[a-f0-9]{32,}$/i.test(CF_BEACON_TOKEN)
+  ? `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"${CF_BEACON_TOKEN}"}'></script>`
+  : '<!-- CF Web Analytics: FAS_CF_BEACON_TOKEN unset at build time -->';
+
 // Helper: format category label (brain-training -> Brain Training)
 function categoryLabel(cat) {
   return cat.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
@@ -215,7 +225,7 @@ function renderHistorySection(repo, history) {
   if (!history.commits || history.commits.length === 0) {
     return `<section class="app-section">
       <h2>Recent updates</h2>
-      <p style="color: var(--muted);">No updates yet — check back after the first deploy.</p>
+      <p class="text-muted-em">No updates yet — check back after the first deploy.</p>
       <p><a class="source-link" href="${githubAllUrl}" target="_blank" rel="noopener">See full history on GitHub &rarr;</a></p>
     </section>`;
   }
@@ -238,7 +248,7 @@ function renderHistorySection(repo, history) {
       <ul class="version-log">
 ${items}
       </ul>
-      <p style="margin-top: 0.75rem;"><a class="source-link" href="${githubAllUrl}" target="_blank" rel="noopener">See full history on GitHub &rarr;</a></p>
+      <p class="mt-half"><a class="source-link" href="${githubAllUrl}" target="_blank" rel="noopener">See full history on GitHub &rarr;</a></p>
     </section>`;
 }
 
@@ -270,8 +280,16 @@ fs.mkdirSync(path.join(DIST, 'apps'), { recursive: true });
 // dist/card-styles.css (loaded via <link>) so a malformed iconBg slipping
 // past the validator (regex regression, e.g.) cannot end up as a
 // style="..." attribute. The CSS file is `'self'` per CSP.
+// Dual selector so the same generated rule paints (a) the icon inside an
+// .app-card on the storefront grid AND (b) the .app-icon on the per-app
+// detail page hero. Detail-page templates set data-id directly on the icon
+// element; storefront cards keep data-id on the wrapping card.
 const cardIconBackgrounds = apps
-  .map(app => `.app-card[data-id="${escapeAttrCss(app.id)}"] .app-icon { background: ${app.iconBg || '#2563eb'}; }`)
+  .map(app => {
+    const safeId = escapeAttrCss(app.id);
+    const bg = app.iconBg || '#2563eb';
+    return `.app-card[data-id="${safeId}"] .app-icon, .app-icon[data-id="${safeId}"] { background: ${bg}; }`;
+  })
   .join('\n');
 function escapeAttrCss(s) {
   // The validator already constrains id to [a-z0-9-]+ so this is belt-and-suspenders.
@@ -326,9 +344,12 @@ const sriHashes = {
   STOREFRONT_JS: sriHash('storefront.js'),
   AUTH_JS: sriHash('auth.js'),
   DETAIL_PAGE_JS: sriHash('detail-page.js'),
+  GET_STARTED_JS: sriHash('get-started.js'),
+  QUALITY_JS: sriHash('quality.js'),
 };
 
 let indexHtml = indexTemplate
+  .replace('__CF_BEACON__', CF_BEACON_SNIPPET)
   .replace('{{INLINE_SCRIPT_HASH}}', inlineScriptHash)
   .replace('{{APPS_GRID}}', appCards)
   .replace('{{APPS_COUNT}}', String(apps.length));
@@ -553,9 +574,13 @@ const codeQualityCards = apps
   .filter(Boolean)
   .join('\n        ');
 
-const qualityHtml = qualityTemplate
+let qualityHtml = qualityTemplate
+  .replace('__CF_BEACON__', CF_BEACON_SNIPPET)
   .replace('{{CODE_QUALITY_CARDS}}', codeQualityCards)
   .replace('{{REGISTRIES_JSON}}', JSON.stringify(qualityRegistry).replace(/</g, '\\u003c'));
+for (const [k, v] of Object.entries(sriHashes)) {
+  qualityHtml = qualityHtml.replaceAll(`{{SRI_${k}}}`, v);
+}
 fs.writeFileSync(path.join(DIST, 'quality.html'), qualityHtml);
 console.log(`  /quality dashboard generated for ${qualityRegistry.apps.length} apps + ${qualityRegistry.games.length} games`);
 console.log(`  ${crossRegistry.items.length} games available for cross-store search`);
@@ -579,6 +604,7 @@ apps.forEach((app, i) => {
   // pipeline and used inside URLs / JS strings, but we still escape it
   // for defense in depth.
   let html = detailTemplate
+    .replace('__CF_BEACON__', CF_BEACON_SNIPPET)
     .replace(/\{\{NAME\}\}/g, escapeHtml(app.name))
     .replace(/\{\{NAME_LOWER\}\}/g, escapeHtml(app.name.toLowerCase()))
     .replace(/\{\{ID\}\}/g, escapeHtml(app.id))
@@ -666,6 +692,7 @@ const filesToCopy = [
   'build-with-ai.html',
   'pricing.html',
   'get-started.html',
+  'get-started.js',
   'auth.js',
 ];
 
@@ -677,10 +704,10 @@ const filesToCopy = [
 const csp = [
   "default-src 'self'",
   "img-src 'self' https://*.freeappstore.online https://*.freegamestore.online https://avatars.githubusercontent.com data:",
-  `script-src 'self' '${inlineScriptHash}'`,
+  `script-src 'self' '${inlineScriptHash}' https://static.cloudflareinsights.com`,
   "style-src 'self'",
   "font-src 'self'",
-  "connect-src 'self' https://*.freeappstore.online https://api.freeappstore.online",
+  "connect-src 'self' https://*.freeappstore.online https://api.freeappstore.online https://cloudflareinsights.com",
   "frame-src https://*.freeappstore.online https://*.freegamestore.online https://*.proappstore.online",
   "frame-ancestors 'none'",
   "base-uri 'self'",
@@ -708,10 +735,25 @@ fs.writeFileSync(path.join(DIST, '_headers'), [
   '',
 ].join('\n'));
 
+// Copy static assets. .html files get a substitution pass for {{SRI_*}}
+// placeholders so the integrity attribute matches the just-computed hash —
+// same pipeline as the index template. Everything else is binary-copied.
 filesToCopy.forEach(file => {
   const src = path.join(ROOT, file);
-  if (fs.existsSync(src)) {
-    fs.copyFileSync(src, path.join(DIST, file));
+  if (!fs.existsSync(src)) return;
+  const dst = path.join(DIST, file);
+  if (file.endsWith('.html')) {
+    let html = fs.readFileSync(src, 'utf8');
+    for (const [k, v] of Object.entries(sriHashes)) {
+      html = html.replaceAll(`{{SRI_${k}}}`, v);
+    }
+    if (/{{SRI_[A-Z_]+}}/.test(html)) {
+      console.error(`Unsubstituted {{SRI_*}} placeholder in ${file}`);
+      process.exit(1);
+    }
+    fs.writeFileSync(dst, html);
+  } else {
+    fs.copyFileSync(src, dst);
   }
 });
 

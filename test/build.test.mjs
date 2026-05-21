@@ -20,7 +20,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync, writeFileSync, rmSync } from "node:fs";
+import { mkdtempSync, readFileSync, readdirSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -269,6 +269,96 @@ test("style-src is locked (no 'unsafe-inline'), index.html has zero inline style
     assert.ok(!styleSrc.includes("'unsafe-inline'"), `style-src still has 'unsafe-inline': ${styleSrc}`);
     const bodyHtml = readFileSync(join(tmpDist, "index.html"), "utf8").replace(/<head>[\s\S]*?<\/head>/, '');
     assert.ok(!/\sstyle="/.test(bodyHtml), `inline style= survived in body — would break locked-down CSP`);
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+});
+
+// Every page that ships under the site-wide CSP must be CSP-clean: no inline
+// <style> blocks, no style="..." attrs, no executable inline <script>, no
+// on*= event handlers. The site-wide CSP (`/*` rule in dist/_headers)
+// whitelists ONE inline-script hash (the theme bootstrap in
+// templates/index.html); everything else is blocked. Any violation silently
+// breaks the page — unstyled hero, dead handlers, missing layout.
+//
+// This was the freeappstore.pages.dev/get-started regression on 2026-05-21:
+// c2c28a2 locked down the CSP but only refactored the index template,
+// leaving 9 other static pages broken. The fix on 2026-05-21 also covered
+// apps/*.html detail pages (also under the same /* CSP scope, despite the
+// commit message claiming otherwise).
+//
+// We auto-discover every .html in dist (root + apps/) so adding a new page
+// without making it CSP-clean fails CI immediately — no manual list to keep
+// in sync.
+test("every shipped .html is CSP-clean (no inline style/script/on*=)", () => {
+  const { tmp, tmpDist } = runBuild();
+  try {
+    const pages = [
+      ...readdirSync(tmpDist)
+        .filter((f) => f.endsWith(".html"))
+        .map((f) => f),
+      ...readdirSync(join(tmpDist, "apps"))
+        .filter((f) => f.endsWith(".html"))
+        .map((f) => join("apps", f)),
+    ];
+    // Sanity: we expect at least the 10 top-level pages + N detail pages.
+    assert.ok(
+      pages.length >= 11,
+      `expected at least 11 .html pages in dist, got ${pages.length}`,
+    );
+    for (const page of pages) {
+      const html = readFileSync(join(tmpDist, page), "utf8");
+      const body = html.replace(/<head>[\s\S]*?<\/head>/, "");
+
+      // Rule 1: no inline style="..." attribute anywhere in body.
+      assert.ok(
+        !/\sstyle="/.test(body),
+        `${page}: inline style= survived in body — CSP style-src 'self' would block it`,
+      );
+
+      // Rule 2: no inline <style>...</style> block anywhere in body. (The
+      // index template historically had a tiny CSP <meta> + theme block in
+      // head — those are head-scoped and the head-script is hash-whitelisted,
+      // so we only enforce on body.)
+      assert.ok(
+        !/<style[\s>]/i.test(body),
+        `${page}: inline <style> block survived in body — CSP style-src 'self' would block it`,
+      );
+
+      // Rule 3: no executable inline <script>...</script> blocks anywhere in
+      // body. (Head may contain the single whitelisted bootstrap in
+      // index.html; that's covered by the hash check in the dedicated
+      // script-src test.) `<script type="application/json">` JSON islands are
+      // fine — CSP `script-src` doesn't apply to non-JS MIME types because
+      // browsers treat them as inert data, not code.
+      const inlineScriptTags = body.match(/<script\b[^>]*>/gi) || [];
+      const executableInline = inlineScriptTags.filter((tag) => {
+        if (/\ssrc\s*=/i.test(tag)) return false; // external script, fine
+        const typeMatch = tag.match(/\stype\s*=\s*["']([^"']+)["']/i);
+        if (!typeMatch) return true; // no type = JS by default = executable
+        const t = typeMatch[1].trim().toLowerCase();
+        // "module" and "text/javascript" are executable; everything else
+        // (application/json, application/ld+json, importmap, speculationrules)
+        // is treated as data and not subject to script-src.
+        return t === "module" || t === "text/javascript" || t === "";
+      });
+      assert.equal(
+        executableInline.length,
+        0,
+        `${page}: executable inline <script> survived in body (${executableInline.join(", ")}) — would fail CSP script-src hash check`,
+      );
+
+      // Rule 4: no on*= event handler attributes. These are blocked by
+      // script-src without 'unsafe-inline' (or 'unsafe-hashes' for the
+      // attribute-handler subset). Match a real handler (on followed by an
+      // ASCII letter and =) to avoid false hits on legit attrs like
+      // `crossorigin="..."`.
+      const onMatch = body.match(/\son[a-z]+\s*=/i);
+      assert.ok(
+        !onMatch,
+        `${page}: inline event handler ${onMatch?.[0]?.trim()} survived — would be blocked by CSP`,
+      );
+    }
   } finally {
     rmSync(tmp, { recursive: true, force: true });
   }
