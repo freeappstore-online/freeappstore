@@ -1510,9 +1510,19 @@
   "freeappstore-online/population-agent": {
     "meta": {
       "created_at": "2026-05-20T10:09:02Z",
-      "pushed_at": "2026-05-20T10:09:27Z"
+      "pushed_at": "2026-05-20T23:26:44Z"
     },
     "commits": [
+      {
+        "sha": "38cea4064d55ca45c96b901e68a6150a9c1c2a37",
+        "html_url": "https://github.com/freeappstore-online/population-agent/commit/38cea4064d55ca45c96b901e68a6150a9c1c2a37",
+        "commit": {
+          "message": "Switch to BYO Anthropic key — direct browser call, stored in localStorage\n\nDrops @freeappstore/sdk proxy in favour of a per-user key model: each visitor\nprovides their own Anthropic API key via a settings modal, stored locally\nin localStorage on their device only. The key is sent directly to\napi.anthropic.com using anthropic-dangerous-direct-browser-access:true.\n\nTrade-off: removes the need for a developer-side fas secret + proxy setup\n(so no single API key paying for all visitors), at the cost of asking each\nvisitor to bring their own key. Bundle drops ~3 KB after dropping the SDK.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-20T23:26:41Z"
+          }
+        }
+      },
       {
         "sha": "10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
         "html_url": "https://github.com/freeappstore-online/population-agent/commit/10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
