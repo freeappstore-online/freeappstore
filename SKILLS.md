@@ -387,7 +387,7 @@ const res = await fas.proxy.fetch('api.openai.com/v1/chat/completions', {
 
 If the user has no key, the proxy returns `{ error: "no_key", provider: "openai" }`. Show `<KeyPrompt>` (see UI section).
 
-**For AI apps, we recommend [OpenRouter](https://openrouter.ai)** -- one key gives users access to 100+ models (OpenAI, Anthropic, Google, Meta, etc.). Tell users to configure their OpenRouter key; your app picks the model.
+**Pick the provider your users most likely already have.** OpenAI is the most common. Google AI (Gemini) has the most generous free tier. OpenRouter is a power-user option that gives access to 100+ models with one key. Default to OpenAI unless you have a reason not to.
 
 ### User API Key Vault
 
