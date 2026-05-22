@@ -365,6 +365,8 @@ const sriHashes = {
   GET_STARTED_JS: sriHash('get-started.js'),
   QUALITY_JS: sriHash('quality.js'),
   ANALYTICS_JS: sriHash('analytics.js'),
+  PRISM_JS: sriHash('prism.js'),
+  PRISM_AUTODETECT_JS: sriHash('prism-autodetect.js'),
 };
 
 let indexHtml = indexTemplate
@@ -815,6 +817,8 @@ const filesToCopy = [
   'analytics.html',
   'docs.html',
   'auth.js',
+  'prism.js',
+  'prism-autodetect.js',
 ];
 
 // Security headers via CF Pages _headers — single source of truth for CSP and
