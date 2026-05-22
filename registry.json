@@ -479,6 +479,21 @@
       "developer": "FreeAppStore",
       "hostedOn": "r2",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "pdfreader",
+      "name": "PDF Reader",
+      "category": "Utilities",
+      "icon": "📄",
+      "iconBg": "#fef3c7",
+      "description": "Dark mode PDF reader with color inversion. All files stay on your device.",
+      "appUrl": "https://pdfreader.freeappstore.online",
+      "repo": "freeappstore-online/pdfreader",
+      "cfProject": "freepdfreaderapp",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
