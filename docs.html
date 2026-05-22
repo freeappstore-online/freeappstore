@@ -288,6 +288,40 @@ const keys = await fas.keys.status()
       <pre><code># Add to your CLAUDE.md:
 See https://freeappstore.online/skills.md for platform skills.</code></pre>
 
+      <h2>Platform Scope</h2>
+      <p><strong>FreeAppStore is for apps only.</strong> For games, see <a href="https://freegamestore.online">FreeGameStore</a>. For pro features, see <a href="https://proappstore.online">ProAppStore</a>.</p>
+
+      <h3>What FAS includes (free forever)</h3>
+      <ul>
+        <li>Static hosting on R2 (auto-deploy on push to main)</li>
+        <li>Auth (GitHub OAuth, SSO across all apps)</li>
+        <li>Per-user KV storage (1 MB/user, 100 keys)</li>
+        <li>Collections (document database, 10k docs/collection)</li>
+        <li>Shared counters (atomic, 1k per app)</li>
+        <li>Real-time rooms (WebSocket, 32 peers, ephemeral)</li>
+        <li>Secret-injecting API proxy (5 secrets, 10k requests/day)</li>
+        <li>User API key vault (encrypted, 8 providers)</li>
+        <li>App-level RBAC (roles: owner, member, moderator, editor, viewer, custom)</li>
+        <li>18 React UI components</li>
+        <li>CLI, MCP server, compliance checks</li>
+      </ul>
+
+      <h3>What FAS does NOT support (use ProAppStore)</h3>
+      <table>
+        <thead><tr><th>Need</th><th>FAS</th><th>PAS ($9/mo)</th></tr></thead>
+        <tbody>
+          <tr><td>Server-side AI</td><td>User brings own key via vault</td><td>Workers AI included</td></tr>
+          <tr><td>Custom domain</td><td><code>app.freeappstore.online</code> only</td><td><code>your-domain.com</code></td></tr>
+          <tr><td>File uploads</td><td>Not available</td><td>R2 bucket per app</td></tr>
+          <tr><td>Cron jobs</td><td>Not available</td><td>Cron Workers</td></tr>
+          <tr><td>Email</td><td>Not available</td><td>Resend (included quota)</td></tr>
+          <tr><td>Server-side compute</td><td>Static + client-side only</td><td>Per-app Worker + D1</td></tr>
+          <tr><td>Payments</td><td>Not available</td><td>Stripe + creator payouts</td></tr>
+          <tr><td>Source code</td><td>MIT required</td><td>Proprietary allowed</td></tr>
+        </tbody>
+      </table>
+      <p>The upgrade path is simple: swap <code>@freeappstore/sdk</code> for <code>@proappstore/sdk</code>. Core APIs (auth, KV, collections, proxy) work identically on both platforms. <a href="https://proappstore.online">Learn more &rarr;</a></p>
+
       <h2>Links</h2>
       <ul>
         <li><a href="/docs/mcp">MCP Server</a> — connect AI agents via MCP tools</li>
@@ -295,7 +329,8 @@ See https://freeappstore.online/skills.md for platform skills.</code></pre>
         <li><a href="https://github.com/freeappstore-online/platform">Platform source code</a></li>
         <li><a href="/docs/ui">UI Component Library</a></li>
         <li><a href="/skills.md">AI Agent Guide (skills.md)</a></li>
-        <li><a href="https://proappstore.online/docs">ProAppStore SDK Docs</a></li>
+        <li><a href="https://freegamestore.online">FreeGameStore</a> — sister platform for browser games</li>
+        <li><a href="https://proappstore.online">ProAppStore</a> — Pro tier with server AI, custom domains, payments</li>
       </ul>
     </div>
   </main>
