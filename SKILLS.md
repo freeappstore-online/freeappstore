@@ -96,7 +96,7 @@ People join as creators to build apps/games. The flow:
 | **Store repo** | freeappstore-online/freeappstore | freegamestore-online/freegamestore |
 | **Registry file** | `registry.json` in store repo | `registry.json` in store repo |
 | **Templates** | template-standalone | template-game-canvas, template-game-cards, template-game-grid, template-game-3d |
-| **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, proxy) | — || **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, proxy) | — || **Accent color** | Blue (#2563eb) | Emerald (#10b981) |
+| **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy) | — || **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy) | — || **Accent color** | Blue (#2563eb) | Emerald (#10b981) |
 | **Logo** | Free **Apps** | Free **Games** |
 | **Admin** | admin.freeappstore.online | admin.freegamestore.online |
 | **Publish portal** | publish.freeappstore.online | publish.freegamestore.online |
@@ -172,7 +172,7 @@ No further API calls or manual steps needed. Ever.
 
 - ONE environment: production only. Push to `main` = deploy. Fix forward.
 - Static hosting on Cloudflare R2 (served by the host Worker). No server-side code in apps.
-- Backend (if needed): `@freeappstore/sdk` (auth, KV, counters, collections, rooms, proxy). `npm i @freeappstore/sdk`.
+- Backend (if needed): `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy). `npm i @freeappstore/sdk`.
 - Free means free forever. No monetization in the free version.
 
 ## Tech Stack (required)
@@ -203,6 +203,159 @@ app-name/
         ├── App.tsx
         └── components/Shell.tsx
 ```
+
+## SDK Setup (`@freeappstore/sdk`)
+
+Connected apps use the platform SDK for auth, storage, real-time, and more. Install it:
+
+```bash
+pnpm add @freeappstore/sdk
+```
+
+Initialize once at app startup:
+
+```tsx
+import { initApp } from '@freeappstore/sdk'
+
+const fas = initApp({ appId: 'my-app' })
+// fas.auth     — GitHub OAuth sign-in/out
+// fas.kv       — per-user key-value storage
+// fas.counters — shared atomic counters
+// fas.collections — document database
+// fas.rooms    — real-time WebSocket rooms
+// fas.proxy    — secret-injecting API proxy
+```
+
+The `appId` must match the subdomain (e.g. `'timer'` for `timer.freeappstore.online`).
+
+### Auth
+
+```tsx
+// Imperative
+fas.auth.signIn()           // redirects to GitHub OAuth
+fas.auth.signOut()          // clears session
+fas.auth.user               // { id, login, avatarUrl } | null
+fas.auth.token              // session token string | null
+fas.auth.onChange(listener)  // subscribe to auth state changes
+
+// React hook (preferred)
+import { useAuth } from '@freeappstore/sdk/hooks'
+const { user, loading, signIn, signOut, deleteAccount } = useAuth(fas)
+```
+
+### Per-user KV Storage
+
+Scoped per user per app. The user must be signed in.
+
+```tsx
+await fas.kv.set('preferences', { theme: 'dark', fontSize: 16 })
+const prefs = await fas.kv.get('preferences')
+await fas.kv.delete('preferences')
+const keys = await fas.kv.list()
+const filtered = await fas.kv.list({ prefix: 'draft:' })
+const batch = await fas.kv.getMany(['k1', 'k2', 'k3'])
+```
+
+Limits: 1MB total per user, 100 keys max, 64KB per value, 128 char max key length. 100 active users/day, 1k ops/min per app.
+
+### Shared Counters
+
+Not user-scoped. Atomic. Anyone can read, auth required to write.
+
+```tsx
+const likes = await fas.counters.get('likes')           // public, no auth
+await fas.counters.increment('likes')                    // +1, requires auth
+await fas.counters.increment('score', 10)                // +10
+await fas.counters.increment('lives', -1)                // decrement
+const all = await fas.counters.list()                    // all counters
+const votes = await fas.counters.list({ prefix: 'vote:' })
+```
+
+Use for: vote tallies, view counts, leaderboards, any shared numeric state.
+
+### Collections (Document Database)
+
+Firestore-style public queryable JSON documents with ownership.
+
+```tsx
+const col = fas.collections.collection('posts')
+
+// Create (requires auth, auto-assigns id + owner)
+const doc = await col.create({ title: 'Hello', body: 'World' })
+
+// Read (public)
+const post = await col.get(doc.id)
+
+// Query (public, with filters)
+const all = await col.query()
+const mine = await col.query({ owner: fas.auth.user?.id })
+const page2 = await col.query({ limit: 10, offset: 10, orderBy: 'created_at', order: 'desc' })
+
+// Delete (owner only)
+await col.delete(doc.id)
+```
+
+### Real-time Rooms (WebSocket)
+
+Durable-Object-backed fan-out. Use for: cursor presence, multiplayer, chat, live collaboration.
+
+```tsx
+const room = fas.rooms.join('game-lobby')
+
+room.onMessage((msg) => {
+  console.log(msg.from.login, msg.data)  // { from: RoomPeer, data: T, at: number }
+})
+
+room.onPeers((peers) => {
+  console.log('connected:', peers.map(p => p.login))
+})
+
+room.onState((state) => {
+  // 'connecting' | 'open' | 'closed' | 'error'
+})
+
+room.send({ type: 'move', x: 10, y: 20 })
+room.close()
+```
+
+Limits: 32 peers/room, 100 msg/sec/peer, 4KB max message, 64 active rooms/app, 24h idle eviction. Free tier: 5 rooms x 25 peers x 50 user-hours/day per app.
+
+### Roles (App-level RBAC)
+
+Per-app role management with default roles out of the box. Roles are scoped to your app and enforced server-side.
+
+Default roles (no configuration needed): **owner** (auto-assigned to app creator), **member**, **moderator**, **editor**, **viewer**.
+
+```tsx
+// Assign a role
+await fas.roles.assign(userId, 'moderator')
+
+// Revoke a role
+await fas.roles.revoke(userId, 'moderator')
+
+// Check if a user has a role
+const isMod = await fas.roles.has(userId, 'moderator') // true | false
+
+// List all roles for a user
+const roles = await fas.roles.list(userId) // ['owner', 'moderator']
+
+// Custom roles — pass any string
+await fas.roles.assign(userId, 'beta-tester')
+const isBeta = await fas.roles.has(userId, 'beta-tester')
+```
+
+Use for: admin panels, moderation, content gating, feature flags by role. Custom roles work identically to the built-in defaults.
+
+### Secret-injecting API Proxy
+
+Call third-party APIs without exposing keys. Keys are configured server-side by the platform admin.
+
+```tsx
+const weather = await fas.proxy.fetch('api.openweathermap.org/data/2.5/weather?q=London')
+const data = await weather.json()
+```
+
+The proxy injects the registered API key for the target host. The browser never sees the key.
 
 ## App UI Components (`@freeappstore/sdk/ui` + `@freeappstore/sdk/hooks`)
 

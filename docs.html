@@ -191,11 +191,37 @@ room.close()</code></pre>
   body: JSON.stringify({ model: 'gpt-4', messages: [...] }),
 })</code></pre>
 
+      <h2>Roles (App-level RBAC)</h2>
+      <p>Per-app role management. Every app gets a set of default roles out of the box. Roles are scoped to your app and enforced server-side.</p>
+      <p>Default roles (available without configuration):</p>
+      <ul>
+        <li><strong>owner</strong> &mdash; auto-assigned to the app creator</li>
+        <li><strong>member</strong> &mdash; default role for signed-in users</li>
+        <li><strong>moderator</strong> &mdash; can manage content and users</li>
+        <li><strong>editor</strong> &mdash; can create and edit content</li>
+        <li><strong>viewer</strong> &mdash; read-only access</li>
+      </ul>
+      <pre><code>// Assign a role
+await fas.roles.assign(userId, 'moderator')
+
+// Revoke a role
+await fas.roles.revoke(userId, 'moderator')
+
+// Check if a user has a role
+const isMod = await fas.roles.has(userId, 'moderator') // true | false
+
+// List all roles for a user
+const roles = await fas.roles.list(userId) // ['owner', 'moderator']</code></pre>
+      <p>Custom roles are also supported &mdash; pass any string as the role name. Custom roles work identically to the built-in defaults.</p>
+      <pre><code>// Custom roles
+await fas.roles.assign(userId, 'beta-tester')
+const isBeta = await fas.roles.has(userId, 'beta-tester')</code></pre>
+
       <h2>Exports</h2>
       <table>
         <thead><tr><th>Import path</th><th>What you get</th></tr></thead>
         <tbody>
-          <tr><td><code>@freeappstore/sdk</code></td><td><code>initApp</code>, <code>FreeAppStore</code>, types</td></tr>
+          <tr><td><code>@freeappstore/sdk</code></td><td><code>initApp</code>, <code>FreeAppStore</code>, types, roles</td></tr>
           <tr><td><code>@freeappstore/sdk/hooks</code></td><td><code>useAuth</code>, <code>useTheme</code></td></tr>
           <tr><td><code>@freeappstore/sdk/ui</code></td><td><code>Avatar</code>, <code>SignInButton</code>, <code>ThemeToggle</code>, <code>ProfileMenu</code>, <code>ProfilePage</code>, <code>FasShell</code></td></tr>
         </tbody>
