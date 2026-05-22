@@ -23,7 +23,7 @@ Use this slim template:
 - Subdomain: `<name>.freeappstore.online`   <!-- or .freegamestore.online -->
 - Dev:    `pnpm install && pnpm dev`
 - Build:  `pnpm build`
-- Deploy: `git push origin main` (auto-deploys via Cloudflare Pages)
+- Deploy: `git push origin main` (auto-deploys to R2 via GitHub Actions)
 
 Free, MIT-licensed, no tracking. For platform conventions, read
 https://freeappstore.online/skills.md
@@ -64,7 +64,7 @@ That's it. No `npm publish`. No `npm login`. No npm token request. No local buil
 
 **Same pattern across the family:**
 
-- App / game repos auto-deploy to Cloudflare Pages on push to `main` — never `wrangler pages deploy` manually.
+- App / game repos auto-deploy to R2 via GitHub Actions on push to `main` — never `wrangler pages deploy` manually.
 - The backend Worker (`packages/backend`) is the one exception: it's not on a push-trigger workflow, so `wrangler deploy` is the right command. Check `.github/workflows/` first to confirm before running anything that ends in "deploy" or "publish".
 
 **As an AI agent:** if a user asks "how do I publish the SDK", the answer is the three commands in the Release flow box above. Do not suggest `npm publish`. Do not ask for an npm token.
@@ -77,7 +77,7 @@ People join as creators to build apps/games. The flow:
 
 1. Apply at https://github.com/freeappstore-online/submissions/issues/new?template=creator-application.yml
 2. Admin reviews and approves within 48h
-3. Admin provisions the app via `POST /api/provision` (creates repo, CF project, DNS, registry)
+3. Admin provisions the app via `POST /api/provision` (creates repo, hosting route, registry)
 4. Creator is added to the `creators` team in the GitHub org
 5. Creator clones the repo, writes code, pushes → live
 
@@ -85,7 +85,7 @@ People join as creators to build apps/games. The flow:
 - `maintainers` — admins + AI agents, push access to ALL repos
 - `creators` — approved builders, push access to THEIR repos only
 
-**For AI agents helping a creator:** your job is to write code in the repo and push. The provisioning is already done. Don't try to create CF projects or DNS records.
+**For AI agents helping a creator:** your job is to write code in the repo and push. The provisioning is already done. Don't try to create hosting routes or DNS records.
 
 ## Quick Reference
 
@@ -121,8 +121,8 @@ The path is a suggestion, not a requirement — the CLI doesn't care where the r
 ## IMPORTANT: What NOT to do
 
 - **Do NOT ask the user for Cloudflare API tokens, keys, or secrets.** Tokens are stored as org-level GitHub secrets and used only via GitHub Actions. Wrangler CLI uses its own OAuth. Never handle raw tokens.
-- **Do NOT provision via `wrangler` or raw `curl`** — provisioning goes through the admin API / publisher portal (see *Provisioning* below). `wrangler pages project create` creates Direct Upload projects that can't be connected to GitHub.
-- **Do NOT deploy manually with `wrangler pages deploy`** — push to main triggers auto-deploy via the CF Pages GitHub integration. The only deploy is `git push`.
+- **Do NOT provision via `wrangler` or raw `curl`** — provisioning goes through the admin API / publisher portal (see *Provisioning* below).
+- **Do NOT deploy manually** — push to main triggers auto-deploy via GitHub Actions → R2. The only deploy is `git push`.
 - **Do NOT use /ship or feature branches** — this platform uses trunk-based development. Push to main = deploy.
 - **Do NOT create staging environments** — there's only production. Fix forward (revert commits are fine).
 - **Do NOT set per-repo secrets** — use org-level secrets only (already configured in both orgs).
@@ -130,19 +130,19 @@ The path is a suggestion, not a requirement — the CLI doesn't care where the r
 ## How Deployment Works
 
 ```
-Push to main → CF Pages auto-build → live
+Push to main → GitHub Actions builds → uploads to R2 → live
 ```
 
-No manual deploy commands needed. CF Pages watches GitHub and builds on every push.
+No manual deploy commands needed. The `deploy.yml` workflow in each repo builds on every push and uploads to R2. The host Worker serves the files from R2.
 
 ## Two distinct operations — don't confuse them
 
 ### 1. PROVISION (one-time setup for a new app)
-Creates the GitHub repo, CF Pages project, DNS, custom domain, and store listing.
-This is done ONCE when a new app/game is created. Use the admin API or script.
+Creates the GitHub repo, hosting route (subdomain → R2 prefix), and store listing.
+This is done ONCE when a new app/game is created. Use the admin API, CLI (`fas publish`), or publisher portal.
 
 ### 2. DEPLOY (automatic on every push)
-After provisioning, just push code to main. CF Pages auto-builds and deploys.
+After provisioning, just push code to main. GitHub Actions builds and uploads to R2.
 No API calls, no scripts, no manual steps. Just `git push`.
 
 **As an AI agent: your job is to write code and push. Provisioning is handled by the admin API.**
@@ -165,13 +165,13 @@ Do NOT run curl commands against Cloudflare APIs. Do NOT use wrangler for provis
 ### After provisioning
 
 The app repo exists with CLAUDE.md, template code, and auto-deploy configured.
-Push any code to main → CF Pages auto-builds → live at `<id>.freeappstore.online`.
+Push any code to main → GitHub Actions builds → live at `<id>.freeappstore.online`.
 No further API calls or manual steps needed. Ever.
 
 ## Platform Rules
 
 - ONE environment: production only. Push to `main` = deploy. Fix forward.
-- Static hosting on Cloudflare Pages. No server-side code.
+- Static hosting on Cloudflare R2 (served by the host Worker). No server-side code in apps.
 - Backend (if needed): `@freeappstore/sdk` (auth, KV, counters, collections, rooms, proxy). `npm i @freeappstore/sdk`.
 - Free means free forever. No monetization in the free version.
 
@@ -451,7 +451,7 @@ export default function App() {
 Infrastructure is managed by the admin. AI agents do NOT need access to:
 - Cloudflare API tokens or keys
 - DNS management
-- CF Pages project creation
+- Hosting route or R2 bucket creation
 - GitHub secrets
 
 All of this is handled automatically by the provisioning system and GitHub Actions.

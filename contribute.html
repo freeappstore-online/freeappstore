@@ -73,7 +73,7 @@
         <h3>What creators get</h3>
         <ul>
           <li>Your own app at <code>yourapp.freeappstore.online</code></li>
-          <li>Auto-deploy on every push to main via Cloudflare Pages</li>
+          <li>Auto-deploy on every push to main via GitHub Actions</li>
           <li>Listed in the FreeAppStore catalog for all users to discover</li>
         </ul>
       </div>
@@ -156,7 +156,7 @@
         <li>
           <strong>Publish</strong>
           <div class="contrib-cmd">fas publish</div>
-          <p>Provisions your repo at <code>github.com/freeappstore-online/my-app</code>, the Cloudflare Pages project, the DNS record, the custom subdomain, and the storefront entry. Prints the <code>git remote add</code> + <code>git push</code> commands when done.</p>
+          <p>Provisions your repo at <code>github.com/freeappstore-online/my-app</code>, the hosting route, the custom subdomain, and the storefront entry. Prints the <code>git remote add</code> + <code>git push</code> commands when done.</p>
           <p class="contrib-small">Scriptable from CI: pass <code>--name</code>, <code>--category</code>, <code>--type</code>, <code>--oneliner</code>, and <code>--yes</code>.</p>
         </li>
         <li>
@@ -169,7 +169,7 @@
       <h3>Other commands</h3>
       <ul>
         <li><code>fas list</code> — see all apps you've published</li>
-        <li><code>fas logs my-app</code> — tail Cloudflare Pages deployment logs</li>
+        <li><code>fas logs my-app</code> — tail deployment logs</li>
         <li><code>fas doctor</code> — health check (Node, git, pnpm, auth, API reachability)</li>
         <li><code>fas whoami</code> — show signed-in GitHub user</li>
       </ul>
