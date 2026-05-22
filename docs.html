@@ -127,7 +127,7 @@ export default function App() {
 
       <h3>Individual components</h3>
       <p>Use components individually for custom layouts:</p>
-      <pre><code>import { Avatar, SignInButton, ThemeToggle, ProfileMenu, ProfilePage } from '@freeappstore/sdk/ui'</code></pre>
+      <pre><code>import { Avatar, SignInButton, ThemeToggle, TextSizeToggle, ProfileMenu, ProfilePage } from '@freeappstore/sdk/ui'</code></pre>
       <p>See the <a href="/docs/ui">UI Component Library</a> for full props, examples, and design tokens.</p>
 
       <h2>Auth</h2>
@@ -136,6 +136,7 @@ export default function App() {
 fas.auth.onChange(user =&gt; {})          // Listen for sign-in/out
 fas.auth.signIn()                      // Redirect to GitHub OAuth
 fas.auth.signIn('google')              // Redirect to Google OAuth
+fas.auth.signIn('apple')               // Redirect to Apple OAuth
 await fas.auth.signInWithEmail(email)  // Send magic-link email
 fas.auth.signOut()                     // Clear session
 fas.auth.user                          // Current user (or null)
@@ -224,7 +225,7 @@ const isBeta = await fas.roles.check('beta-tester')</code></pre>
         <tbody>
           <tr><td><code>@freeappstore/sdk</code></td><td><code>initApp</code>, <code>FreeAppStore</code>, types, roles</td></tr>
           <tr><td><code>@freeappstore/sdk/hooks</code></td><td><code>useAuth</code>, <code>useTheme</code></td></tr>
-          <tr><td><code>@freeappstore/sdk/ui</code></td><td><code>Avatar</code>, <code>SignInButton</code>, <code>ThemeToggle</code>, <code>ProfileMenu</code>, <code>ProfilePage</code>, <code>FasShell</code></td></tr>
+          <tr><td><code>@freeappstore/sdk/ui</code></td><td><code>Avatar</code>, <code>SignInButton</code>, <code>ThemeToggle</code>, <code>TextSizeToggle</code>, <code>ProfileMenu</code>, <code>ProfilePage</code>, <code>FasShell</code></td></tr>
         </tbody>
       </table>
 

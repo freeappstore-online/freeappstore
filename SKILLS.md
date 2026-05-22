@@ -233,6 +233,8 @@ The `appId` must match the subdomain (e.g. `'timer'` for `timer.freeappstore.onl
 ```tsx
 // Imperative
 fas.auth.signIn()           // redirects to GitHub OAuth
+fas.auth.signIn('google')   // redirects to Google OAuth
+fas.auth.signIn('apple')    // redirects to Apple OAuth
 fas.auth.signOut()          // clears session
 fas.auth.user               // { id, login, avatarUrl } | null
 fas.auth.token              // session token string | null
@@ -358,6 +360,24 @@ const data = await weather.json()
 
 The proxy injects the registered API key for the target host. The browser never sees the key.
 
+### User API Key Vault
+
+Users store their own API keys (OpenAI, Anthropic, etc.) on the platform. Apps never see the plaintext keys. Keys are encrypted at rest (AES-256-GCM envelope encryption) and injected server-side when apps call `fas.proxy.fetch()`.
+
+```tsx
+// Check if user has a key configured
+const hasKey = await fas.keys.has('openai')
+
+// Redirect user to platform key management page
+fas.keys.manage('openai') // opens platform page, returns to app after
+
+// Check all configured providers
+const keys = await fas.keys.status()
+// [{ provider: 'openai', label: 'My key', createdAt: ..., lastUsedAt: ... }]
+```
+
+Apps should use the `KeyPrompt` component (see UI section below) to show a prompt when a key is missing, rather than building custom key-entry UI.
+
 ## App UI Components (`@freeappstore/sdk/ui` + `@freeappstore/sdk/hooks`)
 
 **Connected apps MUST use the SDK components for auth, profile, and theme.** No custom sign-in buttons, no custom avatar components, no custom theme toggles. The SDK components enforce brand consistency and handle the full auth lifecycle (sign in, sign out, delete account, session management).
@@ -396,16 +416,40 @@ Props:
 Use these when you need more layout control than FasShell provides. FasShell uses them internally.
 
 ```tsx
-import { Avatar, SignInButton, ThemeToggle, ProfileMenu, ProfilePage } from '@freeappstore/sdk/ui'
+import {
+  Avatar, SignInButton, ThemeToggle, TextSizeToggle, ProfileMenu, ProfilePage,
+  Spinner, Badge, Card, Tabs, Modal, ConfirmDialog, EmptyState, ProgressBar,
+  SearchInput, ListRow, ErrorBoundary, KeyPrompt,
+} from '@freeappstore/sdk/ui'
 ```
+
+**Auth & profile:**
 
 | Component | What it does | Key props |
 |-----------|-------------|-----------|
 | `Avatar` | GitHub avatar with colored-initial fallback | `user`, `size` (px, default 32) |
 | `SignInButton` | Branded "Sign in with GitHub" button | `app`, `label` (override text) |
 | `ThemeToggle` | Sun/moon button cycling system/light/dark | none (reads theme from context) |
-| `ProfileMenu` | Avatar button that opens dropdown (username, theme toggle, sign out, delete account) | `app`, `showThemeToggle` |
+| `TextSizeToggle` | A/A+/A- button cycling default/large/small text | none |
+| `ProfileMenu` | Avatar dropdown (username, theme, API keys, sign out, delete account) | `app`, `showThemeToggle` |
 | `ProfilePage` | Full-page settings view (avatar, username, theme selector, sign out, delete account) | `app`, `showThemeToggle` |
+
+**Reusable building blocks:**
+
+| Component | What it does | Key props |
+|-----------|-------------|-----------|
+| `Spinner` | Animated border spinner | `size` (px, default 24), `color` |
+| `Badge` | Small pill badge for status/tags | `variant` (`default`\|`accent`\|`success`\|`warning`\|`danger`) |
+| `Card` | Bordered surface card, optionally clickable | `onClick`, `padding`, `style` |
+| `Tabs` | Pill-style tab selector | `tabs` (`[{key, label}]`), `active`, `onChange` |
+| `Modal` | Centered modal with backdrop, Escape to close | `open`, `onClose`, `title`, `maxWidth` |
+| `ConfirmDialog` | Confirm/cancel dialog built on Modal | `open`, `onConfirm`, `onCancel`, `title`, `message`, `variant` |
+| `EmptyState` | Centered placeholder with icon and message | `icon`, `title`, `message`, `action` |
+| `ProgressBar` | Horizontal progress bar | `value`, `max`, `color`, `height`, `label` |
+| `SearchInput` | Input with magnifying glass icon | `value`, `onChange`, `placeholder` |
+| `ListRow` | Clickable list row with icon/title/subtitle/trailing | `icon`, `title`, `subtitle`, `trailing`, `onClick` |
+| `ErrorBoundary` | Catches render errors, shows fallback | `children`, `fallback` |
+| `KeyPrompt` | Prompt when app needs a user's API key | `app`, `provider`, `providerName`, `message` |
 
 ### Hooks
 
