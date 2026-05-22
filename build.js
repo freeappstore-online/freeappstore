@@ -747,6 +747,33 @@ uniqueAuthors.forEach(username => {
 });
 console.log(`Generated ${uniqueAuthors.length} author page(s) at /u/`);
 
+// --- Generate /developers index page ---
+const developersTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'developers.html'), 'utf8');
+const devCards = uniqueAuthors.map(username => {
+  const authorApps = apps.filter(a => a.creatorGithub === username);
+  const badges = computeAuthorBadges(authorApps);
+  const badgesHtml = badges.length > 0
+    ? `<div class="dev-badges">${badges.map(b => `<span class="dev-badge" title="${escapeHtml(b.title)}">${b.icon} ${escapeHtml(b.label)}</span>`).join('')}</div>`
+    : '';
+  return `        <a class="dev-card" href="/u/${escapeHtml(username)}.html">
+          <img class="dev-avatar" src="https://avatars.githubusercontent.com/${escapeHtml(username)}?size=200" alt="" loading="lazy" />
+          <div class="dev-card-body">
+            <span class="dev-card-name">@${escapeHtml(username)}</span>
+            ${badgesHtml}
+            <span class="dev-card-stats">${authorApps.length} app${authorApps.length === 1 ? '' : 's'}</span>
+          </div>
+        </a>`;
+}).join('\n');
+
+let developersHtml = developersTemplate
+  .replace('__CF_BEACON__', CF_BEACON_SNIPPET)
+  .replace('{{DEVELOPERS_GRID}}', devCards);
+for (const [k, v] of Object.entries(sriHashes)) {
+  developersHtml = developersHtml.replaceAll(`{{SRI_${k}}}`, v);
+}
+fs.writeFileSync(path.join(DIST, 'developers.html'), developersHtml);
+console.log(`Generated /developers page (${uniqueAuthors.length} developers)`);
+
 // --- Generate sitemap.xml ---
 
 const today = new Date().toISOString().split('T')[0];
@@ -774,6 +801,7 @@ const sitemapEntries = [
   `  <url><loc>https://freeappstore.online/skills.md</loc><lastmod>${today}</lastmod><priority>0.9</priority></url>`,
   `  <url><loc>https://freeappstore.online/llms.txt</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
   `  <url><loc>https://freeappstore.online/quality.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/developers</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
   `  <url><loc>https://freeappstore.online/privacy.html</loc><lastmod>${today}</lastmod><priority>0.5</priority></url>`,
   `  <url><loc>https://freeappstore.online/terms.html</loc><lastmod>${today}</lastmod><priority>0.5</priority></url>`,
   ...apps.map(app =>

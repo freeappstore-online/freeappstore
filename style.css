@@ -2284,3 +2284,73 @@ pre[class*="language-"] {
 .token.important,
 .token.bold { font-weight: bold; }
 .token.italic { font-style: italic; }
+
+/* =====================================================================
+ * Developers index page — grid of developer cards
+ * ===================================================================== */
+.developers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  padding: 0 0 4rem;
+}
+
+.dev-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+  box-shadow: var(--shadow);
+}
+.dev-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.dev-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.dev-card-body { display: flex; flex-direction: column; gap: 0.35rem; align-items: center; }
+.dev-card-name { font-size: 1.1rem; font-weight: 700; color: var(--ink-strong); }
+.dev-card-bio { font-size: 0.85rem; color: var(--muted); line-height: 1.45; max-width: 30ch; }
+.dev-card-stats { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+.dev-badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dev-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .developers-grid { grid-template-columns: 1fr; }
+}
