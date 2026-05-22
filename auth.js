@@ -63,6 +63,38 @@
     });
   }
 
+  // ── Text-size toggle ──
+  (function () {
+    var sizes = ['', 'lg', 'sm'];
+    var labels = ['A', 'A+', 'A\u2013'];
+    var headerRight = document.querySelector('.header-right');
+    if (!headerRight) return;
+    var btn = document.createElement('button');
+    btn.className = 'text-size-toggle';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Change text size');
+    btn.title = 'Change text size';
+    function currentIndex() {
+      var cur = document.documentElement.dataset.text || '';
+      var idx = sizes.indexOf(cur);
+      return idx < 0 ? 0 : idx;
+    }
+    function render() { btn.textContent = labels[currentIndex()]; }
+    render();
+    btn.addEventListener('click', function () {
+      var next = (currentIndex() + 1) % sizes.length;
+      if (sizes[next]) {
+        document.documentElement.dataset.text = sizes[next];
+        try { localStorage.setItem('stores-text-size', sizes[next]); } catch (e) {}
+      } else {
+        delete document.documentElement.dataset.text;
+        try { localStorage.removeItem('stores-text-size'); } catch (e) {}
+      }
+      render();
+    });
+    headerRight.insertBefore(btn, headerRight.firstChild);
+  })();
+
   // ── Mobile hamburger menu ──
   var nav = document.querySelector("header nav");
   var headerContainer = document.querySelector("header .container");
