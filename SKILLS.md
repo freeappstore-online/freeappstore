@@ -378,6 +378,33 @@ const keys = await fas.keys.status()
 
 Apps should use the `KeyPrompt` component (see UI section below) to show a prompt when a key is missing, rather than building custom key-entry UI.
 
+### App Config & Secrets (what goes where)
+
+Apps need three kinds of external values. Each has a different storage path:
+
+| Kind | Examples | Where it goes | Reaches browser? |
+|------|----------|--------------|-----------------|
+| **Public identifiers** | OAuth client IDs, Firebase config, Stripe publishable keys, Google Maps browser key | **R2 deploy env vars** (`VITE_*` prefix) set in GitHub repo Settings > Secrets & Variables > Variables | Yes (build-time injection, origin-restricted server-side) |
+| **Quota-bearing API keys** | OpenWeather, Last.fm, CoinGecko, any key where abuse = $ | **App-secret proxy** via `fas secret set NAME value` + allowlist rule | No (injected server-side by proxy) |
+| **User-owned secrets** | OpenAI key, Anthropic key, Stripe secret key | **User key vault** via `fas.keys.manage()` | No (encrypted at rest, injected by proxy) |
+| **Actual secrets** | OAuth client secrets, signing keys, admin tokens | **Platform-level wrangler secrets** (managed by admin, never in app code) | No |
+
+**Rules:**
+- `.env.production` must NEVER be committed (compliance check fails the build).
+- `.env.local` is gitignored and safe for local dev.
+- Public identifiers (`VITE_GOOGLE_CLIENT_ID`, `VITE_FIREBASE_*`) go in GitHub repo-level environment variables. They are injected at build time by the deploy workflow and are safe to expose in browser code (they are origin-restricted on the provider's side).
+- If you are unsure whether a value is "public" or "secret", use the proxy. The proxy is always safer.
+
+**Local development:**
+```bash
+# .env.local (gitignored, dev only)
+VITE_GOOGLE_CLIENT_ID=123456789.apps.googleusercontent.com
+VITE_FIREBASE_API_KEY=AIzaSy...
+```
+
+**Production:**
+Set the same variables in your GitHub repo: Settings > Secrets and variables > Actions > Variables (not Secrets). The deploy.yml workflow passes them through at build time.
+
 ## App UI Components (`@freeappstore/sdk/ui` + `@freeappstore/sdk/hooks`)
 
 **Connected apps MUST use the SDK components for auth, profile, and theme.** No custom sign-in buttons, no custom avatar components, no custom theme toggles. The SDK components enforce brand consistency and handle the full auth lifecycle (sign in, sign out, delete account, session management).
@@ -692,7 +719,7 @@ The canonical list lives in [`workflows/compliance.yml`](./workflows/compliance.
 
 - `pnpm build` passes
 - MIT `LICENSE` file exists
-- No `.env.production` committed
+- No `.env.production` committed (use GitHub repo variables for `VITE_*` public config instead; see "App Config & Secrets" section)
 - No tracking SDKs (google-analytics, gtag, amplitude, mixpanel, segment, hotjar, plausible, posthog)
 - Brand fonts (Manrope + Fraunces) referenced in `web/src/index.css`
 - Brand CSS variables (`--paper`, `--ink`, `--accent`) present
