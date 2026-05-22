@@ -1527,7 +1527,7 @@
         "sha": "10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
         "html_url": "https://github.com/freeappstore-online/population-agent/commit/10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
         "commit": {
-          "message": "Add PopulationAgent chatbot �� Claude Sonnet 4.6 + live ABS data\n\nBrowser-only React app that uses Claude Sonnet 4.6 with tool use to answer\nquestions about Australian population. The Anthropic API is routed through\n@freeappstore/sdk's secret-injecting proxy (key stored server-side via\nfas secret set, never reaches the browser). ABS Data API is called directly\nfrom the browser via fetch.\n\nFive tools exposed to the agent: get_population, get_population_time_series,\ncompare_states, list_abs_dataflows, query_abs_dataset (escape hatch).\nSDMX-JSON responses flattened into {period, value, dimensions} rows.\n\nChat history persists in localStorage. Streaming text deltas via SSE parsing.\nPrompt caching: cache_control ephemeral on last tool definition (caches\ntools + system prefix together; tools render before system in the request).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add PopulationAgent chatbot ��� Claude Sonnet 4.6 + live ABS data\n\nBrowser-only React app that uses Claude Sonnet 4.6 with tool use to answer\nquestions about Australian population. The Anthropic API is routed through\n@freeappstore/sdk's secret-injecting proxy (key stored server-side via\nfas secret set, never reaches the browser). ABS Data API is called directly\nfrom the browser via fetch.\n\nFive tools exposed to the agent: get_population, get_population_time_series,\ncompare_states, list_abs_dataflows, query_abs_dataset (escape hatch).\nSDMX-JSON responses flattened into {period, value, dimensions} rows.\n\nChat history persists in localStorage. Streaming text deltas via SSE parsing.\nPrompt caching: cache_control ephemeral on last tool definition (caches\ntools + system prefix together; tools render before system in the request).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-20T10:07:55Z"
           }
@@ -1586,9 +1586,19 @@
   "freeappstore-online/pdfreader": {
     "meta": {
       "created_at": "2026-05-22T00:24:40Z",
-      "pushed_at": "2026-05-22T00:25:40Z"
+      "pushed_at": "2026-05-22T00:55:59Z"
     },
     "commits": [
+      {
+        "sha": "db126899d03eee16e62102ed96cf4209066091ed",
+        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/db126899d03eee16e62102ed96cf4209066091ed",
+        "commit": {
+          "message": "chore: trigger CF Pages deploy",
+          "author": {
+            "date": "2026-05-22T00:55:57Z"
+          }
+        }
+      },
       {
         "sha": "9cf9d846ecda31ccebf24265e1a6a2cd77655bb8",
         "html_url": "https://github.com/freeappstore-online/pdfreader/commit/9cf9d846ecda31ccebf24265e1a6a2cd77655bb8",
@@ -1606,16 +1616,6 @@
           "message": "Fix stale docs: raw GitHub URLs → freeappstore.online/skills.md, add agent auth flow\n\n- All SKILLS.md URLs now point to freeappstore.online/skills.md (was raw.githubusercontent)\n- claude-code.md: add non-interactive auth via gh CLI, full publish + push flow\n- brand/SKILLS.md: fix broken curl compliance command → fas check\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-15T04:29:00Z"
-          }
-        }
-      },
-      {
-        "sha": "4ae8ae3767aad1394a0652bd44adc151fdb188cd",
-        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/4ae8ae3767aad1394a0652bd44adc151fdb188cd",
-        "commit": {
-          "message": "Fix README: repo URL sdk → platform\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-15T00:25:48Z"
           }
         }
       }
