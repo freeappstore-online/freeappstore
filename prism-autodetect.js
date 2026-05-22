@@ -1,9 +1,9 @@
 /**
  * Auto-detect language for <pre><code> blocks and run Prism highlighting.
  * Heuristic: look at content patterns to guess ts/tsx/bash/sql/json.
- * Must load AFTER prism.js (both use defer so order is preserved).
+ * Uses setTimeout(0) to ensure this runs after Prism's own auto-highlight pass.
  */
-(function () {
+setTimeout(function () {
   if (typeof Prism === 'undefined' || !Prism.highlightAll) return;
 
   document.querySelectorAll('pre > code:not([class*="language-"])').forEach(function (code) {
@@ -24,4 +24,4 @@
   });
 
   Prism.highlightAll();
-})();
+}, 0);
