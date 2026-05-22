@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docs — FreeAppStore</title>
+  <meta name="description" content="FreeAppStore SDK documentation. Auth, KV storage, counters, collections, real-time rooms, proxy, and React UI components." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Docs — FreeAppStore" />
+  <meta property="og:description" content="SDK docs: auth, KV, counters, collections, rooms, proxy, hooks, UI components." />
+  <meta property="og:url" content="https://freeappstore.online/docs" />
+  <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://freeappstore.online/docs" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free <span>Apps</span></a>
+      <nav>
+        <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
+        <a href="/about">About</a>
+        <a href="/get-started">Get Started</a>
+        <a href="/guidelines">Guidelines</a>
+        <a href="/docs" class="active">Docs</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+        <span id="navAuth"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Documentation</h1>
+      <p>Everything you need to build a free app. One SDK, one import, full platform access.</p>
+    </div>
+
+    <div class="page-content">
+
+      <h2>Quick Start</h2>
+      <pre><code># Install the SDK
+npm i @freeappstore/sdk
+
+# Initialize in your app
+import { initApp } from '@freeappstore/sdk'
+const fas = initApp({ appId: 'my-app' })</code></pre>
+      <p>Your app deploys to <code>my-app.freeappstore.online</code> on push to main.</p>
+
+      <h2>Installation</h2>
+      <pre><code>npm i @freeappstore/sdk
+# or
+pnpm add @freeappstore/sdk</code></pre>
+
+      <h2>Initialize</h2>
+      <pre><code>import { initApp } from '@freeappstore/sdk'
+
+const fas = initApp({ appId: 'my-app' })</code></pre>
+      <table>
+        <thead><tr><th>Option</th><th>Default</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>appId</code></td><td>(required)</td><td>Your app's unique identifier</td></tr>
+          <tr><td><code>apiBase</code></td><td><code>https://api.freeappstore.online</code></td><td>API base URL</td></tr>
+        </tbody>
+      </table>
+
+      <h2>React Hooks</h2>
+      <p>Hooks give you full control over your UI. Import from <code>@freeappstore/sdk/hooks</code>.</p>
+
+      <h3>useAuth</h3>
+      <p>Auth state and actions. The primary way to interact with platform identity.</p>
+      <pre><code>import { useAuth } from '@freeappstore/sdk/hooks'
+
+function App() {
+  const { user, loading, signIn, signOut, deleteAccount } = useAuth(fas)
+
+  if (loading) return &lt;p&gt;Loading...&lt;/p&gt;
+  if (!user) return &lt;button onClick={signIn}&gt;Sign in with GitHub&lt;/button&gt;
+  return &lt;p&gt;Welcome, {user.login}!&lt;/p&gt;
+}</code></pre>
+
+      <h3>useTheme</h3>
+      <p>Zero-provider theme hook. Reads/writes localStorage, applies <code>data-theme</code> on <code>&lt;html&gt;</code>.</p>
+      <pre><code>import { useTheme } from '@freeappstore/sdk/hooks'
+
+function ThemeButton() {
+  const { theme, preference, setPreference } = useTheme()
+
+  return &lt;button onClick={() =&gt; setPreference(theme === 'dark' ? 'light' : 'dark')}&gt;
+    {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+  &lt;/button&gt;
+}</code></pre>
+      <p>Theme values: <code>'light'</code> | <code>'dark'</code> (resolved). Preference values: <code>'light'</code> | <code>'dark'</code> | <code>'system'</code>.</p>
+
+      <h2>UI Components</h2>
+      <p>Drop-in React components. Import from <code>@freeappstore/sdk/ui</code>. Components use CSS custom properties (<code>--ink</code>, <code>--accent</code>, etc.) so they blend into your app's theme.</p>
+      <p><a href="/docs/ui">Full UI component library &amp; design tokens &rarr;</a></p>
+
+      <h3>FasShell (zero-config)</h3>
+      <p>Full wrapper: auth gate, topbar, theme toggle, footer. One line to get a complete app shell.</p>
+      <pre><code>import { initApp } from '@freeappstore/sdk'
+import { FasShell } from '@freeappstore/sdk/ui'
+
+const fas = initApp({ appId: 'my-app' })
+
+export default function App() {
+  return (
+    &lt;FasShell app={fas} appName="My App"&gt;
+      &lt;MyAppContent /&gt;
+    &lt;/FasShell&gt;
+  )
+}</code></pre>
+      <table>
+        <thead><tr><th>Prop</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>app</code></td><td><code>FreeAppStore</code></td><td>SDK instance from <code>initApp()</code></td></tr>
+          <tr><td><code>children</code></td><td><code>ReactNode</code></td><td>App content</td></tr>
+          <tr><td><code>appName</code></td><td><code>string?</code></td><td>Name shown in the topbar</td></tr>
+          <tr><td><code>requireAuth</code></td><td><code>boolean?</code></td><td>Show sign-in gate (default: false)</td></tr>
+          <tr><td><code>showThemeToggle</code></td><td><code>boolean?</code></td><td>Show theme toggle (default: true)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Individual components</h3>
+      <p>Use components individually for custom layouts:</p>
+      <pre><code>import { Avatar, SignInButton, ThemeToggle, ProfileMenu, ProfilePage } from '@freeappstore/sdk/ui'</code></pre>
+      <p>See the <a href="/docs/ui">UI Component Library</a> for full props, examples, and design tokens.</p>
+
+      <h2>Auth</h2>
+      <p>GitHub OAuth via redirect. Session persists in <code>localStorage</code>. Shared across all FreeAppStore apps (SSO).</p>
+      <pre><code>await fas.auth.init()          // Initialize, capture callback
+fas.auth.onChange(user =&gt; {})  // Listen for sign-in/out
+fas.auth.signIn()              // Redirect to GitHub OAuth
+fas.auth.signOut()             // Clear session
+fas.auth.user                  // Current user (or null)
+fas.auth.token                 // Session token (for API calls)</code></pre>
+
+      <h2>Per-user KV</h2>
+      <p>Per-user, per-app key-value store. Each user's data is isolated.</p>
+      <pre><code>await fas.kv.set('profile', { name: 'Alice', theme: 'dark' })
+const profile = await fas.kv.get('profile')
+const keys = await fas.kv.list({ prefix: 'note:' })
+await fas.kv.delete('profile')</code></pre>
+
+      <h2>Collections (Firestore-style)</h2>
+      <p>Document-based storage with queries. Shared across users (access-controlled server-side).</p>
+      <pre><code>const todos = fas.collections.collection('todos')
+
+// Create
+await todos.add({ title: 'Buy milk', done: false })
+
+// Query
+const items = await todos.query({ where: { done: false }, orderBy: 'title' })
+
+// Update
+await todos.update(id, { done: true })
+
+// Delete
+await todos.delete(id)</code></pre>
+
+      <h2>Counters</h2>
+      <p>Cross-user atomic counters for votes, views, leaderboards.</p>
+      <pre><code>await fas.counters.increment('page-views')
+await fas.counters.decrement('likes')
+const count = await fas.counters.get('page-views')
+const all = await fas.counters.list()</code></pre>
+
+      <h2>Rooms (Real-time WebSocket)</h2>
+      <p>WebSocket rooms for chat, presence, multiplayer. Backed by Cloudflare Durable Objects.</p>
+      <pre><code>const room = fas.rooms.join('lobby')
+
+room.send({ type: 'chat', text: 'hello' })
+room.onMessage(msg =&gt; console.log(msg))
+room.onPeers(peers =&gt; console.log(peers.length, 'online'))
+room.leave()</code></pre>
+
+      <h2>Proxy (Secret-injecting API Proxy)</h2>
+      <p>Call third-party APIs without exposing keys to the client.</p>
+      <pre><code>const response = await fas.proxy.fetch('/openai/chat/completions', {
+  method: 'POST',
+  body: JSON.stringify({ model: 'gpt-4', messages: [...] }),
+})</code></pre>
+
+      <h2>Exports</h2>
+      <table>
+        <thead><tr><th>Import path</th><th>What you get</th></tr></thead>
+        <tbody>
+          <tr><td><code>@freeappstore/sdk</code></td><td><code>initApp</code>, <code>FreeAppStore</code>, types</td></tr>
+          <tr><td><code>@freeappstore/sdk/hooks</code></td><td><code>useAuth</code>, <code>useTheme</code></td></tr>
+          <tr><td><code>@freeappstore/sdk/ui</code></td><td><code>Avatar</code>, <code>SignInButton</code>, <code>ThemeToggle</code>, <code>ProfileMenu</code>, <code>ProfilePage</code>, <code>FasShell</code></td></tr>
+        </tbody>
+      </table>
+
+      <h2>AI Agent Integration</h2>
+      <p>Point your Claude Code, Codex, or other AI agent at the machine-readable guide:</p>
+      <pre><code># Add to your CLAUDE.md:
+See https://freeappstore.online/skills.md for platform skills.</code></pre>
+      <p><a href="/skills.md">View skills.md</a> for the full agent-readable reference.</p>
+
+      <h2>Links</h2>
+      <ul>
+        <li><a href="https://www.npmjs.com/package/@freeappstore/sdk">@freeappstore/sdk on npm</a></li>
+        <li><a href="https://github.com/freeappstore-online/platform">Platform source code</a></li>
+        <li><a href="/docs/ui">UI Component Library</a></li>
+        <li><a href="/skills.md">AI Agent Guide (skills.md)</a></li>
+        <li><a href="https://proappstore.online/docs">ProAppStore SDK Docs</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free <span>Apps</span></a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="/build-with-ai">Build</a>
+        <a href="https://create.freeappstore.online">VibeCode</a>
+        <a href="/guidelines">Guidelines</a>
+        <a href="/docs">Docs</a>
+        <a href="/quality">Quality</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+        <a href="https://proappstore.online" class="footer-link-pro">Pro</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/auth.js" integrity="{{SRI_AUTH_JS}}"></script>
+</body>
+</html>
