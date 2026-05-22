@@ -434,6 +434,46 @@ VITE_FIREBASE_API_KEY=AIzaSy...
 **Production:**
 Set the same variables in your GitHub repo: Settings > Secrets and variables > Actions > Variables (not Secrets). The deploy.yml workflow passes them through at build time.
 
+## What FAS cannot do (use ProAppStore instead)
+
+FreeAppStore is free forever with real features, but some things need the Pro tier. If your app needs any of these, build on **[ProAppStore](https://proappstore.online)** instead.
+
+| Need | FAS (free) | PAS (pro, $9/mo) |
+|---|---|---|
+| **Server-side AI** | User brings own key via vault | Platform-managed Workers AI (included) |
+| **Real-time multiplayer** | Rooms: 32 peers, ephemeral | Server-authoritative DOs, persistent state |
+| **Custom domain** | `appname.freeappstore.online` only | `your-domain.com` via CF for SaaS |
+| **Scheduled tasks** | Not available | Cron Workers (digests, reminders, daily jobs) |
+| **Transactional email** | Not available yet | Resend integration (included quota) |
+| **File storage** | Not available | R2 bucket per app (images, uploads, media) |
+| **Server-side compute** | Static + client-side only | Per-app Worker with D1 database |
+| **Monetization** | Free forever, no payments | Stripe integration, creator payouts |
+| **User storage** | 1 MB/user, 100 keys | 10 MB/user, no key cap |
+| **Source code** | MIT (open source required) | Proprietary allowed |
+
+### Example: when to choose PAS over FAS
+
+**AI writing app** -- FAS works if users bring their own OpenAI key (vault + proxy). But if you want to offer AI out of the box with zero setup, PAS includes Workers AI.
+
+**Multiplayer game** -- FAS rooms are ephemeral (chat, cursors, lightweight). For turn-based games (chess vs a remote opponent) or persistent worlds, PAS gives you server-authoritative Durable Objects.
+
+**SaaS with billing** -- FAS has no payments. PAS has Stripe subscriptions, license keys, and per-app creator payouts.
+
+**Business app with cron** -- FAS apps are static. If you need daily email digests, scheduled reports, or background processing, PAS has Cron Workers.
+
+**App with file uploads** -- FAS has no R2 storage. PAS gives each app its own R2 bucket for images, documents, and media.
+
+**App needing a custom domain** -- FAS is subdomain-only. PAS supports `your-domain.com` via Cloudflare for SaaS Custom Hostnames.
+
+### The upgrade path
+
+FAS and PAS use the same SDK pattern (`initApp`, auth, KV, proxy). Moving an app from FAS to PAS means:
+1. Change `@freeappstore/sdk` to `@proappstore/sdk` in `package.json`
+2. Update `appId` domain from `freeappstore.online` to `proappstore.online`
+3. Add PAS-only features (AI, cron, storage, payments)
+
+The core app code stays the same. Auth, KV, collections, counters, and proxy all work identically on both platforms.
+
 ## App UI Components (`@freeappstore/sdk/ui` + `@freeappstore/sdk/hooks`)
 
 **Connected apps MUST use the SDK components for auth, profile, and theme.** No custom sign-in buttons, no custom avatar components, no custom theme toggles. The SDK components enforce brand consistency and handle the full auth lifecycle (sign in, sign out, delete account, session management).
