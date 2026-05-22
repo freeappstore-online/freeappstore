@@ -673,6 +673,43 @@ export default function App() {
 - `<GameTopbar>` is the **only** allowed topbar shape. Pass `score` for the simple case, or `stats={[…]}` for games that show level / lives / time.
 - Both honor the platform CSS tokens. Don't pass custom colors.
 
+## CLI Reference (`@freeappstore/cli`)
+
+```bash
+npm i -g @freeappstore/cli
+```
+
+| Command | What it does |
+|---------|-------------|
+| `fas login` | GitHub OAuth device flow, caches token at `~/.fas/config.json` |
+| `fas logout` | Clear saved session |
+| `fas whoami` | Print signed-in GitHub user |
+| `fas init <id>` | Scaffold from template (`--template standalone\|connected\|game-canvas\|game-grid\|game-3d`) |
+| `fas check` | Run compliance checks (brand, bundle size, PWA, tracking, license) |
+| `fas screencheck` | Build + viewport test in real Chromium (portrait + landscape) |
+| `fas publish` | Provision repo + hosting + DNS + store listing. Flags: `--name`, `--category`, `--type`, `--oneliner`, `--demo`, `--yes`, `--skip-checks`, `--issue` |
+| `fas list` | List your published apps (`--json` for machine output) |
+| `fas doctor` | Health check: Node, git, pnpm, auth, API reachability |
+
+The command is `fas init`, not `fas create`. If you see `fas create` in old docs, it's outdated.
+
+## MCP Server
+
+AI agents can connect to the FreeAppStore MCP server for tool-based access:
+
+```json
+{
+  "mcpServers": {
+    "freeappstore": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.freeappstore.online/mcp"]
+    }
+  }
+}
+```
+
+Tools: `list_apps`, `deploy_status`, `app_info`, `platform_guide`, `sdk_reference`.
+
 ## Infrastructure
 
 Infrastructure is managed by the admin. AI agents do NOT need access to:
