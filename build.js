@@ -766,6 +766,8 @@ const sitemapEntries = [
   '  <url><loc>https://freeappstore.online/ai/cline.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/ai/chatgpt-web.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/guidelines.html</loc><priority>0.7</priority></url>',
+  '  <url><loc>https://freeappstore.online/docs.html</loc><priority>0.85</priority></url>',
+  '  <url><loc>https://freeappstore.online/docs/ui.html</loc><priority>0.8</priority></url>',
   '  <url><loc>https://freeappstore.online/quality.html</loc><priority>0.7</priority></url>',
   '  <url><loc>https://freeappstore.online/privacy.html</loc><priority>0.5</priority></url>',
   '  <url><loc>https://freeappstore.online/terms.html</loc><priority>0.5</priority></url>',
@@ -811,6 +813,7 @@ const filesToCopy = [
   'get-started.html',
   'get-started.js',
   'analytics.html',
+  'docs.html',
   'auth.js',
 ];
 
@@ -875,6 +878,22 @@ filesToCopy.forEach(file => {
     fs.copyFileSync(src, dst);
   }
 });
+
+// SDK docs pages under /docs/<slug>.html.
+const docsSrcDir = path.join(ROOT, 'docs');
+if (fs.existsSync(docsSrcDir)) {
+  const docsDestDir = path.join(DIST, 'docs');
+  fs.mkdirSync(docsDestDir, { recursive: true });
+  for (const f of fs.readdirSync(docsSrcDir)) {
+    if (!f.endsWith('.html')) continue;
+    let html = fs.readFileSync(path.join(docsSrcDir, f), 'utf8');
+    for (const [k, v] of Object.entries(sriHashes)) {
+      html = html.replaceAll(`{{SRI_${k}}}`, v);
+    }
+    html = html.replaceAll('__CF_BEACON__', CF_BEACON_SNIPPET);
+    fs.writeFileSync(path.join(docsDestDir, f), html);
+  }
+}
 
 // AI tool guides — one HTML file per tool (claude-code, cursor, etc.).
 // They live under /ai/<slug>.html so the URL space stays clean.
