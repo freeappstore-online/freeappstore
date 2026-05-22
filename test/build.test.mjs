@@ -353,7 +353,10 @@ test("every shipped .html is CSP-clean (no inline style/script/on*=)", () => {
       // attribute-handler subset). Match a real handler (on followed by an
       // ASCII letter and =) to avoid false hits on legit attrs like
       // `crossorigin="..."`.
-      const onMatch = body.match(/\son[a-z]+\s*=/i);
+      // Strip <pre>/<code> blocks first — JSX code examples like
+      // `<button onClick={...}>` are text, not executable DOM attributes.
+      const bodyNoCode = body.replace(/<pre[\s>][\s\S]*?<\/pre>/gi, '').replace(/<code[\s>][\s\S]*?<\/code>/gi, '');
+      const onMatch = bodyNoCode.match(/\son[a-z]+\s*=/i);
       assert.ok(
         !onMatch,
         `${page}: inline event handler ${onMatch?.[0]?.trim()} survived — would be blocked by CSP`,
