@@ -1586,9 +1586,29 @@
   "freeappstore-online/pdfreader": {
     "meta": {
       "created_at": "2026-05-22T00:24:40Z",
-      "pushed_at": "2026-05-22T00:55:59Z"
+      "pushed_at": "2026-05-22T05:10:19Z"
     },
     "commits": [
+      {
+        "sha": "a867796eb34277ac443de9516d19f0e93323d8a8",
+        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/a867796eb34277ac443de9516d19f0e93323d8a8",
+        "commit": {
+          "message": "feat: full-width reader, working font size, saved preferences\n\n- Hide sidebar/dock when viewing a PDF (hideChrome on Shell)\n- A-/A+ controls change canvas render scale (not just CSS zoom)\n- Invert mode + scale saved to localStorage, restored on reload\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-22T05:10:17Z"
+          }
+        }
+      },
+      {
+        "sha": "1c29540c5f58dcd7572558b831fd8962eb96499d",
+        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/1c29540c5f58dcd7572558b831fd8962eb96499d",
+        "commit": {
+          "message": "Add R2 deploy workflow\n\nCopies deploy.yml from template-standalone so pushes to main\nauto-deploy to the fas-apps R2 bucket.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-22T04:43:44Z"
+          }
+        }
+      },
       {
         "sha": "db126899d03eee16e62102ed96cf4209066091ed",
         "html_url": "https://github.com/freeappstore-online/pdfreader/commit/db126899d03eee16e62102ed96cf4209066091ed",
@@ -1596,26 +1616,6 @@
           "message": "chore: trigger CF Pages deploy",
           "author": {
             "date": "2026-05-22T00:55:57Z"
-          }
-        }
-      },
-      {
-        "sha": "9cf9d846ecda31ccebf24265e1a6a2cd77655bb8",
-        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/9cf9d846ecda31ccebf24265e1a6a2cd77655bb8",
-        "commit": {
-          "message": "feat: PDF Reader -- dark mode reading with color inversion\n\n- PDF.js rendering with invert + hue-rotate filter for dark mode\n- IndexedDB local storage (all PDFs stay on device)\n- Reading history with re-open and delete\n- Page navigation, zoom, keyboard shortcuts\n- Drag and drop support\n- System light/dark mode support via FAS template\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-22T00:24:57Z"
-          }
-        }
-      },
-      {
-        "sha": "81444775eb7819b6c7598a5a043a61e5dc471937",
-        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/81444775eb7819b6c7598a5a043a61e5dc471937",
-        "commit": {
-          "message": "Fix stale docs: raw GitHub URLs → freeappstore.online/skills.md, add agent auth flow\n\n- All SKILLS.md URLs now point to freeappstore.online/skills.md (was raw.githubusercontent)\n- claude-code.md: add non-interactive auth via gh CLI, full publish + push flow\n- brand/SKILLS.md: fix broken curl compliance command → fas check\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-15T04:29:00Z"
           }
         }
       }
