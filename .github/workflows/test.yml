@@ -21,4 +21,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Design system lint
+        run: bash scripts/check-design-system.sh .
       - run: npm test
