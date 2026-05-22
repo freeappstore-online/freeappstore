@@ -96,7 +96,7 @@ People join as creators to build apps/games. The flow:
 | **Store repo** | freeappstore-online/freeappstore | freegamestore-online/freegamestore |
 | **Registry file** | `registry.json` in store repo | `registry.json` in store repo |
 | **Templates** | template-standalone | template-game-canvas, template-game-cards, template-game-grid, template-game-3d |
-| **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy) | — || **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy) | — || **Accent color** | Blue (#2563eb) | Emerald (#10b981) |
+| **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys) | — || **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys) | — || **Accent color** | Blue (#2563eb) | Emerald (#10b981) |
 | **Logo** | Free **Apps** | Free **Games** |
 | **Admin** | admin.freeappstore.online | admin.freegamestore.online |
 | **Publish portal** | publish.freeappstore.online | publish.freegamestore.online |
@@ -172,7 +172,7 @@ No further API calls or manual steps needed. Ever.
 
 - ONE environment: production only. Push to `main` = deploy. Fix forward.
 - Static hosting on Cloudflare R2 (served by the host Worker). No server-side code in apps.
-- Backend (if needed): `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy). `npm i @freeappstore/sdk`.
+- Backend (if needed): `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys). `npm i @freeappstore/sdk`.
 - Free means free forever. No monetization in the free version.
 
 ## Tech Stack (required)

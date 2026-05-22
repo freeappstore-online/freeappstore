@@ -25,7 +25,7 @@
         },
         {
           "name": "sdk_reference",
-          "description": "Quick SDK reference for auth, KV, counters, collections, rooms, proxy, hooks, and UI components"
+          "description": "Quick SDK reference for auth, KV, counters, collections, rooms, proxy, keys, hooks, and UI components"
         }
       ]
     }
