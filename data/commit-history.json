@@ -1102,9 +1102,19 @@
   "freeappstore-online/snowman": {
     "meta": {
       "created_at": "2026-05-17T15:41:58Z",
-      "pushed_at": "2026-05-21T15:16:56Z"
+      "pushed_at": "2026-05-21T21:10:06Z"
     },
     "commits": [
+      {
+        "sha": "b3753bf17c746e5df55a379163a071f10a118a23",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/b3753bf17c746e5df55a379163a071f10a118a23",
+        "commit": {
+          "message": "chore: add Path B deploy.yml (backfilled to existing repo)",
+          "author": {
+            "date": "2026-05-21T21:10:06Z"
+          }
+        }
+      },
       {
         "sha": "b3b59bd49981507463b6645cfd7ff154a2c7a177",
         "html_url": "https://github.com/freeappstore-online/snowman/commit/b3b59bd49981507463b6645cfd7ff154a2c7a177",
@@ -1122,16 +1132,6 @@
           "message": "Add fitToCountry dynamic zoom and improve map interaction\n\n- fitToCountry: compute zoom from D3 bounds with COUNTRY_EXTENT_POINTS\n  fallback for antimeridian countries (Russia); cap auto-zoom at 12x\n- Resort dots: r=11 on mobile with 44px transparent tap target overlay\n- Zoom buttons sit at bottom on screens ≥ 370px (reactive to resize)\n- Snow fetch error/success callbacks (onSnowError, onSnowLoad) threaded\n  from useStateSnow up through WorldMap to App\n- Fetching snow data text pulses with brightness animation\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-21T15:16:24Z"
-          }
-        }
-      },
-      {
-        "sha": "da6de4ea2b57038d1d632cd62a0d9ff83cb6cc15",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/da6de4ea2b57038d1d632cd62a0d9ff83cb6cc15",
-        "commit": {
-          "message": "Upgrade Snow Near Me to A* search with seasonal + geographic heuristic\n\n- Replace BFS with blended A* score (distance − snow bonus − season bonus)\n- Add true Dijkstra stopping condition: keep searching until bestCandidate\n  beats all remaining queue entries, fixing India→Russia skip-Uzbekistan bug\n- Add seasonal magnet: pull toward winter hemisphere based on current month\n- Ghost through tropical countries instantly with no API call or delay\n- Generate COUNTRY_NEIGHBORS from REST Countries API (~178 entries) with\n  maritime bridges for island nations\n- Add Southern Ocean bridges (Antarctica ↔ Argentina, Chile, South Africa,\n  New Zealand, Australia)\n- Pan map to origin country at min zoom when search starts; clear viewing session\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-21T15:16:04Z"
           }
         }
       }
@@ -1578,6 +1578,44 @@
           "message": "Initial commit from standalone template",
           "author": {
             "date": "2026-05-20T09:55:39Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/pdfreader": {
+    "meta": {
+      "created_at": "2026-05-22T00:24:40Z",
+      "pushed_at": "2026-05-22T00:25:40Z"
+    },
+    "commits": [
+      {
+        "sha": "9cf9d846ecda31ccebf24265e1a6a2cd77655bb8",
+        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/9cf9d846ecda31ccebf24265e1a6a2cd77655bb8",
+        "commit": {
+          "message": "feat: PDF Reader -- dark mode reading with color inversion\n\n- PDF.js rendering with invert + hue-rotate filter for dark mode\n- IndexedDB local storage (all PDFs stay on device)\n- Reading history with re-open and delete\n- Page navigation, zoom, keyboard shortcuts\n- Drag and drop support\n- System light/dark mode support via FAS template\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-22T00:24:57Z"
+          }
+        }
+      },
+      {
+        "sha": "81444775eb7819b6c7598a5a043a61e5dc471937",
+        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/81444775eb7819b6c7598a5a043a61e5dc471937",
+        "commit": {
+          "message": "Fix stale docs: raw GitHub URLs → freeappstore.online/skills.md, add agent auth flow\n\n- All SKILLS.md URLs now point to freeappstore.online/skills.md (was raw.githubusercontent)\n- claude-code.md: add non-interactive auth via gh CLI, full publish + push flow\n- brand/SKILLS.md: fix broken curl compliance command → fas check\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-15T04:29:00Z"
+          }
+        }
+      },
+      {
+        "sha": "4ae8ae3767aad1394a0652bd44adc151fdb188cd",
+        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/4ae8ae3767aad1394a0652bd44adc151fdb188cd",
+        "commit": {
+          "message": "Fix README: repo URL sdk → platform\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-15T00:25:48Z"
           }
         }
       }
