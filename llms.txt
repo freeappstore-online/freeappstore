@@ -11,9 +11,10 @@
 
 ## SDK
 
-- [@freeappstore/sdk on npm](https://www.npmjs.com/package/@freeappstore/sdk): Platform SDK. `initApp()` gives you auth, KV storage, counters, collections, real-time rooms, API proxy, React hooks, and UI components.
+- [@freeappstore/sdk on npm](https://www.npmjs.com/package/@freeappstore/sdk): Platform SDK. `initApp()` gives you auth, KV storage, counters, collections, real-time rooms, API proxy, user API key vault, React hooks, and 18 UI components.
 - [SDK Docs](https://freeappstore.online/docs): Full SDK documentation with examples for every feature.
-- [UI Component Library](https://freeappstore.online/docs/ui): Live preview of FasShell, Avatar, SignInButton, ThemeToggle, ProfileMenu, ProfilePage.
+- [UI Component Library](https://freeappstore.online/docs/ui): FasShell, Avatar, SignInButton, ThemeToggle, ProfileMenu, ProfilePage, Spinner, Badge, Card, Tabs, Modal, ConfirmDialog, EmptyState, ProgressBar, SearchInput, ListRow, ErrorBoundary, KeyPrompt.
+- [API Key Vault](https://api.freeappstore.online/v1/keys): Platform-hosted key management page. Users store encrypted API keys (OpenAI, Anthropic, etc.) that apps access via the proxy. Apps never see plaintext keys.
 
 ## CLI
 

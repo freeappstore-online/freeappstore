@@ -475,6 +475,8 @@ import { useAuth, useTheme } from '@freeappstore/sdk/hooks'
 - Do NOT build custom theme toggles. Use `ThemeToggle`.
 - Do NOT build custom profile/settings pages. Use `ProfilePage` or `ProfileMenu`.
 - Do NOT handle sign-out or account deletion manually. The SDK components handle the full lifecycle including data cleanup.
+- Do NOT build custom modals, spinners, tabs, badges, or search inputs. Use the SDK components.
+- Do NOT build custom API key entry UI. Use `KeyPrompt` to redirect users to the platform key management page.
 
 ## Games SDK (`@freegamestore/games`)
 
