@@ -204,6 +204,80 @@ app-name/
         └── components/Shell.tsx
 ```
 
+## App UI Components (`@freeappstore/sdk/ui` + `@freeappstore/sdk/hooks`)
+
+**Connected apps MUST use the SDK components for auth, profile, and theme.** No custom sign-in buttons, no custom avatar components, no custom theme toggles. The SDK components enforce brand consistency and handle the full auth lifecycle (sign in, sign out, delete account, session management).
+
+```bash
+pnpm add @freeappstore/sdk
+```
+
+### FasShell -- the app wrapper
+
+Wraps your entire app. Provides: sticky topbar with brand logo + app name + ProfileMenu (or SignInButton when signed out), main content area, "Part of FreeAppStore" footer. Optional auth gate.
+
+```tsx
+import { initApp } from '@freeappstore/sdk'
+import { FasShell } from '@freeappstore/sdk/ui'
+
+const fas = initApp({ appId: 'my-app' })
+
+export default function App() {
+  return (
+    <FasShell app={fas} appName="My App">
+      {/* your app content */}
+    </FasShell>
+  )
+}
+```
+
+Props:
+- `app` -- the `FreeAppStore` instance from `initApp()`
+- `appName` -- displayed in the topbar next to the brand logo
+- `requireAuth` -- if `true`, shows a sign-in screen instead of children when not authenticated
+- `showThemeToggle` -- theme toggle in the ProfileMenu dropdown (default `true`)
+
+### Individual components
+
+Use these when you need more layout control than FasShell provides. FasShell uses them internally.
+
+```tsx
+import { Avatar, SignInButton, ThemeToggle, ProfileMenu, ProfilePage } from '@freeappstore/sdk/ui'
+```
+
+| Component | What it does | Key props |
+|-----------|-------------|-----------|
+| `Avatar` | GitHub avatar with colored-initial fallback | `user`, `size` (px, default 32) |
+| `SignInButton` | Branded "Sign in with GitHub" button | `app`, `label` (override text) |
+| `ThemeToggle` | Sun/moon button cycling system/light/dark | none (reads theme from context) |
+| `ProfileMenu` | Avatar button that opens dropdown (username, theme toggle, sign out, delete account) | `app`, `showThemeToggle` |
+| `ProfilePage` | Full-page settings view (avatar, username, theme selector, sign out, delete account) | `app`, `showThemeToggle` |
+
+### Hooks
+
+```tsx
+import { useAuth, useTheme } from '@freeappstore/sdk/hooks'
+```
+
+| Hook | Returns | Use for |
+|------|---------|---------|
+| `useAuth(app)` | `{ user, loading, signIn, signOut, deleteAccount }` | Auth state + actions |
+| `useTheme()` | `{ theme, preference, setPreference }` | Current theme ('light'\|'dark') + preference ('system'\|'light'\|'dark') |
+
+### When to use FasShell vs individual components
+
+- **Most apps:** Use `FasShell`. It handles the topbar, footer, auth gate, and theme in one wrapper.
+- **Custom layouts:** Use individual components. Import `useAuth` for auth state, `Avatar` + `ProfileMenu` for the topbar, `ThemeToggle` wherever you want it.
+- **The template's local `Shell.tsx`** is for standalone apps with no backend. When you add `@freeappstore/sdk`, replace `Shell` with `FasShell` or the individual SDK components.
+
+### What NOT to do
+
+- Do NOT build custom sign-in buttons. Use `SignInButton` or `FasShell`.
+- Do NOT build custom avatar components. Use `Avatar`.
+- Do NOT build custom theme toggles. Use `ThemeToggle`.
+- Do NOT build custom profile/settings pages. Use `ProfilePage` or `ProfileMenu`.
+- Do NOT handle sign-out or account deletion manually. The SDK components handle the full lifecycle including data cleanup.
+
 ## Games SDK (`@freegamestore/games`)
 
 **Every game MUST use the SDK components.** No custom topbars, no custom shells. The SDK enforces brand consistency, viewport lock, and touch-friendly sizing across all games.
