@@ -349,20 +349,49 @@ const isBeta = await fas.roles.check('beta-tester')
 
 Use for: admin panels, moderation, content gating, feature flags by role. Custom roles work identically to the built-in defaults.
 
+### Free APIs (no key required)
+
+Many useful APIs require no API key. Prefer these first -- call them directly from the browser, no proxy needed.
+
+| Category | API | Notes |
+|---|---|---|
+| Weather | Open-Meteo (`open-meteo.com`) | 10k/day, no signup |
+| Geocoding | Nominatim (`nominatim.openstreetmap.org`) | 1/sec, set User-Agent |
+| Exchange rates | ExchangeRate-API (`open.er-api.com`) | 1.5k/mo |
+| Country data | REST Countries (`restcountries.com`) | Unlimited |
+| Dictionary | Free Dictionary API (`dictionaryapi.dev`) | Unlimited |
+| Random users | randomuser.me | Unlimited |
+| Placeholder images | Lorem Picsum (`picsum.photos`) | Unlimited |
+| Public datasets | data.gov, WHO, World Bank | Varies |
+
 ### Secret-injecting API Proxy
 
-Call third-party APIs without exposing keys. Keys are configured server-side by the platform admin.
+For APIs that need a key, the proxy encrypts and injects it server-side. Two modes:
 
+**Developer key** (all users share one key):
 ```tsx
+// Developer sets key via Console or CLI: fas secret set WEATHER_KEY sk-...
 const weather = await fas.proxy.fetch('api.openweathermap.org/data/2.5/weather?q=London')
 const data = await weather.json()
 ```
 
-The proxy injects the registered API key for the target host. The browser never sees the key.
+**User key** (each user's own key, for AI providers):
+```tsx
+// User configures key on the platform key page
+const res = await fas.proxy.fetch('api.openai.com/v1/chat/completions', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ model: 'gpt-4o-mini', messages: [{ role: 'user', content: 'Hello' }] }),
+})
+```
+
+If the user has no key, the proxy returns `{ error: "no_key", provider: "openai" }`. Show `<KeyPrompt>` (see UI section).
+
+**For AI apps, we recommend [OpenRouter](https://openrouter.ai)** -- one key gives users access to 100+ models (OpenAI, Anthropic, Google, Meta, etc.). Tell users to configure their OpenRouter key; your app picks the model.
 
 ### User API Key Vault
 
-Users store their own API keys (OpenAI, Anthropic, etc.) on the platform. Apps never see the plaintext keys. Keys are encrypted at rest (AES-256-GCM envelope encryption) and injected server-side when apps call `fas.proxy.fetch()`.
+Users store their own API keys (OpenAI, Anthropic, etc.) on the platform. Apps never see the plaintext keys. Keys are encrypted at rest (AES-256-GCM envelope encryption) and injected server-side when apps call `fas.proxy.fetch()`. One key works across all apps on the platform.
 
 ```tsx
 // Check if user has a key configured
