@@ -935,6 +935,12 @@ if (fs.existsSync(wellKnownSrc)) {
   }
 }
 
+// llms.txt → dist (AI agent discovery, like robots.txt but for LLMs)
+const llmsSrc = path.join(ROOT, 'llms.txt');
+if (fs.existsSync(llmsSrc)) {
+  fs.copyFileSync(llmsSrc, path.join(DIST, 'llms.txt'));
+}
+
 // Markdown files → dist (lowercase for URL compatibility)
 for (const md of ['SKILLS.md', 'claude-code.md']) {
   const src = path.join(ROOT, md);

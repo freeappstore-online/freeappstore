@@ -1,0 +1,43 @@
+# FreeAppStore
+
+> FreeAppStore is a free, open-source app platform where developers publish PWA apps at `<name>.freeappstore.online`. Apps are built with TypeScript, React, and Vite, deployed via GitHub Actions to Cloudflare R2. The platform provides an SDK with auth, per-user storage, real-time rooms, and UI components. Every app is free forever, MIT-licensed, and privacy-first (zero tracking). For the full AI agent guide, see [SKILLS.md](https://freeappstore.online/skills.md).
+
+## AI Agent Integration
+
+- [SKILLS.md](https://freeappstore.online/skills.md): Complete platform guide for AI agents. Tech stack, SDK reference (auth, KV, counters, collections, rooms, proxy), UI components, CLI commands, deploy flow, compliance rules. Point your AI agent here.
+- [MCP Server](https://mcp.freeappstore.online/mcp): Remote MCP server (Streamable HTTP). Tools: `deploy_status`, `app_info`, `sdk_reference`, `platform_guide`, `list_apps`. Connect with `npx mcp-remote https://mcp.freeappstore.online/mcp`.
+- [MCP Discovery](https://freeappstore.online/.well-known/mcp.json): Auto-discovery endpoint for MCP clients and registries.
+- [MCP Docs](https://freeappstore.online/docs/mcp): Setup guide for Claude Code, Cursor, and other MCP clients.
+
+## SDK
+
+- [@freeappstore/sdk on npm](https://www.npmjs.com/package/@freeappstore/sdk): Platform SDK. `initApp()` gives you auth, KV storage, counters, collections, real-time rooms, API proxy, React hooks, and UI components.
+- [SDK Docs](https://freeappstore.online/docs): Full SDK documentation with examples for every feature.
+- [UI Component Library](https://freeappstore.online/docs/ui): Live preview of FasShell, Avatar, SignInButton, ThemeToggle, ProfileMenu, ProfilePage.
+
+## CLI
+
+- [@freeappstore/cli on npm](https://www.npmjs.com/package/@freeappstore/cli): CLI for scaffolding, compliance checks, and publishing. Commands: `fas init`, `fas check`, `fas publish`, `fas login`, `fas list`.
+
+## For Developers
+
+- [Build with AI](https://freeappstore.online/build-with-ai): Step-by-step guide to building an app with Claude Code, Cursor, Codex, or any AI tool.
+- [Get Started](https://freeappstore.online/get-started): Manual setup guide without AI.
+- [Guidelines](https://freeappstore.online/guidelines): Tech stack, project structure, brand rules, compliance checks, templates.
+- [Contribute](https://freeappstore.online/contribute): How to become a creator and publish apps.
+
+## Platform
+
+- [App Catalog](https://freeappstore.online/): Browse all published apps.
+- [Creator Console](https://console.freeappstore.online/): Manage your apps, deploy status, analytics.
+- [VibeCode](https://create.freeappstore.online/): AI app builder in the browser.
+- [Pricing](https://freeappstore.online/pricing): Free vs Pro feature comparison and cost breakdown.
+- [Platform Source](https://github.com/freeappstore-online/platform): SDK, CLI, compliance, and backend source code.
+
+## Optional
+
+- [Privacy Policy](https://freeappstore.online/privacy): Zero tracking, no cookies, localStorage only.
+- [Terms of Service](https://freeappstore.online/terms): MIT license required, free forever.
+- [Quality Reports](https://freeappstore.online/quality): Automated quality scores for every app.
+- [FreeGameStore](https://freegamestore.online/): Sister platform for free web games.
+- [ProAppStore](https://proappstore.online/): Pro tier with uncapped rooms, AI proxy, custom domains.
