@@ -24,10 +24,9 @@
 
   // ── Theme: apply stored / preferred mode ──
   try {
-    var stored = localStorage.getItem("fas-theme");
-    var preferDark = stored ? stored === "dark"
-      : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (preferDark) document.documentElement.classList.add("dark");
+    var stored = localStorage.getItem("stores-theme");
+    var preferDark = stored === "dark" || (!stored || stored === "system") && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (preferDark) document.documentElement.dataset.theme = "dark";
   } catch (e) {}
 
   // ── Theme toggle button (skip if storefront already shipped one) ──
@@ -57,8 +56,10 @@
   if (themeBtn && !themeBtn.dataset.bound) {
     themeBtn.dataset.bound = "1";
     themeBtn.addEventListener("click", function () {
-      var isDark = document.documentElement.classList.toggle("dark");
-      try { localStorage.setItem("fas-theme", isDark ? "dark" : "light"); } catch (e) {}
+      var isDark = document.documentElement.dataset.theme !== "dark";
+      if (isDark) document.documentElement.dataset.theme = "dark";
+      else delete document.documentElement.dataset.theme;
+      try { localStorage.setItem("stores-theme", isDark ? "dark" : "light"); } catch (e) {}
     });
   }
 

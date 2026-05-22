@@ -328,7 +328,7 @@ const { theme, preference, setPreference } = useTheme()</code></pre>
             <tr><td><code>setPreference</code></td><td><code>(pref) =&gt; void</code></td><td>Update preference, applies immediately</td></tr>
           </tbody>
         </table>
-        <p>Stores preference in <code>localStorage('fas:theme')</code>. Applies <code>data-theme</code> and <code>.dark</code> class on <code>&lt;html&gt;</code>. Listens to <code>prefers-color-scheme</code> media query when preference is <code>'system'</code>.</p>
+        <p>Stores preference in <code>localStorage('stores-theme')</code>. Applies <code>data-theme</code> attribute on <code>&lt;html&gt;</code>. Listens to <code>prefers-color-scheme</code> media query when preference is <code>'system'</code>.</p>
       </div>
 
       <!-- Patterns -->
@@ -376,7 +376,7 @@ function MyHeader() {
 
 // Drop this anywhere — it handles everything:
 &lt;ThemeToggle /&gt;</code></pre>
-          <p>The toggle reads/writes <code>localStorage</code> and applies <code>data-theme</code> on <code>&lt;html&gt;</code>. Your CSS just needs to define variables for <code>:root[data-theme='dark']</code> or <code>html.dark</code>.</p>
+          <p>The toggle reads/writes <code>localStorage</code> and applies <code>data-theme</code> on <code>&lt;html&gt;</code>. Your CSS just needs to define variables for <code>:root[data-theme='dark']</code>.</p>
         </div>
       </div>
 
