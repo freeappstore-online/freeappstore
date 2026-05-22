@@ -147,7 +147,7 @@
     return el('div', { class: 'a-chart', html: svg + labels });
   }
 
-  function renderRanked(title, rows) {
+  function renderRanked(title, rows, onPick) {
     var max = Math.max(1, ...rows.map(function (r) { return r.value; }));
     var list = el('div', null);
     list.appendChild(el('div', { class: 'a-rank-title' }, title));
@@ -155,14 +155,23 @@
       list.appendChild(el('p', { class: 'meta' }, 'No data.'));
     } else {
       rows.slice(0, 5).forEach(function (r) {
-        var row = el('div', { class: 'a-rank-row' }, [
+        // Inner content is the same whether the row is interactive. When
+        // onPick is provided we wrap in a button — drives the path
+        // drill-down on Top pages.
+        var inner = [
           el('div', { class: 'label' }, [
             el('span', null, r.label || '/'),
             el('span', { class: 'meta' }, fmtViews(r.value))
           ]),
           el('div', { class: 'a-bar', html: '<div style="width:' + ((r.value / max) * 100) + '%"></div>' })
-        ]);
-        list.appendChild(row);
+        ];
+        if (typeof onPick === 'function') {
+          var btn = el('button', { type: 'button', class: 'a-rank-row a-rank-row-button', title: 'Drill into ' + (r.label || '/') }, inner);
+          btn.addEventListener('click', function () { onPick(r.label || '/'); });
+          list.appendChild(btn);
+        } else {
+          list.appendChild(el('div', { class: 'a-rank-row' }, inner));
+        }
       });
     }
     return list;
@@ -287,10 +296,15 @@
     root.replaceChildren(el('p', { class: 'a-empty' }, 'Loading ' + appId + '…'));
     var days = 7;
     var kind = 'pageview';
+    // Path drill-down: empty string = no filter; non-empty = stats narrowed
+    // to that single URL pathname.
+    var path = '';
     var livePollerId = null;
     function isCustom() { return kind !== 'pageview'; }
+    function isPathFiltered() { return path !== ''; }
     function load() {
       var qs = '?days=' + days + '&kind=' + encodeURIComponent(kind);
+      if (path) qs += '&path=' + encodeURIComponent(path);
       Promise.all([
         call('/v1/apps/' + encodeURIComponent(appId) + '/analytics/stats' + qs),
         call('/v1/apps/' + encodeURIComponent(appId) + '/analytics'),
@@ -304,7 +318,16 @@
         var card = el('div', { class: 'a-card' });
 
         var headerLeft = el('div', null);
-        if (isCustom()) {
+        if (isPathFiltered()) {
+          var pathBackBtn = el('button', { type: 'button', class: 'a-back-link' }, '← back to all pages');
+          pathBackBtn.addEventListener('click', function () { path = ''; load(); });
+          headerLeft.appendChild(el('h2', null, [document.createTextNode('Path: '), el('code', { class: 'a-event-kind-h' }, path)]));
+          headerLeft.appendChild(el('div', { class: 'meta' }, [
+            el('a', { class: 'a-signin', href: '/analytics.html' }, '← all apps'),
+            document.createTextNode(' · '),
+            pathBackBtn
+          ]));
+        } else if (isCustom()) {
           var backBtn = el('button', { type: 'button', class: 'a-back-link' }, '← back to pageviews');
           backBtn.addEventListener('click', function () { kind = 'pageview'; load(); });
           headerLeft.appendChild(el('h2', null, [document.createTextNode('Event: '), el('code', { class: 'a-event-kind-h' }, kind)]));
@@ -355,13 +378,22 @@
             el('div', { class: 'a-kpi' }, [el('div', { class: 'label' }, 'Top country'), el('div', { class: 'value' }, (stats.top_countries[0] && stats.top_countries[0].country) || '—')])
           ]));
           card.appendChild(renderChart(stats.series || [], bucket));
-          var grid = el('div', { class: 'a-card-grid' }, [
-            renderRanked(isCustom() ? 'Top pages firing event' : 'Top pages', stats.top_paths.map(function (r) { return { label: r.path, value: r.views }; })),
+          // Top pages list: clickable rows (drill into that path) when we're
+          // looking at the aggregate. Hidden entirely when we're already
+          // filtered to one path — would just show that single row.
+          var gridChildren = [];
+          if (!isPathFiltered()) {
+            var topPagesPick = (!isCustom())
+              ? function (label) { path = label; load(); }
+              : undefined;
+            gridChildren.push(renderRanked(isCustom() ? 'Top pages firing event' : 'Top pages', stats.top_paths.map(function (r) { return { label: r.path, value: r.views }; }), topPagesPick));
+          }
+          gridChildren.push(
             renderRanked('Top referrers', stats.top_referrers.map(function (r) { return { label: r.referrer || '(direct)', value: r.views }; })),
             renderRanked('Top countries', stats.top_countries.map(function (r) { return { label: r.country || '—', value: r.views }; })),
             renderRanked('Device', stats.device_split.map(function (r) { return { label: r.device, value: r.views }; }))
-          ]);
-          card.appendChild(grid);
+          );
+          card.appendChild(el('div', { class: 'a-card-grid' }, gridChildren));
         }
 
         // Live "right now" widget — polled every 30s while this app's
@@ -370,9 +402,10 @@
         var liveStrip = el('div', { class: 'a-live' });
         card.appendChild(liveStrip);
 
-        // Only show the custom-events picker when we're viewing pageviews —
-        // otherwise the "back to pageviews" button is the only navigation.
-        if (!isCustom()) {
+        // Only show the custom-events picker on the aggregate pageview view.
+        // When viewing a custom event OR a path drill-down, the breadcrumb
+        // back-link is the only navigation that makes sense.
+        if (!isCustom() && !isPathFiltered()) {
           card.appendChild(renderCustomEventsPanel(eventsList, days, function (newKind) { kind = newKind; load(); }));
         }
 
