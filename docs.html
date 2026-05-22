@@ -131,18 +131,22 @@ export default function App() {
 
       <h2>Auth</h2>
       <p>GitHub OAuth via redirect. Session persists in <code>localStorage</code>. Shared across all FreeAppStore apps (SSO).</p>
-      <pre><code>await fas.auth.init()          // Initialize, capture callback
-fas.auth.onChange(user =&gt; {})  // Listen for sign-in/out
-fas.auth.signIn()              // Redirect to GitHub OAuth
-fas.auth.signOut()             // Clear session
-fas.auth.user                  // Current user (or null)
-fas.auth.token                 // Session token (for API calls)</code></pre>
+      <pre><code>await fas.auth.init()                  // Initialize, capture callback
+fas.auth.onChange(user =&gt; {})          // Listen for sign-in/out
+fas.auth.signIn()                      // Redirect to GitHub OAuth
+fas.auth.signIn('google')              // Redirect to Google OAuth
+await fas.auth.signInWithEmail(email)  // Send magic-link email
+fas.auth.signOut()                     // Clear session
+fas.auth.user                          // Current user (or null)
+fas.auth.token                         // Session token (for API calls)
+await fas.auth.setDateOfBirth('2000-01-15')  // Set DOB (set-once, age &gt;= 13)</code></pre>
 
       <h2>Per-user KV</h2>
       <p>Per-user, per-app key-value store. Each user's data is isolated.</p>
       <pre><code>await fas.kv.set('profile', { name: 'Alice', theme: 'dark' })
 const profile = await fas.kv.get('profile')
 const keys = await fas.kv.list({ prefix: 'note:' })
+const items = await fas.kv.getMany(keys)  // fetch multiple keys at once
 await fas.kv.delete('profile')</code></pre>
 
       <h2>Collections (Firestore-style)</h2>
@@ -150,23 +154,26 @@ await fas.kv.delete('profile')</code></pre>
       <pre><code>const todos = fas.collections.collection('todos')
 
 // Create
-await todos.add({ title: 'Buy milk', done: false })
+await todos.create({ title: 'Buy milk', done: false })
 
 // Query
-const items = await todos.query({ where: { done: false }, orderBy: 'title' })
+const { documents, total } = await todos.query({ orderBy: 'title', order: 'desc' })
 
-// Update
+// Get single document
+const doc = await todos.get('doc-id')
+
+// Update (owner only)
 await todos.update(id, { done: true })
 
-// Delete
+// Delete (owner only)
 await todos.delete(id)</code></pre>
 
       <h2>Counters</h2>
       <p>Cross-user atomic counters for votes, views, leaderboards.</p>
-      <pre><code>await fas.counters.increment('page-views')
-await fas.counters.decrement('likes')
-const count = await fas.counters.get('page-views')
-const all = await fas.counters.list()</code></pre>
+      <pre><code>await fas.counters.increment('page-views')       // +1
+await fas.counters.increment('likes', -1)          // decrement
+const count = await fas.counters.get('page-views') // read (no auth)
+const all = await fas.counters.list()               // all counters</code></pre>
 
       <h2>Rooms (Real-time WebSocket)</h2>
       <p>WebSocket rooms for chat, presence, multiplayer. Backed by Cloudflare Durable Objects.</p>
@@ -175,7 +182,7 @@ const all = await fas.counters.list()</code></pre>
 room.send({ type: 'chat', text: 'hello' })
 room.onMessage(msg =&gt; console.log(msg))
 room.onPeers(peers =&gt; console.log(peers.length, 'online'))
-room.leave()</code></pre>
+room.close()</code></pre>
 
       <h2>Proxy (Secret-injecting API Proxy)</h2>
       <p>Call third-party APIs without exposing keys to the client.</p>
