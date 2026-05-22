@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "servers": [
+    {
+      "name": "FreeAppStore",
+      "description": "AI agent tools for the FreeAppStore platform. List apps, check deploy status, get SDK reference, fetch platform guide.",
+      "endpoint": "https://mcp.freeappstore.online/mcp",
+      "transport": "streamable-http",
+      "tools": [
+        {
+          "name": "list_apps",
+          "description": "List your published apps on FreeAppStore"
+        },
+        {
+          "name": "deploy_status",
+          "description": "Check GitHub Actions deploy status for any app"
+        },
+        {
+          "name": "app_info",
+          "description": "Get app URLs, repo, status, and store listing"
+        },
+        {
+          "name": "platform_guide",
+          "description": "Fetch the full SKILLS.md platform guide"
+        },
+        {
+          "name": "sdk_reference",
+          "description": "Quick SDK reference for auth, KV, counters, collections, rooms, proxy, hooks, and UI components"
+        }
+      ]
+    }
+  ]
+}

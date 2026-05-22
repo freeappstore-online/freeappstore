@@ -228,13 +228,29 @@ const isBeta = await fas.roles.has(userId, 'beta-tester')</code></pre>
       </table>
 
       <h2>AI Agent Integration</h2>
-      <p>Point your Claude Code, Codex, or other AI agent at the machine-readable guide:</p>
+      <p>Two ways for AI agents to access the platform:</p>
+
+      <h3>MCP Server (recommended)</h3>
+      <p>Connect your AI agent directly to FreeAppStore tools via MCP:</p>
+      <pre><code>// Add to ~/.claude.json (Claude Code) or your MCP client config:
+{
+  "mcpServers": {
+    "freeappstore": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.freeappstore.online/mcp"]
+    }
+  }
+}</code></pre>
+      <p>Tools: <code>deploy_status</code>, <code>app_info</code>, <code>sdk_reference</code>, <code>platform_guide</code>, <code>list_apps</code>. <a href="/docs/mcp">Full MCP docs &rarr;</a></p>
+
+      <h3>SKILLS.md (text-based)</h3>
+      <p>For agents without MCP support, point them at the machine-readable guide:</p>
       <pre><code># Add to your CLAUDE.md:
 See https://freeappstore.online/skills.md for platform skills.</code></pre>
-      <p><a href="/skills.md">View skills.md</a> for the full agent-readable reference.</p>
 
       <h2>Links</h2>
       <ul>
+        <li><a href="/docs/mcp">MCP Server</a> — connect AI agents via MCP tools</li>
         <li><a href="https://www.npmjs.com/package/@freeappstore/sdk">@freeappstore/sdk on npm</a></li>
         <li><a href="https://github.com/freeappstore-online/platform">Platform source code</a></li>
         <li><a href="/docs/ui">UI Component Library</a></li>

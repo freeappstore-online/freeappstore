@@ -925,6 +925,16 @@ if (fs.existsSync(fixtureSrcDir)) {
   }
 }
 
+// .well-known/ — MCP discovery and other standards
+const wellKnownSrc = path.join(ROOT, '.well-known');
+if (fs.existsSync(wellKnownSrc)) {
+  const wellKnownDest = path.join(DIST, '.well-known');
+  fs.mkdirSync(wellKnownDest, { recursive: true });
+  for (const f of fs.readdirSync(wellKnownSrc)) {
+    fs.copyFileSync(path.join(wellKnownSrc, f), path.join(wellKnownDest, f));
+  }
+}
+
 // Markdown files → dist (lowercase for URL compatibility)
 for (const md of ['SKILLS.md', 'claude-code.md']) {
   const src = path.join(ROOT, md);

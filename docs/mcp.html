@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP Server — FreeAppStore</title>
+  <meta name="description" content="Connect your AI agent to FreeAppStore via MCP. List apps, check deploys, get SDK docs — all as tools your agent can call." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="MCP Server — FreeAppStore" />
+  <meta property="og:description" content="Connect your AI agent to FreeAppStore via MCP." />
+  <meta property="og:url" content="https://freeappstore.online/docs/mcp" />
+  <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
+  <link rel="canonical" href="https://freeappstore.online/docs/mcp" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free <span>Apps</span></a>
+      <nav>
+        <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
+        <a href="/about">About</a>
+        <a href="/get-started">Get Started</a>
+        <a href="/guidelines">Guidelines</a>
+        <a href="https://console.freeappstore.online">Console</a>
+        <a href="/docs" class="active">Docs</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+        <span id="navAuth"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>MCP Server</h1>
+      <p>Connect your AI agent to FreeAppStore. List apps, check deploys, get SDK docs — all as tools your agent can call directly.</p>
+    </div>
+
+    <div class="page-content">
+
+      <h2>What is MCP?</h2>
+      <p>Model Context Protocol (MCP) is an open standard that lets AI assistants call tools on remote servers. Instead of copy-pasting docs or running CLI commands, your AI agent can query the FreeAppStore API directly.</p>
+
+      <h2>Connect</h2>
+      <p>Add this to your AI tool's MCP config:</p>
+
+      <h3>Claude Code</h3>
+      <p>Add to <code>~/.claude.json</code>:</p>
+      <pre><code>{
+  "mcpServers": {
+    "freeappstore": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.freeappstore.online/mcp"]
+    }
+  }
+}</code></pre>
+
+      <h3>Cursor</h3>
+      <p>Settings &rarr; MCP &rarr; Add Server:</p>
+      <pre><code>Name: FreeAppStore
+Command: npx mcp-remote https://mcp.freeappstore.online/mcp</code></pre>
+
+      <h3>Any MCP-compatible client</h3>
+      <p>Endpoint: <code>https://mcp.freeappstore.online/mcp</code> (Streamable HTTP transport)</p>
+
+      <h2>Tools</h2>
+      <table>
+        <thead>
+          <tr><th>Tool</th><th>Auth</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>deploy_status</code></td>
+            <td>None</td>
+            <td>Check the last 5 GitHub Actions deploy runs for any app. Shows pass/fail, commit SHA, and timestamp.</td>
+          </tr>
+          <tr>
+            <td><code>app_info</code></td>
+            <td>None</td>
+            <td>Get live URL, repo URL, store listing URL, and current up/down status for any app.</td>
+          </tr>
+          <tr>
+            <td><code>sdk_reference</code></td>
+            <td>None</td>
+            <td>Quick SDK reference with import paths and usage examples. Filter by feature: auth, kv, counters, collections, rooms, proxy, hooks, ui.</td>
+          </tr>
+          <tr>
+            <td><code>platform_guide</code></td>
+            <td>None</td>
+            <td>Fetch the full SKILLS.md — the complete platform guide covering tech stack, project structure, SDK, CLI, compliance, and deploy flow.</td>
+          </tr>
+          <tr>
+            <td><code>list_apps</code></td>
+            <td>FAS token</td>
+            <td>List your published apps with categories, descriptions, and URLs. Pass your <code>fas login</code> session token.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Example usage</h2>
+      <p>Once connected, your AI agent can do things like:</p>
+      <ul>
+        <li>"Check if my last deploy succeeded" &rarr; calls <code>deploy_status</code></li>
+        <li>"How do I use KV storage?" &rarr; calls <code>sdk_reference</code> with <code>feature: "kv"</code></li>
+        <li>"Is timer.freeappstore.online up?" &rarr; calls <code>app_info</code></li>
+        <li>"What's the platform tech stack?" &rarr; calls <code>platform_guide</code></li>
+      </ul>
+
+      <h2>Discovery</h2>
+      <p>The MCP server is auto-discoverable at <code>freeappstore.online/.well-known/mcp.json</code>.</p>
+
+      <h2>Source</h2>
+      <p>The MCP server is open source: <a href="https://github.com/freeappstore-online/mcp">github.com/freeappstore-online/mcp</a></p>
+
+      <div class="cta-box" style="margin-top: 3rem">
+        <h3>Not using MCP yet?</h3>
+        <p>You can also read the full platform guide directly:</p>
+        <a href="/skills.md" class="btn">Read SKILLS.md &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free <span>Apps</span></a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="/build-with-ai">Build</a>
+        <a href="https://create.freeappstore.online">VibeCode</a>
+        <a href="/guidelines">Guidelines</a>
+        <a href="https://console.freeappstore.online">Console</a>
+        <a href="/docs">Docs</a>
+        <a href="/quality">Quality</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+        <a href="https://proappstore.online" class="footer-link-pro">Pro</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/auth.js" integrity="{{SRI_AUTH_JS}}"></script>
+</body>
+</html>

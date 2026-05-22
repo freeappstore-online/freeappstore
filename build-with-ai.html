@@ -113,10 +113,17 @@ cd my-app</div>
         <h3>Start Claude Code</h3>
         <div class="ai-cmd"><span class="comment"># Launch Claude Code in the project</span>
 claude</div>
-        <p>Claude Code reads <code>CLAUDE.md</code> automatically. That file says:</p>
-        <div class="ai-cmd is-small"><span class="output">See https://freeappstore.online/skills.md
-for platform conventions.</span></div>
-        <p>Claude now knows the design system (Manrope + Fraunces fonts, CSS variables, dark mode), the SDK (<code>@freeappstore/sdk</code>), and the deploy flow.</p>
+        <p>Claude Code reads <code>CLAUDE.md</code> automatically. For even deeper integration, connect the MCP server:</p>
+        <div class="ai-cmd is-small"><span class="comment"># Add to ~/.claude.json for MCP tools (optional but powerful)</span>
+{
+  "mcpServers": {
+    "freeappstore": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://mcp.freeappstore.online/mcp"]
+    }
+  }
+}</div>
+        <p>With MCP, Claude can check deploy status, look up SDK docs, and list your apps as tool calls. Without it, Claude still reads <code>SKILLS.md</code> for full platform context. <a href="/docs/mcp">MCP docs &rarr;</a></p>
       </li>
 
       <li>
