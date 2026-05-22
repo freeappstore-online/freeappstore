@@ -1102,36 +1102,36 @@
   "freeappstore-online/snowman": {
     "meta": {
       "created_at": "2026-05-17T15:41:58Z",
-      "pushed_at": "2026-05-21T21:10:06Z"
+      "pushed_at": "2026-05-22T08:04:21Z"
     },
     "commits": [
       {
-        "sha": "b3753bf17c746e5df55a379163a071f10a118a23",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/b3753bf17c746e5df55a379163a071f10a118a23",
+        "sha": "ccb5e8eba51dbc3744ac38064d306b5381abc4f2",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/ccb5e8eba51dbc3744ac38064d306b5381abc4f2",
         "commit": {
-          "message": "chore: add Path B deploy.yml (backfilled to existing repo)",
+          "message": "Fix mobile search panel alignment and padding consistency\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-21T21:10:06Z"
+            "date": "2026-05-22T08:04:20Z"
           }
         }
       },
       {
-        "sha": "b3b59bd49981507463b6645cfd7ff154a2c7a177",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/b3b59bd49981507463b6645cfd7ff154a2c7a177",
+        "sha": "6b65b96a229a698af1540851ae17ab7ec7827020",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/6b65b96a229a698af1540851ae17ab7ec7827020",
         "commit": {
-          "message": "Polish UI: island layout, tips, animations, and interactions\n\n- Island uses w-max + max-w-[calc(100vw-2rem)] to expand horizontally\n  then wrap vertically; Viewing: label wraps below on overflow\n- State/province label picks correct term per country, defaults to\n  state/province for ambiguous cases\n- Click same state again to return to country view; ocean click quits\n  viewing completely\n- Snow fetch error shows red tip; clears when fetch succeeds\n- Country highlight uses CSS transitions instead of keyframes for fluid\n  fade-out at any brightness level\n- Fix panel toggle close-on-reclick via navHeaderRef mousedown exclusion\n- Fix zoom while panels open (replace backdrop div with document listener)\n- Logo links to freeappstore.online/apps/snowman in new tab\n- Search bar placeholder updated to Enter a country to view snow...\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Align mobile search panel width with nav pill\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-21T15:16:37Z"
+            "date": "2026-05-22T07:55:45Z"
           }
         }
       },
       {
-        "sha": "c6674e3def86d35a4cee019d58b34b53620ab0b9",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/c6674e3def86d35a4cee019d58b34b53620ab0b9",
+        "sha": "a87c35b74397952d057c66b9c246397210b9f455",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/a87c35b74397952d057c66b9c246397210b9f455",
         "commit": {
-          "message": "Add fitToCountry dynamic zoom and improve map interaction\n\n- fitToCountry: compute zoom from D3 bounds with COUNTRY_EXTENT_POINTS\n  fallback for antimeridian countries (Russia); cap auto-zoom at 12x\n- Resort dots: r=11 on mobile with 44px transparent tap target overlay\n- Zoom buttons sit at bottom on screens ≥ 370px (reactive to resize)\n- Snow fetch error/success callbacks (onSnowError, onSnowLoad) threaded\n  from useStateSnow up through WorldMap to App\n- Fetching snow data text pulses with brightness animation\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Fix blank render for countries without subdivisions (Antarctica, Greenland, etc.)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-21T15:16:24Z"
+            "date": "2026-05-22T07:50:08Z"
           }
         }
       }
