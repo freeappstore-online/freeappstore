@@ -37,7 +37,7 @@
   <main class="container">
     <div class="page-header">
       <h1>Pricing</h1>
-      <p>FreeAppStore is free forever. We're transparent about what costs us money, and we cap the things that scale dangerously. ProAppStore lifts the caps for creators who need more.</p>
+      <p>FreeAppStore is for <strong>apps</strong> (not games &mdash; see <a href="https://freegamestore.online">FreeGameStore</a>). Free forever. We're transparent about what costs us money, and we cap the things that scale dangerously. <a href="https://proappstore.online">ProAppStore</a> lifts the caps for creators who need more.</p>
     </div>
 
     <div class="page-content">
@@ -47,15 +47,18 @@
           <div class="price">$0<small>/forever</small></div>
           <p class="blurb">Everything most apps need, with sensible caps. No credit card, no trial.</p>
           <ul>
-            <li>Static hosting + GitHub CI<small>Unlimited; R2 + Actions free tier</small></li>
-            <li>Identity (sign in with GitHub)<small>One identity, SSO across all apps</small></li>
-            <li>Per-user KV storage<small>1MB/user; list, getMany, prefix filter; AbortSignal</small></li>
-            <li>Shared counters<small>Atomic cross-user counters for votes, views, leaderboards</small></li>
-            <li>Collections (document database)<small>Public queryable JSON documents with ownership</small></li>
-            <li>Real-time rooms (WebSocket)<small>Up to 5 rooms x 25 peers x 50 user-hours/day</small></li>
-            <li>Secret-injecting API proxy<small>Call third-party APIs without exposing keys</small></li>
-            <li>Code quality reports<small>Automated VibeCode QA scans on every app</small></li>
-            <li>Compliance audit + uptime monitoring<small>Weekly cron, automatic</small></li>
+            <li>Static hosting + GitHub CI<small>R2 + Actions, auto-deploy on push</small></li>
+            <li>Auth (GitHub OAuth, SSO)<small>One identity across all apps</small></li>
+            <li>Per-user KV storage<small>1 MB/user, 100 keys, prefix filter</small></li>
+            <li>Collections (document database)<small>Firestore-style, 10k docs/collection</small></li>
+            <li>Shared counters<small>Atomic cross-user (votes, views, leaderboards)</small></li>
+            <li>Real-time rooms (WebSocket)<small>32 peers/room, 64 rooms/app</small></li>
+            <li>Secret-injecting API proxy<small>5 secrets, 10k requests/day</small></li>
+            <li>User API key vault<small>Encrypted storage for OpenAI, Anthropic, etc.</small></li>
+            <li>App-level RBAC roles<small>owner, member, moderator, editor, viewer + custom</small></li>
+            <li>18 React UI components<small>Modal, Tabs, Card, Badge, Spinner, KeyPrompt, etc.</small></li>
+            <li>MCP server for AI agents<small>SDK reference, deploy status, app info</small></li>
+            <li>Compliance audit + quality reports<small>Automated on every push</small></li>
             <li>Default subdomain<small>your-app.freeappstore.online</small></li>
             <li>Open source, MIT-licensed<small>Required for publication</small></li>
           </ul>
@@ -67,16 +70,18 @@
           <div class="price">$9<small>/month per creator</small></div>
           <p class="blurb">All your apps under one subscription. Caps lifted, premium primitives unlocked.</p>
           <ul>
-            <li>Everything in Free, with caps lifted (or 10x)</li>
-            <li>Real-time rooms with no soft cap<small>For multiplayer, collab, live games</small></li>
-            <li>Server-side AI proxy with token metering<small>~$10/mo Workers AI included</small></li>
-            <li>Cron jobs + scheduled workers<small>For digests, reminders, batch processing</small></li>
-            <li>Custom domain<small>your-domain.com instead of *.freeappstore.online</small></li>
-            <li>Transactional email<small>~1k sends/mo included</small></li>
-            <li>Higher KV: 10MB per user, no user-count cap</li>
-            <li>Shared counters: no rate limit</li>
-            <li>Priority support + faster compliance review</li>
-            <li>Marketplace mechanics<small>Stripe Connect for developer payouts</small></li>
+            <li>Everything in Free, caps lifted or 10x</li>
+            <li>Server-side AI (Workers AI)<small>Included quota, no user key needed</small></li>
+            <li>Custom domain<small>your-domain.com via CF for SaaS</small></li>
+            <li>File uploads + R2 storage<small>Per-app bucket for images, media, docs</small></li>
+            <li>Cron jobs + scheduled workers<small>Digests, reminders, batch processing</small></li>
+            <li>Transactional email<small>Resend, ~1k sends/mo included</small></li>
+            <li>Real-time rooms with no soft cap<small>Server-authoritative, persistent state</small></li>
+            <li>Per-app D1 database<small>Direct SQL, not just KV/collections</small></li>
+            <li>Higher KV: 10 MB/user, no cap</li>
+            <li>Payments + creator payouts<small>Stripe subscriptions, usage-based split</small></li>
+            <li>Proprietary source allowed<small>No MIT requirement</small></li>
+            <li>Priority support</li>
           </ul>
           <a href="https://proappstore.online" class="cta">Upgrade to Pro</a>
         </div>
@@ -100,8 +105,14 @@
             <tr><td>Room duration per day (per app)</td><td>50 user-hours</td><td>New connections refused for the rest of the day</td></tr>
             <tr><td>Counters per app</td><td>1,000</td><td>New counter creation refused</td></tr>
             <tr><td>Counter increment range</td><td>-1000 to +1000</td><td>Returns 400</td></tr>
-            <tr><td>Server-side AI</td><td>not available</td><td>Pro feature</td></tr>
+            <tr><td>Proxy secrets per app</td><td>5</td><td>6th secret refused with 409</td></tr>
+            <tr><td>Proxy requests per day</td><td>10,000</td><td>HTTP 429 for the rest of the day</td></tr>
+            <tr><td>User API keys per provider</td><td>1</td><td>Update replaces existing key</td></tr>
+            <tr><td>Server-side AI</td><td>not available</td><td>Pro feature (user key vault works)</td></tr>
+            <tr><td>File uploads</td><td>not available</td><td>Pro feature</td></tr>
             <tr><td>Cron / scheduled jobs</td><td>not available</td><td>Pro feature</td></tr>
+            <tr><td>Custom domain</td><td>not available</td><td>Pro feature</td></tr>
+            <tr><td>Transactional email</td><td>not available</td><td>Pro feature</td></tr>
           </tbody>
         </table>
       </div>
