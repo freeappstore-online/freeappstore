@@ -458,3 +458,45 @@ test("validator rejects duplicate ids and unbounded names", () => {
     assert.match(r.stderr, /name must be/);
   } finally { rmSync(r.tmp, { recursive: true, force: true }); }
 });
+
+// ---------------------------------------------------------------------------
+// CSP compliance — no inline <style> blocks or style="" attributes in HTML
+// ---------------------------------------------------------------------------
+test("HTML pages must not use inline styles (CSP: style-src self)", () => {
+  const htmlFiles = readdirSync(REPO_ROOT)
+    .filter((f) => f.endsWith(".html"))
+    .map((f) => join(REPO_ROOT, f));
+  const docsDir = join(REPO_ROOT, "docs");
+  try {
+    htmlFiles.push(
+      ...readdirSync(docsDir)
+        .filter((f) => f.endsWith(".html"))
+        .map((f) => join(docsDir, f))
+    );
+  } catch {}
+  const tmplDir = join(REPO_ROOT, "templates");
+  try {
+    htmlFiles.push(
+      ...readdirSync(tmplDir)
+        .filter((f) => f.endsWith(".html"))
+        .map((f) => join(tmplDir, f))
+    );
+  } catch {}
+
+  const violations = [];
+  for (const file of htmlFiles) {
+    const content = readFileSync(file, "utf8");
+    const name = file.replace(REPO_ROOT + "/", "");
+    if (/<style\b/i.test(content)) {
+      violations.push(`${name}: contains <style> block (blocked by CSP style-src 'self')`);
+    }
+    const withoutJsonLd = content.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "");
+    const styleAttrs = withoutJsonLd.match(/\bstyle="[^"]+"/g) || [];
+    if (styleAttrs.length > 0) {
+      violations.push(`${name}: has ${styleAttrs.length} inline style="" attribute(s)`);
+    }
+  }
+  if (violations.length > 0) {
+    assert.fail("CSP violations found:\n  " + violations.join("\n  "));
+  }
+});
