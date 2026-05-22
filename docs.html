@@ -219,13 +219,51 @@ const roles = await fas.roles.myRoles() // ['owner', 'moderator']</code></pre>
 await fas.roles.assign(userId, 'beta-tester')
 const isBeta = await fas.roles.check('beta-tester')</code></pre>
 
+      <h2>Keys (User API Key Vault)</h2>
+      <p>Users store their own API keys (OpenAI, Anthropic, etc.) on the platform. Keys are encrypted at rest (AES-256-GCM) and injected server-side when apps call <code>fas.proxy.fetch()</code>. Apps never see the plaintext key.</p>
+      <pre><code>// Check if user has a key configured
+const hasKey = await fas.keys.has('openai')
+
+// Redirect user to platform key management page
+fas.keys.manage('openai') // opens platform page, returns to app after
+
+// Check all configured providers
+const keys = await fas.keys.status()
+// [{ provider: 'openai', label: 'My key', createdAt: ..., lastUsedAt: ... }]</code></pre>
+      <p>Apps should use the <code>KeyPrompt</code> component (see below) to show a prompt when a key is missing, rather than building custom key-entry UI.</p>
+
+      <h2>UI Primitives</h2>
+      <p>Reusable building-block components for app UI. Import from <code>@freeappstore/sdk/ui</code>. All components use CSS custom properties (<code>--ink</code>, <code>--accent</code>, <code>--border</code>, etc.) so they blend into your app's theme.</p>
+      <pre><code>import {
+  Spinner, Badge, Card, Tabs, Modal, ConfirmDialog,
+  EmptyState, ProgressBar, SearchInput, ListRow,
+  ErrorBoundary, KeyPrompt,
+} from '@freeappstore/sdk/ui'</code></pre>
+      <table>
+        <thead><tr><th>Component</th><th>What it does</th><th>Key props</th></tr></thead>
+        <tbody>
+          <tr><td><code>Spinner</code></td><td>Animated border spinner</td><td><code>size</code> (px, default 24), <code>color</code></td></tr>
+          <tr><td><code>Badge</code></td><td>Small pill badge for status/tags</td><td><code>children</code>, <code>variant</code> (<code>default</code>|<code>accent</code>|<code>success</code>|<code>warning</code>|<code>danger</code>), <code>style</code></td></tr>
+          <tr><td><code>Card</code></td><td>Bordered surface card, optionally clickable</td><td><code>children</code>, <code>onClick</code>, <code>padding</code>, <code>style</code></td></tr>
+          <tr><td><code>Tabs</code></td><td>Pill-style tab selector</td><td><code>tabs</code> (<code>[{key, label}]</code>), <code>active</code>, <code>onChange</code>, <code>style</code></td></tr>
+          <tr><td><code>Modal</code></td><td>Centered modal with backdrop, Escape to close</td><td><code>open</code>, <code>onClose</code>, <code>children</code>, <code>title</code>, <code>maxWidth</code></td></tr>
+          <tr><td><code>ConfirmDialog</code></td><td>Confirm/cancel dialog built on Modal</td><td><code>open</code>, <code>onConfirm</code>, <code>onCancel</code>, <code>title</code>, <code>message</code>, <code>confirmLabel</code>, <code>variant</code> (<code>danger</code>|<code>default</code>)</td></tr>
+          <tr><td><code>EmptyState</code></td><td>Centered placeholder with icon and message</td><td><code>icon</code>, <code>title</code>, <code>message</code>, <code>action</code></td></tr>
+          <tr><td><code>ProgressBar</code></td><td>Horizontal progress bar</td><td><code>value</code>, <code>max</code> (default 100), <code>color</code>, <code>height</code> (px, default 8), <code>label</code></td></tr>
+          <tr><td><code>SearchInput</code></td><td>Input with magnifying glass icon</td><td><code>value</code>, <code>onChange</code>, <code>placeholder</code>, <code>style</code></td></tr>
+          <tr><td><code>ListRow</code></td><td>Clickable list row with icon/title/subtitle/trailing</td><td><code>icon</code>, <code>title</code>, <code>subtitle</code>, <code>trailing</code>, <code>onClick</code></td></tr>
+          <tr><td><code>ErrorBoundary</code></td><td>Catches render errors, shows fallback</td><td><code>children</code>, <code>fallback</code></td></tr>
+          <tr><td><code>KeyPrompt</code></td><td>Prompt when app needs a user's API key</td><td><code>app</code>, <code>provider</code>, <code>providerName</code>, <code>message</code></td></tr>
+        </tbody>
+      </table>
+
       <h2>Exports</h2>
       <table>
         <thead><tr><th>Import path</th><th>What you get</th></tr></thead>
         <tbody>
-          <tr><td><code>@freeappstore/sdk</code></td><td><code>initApp</code>, <code>FreeAppStore</code>, types, roles</td></tr>
+          <tr><td><code>@freeappstore/sdk</code></td><td><code>initApp</code>, <code>FreeAppStore</code>, types, roles, keys</td></tr>
           <tr><td><code>@freeappstore/sdk/hooks</code></td><td><code>useAuth</code>, <code>useTheme</code></td></tr>
-          <tr><td><code>@freeappstore/sdk/ui</code></td><td><code>Avatar</code>, <code>SignInButton</code>, <code>ThemeToggle</code>, <code>TextSizeToggle</code>, <code>ProfileMenu</code>, <code>ProfilePage</code>, <code>FasShell</code></td></tr>
+          <tr><td><code>@freeappstore/sdk/ui</code></td><td><code>FasShell</code>, <code>Avatar</code>, <code>SignInButton</code>, <code>ThemeToggle</code>, <code>TextSizeToggle</code>, <code>ProfileMenu</code>, <code>ProfilePage</code>, <code>Spinner</code>, <code>Badge</code>, <code>Card</code>, <code>Tabs</code>, <code>Modal</code>, <code>ConfirmDialog</code>, <code>EmptyState</code>, <code>ProgressBar</code>, <code>SearchInput</code>, <code>ListRow</code>, <code>ErrorBoundary</code>, <code>KeyPrompt</code></td></tr>
         </tbody>
       </table>
 

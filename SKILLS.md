@@ -478,6 +478,14 @@ import { useAuth, useTheme } from '@freeappstore/sdk/hooks'
 - Do NOT build custom modals, spinners, tabs, badges, or search inputs. Use the SDK components.
 - Do NOT build custom API key entry UI. Use `KeyPrompt` to redirect users to the platform key management page.
 
+### Exports
+
+| Import path | What you get |
+|---|---|
+| `@freeappstore/sdk` | `initApp`, `FreeAppStore`, types, roles, keys |
+| `@freeappstore/sdk/hooks` | `useAuth`, `useTheme` |
+| `@freeappstore/sdk/ui` | `FasShell`, `Avatar`, `SignInButton`, `ThemeToggle`, `TextSizeToggle`, `ProfileMenu`, `ProfilePage`, `Spinner`, `Badge`, `Card`, `Tabs`, `Modal`, `ConfirmDialog`, `EmptyState`, `ProgressBar`, `SearchInput`, `ListRow`, `ErrorBoundary`, `KeyPrompt` |
+
 ## Games SDK (`@freegamestore/games`)
 
 **Every game MUST use the SDK components.** No custom topbars, no custom shells. The SDK enforces brand consistency, viewport lock, and touch-friendly sizing across all games.
