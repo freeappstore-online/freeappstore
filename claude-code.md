@@ -143,7 +143,7 @@ fas check
 fas publish --yes --name my-app --category Utilities --type standalone --oneliner "One-line description"
 ```
 
-This atomically: creates `github.com/freeappstore-online/my-app`, provisions Cloudflare Pages, adds DNS CNAME, sets up custom domain at `my-app.freeappstore.online`, and adds the app to the store registry.
+This atomically: creates `github.com/freeappstore-online/my-app`, sets up the hosting route for `my-app.freeappstore.online`, and adds the app to the store registry.
 
 After publish, push your code to the new repo:
 

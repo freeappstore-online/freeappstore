@@ -46,7 +46,7 @@
           <div class="price">$0<small>/forever</small></div>
           <p class="blurb">Everything most apps need, with sensible caps. No credit card, no trial.</p>
           <ul>
-            <li>Static hosting + GitHub CI<small>Unlimited; CF Pages + Actions free tier</small></li>
+            <li>Static hosting + GitHub CI<small>Unlimited; R2 + Actions free tier</small></li>
             <li>Identity (sign in with GitHub)<small>One identity, SSO across all apps</small></li>
             <li>Per-user KV storage<small>1MB/user; list, getMany, prefix filter; AbortSignal</small></li>
             <li>Shared counters<small>Atomic cross-user counters for votes, views, leaderboards</small></li>
@@ -112,7 +112,7 @@
       <h2>How we count costs</h2>
       <p>The honest version: most things on Cloudflare are basically free at the scale of small apps. The hard cliff is Durable Objects (rooms). Here's what we actually pay:</p>
       <ul>
-        <li><strong>Static hosting (CF Pages):</strong> $0 — even at high traffic. CF doesn't charge for asset egress.</li>
+        <li><strong>Static hosting (R2):</strong> $0 — even at high traffic. R2 has zero egress fees.</li>
         <li><strong>Workers requests:</strong> 100k/day per Worker on the free tier; Workers Paid ($5/mo) covers 10M/mo.</li>
         <li><strong>D1 (the database):</strong> 5M reads, 100k writes, 5GB free per day.</li>
         <li><strong>KV (per-user storage):</strong> 100k reads + 1k writes/day free; cents per million beyond.</li>

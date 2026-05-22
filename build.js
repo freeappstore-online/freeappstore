@@ -751,33 +751,33 @@ console.log(`Generated ${uniqueAuthors.length} author page(s) at /u/`);
 
 const today = new Date().toISOString().split('T')[0];
 const sitemapEntries = [
-  '  <url><loc>https://freeappstore.online/</loc><priority>1.0</priority></url>',
-  '  <url><loc>https://freeappstore.online/about.html</loc><priority>0.8</priority></url>',
-  '  <url><loc>https://freeappstore.online/contribute.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/get-started.html</loc><priority>0.9</priority></url>',
-  '  <url><loc>https://freeappstore.online/pricing.html</loc><priority>0.8</priority></url>',
-  '  <url><loc>https://freeappstore.online/build-with-ai.html</loc><priority>0.85</priority></url>',
-  '  <url><loc>https://freeappstore.online/ai/claude-code.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/ai/cursor.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/ai/github-copilot.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/ai/aider.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/ai/codex.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/ai/windsurf.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/ai/zed.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/ai/continue.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/ai/cline.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/ai/chatgpt-web.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/guidelines.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/docs.html</loc><priority>0.85</priority></url>',
-  '  <url><loc>https://freeappstore.online/docs/ui.html</loc><priority>0.8</priority></url>',
-  '  <url><loc>https://freeappstore.online/quality.html</loc><priority>0.7</priority></url>',
-  '  <url><loc>https://freeappstore.online/privacy.html</loc><priority>0.5</priority></url>',
-  '  <url><loc>https://freeappstore.online/terms.html</loc><priority>0.5</priority></url>',
+  `  <url><loc>https://freeappstore.online/</loc><lastmod>${today}</lastmod><priority>1.0</priority></url>`,
+  `  <url><loc>https://freeappstore.online/about.html</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`,
+  `  <url><loc>https://freeappstore.online/contribute.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/get-started.html</loc><lastmod>${today}</lastmod><priority>0.9</priority></url>`,
+  `  <url><loc>https://freeappstore.online/pricing.html</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`,
+  `  <url><loc>https://freeappstore.online/build-with-ai.html</loc><lastmod>${today}</lastmod><priority>0.85</priority></url>`,
+  `  <url><loc>https://freeappstore.online/ai/claude-code.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/ai/cursor.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/ai/github-copilot.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/ai/aider.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/ai/codex.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/ai/windsurf.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/ai/zed.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/ai/continue.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/ai/cline.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/ai/chatgpt-web.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/guidelines.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/docs.html</loc><lastmod>${today}</lastmod><priority>0.85</priority></url>`,
+  `  <url><loc>https://freeappstore.online/docs/ui.html</loc><lastmod>${today}</lastmod><priority>0.8</priority></url>`,
+  `  <url><loc>https://freeappstore.online/quality.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/privacy.html</loc><lastmod>${today}</lastmod><priority>0.5</priority></url>`,
+  `  <url><loc>https://freeappstore.online/terms.html</loc><lastmod>${today}</lastmod><priority>0.5</priority></url>`,
   ...apps.map(app =>
-    `  <url><loc>https://freeappstore.online/apps/${app.id}.html</loc><priority>0.9</priority></url>`
+    `  <url><loc>https://freeappstore.online/apps/${app.id}.html</loc><lastmod>${today}</lastmod><priority>0.9</priority></url>`
   ),
   ...uniqueAuthors.map(username =>
-    `  <url><loc>https://freeappstore.online/u/${username}.html</loc><priority>0.6</priority></url>`
+    `  <url><loc>https://freeappstore.online/u/${username}.html</loc><lastmod>${today}</lastmod><priority>0.6</priority></url>`
   )
 ];
 
