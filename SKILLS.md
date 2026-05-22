@@ -240,7 +240,8 @@ fas.auth.onChange(listener)  // subscribe to auth state changes
 
 // React hook (preferred)
 import { useAuth } from '@freeappstore/sdk/hooks'
-const { user, loading, signIn, signOut, deleteAccount } = useAuth(fas)
+const { user, loading, signIn, signOut, deleteAccount, hasRole } = useAuth(fas)
+// hasRole('moderator') — async, checks if current user has the role
 ```
 
 ### Per-user KV Storage
@@ -333,15 +334,15 @@ await fas.roles.assign(userId, 'moderator')
 // Revoke a role
 await fas.roles.revoke(userId, 'moderator')
 
-// Check if a user has a role
-const isMod = await fas.roles.has(userId, 'moderator') // true | false
+// Check if the current user has a role (async — hits the API)
+const isMod = await fas.roles.check('moderator') // true | false
 
-// List all roles for a user
-const roles = await fas.roles.list(userId) // ['owner', 'moderator']
+// Get the current user's roles (async — hits the API)
+const roles = await fas.roles.myRoles() // ['owner', 'moderator']
 
 // Custom roles — pass any string
 await fas.roles.assign(userId, 'beta-tester')
-const isBeta = await fas.roles.has(userId, 'beta-tester')
+const isBeta = await fas.roles.check('beta-tester')
 ```
 
 Use for: admin panels, moderation, content gating, feature flags by role. Custom roles work identically to the built-in defaults.
@@ -414,7 +415,7 @@ import { useAuth, useTheme } from '@freeappstore/sdk/hooks'
 
 | Hook | Returns | Use for |
 |------|---------|---------|
-| `useAuth(app)` | `{ user, loading, signIn, signOut, deleteAccount }` | Auth state + actions |
+| `useAuth(app)` | `{ user, loading, signIn, signOut, deleteAccount, hasRole }` | Auth state + actions. `hasRole(role)` is async. |
 | `useTheme()` | `{ theme, preference, setPreference }` | Current theme ('light'\|'dark') + preference ('system'\|'light'\|'dark') |
 
 ### When to use FasShell vs individual components
