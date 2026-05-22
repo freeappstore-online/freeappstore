@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Platform Capabilities — FreeAppStore</title>
+  <meta name="description" content="Everything the FreeAppStore platform gives you for free. Auth, storage, real-time, AI proxy, UI components, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Platform Capabilities — FreeAppStore" />
+  <meta property="og:description" content="Everything the platform gives you for free. Auth, storage, real-time, AI proxy, and more." />
+  <meta property="og:url" content="https://freeappstore.online/capabilities" />
+  <meta property="og:image" content="https://freeappstore.online/icon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://freeappstore.online/capabilities" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .cap-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1.25rem; margin: 1.5rem 0 2.5rem; }
+    .cap-card { border: 1px solid var(--line); border-radius: 1rem; padding: 1.25rem; background: var(--panel); }
+    .cap-card h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+    .cap-card p { margin: 0; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+    .cap-card code { font-size: 0.8rem; background: var(--paper); border: 1px solid var(--line); padding: 0.1em 0.3em; border-radius: 0.25rem; }
+    .cap-card .cap-tag { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.15rem 0.45rem; border-radius: 9999px; margin-bottom: 0.5rem; }
+    .cap-tag-free { background: #dcfce7; color: #16a34a; }
+    .cap-tag-pro { background: #ede9fe; color: #7c3aed; }
+    .cap-tag-user { background: #e0f2fe; color: #0369a1; }
+    .upgrade-banner { border: 1px solid var(--line); border-radius: 1rem; padding: 1.5rem; background: var(--panel); text-align: center; margin: 2rem 0; }
+    .upgrade-banner h3 { margin: 0 0 0.5rem; }
+    .upgrade-banner p { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
+    .upgrade-banner a { display: inline-block; padding: 0.6rem 1.5rem; background: var(--accent); color: #fff; border-radius: 0.5rem; font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Free <span>Apps</span></a>
+      <nav>
+        <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
+        <a href="/about">About</a>
+        <a href="/get-started">Get Started</a>
+        <a href="/guidelines">Guidelines</a>
+        <a href="https://console.freeappstore.online">Console</a>
+        <a href="/docs">Docs</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+        <span id="navAuth"></span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Platform Capabilities</h1>
+      <p>Everything you get when you build on FreeAppStore. One SDK, zero infrastructure, free forever. For apps only &mdash; games go to <a href="https://freegamestore.online">FreeGameStore</a>.</p>
+    </div>
+
+    <div class="page-content">
+
+      <h2>Included free</h2>
+      <div class="cap-grid">
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-free">Free</span>
+          <h3>Auth (GitHub OAuth)</h3>
+          <p>One-click sign in. SSO across all apps. Session persists in localStorage. <code>fas.auth.signIn()</code></p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-free">Free</span>
+          <h3>Per-user KV Storage</h3>
+          <p>1 MB/user, 100 keys. Isolated per app + user. Prefix filtering, batch reads. <code>fas.kv.set()</code> / <code>.get()</code></p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-free">Free</span>
+          <h3>Collections (Document DB)</h3>
+          <p>Firestore-style. 10k docs/collection, 64 KB each. Public queries, owner-gated writes. <code>fas.collections</code></p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-free">Free</span>
+          <h3>Shared Counters</h3>
+          <p>Atomic cross-user counters. Votes, views, leaderboards. 1k counters/app. <code>fas.counters.increment()</code></p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-free">Free</span>
+          <h3>Real-time Rooms</h3>
+          <p>WebSocket via Durable Objects. 32 peers/room, 64 rooms/app. Chat, presence, cursors. <code>fas.rooms.join()</code></p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-free">Free</span>
+          <h3>API Proxy</h3>
+          <p>Call any third-party API without exposing keys. 5 secrets, 10k requests/day. <code>fas.proxy.fetch()</code></p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-user">User-funded</span>
+          <h3>User API Key Vault</h3>
+          <p>Users store their own keys (OpenAI, Anthropic, Google AI, etc.) encrypted on the platform. Apps call the proxy, platform injects the key. <code>fas.keys.manage()</code></p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-free">Free</span>
+          <h3>App-level Roles (RBAC)</h3>
+          <p>Owner, member, moderator, editor, viewer + custom roles. Server-enforced. <code>fas.roles.assign()</code></p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-free">Free</span>
+          <h3>18 React UI Components</h3>
+          <p>FasShell, Modal, Tabs, Card, Badge, Spinner, SearchInput, ListRow, KeyPrompt, ErrorBoundary, and more. CSS variable theming.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-free">Free</span>
+          <h3>Static Hosting (R2)</h3>
+          <p>Push to main = live. GitHub Actions builds, uploads to R2. Zero egress fees. Sub-50ms globally.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-free">Free</span>
+          <h3>MCP Server for AI Agents</h3>
+          <p>AI agents (Claude Code, Cursor, Codex) can query deploy status, SDK reference, and app info via MCP tools.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-free">Free</span>
+          <h3>CLI + Compliance</h3>
+          <p><code>fas init</code>, <code>fas check</code>, <code>fas publish</code>. Automated brand, bundle size, PWA, and security checks on every push.</p>
+        </div>
+      </div>
+
+      <div class="upgrade-banner">
+        <h3>Need more?</h3>
+        <p>Server-side AI, custom domains, file uploads, cron jobs, email, payments, and proprietary source.</p>
+        <a href="https://proappstore.online">Upgrade to ProAppStore &rarr;</a>
+      </div>
+
+      <h2>Pro capabilities (ProAppStore, $9/mo)</h2>
+      <div class="cap-grid">
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-pro">Pro</span>
+          <h3>Server-side AI</h3>
+          <p>Workers AI included. No user key needed. Text generation, chat, embeddings out of the box.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-pro">Pro</span>
+          <h3>Custom Domain</h3>
+          <p>Serve your app from <code>your-domain.com</code> instead of a subdomain. CF for SaaS Custom Hostnames.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-pro">Pro</span>
+          <h3>File Uploads + R2 Storage</h3>
+          <p>Per-app R2 bucket. Images, documents, media. CDN-served with immutable cache headers.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-pro">Pro</span>
+          <h3>Cron Jobs</h3>
+          <p>Scheduled Workers for digests, reminders, batch processing, daily challenges.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-pro">Pro</span>
+          <h3>Transactional Email</h3>
+          <p>Resend integration. ~1k sends/mo included. Welcome emails, notifications, receipts.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-pro">Pro</span>
+          <h3>Per-app Database (D1)</h3>
+          <p>Direct SQL on your own D1 database. Not just KV/collections &mdash; full relational queries.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-pro">Pro</span>
+          <h3>Payments + Payouts</h3>
+          <p>Stripe subscriptions. Platform handles billing; creators get monthly payouts based on usage share.</p>
+        </div>
+        <div class="cap-card">
+          <span class="cap-tag cap-tag-pro">Pro</span>
+          <h3>Proprietary Source</h3>
+          <p>No MIT requirement. Keep your source code private. Build commercial apps.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free <span>Apps</span></a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="/build-with-ai">Build</a>
+        <a href="https://create.freeappstore.online">VibeCode</a>
+        <a href="/guidelines">Guidelines</a>
+        <a href="/docs">Docs</a>
+        <a href="/quality">Quality</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+        <a href="https://proappstore.online" class="footer-link-pro">Pro</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/auth.js" integrity="{{SRI_AUTH_JS}}"></script>
+</body>
+</html>
