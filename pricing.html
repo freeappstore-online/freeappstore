@@ -104,9 +104,9 @@
             <tr><td>KV ops per minute (per app)</td><td>1,000</td><td>HTTP 429 with retry-after</td></tr>
             <tr><td>KV active users per day (per app)</td><td>100</td><td>Soft cap; new user reads still served</td></tr>
             <tr><td>Storage per user (per app)</td><td>1MB</td><td>Writes return 413 once full</td></tr>
-            <tr><td>Concurrent rooms (per app)</td><td>5</td><td>New room creation refused with 429</td></tr>
-            <tr><td>Connections per room</td><td>25</td><td>26th connection refused</td></tr>
-            <tr><td>Room duration per day (per app)</td><td>50 user-hours</td><td>New connections refused for the rest of the day</td></tr>
+            <tr><td>Active rooms per app</td><td>64</td><td>LRU eviction of oldest idle room</td></tr>
+            <tr><td>Peers per room</td><td>32</td><td>33rd connection refused</td></tr>
+            <tr><td>Messages per peer/sec</td><td>100</td><td>Excess messages dropped</td></tr>
             <tr><td>Counters per app</td><td>1,000</td><td>New counter creation refused</td></tr>
             <tr><td>Counter increment range</td><td>-1000 to +1000</td><td>Returns 400</td></tr>
             <tr><td>Proxy secrets per app</td><td>5</td><td>6th secret refused with 409</td></tr>
@@ -122,7 +122,7 @@
       </div>
 
       <div class="why-cap">
-        <strong>Why we cap rooms hard.</strong> Real-time WebSocket rooms run on Cloudflare Durable Objects, billed per GB-second of duration. A single popular app with 10,000 concurrent users 24/7 would cost us roughly <strong>$41,000/month</strong> in DO charges alone. The 50-user-hours/day cap keeps that worst case bounded. If your app legitimately needs more, that's exactly when Pro pays off — for both of us.
+        <strong>Why we cap rooms.</strong> Real-time WebSocket rooms run on Cloudflare Durable Objects, billed per GB-second of duration. A single popular app with 10,000 concurrent users 24/7 would cost us roughly <strong>$41,000/month</strong> in DO charges alone. The 32-peer/64-room cap keeps the worst case bounded. Most apps (chat, presence, WebRTC signaling) never hit these limits. If yours does, that's when Pro pays off.
       </div>
 
       <h2>How we count costs</h2>
