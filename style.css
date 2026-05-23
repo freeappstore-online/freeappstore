@@ -2429,3 +2429,32 @@ pre[class*="language-"] {
   .developers-grid { grid-template-columns: 1fr; }
 }
 
+/* ── Capabilities page ────────────────────────────────────────── */
+.cap-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1.25rem; margin: 1.5rem 0 2.5rem; }
+.cap-card { border: 1px solid var(--line); border-radius: 1rem; padding: 1.25rem; background: var(--panel); }
+.cap-card h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+.cap-card p { margin: 0; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+.cap-card code { font-size: 0.8rem; background: var(--paper); border: 1px solid var(--line); padding: 0.1em 0.3em; border-radius: 0.25rem; }
+.cap-card .cap-tag { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.15rem 0.45rem; border-radius: 9999px; margin-bottom: 0.5rem; }
+.cap-tag-free { background: #dcfce7; color: #16a34a; }
+.cap-tag-pro { background: #ede9fe; color: #7c3aed; }
+.cap-tag-user { background: #e0f2fe; color: #0369a1; }
+.upgrade-banner { border: 1px solid var(--line); border-radius: 1rem; padding: 1.5rem; background: var(--panel); text-align: center; margin: 2rem 0; }
+.upgrade-banner h3 { margin: 0 0 0.5rem; }
+.upgrade-banner p { color: var(--muted); font-size: 0.9rem; margin: 0 0 1rem; }
+.upgrade-banner .cta-btn { display: inline-block; padding: 0.6rem 1.5rem; background: var(--accent); color: #fff; border-radius: 0.5rem; font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+
+/* ── Browser APIs page ────────────────────────────────────────── */
+.api-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1rem; margin: 1.5rem 0 2.5rem; }
+.api-card { border: 1px solid var(--line); border-radius: 1rem; padding: 1.25rem; background: var(--panel); }
+.api-card h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+.api-card p { margin: 0 0 0.5rem; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+.api-card .compat { font-size: 0.7rem; color: var(--muted); }
+.api-card .compat span { display: inline-block; padding: 0.1rem 0.35rem; border-radius: 0.25rem; margin-right: 0.25rem; font-weight: 600; }
+.compat-yes { background: #dcfce7; color: #16a34a; }
+.compat-partial { background: #fefce8; color: #ca8a04; }
+.compat-no { background: #fef2f2; color: #dc2626; }
+.idea { font-size: 0.8rem; color: var(--ink); font-style: italic; margin-top: 0.35rem; }
+.idea::before { content: "Build idea: "; font-weight: 600; font-style: normal; }
+.section-note { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; max-width: 40rem; }
+

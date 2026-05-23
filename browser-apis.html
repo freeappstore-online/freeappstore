@@ -19,20 +19,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css" />
-  <style>
-    .api-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: 1rem; margin: 1.5rem 0 2.5rem; }
-    .api-card { border: 1px solid var(--line); border-radius: 1rem; padding: 1.25rem; background: var(--panel); }
-    .api-card h3 { margin: 0 0 0.35rem; font-size: 1rem; }
-    .api-card p { margin: 0 0 0.5rem; font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
-    .api-card .compat { font-size: 0.7rem; color: var(--muted); }
-    .api-card .compat span { display: inline-block; padding: 0.1rem 0.35rem; border-radius: 0.25rem; margin-right: 0.25rem; font-weight: 600; }
-    .compat-yes { background: #dcfce7; color: #16a34a; }
-    .compat-partial { background: #fefce8; color: #ca8a04; }
-    .compat-no { background: #fef2f2; color: #dc2626; }
-    .idea { font-size: 0.8rem; color: var(--ink); font-style: italic; margin-top: 0.35rem; }
-    .idea::before { content: "Build idea: "; font-weight: 600; font-style: normal; }
-    .section-note { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; max-width: 40rem; }
-  </style>
 </head>
 <body>
   <header>
@@ -276,7 +262,7 @@
         </div>
       </div>
 
-      <div class="upgrade-banner" style="margin-top: 3rem;">
+      <div class="upgrade-banner">
         <h3>The browser is the platform. Build anything.</h3>
         <p>Combine these APIs with FreeAppStore's SDK (auth, storage, real-time, AI proxy) and you have a full app platform. No native code, no app store review, no install friction. Just a URL.</p>
         <a href="/get-started">Start building &rarr;</a>
