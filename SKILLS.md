@@ -353,16 +353,20 @@ Use for: admin panels, moderation, content gating, feature flags by role. Custom
 
 Many useful APIs require no API key. Prefer these first -- call them directly from the browser, no proxy needed.
 
-| Category | API | Notes |
+| Category | API / Library | Notes |
 |---|---|---|
+| **Maps** | Leaflet + OpenStreetMap (`react-leaflet`) | Free, no key. `pnpm add leaflet react-leaflet`. Best free-tier map option. |
 | Weather | Open-Meteo (`open-meteo.com`) | 10k/day, no signup |
 | Geocoding | Nominatim (`nominatim.openstreetmap.org`) | 1/sec, set User-Agent |
+| Routing | OSRM (`router.project-osrm.org`) | Free, no key, driving/cycling/walking directions |
 | Exchange rates | ExchangeRate-API (`open.er-api.com`) | 1.5k/mo |
 | Country data | REST Countries (`restcountries.com`) | Unlimited |
 | Dictionary | Free Dictionary API (`dictionaryapi.dev`) | Unlimited |
 | Random users | randomuser.me | Unlimited |
 | Placeholder images | Lorem Picsum (`picsum.photos`) | Unlimited |
 | Public datasets | data.gov, WHO, World Bank | Varies |
+
+**Maps guidance:** Use Leaflet + OpenStreetMap (free, no API key) for the free tier. Google Maps requires a billing-enabled API key and is a `VITE_*` public config (see App Config section). If you need Google Maps, set `VITE_GOOGLE_MAPS_KEY` as a GitHub repo Variable restricted to `*.freeappstore.online` referrer.
 
 ### Secret-injecting API Proxy
 
