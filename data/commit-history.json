@@ -1216,9 +1216,29 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-23T12:24:32Z"
+      "pushed_at": "2026-05-23T19:57:52Z"
     },
     "commits": [
+      {
+        "sha": "c7bd180db6542300f1aa47b037fff59ec3ca68d8",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/c7bd180db6542300f1aa47b037fff59ec3ca68d8",
+        "commit": {
+          "message": "Use minimal CartoDB tiles (no labels, muted colors)\n\nSwitches from default OSM tiles to CartoDB light_nolabels —\nmuch cleaner backdrop that lets art markers stand out.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-23T19:57:50Z"
+          }
+        }
+      },
+      {
+        "sha": "4603cc6c3b9546b51a80d94012469ecef72b689b",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/4603cc6c3b9546b51a80d94012469ecef72b689b",
+        "commit": {
+          "message": "Fix map not rendering: give Leaflet container absolute positioning\n\nLeaflet needs a concrete height — flex-1 alone doesn't work.\nUse absolute inset-0 within a relative flex-1 parent.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-23T19:52:56Z"
+          }
+        }
+      },
       {
         "sha": "affea60ba5fda9db19aa39024816e1680f2cb696",
         "html_url": "https://github.com/freeappstore-online/artout/commit/affea60ba5fda9db19aa39024816e1680f2cb696",
@@ -1226,26 +1246,6 @@
           "message": "Fix: guard KV call when not signed in, add favicon\n\n- useFavorites: skip fas.kv.get() when user is null (was throwing)\n- Add SVG favicon to fix 404\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-23T12:24:26Z"
-          }
-        }
-      },
-      {
-        "sha": "c2b577b7696465f97282a644809aa3711a61bab7",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/c2b577b7696465f97282a644809aa3711a61bab7",
-        "commit": {
-          "message": "Add Google sign-in alongside GitHub\n\nBoth providers are shown on sign-in screens (Add, Favorites).\nGoogle OAuth is already configured on the platform backend.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-23T12:20:23Z"
-          }
-        }
-      },
-      {
-        "sha": "ecc9229d1491c7f6607205d395d2bfc91bf8ded2",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/ecc9229d1491c7f6607205d395d2bfc91bf8ded2",
-        "commit": {
-          "message": "Replace Google Maps with Leaflet + OpenStreetMap\n\nNo API key needed — fully free stack. Swap:\n- @vis.gl/react-google-maps → react-leaflet + leaflet\n- google.maps.Geocoder → Nominatim reverse geocoding\n- Remove VITE_GOOGLE_MAPS_KEY from deploy + tsconfig\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-23T12:15:48Z"
           }
         }
       }
