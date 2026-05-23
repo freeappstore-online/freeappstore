@@ -355,16 +355,30 @@ Many useful APIs require no API key. Prefer these first -- call them directly fr
 
 | Category | API / Library | Notes |
 |---|---|---|
-| **Maps** | Leaflet + OpenStreetMap (`react-leaflet`) | Free, no key. `pnpm add leaflet react-leaflet`. Best free-tier map option. |
-| Weather | Open-Meteo (`open-meteo.com`) | 10k/day, no signup |
-| Geocoding | Nominatim (`nominatim.openstreetmap.org`) | 1/sec, set User-Agent |
-| Routing | OSRM (`router.project-osrm.org`) | Free, no key, driving/cycling/walking directions |
-| Exchange rates | ExchangeRate-API (`open.er-api.com`) | 1.5k/mo |
-| Country data | REST Countries (`restcountries.com`) | Unlimited |
-| Dictionary | Free Dictionary API (`dictionaryapi.dev`) | Unlimited |
-| Random users | randomuser.me | Unlimited |
-| Placeholder images | Lorem Picsum (`picsum.photos`) | Unlimited |
-| Public datasets | data.gov, WHO, World Bank | Varies |
+| **Maps** | Leaflet + OpenStreetMap (`react-leaflet`) | `pnpm add leaflet react-leaflet`. No key. Best free-tier map. |
+| **Charts** | Recharts (`recharts`) | `pnpm add recharts`. React charting. Bar, line, pie, area, radar. |
+| **Rich text** | Tiptap (`@tiptap/react`) | `pnpm add @tiptap/react @tiptap/starter-kit`. Headless editor, extensible. |
+| **Date/time** | date-fns (`date-fns`) | `pnpm add date-fns`. Lightweight, tree-shakable. No Moment.js. |
+| **Markdown** | react-markdown (`react-markdown`) | `pnpm add react-markdown`. Render markdown as React components. |
+| **PDF** | react-pdf or jsPDF | `pnpm add @react-pdf/renderer` (create) or `react-pdf` (view). |
+| **QR codes** | qrcode.react (`qrcode.react`) | `pnpm add qrcode.react`. Generate QR codes as SVG/Canvas. |
+| **Drag & drop** | dnd-kit (`@dnd-kit/core`) | `pnpm add @dnd-kit/core @dnd-kit/sortable`. Kanban, reorder lists. |
+| **Animations** | Framer Motion (`framer-motion`) | `pnpm add framer-motion`. Layout animations, gestures, transitions. |
+| **Icons** | Lucide React (`lucide-react`) | `pnpm add lucide-react`. 1500+ icons, tree-shakable, MIT. |
+| **Forms** | React Hook Form (`react-hook-form`) | `pnpm add react-hook-form`. Performant forms with validation. |
+| **State** | Zustand (`zustand`) | `pnpm add zustand`. Tiny state manager. Better than Redux for most apps. |
+| Weather | Open-Meteo (`open-meteo.com`) | No key. 10k/day. Forecast, historical, air quality. |
+| Geocoding | Nominatim (`nominatim.openstreetmap.org`) | No key. 1/sec. Set User-Agent header. |
+| Routing | OSRM (`router.project-osrm.org`) | No key. Driving, cycling, walking directions. |
+| Exchange rates | ExchangeRate-API (`open.er-api.com`) | No key. 1.5k requests/mo. |
+| Country data | REST Countries (`restcountries.com`) | No key. Flags, currencies, languages, timezones. |
+| Dictionary | Free Dictionary API (`dictionaryapi.dev`) | No key. Definitions, phonetics, audio. |
+| Hacker News | Algolia HN API (`hn.algolia.com`) | No key. Search + front page + comments. |
+| Wikipedia | MediaWiki API (`en.wikipedia.org/w/api.php`) | No key. Search, summaries, full articles. |
+| Open Library | Open Library API (`openlibrary.org`) | No key. Book data, covers, full texts. |
+| Random users | randomuser.me | No key. Fake user data for testing/demos. |
+| Placeholder images | Lorem Picsum (`picsum.photos`) | No key. Random photos at any size. |
+| Public datasets | data.gov, WHO, World Bank | Varies. Government + health + economic data. |
 
 **Maps guidance:** Use Leaflet + OpenStreetMap (free, no API key) for the free tier. Google Maps requires a billing-enabled API key and is a `VITE_*` public config (see App Config section). If you need Google Maps, set `VITE_GOOGLE_MAPS_KEY` as a GitHub repo Variable restricted to `*.freeappstore.online` referrer.
 
