@@ -1216,36 +1216,36 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-23T11:54:49Z"
+      "pushed_at": "2026-05-23T12:24:32Z"
     },
     "commits": [
       {
-        "sha": "b7cf4933eae61a1f50bdfb48a3e1a5e279a4682c",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/b7cf4933eae61a1f50bdfb48a3e1a5e279a4682c",
+        "sha": "affea60ba5fda9db19aa39024816e1680f2cb696",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/affea60ba5fda9db19aa39024816e1680f2cb696",
         "commit": {
-          "message": "Update to SDK 0.12.0, add R2 deploy, fix auth + compliance\n\n- Bump @freeappstore/sdk 0.6.1 → 0.12.0 (fas.db → fas.collections)\n- Add deploy.yml for R2 hosting (was missing entirely)\n- Fix auth: signIn('google') → signIn() (GitHub OAuth)\n- Add FreeAppStore link in Shell (compliance check was failing)\n- Update CLAUDE.md (CF Pages → R2, correct auth docs)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Fix: guard KV call when not signed in, add favicon\n\n- useFavorites: skip fas.kv.get() when user is null (was throwing)\n- Add SVG favicon to fix 404\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-23T11:54:40Z"
+            "date": "2026-05-23T12:24:26Z"
           }
         }
       },
       {
-        "sha": "863ab1223b712f32b07e1ac871e8839be52977b7",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/863ab1223b712f32b07e1ac871e8839be52977b7",
+        "sha": "c2b577b7696465f97282a644809aa3711a61bab7",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/c2b577b7696465f97282a644809aa3711a61bab7",
         "commit": {
-          "message": "Build ArtOut: street art photo sharing PWA\n\nFull rebuild of artout-legacy on FAS platform:\n- Map view with Google Maps markers and info popups\n- Wall view (3-column photo grid with location badges)\n- Upload flow with camera/gallery, auto-geolocation, Cloudinary\n- Places view (hierarchical location tree derived from posts)\n- Favorites (FAS KV per-user storage)\n- Full-screen lightbox gallery\n- Google auth via FAS SDK\n- Dark theme, mobile-first, PWA-ready\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Add Google sign-in alongside GitHub\n\nBoth providers are shown on sign-in screens (Add, Favorites).\nGoogle OAuth is already configured on the platform backend.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-18T19:12:15Z"
+            "date": "2026-05-23T12:20:23Z"
           }
         }
       },
       {
-        "sha": "c1ef99ba9544427a646dd4e768dd7d6e23a2b00d",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/c1ef99ba9544427a646dd4e768dd7d6e23a2b00d",
+        "sha": "ecc9229d1491c7f6607205d395d2bfc91bf8ded2",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/ecc9229d1491c7f6607205d395d2bfc91bf8ded2",
         "commit": {
-          "message": "Initial commit from standalone template",
+          "message": "Replace Google Maps with Leaflet + OpenStreetMap\n\nNo API key needed — fully free stack. Swap:\n- @vis.gl/react-google-maps → react-leaflet + leaflet\n- google.maps.Geocoder → Nominatim reverse geocoding\n- Remove VITE_GOOGLE_MAPS_KEY from deploy + tsconfig\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-18T19:05:59Z"
+            "date": "2026-05-23T12:15:48Z"
           }
         }
       }
