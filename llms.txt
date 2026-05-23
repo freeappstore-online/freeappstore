@@ -15,6 +15,7 @@
 - [SDK Docs](https://freeappstore.online/docs): Full SDK documentation with examples for every feature.
 - [UI Component Library](https://freeappstore.online/docs/ui): FasShell, Avatar, SignInButton, ThemeToggle, ProfileMenu, ProfilePage, Spinner, Badge, Card, Tabs, Modal, ConfirmDialog, EmptyState, ProgressBar, SearchInput, ListRow, ErrorBoundary, KeyPrompt.
 - [API Key Vault](https://api.freeappstore.online/v1/keys): Platform-hosted key management page. Users store encrypted API keys (OpenAI, Anthropic, etc.) that apps access via the proxy. Apps never see plaintext keys.
+- [Free Libraries & APIs](https://freeappstore.online/skills.md#free-apis-no-key-required): 25 free tools that need no API key. Libraries: Leaflet (maps), Recharts (charts), Tiptap (rich text), date-fns, dnd-kit, Framer Motion, Lucide icons, Zustand. APIs: Open-Meteo (weather), Nominatim (geocoding), OSRM (routing), REST Countries, Wikipedia, and more.
 
 ## CLI
 

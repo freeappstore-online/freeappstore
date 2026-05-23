@@ -190,8 +190,14 @@ room.onMessage(msg =&gt; console.log(msg))
 room.onPeers(peers =&gt; console.log(peers.length, 'online'))
 room.close()</code></pre>
 
+      <h2>Free Libraries &amp; APIs</h2>
+      <p>Many useful tools require no API key. Use them directly &mdash; no proxy needed.</p>
+      <p><strong>Libraries:</strong> Leaflet (maps), Recharts (charts), Tiptap (rich text), date-fns, react-markdown, react-pdf, qrcode.react, dnd-kit (drag &amp; drop), Framer Motion (animations), Lucide React (1500+ icons), React Hook Form, Zustand (state).</p>
+      <p><strong>APIs:</strong> Open-Meteo (weather), Nominatim (geocoding), OSRM (routing), REST Countries, Free Dictionary API, Hacker News, Wikipedia, Open Library, randomuser.me, Lorem Picsum.</p>
+      <p>See the <a href="/skills.md">full list in SKILLS.md</a> with install commands and rate limits.</p>
+
       <h2>Proxy (Secret-injecting API Proxy)</h2>
-      <p>Call third-party APIs without exposing keys to the client.</p>
+      <p>For APIs that <strong>do</strong> need a key, the proxy encrypts and injects it server-side.</p>
       <pre><code>const response = await fas.proxy.fetch('/openai/chat/completions', {
   method: 'POST',
   body: JSON.stringify({ model: 'gpt-4', messages: [...] }),
