@@ -406,6 +406,21 @@
       "creatorGithub": "serge-ivo"
     },
     {
+      "id": "faces",
+      "name": "faces",
+      "category": "Social",
+      "icon": "🫠",
+      "iconBg": "#1a1a1a",
+      "description": "Anonymous face wall from around the world",
+      "appUrl": "https://faces.freeappstore.online",
+      "repo": "freeappstore-online/faces",
+      "cfProject": "freefaces",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "hostedOn": "r2",
+      "creatorGithub": "serge-ivo"
+    },
+    {
       "id": "whenly",
       "name": "whenly",
       "category": "Productivity",
