@@ -96,7 +96,7 @@ People join as creators to build apps/games. The flow:
 | **Store repo** | freeappstore-online/freeappstore | freegamestore-online/freegamestore |
 | **Registry file** | `registry.json` in store repo | `registry.json` in store repo |
 | **Templates** | template-standalone | template-game-canvas, template-game-cards, template-game-grid, template-game-3d |
-| **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys) | — || **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys) | — || **Accent color** | Blue (#2563eb) | Emerald (#10b981) |
+| **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys, email) | — || **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys, email) | — || **Accent color** | Blue (#2563eb) | Emerald (#10b981) |
 | **Logo** | Free **Apps** | Free **Games** |
 | **Admin** | admin.freeappstore.online | admin.freegamestore.online |
 | **Publish portal** | publish.freeappstore.online | publish.freegamestore.online |
@@ -172,7 +172,7 @@ No further API calls or manual steps needed. Ever.
 
 - ONE environment: production only. Push to `main` = deploy. Fix forward.
 - Static hosting on Cloudflare R2 (served by the host Worker). No server-side code in apps.
-- Backend (if needed): `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys). `npm i @freeappstore/sdk`.
+- Backend (if needed): `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys, email). `npm i @freeappstore/sdk`.
 - Free means free forever. No monetization in the free version.
 
 ## Tech Stack (required)
@@ -407,6 +407,19 @@ const keys = await fas.keys.status()
 
 Apps should use the `KeyPrompt` component (see UI section below) to show a prompt when a key is missing, rather than building custom key-entry UI.
 
+### Transactional Email
+
+Send email through the platform's Resend integration. No email provider setup needed.
+
+```tsx
+await fas.email.send('user@example.com', 'Welcome!', {
+  html: '<h1>Welcome to my app!</h1><p>Thanks for signing up.</p>',
+  text: 'Welcome to my app! Thanks for signing up.',
+})
+```
+
+Subject is auto-prefixed with `[appId]`. Limit: 100 emails/day per app. Requires auth (user must be signed in).
+
 ### App Config & Secrets (what goes where)
 
 Apps need three kinds of external values. Each has a different storage path:
@@ -444,7 +457,7 @@ FreeAppStore is free forever with real features, but some things need the Pro ti
 | **Real-time multiplayer** | Rooms: 32 peers, ephemeral | Server-authoritative DOs, persistent state |
 | **Custom domain** | `appname.freeappstore.online` only | `your-domain.com` via CF for SaaS |
 | **Scheduled tasks** | Not available | Cron Workers (digests, reminders, daily jobs) |
-| **Transactional email** | Not available yet | Resend integration (included quota) |
+| **Transactional email** | 100/day per app via `fas.email.send()` | Higher quota (included) |
 | **File storage** | Not available | R2 bucket per app (images, uploads, media) |
 | **Server-side compute** | Static + client-side only | Per-app Worker with D1 database |
 | **Monetization** | Free forever, no payments | Stripe integration, creator payouts |
