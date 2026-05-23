@@ -1216,36 +1216,36 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-23T20:06:51Z"
+      "pushed_at": "2026-05-23T20:26:30Z"
     },
     "commits": [
       {
-        "sha": "615e5e081d56e3158819fc0a0f9ec77bf3ff717d",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/615e5e081d56e3158819fc0a0f9ec77bf3ff717d",
+        "sha": "50b64d655fc96e31e70ff9c1b7a132845569a04f",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/50b64d655fc96e31e70ff9c1b7a132845569a04f",
         "commit": {
-          "message": "Fix content drawing over bottom navbar\n\nAdd pb-[4.5rem] to main container in Shell so all child views\n(map, wall, places, add, favs) stop above the fixed nav bar.\nRemove redundant per-view pb-20 padding.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Fix migration script API path (db not collections)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-23T20:06:50Z"
+            "date": "2026-05-23T20:26:28Z"
           }
         }
       },
       {
-        "sha": "b7c057927cb52e8a501e507ea0c295e0ee22b49e",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/b7c057927cb52e8a501e507ea0c295e0ee22b49e",
+        "sha": "05a367118198853238a5524afb86ce209cf90e90",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/05a367118198853238a5524afb86ce209cf90e90",
         "commit": {
-          "message": "Restyle for street art: dark-first, neon accents, urban feel\n\n- Dark mode is now the default (no data-theme toggle needed)\n- Neon magenta accent (#ff2d6b), cyan sky, green mint — spray-paint palette\n- Dark CartoDB map tiles with glowing neon markers\n- Proper SVG tab icons (pin, grid, globe, heart) with neon + add button\n- Edge-to-edge photo wall with gradient location badges\n- Leaflet popup styled for dark mode\n- Fraunces display font for headings (\"Drop a spot\", \"Your collection\")\n- Stripped polished blob gradients — raw dark background\n- Tighter, grittier copy throughout\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Black background on load + Firebase migration script\n\n- Set body background to #000 in HTML so page starts black before CSS loads\n- Add scripts/migrate-firebase.ts: ports 2,460 posts from legacy Firebase\n  DB (coords + Cloudinary image refs) into FAS Collections\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-23T20:01:38Z"
+            "date": "2026-05-23T20:14:53Z"
           }
         }
       },
       {
-        "sha": "c7bd180db6542300f1aa47b037fff59ec3ca68d8",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/c7bd180db6542300f1aa47b037fff59ec3ca68d8",
+        "sha": "cef821d9dd9f303ef5bf4a59e4ad6d77d0fb44f5",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/cef821d9dd9f303ef5bf4a59e4ad6d77d0fb44f5",
         "commit": {
-          "message": "Use minimal CartoDB tiles (no labels, muted colors)\n\nSwitches from default OSM tiles to CartoDB light_nolabels —\nmuch cleaner backdrop that lets art markers stand out.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Fix: nav z-index, auth init, double padding, mobile hover\n\n- Bump nav z-index to 1100 (Leaflet uses up to 1000 for popups)\n- Call fas.auth.init() before render (captures OAuth redirect token)\n- Remove double padding-bottom on #root (nav handles safe area)\n- Remove hover:scale on wall images (causes sticky state on mobile)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-23T19:57:50Z"
+            "date": "2026-05-23T20:08:41Z"
           }
         }
       }
@@ -1626,6 +1626,24 @@
           "message": "chore: trigger CF Pages deploy",
           "author": {
             "date": "2026-05-22T00:55:57Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/faces": {
+    "meta": {
+      "created_at": "2026-05-23T20:34:58Z",
+      "pushed_at": "2026-05-23T20:35:05Z"
+    },
+    "commits": [
+      {
+        "sha": "43e99d7c45736b373f24e889e2025ea0f959a2b0",
+        "html_url": "https://github.com/freeappstore-online/faces/commit/43e99d7c45736b373f24e889e2025ea0f959a2b0",
+        "commit": {
+          "message": "Build Faces of the World: anonymous face wall PWA\n\nSpin-off from ArtOut — people kept posting selfies, so we gave\nthem their own app. Circular face wall, selfie upload with front\ncamera, face-centered Cloudinary crops, auto city+country via\nNominatim. Two tabs: Wall + Snap. Dark theme, warm amber accent.\n\n68KB gzipped. Zero API keys needed.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-23T20:34:15Z"
           }
         }
       }
