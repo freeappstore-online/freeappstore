@@ -1216,9 +1216,29 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-23T19:57:52Z"
+      "pushed_at": "2026-05-23T20:06:51Z"
     },
     "commits": [
+      {
+        "sha": "615e5e081d56e3158819fc0a0f9ec77bf3ff717d",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/615e5e081d56e3158819fc0a0f9ec77bf3ff717d",
+        "commit": {
+          "message": "Fix content drawing over bottom navbar\n\nAdd pb-[4.5rem] to main container in Shell so all child views\n(map, wall, places, add, favs) stop above the fixed nav bar.\nRemove redundant per-view pb-20 padding.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-23T20:06:50Z"
+          }
+        }
+      },
+      {
+        "sha": "b7c057927cb52e8a501e507ea0c295e0ee22b49e",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/b7c057927cb52e8a501e507ea0c295e0ee22b49e",
+        "commit": {
+          "message": "Restyle for street art: dark-first, neon accents, urban feel\n\n- Dark mode is now the default (no data-theme toggle needed)\n- Neon magenta accent (#ff2d6b), cyan sky, green mint — spray-paint palette\n- Dark CartoDB map tiles with glowing neon markers\n- Proper SVG tab icons (pin, grid, globe, heart) with neon + add button\n- Edge-to-edge photo wall with gradient location badges\n- Leaflet popup styled for dark mode\n- Fraunces display font for headings (\"Drop a spot\", \"Your collection\")\n- Stripped polished blob gradients — raw dark background\n- Tighter, grittier copy throughout\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-23T20:01:38Z"
+          }
+        }
+      },
       {
         "sha": "c7bd180db6542300f1aa47b037fff59ec3ca68d8",
         "html_url": "https://github.com/freeappstore-online/artout/commit/c7bd180db6542300f1aa47b037fff59ec3ca68d8",
@@ -1226,26 +1246,6 @@
           "message": "Use minimal CartoDB tiles (no labels, muted colors)\n\nSwitches from default OSM tiles to CartoDB light_nolabels —\nmuch cleaner backdrop that lets art markers stand out.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-23T19:57:50Z"
-          }
-        }
-      },
-      {
-        "sha": "4603cc6c3b9546b51a80d94012469ecef72b689b",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/4603cc6c3b9546b51a80d94012469ecef72b689b",
-        "commit": {
-          "message": "Fix map not rendering: give Leaflet container absolute positioning\n\nLeaflet needs a concrete height — flex-1 alone doesn't work.\nUse absolute inset-0 within a relative flex-1 parent.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-23T19:52:56Z"
-          }
-        }
-      },
-      {
-        "sha": "affea60ba5fda9db19aa39024816e1680f2cb696",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/affea60ba5fda9db19aa39024816e1680f2cb696",
-        "commit": {
-          "message": "Fix: guard KV call when not signed in, add favicon\n\n- useFavorites: skip fas.kv.get() when user is null (was throwing)\n- Add SVG favicon to fix 404\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-23T12:24:26Z"
           }
         }
       }
