@@ -1216,9 +1216,19 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-24T12:05:01Z"
+      "pushed_at": "2026-05-24T19:12:38Z"
     },
     "commits": [
+      {
+        "sha": "ffc5cb7040ae0756adbdf4e3066ac56ec346531b",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/ffc5cb7040ae0756adbdf4e3066ac56ec346531b",
+        "commit": {
+          "message": "Rewrite e2e tests: remove fakes, add real coverage, refactor\n\nRemoved 5 fake tests that passed but tested nothing:\n- \"cluster labels show location names\" — was identical to \"shows clusters\"\n- \"saved tab has grid/feed toggle\" — never saw the toggle (not signed in)\n- \"location badges visible\" — only checked CSS class, not content\n- \"gallery has fav button\" — checked z-index div, not heart emoji\n- \"infinite scroll indicator\" — count<=1 always passes\n\nRemoved 3 duplicates:\n- \"saved tab requires sign-in\" duplicated by auth tests\n- \"shows cluster markers\" duplicated by cluster labels test\n- \"has sort dropdown\" overlapped with \"default sort is newest\"\n\nAdded 7 new real tests:\n- cluster labels contain actual place names (text content check)\n- grid shows trash button on each item\n- feed shows trash button\n- gallery shows trash button\n- gallery shows location tags (in bottom bar)\n- feed shows location tags\n- map search icon opens picker\n\nRefactored:\n- Shared helpers: nav(), waitForWall(), openGallery(), switchToFeed()\n- All nav buttons use scoped page.locator('nav button', ...)\n- Consistent test structure across 8 groups\n- No more mixed selector patterns\n\n47 → 42 tests (5 fake + 3 dupes removed, 7 real added)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-24T19:12:36Z"
+          }
+        }
+      },
       {
         "sha": "12e3bd3cdbeb69f0f76d7f31865a5dcc14874265",
         "html_url": "https://github.com/freeappstore-online/artout/commit/12e3bd3cdbeb69f0f76d7f31865a5dcc14874265",
@@ -1236,16 +1246,6 @@
           "message": "Add trash/report: hide posts per-user + public trash counter\n\nTrash feature:\n- 🗑 button on every post (grid, feed, gallery)\n- Tap → post disappears from all views for that user (map, wall, favs)\n- Stored per-user in KV (key: 'trashed', value: string[])\n- Public trash counter via fas.counters (key: trash:<postId>)\n- Admins can query counters to see which posts are most reported\n- Posts are NOT deleted from DB — just hidden for the user who trashed\n- Once trashed, never appears again for that user\n\nImplementation:\n- useTrash hook: mirrors useFavorites pattern (KV + counters)\n- App filters trashed posts from visiblePosts/visibleStablePosts\n- All downstream views (map, wall, favs) receive pre-filtered data\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-24T11:14:55Z"
-          }
-        }
-      },
-      {
-        "sha": "952acbed515255c8d2f4e25a752252fc83d905e3",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/952acbed515255c8d2f4e25a752252fc83d905e3",
-        "commit": {
-          "message": "Add 11 new e2e tests: breadcrumb, location tags, feed, sort, scroll\n\n47 tests total across 10 groups:\n\nBreadcrumb (3):\n- World button opens countries dropdown\n- Selecting from dropdown updates breadcrumb\n- Tapping middle segment navigates up\n\nLocation tags (2):\n- Posts show tappable location tag buttons\n- Tapping a tag navigates to wall with that filter\n\nFeed layout (3):\n- Feed shows large rounded-xl images\n- Feed shows Navigate → link\n- Navigate link has correct Google Maps URL\n\nSort (2):\n- Default sort is newest\n- Sort persists across tab switches\n\nInfinite scroll (1):\n- Loading sentinel exists at bottom of wall\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-24T11:09:32Z"
           }
         }
       }
