@@ -1216,36 +1216,36 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-24T04:01:52Z"
+      "pushed_at": "2026-05-24T04:34:36Z"
     },
     "commits": [
       {
-        "sha": "c2e653f53e336d7e292519801a2d8e9c3db3c0e8",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/c2e653f53e336d7e292519801a2d8e9c3db3c0e8",
+        "sha": "21b6546897247d4c0616612421dd56e8e3f385f1",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/21b6546897247d4c0616612421dd56e8e3f385f1",
         "commit": {
-          "message": "Redesign Saved: grid/feed toggle + tap heart to unfav\n\n- Removed location-based list layout\n- Grid view: 3-column photo tiles with ❤️ button to unfav\n- Feed view: Instagram-style vertical scroll with large images\n- Grid/feed toggle icons in header (same as Wall)\n- Shows count: \"Saved (12)\"\n- Tap ❤️ on any saved photo → removes it from favorites\n- All images lazy-loaded\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Fix test labels for shortened sort pills (New/Top)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T04:01:50Z"
+            "date": "2026-05-24T04:34:34Z"
           }
         }
       },
       {
-        "sha": "e883c6033e0915d7890e63791ca580aa741d0b59",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/e883c6033e0915d7890e63791ca580aa741d0b59",
+        "sha": "df923d3e8de6ba83e05e8afa845a7665b9d947ee",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/df923d3e8de6ba83e05e8afa845a7665b9d947ee",
         "commit": {
-          "message": "Lazy everything: progressive data load + lazy images on Favorites\n\nData loading:\n- First 100 posts load fast, app renders immediately\n- Remaining pages load progressively in background\n- UI updates as each page arrives (not blocked until all 2460 load)\n\nImages:\n- Added loading=\"lazy\" to FavoritesView thumbnails\n- WallView already had it on both grid and feed\n- MapView popup + AddView preview: single images, lazy not needed\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Unified top bar, fix map blinking, fix double toolbar on wall\n\nTop bar:\n- Single fixed bar at top across Map, Wall, Saved\n- Location pill + sort pills (Near/New/Top) + grid/feed toggle in one row\n- Map shows only location pill, Wall/Favs show all controls\n- Layout (grid/feed) shared between Wall and Saved tabs\n\nMap blinking fix:\n- Posts are \"stabilized\" with a 500ms debounce before updating markers\n- First batch renders immediately, subsequent batches wait for loading\n  to settle before re-rendering MarkerClusterGroup\n- No more flash/blink on every progressive page load\n\nRemoved:\n- WallView's own toolbar (sort/layout state lifted to App)\n- FavoritesView's own grid/feed toggle (uses shared layout)\n- Shell's old absolute-positioned header slot\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T03:59:06Z"
+            "date": "2026-05-24T04:31:05Z"
           }
         }
       },
       {
-        "sha": "e6cfab1e1296f14e71f442776dc1bb648bc77514",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/e6cfab1e1296f14e71f442776dc1bb648bc77514",
+        "sha": "b4c955abcd09741d67d563fa405b20274e4e3d3d",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/b4c955abcd09741d67d563fa405b20274e4e3d3d",
         "commit": {
-          "message": "Fix wall toolbar hidden behind location pill + fix flaky tests\n\n- Wall sort toolbar gets pt-12 so it doesn't sit under the\n  absolute-positioned location pill\n- Fixed strict-mode test failures: use getByRole for tab buttons\n- Gallery close test: use Escape key instead of fragile CSS selector\n- Simplified feed layout toggle test\n\n34/34 tests pass.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Fix gallery in Saved: pass favPosts as context to openGallery\n\nBug: clicking a favorite opened gallery with filteredPosts (all 2460)\ninstead of the user's favorites. Gallery showed 1 image sliding\nthrough because the index was wrong relative to the full list.\n\nFix: FavoritesView now passes favPosts array as the second arg to\nonPostClick, so the gallery slides only through saved photos.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-23T22:55:27Z"
+            "date": "2026-05-24T04:26:07Z"
           }
         }
       }
