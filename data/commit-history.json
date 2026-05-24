@@ -1216,36 +1216,36 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-23T20:26:30Z"
+      "pushed_at": "2026-05-24T04:01:52Z"
     },
     "commits": [
       {
-        "sha": "50b64d655fc96e31e70ff9c1b7a132845569a04f",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/50b64d655fc96e31e70ff9c1b7a132845569a04f",
+        "sha": "c2e653f53e336d7e292519801a2d8e9c3db3c0e8",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/c2e653f53e336d7e292519801a2d8e9c3db3c0e8",
         "commit": {
-          "message": "Fix migration script API path (db not collections)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Redesign Saved: grid/feed toggle + tap heart to unfav\n\n- Removed location-based list layout\n- Grid view: 3-column photo tiles with ❤️ button to unfav\n- Feed view: Instagram-style vertical scroll with large images\n- Grid/feed toggle icons in header (same as Wall)\n- Shows count: \"Saved (12)\"\n- Tap ❤️ on any saved photo → removes it from favorites\n- All images lazy-loaded\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-23T20:26:28Z"
+            "date": "2026-05-24T04:01:50Z"
           }
         }
       },
       {
-        "sha": "05a367118198853238a5524afb86ce209cf90e90",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/05a367118198853238a5524afb86ce209cf90e90",
+        "sha": "e883c6033e0915d7890e63791ca580aa741d0b59",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/e883c6033e0915d7890e63791ca580aa741d0b59",
         "commit": {
-          "message": "Black background on load + Firebase migration script\n\n- Set body background to #000 in HTML so page starts black before CSS loads\n- Add scripts/migrate-firebase.ts: ports 2,460 posts from legacy Firebase\n  DB (coords + Cloudinary image refs) into FAS Collections\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Lazy everything: progressive data load + lazy images on Favorites\n\nData loading:\n- First 100 posts load fast, app renders immediately\n- Remaining pages load progressively in background\n- UI updates as each page arrives (not blocked until all 2460 load)\n\nImages:\n- Added loading=\"lazy\" to FavoritesView thumbnails\n- WallView already had it on both grid and feed\n- MapView popup + AddView preview: single images, lazy not needed\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-23T20:14:53Z"
+            "date": "2026-05-24T03:59:06Z"
           }
         }
       },
       {
-        "sha": "cef821d9dd9f303ef5bf4a59e4ad6d77d0fb44f5",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/cef821d9dd9f303ef5bf4a59e4ad6d77d0fb44f5",
+        "sha": "e6cfab1e1296f14e71f442776dc1bb648bc77514",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/e6cfab1e1296f14e71f442776dc1bb648bc77514",
         "commit": {
-          "message": "Fix: nav z-index, auth init, double padding, mobile hover\n\n- Bump nav z-index to 1100 (Leaflet uses up to 1000 for popups)\n- Call fas.auth.init() before render (captures OAuth redirect token)\n- Remove double padding-bottom on #root (nav handles safe area)\n- Remove hover:scale on wall images (causes sticky state on mobile)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Fix wall toolbar hidden behind location pill + fix flaky tests\n\n- Wall sort toolbar gets pt-12 so it doesn't sit under the\n  absolute-positioned location pill\n- Fixed strict-mode test failures: use getByRole for tab buttons\n- Gallery close test: use Escape key instead of fragile CSS selector\n- Simplified feed layout toggle test\n\n34/34 tests pass.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-23T20:08:41Z"
+            "date": "2026-05-23T22:55:27Z"
           }
         }
       }
@@ -1634,9 +1634,29 @@
   "freeappstore-online/faces": {
     "meta": {
       "created_at": "2026-05-23T20:34:58Z",
-      "pushed_at": "2026-05-23T20:35:05Z"
+      "pushed_at": "2026-05-23T20:45:52Z"
     },
     "commits": [
+      {
+        "sha": "1341b5195c14b116b910cf647003f4de69af9a38",
+        "html_url": "https://github.com/freeappstore-online/faces/commit/1341b5195c14b116b910cf647003f4de69af9a38",
+        "commit": {
+          "message": "Multi-step posting flow with rules + confirm + preloaded moderation\n\nFlow: Rules → Camera → \"Are you sure? You can only post one!\" → Moderate → Upload\n\n- Rules screen explains all 5 rules before camera opens\n- AI models preload in background while user reads rules\n- Confirmation step: \"You can only post one face. This is it — forever on the wall.\"\n- Moderation runs only after user confirms\n- On failure, shows reason and offers Retake\n- preloadModels() exported from moderate.ts for early background loading\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-23T20:45:50Z"
+          }
+        }
+      },
+      {
+        "sha": "25578ac873709e15a889c281c176a94ba3ffe0d7",
+        "html_url": "https://github.com/freeappstore-online/faces/commit/25578ac873709e15a889c281c176a94ba3ffe0d7",
+        "commit": {
+          "message": "Add client-side AI moderation: face, age, NSFW checks\n\nAll checks run in-browser — nothing leaves the device until approved:\n- face-api.js: exactly 1 face required (no group, no faceless)\n- age estimation: must be 18+ (ageGenderNet)\n- nsfwjs: blocks nudity/porn (MobileNet classifier)\n\nModels lazy-loaded only when user picks a photo (~1.3MB face-api\n+ ~3MB tfjs/nsfw on first use). Main bundle stays at 70KB.\n\nPhoto cannot be uploaded until all checks pass. \"Add to wall\"\nbutton is disabled during checking and on failure.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-23T20:41:01Z"
+          }
+        }
+      },
       {
         "sha": "43e99d7c45736b373f24e889e2025ea0f959a2b0",
         "html_url": "https://github.com/freeappstore-online/faces/commit/43e99d7c45736b373f24e889e2025ea0f959a2b0",
