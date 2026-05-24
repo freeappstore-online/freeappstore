@@ -1216,36 +1216,36 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-24T04:34:36Z"
+      "pushed_at": "2026-05-24T05:53:22Z"
     },
     "commits": [
       {
-        "sha": "21b6546897247d4c0616612421dd56e8e3f385f1",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/21b6546897247d4c0616612421dd56e8e3f385f1",
+        "sha": "19f9e52710327c37c75a94deb5f63573d6a23f71",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/19f9e52710327c37c75a94deb5f63573d6a23f71",
         "commit": {
-          "message": "Fix test labels for shortened sort pills (New/Top)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Fix stale cluster labels: force re-render on filter change\n\nBug: MarkerClusterGroup cached cluster icons from the old\niconCreateFunction. Changing filter depth didn't refresh labels —\nclusters still showed \"Victoria\" when already filtered to Victoria.\n\nFix: add key={filterDepth-postCount} to MarkerClusterGroup so React\nunmounts and remounts it when the filter or posts change. This forces\nLeaflet to recalculate all cluster icons with the new filterDepth.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T04:34:34Z"
+            "date": "2026-05-24T05:53:20Z"
           }
         }
       },
       {
-        "sha": "df923d3e8de6ba83e05e8afa845a7665b9d947ee",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/df923d3e8de6ba83e05e8afa845a7665b9d947ee",
+        "sha": "535a543b7c996a3feb08b81e2e8971998b189bd7",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/535a543b7c996a3feb08b81e2e8971998b189bd7",
         "commit": {
-          "message": "Unified top bar, fix map blinking, fix double toolbar on wall\n\nTop bar:\n- Single fixed bar at top across Map, Wall, Saved\n- Location pill + sort pills (Near/New/Top) + grid/feed toggle in one row\n- Map shows only location pill, Wall/Favs show all controls\n- Layout (grid/feed) shared between Wall and Saved tabs\n\nMap blinking fix:\n- Posts are \"stabilized\" with a 500ms debounce before updating markers\n- First batch renders immediately, subsequent batches wait for loading\n  to settle before re-rendering MarkerClusterGroup\n- No more flash/blink on every progressive page load\n\nRemoved:\n- WallView's own toolbar (sort/layout state lifted to App)\n- FavoritesView's own grid/feed toggle (uses shared layout)\n- Shell's old absolute-positioned header slot\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Tap any breadcrumb segment to navigate to that level\n\nBefore: only last segment was tappable (to drill), middle segments\nwere static text with only × to go up.\n\nNow: every segment is tappable.\n- World › Australia › Victoria › Melbourne\n- Tap \"Australia\" → filter becomes \"Australia\" (clears Victoria, Melbourne)\n- Tap \"Victoria\" → filter becomes \"Australia > Victoria\" (clears Melbourne)\n- Tap \"Melbourne\" (last, has children) → opens dropdown to drill deeper\n- Tap \"World\" → opens country dropdown\n\nRemoved × buttons — tapping the segment itself navigates, cleaner UI.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T04:31:05Z"
+            "date": "2026-05-24T05:50:31Z"
           }
         }
       },
       {
-        "sha": "b4c955abcd09741d67d563fa405b20274e4e3d3d",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/b4c955abcd09741d67d563fa405b20274e4e3d3d",
+        "sha": "c475f35aca34ef6e025c4caaef8e9b02c5fe2059",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/c475f35aca34ef6e025c4caaef8e9b02c5fe2059",
         "commit": {
-          "message": "Fix gallery in Saved: pass favPosts as context to openGallery\n\nBug: clicking a favorite opened gallery with filteredPosts (all 2460)\ninstead of the user's favorites. Gallery showed 1 image sliding\nthrough because the index was wrong relative to the full list.\n\nFix: FavoritesView now passes favPosts array as the second arg to\nonPostClick, so the gallery slides only through saved photos.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Fix cluster labels: show next level down, not repeated parent\n\nBug: when filtered to Melbourne, every cluster showed \"Melbourne\"\nbecause all posts shared that common prefix.\n\nFix: getClusterLabel now takes filterDepth and skips segments already\nshown in the breadcrumb. When at Melbourne level, clusters show\nthe NEXT level — suburbs/streets like \"Fitzroy\", \"Hosier Ln\".\n\nExamples:\n- No filter (World): clusters show \"Australia\", \"France\", etc.\n- Filtered to Australia: clusters show \"Victoria\", \"NSW\", etc.\n- Filtered to Melbourne: clusters show \"Fitzroy\", \"CBD\", etc.\n- If all posts in a cluster share the same filtered prefix only,\n  label is empty → falls back to count-only circle.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T04:26:07Z"
+            "date": "2026-05-24T05:39:20Z"
           }
         }
       }
