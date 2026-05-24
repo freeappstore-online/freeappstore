@@ -1216,36 +1216,36 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-24T05:53:22Z"
+      "pushed_at": "2026-05-24T12:05:01Z"
     },
     "commits": [
       {
-        "sha": "19f9e52710327c37c75a94deb5f63573d6a23f71",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/19f9e52710327c37c75a94deb5f63573d6a23f71",
+        "sha": "12e3bd3cdbeb69f0f76d7f31865a5dcc14874265",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/12e3bd3cdbeb69f0f76d7f31865a5dcc14874265",
         "commit": {
-          "message": "Fix stale cluster labels: force re-render on filter change\n\nBug: MarkerClusterGroup cached cluster icons from the old\niconCreateFunction. Changing filter depth didn't refresh labels —\nclusters still showed \"Victoria\" when already filtered to Victoria.\n\nFix: add key={filterDepth-postCount} to MarkerClusterGroup so React\nunmounts and remounts it when the filter or posts change. This forces\nLeaflet to recalculate all cluster icons with the new filterDepth.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Fix 4 bugs: trash closure, cluster key, iOS select, trash dedup\n\n1. useTrash stale closure: trash callback used old trashed array\n   on rapid clicks allowing duplicates. Now uses functional update\n   setTrashed(prev => ...) — no external dependency needed.\n\n2. MarkerClusterGroup key: only used filterDepth + length, so\n   trashing a post didn't force cluster refresh. Now includes\n   first/last post IDs for content-aware re-rendering.\n\n3. iOS Safari select: native <select> ignores CSS styling without\n   appearance:none + -webkit-appearance:none. Added both.\n\n4. Trash dedup: functional update checks prev.includes() so\n   even rapid double-taps can't add the same post twice.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T05:53:20Z"
+            "date": "2026-05-24T12:04:58Z"
           }
         }
       },
       {
-        "sha": "535a543b7c996a3feb08b81e2e8971998b189bd7",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/535a543b7c996a3feb08b81e2e8971998b189bd7",
+        "sha": "90ef15e95ced3cb699648737e966acf004abb44a",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/90ef15e95ced3cb699648737e966acf004abb44a",
         "commit": {
-          "message": "Tap any breadcrumb segment to navigate to that level\n\nBefore: only last segment was tappable (to drill), middle segments\nwere static text with only × to go up.\n\nNow: every segment is tappable.\n- World › Australia › Victoria › Melbourne\n- Tap \"Australia\" → filter becomes \"Australia\" (clears Victoria, Melbourne)\n- Tap \"Victoria\" → filter becomes \"Australia > Victoria\" (clears Melbourne)\n- Tap \"Melbourne\" (last, has children) → opens dropdown to drill deeper\n- Tap \"World\" → opens country dropdown\n\nRemoved × buttons — tapping the segment itself navigates, cleaner UI.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Add trash/report: hide posts per-user + public trash counter\n\nTrash feature:\n- 🗑 button on every post (grid, feed, gallery)\n- Tap → post disappears from all views for that user (map, wall, favs)\n- Stored per-user in KV (key: 'trashed', value: string[])\n- Public trash counter via fas.counters (key: trash:<postId>)\n- Admins can query counters to see which posts are most reported\n- Posts are NOT deleted from DB — just hidden for the user who trashed\n- Once trashed, never appears again for that user\n\nImplementation:\n- useTrash hook: mirrors useFavorites pattern (KV + counters)\n- App filters trashed posts from visiblePosts/visibleStablePosts\n- All downstream views (map, wall, favs) receive pre-filtered data\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T05:50:31Z"
+            "date": "2026-05-24T11:14:55Z"
           }
         }
       },
       {
-        "sha": "c475f35aca34ef6e025c4caaef8e9b02c5fe2059",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/c475f35aca34ef6e025c4caaef8e9b02c5fe2059",
+        "sha": "952acbed515255c8d2f4e25a752252fc83d905e3",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/952acbed515255c8d2f4e25a752252fc83d905e3",
         "commit": {
-          "message": "Fix cluster labels: show next level down, not repeated parent\n\nBug: when filtered to Melbourne, every cluster showed \"Melbourne\"\nbecause all posts shared that common prefix.\n\nFix: getClusterLabel now takes filterDepth and skips segments already\nshown in the breadcrumb. When at Melbourne level, clusters show\nthe NEXT level — suburbs/streets like \"Fitzroy\", \"Hosier Ln\".\n\nExamples:\n- No filter (World): clusters show \"Australia\", \"France\", etc.\n- Filtered to Australia: clusters show \"Victoria\", \"NSW\", etc.\n- Filtered to Melbourne: clusters show \"Fitzroy\", \"CBD\", etc.\n- If all posts in a cluster share the same filtered prefix only,\n  label is empty → falls back to count-only circle.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Add 11 new e2e tests: breadcrumb, location tags, feed, sort, scroll\n\n47 tests total across 10 groups:\n\nBreadcrumb (3):\n- World button opens countries dropdown\n- Selecting from dropdown updates breadcrumb\n- Tapping middle segment navigates up\n\nLocation tags (2):\n- Posts show tappable location tag buttons\n- Tapping a tag navigates to wall with that filter\n\nFeed layout (3):\n- Feed shows large rounded-xl images\n- Feed shows Navigate → link\n- Navigate link has correct Google Maps URL\n\nSort (2):\n- Default sort is newest\n- Sort persists across tab switches\n\nInfinite scroll (1):\n- Loading sentinel exists at bottom of wall\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T05:39:20Z"
+            "date": "2026-05-24T11:09:32Z"
           }
         }
       }
