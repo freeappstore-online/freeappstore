@@ -577,6 +577,10 @@ import {
 | `ListRow` | Clickable list row with icon/title/subtitle/trailing | `icon`, `title`, `subtitle`, `trailing`, `onClick` |
 | `ErrorBoundary` | Catches render errors, shows fallback | `children`, `fallback` |
 | `KeyPrompt` | Prompt when app needs a user's API key | `app`, `provider`, `providerName`, `message` |
+| `Footer` | PWA footer with safe-area padding (standalone only) | `text` (default: "Part of FreeAppStore") |
+| `BuildInfo` | Debug overlay (Alt+click or 5-tap to reveal) | `version`, `commit`, `buildDate`, `extra` |
+
+**Footer behavior:** Only renders when the app is installed to the home screen (PWA standalone mode). Hidden in regular browser tabs where the browser provides its own bottom chrome. This prevents iPhone users from accidentally triggering Siri when tapping near the bottom of the screen. The Footer adds `env(safe-area-inset-bottom)` padding automatically to keep content out of the home indicator zone. Shell includes Footer automatically. Use `useStandalone()` hook if you need to detect standalone mode in custom layouts.
 
 ### Hooks
 
