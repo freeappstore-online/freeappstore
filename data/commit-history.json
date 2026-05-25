@@ -1710,9 +1710,19 @@
   "freeappstore-online/qrreader": {
     "meta": {
       "created_at": "2026-05-23T18:47:11Z",
-      "pushed_at": "2026-05-25T08:29:23Z"
+      "pushed_at": "2026-05-25T10:25:32Z"
     },
     "commits": [
+      {
+        "sha": "20f3a2d8db7fe749b1816b3607d401e2b780a45c",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/20f3a2d8db7fe749b1816b3607d401e2b780a45c",
+        "commit": {
+          "message": "[Add function] Drag & Paste image QR",
+          "author": {
+            "date": "2026-05-25T10:25:15Z"
+          }
+        }
+      },
       {
         "sha": "30e0b45fb70cf9eefb9947b3f34ea78b21fed07a",
         "html_url": "https://github.com/freeappstore-online/qrreader/commit/30e0b45fb70cf9eefb9947b3f34ea78b21fed07a",
@@ -1730,16 +1740,6 @@
           "message": "Update function",
           "author": {
             "date": "2026-05-25T04:10:46Z"
-          }
-        }
-      },
-      {
-        "sha": "16540f70d8dbea397e36860c2709d4cbe00f73ca",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/16540f70d8dbea397e36860c2709d4cbe00f73ca",
-        "commit": {
-          "message": "Create website QR Code reader tool",
-          "author": {
-            "date": "2026-05-23T18:51:03Z"
           }
         }
       }
