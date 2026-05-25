@@ -1216,9 +1216,19 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-25T03:24:26Z"
+      "pushed_at": "2026-05-25T05:26:19Z"
     },
     "commits": [
+      {
+        "sha": "3cc3e0482b44e6bd687ab4410f26a80944992eb4",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/3cc3e0482b44e6bd687ab4410f26a80944992eb4",
+        "commit": {
+          "message": "Add PLATFORM-NOTE.md: follow-up to scale request for platform team\n\nFocused ask: geo bounding box query is the one thing that unblocks\ngrowth. Offers to write the PR. Includes reproduction steps.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-25T05:26:17Z"
+          }
+        }
+      },
       {
         "sha": "df31132f3c2c2d8bae7ecd23e3abb996e45124ae",
         "html_url": "https://github.com/freeappstore-online/artout/commit/df31132f3c2c2d8bae7ecd23e3abb996e45124ae",
@@ -1236,16 +1246,6 @@
           "message": "Add SCALE-REQUEST.md: platform API features needed for 1M posts\n\nDocument for platform team listing 6 API features ArtOut needs to\nscale beyond 2,460 posts. Prioritized by impact: geo bounding box\nqueries alone would get to 100K, combined with cursor pagination\nprobably to 1M.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-25T01:27:12Z"
-          }
-        }
-      },
-      {
-        "sha": "c3fbfe93e14ef3356a680aed63ba55f73dc460a1",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/c3fbfe93e14ef3356a680aed63ba55f73dc460a1",
-        "commit": {
-          "message": "Fix tests for smaller page size (30): wait for loadAll before location tests\n\nLocation picker, breadcrumb, and search tests need all 2,460 posts\nloaded (not just the first 30). Added waitForAllPosts() helper that\nnavigates to map (triggers loadAll) and waits for clusters + 2s\nsettle time before testing location features.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-25T00:31:54Z"
           }
         }
       }
@@ -1710,7 +1710,7 @@
   "freeappstore-online/qrreader": {
     "meta": {
       "created_at": "2026-05-23T18:47:11Z",
-      "pushed_at": "2026-05-24T07:55:17Z"
+      "pushed_at": "2026-05-25T04:34:30Z"
     },
     "commits": [
       {
