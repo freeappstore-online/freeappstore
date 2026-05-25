@@ -1216,9 +1216,19 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-25T01:27:14Z"
+      "pushed_at": "2026-05-25T03:24:26Z"
     },
     "commits": [
+      {
+        "sha": "df31132f3c2c2d8bae7ecd23e3abb996e45124ae",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/df31132f3c2c2d8bae7ecd23e3abb996e45124ae",
+        "commit": {
+          "message": "Remove stale CONSOLE-FIX.md (belongs in ops, not app repo)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-25T03:24:23Z"
+          }
+        }
+      },
       {
         "sha": "2b9dc166a05a54ff4707fc9197852bffb6c77167",
         "html_url": "https://github.com/freeappstore-online/artout/commit/2b9dc166a05a54ff4707fc9197852bffb6c77167",
@@ -1236,16 +1246,6 @@
           "message": "Fix tests for smaller page size (30): wait for loadAll before location tests\n\nLocation picker, breadcrumb, and search tests need all 2,460 posts\nloaded (not just the first 30). Added waitForAllPosts() helper that\nnavigates to map (triggers loadAll) and waits for clusters + 2s\nsettle time before testing location features.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-25T00:31:54Z"
-          }
-        }
-      },
-      {
-        "sha": "845c813e692bc4393635a2733393949ea48af8bc",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/845c813e692bc4393635a2733393949ea48af8bc",
-        "commit": {
-          "message": "Massive traffic reduction: smaller images, WebP, fewer initial posts\n\nBefore: ~2MB on first load (100 posts × 300px thumbs × JPEG)\nAfter:  ~150KB on first load (30 posts × 150px thumbs × WebP)\n\nImage optimization:\n- Grid thumbnails: 300px → 150px (cells are ~125px on mobile)\n- Feed images: 1600px → 800px (enough for mobile screens)\n- Gallery: keeps 1600px for full-screen viewing\n- All URLs now include f_auto (WebP/AVIF where supported)\n  and q_auto (Cloudinary auto-quality optimization)\n- Images served from Cloudinary CDN with format negotiation\n\nThree image tiers:\n- thumbUrl(id):  150×150 square, ~5-8KB each (grid)\n- mediumUrl(id): 800px wide, ~30-50KB each (feed)\n- fullUrl(id):   1600px wide, ~80-150KB each (gallery)\n\nData reduction:\n- Initial page: 100 → 30 posts (loads 3x faster)\n- Infinite scroll fetches 30 at a time\n- Map still loads all for clustering (background)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-25T00:27:16Z"
           }
         }
       }
@@ -1537,7 +1537,7 @@
         "sha": "10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
         "html_url": "https://github.com/freeappstore-online/population-agent/commit/10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
         "commit": {
-          "message": "Add PopulationAgent chatbot �� Claude Sonnet 4.6 + live ABS data\n\nBrowser-only React app that uses Claude Sonnet 4.6 with tool use to answer\nquestions about Australian population. The Anthropic API is routed through\n@freeappstore/sdk's secret-injecting proxy (key stored server-side via\nfas secret set, never reaches the browser). ABS Data API is called directly\nfrom the browser via fetch.\n\nFive tools exposed to the agent: get_population, get_population_time_series,\ncompare_states, list_abs_dataflows, query_abs_dataset (escape hatch).\nSDMX-JSON responses flattened into {period, value, dimensions} rows.\n\nChat history persists in localStorage. Streaming text deltas via SSE parsing.\nPrompt caching: cache_control ephemeral on last tool definition (caches\ntools + system prefix together; tools render before system in the request).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add PopulationAgent chatbot — Claude Sonnet 4.6 + live ABS data\n\nBrowser-only React app that uses Claude Sonnet 4.6 with tool use to answer\nquestions about Australian population. The Anthropic API is routed through\n@freeappstore/sdk's secret-injecting proxy (key stored server-side via\nfas secret set, never reaches the browser). ABS Data API is called directly\nfrom the browser via fetch.\n\nFive tools exposed to the agent: get_population, get_population_time_series,\ncompare_states, list_abs_dataflows, query_abs_dataset (escape hatch).\nSDMX-JSON responses flattened into {period, value, dimensions} rows.\n\nChat history persists in localStorage. Streaming text deltas via SSE parsing.\nPrompt caching: cache_control ephemeral on last tool definition (caches\ntools + system prefix together; tools render before system in the request).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-20T10:07:55Z"
           }
@@ -1672,36 +1672,64 @@
   "freeappstore-online/flight-search": {
     "meta": {
       "created_at": "2026-05-25T01:21:52Z",
-      "pushed_at": "2026-05-25T01:59:49Z"
+      "pushed_at": "2026-05-25T04:12:35Z"
     },
     "commits": [
       {
-        "sha": "6423bc1ce72d2f3a77de128ff533ca77c642e371",
-        "html_url": "https://github.com/freeappstore-online/flight-search/commit/6423bc1ce72d2f3a77de128ff533ca77c642e371",
+        "sha": "e2caaa9277bec03af066140f3bd50af7ee46338c",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/e2caaa9277bec03af066140f3bd50af7ee46338c",
         "commit": {
-          "message": "fix: use Node.js compliance checker instead of shell scripts\n\nThe shell-based compliance workflow didn't support inline VitePWA\nmanifests. Replace with `fas check` CLI which handles both patterns.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "redesign: single-page layout, no tabs, Google Flights style\n\n- Search form always visible at top (no tabs to navigate)\n- Results appear below search instantly\n- Saved + Compare are collapsible panels (not tabs)\n- No profile tab (FasShell handles user in topbar)\n- Timeline-style flight cards (departure time → duration → route)\n- Sort pills (price/duration/stops) as toggle buttons\n- Compare as inline table panel\n- Saved as inline list panel\n- Empty state with airplane icon\n- Proper flight card layout like real booking sites\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-25T01:59:47Z"
+            "date": "2026-05-25T04:12:33Z"
           }
         }
       },
       {
-        "sha": "878b7b276228d87f79a43249a56201eefaee961e",
-        "html_url": "https://github.com/freeappstore-online/flight-search/commit/878b7b276228d87f79a43249a56201eefaee961e",
+        "sha": "8bb00712ad608cfaa68e02ac64189935f6ab2327",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/8bb00712ad608cfaa68e02ac64189935f6ab2327",
         "commit": {
-          "message": "feat: flight & hotel search app with affiliate deep-links\n\n- Search flights by origin/destination/dates/travelers\n- Search hotels by city/dates/guests\n- Results display with prices sorted low-to-high\n- \"Book on...\" deep-links to airline/OTA sites\n- Save favorite searches to KV (requires sign-in)\n- Affiliate commission model (earn per redirect)\n- FAS design system, dark mode, responsive\n- Mock data ready to swap for real API calls via fas.proxy\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: remove hotels tab (API returns 404), flights-only app\n\nTravelpayouts hotel cache API (/v2/cache.json) returns 404.\nOnly flight data is available via their API. Removed hotel UI,\ntypes, search, and references. App is now a focused flight search tool.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-25T01:22:03Z"
+            "date": "2026-05-25T04:06:08Z"
           }
         }
       },
       {
-        "sha": "f0642b7dff5c4c30c691c69d51adbc258531473c",
-        "html_url": "https://github.com/freeappstore-online/flight-search/commit/f0642b7dff5c4c30c691c69d51adbc258531473c",
+        "sha": "5eabcc27a764ebb34d37f7c1aa52a081590fcefa",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/5eabcc27a764ebb34d37f7c1aa52a081590fcefa",
         "commit": {
-          "message": "fix: regenerate lockfile after adding @freeappstore/sdk\n\nScaffold smoke test was failing with ERR_PNPM_OUTDATED_LOCKFILE because\nthe lockfile didn't include the SDK dependency added earlier.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: solid disabled button, 3-col date/pax row, hotel grid, copy\n\n- Disabled button uses --color-muted bg (visible, not transparent)\n- Depart/Return/Pax in single 3-column row (80px pax column)\n- Hotel form same 3-col layout\n- Updated subtitle and footer copy\n- Removed grid3 auto-fit (caused wrapping)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T10:22:57Z"
+            "date": "2026-05-25T03:47:07Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/qrreader": {
+    "meta": {
+      "created_at": "2026-05-23T18:47:11Z",
+      "pushed_at": "2026-05-24T07:55:17Z"
+    },
+    "commits": [
+      {
+        "sha": "16540f70d8dbea397e36860c2709d4cbe00f73ca",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/16540f70d8dbea397e36860c2709d4cbe00f73ca",
+        "commit": {
+          "message": "Create website QR Code reader tool",
+          "author": {
+            "date": "2026-05-23T18:51:03Z"
+          }
+        }
+      },
+      {
+        "sha": "c293a391a4b604dd8e646a9b9f89411741b984a2",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/c293a391a4b604dd8e646a9b9f89411741b984a2",
+        "commit": {
+          "message": "Initial commit from standalone template",
+          "author": {
+            "date": "2026-05-21T09:34:52Z"
           }
         }
       }
