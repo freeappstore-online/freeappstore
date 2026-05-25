@@ -554,6 +554,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "ChaoLIUqaq"
+    },
+    {
+      "id": "smart-planner",
+      "name": "smart-planner",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Smart Planner keeps tasks, habits, notes, shopping, and inspiration local.",
+      "appUrl": "https://smart-planner.freeappstore.online",
+      "repo": "freeappstore-online/smart-planner",
+      "cfProject": "freesmart-plannerapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "kirantikoo"
     }
   ]
 }
