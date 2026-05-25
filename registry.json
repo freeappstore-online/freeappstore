@@ -509,6 +509,21 @@
       "developer": "FreeAppStore",
       "hostedOn": "r2",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "flight-search",
+      "name": "flight-search",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Search and compare flight & hotel prices. Book via affiliate links.",
+      "appUrl": "https://flight-search.freeappstore.online",
+      "repo": "freeappstore-online/flight-search",
+      "cfProject": "freeflight-searchapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
