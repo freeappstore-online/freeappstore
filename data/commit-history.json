@@ -1672,9 +1672,19 @@
   "freeappstore-online/flight-search": {
     "meta": {
       "created_at": "2026-05-25T01:21:52Z",
-      "pushed_at": "2026-05-25T04:12:35Z"
+      "pushed_at": "2026-05-25T07:20:22Z"
     },
     "commits": [
+      {
+        "sha": "891a201fd3269170c6ac3cea010c0f5d6ded4ba7",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/891a201fd3269170c6ac3cea010c0f5d6ded4ba7",
+        "commit": {
+          "message": "fix: use correct CSS var names, improve flight card layout\n\nAll 63 inline style references used var(--color-X) but CSS defines\nvar(--X) — fixed to --paper, --ink, --muted, --line, --accent, --panel.\nStacked From/To with swap button, Google Flights-style timeline,\ntrip type toggle, text-only Compare/Save actions, best-price badge.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-25T07:20:17Z"
+          }
+        }
+      },
       {
         "sha": "e2caaa9277bec03af066140f3bd50af7ee46338c",
         "html_url": "https://github.com/freeappstore-online/flight-search/commit/e2caaa9277bec03af066140f3bd50af7ee46338c",
@@ -1694,25 +1704,35 @@
             "date": "2026-05-25T04:06:08Z"
           }
         }
-      },
-      {
-        "sha": "5eabcc27a764ebb34d37f7c1aa52a081590fcefa",
-        "html_url": "https://github.com/freeappstore-online/flight-search/commit/5eabcc27a764ebb34d37f7c1aa52a081590fcefa",
-        "commit": {
-          "message": "fix: solid disabled button, 3-col date/pax row, hotel grid, copy\n\n- Disabled button uses --color-muted bg (visible, not transparent)\n- Depart/Return/Pax in single 3-column row (80px pax column)\n- Hotel form same 3-col layout\n- Updated subtitle and footer copy\n- Removed grid3 auto-fit (caused wrapping)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-25T03:47:07Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/qrreader": {
     "meta": {
       "created_at": "2026-05-23T18:47:11Z",
-      "pushed_at": "2026-05-25T04:34:30Z"
+      "pushed_at": "2026-05-25T08:29:23Z"
     },
     "commits": [
+      {
+        "sha": "30e0b45fb70cf9eefb9947b3f34ea78b21fed07a",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/30e0b45fb70cf9eefb9947b3f34ea78b21fed07a",
+        "commit": {
+          "message": "Merge pull request #1 from freeappstore-online/update_function\n\nmain <- [Update function]",
+          "author": {
+            "date": "2026-05-25T08:29:23Z"
+          }
+        }
+      },
+      {
+        "sha": "c341735810ba9a6cfd4ee2b1453e112e0815e9f5",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/c341735810ba9a6cfd4ee2b1453e112e0815e9f5",
+        "commit": {
+          "message": "Update function",
+          "author": {
+            "date": "2026-05-25T04:10:46Z"
+          }
+        }
+      },
       {
         "sha": "16540f70d8dbea397e36860c2709d4cbe00f73ca",
         "html_url": "https://github.com/freeappstore-online/qrreader/commit/16540f70d8dbea397e36860c2709d4cbe00f73ca",
@@ -1722,14 +1742,42 @@
             "date": "2026-05-23T18:51:03Z"
           }
         }
+      }
+    ]
+  },
+  "freeappstore-online/decision-wheel": {
+    "meta": {
+      "created_at": "2026-05-25T07:12:16Z",
+      "pushed_at": "2026-05-25T09:07:11Z"
+    },
+    "commits": [
+      {
+        "sha": "757d80f02a74fd9ee1bc0ce946eb19d183b74615",
+        "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/757d80f02a74fd9ee1bc0ce946eb19d183b74615",
+        "commit": {
+          "message": "feat: improve wheel UX and interaction behavior",
+          "author": {
+            "date": "2026-05-25T09:03:22Z"
+          }
+        }
       },
       {
-        "sha": "c293a391a4b604dd8e646a9b9f89411741b984a2",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/c293a391a4b604dd8e646a9b9f89411741b984a2",
+        "sha": "96ff3940a64762f7d45d81a2a6bd77fdc8e02172",
+        "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/96ff3940a64762f7d45d81a2a6bd77fdc8e02172",
         "commit": {
-          "message": "Initial commit from standalone template",
+          "message": "Revise README for Decision Wheel application\n\nUpdated README to reflect the new Decision Wheel app and its features.",
           "author": {
-            "date": "2026-05-21T09:34:52Z"
+            "date": "2026-05-25T07:39:09Z"
+          }
+        }
+      },
+      {
+        "sha": "12513b627270e5d77d0dbb2bad645d572acae944",
+        "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/12513b627270e5d77d0dbb2bad645d572acae944",
+        "commit": {
+          "message": "fix: correct wheel result selection logic",
+          "author": {
+            "date": "2026-05-25T07:05:21Z"
           }
         }
       }
