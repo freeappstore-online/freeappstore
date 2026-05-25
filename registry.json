@@ -524,6 +524,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "qrreader",
+      "name": "qrreader",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "QR Code Reader",
+      "appUrl": "https://qrreader.freeappstore.online",
+      "repo": "freeappstore-online/qrreader",
+      "cfProject": "freeqrreaderapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "TommyHoang2911"
     }
   ]
 }
