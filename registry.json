@@ -539,6 +539,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "TommyHoang2911"
+    },
+    {
+      "id": "decision-wheel",
+      "name": "decision-wheel",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A lightweight spin wheel app for making quick random decisions.",
+      "appUrl": "https://decision-wheel.freeappstore.online",
+      "repo": "freeappstore-online/decision-wheel",
+      "cfProject": "freedecision-wheelapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "ChaoLIUqaq"
     }
   ]
 }
