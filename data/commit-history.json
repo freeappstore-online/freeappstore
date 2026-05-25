@@ -1216,36 +1216,36 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-24T19:12:38Z"
+      "pushed_at": "2026-05-25T01:27:14Z"
     },
     "commits": [
       {
-        "sha": "ffc5cb7040ae0756adbdf4e3066ac56ec346531b",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/ffc5cb7040ae0756adbdf4e3066ac56ec346531b",
+        "sha": "2b9dc166a05a54ff4707fc9197852bffb6c77167",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/2b9dc166a05a54ff4707fc9197852bffb6c77167",
         "commit": {
-          "message": "Rewrite e2e tests: remove fakes, add real coverage, refactor\n\nRemoved 5 fake tests that passed but tested nothing:\n- \"cluster labels show location names\" — was identical to \"shows clusters\"\n- \"saved tab has grid/feed toggle\" — never saw the toggle (not signed in)\n- \"location badges visible\" — only checked CSS class, not content\n- \"gallery has fav button\" — checked z-index div, not heart emoji\n- \"infinite scroll indicator\" — count<=1 always passes\n\nRemoved 3 duplicates:\n- \"saved tab requires sign-in\" duplicated by auth tests\n- \"shows cluster markers\" duplicated by cluster labels test\n- \"has sort dropdown\" overlapped with \"default sort is newest\"\n\nAdded 7 new real tests:\n- cluster labels contain actual place names (text content check)\n- grid shows trash button on each item\n- feed shows trash button\n- gallery shows trash button\n- gallery shows location tags (in bottom bar)\n- feed shows location tags\n- map search icon opens picker\n\nRefactored:\n- Shared helpers: nav(), waitForWall(), openGallery(), switchToFeed()\n- All nav buttons use scoped page.locator('nav button', ...)\n- Consistent test structure across 8 groups\n- No more mixed selector patterns\n\n47 → 42 tests (5 fake + 3 dupes removed, 7 real added)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Add SCALE-REQUEST.md: platform API features needed for 1M posts\n\nDocument for platform team listing 6 API features ArtOut needs to\nscale beyond 2,460 posts. Prioritized by impact: geo bounding box\nqueries alone would get to 100K, combined with cursor pagination\nprobably to 1M.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T19:12:36Z"
+            "date": "2026-05-25T01:27:12Z"
           }
         }
       },
       {
-        "sha": "12e3bd3cdbeb69f0f76d7f31865a5dcc14874265",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/12e3bd3cdbeb69f0f76d7f31865a5dcc14874265",
+        "sha": "c3fbfe93e14ef3356a680aed63ba55f73dc460a1",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/c3fbfe93e14ef3356a680aed63ba55f73dc460a1",
         "commit": {
-          "message": "Fix 4 bugs: trash closure, cluster key, iOS select, trash dedup\n\n1. useTrash stale closure: trash callback used old trashed array\n   on rapid clicks allowing duplicates. Now uses functional update\n   setTrashed(prev => ...) — no external dependency needed.\n\n2. MarkerClusterGroup key: only used filterDepth + length, so\n   trashing a post didn't force cluster refresh. Now includes\n   first/last post IDs for content-aware re-rendering.\n\n3. iOS Safari select: native <select> ignores CSS styling without\n   appearance:none + -webkit-appearance:none. Added both.\n\n4. Trash dedup: functional update checks prev.includes() so\n   even rapid double-taps can't add the same post twice.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Fix tests for smaller page size (30): wait for loadAll before location tests\n\nLocation picker, breadcrumb, and search tests need all 2,460 posts\nloaded (not just the first 30). Added waitForAllPosts() helper that\nnavigates to map (triggers loadAll) and waits for clusters + 2s\nsettle time before testing location features.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T12:04:58Z"
+            "date": "2026-05-25T00:31:54Z"
           }
         }
       },
       {
-        "sha": "90ef15e95ced3cb699648737e966acf004abb44a",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/90ef15e95ced3cb699648737e966acf004abb44a",
+        "sha": "845c813e692bc4393635a2733393949ea48af8bc",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/845c813e692bc4393635a2733393949ea48af8bc",
         "commit": {
-          "message": "Add trash/report: hide posts per-user + public trash counter\n\nTrash feature:\n- 🗑 button on every post (grid, feed, gallery)\n- Tap → post disappears from all views for that user (map, wall, favs)\n- Stored per-user in KV (key: 'trashed', value: string[])\n- Public trash counter via fas.counters (key: trash:<postId>)\n- Admins can query counters to see which posts are most reported\n- Posts are NOT deleted from DB — just hidden for the user who trashed\n- Once trashed, never appears again for that user\n\nImplementation:\n- useTrash hook: mirrors useFavorites pattern (KV + counters)\n- App filters trashed posts from visiblePosts/visibleStablePosts\n- All downstream views (map, wall, favs) receive pre-filtered data\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Massive traffic reduction: smaller images, WebP, fewer initial posts\n\nBefore: ~2MB on first load (100 posts × 300px thumbs × JPEG)\nAfter:  ~150KB on first load (30 posts × 150px thumbs × WebP)\n\nImage optimization:\n- Grid thumbnails: 300px → 150px (cells are ~125px on mobile)\n- Feed images: 1600px → 800px (enough for mobile screens)\n- Gallery: keeps 1600px for full-screen viewing\n- All URLs now include f_auto (WebP/AVIF where supported)\n  and q_auto (Cloudinary auto-quality optimization)\n- Images served from Cloudinary CDN with format negotiation\n\nThree image tiers:\n- thumbUrl(id):  150×150 square, ~5-8KB each (grid)\n- mediumUrl(id): 800px wide, ~30-50KB each (feed)\n- fullUrl(id):   1600px wide, ~80-150KB each (gallery)\n\nData reduction:\n- Initial page: 100 → 30 posts (loads 3x faster)\n- Infinite scroll fetches 30 at a time\n- Map still loads all for clustering (background)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-24T11:14:55Z"
+            "date": "2026-05-25T00:27:16Z"
           }
         }
       }
@@ -1537,7 +1537,7 @@
         "sha": "10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
         "html_url": "https://github.com/freeappstore-online/population-agent/commit/10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
         "commit": {
-          "message": "Add PopulationAgent chatbot — Claude Sonnet 4.6 + live ABS data\n\nBrowser-only React app that uses Claude Sonnet 4.6 with tool use to answer\nquestions about Australian population. The Anthropic API is routed through\n@freeappstore/sdk's secret-injecting proxy (key stored server-side via\nfas secret set, never reaches the browser). ABS Data API is called directly\nfrom the browser via fetch.\n\nFive tools exposed to the agent: get_population, get_population_time_series,\ncompare_states, list_abs_dataflows, query_abs_dataset (escape hatch).\nSDMX-JSON responses flattened into {period, value, dimensions} rows.\n\nChat history persists in localStorage. Streaming text deltas via SSE parsing.\nPrompt caching: cache_control ephemeral on last tool definition (caches\ntools + system prefix together; tools render before system in the request).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add PopulationAgent chatbot �� Claude Sonnet 4.6 + live ABS data\n\nBrowser-only React app that uses Claude Sonnet 4.6 with tool use to answer\nquestions about Australian population. The Anthropic API is routed through\n@freeappstore/sdk's secret-injecting proxy (key stored server-side via\nfas secret set, never reaches the browser). ABS Data API is called directly\nfrom the browser via fetch.\n\nFive tools exposed to the agent: get_population, get_population_time_series,\ncompare_states, list_abs_dataflows, query_abs_dataset (escape hatch).\nSDMX-JSON responses flattened into {period, value, dimensions} rows.\n\nChat history persists in localStorage. Streaming text deltas via SSE parsing.\nPrompt caching: cache_control ephemeral on last tool definition (caches\ntools + system prefix together; tools render before system in the request).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-20T10:07:55Z"
           }
@@ -1664,6 +1664,44 @@
           "message": "Build Faces of the World: anonymous face wall PWA\n\nSpin-off from ArtOut — people kept posting selfies, so we gave\nthem their own app. Circular face wall, selfie upload with front\ncamera, face-centered Cloudinary crops, auto city+country via\nNominatim. Two tabs: Wall + Snap. Dark theme, warm amber accent.\n\n68KB gzipped. Zero API keys needed.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-23T20:34:15Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/flight-search": {
+    "meta": {
+      "created_at": "2026-05-25T01:21:52Z",
+      "pushed_at": "2026-05-25T01:59:49Z"
+    },
+    "commits": [
+      {
+        "sha": "6423bc1ce72d2f3a77de128ff533ca77c642e371",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/6423bc1ce72d2f3a77de128ff533ca77c642e371",
+        "commit": {
+          "message": "fix: use Node.js compliance checker instead of shell scripts\n\nThe shell-based compliance workflow didn't support inline VitePWA\nmanifests. Replace with `fas check` CLI which handles both patterns.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-25T01:59:47Z"
+          }
+        }
+      },
+      {
+        "sha": "878b7b276228d87f79a43249a56201eefaee961e",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/878b7b276228d87f79a43249a56201eefaee961e",
+        "commit": {
+          "message": "feat: flight & hotel search app with affiliate deep-links\n\n- Search flights by origin/destination/dates/travelers\n- Search hotels by city/dates/guests\n- Results display with prices sorted low-to-high\n- \"Book on...\" deep-links to airline/OTA sites\n- Save favorite searches to KV (requires sign-in)\n- Affiliate commission model (earn per redirect)\n- FAS design system, dark mode, responsive\n- Mock data ready to swap for real API calls via fas.proxy\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-25T01:22:03Z"
+          }
+        }
+      },
+      {
+        "sha": "f0642b7dff5c4c30c691c69d51adbc258531473c",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/f0642b7dff5c4c30c691c69d51adbc258531473c",
+        "commit": {
+          "message": "fix: regenerate lockfile after adding @freeappstore/sdk\n\nScaffold smoke test was failing with ERR_PNPM_OUTDATED_LOCKFILE because\nthe lockfile didn't include the SDK dependency added earlier.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-24T10:22:57Z"
           }
         }
       }
