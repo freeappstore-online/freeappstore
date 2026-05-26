@@ -1710,9 +1710,19 @@
   "freeappstore-online/qrreader": {
     "meta": {
       "created_at": "2026-05-23T18:47:11Z",
-      "pushed_at": "2026-05-25T10:25:32Z"
+      "pushed_at": "2026-05-26T08:04:04Z"
     },
     "commits": [
+      {
+        "sha": "151fda8ed9ced711e1a5e986b904fb2fee5dd0d3",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/151fda8ed9ced711e1a5e986b904fb2fee5dd0d3",
+        "commit": {
+          "message": "Fix mobile dock overlay result & add button open result URL",
+          "author": {
+            "date": "2026-05-26T08:02:45Z"
+          }
+        }
+      },
       {
         "sha": "20f3a2d8db7fe749b1816b3607d401e2b780a45c",
         "html_url": "https://github.com/freeappstore-online/qrreader/commit/20f3a2d8db7fe749b1816b3607d401e2b780a45c",
@@ -1730,16 +1740,6 @@
           "message": "Merge pull request #1 from freeappstore-online/update_function\n\nmain <- [Update function]",
           "author": {
             "date": "2026-05-25T08:29:23Z"
-          }
-        }
-      },
-      {
-        "sha": "c341735810ba9a6cfd4ee2b1453e112e0815e9f5",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/c341735810ba9a6cfd4ee2b1453e112e0815e9f5",
-        "commit": {
-          "message": "Update function",
-          "author": {
-            "date": "2026-05-25T04:10:46Z"
           }
         }
       }
@@ -1804,36 +1804,36 @@
   "freeappstore-online/message": {
     "meta": {
       "created_at": "2026-05-26T00:48:56Z",
-      "pushed_at": "2026-05-26T04:11:27Z"
+      "pushed_at": "2026-05-26T06:34:21Z"
     },
     "commits": [
       {
-        "sha": "d877c16d8f62bc14bea69d0f12238aae7d45aa0e",
-        "html_url": "https://github.com/freeappstore-online/message/commit/d877c16d8f62bc14bea69d0f12238aae7d45aa0e",
+        "sha": "94a4ae1af9b82b2dc66141dea7835514ed83bfda",
+        "html_url": "https://github.com/freeappstore-online/message/commit/94a4ae1af9b82b2dc66141dea7835514ed83bfda",
         "commit": {
-          "message": "Fix 5 bugs: broken mailbox, duplicate rooms, send race, sort, rate limit\n\n1. Mailbox: KV is per-user scoped, can't write to recipient's namespace.\n   Replace with outbox pattern — sender buffers unsent messages in own KV,\n   retries on next app open.\n2. Duplicate room: ChatView no longer opens its own inbox room. Uses\n   CustomEvent from App-level handler instead.\n3. Send race: wait for WebSocket to open before calling send(), with 5s\n   timeout fallback.\n4. Message sort: getMessages now sorts by timestamp, not insertion order.\n5. Rate limit: NewChat handles GitHub API 403 with user-facing message.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add contacts screen with FAS friends + GitHub following\n\nFour tabs:\n- Friends: list accepted FAS platform friends, tap to message\n- Requests: incoming friend requests with accept/decline\n- GitHub: import contacts from GitHub following (public API)\n- Search: find FAS users by username, send friend requests\n\nContacts button added to chat list header.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-26T04:11:24Z"
+            "date": "2026-05-26T06:34:18Z"
           }
         }
       },
       {
-        "sha": "ecef011f30c8c4b0c23117a8800c8992e51195a9",
-        "html_url": "https://github.com/freeappstore-online/message/commit/ecef011f30c8c4b0c23117a8800c8992e51195a9",
+        "sha": "066e4a757195aab4a04f579933635a543918fa49",
+        "html_url": "https://github.com/freeappstore-online/message/commit/066e4a757195aab4a04f579933635a543918fa49",
         "commit": {
-          "message": "Add CI + deploy workflows (R2 via GitHub Actions)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add profile page with prefs, sign out, clear data, delete account\n\n- Avatar button in header opens profile (replaces bare logout icon)\n- Preferences: notifications toggle, enter-to-send, font size\n- Clear all messages (wipes IndexedDB)\n- Delete account (FAS SDK deleteAccount + local wipe)\n- Confirmation modals for destructive actions\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-26T00:50:40Z"
+            "date": "2026-05-26T06:11:19Z"
           }
         }
       },
       {
-        "sha": "6889aff21a0c8e63da6b40e2b232c4ea9f2e1bec",
-        "html_url": "https://github.com/freeappstore-online/message/commit/6889aff21a0c8e63da6b40e2b232c4ea9f2e1bec",
+        "sha": "22be9c3b8eaf6432bc03f0a891a21c5d756e7476",
+        "html_url": "https://github.com/freeappstore-online/message/commit/22be9c3b8eaf6432bc03f0a891a21c5d756e7476",
         "commit": {
-          "message": "Initial commit: relay-only messenger PWA\n\nMessages relayed via FAS WebSocket rooms, stored only in browser IndexedDB.\nKV mailbox for offline delivery. Zero server-side message storage.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add Google sign-in option alongside GitHub\n\nFAS SDK already supports github/google/apple/email providers.\nAdded Google button with proper branding to the sign-in screen.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-26T00:49:41Z"
+            "date": "2026-05-26T04:18:45Z"
           }
         }
       }
