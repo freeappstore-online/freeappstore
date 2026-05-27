@@ -607,6 +607,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "periodic-table",
+      "name": "periodic-table",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Interactive periodic table of all 118 elements with search, filters, and trend visualization",
+      "appUrl": "https://periodic-table.freeappstore.online",
+      "repo": "freeappstore-online/periodic-table",
+      "cfProject": "freeperiodic-tableapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
