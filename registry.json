@@ -126,7 +126,7 @@
     {
       "id": "chessclock",
       "name": "Chess Clock",
-      "category": "Utilities",
+      "category": "Brain Training",
       "icon": "&#9823;",
       "iconBg": "#0f172a",
       "description": "Beautiful chess clock for over-the-board play. 12 time controls, increment support, tap to switch.",
@@ -171,7 +171,7 @@
     {
       "id": "notes",
       "name": "Notes",
-      "category": "Utilities",
+      "category": "Productivity",
       "icon": "&#128221;",
       "iconBg": "#f59e0b",
       "description": "Simple notepad. Create, edit, search notes. All data stays on your device.",
@@ -186,7 +186,7 @@
     {
       "id": "pomodoro",
       "name": "Pomodoro",
-      "category": "Utilities",
+      "category": "Productivity",
       "icon": "&#127813;",
       "iconBg": "#e11d48",
       "description": "Focus timer with work and break cycles. 25/5/15 minute intervals. Session tracking.",
@@ -246,7 +246,7 @@
     {
       "id": "whiteboard",
       "name": "Whiteboard",
-      "category": "Utilities",
+      "category": "Productivity",
       "icon": "&#128396;",
       "iconBg": "#6366f1",
       "description": "Simple drawing canvas. Brush colors, sizes, eraser, undo. Download as PNG.",
@@ -276,7 +276,7 @@
     {
       "id": "habits",
       "name": "Habits",
-      "category": "Utilities",
+      "category": "Health & Fitness",
       "icon": "&#9989;",
       "iconBg": "#16a34a",
       "description": "Daily habit tracker with streaks, calendar heatmap, and progress visualization.",
@@ -291,7 +291,7 @@
     {
       "id": "weather",
       "name": "Weather",
-      "category": "Utilities",
+      "category": "News & Weather",
       "icon": "&#9925;",
       "iconBg": "#0ea5e9",
       "description": "Current weather and 7-day forecast. Location-based, city search, C/F toggle. No API key needed.",
@@ -459,7 +459,7 @@
     {
       "id": "docbot",
       "name": "DocBot",
-      "category": "Utilities",
+      "category": "Learning",
       "icon": "🤖",
       "iconBg": "#6366f1",
       "description": "Chat with FreeAppStore docs. Ask questions about the SDK, publishing, or platform — answers grounded in the official guides.",
@@ -474,7 +474,7 @@
     {
       "id": "population-agent",
       "name": "Population Agent",
-      "category": "Utilities",
+      "category": "Discovery",
       "icon": "📊",
       "iconBg": "#0891b2",
       "description": "Ask anything about Australian population data. Powered by live ABS census statistics and AI analysis.",
@@ -490,7 +490,7 @@
     {
       "id": "facer",
       "name": "Facer",
-      "category": "Utilities",
+      "category": "Discovery",
       "icon": "👁️",
       "iconBg": "#7c3aed",
       "description": "Face detection that runs entirely in your browser. No uploads, no cloud — every pixel stays on your device.",
@@ -505,7 +505,7 @@
     {
       "id": "pdfreader",
       "name": "PDF Reader",
-      "category": "Utilities",
+      "category": "Productivity",
       "icon": "📄",
       "iconBg": "#1e293b",
       "description": "Read PDFs in dark mode with smart color inversion. Comfortable reading at night. All files stay on your device.",
@@ -520,7 +520,7 @@
     {
       "id": "flight-search",
       "name": "Flight Search",
-      "category": "Utilities",
+      "category": "Discovery",
       "icon": "✈️",
       "iconBg": "#0284c7",
       "description": "Compare flights and hotels across providers. Find the best prices, book via affiliate links. No markup, no tracking.",
@@ -550,7 +550,7 @@
     {
       "id": "decision-wheel",
       "name": "Decision Wheel",
-      "category": "Utilities",
+      "category": "Social",
       "icon": "🎡",
       "iconBg": "#e11d48",
       "description": "Spin the wheel to decide anything. Add your own options, customize colors, and let fate choose. Quick, fun, zero friction.",
