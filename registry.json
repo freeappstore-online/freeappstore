@@ -772,6 +772,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "math-reference",
+      "name": "math-reference",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "101 math formulas with interactive calculators across 7 categories",
+      "appUrl": "https://math-reference.freeappstore.online",
+      "repo": "freeappstore-online/math-reference",
+      "cfProject": "freemath-referenceapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
