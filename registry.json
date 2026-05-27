@@ -787,6 +787,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "workout",
+      "name": "workout",
+      "category": "Health & Fitness",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Workout tracker with exercise logging, progress charts, and personal records",
+      "appUrl": "https://workout.freeappstore.online",
+      "repo": "freeappstore-online/workout",
+      "cfProject": "freeworkoutapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
