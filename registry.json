@@ -1027,6 +1027,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "regex",
+      "name": "regex",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Regex tester with match highlighting, explain mode, and cheatsheet",
+      "appUrl": "https://regex.freeappstore.online",
+      "repo": "freeappstore-online/regex",
+      "cfProject": "freeregexapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
