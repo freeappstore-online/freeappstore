@@ -997,6 +997,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "dictionary",
+      "name": "dictionary",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "English dictionary with 200 words, flashcards, thesaurus, and spaced repetition",
+      "appUrl": "https://dictionary.freeappstore.online",
+      "repo": "freeappstore-online/dictionary",
+      "cfProject": "freedictionaryapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
