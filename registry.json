@@ -1222,6 +1222,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "type-spec",
+      "name": "type-spec",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Typography specimen and type scale generator with 25 Google Fonts and pairings",
+      "appUrl": "https://type-spec.freeappstore.online",
+      "repo": "freeappstore-online/type-spec",
+      "cfProject": "freetype-specapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
