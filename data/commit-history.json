@@ -78,9 +78,29 @@
   "freeappstore-online/chessclock": {
     "meta": {
       "created_at": "2026-05-04T10:01:30Z",
-      "pushed_at": "2026-05-27T12:17:25Z"
+      "pushed_at": "2026-05-27T12:57:45Z"
     },
     "commits": [
+      {
+        "sha": "351251134d97c2b95d4c1c2ba0622a649371a575",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/351251134d97c2b95d4c1c2ba0622a649371a575",
+        "commit": {
+          "message": "Add player nicknames, country flags, timer modes\n\nNicknames:\n- Editable name inputs on setup screen (White / Black labels)\n- Names shown on clock next to move count, persisted to localStorage\n\nCountry flags:\n- Fetch country code from /cdn-cgi/trace (Cloudflare endpoint)\n- Convert to flag emoji, shown next to player name on clock\n\nTimer modes (Fischer / Bronstein / Delay):\n- Mode selector appears when a time control has increment > 0\n- Fischer: time added after each move (existing behavior)\n- Bronstein: delay before clock ticks; time never exceeds turn start\n- Delay: clock frozen for N seconds each turn, no time added\n- Mode persisted to localStorage\n- Description text updates to explain selected mode\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T12:57:21Z"
+          }
+        }
+      },
+      {
+        "sha": "a4675edbb82f67fc434472d74a60f00bad92aae3",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/a4675edbb82f67fc434472d74a60f00bad92aae3",
+        "commit": {
+          "message": "Fix timer glitch, setup scroll, add icon, fix PWA meta tags\n\n- Fix formatTimeDetail threshold: <= 20000 instead of < 20000 to\n  prevent \"0:20\" → \"0:20.0\" single-frame visual jump\n- Make setup screen scrollable (overflow-y-auto + min-h-full) so\n  time controls don't clip on short landscape viewports\n- Add SVG app icon for PWA install + favicon\n- Clean manifest.json: add icons array, scope, remove invalid\n  min_viewport_width key\n- Dual theme-color meta tags (light #fefdfb / dark #0f0f0e) so\n  browser chrome matches the app in both modes\n- Add viewport-fit=cover for notch-safe rendering on iOS\n- Add apple-mobile-web-app-status-bar-style: black-translucent\n- Add meta description for share previews\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T12:42:22Z"
+          }
+        }
+      },
       {
         "sha": "fa84ded3d1ea739985bf37071b51e11d4f94e69b",
         "html_url": "https://github.com/freeappstore-online/chessclock/commit/fa84ded3d1ea739985bf37071b51e11d4f94e69b",
@@ -88,26 +108,6 @@
           "message": "Fix iOS audio, RAF leak, wake lock, right-click, transitions\n\n- Resume suspended AudioContext before scheduling nodes (iOS Safari\n  blocks audio until explicitly resumed)\n- Stop scheduling requestAnimationFrame after game ends instead of\n  continuing to tick indefinitely\n- Re-acquire Screen Wake Lock on visibilitychange so tab-switching\n  doesn't permanently lose it\n- Filter pointer button !== 0 to prevent right/middle-click taps\n- transition-all on player buttons so box-shadow animates with bg\n- Fix mute icon X coordinates (was clipped at viewBox edge)\n- Bump landscape font from 10vh to 15vh (was too small on phones)\n- Add relative to clock container for robust overlay positioning\n- Simplify idle text to \"Tap to start\" (works for both layouts)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T12:17:13Z"
-          }
-        }
-      },
-      {
-        "sha": "f41a28fd9241032a96c59d5e717b7a3dfdfb2284",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/f41a28fd9241032a96c59d5e717b7a3dfdfb2284",
-        "commit": {
-          "message": "Instant tap response, flag-fall sound, low-time pulse, sound toggle\n\n- Switch player buttons from onClick to onPointerDown for instant\n  response (~100-300ms faster on mobile) with touch-action: none\n- Add touch-action: manipulation on root to prevent double-tap zoom\n- Three-tone descending flag-fall sound + double-buzz vibration on\n  time expiry\n- Pulsing red text animation (animate-pulse) when time < 30s\n- Sound toggle button (persisted to localStorage) in center controls\n- Guard all audio with soundRef so mute is instant\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T11:52:54Z"
-          }
-        }
-      },
-      {
-        "sha": "652327bb723463a1a09962303080f3ea2a26be25",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/652327bb723463a1a09962303080f3ea2a26be25",
-        "commit": {
-          "message": "Add wake lock, click sound, haptics, keyboard shortcuts, persist TC\n\n- Screen Wake Lock keeps display on during running/paused game\n- Synthesized click sound via Web Audio on each tap (short freq sweep)\n- Haptic feedback (10ms vibration) on tap for mobile devices\n- Keyboard: Q/ArrowLeft = player 2, P/ArrowRight = player 1, Space = pause\n- Last-used time control saved to localStorage and restored on load\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T10:56:40Z"
           }
         }
       }
@@ -230,9 +230,19 @@
   "freeappstore-online/notes": {
     "meta": {
       "created_at": "2026-05-04T10:58:03Z",
-      "pushed_at": "2026-05-27T12:37:28Z"
+      "pushed_at": "2026-05-27T12:57:48Z"
     },
     "commits": [
+      {
+        "sha": "73a48625f7cf30f6a807917ce2382d532fe05f62",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/73a48625f7cf30f6a807917ce2382d532fe05f62",
+        "commit": {
+          "message": "test: add vitest suite (35 tests) + fix bugs\n\nTests:\n- 24 unit tests for notes.ts (migrateNote, loadNotes/saveNotes,\n  formatTime, filterAndSort, createNote)\n- 11 component tests for App (create, delete, search, pin, tag,\n  navigate, localStorage persistence)\n\nBugs fixed:\n- deleteNote stale closure: used functional setView to remove\n  dependency on view\n- migrateNote type safety: typeof checks instead of unsafe casts\n- Tag input iOS auto-zoom: bumped font-size to 1rem (16px)\n- useViewportHeight layout flash: returns CSS 100dvh by default,\n  only switches to px when keyboard detected open\n- Swipe gesture: proper direction lock state machine with dead zone\n- marked.parse: pass { async: false } for guaranteed sync return\n\nInfra:\n- Extract pure logic to notes.ts for testability\n- Set up vitest + happy-dom + testing-library\n- localStorage polyfill for Node 22 compatibility\n- Fix root package.json test script filter name\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T12:57:20Z"
+          }
+        }
+      },
       {
         "sha": "12f05ff58819b461c523c73c33d042bb6c1ac2c2",
         "html_url": "https://github.com/freeappstore-online/notes/commit/12f05ff58819b461c523c73c33d042bb6c1ac2c2",
@@ -250,16 +260,6 @@
           "message": "feat: pin notes, markdown preview, swipe-to-delete, tags, keyboard shortcuts\n\n- Pin/unpin notes (pinned sort to top, accent dot in list)\n- Markdown preview toggle (Cmd+E) with styled rendering\n- Swipe left to delete on mobile (red Delete backdrop)\n- Tags with pill UI, comma/Enter to add, Backspace to remove\n- Keyboard shortcuts: Cmd+N new, Cmd+F search, Cmd+E preview,\n  Cmd+Backspace delete, Escape back/clear\n- Search includes tags\n- Backwards-compatible migration for existing localStorage notes\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T12:13:53Z"
-          }
-        }
-      },
-      {
-        "sha": "be368292aff4a5e2f0f0d666226b5062e063eecf",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/be368292aff4a5e2f0f0d666226b5062e063eecf",
-        "commit": {
-          "message": "fix: split editor into bold title + body textarea\n\nThe single-textarea approach lost newlines because empty body was falsy,\ncausing editorContent to strip the \\n on re-render. Splitting into a\ntitle input (bold, 1.25rem) and body textarea fixes multiline editing\nand gives the first line visual weight.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T11:54:36Z"
           }
         }
       }
@@ -610,9 +610,29 @@
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-27T12:21:32Z"
+      "pushed_at": "2026-05-27T12:53:19Z"
     },
     "commits": [
+      {
+        "sha": "694a47656936538c77d723aa201d8f0042bee7aa",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/694a47656936538c77d723aa201d8f0042bee7aa",
+        "commit": {
+          "message": "fix: 5 bugs, expand test suite to 39 tests\n\nBugs fixed:\n- Text bounds now uses longest line width instead of total character\n  count, fixing oversized hit areas for multiline text.\n- Arrow bounds include arrowhead padding (max(strokeWidth*3, 12)),\n  fixing missed clicks near arrowhead tips.\n- Image bounds fall back to 100x100 when dimensions are 0, fixing\n  unselectable migrated image elements.\n- Double-click to edit sticky now only fires in select tool, preventing\n  accidental sticky editor opens while drawing.\n- Undo/redo/clear now immediately persist to localStorage via\n  setTimeout, preventing data loss on quick tab close.\n\nTests expanded from 16 to 39:\n- screenToWorld: fractional zoom, negative offset, origin mapping\n- clampZoom: boundary values, zero input\n- getElementBounds: single-point path, eraser flag parity, inverted\n  line/rect, horizontal line, arrow vs line size, multiline text\n  longest-line, empty text, image 0-dimension fallback\n- hitTest: empty array, boundary edges, just-outside miss, path by\n  bounding box, arrow with arrowhead padding, text elements\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T12:53:12Z"
+          }
+        }
+      },
+      {
+        "sha": "73d3b653ba7a52b0533d121fa3b9fc6d5ca4ccf4",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/73d3b653ba7a52b0533d121fa3b9fc6d5ca4ccf4",
+        "commit": {
+          "message": "fix: drag anchor, escape deselect, test filter; add vitest tests\n\nBugs fixed:\n- Select tool drag now uses getElementBounds for anchor calculation,\n  preventing visual jump when clicking away from element origin.\n- Escape key deselects the current element in select mode.\n- Root package.json test script pointed to wrong filter name\n  (@whiteboard/web → @freewhiteboardapp/web).\n\nTests added:\n- 16 vitest unit tests covering screenToWorld, clampZoom,\n  getElementBounds (path, rect, sticky, text, empty), and hitTest\n  (inside, outside, overlap ordering, rect bounds).\n- Exported screenToWorld and clampZoom from App.tsx for testability.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T12:41:20Z"
+          }
+        }
+      },
       {
         "sha": "fc4514b9c6d26c8e741e0d87255ada3d7722a61d",
         "html_url": "https://github.com/freeappstore-online/whiteboard/commit/fc4514b9c6d26c8e741e0d87255ada3d7722a61d",
@@ -620,26 +640,6 @@
           "message": "feat: infinite canvas, sticky notes, select tool, keyboard shortcuts\n\nMajor rewrite from bitmap to element-based rendering:\n\n- Infinite canvas with pan (scroll/middle-drag/space-drag) and zoom\n  (ctrl+wheel/pinch). Camera transform applied to all elements.\n- Element model: path, line, arrow, rect, ellipse, text, sticky, image.\n  Undo/redo operates on element snapshots instead of pixel data.\n- Sticky notes: click to place, double-click to edit, 6 color presets.\n  Rendered with rounded corners, shadow, and word-wrapped text.\n- Select tool (V): click to select, drag to move any element. Delete/\n  Backspace to remove selected element.\n- Keyboard shortcuts: V/P/E/L/A/R/O/T/S for tools, Ctrl+Z/Shift+Z\n  for undo/redo, Ctrl+0 to reset view.\n- Image paste: Ctrl+V pastes clipboard images onto canvas (resized to\n  max 800px). Images stored as dataUrl in elements.\n- Grid dots: toggleable dot grid in world space, adapts spacing to zoom.\n- Dark mode toggle: cycles auto/light/dark via class on root element.\n- Zoom indicator in sidebar with reset button.\n- Migration: reads old bitmap drawings from v1 localStorage format and\n  converts to image elements.\n- Scene renderer extracted to render.ts, types to types.ts.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T12:21:26Z"
-          }
-        }
-      },
-      {
-        "sha": "f89efa8c05650e7f1717f2e1faaebc4fb3edb4e5",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/f89efa8c05650e7f1717f2e1faaebc4fb3edb4e5",
-        "commit": {
-          "message": "feat: add text, arrow, fill, and eyedropper tools\n\n- Text tool: click to place a textarea, type, Enter to commit to canvas\n  (Shift+Enter for newlines, Escape to cancel). Font size slider shown\n  when text tool is active.\n- Arrow tool: drag to draw a line with an arrowhead at the endpoint.\n- Fill (bucket) tool: flood-fill clicked region with current color,\n  30-tolerance for anti-aliased edges.\n- Eyedropper (Pick) tool: click any pixel to sample its color and\n  switch back to pen.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T11:53:31Z"
-          }
-        }
-      },
-      {
-        "sha": "034a14147172efb34decc878c02f8a6a6299e124",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/034a14147172efb34decc878c02f8a6a6299e124",
-        "commit": {
-          "message": "feat: auto-create drawing, shape tools, brush cursor, thumbnails\n\n- Auto-create first drawing on load so strokes save immediately\n- Load last drawing from localStorage on mount\n- Shape tools: line, rectangle, ellipse with live preview\n- Dynamic SVG cursor that reflects brush size\n- Thumbnail previews in the drawings list sidebar\n- Prevent deleting last drawing (always keep at least one)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T11:24:49Z"
           }
         }
       }
@@ -838,36 +838,36 @@
   "freeappstore-online/calculator": {
     "meta": {
       "created_at": "2026-05-04T05:30:50Z",
-      "pushed_at": "2026-05-27T12:39:29Z"
+      "pushed_at": "2026-05-27T12:59:47Z"
     },
     "commits": [
       {
-        "sha": "cd19693594c8f36f35c7ae06cb5e0b5963aa7b1f",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/cd19693594c8f36f35c7ae06cb5e0b5963aa7b1f",
+        "sha": "4f96d9847fa31f46cb7bbbe2379cfc9b19e2f522",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/4f96d9847fa31f46cb7bbbe2379cfc9b19e2f522",
         "commit": {
-          "message": "feat: persist calculator state and add calculation history\n\nSaves current display/operand/operator to localStorage so the calculator\nresumes where you left off. Completed calculations are stored as history\n(up to 50 entries) and displayed in the sidebar (desktop) or via a toggle\nbutton (mobile). Tapping a history entry loads its result.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "fix: div-by-zero shows Error, near-zero trig cleanup, repeated equals; 77 tests\n\nBugs fixed:\n- Division by zero now returns NaN → displays \"Error\" (was silently 0)\n- cos(90°) and sin(180°) show \"0\" not \"6.12e-17\" (near-zero cleanup)\n- NaN/Infinity results display as \"Error\" in red instead of raw strings\n- 1/0 in scientific mode returns Error (was silently 0)\n- Repeated equals works: 5+3=== gives 8,11,14 (stores last operand/op)\n- Error state blocks further operations until AC is pressed\n- Extracted toRad/fromRad to calc.ts for testability\n\nTests expanded from 23 → 77 covering: arithmetic edge cases, factorial\noverflow, trig in deg mode (sin/cos/tan at key angles), inverse trig\n(including out-of-domain errors), ln/log/exp, sqrt/powers/reciprocal,\nnear-zero rounding, division by zero through full pipeline, and display\nprecision for long decimals.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T12:39:22Z"
+            "date": "2026-05-27T12:59:41Z"
           }
         }
       },
       {
-        "sha": "95010959355db02aef9fcd5ed96aa2a4f57d2a37",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/95010959355db02aef9fcd5ed96aa2a4f57d2a37",
+        "sha": "83fb24688e03fc1cb7cf613ec491cbaac41e7070",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/83fb24688e03fc1cb7cf613ec491cbaac41e7070",
         "commit": {
-          "message": "ci: add R2 deploy workflow",
+          "message": "fix: multiple decimal points, float noise, percent fresh state; add tests\n\nBugs fixed:\n- Prevent entering multiple decimal points (e.g. 1.2.3)\n- Clean floating-point display noise (0.1+0.2 now shows 0.3)\n- percent() now sets fresh so next digit starts a new number\n- loadState() uses lazy initializer to avoid reading localStorage every render\n\nExtracted pure calc logic into calc.ts with 23 vitest tests covering\narithmetic, factorial, display cleaning, and decimal validation.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T03:46:59Z"
+            "date": "2026-05-27T12:52:17Z"
           }
         }
       },
       {
-        "sha": "ba585e41bbf6f26a84c9157a8751dc721cacdbcb",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/ba585e41bbf6f26a84c9157a8751dc721cacdbcb",
+        "sha": "8db25ba9a50ff42f0f955d5d72a01518e3fd0c0e",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/8db25ba9a50ff42f0f955d5d72a01518e3fd0c0e",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "feat: add scientific calculator mode\n\nToggle between basic and scientific modes (persisted in localStorage).\nScientific mode adds: sin/cos/tan (with inverse via 2nd), ln/log (with\neˣ/10ˣ inverse), √/x²/x³/xʸ/1/x, factorial, π/e constants, and a\nDEG/RAD angle unit toggle.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-16T23:31:54Z"
+            "date": "2026-05-27T12:42:03Z"
           }
         }
       }
