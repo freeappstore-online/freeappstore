@@ -1192,6 +1192,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "mood",
+      "name": "mood",
+      "category": "Health & Fitness",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Daily mood tracker with check-ins, factor tags, charts, and weekly reflections",
+      "appUrl": "https://mood.freeappstore.online",
+      "repo": "freeappstore-online/mood",
+      "cfProject": "freemoodapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
