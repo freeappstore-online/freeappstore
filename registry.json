@@ -922,6 +922,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "recipes",
+      "name": "recipes",
+      "category": "Other (specify in description)",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Recipe book with 30 recipes, meal planner, shopping list, and cooking mode",
+      "appUrl": "https://recipes.freeappstore.online",
+      "repo": "freeappstore-online/recipes",
+      "cfProject": "freerecipesapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
