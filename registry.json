@@ -1147,6 +1147,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "resume",
+      "name": "resume",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Resume builder with 3 templates, live preview, section reorder, and PDF export",
+      "appUrl": "https://resume.freeappstore.online",
+      "repo": "freeappstore-online/resume",
+      "cfProject": "freeresumeapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
