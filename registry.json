@@ -742,6 +742,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "star-map",
+      "name": "star-map",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Interactive night sky viewer with 187 real stars and 20 constellations",
+      "appUrl": "https://star-map.freeappstore.online",
+      "repo": "freeappstore-online/star-map",
+      "cfProject": "freestar-mapapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
