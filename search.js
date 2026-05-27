@@ -121,11 +121,13 @@
 
     crossGrid.innerHTML = '';
     let crossShown = 0;
-    for (const item of crossItems) {
-      if (!item.hay.includes(needle)) continue;
-      crossGrid.appendChild(buildCrossCard(item));
-      crossShown++;
-      if (crossShown >= 12) break;
+    if (needle.length >= 3) {
+      for (const item of crossItems) {
+        if (!item.hay.includes(needle)) continue;
+        crossGrid.appendChild(buildCrossCard(item));
+        crossShown++;
+        if (crossShown >= 6) break;
+      }
     }
     crossSection.hidden = crossShown === 0;
   }

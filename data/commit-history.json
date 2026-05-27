@@ -78,9 +78,19 @@
   "freeappstore-online/chessclock": {
     "meta": {
       "created_at": "2026-05-04T10:01:30Z",
-      "pushed_at": "2026-05-27T10:56:43Z"
+      "pushed_at": "2026-05-27T11:52:57Z"
     },
     "commits": [
+      {
+        "sha": "f41a28fd9241032a96c59d5e717b7a3dfdfb2284",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/f41a28fd9241032a96c59d5e717b7a3dfdfb2284",
+        "commit": {
+          "message": "Instant tap response, flag-fall sound, low-time pulse, sound toggle\n\n- Switch player buttons from onClick to onPointerDown for instant\n  response (~100-300ms faster on mobile) with touch-action: none\n- Add touch-action: manipulation on root to prevent double-tap zoom\n- Three-tone descending flag-fall sound + double-buzz vibration on\n  time expiry\n- Pulsing red text animation (animate-pulse) when time < 30s\n- Sound toggle button (persisted to localStorage) in center controls\n- Guard all audio with soundRef so mute is instant\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T11:52:54Z"
+          }
+        }
+      },
       {
         "sha": "652327bb723463a1a09962303080f3ea2a26be25",
         "html_url": "https://github.com/freeappstore-online/chessclock/commit/652327bb723463a1a09962303080f3ea2a26be25",
@@ -98,16 +108,6 @@
           "message": "Subtler active indicator, layout toggle, auto device orientation\n\n- Replace blinding ink/paper background swap with gentle --color-active\n  tint plus an accent-colored inset bar on the active player edge\n- Add portrait/landscape layout toggle button in center controls\n- Auto-detect flat vs standing via DeviceOrientationEvent (beta angle)\n  with hysteresis; manual toggle overrides auto-detection\n- Adjust timer font sizing for landscape mode\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T10:53:13Z"
-          }
-        }
-      },
-      {
-        "sha": "0037ced9d1d9b55d0139f3f50f2f1e704b3c18e6",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/0037ced9d1d9b55d0139f3f50f2f1e704b3c18e6",
-        "commit": {
-          "message": "ci: add R2 deploy workflow",
-          "author": {
-            "date": "2026-05-27T03:47:03Z"
           }
         }
       }
@@ -610,9 +610,29 @@
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-27T11:21:40Z"
+      "pushed_at": "2026-05-27T11:53:39Z"
     },
     "commits": [
+      {
+        "sha": "f89efa8c05650e7f1717f2e1faaebc4fb3edb4e5",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/f89efa8c05650e7f1717f2e1faaebc4fb3edb4e5",
+        "commit": {
+          "message": "feat: add text, arrow, fill, and eyedropper tools\n\n- Text tool: click to place a textarea, type, Enter to commit to canvas\n  (Shift+Enter for newlines, Escape to cancel). Font size slider shown\n  when text tool is active.\n- Arrow tool: drag to draw a line with an arrowhead at the endpoint.\n- Fill (bucket) tool: flood-fill clicked region with current color,\n  30-tolerance for anti-aliased edges.\n- Eyedropper (Pick) tool: click any pixel to sample its color and\n  switch back to pen.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T11:53:31Z"
+          }
+        }
+      },
+      {
+        "sha": "034a14147172efb34decc878c02f8a6a6299e124",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/034a14147172efb34decc878c02f8a6a6299e124",
+        "commit": {
+          "message": "feat: auto-create drawing, shape tools, brush cursor, thumbnails\n\n- Auto-create first drawing on load so strokes save immediately\n- Load last drawing from localStorage on mount\n- Shape tools: line, rectangle, ellipse with live preview\n- Dynamic SVG cursor that reflects brush size\n- Thumbnail previews in the drawings list sidebar\n- Prevent deleting last drawing (always keep at least one)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T11:24:49Z"
+          }
+        }
+      },
       {
         "sha": "0a0a3e2e44c48fe7a5917d4f5df42105fe483fd9",
         "html_url": "https://github.com/freeappstore-online/whiteboard/commit/0a0a3e2e44c48fe7a5917d4f5df42105fe483fd9",
@@ -620,26 +640,6 @@
           "message": "fix(shell): correct CSS variable names, add multi-drawing local save\n\nShell referenced --line/--panel/--muted/--dock instead of --color-line/\n--color-panel/--color-muted; --dock didn't exist at all. Simplified\nshell to remove redundant empty sidebar. Added localStorage-backed\nmulti-drawing support: create, switch, rename, delete, auto-save.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T11:21:35Z"
-          }
-        }
-      },
-      {
-        "sha": "9db397b9ab399a634f23ce56d13948f42a2f8e64",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/9db397b9ab399a634f23ce56d13948f42a2f8e64",
-        "commit": {
-          "message": "ci: migrate deploy from CF Pages to R2",
-          "author": {
-            "date": "2026-05-27T03:49:56Z"
-          }
-        }
-      },
-      {
-        "sha": "0934d898eead605abb3363a128c376ca0c6e6d7e",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/0934d898eead605abb3363a128c376ca0c6e6d7e",
-        "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
-          "author": {
-            "date": "2026-05-16T23:32:21Z"
           }
         }
       }
@@ -1804,19 +1804,9 @@
   "freeappstore-online/message": {
     "meta": {
       "created_at": "2026-05-26T00:48:56Z",
-      "pushed_at": "2026-05-27T10:08:49Z"
+      "pushed_at": "2026-05-27T09:44:13Z"
     },
     "commits": [
-      {
-        "sha": "1eb4553fc157bf6cd4e6b4567797d2908bb3184b",
-        "html_url": "https://github.com/freeappstore-online/message/commit/1eb4553fc157bf6cd4e6b4567797d2908bb3184b",
-        "commit": {
-          "message": "Fix 7 bugs from code audit: enter-to-send, chat ID delimiter, room reuse, mobile UX\n\n1. Enter-to-send broken: Enter always sent because form onSubmit fired\n   even when enterToSend was false. Now preventDefault on all Enter,\n   only call handleSend when pref is enabled.\n2. Chat ID delimiter collision: makeChatId used ':' which conflicts\n   with 'gh:' prefix in UIDs (gh:111:gh:222 is ambiguous). Changed\n   to '|' delimiter (gh:111|gh:222).\n3. Search result peer extraction: split(':') on chatId could not\n   recover UIDs containing ':'. Added extractPeerUid that handles\n   both '|' and legacy ':' formats by prefix/suffix matching.\n4. Rapid sends exhausted rooms: each handleSend opened a new room.\n   Now reuses a single sendRoomRef with 5s idle close timer, same\n   pattern as typingRoomRef.\n5. GitHub \"Add friend\" never disabled: compared actionLoading\n   (gh:123) with String(gh.id) (123). Fixed to use gh: prefix.\n6. Mobile context menu flash: click handler on message bubble\n   immediately dismissed the context menu opened by long-press.\n   Removed the conflicting onClick; backdrop overlay handles dismiss.\n7. Toast timeout stacking: rapid copy+delete caused first timeout\n   to clear second toast early. Now clears previous timeout via ref\n   before setting new one.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T10:08:46Z"
-          }
-        }
-      },
       {
         "sha": "d6e07b97c203191fda9adb91cac35f8824815005",
         "html_url": "https://github.com/freeappstore-online/message/commit/d6e07b97c203191fda9adb91cac35f8824815005",
@@ -1834,6 +1824,16 @@
           "message": "Add search, day separators, delete conversations, copy/delete messages\n\nSearch:\n- Search icon in header opens full-text message search\n- Searches across all conversations, shows sender + date + preview\n- Minimum 2 characters, capped at 50 results\n\nDay separators:\n- \"Today\", \"Yesterday\", or \"Mon, May 26\" labels between message groups\n- Divider line on both sides for visual clarity\n\nDelete conversations:\n- Trash icon appears on hover/focus on each chat in the list\n- Confirmation modal before deleting\n- Removes both the chat entry and all its messages from IndexedDB\n\nMessage context menu (right-click or long-press):\n- Copy text to clipboard\n- Delete individual message\n- Bottom-sheet style on mobile with cancel button\n- Toast notification confirms the action\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T07:48:04Z"
+          }
+        }
+      },
+      {
+        "sha": "c64a481b70a9a95808136f62c702103d34288cfd",
+        "html_url": "https://github.com/freeappstore-online/message/commit/c64a481b70a9a95808136f62c702103d34288cfd",
+        "commit": {
+          "message": "Add rich messages, typing indicators, delivery status, image previews\n\nFeatures:\n- URLs in messages are now clickable links with prettified display\n- Image URLs (.png/.jpg/.gif/.webp) render as inline previews\n- Typing indicator: animated dots shown when peer is typing, throttled\n  to one signal per 2s, auto-clears after 3s\n- Delivery status: clock (sending), single check (sent to room),\n  double check (delivered) shown on outgoing messages\n- Empty chat state shows peer avatar with \"Start a conversation\" prompt\n\nCleanup:\n- Removed temp VCQA memo file from repo\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T07:32:05Z"
           }
         }
       }
