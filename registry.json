@@ -637,6 +637,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "graphing",
+      "name": "graphing",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Graphing calculator with function plotting, expression parser, and trace mode",
+      "appUrl": "https://graphing.freeappstore.online",
+      "repo": "freeappstore-online/graphing",
+      "cfProject": "freegraphingapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
