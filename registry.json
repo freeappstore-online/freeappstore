@@ -727,6 +727,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "statistics",
+      "name": "statistics",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Statistics calculator with distributions, regression, and hypothesis testing",
+      "appUrl": "https://statistics.freeappstore.online",
+      "repo": "freeappstore-online/statistics",
+      "cfProject": "freestatisticsapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
