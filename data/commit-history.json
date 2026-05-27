@@ -78,9 +78,19 @@
   "freeappstore-online/chessclock": {
     "meta": {
       "created_at": "2026-05-04T10:01:30Z",
-      "pushed_at": "2026-05-27T11:52:57Z"
+      "pushed_at": "2026-05-27T12:17:25Z"
     },
     "commits": [
+      {
+        "sha": "fa84ded3d1ea739985bf37071b51e11d4f94e69b",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/fa84ded3d1ea739985bf37071b51e11d4f94e69b",
+        "commit": {
+          "message": "Fix iOS audio, RAF leak, wake lock, right-click, transitions\n\n- Resume suspended AudioContext before scheduling nodes (iOS Safari\n  blocks audio until explicitly resumed)\n- Stop scheduling requestAnimationFrame after game ends instead of\n  continuing to tick indefinitely\n- Re-acquire Screen Wake Lock on visibilitychange so tab-switching\n  doesn't permanently lose it\n- Filter pointer button !== 0 to prevent right/middle-click taps\n- transition-all on player buttons so box-shadow animates with bg\n- Fix mute icon X coordinates (was clipped at viewBox edge)\n- Bump landscape font from 10vh to 15vh (was too small on phones)\n- Add relative to clock container for robust overlay positioning\n- Simplify idle text to \"Tap to start\" (works for both layouts)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T12:17:13Z"
+          }
+        }
+      },
       {
         "sha": "f41a28fd9241032a96c59d5e717b7a3dfdfb2284",
         "html_url": "https://github.com/freeappstore-online/chessclock/commit/f41a28fd9241032a96c59d5e717b7a3dfdfb2284",
@@ -98,16 +108,6 @@
           "message": "Add wake lock, click sound, haptics, keyboard shortcuts, persist TC\n\n- Screen Wake Lock keeps display on during running/paused game\n- Synthesized click sound via Web Audio on each tap (short freq sweep)\n- Haptic feedback (10ms vibration) on tap for mobile devices\n- Keyboard: Q/ArrowLeft = player 2, P/ArrowRight = player 1, Space = pause\n- Last-used time control saved to localStorage and restored on load\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T10:56:40Z"
-          }
-        }
-      },
-      {
-        "sha": "b99d948c0b2d6fad31db7fccf194f3c9a48f4a33",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/b99d948c0b2d6fad31db7fccf194f3c9a48f4a33",
-        "commit": {
-          "message": "Subtler active indicator, layout toggle, auto device orientation\n\n- Replace blinding ink/paper background swap with gentle --color-active\n  tint plus an accent-colored inset bar on the active player edge\n- Add portrait/landscape layout toggle button in center controls\n- Auto-detect flat vs standing via DeviceOrientationEvent (beta angle)\n  with hysteresis; manual toggle overrides auto-detection\n- Adjust timer font sizing for landscape mode\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T10:53:13Z"
           }
         }
       }
@@ -230,36 +230,36 @@
   "freeappstore-online/notes": {
     "meta": {
       "created_at": "2026-05-04T10:58:03Z",
-      "pushed_at": "2026-05-27T03:49:40Z"
+      "pushed_at": "2026-05-27T12:13:56Z"
     },
     "commits": [
       {
-        "sha": "2758fe253c6b57d0fdbe820b38a4bfd35923f22d",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/2758fe253c6b57d0fdbe820b38a4bfd35923f22d",
+        "sha": "cba46c20c705c25486157bc039d792e02aed480e",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/cba46c20c705c25486157bc039d792e02aed480e",
         "commit": {
-          "message": "ci: migrate deploy from CF Pages to R2",
+          "message": "feat: pin notes, markdown preview, swipe-to-delete, tags, keyboard shortcuts\n\n- Pin/unpin notes (pinned sort to top, accent dot in list)\n- Markdown preview toggle (Cmd+E) with styled rendering\n- Swipe left to delete on mobile (red Delete backdrop)\n- Tags with pill UI, comma/Enter to add, Backspace to remove\n- Keyboard shortcuts: Cmd+N new, Cmd+F search, Cmd+E preview,\n  Cmd+Backspace delete, Escape back/clear\n- Search includes tags\n- Backwards-compatible migration for existing localStorage notes\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T03:49:37Z"
+            "date": "2026-05-27T12:13:53Z"
           }
         }
       },
       {
-        "sha": "548ffeabccf4ea3c9a5c4d7f4b8e6952be749e11",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/548ffeabccf4ea3c9a5c4d7f4b8e6952be749e11",
+        "sha": "be368292aff4a5e2f0f0d666226b5062e063eecf",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/be368292aff4a5e2f0f0d666226b5062e063eecf",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "fix: split editor into bold title + body textarea\n\nThe single-textarea approach lost newlines because empty body was falsy,\ncausing editorContent to strip the \\n on re-render. Splitting into a\ntitle input (bold, 1.25rem) and body textarea fixes multiline editing\nand gives the first line visual weight.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-16T23:32:06Z"
+            "date": "2026-05-27T11:54:36Z"
           }
         }
       },
       {
-        "sha": "5b8b99cd855035dd2ad5c180abe41195f76cca09",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/5b8b99cd855035dd2ad5c180abe41195f76cca09",
+        "sha": "1d3773bc498fcbafe25e8fceafcf3e56fdef7e9d",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/1d3773bc498fcbafe25e8fceafcf3e56fdef7e9d",
         "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "message": "fix: remove global user-select:none that blocked Enter in textarea on mobile\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-14T11:06:39Z"
+            "date": "2026-05-27T11:50:42Z"
           }
         }
       }
@@ -610,9 +610,19 @@
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-27T11:53:39Z"
+      "pushed_at": "2026-05-27T12:21:32Z"
     },
     "commits": [
+      {
+        "sha": "fc4514b9c6d26c8e741e0d87255ada3d7722a61d",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/fc4514b9c6d26c8e741e0d87255ada3d7722a61d",
+        "commit": {
+          "message": "feat: infinite canvas, sticky notes, select tool, keyboard shortcuts\n\nMajor rewrite from bitmap to element-based rendering:\n\n- Infinite canvas with pan (scroll/middle-drag/space-drag) and zoom\n  (ctrl+wheel/pinch). Camera transform applied to all elements.\n- Element model: path, line, arrow, rect, ellipse, text, sticky, image.\n  Undo/redo operates on element snapshots instead of pixel data.\n- Sticky notes: click to place, double-click to edit, 6 color presets.\n  Rendered with rounded corners, shadow, and word-wrapped text.\n- Select tool (V): click to select, drag to move any element. Delete/\n  Backspace to remove selected element.\n- Keyboard shortcuts: V/P/E/L/A/R/O/T/S for tools, Ctrl+Z/Shift+Z\n  for undo/redo, Ctrl+0 to reset view.\n- Image paste: Ctrl+V pastes clipboard images onto canvas (resized to\n  max 800px). Images stored as dataUrl in elements.\n- Grid dots: toggleable dot grid in world space, adapts spacing to zoom.\n- Dark mode toggle: cycles auto/light/dark via class on root element.\n- Zoom indicator in sidebar with reset button.\n- Migration: reads old bitmap drawings from v1 localStorage format and\n  converts to image elements.\n- Scene renderer extracted to render.ts, types to types.ts.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T12:21:26Z"
+          }
+        }
+      },
       {
         "sha": "f89efa8c05650e7f1717f2e1faaebc4fb3edb4e5",
         "html_url": "https://github.com/freeappstore-online/whiteboard/commit/f89efa8c05650e7f1717f2e1faaebc4fb3edb4e5",
@@ -630,16 +640,6 @@
           "message": "feat: auto-create drawing, shape tools, brush cursor, thumbnails\n\n- Auto-create first drawing on load so strokes save immediately\n- Load last drawing from localStorage on mount\n- Shape tools: line, rectangle, ellipse with live preview\n- Dynamic SVG cursor that reflects brush size\n- Thumbnail previews in the drawings list sidebar\n- Prevent deleting last drawing (always keep at least one)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T11:24:49Z"
-          }
-        }
-      },
-      {
-        "sha": "0a0a3e2e44c48fe7a5917d4f5df42105fe483fd9",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/0a0a3e2e44c48fe7a5917d4f5df42105fe483fd9",
-        "commit": {
-          "message": "fix(shell): correct CSS variable names, add multi-drawing local save\n\nShell referenced --line/--panel/--muted/--dock instead of --color-line/\n--color-panel/--color-muted; --dock didn't exist at all. Simplified\nshell to remove redundant empty sidebar. Added localStorage-backed\nmulti-drawing support: create, switch, rename, delete, auto-save.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T11:21:35Z"
           }
         }
       }
@@ -1804,9 +1804,19 @@
   "freeappstore-online/message": {
     "meta": {
       "created_at": "2026-05-26T00:48:56Z",
-      "pushed_at": "2026-05-27T09:44:13Z"
+      "pushed_at": "2026-05-27T10:08:49Z"
     },
     "commits": [
+      {
+        "sha": "1eb4553fc157bf6cd4e6b4567797d2908bb3184b",
+        "html_url": "https://github.com/freeappstore-online/message/commit/1eb4553fc157bf6cd4e6b4567797d2908bb3184b",
+        "commit": {
+          "message": "Fix 7 bugs from code audit: enter-to-send, chat ID delimiter, room reuse, mobile UX\n\n1. Enter-to-send broken: Enter always sent because form onSubmit fired\n   even when enterToSend was false. Now preventDefault on all Enter,\n   only call handleSend when pref is enabled.\n2. Chat ID delimiter collision: makeChatId used ':' which conflicts\n   with 'gh:' prefix in UIDs (gh:111:gh:222 is ambiguous). Changed\n   to '|' delimiter (gh:111|gh:222).\n3. Search result peer extraction: split(':') on chatId could not\n   recover UIDs containing ':'. Added extractPeerUid that handles\n   both '|' and legacy ':' formats by prefix/suffix matching.\n4. Rapid sends exhausted rooms: each handleSend opened a new room.\n   Now reuses a single sendRoomRef with 5s idle close timer, same\n   pattern as typingRoomRef.\n5. GitHub \"Add friend\" never disabled: compared actionLoading\n   (gh:123) with String(gh.id) (123). Fixed to use gh: prefix.\n6. Mobile context menu flash: click handler on message bubble\n   immediately dismissed the context menu opened by long-press.\n   Removed the conflicting onClick; backdrop overlay handles dismiss.\n7. Toast timeout stacking: rapid copy+delete caused first timeout\n   to clear second toast early. Now clears previous timeout via ref\n   before setting new one.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T10:08:46Z"
+          }
+        }
+      },
       {
         "sha": "d6e07b97c203191fda9adb91cac35f8824815005",
         "html_url": "https://github.com/freeappstore-online/message/commit/d6e07b97c203191fda9adb91cac35f8824815005",
@@ -1824,16 +1834,6 @@
           "message": "Add search, day separators, delete conversations, copy/delete messages\n\nSearch:\n- Search icon in header opens full-text message search\n- Searches across all conversations, shows sender + date + preview\n- Minimum 2 characters, capped at 50 results\n\nDay separators:\n- \"Today\", \"Yesterday\", or \"Mon, May 26\" labels between message groups\n- Divider line on both sides for visual clarity\n\nDelete conversations:\n- Trash icon appears on hover/focus on each chat in the list\n- Confirmation modal before deleting\n- Removes both the chat entry and all its messages from IndexedDB\n\nMessage context menu (right-click or long-press):\n- Copy text to clipboard\n- Delete individual message\n- Bottom-sheet style on mobile with cancel button\n- Toast notification confirms the action\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T07:48:04Z"
-          }
-        }
-      },
-      {
-        "sha": "c64a481b70a9a95808136f62c702103d34288cfd",
-        "html_url": "https://github.com/freeappstore-online/message/commit/c64a481b70a9a95808136f62c702103d34288cfd",
-        "commit": {
-          "message": "Add rich messages, typing indicators, delivery status, image previews\n\nFeatures:\n- URLs in messages are now clickable links with prettified display\n- Image URLs (.png/.jpg/.gif/.webp) render as inline previews\n- Typing indicator: animated dots shown when peer is typing, throttled\n  to one signal per 2s, auto-clears after 3s\n- Delivery status: clock (sending), single check (sent to room),\n  double check (delivered) shown on outgoing messages\n- Empty chat state shows peer avatar with \"Start a conversation\" prompt\n\nCleanup:\n- Removed temp VCQA memo file from repo\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T07:32:05Z"
           }
         }
       }
