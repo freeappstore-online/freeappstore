@@ -832,6 +832,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "sleep",
+      "name": "sleep",
+      "category": "Health & Fitness",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Sleep tracker with cycle calculator, mood logging, and consistency charts",
+      "appUrl": "https://sleep.freeappstore.online",
+      "repo": "freeappstore-online/sleep",
+      "cfProject": "freesleepapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
