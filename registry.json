@@ -667,6 +667,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "chemistry",
+      "name": "chemistry",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Chemistry equation balancer, molar mass calculator, and reaction explorer",
+      "appUrl": "https://chemistry.freeappstore.online",
+      "repo": "freeappstore-online/chemistry",
+      "cfProject": "freechemistryapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
