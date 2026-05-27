@@ -682,6 +682,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "solar-system",
+      "name": "solar-system",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Interactive solar system with orbiting planets, real data, and scale comparison",
+      "appUrl": "https://solar-system.freeappstore.online",
+      "repo": "freeappstore-online/solar-system",
+      "cfProject": "freesolar-systemapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
