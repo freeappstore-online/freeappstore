@@ -802,6 +802,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "meditation",
+      "name": "meditation",
+      "category": "Health & Fitness",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Meditation timer and breathing exercises with ambient sound generator",
+      "appUrl": "https://meditation.freeappstore.online",
+      "repo": "freeappstore-online/meditation",
+      "cfProject": "freemeditationapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
