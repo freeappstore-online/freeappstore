@@ -932,36 +932,36 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-27T03:02:52Z"
+      "pushed_at": "2026-05-27T03:17:28Z"
     },
     "commits": [
       {
-        "sha": "f27ab959daacac94d6780af4ced58831b3b10d0b",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/f27ab959daacac94d6780af4ced58831b3b10d0b",
+        "sha": "a42a73ed3c76119fb4ff2edf6f24d3fc4b4966cf",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/a42a73ed3c76119fb4ff2edf6f24d3fc4b4966cf",
         "commit": {
-          "message": "Add auto-translate, native language settings, and fix add-phrase UX\n\n- Auto-translate via MyMemory API (free, no key) with 500ms debounce\n- Native language picker in settings, persisted to localStorage\n- Add-phrase shows \"Added!\" confirmation and scrolls to new entry\n- Language code mapping for 15 common languages (ISO 639-1)\n- Loop prevention: tracks user-typed vs auto-filled fields\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Rename to Phrases, move description into info modal\n\n- Header: \"Phrases\" with compact ? info button\n- Description text moved to modal dialog (tap ? to see)\n- Page title: \"Phrases — FreeAppStore\"\n- PWA manifest: name/short_name/description updated\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T03:02:49Z"
+            "date": "2026-05-27T03:17:25Z"
           }
         }
       },
       {
-        "sha": "c5b9f958cef94b6811104d91a456d8068a57ed8f",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/c5b9f958cef94b6811104d91a456d8068a57ed8f",
+        "sha": "a6a3d9bf92af6b1a2256a418e49d327f6de88638",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/a6a3d9bf92af6b1a2256a418e49d327f6de88638",
         "commit": {
-          "message": "Add platform analytics loader\n\nEmbeds <script src=\".../v1/analytics.js?app=<id>\" defer></script> into\nweb/index.html so visits start showing up in the creator dashboard. The\nloader is served from the platform Worker; tags evolve without a redeploy.",
+          "message": "fix: translate loop prevention, stale indicator, practice index, delete confirm\n\n- Version-stamp translate requests so stale async results are discarded\n- Only auto-translate when the other field is empty or was auto-filled\n- Use refs for stable useCallback deps (no re-create on every keystroke)\n- Clamp practice index when phrases array shrinks (e.g. filter change)\n- Don't advance past last card in gotIt()\n- Add confirm dialog before deleting a phrase\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-21T02:28:16Z"
+            "date": "2026-05-27T03:10:37Z"
           }
         }
       },
       {
-        "sha": "6fd676f811a139d09921524ef14b1309e751a3d6",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/6fd676f811a139d09921524ef14b1309e751a3d6",
+        "sha": "be25e01c0fd262602918941a15651b3824c8b23d",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/be25e01c0fd262602918941a15651b3824c8b23d",
         "commit": {
-          "message": "fix: declare maskable icon purpose for Android PWA install\n\nAndroid Chrome installs PWAs as launcher shortcuts (not real apps with\ntheir own task slot) unless the manifest declares at least one icon\nwith purpose: 'maskable'. Add 'any maskable' to both 192/512 entries\nso installs land in the app drawer with an adaptive icon.",
+          "message": "fix: auto-translate works both directions, add tap-to-speak\n\n- Remove direction guard that blocked translation from one field\n- Auto-translate fires whichever field you type in (target or native)\n- Add Web Speech API pronunciation: tap any phrase text to hear it\n- Speaker icon on list items, practice cards, and fullscreen view\n- Clean up unused nativeLang prop from AddForm/ListView\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-20T04:47:35Z"
+            "date": "2026-05-27T03:08:01Z"
           }
         }
       }
