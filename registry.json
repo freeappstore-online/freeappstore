@@ -1297,6 +1297,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "invoice",
+      "name": "invoice",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Invoice and receipt generator with 3 templates, live preview, and PDF export",
+      "appUrl": "https://invoice.freeappstore.online",
+      "repo": "freeappstore-online/invoice",
+      "cfProject": "freeinvoiceapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
