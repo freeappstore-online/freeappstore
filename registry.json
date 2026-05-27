@@ -1207,6 +1207,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "expense",
+      "name": "expense",
+      "category": "Finance",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Fast expense tracker with keypad entry, calendar heatmap, and charts",
+      "appUrl": "https://expense.freeappstore.online",
+      "repo": "freeappstore-online/expense",
+      "cfProject": "freeexpenseapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
