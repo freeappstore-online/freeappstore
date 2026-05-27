@@ -1132,6 +1132,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "hiit",
+      "name": "hiit",
+      "category": "Health & Fitness",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "HIIT interval timer with presets, audio cues, and workout history",
+      "appUrl": "https://hiit.freeappstore.online",
+      "repo": "freeappstore-online/hiit",
+      "cfProject": "freehiitapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
