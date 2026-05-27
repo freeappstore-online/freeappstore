@@ -1087,6 +1087,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "quotes",
+      "name": "quotes",
+      "category": "Other (specify in description)",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "150 inspirational quotes with daily quote, card generator, and collections",
+      "appUrl": "https://quotes.freeappstore.online",
+      "repo": "freeappstore-online/quotes",
+      "cfProject": "freequotesapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
