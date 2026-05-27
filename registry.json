@@ -1117,6 +1117,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "plants",
+      "name": "plants",
+      "category": "Other (specify in description)",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Plant care tracker with 30 houseplants, watering schedule, and seasonal tips",
+      "appUrl": "https://plants.freeappstore.online",
+      "repo": "freeappstore-online/plants",
+      "cfProject": "freeplantsapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
