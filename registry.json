@@ -592,6 +592,21 @@
       "hostedOn": "r2",
       "creatorGithub": "serge-ivo",
       "requiresAuth": true
+    },
+    {
+      "id": "my-cool-app",
+      "name": "my-cool-app",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "test",
+      "appUrl": "https://my-cool-app.freeappstore.online",
+      "repo": "freeappstore-online/my-cool-app",
+      "cfProject": "freemy-cool-appapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "jvmacuto"
     }
   ]
 }
