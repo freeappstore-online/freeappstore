@@ -932,36 +932,36 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-27T03:53:25Z"
+      "pushed_at": "2026-05-27T09:35:20Z"
     },
     "commits": [
       {
-        "sha": "6b59272e06f2c749dbbe075335eb4eb4812b2a25",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/6b59272e06f2c749dbbe075335eb4eb4812b2a25",
+        "sha": "5f332118e0ad60702394ef6d75fccb5961822c44",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/5f332118e0ad60702394ef6d75fccb5961822c44",
         "commit": {
-          "message": "Add speech speed setting, auto-fill pronunciation, mobile-friendly UI\n\n- Speech rate slider in settings (0.3x-1.5x), persisted to localStorage\n- Auto-fetch pinyin/romanization for CJK languages via Google Translate\n- Settings panel redesigned: stacked layout, full-width on mobile\n- Gear icon replaces \"Settings\" text button (saves space on mobile)\n- Pronunciation auto-fills when typing in target field or when\n  native-to-target translation produces CJK text\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "fix: inputs scale with font size, form/practice reset on pair switch\n\n- Input/select font-size changed from fixed 16px to max(16px, 1rem)\n  so they scale with the font size setting while preventing iOS zoom\n- AddForm remounts (clears fields) when language pair changes\n- PracticeTab remounts (resets index to 0) when pair changes\n- Font scale 1.0 no longer overrides browser default font-size\n- Font size slider labels use fixed 11px to stay stable\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T03:53:22Z"
+            "date": "2026-05-27T09:35:18Z"
           }
         }
       },
       {
-        "sha": "539ac49a00d67e8ddb55a5572e0f11a3388b9345",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/539ac49a00d67e8ddb55a5572e0f11a3388b9345",
+        "sha": "76aa4d5d500140d02256cd68b5e1dd20c7743ecc",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/76aa4d5d500140d02256cd68b5e1dd20c7743ecc",
         "commit": {
-          "message": "Add R2 deploy workflow, upgrade translation to Google Translate\n\n- Add deploy.yml: builds and uploads to R2 on push to main\n- Primary translation via Google Translate free endpoint (best CJK quality)\n- Fallback to MyMemory if Google is unavailable\n- Previous commits never deployed because this workflow was missing\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add font size setting, make fullscreen practice text larger\n\n- Font size slider in Settings (80%-160%), persisted to localStorage\n- Scales all rem-based text via root font-size; bottom nav stays fixed px\n- Fullscreen practice: main text up to clamp(2.5rem, 14vw, 7rem),\n  pronunciation and translation scaled proportionally\n- Practice card text also increased for better readability\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T03:35:04Z"
+            "date": "2026-05-27T08:02:58Z"
           }
         }
       },
       {
-        "sha": "a42a73ed3c76119fb4ff2edf6f24d3fc4b4966cf",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/a42a73ed3c76119fb4ff2edf6f24d3fc4b4966cf",
+        "sha": "6d55e1638b044917da943d98f682258a6459e10d",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/6d55e1638b044917da943d98f682258a6459e10d",
         "commit": {
-          "message": "Rename to Phrases, move description into info modal\n\n- Header: \"Phrases\" with compact ? info button\n- Description text moved to modal dialog (tap ? to see)\n- Page title: \"Phrases — FreeAppStore\"\n- PWA manifest: name/short_name/description updated\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "fix: practice tab no longer skips phrases when \"unpractised only\" is on\n\nThe \"Unpractised only\" filter and topic filter from the Phrases tab\nwere also applied to the Practice tab. When a phrase was marked\npracticed via \"Got it\", it disappeared from the list and the next\nphrase was skipped. Practice now always shows all phrases for the\ncurrent pair regardless of list filters.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T03:17:25Z"
+            "date": "2026-05-27T06:59:08Z"
           }
         }
       }
@@ -1804,36 +1804,36 @@
   "freeappstore-online/message": {
     "meta": {
       "created_at": "2026-05-26T00:48:56Z",
-      "pushed_at": "2026-05-27T04:09:01Z"
+      "pushed_at": "2026-05-27T09:44:13Z"
     },
     "commits": [
       {
-        "sha": "a6a8022b8486ec6001185437715e5dad9e08e2f8",
-        "html_url": "https://github.com/freeappstore-online/message/commit/a6a8022b8486ec6001185437715e5dad9e08e2f8",
+        "sha": "d6e07b97c203191fda9adb91cac35f8824815005",
+        "html_url": "https://github.com/freeappstore-online/message/commit/d6e07b97c203191fda9adb91cac35f8824815005",
         "commit": {
-          "message": "ci: add VCQA code health scan to deploy\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Fix 6 bugs: URL regex, typing room leak, outbox race, clipboard, search nav, mobile delete\n\n1. URL regex: global flag on shared regex caused stateful lastIndex,\n   making every other URL in a message get missed. Replaced with\n   fresh RegExp instance per parse call using exec() loop.\n2. Typing indicator room leak: every keystroke opened a new WebSocket\n   that could stay open forever if connection timing was unlucky. Now\n   reuses a single room ref, closes after 5s idle, cleaned up on unmount.\n3. Outbox retry race: setTimeout close fired async while loop opened\n   next room, could exhaust 64-room cap. Now closes synchronously and\n   awaits 200ms between retries.\n4. Clipboard fallback: navigator.clipboard.writeText throws on HTTP\n   and some mobile browsers. Added execCommand('copy') textarea fallback.\n5. Search results navigate: clicking a search result now opens that\n   chat via getOrCreateChat instead of being a dead-end display.\n6. Mobile delete button: CSS :hover opacity trick was invisible on\n   touch devices. Replaced with always-visible trash column + right-click\n   context menu as alternative.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T04:08:58Z"
+            "date": "2026-05-27T09:44:10Z"
           }
         }
       },
       {
-        "sha": "d5f8a59908ce3adeea8df201dff8896b0da7d481",
-        "html_url": "https://github.com/freeappstore-online/message/commit/d5f8a59908ce3adeea8df201dff8896b0da7d481",
+        "sha": "f9dd6ed923cbb268953a6c2d2b8d03840b1ee578",
+        "html_url": "https://github.com/freeappstore-online/message/commit/f9dd6ed923cbb268953a6c2d2b8d03840b1ee578",
         "commit": {
-          "message": "Fix iOS safe area: pad content clear of Dynamic Island and home bar\n\nAdd env(safe-area-inset-*) padding to #root so the app content stays\nbelow the Dynamic Island and above the home indicator when saved to\nhomescreen as a PWA.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add search, day separators, delete conversations, copy/delete messages\n\nSearch:\n- Search icon in header opens full-text message search\n- Searches across all conversations, shows sender + date + preview\n- Minimum 2 characters, capped at 50 results\n\nDay separators:\n- \"Today\", \"Yesterday\", or \"Mon, May 26\" labels between message groups\n- Divider line on both sides for visual clarity\n\nDelete conversations:\n- Trash icon appears on hover/focus on each chat in the list\n- Confirmation modal before deleting\n- Removes both the chat entry and all its messages from IndexedDB\n\nMessage context menu (right-click or long-press):\n- Copy text to clipboard\n- Delete individual message\n- Bottom-sheet style on mobile with cancel button\n- Toast notification confirms the action\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T00:30:05Z"
+            "date": "2026-05-27T07:48:04Z"
           }
         }
       },
       {
-        "sha": "0d1c95c696447ea139850ab894b4c79acf6ca357",
-        "html_url": "https://github.com/freeappstore-online/message/commit/0d1c95c696447ea139850ab894b4c79acf6ca357",
+        "sha": "c64a481b70a9a95808136f62c702103d34288cfd",
+        "html_url": "https://github.com/freeappstore-online/message/commit/c64a481b70a9a95808136f62c702103d34288cfd",
         "commit": {
-          "message": "Fix 6 bugs: user ID format, GitHub empty state, DB cleanup, chat overwrite, prefs\n\n1. User ID format: NewChat and Contacts used bare GitHub numeric ID\n   (e.g. \"12345\") but FAS uses \"gh:12345\". Chat IDs mismatched between\n   sender and receiver, breaking message routing entirely.\n2. GitHub tab empty state: showed \"Loading...\" forever when user follows\n   zero people. Now tracks load state separately from list length.\n3. Profile clear data: indexedDB.deleteDatabase left stale cached DB\n   connection in db.ts singleton. Added clearAllData() that closes the\n   connection first and resets the promise.\n4. Contacts chat overwrite: opening a chat from Contacts always wrote\n   lastMessage:\"\" over existing chat data. Added getOrCreateChat() that\n   preserves existing metadata.\n5. Preferences wired up: enterToSend now prevents default Enter and\n   calls handleSend. fontSize now applies to message bubbles via\n   FONT_SIZE_MAP.\n6. Friend request from GitHub tab used bare numeric ID instead of\n   gh:-prefixed format.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add rich messages, typing indicators, delivery status, image previews\n\nFeatures:\n- URLs in messages are now clickable links with prettified display\n- Image URLs (.png/.jpg/.gif/.webp) render as inline previews\n- Typing indicator: animated dots shown when peer is typing, throttled\n  to one signal per 2s, auto-clears after 3s\n- Delivery status: clock (sending), single check (sent to room),\n  double check (delivered) shown on outgoing messages\n- Empty chat state shows peer avatar with \"Start a conversation\" prompt\n\nCleanup:\n- Removed temp VCQA memo file from repo\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-26T22:42:16Z"
+            "date": "2026-05-27T07:32:05Z"
           }
         }
       }
