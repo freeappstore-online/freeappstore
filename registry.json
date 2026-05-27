@@ -937,6 +937,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "morse",
+      "name": "morse",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Morse code trainer with audio, visual flasher, tap input, and practice modes",
+      "appUrl": "https://morse.freeappstore.online",
+      "repo": "freeappstore-online/morse",
+      "cfProject": "freemorseapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
