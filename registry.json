@@ -1057,6 +1057,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "loan",
+      "name": "loan",
+      "category": "Finance",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Loan and mortgage calculator with amortization table, charts, and comparison mode",
+      "appUrl": "https://loan.freeappstore.online",
+      "repo": "freeappstore-online/loan",
+      "cfProject": "freeloanapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
