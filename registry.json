@@ -712,6 +712,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "circuits",
+      "name": "circuits",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Circuit builder and DC simulator with resistors, LEDs, and nodal analysis",
+      "appUrl": "https://circuits.freeappstore.online",
+      "repo": "freeappstore-online/circuits",
+      "cfProject": "freecircuitsapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
