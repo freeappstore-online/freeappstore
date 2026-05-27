@@ -697,6 +697,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "cell-biology",
+      "name": "cell-biology",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Interactive cell biology explorer with animal, plant, and prokaryote diagrams",
+      "appUrl": "https://cell-biology.freeappstore.online",
+      "repo": "freeappstore-online/cell-biology",
+      "cfProject": "freecell-biologyapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
