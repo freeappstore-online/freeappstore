@@ -967,6 +967,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "typing",
+      "name": "typing",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Typing speed test with WPM tracking, practice mode, and keyboard heatmap",
+      "appUrl": "https://typing.freeappstore.online",
+      "repo": "freeappstore-online/typing",
+      "cfProject": "freetypingapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
