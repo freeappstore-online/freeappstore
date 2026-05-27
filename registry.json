@@ -1177,6 +1177,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "focus",
+      "name": "focus",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Pomodoro focus timer with task tracking, stats charts, and motivational quotes",
+      "appUrl": "https://focus.freeappstore.online",
+      "repo": "freeappstore-online/focus",
+      "cfProject": "freefocusapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
