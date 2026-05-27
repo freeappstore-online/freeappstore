@@ -1537,7 +1537,7 @@
         "sha": "10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
         "html_url": "https://github.com/freeappstore-online/population-agent/commit/10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
         "commit": {
-          "message": "Add PopulationAgent chatbot �� Claude Sonnet 4.6 + live ABS data\n\nBrowser-only React app that uses Claude Sonnet 4.6 with tool use to answer\nquestions about Australian population. The Anthropic API is routed through\n@freeappstore/sdk's secret-injecting proxy (key stored server-side via\nfas secret set, never reaches the browser). ABS Data API is called directly\nfrom the browser via fetch.\n\nFive tools exposed to the agent: get_population, get_population_time_series,\ncompare_states, list_abs_dataflows, query_abs_dataset (escape hatch).\nSDMX-JSON responses flattened into {period, value, dimensions} rows.\n\nChat history persists in localStorage. Streaming text deltas via SSE parsing.\nPrompt caching: cache_control ephemeral on last tool definition (caches\ntools + system prefix together; tools render before system in the request).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add PopulationAgent chatbot — Claude Sonnet 4.6 + live ABS data\n\nBrowser-only React app that uses Claude Sonnet 4.6 with tool use to answer\nquestions about Australian population. The Anthropic API is routed through\n@freeappstore/sdk's secret-injecting proxy (key stored server-side via\nfas secret set, never reaches the browser). ABS Data API is called directly\nfrom the browser via fetch.\n\nFive tools exposed to the agent: get_population, get_population_time_series,\ncompare_states, list_abs_dataflows, query_abs_dataset (escape hatch).\nSDMX-JSON responses flattened into {period, value, dimensions} rows.\n\nChat history persists in localStorage. Streaming text deltas via SSE parsing.\nPrompt caching: cache_control ephemeral on last tool definition (caches\ntools + system prefix together; tools render before system in the request).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-20T10:07:55Z"
           }
@@ -1804,9 +1804,29 @@
   "freeappstore-online/message": {
     "meta": {
       "created_at": "2026-05-26T00:48:56Z",
-      "pushed_at": "2026-05-26T06:34:21Z"
+      "pushed_at": "2026-05-27T00:30:07Z"
     },
     "commits": [
+      {
+        "sha": "d5f8a59908ce3adeea8df201dff8896b0da7d481",
+        "html_url": "https://github.com/freeappstore-online/message/commit/d5f8a59908ce3adeea8df201dff8896b0da7d481",
+        "commit": {
+          "message": "Fix iOS safe area: pad content clear of Dynamic Island and home bar\n\nAdd env(safe-area-inset-*) padding to #root so the app content stays\nbelow the Dynamic Island and above the home indicator when saved to\nhomescreen as a PWA.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T00:30:05Z"
+          }
+        }
+      },
+      {
+        "sha": "0d1c95c696447ea139850ab894b4c79acf6ca357",
+        "html_url": "https://github.com/freeappstore-online/message/commit/0d1c95c696447ea139850ab894b4c79acf6ca357",
+        "commit": {
+          "message": "Fix 6 bugs: user ID format, GitHub empty state, DB cleanup, chat overwrite, prefs\n\n1. User ID format: NewChat and Contacts used bare GitHub numeric ID\n   (e.g. \"12345\") but FAS uses \"gh:12345\". Chat IDs mismatched between\n   sender and receiver, breaking message routing entirely.\n2. GitHub tab empty state: showed \"Loading...\" forever when user follows\n   zero people. Now tracks load state separately from list length.\n3. Profile clear data: indexedDB.deleteDatabase left stale cached DB\n   connection in db.ts singleton. Added clearAllData() that closes the\n   connection first and resets the promise.\n4. Contacts chat overwrite: opening a chat from Contacts always wrote\n   lastMessage:\"\" over existing chat data. Added getOrCreateChat() that\n   preserves existing metadata.\n5. Preferences wired up: enterToSend now prevents default Enter and\n   calls handleSend. fontSize now applies to message bubbles via\n   FONT_SIZE_MAP.\n6. Friend request from GitHub tab used bare numeric ID instead of\n   gh:-prefixed format.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-26T22:42:16Z"
+          }
+        }
+      },
       {
         "sha": "94a4ae1af9b82b2dc66141dea7835514ed83bfda",
         "html_url": "https://github.com/freeappstore-online/message/commit/94a4ae1af9b82b2dc66141dea7835514ed83bfda",
@@ -1814,26 +1834,6 @@
           "message": "Add contacts screen with FAS friends + GitHub following\n\nFour tabs:\n- Friends: list accepted FAS platform friends, tap to message\n- Requests: incoming friend requests with accept/decline\n- GitHub: import contacts from GitHub following (public API)\n- Search: find FAS users by username, send friend requests\n\nContacts button added to chat list header.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-26T06:34:18Z"
-          }
-        }
-      },
-      {
-        "sha": "066e4a757195aab4a04f579933635a543918fa49",
-        "html_url": "https://github.com/freeappstore-online/message/commit/066e4a757195aab4a04f579933635a543918fa49",
-        "commit": {
-          "message": "Add profile page with prefs, sign out, clear data, delete account\n\n- Avatar button in header opens profile (replaces bare logout icon)\n- Preferences: notifications toggle, enter-to-send, font size\n- Clear all messages (wipes IndexedDB)\n- Delete account (FAS SDK deleteAccount + local wipe)\n- Confirmation modals for destructive actions\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-26T06:11:19Z"
-          }
-        }
-      },
-      {
-        "sha": "22be9c3b8eaf6432bc03f0a891a21c5d756e7476",
-        "html_url": "https://github.com/freeappstore-online/message/commit/22be9c3b8eaf6432bc03f0a891a21c5d756e7476",
-        "commit": {
-          "message": "Add Google sign-in option alongside GitHub\n\nFAS SDK already supports github/google/apple/email providers.\nAdded Google button with proper branding to the sign-in screen.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-26T04:18:45Z"
           }
         }
       }
