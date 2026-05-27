@@ -1042,6 +1042,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "json",
+      "name": "json",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "JSON formatter with tree view, diff mode, TypeScript generation, and path query",
+      "appUrl": "https://json.freeappstore.online",
+      "repo": "freeappstore-online/json",
+      "cfProject": "freejsonapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
