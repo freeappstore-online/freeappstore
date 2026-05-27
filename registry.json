@@ -1162,6 +1162,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "wordcount",
+      "name": "wordcount",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Word counter and text analyzer with frequency, reading time, transforms, and find-replace",
+      "appUrl": "https://wordcount.freeappstore.online",
+      "repo": "freeappstore-online/wordcount",
+      "cfProject": "freewordcountapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
