@@ -877,6 +877,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "pixel-art",
+      "name": "pixel-art",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Pixel art editor with layers, animation frames, palettes, and GIF export",
+      "appUrl": "https://pixel-art.freeappstore.online",
+      "repo": "freeappstore-online/pixel-art",
+      "cfProject": "freepixel-artapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
