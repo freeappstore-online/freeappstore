@@ -652,6 +652,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "anatomy",
+      "name": "anatomy",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Interactive human body anatomy explorer with 6 body systems and quiz mode",
+      "appUrl": "https://anatomy.freeappstore.online",
+      "repo": "freeappstore-online/anatomy",
+      "cfProject": "freeanatomyapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
