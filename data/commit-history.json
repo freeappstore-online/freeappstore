@@ -932,9 +932,19 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-21T02:28:19Z"
+      "pushed_at": "2026-05-27T03:02:52Z"
     },
     "commits": [
+      {
+        "sha": "f27ab959daacac94d6780af4ced58831b3b10d0b",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/f27ab959daacac94d6780af4ced58831b3b10d0b",
+        "commit": {
+          "message": "Add auto-translate, native language settings, and fix add-phrase UX\n\n- Auto-translate via MyMemory API (free, no key) with 500ms debounce\n- Native language picker in settings, persisted to localStorage\n- Add-phrase shows \"Added!\" confirmation and scrolls to new entry\n- Language code mapping for 15 common languages (ISO 639-1)\n- Loop prevention: tracks user-typed vs auto-filled fields\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T03:02:49Z"
+          }
+        }
+      },
       {
         "sha": "c5b9f958cef94b6811104d91a456d8068a57ed8f",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/c5b9f958cef94b6811104d91a456d8068a57ed8f",
@@ -952,16 +962,6 @@
           "message": "fix: declare maskable icon purpose for Android PWA install\n\nAndroid Chrome installs PWAs as launcher shortcuts (not real apps with\ntheir own task slot) unless the manifest declares at least one icon\nwith purpose: 'maskable'. Add 'any maskable' to both 192/512 entries\nso installs land in the app drawer with an adaptive icon.",
           "author": {
             "date": "2026-05-20T04:47:35Z"
-          }
-        }
-      },
-      {
-        "sha": "f036f0e9fd2142e693e9f74d0e090cf9ffbd507c",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/f036f0e9fd2142e693e9f74d0e090cf9ffbd507c",
-        "commit": {
-          "message": "ci: remove verify stamp",
-          "author": {
-            "date": "2026-05-20T03:32:21Z"
           }
         }
       }
