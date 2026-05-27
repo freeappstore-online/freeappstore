@@ -1072,6 +1072,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "metronome",
+      "name": "metronome",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Musical metronome with tap tempo, time signatures, subdivisions, and practice mode",
+      "appUrl": "https://metronome.freeappstore.online",
+      "repo": "freeappstore-online/metronome",
+      "cfProject": "freemetronomeapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
