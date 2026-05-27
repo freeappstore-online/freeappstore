@@ -2264,5 +2264,41 @@
         }
       }
     ]
+  },
+  "freeappstore-online/recipes": {
+    "meta": {
+      "created_at": "2026-05-27T14:58:53Z",
+      "pushed_at": "2026-05-27T14:59:15Z"
+    },
+    "commits": [
+      {
+        "sha": "da456a261b4267593c5be53cc473fdc570ca2649",
+        "html_url": "https://github.com/freeappstore-online/recipes/commit/da456a261b4267593c5be53cc473fdc570ca2649",
+        "commit": {
+          "message": "Initial commit: recipes",
+          "author": {
+            "date": "2026-05-27T14:59:01Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/palette": {
+    "meta": {
+      "created_at": "2026-05-27T14:58:31Z",
+      "pushed_at": "2026-05-27T14:58:51Z"
+    },
+    "commits": [
+      {
+        "sha": "8babc547e094920b38dd031a60f637b278840f04",
+        "html_url": "https://github.com/freeappstore-online/palette/commit/8babc547e094920b38dd031a60f637b278840f04",
+        "commit": {
+          "message": "Initial commit: palette",
+          "author": {
+            "date": "2026-05-27T14:58:39Z"
+          }
+        }
+      }
+    ]
   }
 }
