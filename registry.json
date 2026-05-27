@@ -1012,6 +1012,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "journal",
+      "name": "journal",
+      "category": "Other (specify in description)",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Daily journal with mood tracking, calendar view, writing prompts, and export",
+      "appUrl": "https://journal.freeappstore.online",
+      "repo": "freeappstore-online/journal",
+      "cfProject": "freejournalapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
