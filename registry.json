@@ -1282,6 +1282,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "photo",
+      "name": "photo",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "In-browser photo editor with filters, crop, resize, text overlay, and export",
+      "appUrl": "https://photo.freeappstore.online",
+      "repo": "freeappstore-online/photo",
+      "cfProject": "freephotoapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
