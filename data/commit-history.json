@@ -1870,9 +1870,19 @@
   "freeappstore-online/spreadsheet": {
     "meta": {
       "created_at": "2026-05-27T12:59:31Z",
-      "pushed_at": "2026-05-27T14:43:22Z"
+      "pushed_at": "2026-05-27T15:09:02Z"
     },
     "commits": [
+      {
+        "sha": "39633d484470648616750a41c2dd1d8b5660146c",
+        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/39633d484470648616750a41c2dd1d8b5660146c",
+        "commit": {
+          "message": "Add freeze first row and auto-fill drag handle\n\nFreeze first row:\n- Right-click any cell → \"Freeze first row\"\n- Row 1 sticks below the column header while scrolling\n- Accent border underline indicates the freeze boundary\n- Toggle off via the same menu item\n\nAuto-fill drag handle:\n- Small accent square at bottom-right of selection\n- Drag down/up/left/right to fill cells\n- Pattern detection:\n  - Single number: increments by 1 (1 → 2,3,4...)\n  - Two+ numbers: detects step (2,4 → 6,8,10... / 10,9 → 8,7,6...)\n  - Text+number (Item 1, Item 2): increments trailing number\n  - Falls back to repeating the source values\n\nPWA workbox config also got skipWaiting + clientsClaim +\nnavigateFallbackDenylist for cleaner SW updates.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T15:08:54Z"
+          }
+        }
+      },
       {
         "sha": "c382584b87dd94b7ffd879a586b3458468dbe4bb",
         "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/c382584b87dd94b7ffd879a586b3458468dbe4bb",
@@ -1890,16 +1900,6 @@
           "message": "Split into modules, add 99 tests, virtualize grid\n\nModule extraction:\n- types.ts, constants.ts, lib/cell-refs.ts, lib/formula-engine.ts,\n  lib/csv.ts, lib/point-mode.ts, lib/persistence.ts\n\nTest suite (99 tests, vitest):\n- formula-engine: 70 tests (all 30+ functions, errors, circular refs)\n- cell-refs: 17 tests (roundtrip identity verification)\n- csv: 8 tests (quoted fields, escapes, TSV)\n\nGrid virtualization:\n- Only renders visible rows + 5-row buffer (85% fewer DOM nodes)\n- Absolute positioning with spacer for correct scrollbar\n- Sticky headers, auto scroll-into-view, editing row always rendered\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T14:22:50Z"
-          }
-        }
-      },
-      {
-        "sha": "3d5c92c9ed9acd13dce0506bfe536fd844256c1f",
-        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/3d5c92c9ed9acd13dce0506bfe536fd844256c1f",
-        "commit": {
-          "message": "Fix 10 bugs found in quality audit\n\nUndo/redo:\n- Now saves and restores both cells AND formats (formatting\n  changes are undoable)\n- Redo stack properly tracks format state\n\nInsert/delete/sort:\n- Insert row/col now shifts formats along with cell values\n- Delete row/col now shifts formats along with cell values\n- Sort now moves formats with their rows\n- Extracted shared shiftEntries helper to eliminate duplication\n\nReplace all:\n- Fixed regex test/replace bug where global regex lastIndex\n  caused missed replacements\n\nKeyboard:\n- Removed bare ? key as help shortcut (was preventing typing ?\n  in cells). Help is now Ctrl+/ only.\n\nPopups:\n- Color picker closes on Escape and outside click\n- Context menu closes on Escape and outside click\n- Both use stopPropagation to prevent immediate self-dismissal\n\nFormula bar:\n- No longer auto-starts editing on focus (was triggering edit\n  mode when user just clicked the formula bar area)\n\nData model:\n- setSheet callback no longer captures stale activeSheet index\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T14:01:32Z"
           }
         }
       }
@@ -2548,6 +2548,24 @@
           "message": "Initial commit: hiit",
           "author": {
             "date": "2026-05-27T15:04:29Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/resume": {
+    "meta": {
+      "created_at": "2026-05-27T15:04:43Z",
+      "pushed_at": "2026-05-27T15:05:04Z"
+    },
+    "commits": [
+      {
+        "sha": "39a77f09b7f58ff3de57d5a0b56626c9e7560c3d",
+        "html_url": "https://github.com/freeappstore-online/resume/commit/39a77f09b7f58ff3de57d5a0b56626c9e7560c3d",
+        "commit": {
+          "message": "Initial commit: resume",
+          "author": {
+            "date": "2026-05-27T15:04:52Z"
           }
         }
       }
