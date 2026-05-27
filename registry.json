@@ -817,6 +817,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "calories",
+      "name": "calories",
+      "category": "Health & Fitness",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Calorie counter with 100-food database, macro tracking, and TDEE calculator",
+      "appUrl": "https://calories.freeappstore.online",
+      "repo": "freeappstore-online/calories",
+      "cfProject": "freecaloriesapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
