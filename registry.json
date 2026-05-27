@@ -862,6 +862,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "split",
+      "name": "split",
+      "category": "Finance",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Bill splitter with groups, debt simplification, and 4 split types",
+      "appUrl": "https://split.freeappstore.online",
+      "repo": "freeappstore-online/split",
+      "cfProject": "freesplitapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
