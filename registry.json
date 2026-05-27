@@ -757,6 +757,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "geography",
+      "name": "geography",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "World geography explorer with 50 countries, quizzes, and comparison mode",
+      "appUrl": "https://geography.freeappstore.online",
+      "repo": "freeappstore-online/geography",
+      "cfProject": "freegeographyapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
