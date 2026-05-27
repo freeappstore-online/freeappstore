@@ -1252,6 +1252,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "mindmap",
+      "name": "mindmap",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Mind map and brainstorm tool with auto-layout, templates, outliner, and PNG export",
+      "appUrl": "https://mindmap.freeappstore.online",
+      "repo": "freeappstore-online/mindmap",
+      "cfProject": "freemindmapapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
