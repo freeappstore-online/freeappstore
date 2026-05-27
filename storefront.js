@@ -38,18 +38,6 @@
     window.__fasActiveCategory = function () { return activeCategory; };
   })();
 
-  // ---------- Sort tabs (visual only) ----------
-  document.querySelectorAll('.apps-tab').forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      document.querySelectorAll('.apps-tab').forEach(function (t) {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      tab.classList.add('active');
-      tab.setAttribute('aria-selected', 'true');
-    });
-  });
-
   // ---------- Split-pane preview ----------
   (function () {
     var pane = document.getElementById('previewPane');

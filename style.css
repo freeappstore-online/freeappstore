@@ -1113,52 +1113,7 @@ footer .container {
  * Built to match the Figma design at civil-pacing-00361020.figma.site
  * ===================================================================== */
 
-/* Mode picker: "AI Assistant" / "Simple Search" segmented control */
-.mode-tabs {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  margin: 1.25rem 0 0.75rem;
-  padding: 0;
-  background: transparent;
-}
-
-.mode-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 1rem;
-  border-radius: 12px;
-  border: none;
-  background: transparent;
-  color: var(--muted);
-  font-size: 0.9rem;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
-}
-
-.mode-tab:hover {
-  background: var(--panel-alt);
-  color: var(--ink);
-}
-
-.mode-tab.active {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: var(--shadow);
-}
-
-.mode-tab.active:hover { background: var(--accent-hover); }
-
-.mode-tab svg {
-  width: 16px;
-  height: 16px;
-}
-
-/* AI prompt input + simple search input share a common look */
-.prompt-input,
+/* Search input */
 .search-input {
   width: 100%;
   background: var(--panel-alt);
@@ -1172,14 +1127,12 @@ footer .container {
   transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 
-.prompt-input:focus,
 .search-input:focus {
   border-color: var(--accent);
   background: var(--panel);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
-.prompt-input::placeholder,
 .search-input::placeholder {
   color: var(--muted);
 }
@@ -1203,68 +1156,19 @@ footer .container {
 .input-wrap .input-icon.muted { color: var(--muted); }
 
 /* Apps section: heading row + right-aligned tabs */
-.apps-header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--line);
+/* Consolidated search + filter toolbar */
+.apps-toolbar {
   margin-bottom: 1.25rem;
 }
-
-.apps-header-title h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--ink-strong);
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  margin: 0;
+.apps-toolbar .input-wrap {
+  margin-bottom: 0.75rem;
 }
-
-.apps-header-title .count {
-  font-size: 0.9rem;
+.apps-toolbar .filter-bar {
+  margin-bottom: 0.5rem;
+}
+.apps-count {
+  font-size: 0.8rem;
   color: var(--muted);
-  margin-top: 0.25rem;
-}
-
-.apps-tabs {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  flex-wrap: wrap;
-}
-
-.apps-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.5rem 0.85rem;
-  border-radius: 10px;
-  border: none;
-  background: transparent;
-  color: var(--muted);
-  font-size: 0.875rem;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
-  white-space: nowrap;
-}
-
-.apps-tab:hover { background: var(--panel-alt); color: var(--ink); }
-
-.apps-tab.active {
-  background: var(--accent);
-  color: #fff;
-}
-
-.apps-tab.active:hover { background: var(--accent-hover); }
-
-.apps-tab svg {
-  width: 14px;
-  height: 14px;
 }
 
 /* New compact app card */
@@ -1564,13 +1468,7 @@ footer .container {
 }
 
 @media (max-width: 640px) {
-  .apps-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .apps-tabs {
-    width: 100%;
+  .filter-bar {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     flex-wrap: nowrap;
