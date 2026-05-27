@@ -230,9 +230,19 @@
   "freeappstore-online/notes": {
     "meta": {
       "created_at": "2026-05-04T10:58:03Z",
-      "pushed_at": "2026-05-27T12:13:56Z"
+      "pushed_at": "2026-05-27T12:37:28Z"
     },
     "commits": [
+      {
+        "sha": "12f05ff58819b461c523c73c33d042bb6c1ac2c2",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/12f05ff58819b461c523c73c33d042bb6c1ac2c2",
+        "commit": {
+          "message": "fix: mobile-friendly layout — keyboard resize, safe areas, touch targets\n\n- Use visualViewport API so editor resizes when virtual keyboard opens\n  instead of content hiding behind it\n- Add viewport-fit=cover + safe-area-inset padding for notched phones\n- Bump all touch targets to 44px minimum (buttons, list items)\n- Set input/textarea font-size to 16px to prevent iOS auto-zoom\n- Add touch-action: manipulation to eliminate 300ms tap delay\n- Add -webkit-tap-highlight-color: transparent\n- Add overscroll-behavior: none to prevent pull-to-refresh interference\n- Use 100dvh instead of 100vh for desktop (mobile uses visualViewport)\n- Increase mobile font sizes for readability (list items, search)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T12:37:25Z"
+          }
+        }
+      },
       {
         "sha": "cba46c20c705c25486157bc039d792e02aed480e",
         "html_url": "https://github.com/freeappstore-online/notes/commit/cba46c20c705c25486157bc039d792e02aed480e",
@@ -250,16 +260,6 @@
           "message": "fix: split editor into bold title + body textarea\n\nThe single-textarea approach lost newlines because empty body was falsy,\ncausing editorContent to strip the \\n on re-render. Splitting into a\ntitle input (bold, 1.25rem) and body textarea fixes multiline editing\nand gives the first line visual weight.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T11:54:36Z"
-          }
-        }
-      },
-      {
-        "sha": "1d3773bc498fcbafe25e8fceafcf3e56fdef7e9d",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/1d3773bc498fcbafe25e8fceafcf3e56fdef7e9d",
-        "commit": {
-          "message": "fix: remove global user-select:none that blocked Enter in textarea on mobile\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T11:50:42Z"
           }
         }
       }
@@ -838,9 +838,19 @@
   "freeappstore-online/calculator": {
     "meta": {
       "created_at": "2026-05-04T05:30:50Z",
-      "pushed_at": "2026-05-27T03:47:02Z"
+      "pushed_at": "2026-05-27T12:39:29Z"
     },
     "commits": [
+      {
+        "sha": "cd19693594c8f36f35c7ae06cb5e0b5963aa7b1f",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/cd19693594c8f36f35c7ae06cb5e0b5963aa7b1f",
+        "commit": {
+          "message": "feat: persist calculator state and add calculation history\n\nSaves current display/operand/operator to localStorage so the calculator\nresumes where you left off. Completed calculations are stored as history\n(up to 50 entries) and displayed in the sidebar (desktop) or via a toggle\nbutton (mobile). Tapping a history entry loads its result.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T12:39:22Z"
+          }
+        }
+      },
       {
         "sha": "95010959355db02aef9fcd5ed96aa2a4f57d2a37",
         "html_url": "https://github.com/freeappstore-online/calculator/commit/95010959355db02aef9fcd5ed96aa2a4f57d2a37",
@@ -858,16 +868,6 @@
           "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
           "author": {
             "date": "2026-05-16T23:31:54Z"
-          }
-        }
-      },
-      {
-        "sha": "de6dda33b3ae8fd805be65909542608344807c72",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/de6dda33b3ae8fd805be65909542608344807c72",
-        "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
-          "author": {
-            "date": "2026-05-14T11:06:42Z"
           }
         }
       }
