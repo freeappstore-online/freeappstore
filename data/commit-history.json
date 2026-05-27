@@ -1838,5 +1838,23 @@
         }
       }
     ]
+  },
+  "freeappstore-online/my-cool-app": {
+    "meta": {
+      "created_at": "2026-05-27T09:59:55Z",
+      "pushed_at": "2026-05-27T10:02:35Z"
+    },
+    "commits": [
+      {
+        "sha": "a96829a28930553f7d21eeee8cd1cba8b2be79e6",
+        "html_url": "https://github.com/freeappstore-online/my-cool-app/commit/a96829a28930553f7d21eeee8cd1cba8b2be79e6",
+        "commit": {
+          "message": "Initial commit from standalone template",
+          "author": {
+            "date": "2026-05-27T09:56:36Z"
+          }
+        }
+      }
+    ]
   }
 }
