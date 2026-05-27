@@ -907,6 +907,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "palette",
+      "name": "palette",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Color palette generator with harmony modes, contrast checker, and blindness simulation",
+      "appUrl": "https://palette.freeappstore.online",
+      "repo": "freeappstore-online/palette",
+      "cfProject": "freepaletteapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
