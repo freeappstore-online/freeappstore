@@ -2,9 +2,19 @@
   "freeappstore-online/language": {
     "meta": {
       "created_at": "2026-05-03T02:32:50Z",
-      "pushed_at": "2026-05-27T13:45:52Z"
+      "pushed_at": "2026-05-27T14:20:49Z"
     },
     "commits": [
+      {
+        "sha": "072fefdf7a4613f6550ed816a60c5e71f0a3e012",
+        "html_url": "https://github.com/freeappstore-online/language/commit/072fefdf7a4613f6550ed816a60c5e71f0a3e012",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:20:46Z"
+          }
+        }
+      },
       {
         "sha": "0fd1b5cb00bcc40602a53e4fed7c96ad854f49fc",
         "html_url": "https://github.com/freeappstore-online/language/commit/0fd1b5cb00bcc40602a53e4fed7c96ad854f49fc",
@@ -24,25 +34,25 @@
             "date": "2026-05-27T03:47:09Z"
           }
         }
-      },
-      {
-        "sha": "1c462ef896cde6ef5753b35c165328c096b2b1b0",
-        "html_url": "https://github.com/freeappstore-online/language/commit/1c462ef896cde6ef5753b35c165328c096b2b1b0",
-        "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
-          "author": {
-            "date": "2026-05-16T23:31:21Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/quiz": {
     "meta": {
       "created_at": "2026-05-03T02:32:57Z",
-      "pushed_at": "2026-05-27T13:46:03Z"
+      "pushed_at": "2026-05-27T14:19:10Z"
     },
     "commits": [
+      {
+        "sha": "b482ea9c7a44352dd151ebe6e2e556bb3fc958c3",
+        "html_url": "https://github.com/freeappstore-online/quiz/commit/b482ea9c7a44352dd151ebe6e2e556bb3fc958c3",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:07Z"
+          }
+        }
+      },
       {
         "sha": "cdc76fa1f6887cbf282da5a055bd933098d29897",
         "html_url": "https://github.com/freeappstore-online/quiz/commit/cdc76fa1f6887cbf282da5a055bd933098d29897",
@@ -62,25 +72,25 @@
             "date": "2026-05-27T03:47:21Z"
           }
         }
-      },
-      {
-        "sha": "b215f70865a557002e3ba2eab2ac13974684be61",
-        "html_url": "https://github.com/freeappstore-online/quiz/commit/b215f70865a557002e3ba2eab2ac13974684be61",
-        "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
-          "author": {
-            "date": "2026-05-16T23:31:31Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/chessclock": {
     "meta": {
       "created_at": "2026-05-04T10:01:30Z",
-      "pushed_at": "2026-05-27T14:15:45Z"
+      "pushed_at": "2026-05-27T14:19:27Z"
     },
     "commits": [
+      {
+        "sha": "bab22d4d5317495fe7b95d2671fb72d84fe624e3",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/bab22d4d5317495fe7b95d2671fb72d84fe624e3",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:24Z"
+          }
+        }
+      },
       {
         "sha": "b27fdeebd74b2d32e6e0b6dcb32e5795c23a904b",
         "html_url": "https://github.com/freeappstore-online/chessclock/commit/b27fdeebd74b2d32e6e0b6dcb32e5795c23a904b",
@@ -100,25 +110,25 @@
             "date": "2026-05-27T13:46:17Z"
           }
         }
-      },
-      {
-        "sha": "7013ba911d74e26b0f434d7523018c17969b6e49",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/7013ba911d74e26b0f434d7523018c17969b6e49",
-        "commit": {
-          "message": "Add multi-board mode: 1-8 independent clocks in responsive grid\n\n- Board count selector (1, 2, 3, 4, 6, 8) on setup screen\n- Single board: full-screen Clock as before\n- Multiple boards: responsive grid (auto-fill, min 340px per card)\n  fits 1 col on phones, 2 on tablets, 3-4 on desktop\n- Each BoardCard is fully independent: own timers, state, tap targets\n- Compact card layout: header with board number + controls,\n  two player rows with name/color/moves + large time display\n- Active player gets accent ring + highlighted info line\n- Winner shown inline, idle overlay per-card\n- Sticky header bar with back button + board/time summary\n- Country flag fetch moved to App (shared across all boards)\n- Board count persisted to localStorage\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T13:43:48Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/timer": {
     "meta": {
       "created_at": "2026-05-04T10:57:59Z",
-      "pushed_at": "2026-05-27T14:11:12Z"
+      "pushed_at": "2026-05-27T14:19:31Z"
     },
     "commits": [
+      {
+        "sha": "d5803beed25b3466685d9bcdc79f0d9990479541",
+        "html_url": "https://github.com/freeappstore-online/timer/commit/d5803beed25b3466685d9bcdc79f0d9990479541",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:27Z"
+          }
+        }
+      },
       {
         "sha": "a677b3562c05da3083514a45f9b9629088393bf6",
         "html_url": "https://github.com/freeappstore-online/timer/commit/a677b3562c05da3083514a45f9b9629088393bf6",
@@ -138,25 +148,25 @@
             "date": "2026-05-27T13:46:20Z"
           }
         }
-      },
-      {
-        "sha": "bd3710aee813e7f8564458513b504072747b57ec",
-        "html_url": "https://github.com/freeappstore-online/timer/commit/bd3710aee813e7f8564458513b504072747b57ec",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:08:10Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/books": {
     "meta": {
       "created_at": "2026-05-04T00:16:25Z",
-      "pushed_at": "2026-05-27T13:46:07Z"
+      "pushed_at": "2026-05-27T14:19:14Z"
     },
     "commits": [
+      {
+        "sha": "048308a53ceceb0c67335fe8ce455c80d9888b8b",
+        "html_url": "https://github.com/freeappstore-online/books/commit/048308a53ceceb0c67335fe8ce455c80d9888b8b",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:10Z"
+          }
+        }
+      },
       {
         "sha": "a0d42aae358271473918c8c121f77e8c43014042",
         "html_url": "https://github.com/freeappstore-online/books/commit/a0d42aae358271473918c8c121f77e8c43014042",
@@ -174,16 +184,6 @@
           "message": "Add favicon",
           "author": {
             "date": "2026-05-27T13:07:55Z"
-          }
-        }
-      },
-      {
-        "sha": "d8535dccf7abfbad826bf8bf597a4c862b1113e3",
-        "html_url": "https://github.com/freeappstore-online/books/commit/d8535dccf7abfbad826bf8bf597a4c862b1113e3",
-        "commit": {
-          "message": "ci: add R2 deploy workflow",
-          "author": {
-            "date": "2026-05-27T03:46:55Z"
           }
         }
       }
@@ -230,9 +230,29 @@
   "freeappstore-online/notes": {
     "meta": {
       "created_at": "2026-05-04T10:58:03Z",
-      "pushed_at": "2026-05-27T14:16:41Z"
+      "pushed_at": "2026-05-27T14:40:46Z"
     },
     "commits": [
+      {
+        "sha": "e123f8bd3be68b5cfa4c27eed2a2864317bf7eb0",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/e123f8bd3be68b5cfa4c27eed2a2864317bf7eb0",
+        "commit": {
+          "message": "feat: slash commands, undo/redo, word count, export, icon picker\n\nPolish pass:\n- Slash command menu: type / in the editor to open a filterable\n  command palette (H1-H3, lists, tasks, code, quote, divider).\n  Arrow keys to navigate, Enter to select, Escape to dismiss.\n- Undo/redo buttons in toolbar (with disabled state styling)\n- Word count in editor footer (updates on every edit)\n- Export as Markdown: converts TipTap HTML to .md file download\n  with proper heading, list, task, code block, and blockquote\n  conversion\n- Page icon picker: 12 emoji options in a popover grid, shown\n  in sidebar page tree and breadcrumbs\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T14:40:42Z"
+          }
+        }
+      },
+      {
+        "sha": "86fd89a1f3c5c2ff22a4a4ae3151c8859c2fe8a1",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/86fd89a1f3c5c2ff22a4a4ae3151c8859c2fe8a1",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:35Z"
+          }
+        }
+      },
       {
         "sha": "d5e8291433b912b91424d21367b198cb595979c2",
         "html_url": "https://github.com/freeappstore-online/notes/commit/d5e8291433b912b91424d21367b198cb595979c2",
@@ -240,26 +260,6 @@
           "message": "feat: TipTap block editor, nested pages, templates\n\nMajor upgrade from plain textarea to Notion-like block editor:\n\nBlock Editor (TipTap/ProseMirror):\n- Rich text toolbar: H1/H2/H3, bold, italic, strike, highlight\n- Block types: bullet list, numbered list, task list (checkboxes),\n  code block, blockquote, horizontal rule\n- Typography extension for smart quotes/dashes\n- Link support\n- Full keyboard shortcut support (Cmd+B, Cmd+I, etc.)\n\nNested Pages:\n- Notes can have sub-pages (parentId field)\n- Collapsible page tree in sidebar with expand/collapse\n- Breadcrumb navigation in editor toolbar\n- + button on each page to create child pages\n- Delete cascades to all children\n- Sub-pages section at bottom of editor\n\nTemplates:\n- Template picker when creating via + New Page button\n- 4 templates: Blank, Meeting Notes, Daily Journal, Project Brief\n- Each template pre-fills with structured TipTap HTML content\n- Cmd+N creates a quick blank note (skips picker)\n\nData model:\n- Added parentId, icon, template fields to Note\n- Backwards-compatible migration for existing localStorage notes\n- Removed marked dependency (replaced by TipTap)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T14:16:38Z"
-          }
-        }
-      },
-      {
-        "sha": "d8aef6f518e8ee91ca5f7d84ad55c8c4e7462ace",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/d8aef6f518e8ee91ca5f7d84ad55c8c4e7462ace",
-        "commit": {
-          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
-          "author": {
-            "date": "2026-05-27T14:10:52Z"
-          }
-        }
-      },
-      {
-        "sha": "c05719c244568160960346bcf9c84bbe92e7cf0e",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/c05719c244568160960346bcf9c84bbe92e7cf0e",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:31Z"
           }
         }
       }
@@ -306,9 +306,19 @@
   "freeappstore-online/bandmates": {
     "meta": {
       "created_at": "2026-05-04T01:43:04Z",
-      "pushed_at": "2026-05-27T13:46:10Z"
+      "pushed_at": "2026-05-27T14:19:17Z"
     },
     "commits": [
+      {
+        "sha": "4fa4314af48537d1172162e5f59a49e20e41d20c",
+        "html_url": "https://github.com/freeappstore-online/bandmates/commit/4fa4314af48537d1172162e5f59a49e20e41d20c",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:14Z"
+          }
+        }
+      },
       {
         "sha": "f654db0dcaaa8b8fa3f13833631cc27c625d02b9",
         "html_url": "https://github.com/freeappstore-online/bandmates/commit/f654db0dcaaa8b8fa3f13833631cc27c625d02b9",
@@ -328,25 +338,25 @@
             "date": "2026-05-27T03:46:52Z"
           }
         }
-      },
-      {
-        "sha": "18f3856e9cf79f8e2ce1542ae27b562eeec1d255",
-        "html_url": "https://github.com/freeappstore-online/bandmates/commit/18f3856e9cf79f8e2ce1542ae27b562eeec1d255",
-        "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
-          "author": {
-            "date": "2026-05-16T23:31:48Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/converter": {
     "meta": {
       "created_at": "2026-05-04T10:58:01Z",
-      "pushed_at": "2026-05-27T14:10:34Z"
+      "pushed_at": "2026-05-27T14:19:34Z"
     },
     "commits": [
+      {
+        "sha": "ea99c0459d8dad2509c10fa4a01fa2a5ebc4816a",
+        "html_url": "https://github.com/freeappstore-online/converter/commit/ea99c0459d8dad2509c10fa4a01fa2a5ebc4816a",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:32Z"
+          }
+        }
+      },
       {
         "sha": "8d502363e48b4831574bb310675e3a4c8b442f8a",
         "html_url": "https://github.com/freeappstore-online/converter/commit/8d502363e48b4831574bb310675e3a4c8b442f8a",
@@ -366,25 +376,25 @@
             "date": "2026-05-27T13:46:24Z"
           }
         }
-      },
-      {
-        "sha": "fbf38e8a01633e2a735817bee49c7f133353c234",
-        "html_url": "https://github.com/freeappstore-online/converter/commit/fbf38e8a01633e2a735817bee49c7f133353c234",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:08:14Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/qrcode": {
     "meta": {
       "created_at": "2026-05-04T10:58:07Z",
-      "pushed_at": "2026-05-27T14:11:08Z"
+      "pushed_at": "2026-05-27T14:19:45Z"
     },
     "commits": [
+      {
+        "sha": "74ca14a6b3fa521fa87d99635c8b88e344c640e4",
+        "html_url": "https://github.com/freeappstore-online/qrcode/commit/74ca14a6b3fa521fa87d99635c8b88e344c640e4",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:42Z"
+          }
+        }
+      },
       {
         "sha": "3f454962c61cef35f898c6247fb0820dd5a18ecb",
         "html_url": "https://github.com/freeappstore-online/qrcode/commit/3f454962c61cef35f898c6247fb0820dd5a18ecb",
@@ -404,25 +414,25 @@
             "date": "2026-05-27T13:46:37Z"
           }
         }
-      },
-      {
-        "sha": "97074767fc9ef87ad2d8ea949dea7bc6fe310840",
-        "html_url": "https://github.com/freeappstore-online/qrcode/commit/97074767fc9ef87ad2d8ea949dea7bc6fe310840",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:08:24Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/meetup": {
     "meta": {
       "created_at": "2026-05-04T01:43:06Z",
-      "pushed_at": "2026-05-27T14:12:47Z"
+      "pushed_at": "2026-05-27T14:19:20Z"
     },
     "commits": [
+      {
+        "sha": "abf0f0a4913d0218da63603620872f6ccc5ed2dc",
+        "html_url": "https://github.com/freeappstore-online/meetup/commit/abf0f0a4913d0218da63603620872f6ccc5ed2dc",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:17Z"
+          }
+        }
+      },
       {
         "sha": "837a4d4d5545e0a57217fc7a815db352d19d989f",
         "html_url": "https://github.com/freeappstore-online/meetup/commit/837a4d4d5545e0a57217fc7a815db352d19d989f",
@@ -442,25 +452,25 @@
             "date": "2026-05-27T14:10:48Z"
           }
         }
-      },
-      {
-        "sha": "17be6e70d4334800a6d0c280d153511e0d861b3a",
-        "html_url": "https://github.com/freeappstore-online/meetup/commit/17be6e70d4334800a6d0c280d153511e0d861b3a",
-        "commit": {
-          "message": "feat: add Google sign-in alongside GitHub",
-          "author": {
-            "date": "2026-05-27T13:49:32Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/habits": {
     "meta": {
       "created_at": "2026-05-04T10:58:17Z",
-      "pushed_at": "2026-05-27T14:10:47Z"
+      "pushed_at": "2026-05-27T14:20:00Z"
     },
     "commits": [
+      {
+        "sha": "6fb387201d3234874e6429752227b4503f42537a",
+        "html_url": "https://github.com/freeappstore-online/habits/commit/6fb387201d3234874e6429752227b4503f42537a",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:57Z"
+          }
+        }
+      },
       {
         "sha": "f13fab81c485223dc6cb3740a98d4b051c5584b8",
         "html_url": "https://github.com/freeappstore-online/habits/commit/f13fab81c485223dc6cb3740a98d4b051c5584b8",
@@ -480,25 +490,25 @@
             "date": "2026-05-27T13:46:54Z"
           }
         }
-      },
-      {
-        "sha": "2992fd6e6f41264e368665bb5ee2e07eef652e37",
-        "html_url": "https://github.com/freeappstore-online/habits/commit/2992fd6e6f41264e368665bb5ee2e07eef652e37",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:08:42Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/colorpicker": {
     "meta": {
       "created_at": "2026-05-04T10:58:10Z",
-      "pushed_at": "2026-05-27T14:10:31Z"
+      "pushed_at": "2026-05-27T14:19:48Z"
     },
     "commits": [
+      {
+        "sha": "784ae4a72c02960728821d5860acab3d223b423b",
+        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/784ae4a72c02960728821d5860acab3d223b423b",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:45Z"
+          }
+        }
+      },
       {
         "sha": "fbd386271b063d5bf73883e49bca3885f35e858e",
         "html_url": "https://github.com/freeappstore-online/colorpicker/commit/fbd386271b063d5bf73883e49bca3885f35e858e",
@@ -516,16 +526,6 @@
           "message": "docs: add README",
           "author": {
             "date": "2026-05-27T13:46:41Z"
-          }
-        }
-      },
-      {
-        "sha": "211c0d1eca1e3fdee858169c8216c772e9cf2e1e",
-        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/211c0d1eca1e3fdee858169c8216c772e9cf2e1e",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:08:28Z"
           }
         }
       }
@@ -572,9 +572,19 @@
   "freeappstore-online/flashcards": {
     "meta": {
       "created_at": "2026-05-04T10:58:15Z",
-      "pushed_at": "2026-05-27T14:10:43Z"
+      "pushed_at": "2026-05-27T14:19:57Z"
     },
     "commits": [
+      {
+        "sha": "003b8550aa929c1e30f2d4a53a07f147c6192352",
+        "html_url": "https://github.com/freeappstore-online/flashcards/commit/003b8550aa929c1e30f2d4a53a07f147c6192352",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:54Z"
+          }
+        }
+      },
       {
         "sha": "730be4959f9d079c7dfb0ba71859d3eacb69b6f1",
         "html_url": "https://github.com/freeappstore-online/flashcards/commit/730be4959f9d079c7dfb0ba71859d3eacb69b6f1",
@@ -594,52 +604,42 @@
             "date": "2026-05-27T13:46:51Z"
           }
         }
-      },
-      {
-        "sha": "c8c36df8bacb7cfcdd225564b18d10504ddafc15",
-        "html_url": "https://github.com/freeappstore-online/flashcards/commit/c8c36df8bacb7cfcdd225564b18d10504ddafc15",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:08:39Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-27T14:15:18Z"
+      "pushed_at": "2026-05-27T14:41:36Z"
     },
     "commits": [
       {
-        "sha": "31a9ff3489feaca864159882c4f8a36a25966ba0",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/31a9ff3489feaca864159882c4f8a36a25966ba0",
+        "sha": "9f6d01f14e7cb504d59012b5a5b33408c638efe6",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/9f6d01f14e7cb504d59012b5a5b33408c638efe6",
         "commit": {
-          "message": "feat: smooth strokes, duplicate, zoom-to-fit, layer ordering\n\nSmooth pen strokes:\n- Path renderer now uses quadratic Bézier curves through midpoints\n  instead of straight line segments, producing visually smooth freehand\n  lines at any zoom level.\n\nDuplicate element (Ctrl+D):\n- Duplicates the selected element with a 20px offset. New element is\n  auto-selected.\n\nZoom to Fit (Ctrl+1 / Fit button):\n- Computes bounding box of all elements and sets camera to fit them\n  in the viewport with 40px padding. Falls back to default view when\n  canvas is empty.\n\nLayer ordering:\n- ] key or Fwd button: bring selected element forward one layer\n- [ key or Back button: send selected element backward one layer\n- Both push undo before reordering.\n\nSelection actions panel in sidebar shows Dup/Fwd/Back buttons when\nan element is selected.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "feat: pressure-sensitive strokes and SVG export\n\nPressure-sensitive pen:\n- PathElement now stores optional pressures[] array alongside points[].\n- Pointer pressure (from stylus/Apple Pencil) is captured on every\n  pointerdown and pointermove event. Falls back to 0.5 for mouse.\n- Renderer draws each segment with stroke width scaled by pressure,\n  producing natural thick/thin variation in freehand strokes.\n- Existing paths without pressure data render at uniform width.\n\nSVG export:\n- New exportSvg() function in render.ts converts all element types\n  to SVG markup: paths as <path d=\"...\">, shapes as native SVG\n  elements, text as <text> with tspan, stickies as rounded rects,\n  images as <image> with embedded dataUrl.\n- Handles opacity, filled shapes, bold/italic text, arrowheads.\n- Computes scene bounds with padding for the viewBox.\n- SVG button added to sidebar export section.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T14:15:16Z"
+            "date": "2026-05-27T14:41:33Z"
           }
         }
       },
       {
-        "sha": "4e13213ab61201c98520a8ab8e9fd11e551f10d9",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/4e13213ab61201c98520a8ab8e9fd11e551f10d9",
+        "sha": "e036d75eb81519f9e9f9089981a2f6078491b502",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/e036d75eb81519f9e9f9089981a2f6078491b502",
         "commit": {
-          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
+          "message": "feat: multi-select, opacity, filled shapes, bold/italic, box select, resize\n\nMajor feature batch:\n- Multi-select: select tool now supports multiple selection via box\n  drag (drag on empty space) and shift-click. Selected elements show\n  bounding indicators.\n- Opacity control: all drawing elements (path, line, arrow, rect,\n  ellipse) now support opacity (0-1). Slider in sidebar.\n- Filled shapes: rect and ellipse elements have a filled toggle.\n  When filled, shapes render with solid fill instead of stroke.\n- Bold/italic text: text elements support bold and italic flags.\n  Toggles shown in sidebar when text tool is active.\n- Box selection: drag on empty space with select tool draws a\n  selection rectangle; elements intersecting the box are selected.\n  New boxSelect() function in render.ts.\n- Resize handles: selected sticky/image elements show corner handles\n  for resizing.\n- Brush width presets: thin (2), medium (5), thick (10) buttons\n  replace the raw slider.\n- Camera utilities extracted to lib/camera.ts.\n- Package renamed to @whiteboard/web.\n- Tests updated to 56 with new field requirements (opacity, filled,\n  bold/italic).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T14:11:20Z"
+            "date": "2026-05-27T14:38:22Z"
           }
         }
       },
       {
-        "sha": "9cc75a09c86fbec0695247904f64235a6df4f5f6",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/9cc75a09c86fbec0695247904f64235a6df4f5f6",
+        "sha": "cad62de5ceabcbae07d102fae4f7ac066308a513",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/cad62de5ceabcbae07d102fae4f7ac066308a513",
         "commit": {
-          "message": "feat: add mobile pinch-to-zoom and two-finger pan\n\nMulti-touch support for mobile/tablet:\n- Two-finger pinch zooms in/out centered on the midpoint between\n  fingers. Zoom ratio is computed from the distance change.\n- Two-finger drag pans the canvas, preserving the world point under\n  the initial midpoint.\n- Second finger down cancels any in-progress drawing stroke (and\n  rolls back the undo entry), so accidental touches during drawing\n  don't leave artifacts.\n- Pointer tracking via activePtrsRef map; pinch state stored in\n  pinchRef with initial distance, midpoint, and camera snapshot.\n- Lifting one finger exits pinch mode cleanly without triggering\n  single-pointer handlers.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add apple-touch-icon",
           "author": {
-            "date": "2026-05-27T14:11:05Z"
+            "date": "2026-05-27T14:19:51Z"
           }
         }
       }
@@ -648,9 +648,19 @@
   "freeappstore-online/password": {
     "meta": {
       "created_at": "2026-05-04T10:58:11Z",
-      "pushed_at": "2026-05-27T14:10:58Z"
+      "pushed_at": "2026-05-27T14:19:51Z"
     },
     "commits": [
+      {
+        "sha": "f60e5daf36b6d1df219d15f2e3f994d8fc1c53ef",
+        "html_url": "https://github.com/freeappstore-online/password/commit/f60e5daf36b6d1df219d15f2e3f994d8fc1c53ef",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:48Z"
+          }
+        }
+      },
       {
         "sha": "558cfedf9dfaecb3d1880cde66d25dc312a22031",
         "html_url": "https://github.com/freeappstore-online/password/commit/558cfedf9dfaecb3d1880cde66d25dc312a22031",
@@ -668,16 +678,6 @@
           "message": "docs: add README",
           "author": {
             "date": "2026-05-27T13:46:44Z"
-          }
-        }
-      },
-      {
-        "sha": "0305cedc3c07a9f0d4df1f22f4a8279fb7d4c4b1",
-        "html_url": "https://github.com/freeappstore-online/password/commit/0305cedc3c07a9f0d4df1f22f4a8279fb7d4c4b1",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:08:31Z"
           }
         }
       }
@@ -724,9 +724,19 @@
   "freeappstore-online/weather": {
     "meta": {
       "created_at": "2026-05-04T10:58:19Z",
-      "pushed_at": "2026-05-27T14:11:20Z"
+      "pushed_at": "2026-05-27T14:20:04Z"
     },
     "commits": [
+      {
+        "sha": "53cf2a6bf0ef025704289df8b8c52d63ae06be7b",
+        "html_url": "https://github.com/freeappstore-online/weather/commit/53cf2a6bf0ef025704289df8b8c52d63ae06be7b",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:20:00Z"
+          }
+        }
+      },
       {
         "sha": "d3e079a6a15529ef927c864fafd1b48afa168339",
         "html_url": "https://github.com/freeappstore-online/weather/commit/d3e079a6a15529ef927c864fafd1b48afa168339",
@@ -746,25 +756,25 @@
             "date": "2026-05-27T13:46:57Z"
           }
         }
-      },
-      {
-        "sha": "14f86ae014928e6ad023bb5e1e8b2718d4f560b2",
-        "html_url": "https://github.com/freeappstore-online/weather/commit/14f86ae014928e6ad023bb5e1e8b2718d4f560b2",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:08:45Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/pomodoro": {
     "meta": {
       "created_at": "2026-05-04T10:58:05Z",
-      "pushed_at": "2026-05-27T14:11:01Z"
+      "pushed_at": "2026-05-27T14:19:41Z"
     },
     "commits": [
+      {
+        "sha": "659a2801acde4a639e3b0d2faaa457b17f6b7104",
+        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/659a2801acde4a639e3b0d2faaa457b17f6b7104",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:38Z"
+          }
+        }
+      },
       {
         "sha": "29b8ff8600886cad6c9abc9b44198b1a8f60ec73",
         "html_url": "https://github.com/freeappstore-online/pomodoro/commit/29b8ff8600886cad6c9abc9b44198b1a8f60ec73",
@@ -782,16 +792,6 @@
           "message": "docs: add README",
           "author": {
             "date": "2026-05-27T13:46:34Z"
-          }
-        }
-      },
-      {
-        "sha": "d37cba2179ca094b90fed93a006f04ec9950e317",
-        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/d37cba2179ca094b90fed93a006f04ec9950e317",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:08:20Z"
           }
         }
       }
@@ -838,9 +838,19 @@
   "freeappstore-online/calculator": {
     "meta": {
       "created_at": "2026-05-04T05:30:50Z",
-      "pushed_at": "2026-05-27T14:16:43Z"
+      "pushed_at": "2026-05-27T14:19:24Z"
     },
     "commits": [
+      {
+        "sha": "a0f70205324d5cbe67ac66c89121dd9e67ebe73d",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/a0f70205324d5cbe67ac66c89121dd9e67ebe73d",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:20Z"
+          }
+        }
+      },
       {
         "sha": "db3a2b8766f7b4dcedca8e20d09ba009f9444521",
         "html_url": "https://github.com/freeappstore-online/calculator/commit/db3a2b8766f7b4dcedca8e20d09ba009f9444521",
@@ -858,16 +868,6 @@
           "message": "feat: compact mobile layout, keyboard shortcut hints, swipe-to-delete history\n\nMobile layout: reduced padding, gaps, and button sizes on small screens\nusing responsive Tailwind classes (py-1.5→py-2.5, gap-1→gap-1.5/2,\ntext-[11px]→text-xs/base). Scientific mode no longer overflows on\nphones.\n\nKeyboard hints: buttons show their shortcut on hover via title tooltip\n(e.g., \"Keyboard: /\" on the ÷ button, \"Keyboard: Esc\" on AC).\n\nSwipe-to-delete: history entries can be swiped left on touch devices to\nreveal a red \"Delete\" action. Swipe past 80px threshold to delete, or\nrelease to snap back. On desktop, a ✕ button appears on hover instead.\nIndividual entry deletion exposed via new onDeleteEntry callback.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T14:08:57Z"
-          }
-        }
-      },
-      {
-        "sha": "3125798a7b73b2e8cfd4654471bb03cd6908c105",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/3125798a7b73b2e8cfd4654471bb03cd6908c105",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:14Z"
           }
         }
       }
@@ -1102,9 +1102,19 @@
   "freeappstore-online/snowman": {
     "meta": {
       "created_at": "2026-05-17T15:41:58Z",
-      "pushed_at": "2026-05-27T13:49:38Z"
+      "pushed_at": "2026-05-27T14:20:07Z"
     },
     "commits": [
+      {
+        "sha": "bcb7caffb87231ee52147c47e219c63b09a48daf",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/bcb7caffb87231ee52147c47e219c63b09a48daf",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:20:04Z"
+          }
+        }
+      },
       {
         "sha": "02326b252f74b9657eb82443a474e79ee4839749",
         "html_url": "https://github.com/freeappstore-online/snowman/commit/02326b252f74b9657eb82443a474e79ee4839749",
@@ -1124,25 +1134,25 @@
             "date": "2026-05-27T13:08:56Z"
           }
         }
-      },
-      {
-        "sha": "d03b1cc5e0762f14203b9749dc7e19010d7fdc2a",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/d03b1cc5e0762f14203b9749dc7e19010d7fdc2a",
-        "commit": {
-          "message": "ci: add VCQA code health scan to deploy\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T04:09:18Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/typeflow": {
     "meta": {
       "created_at": "2026-05-18T09:59:33Z",
-      "pushed_at": "2026-05-27T14:16:23Z"
+      "pushed_at": "2026-05-27T14:20:10Z"
     },
     "commits": [
+      {
+        "sha": "6792cab8eed7c18120244f0ba6d4a7bcffbc0d10",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/6792cab8eed7c18120244f0ba6d4a7bcffbc0d10",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:20:07Z"
+          }
+        }
+      },
       {
         "sha": "fc1c6db6051f24f53c1ba5b89fd650cbb3d7dac9",
         "html_url": "https://github.com/freeappstore-online/typeflow/commit/fc1c6db6051f24f53c1ba5b89fd650cbb3d7dac9",
@@ -1160,16 +1170,6 @@
           "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
             "date": "2026-05-27T14:11:13Z"
-          }
-        }
-      },
-      {
-        "sha": "947f2652546e98bf59e8352c855c96fda9bb15c6",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/947f2652546e98bf59e8352c855c96fda9bb15c6",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:09:00Z"
           }
         }
       }
@@ -1216,9 +1216,19 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-25T05:26:19Z"
+      "pushed_at": "2026-05-27T14:20:14Z"
     },
     "commits": [
+      {
+        "sha": "8f1bd35adabc2336acf8102e4453f96462a2cc32",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/8f1bd35adabc2336acf8102e4453f96462a2cc32",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:20:11Z"
+          }
+        }
+      },
       {
         "sha": "3cc3e0482b44e6bd687ab4410f26a80944992eb4",
         "html_url": "https://github.com/freeappstore-online/artout/commit/3cc3e0482b44e6bd687ab4410f26a80944992eb4",
@@ -1236,16 +1246,6 @@
           "message": "Remove stale CONSOLE-FIX.md (belongs in ops, not app repo)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-25T03:24:23Z"
-          }
-        }
-      },
-      {
-        "sha": "2b9dc166a05a54ff4707fc9197852bffb6c77167",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/2b9dc166a05a54ff4707fc9197852bffb6c77167",
-        "commit": {
-          "message": "Add SCALE-REQUEST.md: platform API features needed for 1M posts\n\nDocument for platform team listing 6 API features ArtOut needs to\nscale beyond 2,460 posts. Prioritized by impact: geo bounding box\nqueries alone would get to 100K, combined with cursor pagination\nprobably to 1M.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-25T01:27:12Z"
           }
         }
       }
@@ -1406,9 +1406,19 @@
   "freeappstore-online/whenly": {
     "meta": {
       "created_at": "2026-05-18T19:09:34Z",
-      "pushed_at": "2026-05-27T13:49:44Z"
+      "pushed_at": "2026-05-27T14:20:21Z"
     },
     "commits": [
+      {
+        "sha": "8d3ddc7f4d7afea41fa8e1a314e3295a24cc0cbc",
+        "html_url": "https://github.com/freeappstore-online/whenly/commit/8d3ddc7f4d7afea41fa8e1a314e3295a24cc0cbc",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:20:18Z"
+          }
+        }
+      },
       {
         "sha": "c79ad9ce708185c4765f5d5372af37246836be4d",
         "html_url": "https://github.com/freeappstore-online/whenly/commit/c79ad9ce708185c4765f5d5372af37246836be4d",
@@ -1426,16 +1436,6 @@
           "message": "Add favicon",
           "author": {
             "date": "2026-05-27T13:09:07Z"
-          }
-        }
-      },
-      {
-        "sha": "f4887fbb119d523a8a58491b6b157d8aca536240",
-        "html_url": "https://github.com/freeappstore-online/whenly/commit/f4887fbb119d523a8a58491b6b157d8aca536240",
-        "commit": {
-          "message": "ci: add R2 deploy workflow",
-          "author": {
-            "date": "2026-05-27T03:47:33Z"
           }
         }
       }
@@ -1596,9 +1596,19 @@
   "freeappstore-online/pdfreader": {
     "meta": {
       "created_at": "2026-05-22T00:24:40Z",
-      "pushed_at": "2026-05-27T13:09:27Z"
+      "pushed_at": "2026-05-27T14:20:24Z"
     },
     "commits": [
+      {
+        "sha": "625bef94a4f9e8092d5f4bafcf4b34c3e9a9fd01",
+        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/625bef94a4f9e8092d5f4bafcf4b34c3e9a9fd01",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:20:21Z"
+          }
+        }
+      },
       {
         "sha": "e1a0df7b20eebab4b47ddc93fa3cf5ae02a9d7fa",
         "html_url": "https://github.com/freeappstore-online/pdfreader/commit/e1a0df7b20eebab4b47ddc93fa3cf5ae02a9d7fa",
@@ -1618,25 +1628,25 @@
             "date": "2026-05-27T04:09:01Z"
           }
         }
-      },
-      {
-        "sha": "a867796eb34277ac443de9516d19f0e93323d8a8",
-        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/a867796eb34277ac443de9516d19f0e93323d8a8",
-        "commit": {
-          "message": "feat: full-width reader, working font size, saved preferences\n\n- Hide sidebar/dock when viewing a PDF (hideChrome on Shell)\n- A-/A+ controls change canvas render scale (not just CSS zoom)\n- Invert mode + scale saved to localStorage, restored on reload\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-22T05:10:17Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/faces": {
     "meta": {
       "created_at": "2026-05-23T20:34:58Z",
-      "pushed_at": "2026-05-23T20:45:52Z"
+      "pushed_at": "2026-05-27T14:20:18Z"
     },
     "commits": [
+      {
+        "sha": "552cbb5a211faa67616f0b8da533c6ccfc4eda07",
+        "html_url": "https://github.com/freeappstore-online/faces/commit/552cbb5a211faa67616f0b8da533c6ccfc4eda07",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:20:14Z"
+          }
+        }
+      },
       {
         "sha": "1341b5195c14b116b910cf647003f4de69af9a38",
         "html_url": "https://github.com/freeappstore-online/faces/commit/1341b5195c14b116b910cf647003f4de69af9a38",
@@ -1654,16 +1664,6 @@
           "message": "Add client-side AI moderation: face, age, NSFW checks\n\nAll checks run in-browser — nothing leaves the device until approved:\n- face-api.js: exactly 1 face required (no group, no faceless)\n- age estimation: must be 18+ (ageGenderNet)\n- nsfwjs: blocks nudity/porn (MobileNet classifier)\n\nModels lazy-loaded only when user picks a photo (~1.3MB face-api\n+ ~3MB tfjs/nsfw on first use). Main bundle stays at 70KB.\n\nPhoto cannot be uploaded until all checks pass. \"Add to wall\"\nbutton is disabled during checking and on failure.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-23T20:41:01Z"
-          }
-        }
-      },
-      {
-        "sha": "43e99d7c45736b373f24e889e2025ea0f959a2b0",
-        "html_url": "https://github.com/freeappstore-online/faces/commit/43e99d7c45736b373f24e889e2025ea0f959a2b0",
-        "commit": {
-          "message": "Build Faces of the World: anonymous face wall PWA\n\nSpin-off from ArtOut — people kept posting selfies, so we gave\nthem their own app. Circular face wall, selfie upload with front\ncamera, face-centered Cloudinary crops, auto city+country via\nNominatim. Two tabs: Wall + Snap. Dark theme, warm amber accent.\n\n68KB gzipped. Zero API keys needed.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-23T20:34:15Z"
           }
         }
       }
@@ -1710,9 +1710,19 @@
   "freeappstore-online/qrreader": {
     "meta": {
       "created_at": "2026-05-23T18:47:11Z",
-      "pushed_at": "2026-05-27T13:09:34Z"
+      "pushed_at": "2026-05-27T14:20:28Z"
     },
     "commits": [
+      {
+        "sha": "f24de97f099aa8aeb5fc260a700e3e53d518a2c7",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/f24de97f099aa8aeb5fc260a700e3e53d518a2c7",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:20:25Z"
+          }
+        }
+      },
       {
         "sha": "c3d311117f510572aa306fdf1bdf8a03feac3dbf",
         "html_url": "https://github.com/freeappstore-online/qrreader/commit/c3d311117f510572aa306fdf1bdf8a03feac3dbf",
@@ -1730,16 +1740,6 @@
           "message": "ci: add VCQA code health scan to deploy\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T04:09:04Z"
-          }
-        }
-      },
-      {
-        "sha": "151fda8ed9ced711e1a5e986b904fb2fee5dd0d3",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/151fda8ed9ced711e1a5e986b904fb2fee5dd0d3",
-        "commit": {
-          "message": "Fix mobile dock overlay result & add button open result URL",
-          "author": {
-            "date": "2026-05-26T08:02:45Z"
           }
         }
       }
@@ -1814,9 +1814,19 @@
   "freeappstore-online/message": {
     "meta": {
       "created_at": "2026-05-26T00:48:56Z",
-      "pushed_at": "2026-05-27T13:47:07Z"
+      "pushed_at": "2026-05-27T14:20:31Z"
     },
     "commits": [
+      {
+        "sha": "33fd0ed6a36b0c3ae032e5caabdd0621672d4ea1",
+        "html_url": "https://github.com/freeappstore-online/message/commit/33fd0ed6a36b0c3ae032e5caabdd0621672d4ea1",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:20:28Z"
+          }
+        }
+      },
       {
         "sha": "0014265840f5153c2f31b6ad992461adc760a6d1",
         "html_url": "https://github.com/freeappstore-online/message/commit/0014265840f5153c2f31b6ad992461adc760a6d1",
@@ -1834,16 +1844,6 @@
           "message": "Fix 7 bugs from code audit: enter-to-send, chat ID delimiter, room reuse, mobile UX\n\n1. Enter-to-send broken: Enter always sent because form onSubmit fired\n   even when enterToSend was false. Now preventDefault on all Enter,\n   only call handleSend when pref is enabled.\n2. Chat ID delimiter collision: makeChatId used ':' which conflicts\n   with 'gh:' prefix in UIDs (gh:111:gh:222 is ambiguous). Changed\n   to '|' delimiter (gh:111|gh:222).\n3. Search result peer extraction: split(':') on chatId could not\n   recover UIDs containing ':'. Added extractPeerUid that handles\n   both '|' and legacy ':' formats by prefix/suffix matching.\n4. Rapid sends exhausted rooms: each handleSend opened a new room.\n   Now reuses a single sendRoomRef with 5s idle close timer, same\n   pattern as typingRoomRef.\n5. GitHub \"Add friend\" never disabled: compared actionLoading\n   (gh:123) with String(gh.id) (123). Fixed to use gh: prefix.\n6. Mobile context menu flash: click handler on message bubble\n   immediately dismissed the context menu opened by long-press.\n   Removed the conflicting onClick; backdrop overlay handles dismiss.\n7. Toast timeout stacking: rapid copy+delete caused first timeout\n   to clear second toast early. Now clears previous timeout via ref\n   before setting new one.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T10:08:46Z"
-          }
-        }
-      },
-      {
-        "sha": "d6e07b97c203191fda9adb91cac35f8824815005",
-        "html_url": "https://github.com/freeappstore-online/message/commit/d6e07b97c203191fda9adb91cac35f8824815005",
-        "commit": {
-          "message": "Fix 6 bugs: URL regex, typing room leak, outbox race, clipboard, search nav, mobile delete\n\n1. URL regex: global flag on shared regex caused stateful lastIndex,\n   making every other URL in a message get missed. Replaced with\n   fresh RegExp instance per parse call using exec() loop.\n2. Typing indicator room leak: every keystroke opened a new WebSocket\n   that could stay open forever if connection timing was unlucky. Now\n   reuses a single room ref, closes after 5s idle, cleaned up on unmount.\n3. Outbox retry race: setTimeout close fired async while loop opened\n   next room, could exhaust 64-room cap. Now closes synchronously and\n   awaits 200ms between retries.\n4. Clipboard fallback: navigator.clipboard.writeText throws on HTTP\n   and some mobile browsers. Added execCommand('copy') textarea fallback.\n5. Search results navigate: clicking a search result now opens that\n   chat via getOrCreateChat instead of being a dead-end display.\n6. Mobile delete button: CSS :hover opacity trick was invisible on\n   touch devices. Replaced with always-visible trash column + right-click\n   context menu as alternative.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T09:44:10Z"
           }
         }
       }
@@ -1870,9 +1870,29 @@
   "freeappstore-online/spreadsheet": {
     "meta": {
       "created_at": "2026-05-27T12:59:31Z",
-      "pushed_at": "2026-05-27T14:01:40Z"
+      "pushed_at": "2026-05-27T14:43:22Z"
     },
     "commits": [
+      {
+        "sha": "c382584b87dd94b7ffd879a586b3458468dbe4bb",
+        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/c382584b87dd94b7ffd879a586b3458468dbe4bb",
+        "commit": {
+          "message": "Extract useSpreadsheet hook + 10 components\n\nApp.tsx: 1593 → 31 lines (thin shell composing hook + components)\n\nhooks/useSpreadsheet.ts (1009 lines):\n  All state, refs, effects, callbacks, derived values, virtualization\n\ncomponents/ (10 files, 698 lines total):\n  TopBar, FormulaBar, FormattingToolbar, ColorPicker,\n  Grid, FindBar, SheetTabs, StatusBar, ContextMenu, HelpDialog\n\nEach component receives a single `s: SpreadsheetState` prop.\nNo behavior changes — pure structural refactor.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T14:43:14Z"
+          }
+        }
+      },
+      {
+        "sha": "77bff1246b322bb646c080b82eb563f3c60fca8f",
+        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/77bff1246b322bb646c080b82eb563f3c60fca8f",
+        "commit": {
+          "message": "Split into modules, add 99 tests, virtualize grid\n\nModule extraction:\n- types.ts, constants.ts, lib/cell-refs.ts, lib/formula-engine.ts,\n  lib/csv.ts, lib/point-mode.ts, lib/persistence.ts\n\nTest suite (99 tests, vitest):\n- formula-engine: 70 tests (all 30+ functions, errors, circular refs)\n- cell-refs: 17 tests (roundtrip identity verification)\n- csv: 8 tests (quoted fields, escapes, TSV)\n\nGrid virtualization:\n- Only renders visible rows + 5-row buffer (85% fewer DOM nodes)\n- Absolute positioning with spacer for correct scrollbar\n- Sticky headers, auto scroll-into-view, editing row always rendered\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T14:22:50Z"
+          }
+        }
+      },
       {
         "sha": "3d5c92c9ed9acd13dce0506bfe536fd844256c1f",
         "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/3d5c92c9ed9acd13dce0506bfe536fd844256c1f",
@@ -1880,26 +1900,6 @@
           "message": "Fix 10 bugs found in quality audit\n\nUndo/redo:\n- Now saves and restores both cells AND formats (formatting\n  changes are undoable)\n- Redo stack properly tracks format state\n\nInsert/delete/sort:\n- Insert row/col now shifts formats along with cell values\n- Delete row/col now shifts formats along with cell values\n- Sort now moves formats with their rows\n- Extracted shared shiftEntries helper to eliminate duplication\n\nReplace all:\n- Fixed regex test/replace bug where global regex lastIndex\n  caused missed replacements\n\nKeyboard:\n- Removed bare ? key as help shortcut (was preventing typing ?\n  in cells). Help is now Ctrl+/ only.\n\nPopups:\n- Color picker closes on Escape and outside click\n- Context menu closes on Escape and outside click\n- Both use stopPropagation to prevent immediate self-dismissal\n\nFormula bar:\n- No longer auto-starts editing on focus (was triggering edit\n  mode when user just clicked the formula bar area)\n\nData model:\n- setSheet callback no longer captures stale activeSheet index\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T14:01:32Z"
-          }
-        }
-      },
-      {
-        "sha": "8f18c5c15ace15995890f7d57f49869680d6361e",
-        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/8f18c5c15ace15995890f7d57f49869680d6361e",
-        "commit": {
-          "message": "Add sheet tabs, formatting toolbar, and keyboard shortcuts help\n\nMultiple sheets:\n- Tab bar at the bottom with Sheet 1, Sheet 2, etc.\n- Click + to add new sheets\n- Double-click tab to rename\n- Right-click tab to delete\n- Backward-compatible: migrates old single-sheet localStorage\n\nFormatting toolbar:\n- Bold (Ctrl+B) and Italic (Ctrl+I) toggles\n- Text alignment: left / center / right\n- Background color picker (17 colors + clear)\n- Text color picker\n- All formatting applies to selection range\n\nCell formatting:\n- Per-cell bold, italic, alignment, bg color, text color\n- Formats stored alongside cell data, persist in localStorage\n- Visual feedback: active format buttons highlight in accent color\n\nKeyboard shortcuts help:\n- Press ? or Ctrl+/ to toggle the help panel\n- Modal overlay with all shortcuts organized by category:\n  Navigation, Editing, Formulas, Formatting, Tools\n\nData model refactored to WorkbookData with Sheet[] for\nmulti-sheet support. Automatic migration from old format.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T13:56:54Z"
-          }
-        }
-      },
-      {
-        "sha": "2aece1c0f2584a7e00e8c3e979014ca6bd282989",
-        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/2aece1c0f2584a7e00e8c3e979014ca6bd282989",
-        "commit": {
-          "message": "Add context menu, find/replace, undo/redo, sort\n\nContext menu (right-click any cell):\n- Insert/delete row above/below\n- Insert/delete column left/right\n- Sort column A→Z or Z→A (handles numbers and text, empty rows to bottom)\n\nFind & Replace:\n- Ctrl+F opens find bar, Ctrl+H opens find+replace\n- Highlights all matches (yellow) with current match brighter\n- Enter/Shift+Enter to navigate between matches\n- Replace one or replace all\n\nUndo/Redo:\n- Ctrl+Z undoes, Ctrl+Shift+Z / Ctrl+Y redoes\n- Up to 50 undo levels, redo stack clears on new edit\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T13:41:59Z"
           }
         }
       }
