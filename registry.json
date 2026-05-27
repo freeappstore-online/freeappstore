@@ -952,6 +952,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "music-theory",
+      "name": "music-theory",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Music theory explorer with interactive piano, scales, chords, and ear training",
+      "appUrl": "https://music-theory.freeappstore.online",
+      "repo": "freeappstore-online/music-theory",
+      "cfProject": "freemusic-theoryapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
