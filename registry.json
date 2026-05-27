@@ -1237,6 +1237,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "encode",
+      "name": "encode",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Developer toolkit with Base64, URL, JWT, hash, UUID, timestamp, color, and unit converters",
+      "appUrl": "https://encode.freeappstore.online",
+      "repo": "freeappstore-online/encode",
+      "cfProject": "freeencodeapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
