@@ -892,6 +892,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "sketch",
+      "name": "sketch",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Freehand drawing pad with layers, tools, gallery, and PNG export",
+      "appUrl": "https://sketch.freeappstore.online",
+      "repo": "freeappstore-online/sketch",
+      "cfProject": "freesketchapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
