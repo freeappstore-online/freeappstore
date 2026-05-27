@@ -622,6 +622,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "physics",
+      "name": "physics",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Interactive 2D physics simulator with gravity, collisions, springs, and pendulums",
+      "appUrl": "https://physics.freeappstore.online",
+      "repo": "freeappstore-online/physics",
+      "cfProject": "freephysicsapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
