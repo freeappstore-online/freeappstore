@@ -2642,5 +2642,23 @@
         }
       }
     ]
+  },
+  "freeappstore-online/type-spec": {
+    "meta": {
+      "created_at": "2026-05-27T15:15:07Z",
+      "pushed_at": "2026-05-27T15:15:30Z"
+    },
+    "commits": [
+      {
+        "sha": "b4d6f04043008a4be83ddc4c5a408e0b9e0585d2",
+        "html_url": "https://github.com/freeappstore-online/type-spec/commit/b4d6f04043008a4be83ddc4c5a408e0b9e0585d2",
+        "commit": {
+          "message": "Initial commit: Type Spec",
+          "author": {
+            "date": "2026-05-27T15:15:16Z"
+          }
+        }
+      }
+    ]
   }
 }
