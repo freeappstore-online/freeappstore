@@ -610,9 +610,19 @@
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-27T14:50:22Z"
+      "pushed_at": "2026-05-27T15:00:26Z"
     },
     "commits": [
+      {
+        "sha": "fc912d6670df6fb68db82d036dc3c6236769be1c",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/fc912d6670df6fb68db82d036dc3c6236769be1c",
+        "commit": {
+          "message": "Update whiteboard",
+          "author": {
+            "date": "2026-05-27T15:00:23Z"
+          }
+        }
+      },
       {
         "sha": "2b4e0f5175cec395693c7b88fdfa7b7c9ee7d198",
         "html_url": "https://github.com/freeappstore-online/whiteboard/commit/2b4e0f5175cec395693c7b88fdfa7b7c9ee7d198",
@@ -630,16 +640,6 @@
           "message": "feat: pressure-sensitive strokes and SVG export\n\nPressure-sensitive pen:\n- PathElement now stores optional pressures[] array alongside points[].\n- Pointer pressure (from stylus/Apple Pencil) is captured on every\n  pointerdown and pointermove event. Falls back to 0.5 for mouse.\n- Renderer draws each segment with stroke width scaled by pressure,\n  producing natural thick/thin variation in freehand strokes.\n- Existing paths without pressure data render at uniform width.\n\nSVG export:\n- New exportSvg() function in render.ts converts all element types\n  to SVG markup: paths as <path d=\"...\">, shapes as native SVG\n  elements, text as <text> with tspan, stickies as rounded rects,\n  images as <image> with embedded dataUrl.\n- Handles opacity, filled shapes, bold/italic text, arrowheads.\n- Computes scene bounds with padding for the viewBox.\n- SVG button added to sidebar export section.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T14:41:33Z"
-          }
-        }
-      },
-      {
-        "sha": "e036d75eb81519f9e9f9089981a2f6078491b502",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/e036d75eb81519f9e9f9089981a2f6078491b502",
-        "commit": {
-          "message": "feat: multi-select, opacity, filled shapes, bold/italic, box select, resize\n\nMajor feature batch:\n- Multi-select: select tool now supports multiple selection via box\n  drag (drag on empty space) and shift-click. Selected elements show\n  bounding indicators.\n- Opacity control: all drawing elements (path, line, arrow, rect,\n  ellipse) now support opacity (0-1). Slider in sidebar.\n- Filled shapes: rect and ellipse elements have a filled toggle.\n  When filled, shapes render with solid fill instead of stroke.\n- Bold/italic text: text elements support bold and italic flags.\n  Toggles shown in sidebar when text tool is active.\n- Box selection: drag on empty space with select tool draws a\n  selection rectangle; elements intersecting the box are selected.\n  New boxSelect() function in render.ts.\n- Resize handles: selected sticky/image elements show corner handles\n  for resizing.\n- Brush width presets: thin (2), medium (5), thick (10) buttons\n  replace the raw slider.\n- Camera utilities extracted to lib/camera.ts.\n- Package renamed to @whiteboard/web.\n- Tests updated to 56 with new field requirements (opacity, filled,\n  bold/italic).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T14:38:22Z"
           }
         }
       }
@@ -2332,6 +2332,24 @@
           "message": "Initial commit: music-theory",
           "author": {
             "date": "2026-05-27T14:59:47Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/typing": {
+    "meta": {
+      "created_at": "2026-05-27T15:00:01Z",
+      "pushed_at": "2026-05-27T15:00:23Z"
+    },
+    "commits": [
+      {
+        "sha": "13e63c7e71588c0a5285fe8a397628c70b3409cd",
+        "html_url": "https://github.com/freeappstore-online/typing/commit/13e63c7e71588c0a5285fe8a397628c70b3409cd",
+        "commit": {
+          "message": "Initial commit: typing",
+          "author": {
+            "date": "2026-05-27T15:00:10Z"
           }
         }
       }
