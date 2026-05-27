@@ -932,9 +932,19 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-27T14:15:17Z"
+      "pushed_at": "2026-05-27T14:46:41Z"
     },
     "commits": [
+      {
+        "sha": "d2c99f0c09b649b49bbd889c3080eda475b7f031",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/d2c99f0c09b649b49bbd889c3080eda475b7f031",
+        "commit": {
+          "message": "Add swipe gestures, fullscreen \"Got it\", collapsible add form\n\n- Swipe left/right on practice card and fullscreen to navigate\n  between phrases (touch-action: pan-y preserves vertical scroll)\n- Fullscreen practice now has \"Got it\" button in header bar and\n  Enter/Space keyboard shortcut to mark phrase as practiced\n- Removed tap zone buttons from fullscreen (swipe replaces them)\n- Add form starts collapsed as \"+ Add phrase\" button, expands on\n  tap with auto-focus; \"Close\" button to collapse again\n- Phrase list is now immediately visible on the Phrases tab\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T14:46:34Z"
+          }
+        }
+      },
       {
         "sha": "658cff2ddca5f29beb78e1ebde965417a474a3e1",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/658cff2ddca5f29beb78e1ebde965417a474a3e1",
@@ -952,16 +962,6 @@
           "message": "Add favicon",
           "author": {
             "date": "2026-05-27T13:08:52Z"
-          }
-        }
-      },
-      {
-        "sha": "5f332118e0ad60702394ef6d75fccb5961822c44",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/5f332118e0ad60702394ef6d75fccb5961822c44",
-        "commit": {
-          "message": "fix: inputs scale with font size, form/practice reset on pair switch\n\n- Input/select font-size changed from fixed 16px to max(16px, 1rem)\n  so they scale with the font size setting while preventing iOS zoom\n- AddForm remounts (clears fields) when language pair changes\n- PracticeTab remounts (resets index to 0) when pair changes\n- Font scale 1.0 no longer overrides browser default font-size\n- Font size slider labels use fixed 11px to stay stable\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T09:35:18Z"
           }
         }
       }
@@ -1814,9 +1814,19 @@
   "freeappstore-online/message": {
     "meta": {
       "created_at": "2026-05-26T00:48:56Z",
-      "pushed_at": "2026-05-27T14:20:31Z"
+      "pushed_at": "2026-05-27T14:49:41Z"
     },
     "commits": [
+      {
+        "sha": "6e0ef9587bb642f87a26bf113b60b9f0890a364a",
+        "html_url": "https://github.com/freeappstore-online/message/commit/6e0ef9587bb642f87a26bf113b60b9f0890a364a",
+        "commit": {
+          "message": "feat: add PWA manifest\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T14:49:37Z"
+          }
+        }
+      },
       {
         "sha": "33fd0ed6a36b0c3ae032e5caabdd0621672d4ea1",
         "html_url": "https://github.com/freeappstore-online/message/commit/33fd0ed6a36b0c3ae032e5caabdd0621672d4ea1",
@@ -1834,16 +1844,6 @@
           "message": "docs: add README",
           "author": {
             "date": "2026-05-27T13:47:04Z"
-          }
-        }
-      },
-      {
-        "sha": "1eb4553fc157bf6cd4e6b4567797d2908bb3184b",
-        "html_url": "https://github.com/freeappstore-online/message/commit/1eb4553fc157bf6cd4e6b4567797d2908bb3184b",
-        "commit": {
-          "message": "Fix 7 bugs from code audit: enter-to-send, chat ID delimiter, room reuse, mobile UX\n\n1. Enter-to-send broken: Enter always sent because form onSubmit fired\n   even when enterToSend was false. Now preventDefault on all Enter,\n   only call handleSend when pref is enabled.\n2. Chat ID delimiter collision: makeChatId used ':' which conflicts\n   with 'gh:' prefix in UIDs (gh:111:gh:222 is ambiguous). Changed\n   to '|' delimiter (gh:111|gh:222).\n3. Search result peer extraction: split(':') on chatId could not\n   recover UIDs containing ':'. Added extractPeerUid that handles\n   both '|' and legacy ':' formats by prefix/suffix matching.\n4. Rapid sends exhausted rooms: each handleSend opened a new room.\n   Now reuses a single sendRoomRef with 5s idle close timer, same\n   pattern as typingRoomRef.\n5. GitHub \"Add friend\" never disabled: compared actionLoading\n   (gh:123) with String(gh.id) (123). Fixed to use gh: prefix.\n6. Mobile context menu flash: click handler on message bubble\n   immediately dismissed the context menu opened by long-press.\n   Removed the conflicting onClick; backdrop overlay handles dismiss.\n7. Toast timeout stacking: rapid copy+delete caused first timeout\n   to clear second toast early. Now clears previous timeout via ref\n   before setting new one.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T10:08:46Z"
           }
         }
       }
