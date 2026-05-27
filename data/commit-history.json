@@ -2,9 +2,19 @@
   "freeappstore-online/language": {
     "meta": {
       "created_at": "2026-05-03T02:32:50Z",
-      "pushed_at": "2026-05-27T03:47:11Z"
+      "pushed_at": "2026-05-27T13:45:52Z"
     },
     "commits": [
+      {
+        "sha": "0fd1b5cb00bcc40602a53e4fed7c96ad854f49fc",
+        "html_url": "https://github.com/freeappstore-online/language/commit/0fd1b5cb00bcc40602a53e4fed7c96ad854f49fc",
+        "commit": {
+          "message": "docs: add README",
+          "author": {
+            "date": "2026-05-27T13:45:49Z"
+          }
+        }
+      },
       {
         "sha": "c6a71fd620c3ed18b89f4dd2f067fb523a03abad",
         "html_url": "https://github.com/freeappstore-online/language/commit/c6a71fd620c3ed18b89f4dd2f067fb523a03abad",
@@ -24,25 +34,25 @@
             "date": "2026-05-16T23:31:21Z"
           }
         }
-      },
-      {
-        "sha": "f49de0209033f3c6cf11cb536c036c97ca952748",
-        "html_url": "https://github.com/freeappstore-online/language/commit/f49de0209033f3c6cf11cb536c036c97ca952748",
-        "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
-          "author": {
-            "date": "2026-05-14T11:06:48Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/quiz": {
     "meta": {
       "created_at": "2026-05-03T02:32:57Z",
-      "pushed_at": "2026-05-27T03:47:23Z"
+      "pushed_at": "2026-05-27T13:46:03Z"
     },
     "commits": [
+      {
+        "sha": "cdc76fa1f6887cbf282da5a055bd933098d29897",
+        "html_url": "https://github.com/freeappstore-online/quiz/commit/cdc76fa1f6887cbf282da5a055bd933098d29897",
+        "commit": {
+          "message": "docs: add README",
+          "author": {
+            "date": "2026-05-27T13:46:00Z"
+          }
+        }
+      },
       {
         "sha": "a87377217c27df9e1899984f988f0db04762c3ea",
         "html_url": "https://github.com/freeappstore-online/quiz/commit/a87377217c27df9e1899984f988f0db04762c3ea",
@@ -62,52 +72,42 @@
             "date": "2026-05-16T23:31:31Z"
           }
         }
-      },
-      {
-        "sha": "f63ac25ff3b893ffcd0779db5dedda224669f2fb",
-        "html_url": "https://github.com/freeappstore-online/quiz/commit/f63ac25ff3b893ffcd0779db5dedda224669f2fb",
-        "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
-          "author": {
-            "date": "2026-05-14T11:06:48Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/chessclock": {
     "meta": {
       "created_at": "2026-05-04T10:01:30Z",
-      "pushed_at": "2026-05-27T12:57:45Z"
+      "pushed_at": "2026-05-27T14:15:45Z"
     },
     "commits": [
       {
-        "sha": "351251134d97c2b95d4c1c2ba0622a649371a575",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/351251134d97c2b95d4c1c2ba0622a649371a575",
+        "sha": "b27fdeebd74b2d32e6e0b6dcb32e5795c23a904b",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/b27fdeebd74b2d32e6e0b6dcb32e5795c23a904b",
         "commit": {
-          "message": "Add player nicknames, country flags, timer modes\n\nNicknames:\n- Editable name inputs on setup screen (White / Black labels)\n- Names shown on clock next to move count, persisted to localStorage\n\nCountry flags:\n- Fetch country code from /cdn-cgi/trace (Cloudflare endpoint)\n- Convert to flag emoji, shown next to player name on clock\n\nTimer modes (Fischer / Bronstein / Delay):\n- Mode selector appears when a time control has increment > 0\n- Fischer: time added after each move (existing behavior)\n- Bronstein: delay before clock ticks; time never exceeds turn start\n- Delay: clock frozen for N seconds each turn, no time added\n- Mode persisted to localStorage\n- Description text updates to explain selected mode\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add custom time control, service worker, move time stats\n\nCustom time control:\n- Two number inputs (1-180 min, 0-60 sec) in a \"Custom\" section\n  below presets on the setup screen\n- Typing auto-selects the custom control, presets deselect\n- Inputs highlight with accent border when custom is active\n- Persistence upgraded from label string to JSON {m, i} format\n  with backwards-compatible restore from old format\n\nService worker (offline PWA):\n- Network-first for navigation, cache-first for assets\n- Pre-caches shell (/, index.html, manifest, icon) on install\n- Falls back to cached index.html when offline\n- Old caches cleaned on activate\n- Registered on window load in main.tsx\n\nMove time stats:\n- Tracks per-player move times via ref (no extra re-renders)\n- Last move time shown in info line: \"3 mv · 8.2s\"\n- Formatted as Xs (< 10s with decimal), Xs (< 60s), XmYs (longer)\n- Resets on game reset\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T12:57:21Z"
+            "date": "2026-05-27T14:15:42Z"
           }
         }
       },
       {
-        "sha": "a4675edbb82f67fc434472d74a60f00bad92aae3",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/a4675edbb82f67fc434472d74a60f00bad92aae3",
+        "sha": "8b1eec2e2df4321f2e75cffaf8967e0c21583539",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/8b1eec2e2df4321f2e75cffaf8967e0c21583539",
         "commit": {
-          "message": "Fix timer glitch, setup scroll, add icon, fix PWA meta tags\n\n- Fix formatTimeDetail threshold: <= 20000 instead of < 20000 to\n  prevent \"0:20\" → \"0:20.0\" single-frame visual jump\n- Make setup screen scrollable (overflow-y-auto + min-h-full) so\n  time controls don't clip on short landscape viewports\n- Add SVG app icon for PWA install + favicon\n- Clean manifest.json: add icons array, scope, remove invalid\n  min_viewport_width key\n- Dual theme-color meta tags (light #fefdfb / dark #0f0f0e) so\n  browser chrome matches the app in both modes\n- Add viewport-fit=cover for notch-safe rendering on iOS\n- Add apple-mobile-web-app-status-bar-style: black-translucent\n- Add meta description for share previews\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-27T12:42:22Z"
+            "date": "2026-05-27T13:46:17Z"
           }
         }
       },
       {
-        "sha": "fa84ded3d1ea739985bf37071b51e11d4f94e69b",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/fa84ded3d1ea739985bf37071b51e11d4f94e69b",
+        "sha": "7013ba911d74e26b0f434d7523018c17969b6e49",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/7013ba911d74e26b0f434d7523018c17969b6e49",
         "commit": {
-          "message": "Fix iOS audio, RAF leak, wake lock, right-click, transitions\n\n- Resume suspended AudioContext before scheduling nodes (iOS Safari\n  blocks audio until explicitly resumed)\n- Stop scheduling requestAnimationFrame after game ends instead of\n  continuing to tick indefinitely\n- Re-acquire Screen Wake Lock on visibilitychange so tab-switching\n  doesn't permanently lose it\n- Filter pointer button !== 0 to prevent right/middle-click taps\n- transition-all on player buttons so box-shadow animates with bg\n- Fix mute icon X coordinates (was clipped at viewBox edge)\n- Bump landscape font from 10vh to 15vh (was too small on phones)\n- Add relative to clock container for robust overlay positioning\n- Simplify idle text to \"Tap to start\" (works for both layouts)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add multi-board mode: 1-8 independent clocks in responsive grid\n\n- Board count selector (1, 2, 3, 4, 6, 8) on setup screen\n- Single board: full-screen Clock as before\n- Multiple boards: responsive grid (auto-fill, min 340px per card)\n  fits 1 col on phones, 2 on tablets, 3-4 on desktop\n- Each BoardCard is fully independent: own timers, state, tap targets\n- Compact card layout: header with board number + controls,\n  two player rows with name/color/moves + large time display\n- Active player gets accent ring + highlighted info line\n- Winner shown inline, idle overlay per-card\n- Sticky header bar with back button + board/time summary\n- Country flag fetch moved to App (shared across all boards)\n- Board count persisted to localStorage\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T12:17:13Z"
+            "date": "2026-05-27T13:43:48Z"
           }
         }
       }
@@ -116,36 +116,36 @@
   "freeappstore-online/timer": {
     "meta": {
       "created_at": "2026-05-04T10:57:59Z",
-      "pushed_at": "2026-05-27T03:49:53Z"
+      "pushed_at": "2026-05-27T14:11:12Z"
     },
     "commits": [
       {
-        "sha": "2ee6691739aa6155bbd54b542725a51ea750dac8",
-        "html_url": "https://github.com/freeappstore-online/timer/commit/2ee6691739aa6155bbd54b542725a51ea750dac8",
+        "sha": "a677b3562c05da3083514a45f9b9629088393bf6",
+        "html_url": "https://github.com/freeappstore-online/timer/commit/a677b3562c05da3083514a45f9b9629088393bf6",
         "commit": {
-          "message": "ci: migrate deploy from CF Pages to R2",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-27T03:49:50Z"
+            "date": "2026-05-27T14:11:09Z"
           }
         }
       },
       {
-        "sha": "f4da36b32252cb9a9f78d5fde765e77bf375b64f",
-        "html_url": "https://github.com/freeappstore-online/timer/commit/f4da36b32252cb9a9f78d5fde765e77bf375b64f",
+        "sha": "ebd6441139b113857b8d9ae23580aa77ddb5908c",
+        "html_url": "https://github.com/freeappstore-online/timer/commit/ebd6441139b113857b8d9ae23580aa77ddb5908c",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-16T23:32:00Z"
+            "date": "2026-05-27T13:46:20Z"
           }
         }
       },
       {
-        "sha": "0320521f7541193923e6862fcfe6997d034037ad",
-        "html_url": "https://github.com/freeappstore-online/timer/commit/0320521f7541193923e6862fcfe6997d034037ad",
+        "sha": "bd3710aee813e7f8564458513b504072747b57ec",
+        "html_url": "https://github.com/freeappstore-online/timer/commit/bd3710aee813e7f8564458513b504072747b57ec",
         "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-14T11:06:21Z"
+            "date": "2026-05-27T13:08:10Z"
           }
         }
       }
@@ -154,9 +154,29 @@
   "freeappstore-online/books": {
     "meta": {
       "created_at": "2026-05-04T00:16:25Z",
-      "pushed_at": "2026-05-27T03:46:59Z"
+      "pushed_at": "2026-05-27T13:46:07Z"
     },
     "commits": [
+      {
+        "sha": "a0d42aae358271473918c8c121f77e8c43014042",
+        "html_url": "https://github.com/freeappstore-online/books/commit/a0d42aae358271473918c8c121f77e8c43014042",
+        "commit": {
+          "message": "docs: add README",
+          "author": {
+            "date": "2026-05-27T13:46:03Z"
+          }
+        }
+      },
+      {
+        "sha": "2aff2495df3836efa4db0cfd8753aad4cc75bddb",
+        "html_url": "https://github.com/freeappstore-online/books/commit/2aff2495df3836efa4db0cfd8753aad4cc75bddb",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:07:55Z"
+          }
+        }
+      },
       {
         "sha": "d8535dccf7abfbad826bf8bf597a4c862b1113e3",
         "html_url": "https://github.com/freeappstore-online/books/commit/d8535dccf7abfbad826bf8bf597a4c862b1113e3",
@@ -164,26 +184,6 @@
           "message": "ci: add R2 deploy workflow",
           "author": {
             "date": "2026-05-27T03:46:55Z"
-          }
-        }
-      },
-      {
-        "sha": "4e5434c4cfaf6ab69cb2246b7a4ef4cc464d54f9",
-        "html_url": "https://github.com/freeappstore-online/books/commit/4e5434c4cfaf6ab69cb2246b7a4ef4cc464d54f9",
-        "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
-          "author": {
-            "date": "2026-05-16T23:31:35Z"
-          }
-        }
-      },
-      {
-        "sha": "0db73a6e7b9f5f448bf65bf8bb2ddac80181e9ca",
-        "html_url": "https://github.com/freeappstore-online/books/commit/0db73a6e7b9f5f448bf65bf8bb2ddac80181e9ca",
-        "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
-          "author": {
-            "date": "2026-05-14T11:06:47Z"
           }
         }
       }
@@ -230,36 +230,36 @@
   "freeappstore-online/notes": {
     "meta": {
       "created_at": "2026-05-04T10:58:03Z",
-      "pushed_at": "2026-05-27T12:57:48Z"
+      "pushed_at": "2026-05-27T14:16:41Z"
     },
     "commits": [
       {
-        "sha": "73a48625f7cf30f6a807917ce2382d532fe05f62",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/73a48625f7cf30f6a807917ce2382d532fe05f62",
+        "sha": "d5e8291433b912b91424d21367b198cb595979c2",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/d5e8291433b912b91424d21367b198cb595979c2",
         "commit": {
-          "message": "test: add vitest suite (35 tests) + fix bugs\n\nTests:\n- 24 unit tests for notes.ts (migrateNote, loadNotes/saveNotes,\n  formatTime, filterAndSort, createNote)\n- 11 component tests for App (create, delete, search, pin, tag,\n  navigate, localStorage persistence)\n\nBugs fixed:\n- deleteNote stale closure: used functional setView to remove\n  dependency on view\n- migrateNote type safety: typeof checks instead of unsafe casts\n- Tag input iOS auto-zoom: bumped font-size to 1rem (16px)\n- useViewportHeight layout flash: returns CSS 100dvh by default,\n  only switches to px when keyboard detected open\n- Swipe gesture: proper direction lock state machine with dead zone\n- marked.parse: pass { async: false } for guaranteed sync return\n\nInfra:\n- Extract pure logic to notes.ts for testability\n- Set up vitest + happy-dom + testing-library\n- localStorage polyfill for Node 22 compatibility\n- Fix root package.json test script filter name\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "feat: TipTap block editor, nested pages, templates\n\nMajor upgrade from plain textarea to Notion-like block editor:\n\nBlock Editor (TipTap/ProseMirror):\n- Rich text toolbar: H1/H2/H3, bold, italic, strike, highlight\n- Block types: bullet list, numbered list, task list (checkboxes),\n  code block, blockquote, horizontal rule\n- Typography extension for smart quotes/dashes\n- Link support\n- Full keyboard shortcut support (Cmd+B, Cmd+I, etc.)\n\nNested Pages:\n- Notes can have sub-pages (parentId field)\n- Collapsible page tree in sidebar with expand/collapse\n- Breadcrumb navigation in editor toolbar\n- + button on each page to create child pages\n- Delete cascades to all children\n- Sub-pages section at bottom of editor\n\nTemplates:\n- Template picker when creating via + New Page button\n- 4 templates: Blank, Meeting Notes, Daily Journal, Project Brief\n- Each template pre-fills with structured TipTap HTML content\n- Cmd+N creates a quick blank note (skips picker)\n\nData model:\n- Added parentId, icon, template fields to Note\n- Backwards-compatible migration for existing localStorage notes\n- Removed marked dependency (replaced by TipTap)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T12:57:20Z"
+            "date": "2026-05-27T14:16:38Z"
           }
         }
       },
       {
-        "sha": "12f05ff58819b461c523c73c33d042bb6c1ac2c2",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/12f05ff58819b461c523c73c33d042bb6c1ac2c2",
+        "sha": "d8aef6f518e8ee91ca5f7d84ad55c8c4e7462ace",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/d8aef6f518e8ee91ca5f7d84ad55c8c4e7462ace",
         "commit": {
-          "message": "fix: mobile-friendly layout — keyboard resize, safe areas, touch targets\n\n- Use visualViewport API so editor resizes when virtual keyboard opens\n  instead of content hiding behind it\n- Add viewport-fit=cover + safe-area-inset padding for notched phones\n- Bump all touch targets to 44px minimum (buttons, list items)\n- Set input/textarea font-size to 16px to prevent iOS auto-zoom\n- Add touch-action: manipulation to eliminate 300ms tap delay\n- Add -webkit-tap-highlight-color: transparent\n- Add overscroll-behavior: none to prevent pull-to-refresh interference\n- Use 100dvh instead of 100vh for desktop (mobile uses visualViewport)\n- Increase mobile font sizes for readability (list items, search)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-27T12:37:25Z"
+            "date": "2026-05-27T14:10:52Z"
           }
         }
       },
       {
-        "sha": "cba46c20c705c25486157bc039d792e02aed480e",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/cba46c20c705c25486157bc039d792e02aed480e",
+        "sha": "c05719c244568160960346bcf9c84bbe92e7cf0e",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/c05719c244568160960346bcf9c84bbe92e7cf0e",
         "commit": {
-          "message": "feat: pin notes, markdown preview, swipe-to-delete, tags, keyboard shortcuts\n\n- Pin/unpin notes (pinned sort to top, accent dot in list)\n- Markdown preview toggle (Cmd+E) with styled rendering\n- Swipe left to delete on mobile (red Delete backdrop)\n- Tags with pill UI, comma/Enter to add, Backspace to remove\n- Keyboard shortcuts: Cmd+N new, Cmd+F search, Cmd+E preview,\n  Cmd+Backspace delete, Escape back/clear\n- Search includes tags\n- Backwards-compatible migration for existing localStorage notes\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-27T12:13:53Z"
+            "date": "2026-05-27T13:46:31Z"
           }
         }
       }
@@ -268,9 +268,29 @@
   "freeappstore-online/math": {
     "meta": {
       "created_at": "2026-05-03T02:32:52Z",
-      "pushed_at": "2026-05-27T03:47:14Z"
+      "pushed_at": "2026-05-27T14:19:06Z"
     },
     "commits": [
+      {
+        "sha": "4aebb6c3180f4346893d2d98620072cbdbf0be86",
+        "html_url": "https://github.com/freeappstore-online/math/commit/4aebb6c3180f4346893d2d98620072cbdbf0be86",
+        "commit": {
+          "message": "Add apple-touch-icon",
+          "author": {
+            "date": "2026-05-27T14:19:03Z"
+          }
+        }
+      },
+      {
+        "sha": "fa0749543fd1c78683c11f8fcceff9674891d2f1",
+        "html_url": "https://github.com/freeappstore-online/math/commit/fa0749543fd1c78683c11f8fcceff9674891d2f1",
+        "commit": {
+          "message": "docs: add README",
+          "author": {
+            "date": "2026-05-27T13:45:53Z"
+          }
+        }
+      },
       {
         "sha": "95a6e17dbcf47b98c6dc8e87fa53b969f268461f",
         "html_url": "https://github.com/freeappstore-online/math/commit/95a6e17dbcf47b98c6dc8e87fa53b969f268461f",
@@ -280,35 +300,25 @@
             "date": "2026-05-27T03:47:12Z"
           }
         }
-      },
-      {
-        "sha": "ad97798cce41ca4431ef6a779ff3e2920ad9c60c",
-        "html_url": "https://github.com/freeappstore-online/math/commit/ad97798cce41ca4431ef6a779ff3e2920ad9c60c",
-        "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
-          "author": {
-            "date": "2026-05-16T23:31:25Z"
-          }
-        }
-      },
-      {
-        "sha": "9e76ce9055f14959343c4bc50563b892e46fd643",
-        "html_url": "https://github.com/freeappstore-online/math/commit/9e76ce9055f14959343c4bc50563b892e46fd643",
-        "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
-          "author": {
-            "date": "2026-05-14T11:06:48Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/bandmates": {
     "meta": {
       "created_at": "2026-05-04T01:43:04Z",
-      "pushed_at": "2026-05-27T03:46:55Z"
+      "pushed_at": "2026-05-27T13:46:10Z"
     },
     "commits": [
+      {
+        "sha": "f654db0dcaaa8b8fa3f13833631cc27c625d02b9",
+        "html_url": "https://github.com/freeappstore-online/bandmates/commit/f654db0dcaaa8b8fa3f13833631cc27c625d02b9",
+        "commit": {
+          "message": "docs: add README",
+          "author": {
+            "date": "2026-05-27T13:46:07Z"
+          }
+        }
+      },
       {
         "sha": "c4be2c6f2207be1a7ca3427ae13be71a04c32946",
         "html_url": "https://github.com/freeappstore-online/bandmates/commit/c4be2c6f2207be1a7ca3427ae13be71a04c32946",
@@ -328,52 +338,42 @@
             "date": "2026-05-16T23:31:48Z"
           }
         }
-      },
-      {
-        "sha": "bd492380305c07c92de8e328b2b8b65d1bc8d46a",
-        "html_url": "https://github.com/freeappstore-online/bandmates/commit/bd492380305c07c92de8e328b2b8b65d1bc8d46a",
-        "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
-          "author": {
-            "date": "2026-05-14T11:06:46Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/converter": {
     "meta": {
       "created_at": "2026-05-04T10:58:01Z",
-      "pushed_at": "2026-05-27T03:49:31Z"
+      "pushed_at": "2026-05-27T14:10:34Z"
     },
     "commits": [
       {
-        "sha": "c9433ffd89f4bf482cfacb8f888c146a847b2ee7",
-        "html_url": "https://github.com/freeappstore-online/converter/commit/c9433ffd89f4bf482cfacb8f888c146a847b2ee7",
+        "sha": "8d502363e48b4831574bb310675e3a4c8b442f8a",
+        "html_url": "https://github.com/freeappstore-online/converter/commit/8d502363e48b4831574bb310675e3a4c8b442f8a",
         "commit": {
-          "message": "ci: migrate deploy from CF Pages to R2",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-27T03:49:28Z"
+            "date": "2026-05-27T14:10:31Z"
           }
         }
       },
       {
-        "sha": "8474b4a829b4dc70d38497a34f9cb7317c1d9bbf",
-        "html_url": "https://github.com/freeappstore-online/converter/commit/8474b4a829b4dc70d38497a34f9cb7317c1d9bbf",
+        "sha": "638ff9a4b0f4941b71637769915b9c3736bf7b6a",
+        "html_url": "https://github.com/freeappstore-online/converter/commit/638ff9a4b0f4941b71637769915b9c3736bf7b6a",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-16T23:32:03Z"
+            "date": "2026-05-27T13:46:24Z"
           }
         }
       },
       {
-        "sha": "0b6feef2dfa5006ce9eafd0506c3d70f0ac558fa",
-        "html_url": "https://github.com/freeappstore-online/converter/commit/0b6feef2dfa5006ce9eafd0506c3d70f0ac558fa",
+        "sha": "fbf38e8a01633e2a735817bee49c7f133353c234",
+        "html_url": "https://github.com/freeappstore-online/converter/commit/fbf38e8a01633e2a735817bee49c7f133353c234",
         "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-14T11:06:41Z"
+            "date": "2026-05-27T13:08:14Z"
           }
         }
       }
@@ -382,36 +382,36 @@
   "freeappstore-online/qrcode": {
     "meta": {
       "created_at": "2026-05-04T10:58:07Z",
-      "pushed_at": "2026-05-27T03:49:50Z"
+      "pushed_at": "2026-05-27T14:11:08Z"
     },
     "commits": [
       {
-        "sha": "d148e1c4925e681b52788edc94b0d248a68c0054",
-        "html_url": "https://github.com/freeappstore-online/qrcode/commit/d148e1c4925e681b52788edc94b0d248a68c0054",
+        "sha": "3f454962c61cef35f898c6247fb0820dd5a18ecb",
+        "html_url": "https://github.com/freeappstore-online/qrcode/commit/3f454962c61cef35f898c6247fb0820dd5a18ecb",
         "commit": {
-          "message": "ci: migrate deploy from CF Pages to R2",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-27T03:49:47Z"
+            "date": "2026-05-27T14:11:05Z"
           }
         }
       },
       {
-        "sha": "b060cf2f9c105fc75a7ae4d600e58c7e478c456e",
-        "html_url": "https://github.com/freeappstore-online/qrcode/commit/b060cf2f9c105fc75a7ae4d600e58c7e478c456e",
+        "sha": "32e526de09f51e25cfbb97fa6502f3f50c47c332",
+        "html_url": "https://github.com/freeappstore-online/qrcode/commit/32e526de09f51e25cfbb97fa6502f3f50c47c332",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-16T23:32:12Z"
+            "date": "2026-05-27T13:46:37Z"
           }
         }
       },
       {
-        "sha": "63f2e289d4b74c52e1779c52de167077d3eca012",
-        "html_url": "https://github.com/freeappstore-online/qrcode/commit/63f2e289d4b74c52e1779c52de167077d3eca012",
+        "sha": "97074767fc9ef87ad2d8ea949dea7bc6fe310840",
+        "html_url": "https://github.com/freeappstore-online/qrcode/commit/97074767fc9ef87ad2d8ea949dea7bc6fe310840",
         "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-14T11:06:36Z"
+            "date": "2026-05-27T13:08:24Z"
           }
         }
       }
@@ -420,36 +420,36 @@
   "freeappstore-online/meetup": {
     "meta": {
       "created_at": "2026-05-04T01:43:06Z",
-      "pushed_at": "2026-05-27T03:47:17Z"
+      "pushed_at": "2026-05-27T14:12:47Z"
     },
     "commits": [
       {
-        "sha": "1d8c81704e7a39c2ec3aa2c5c576f9d9e032f267",
-        "html_url": "https://github.com/freeappstore-online/meetup/commit/1d8c81704e7a39c2ec3aa2c5c576f9d9e032f267",
+        "sha": "837a4d4d5545e0a57217fc7a815db352d19d989f",
+        "html_url": "https://github.com/freeappstore-online/meetup/commit/837a4d4d5545e0a57217fc7a815db352d19d989f",
         "commit": {
-          "message": "ci: add R2 deploy workflow",
+          "message": "fix: add PWA meta tags, update title for compliance",
           "author": {
-            "date": "2026-05-27T03:47:15Z"
+            "date": "2026-05-27T14:12:43Z"
           }
         }
       },
       {
-        "sha": "7b193f4161fafdd1d674e36380da67cd87707920",
-        "html_url": "https://github.com/freeappstore-online/meetup/commit/7b193f4161fafdd1d674e36380da67cd87707920",
+        "sha": "4c14e8bb044262036ba27d647b9d1e56d3c10ef2",
+        "html_url": "https://github.com/freeappstore-online/meetup/commit/4c14e8bb044262036ba27d647b9d1e56d3c10ef2",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-16T23:31:51Z"
+            "date": "2026-05-27T14:10:48Z"
           }
         }
       },
       {
-        "sha": "4e8ef13498ea55fa7c8978c8d7f12c2c2393119c",
-        "html_url": "https://github.com/freeappstore-online/meetup/commit/4e8ef13498ea55fa7c8978c8d7f12c2c2393119c",
+        "sha": "17be6e70d4334800a6d0c280d153511e0d861b3a",
+        "html_url": "https://github.com/freeappstore-online/meetup/commit/17be6e70d4334800a6d0c280d153511e0d861b3a",
         "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "message": "feat: add Google sign-in alongside GitHub",
           "author": {
-            "date": "2026-05-14T11:06:46Z"
+            "date": "2026-05-27T13:49:32Z"
           }
         }
       }
@@ -458,36 +458,36 @@
   "freeappstore-online/habits": {
     "meta": {
       "created_at": "2026-05-04T10:58:17Z",
-      "pushed_at": "2026-05-27T03:49:37Z"
+      "pushed_at": "2026-05-27T14:10:47Z"
     },
     "commits": [
       {
-        "sha": "795130bbaadb92507ab3d8a46b7ce02ecf750224",
-        "html_url": "https://github.com/freeappstore-online/habits/commit/795130bbaadb92507ab3d8a46b7ce02ecf750224",
+        "sha": "f13fab81c485223dc6cb3740a98d4b051c5584b8",
+        "html_url": "https://github.com/freeappstore-online/habits/commit/f13fab81c485223dc6cb3740a98d4b051c5584b8",
         "commit": {
-          "message": "ci: migrate deploy from CF Pages to R2",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-27T03:49:34Z"
+            "date": "2026-05-27T14:10:44Z"
           }
         }
       },
       {
-        "sha": "6684ab70ea82514045ea736e021ff87da2cd8522",
-        "html_url": "https://github.com/freeappstore-online/habits/commit/6684ab70ea82514045ea736e021ff87da2cd8522",
+        "sha": "1751c9449885e09923f32fbf9a04ed1ff0bfec4c",
+        "html_url": "https://github.com/freeappstore-online/habits/commit/1751c9449885e09923f32fbf9a04ed1ff0bfec4c",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-16T23:32:27Z"
+            "date": "2026-05-27T13:46:54Z"
           }
         }
       },
       {
-        "sha": "2267053b128b1c9ba9033cb627403696cc29701f",
-        "html_url": "https://github.com/freeappstore-online/habits/commit/2267053b128b1c9ba9033cb627403696cc29701f",
+        "sha": "2992fd6e6f41264e368665bb5ee2e07eef652e37",
+        "html_url": "https://github.com/freeappstore-online/habits/commit/2992fd6e6f41264e368665bb5ee2e07eef652e37",
         "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-14T11:06:41Z"
+            "date": "2026-05-27T13:08:42Z"
           }
         }
       }
@@ -496,36 +496,36 @@
   "freeappstore-online/colorpicker": {
     "meta": {
       "created_at": "2026-05-04T10:58:10Z",
-      "pushed_at": "2026-05-27T03:49:28Z"
+      "pushed_at": "2026-05-27T14:10:31Z"
     },
     "commits": [
       {
-        "sha": "f62108d94ea1868be8ef9abce59186a9291cf0bb",
-        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/f62108d94ea1868be8ef9abce59186a9291cf0bb",
+        "sha": "fbd386271b063d5bf73883e49bca3885f35e858e",
+        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/fbd386271b063d5bf73883e49bca3885f35e858e",
         "commit": {
-          "message": "ci: migrate deploy from CF Pages to R2",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-27T03:49:25Z"
+            "date": "2026-05-27T14:10:27Z"
           }
         }
       },
       {
-        "sha": "fb3522c0b757df3d2b6c33dc8cd0440d54227753",
-        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/fb3522c0b757df3d2b6c33dc8cd0440d54227753",
+        "sha": "8b89978e7fb2aebeb96b9f83a7b66e226350f117",
+        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/8b89978e7fb2aebeb96b9f83a7b66e226350f117",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-16T23:32:15Z"
+            "date": "2026-05-27T13:46:41Z"
           }
         }
       },
       {
-        "sha": "5cce6850b8bd2318f0b507c0b77d49e4a7419af2",
-        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/5cce6850b8bd2318f0b507c0b77d49e4a7419af2",
+        "sha": "211c0d1eca1e3fdee858169c8216c772e9cf2e1e",
+        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/211c0d1eca1e3fdee858169c8216c772e9cf2e1e",
         "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-14T11:06:41Z"
+            "date": "2026-05-27T13:08:28Z"
           }
         }
       }
@@ -534,9 +534,19 @@
   "freeappstore-online/music": {
     "meta": {
       "created_at": "2026-05-03T02:32:53Z",
-      "pushed_at": "2026-05-27T03:47:20Z"
+      "pushed_at": "2026-05-27T13:46:00Z"
     },
     "commits": [
+      {
+        "sha": "1c922d348cf9fd97e2fce9cf0e3b3f2c0615d859",
+        "html_url": "https://github.com/freeappstore-online/music/commit/1c922d348cf9fd97e2fce9cf0e3b3f2c0615d859",
+        "commit": {
+          "message": "docs: add README",
+          "author": {
+            "date": "2026-05-27T13:45:57Z"
+          }
+        }
+      },
       {
         "sha": "0bbeb5efb563f61c8f41668a92a5247fb2f65b21",
         "html_url": "https://github.com/freeappstore-online/music/commit/0bbeb5efb563f61c8f41668a92a5247fb2f65b21",
@@ -556,52 +566,42 @@
             "date": "2026-05-16T23:31:28Z"
           }
         }
-      },
-      {
-        "sha": "7df3c91c0e11c890694df1beb36f6534eda46e1c",
-        "html_url": "https://github.com/freeappstore-online/music/commit/7df3c91c0e11c890694df1beb36f6534eda46e1c",
-        "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
-          "author": {
-            "date": "2026-05-14T11:06:45Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/flashcards": {
     "meta": {
       "created_at": "2026-05-04T10:58:15Z",
-      "pushed_at": "2026-05-27T03:49:34Z"
+      "pushed_at": "2026-05-27T14:10:43Z"
     },
     "commits": [
       {
-        "sha": "17e61c0a57e2a3518f03e856ccbbf05a5bb3f19e",
-        "html_url": "https://github.com/freeappstore-online/flashcards/commit/17e61c0a57e2a3518f03e856ccbbf05a5bb3f19e",
+        "sha": "730be4959f9d079c7dfb0ba71859d3eacb69b6f1",
+        "html_url": "https://github.com/freeappstore-online/flashcards/commit/730be4959f9d079c7dfb0ba71859d3eacb69b6f1",
         "commit": {
-          "message": "ci: migrate deploy from CF Pages to R2",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-27T03:49:31Z"
+            "date": "2026-05-27T14:10:41Z"
           }
         }
       },
       {
-        "sha": "2b81dc82d10c600d91cac3b066a2493e601074ae",
-        "html_url": "https://github.com/freeappstore-online/flashcards/commit/2b81dc82d10c600d91cac3b066a2493e601074ae",
+        "sha": "483ae20e4f11139ab157ee41a5608e4569416fee",
+        "html_url": "https://github.com/freeappstore-online/flashcards/commit/483ae20e4f11139ab157ee41a5608e4569416fee",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-16T23:32:24Z"
+            "date": "2026-05-27T13:46:51Z"
           }
         }
       },
       {
-        "sha": "4fb381a6b760ed1de6f50d85d295532fd8e39a52",
-        "html_url": "https://github.com/freeappstore-online/flashcards/commit/4fb381a6b760ed1de6f50d85d295532fd8e39a52",
+        "sha": "c8c36df8bacb7cfcdd225564b18d10504ddafc15",
+        "html_url": "https://github.com/freeappstore-online/flashcards/commit/c8c36df8bacb7cfcdd225564b18d10504ddafc15",
         "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-14T11:06:39Z"
+            "date": "2026-05-27T13:08:39Z"
           }
         }
       }
@@ -610,36 +610,36 @@
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-27T12:53:19Z"
+      "pushed_at": "2026-05-27T14:15:18Z"
     },
     "commits": [
       {
-        "sha": "694a47656936538c77d723aa201d8f0042bee7aa",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/694a47656936538c77d723aa201d8f0042bee7aa",
+        "sha": "31a9ff3489feaca864159882c4f8a36a25966ba0",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/31a9ff3489feaca864159882c4f8a36a25966ba0",
         "commit": {
-          "message": "fix: 5 bugs, expand test suite to 39 tests\n\nBugs fixed:\n- Text bounds now uses longest line width instead of total character\n  count, fixing oversized hit areas for multiline text.\n- Arrow bounds include arrowhead padding (max(strokeWidth*3, 12)),\n  fixing missed clicks near arrowhead tips.\n- Image bounds fall back to 100x100 when dimensions are 0, fixing\n  unselectable migrated image elements.\n- Double-click to edit sticky now only fires in select tool, preventing\n  accidental sticky editor opens while drawing.\n- Undo/redo/clear now immediately persist to localStorage via\n  setTimeout, preventing data loss on quick tab close.\n\nTests expanded from 16 to 39:\n- screenToWorld: fractional zoom, negative offset, origin mapping\n- clampZoom: boundary values, zero input\n- getElementBounds: single-point path, eraser flag parity, inverted\n  line/rect, horizontal line, arrow vs line size, multiline text\n  longest-line, empty text, image 0-dimension fallback\n- hitTest: empty array, boundary edges, just-outside miss, path by\n  bounding box, arrow with arrowhead padding, text elements\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "feat: smooth strokes, duplicate, zoom-to-fit, layer ordering\n\nSmooth pen strokes:\n- Path renderer now uses quadratic Bézier curves through midpoints\n  instead of straight line segments, producing visually smooth freehand\n  lines at any zoom level.\n\nDuplicate element (Ctrl+D):\n- Duplicates the selected element with a 20px offset. New element is\n  auto-selected.\n\nZoom to Fit (Ctrl+1 / Fit button):\n- Computes bounding box of all elements and sets camera to fit them\n  in the viewport with 40px padding. Falls back to default view when\n  canvas is empty.\n\nLayer ordering:\n- ] key or Fwd button: bring selected element forward one layer\n- [ key or Back button: send selected element backward one layer\n- Both push undo before reordering.\n\nSelection actions panel in sidebar shows Dup/Fwd/Back buttons when\nan element is selected.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T12:53:12Z"
+            "date": "2026-05-27T14:15:16Z"
           }
         }
       },
       {
-        "sha": "73d3b653ba7a52b0533d121fa3b9fc6d5ca4ccf4",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/73d3b653ba7a52b0533d121fa3b9fc6d5ca4ccf4",
+        "sha": "4e13213ab61201c98520a8ab8e9fd11e551f10d9",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/4e13213ab61201c98520a8ab8e9fd11e551f10d9",
         "commit": {
-          "message": "fix: drag anchor, escape deselect, test filter; add vitest tests\n\nBugs fixed:\n- Select tool drag now uses getElementBounds for anchor calculation,\n  preventing visual jump when clicking away from element origin.\n- Escape key deselects the current element in select mode.\n- Root package.json test script pointed to wrong filter name\n  (@whiteboard/web → @freewhiteboardapp/web).\n\nTests added:\n- 16 vitest unit tests covering screenToWorld, clampZoom,\n  getElementBounds (path, rect, sticky, text, empty), and hitTest\n  (inside, outside, overlap ordering, rect bounds).\n- Exported screenToWorld and clampZoom from App.tsx for testability.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-27T12:41:20Z"
+            "date": "2026-05-27T14:11:20Z"
           }
         }
       },
       {
-        "sha": "fc4514b9c6d26c8e741e0d87255ada3d7722a61d",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/fc4514b9c6d26c8e741e0d87255ada3d7722a61d",
+        "sha": "9cc75a09c86fbec0695247904f64235a6df4f5f6",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/9cc75a09c86fbec0695247904f64235a6df4f5f6",
         "commit": {
-          "message": "feat: infinite canvas, sticky notes, select tool, keyboard shortcuts\n\nMajor rewrite from bitmap to element-based rendering:\n\n- Infinite canvas with pan (scroll/middle-drag/space-drag) and zoom\n  (ctrl+wheel/pinch). Camera transform applied to all elements.\n- Element model: path, line, arrow, rect, ellipse, text, sticky, image.\n  Undo/redo operates on element snapshots instead of pixel data.\n- Sticky notes: click to place, double-click to edit, 6 color presets.\n  Rendered with rounded corners, shadow, and word-wrapped text.\n- Select tool (V): click to select, drag to move any element. Delete/\n  Backspace to remove selected element.\n- Keyboard shortcuts: V/P/E/L/A/R/O/T/S for tools, Ctrl+Z/Shift+Z\n  for undo/redo, Ctrl+0 to reset view.\n- Image paste: Ctrl+V pastes clipboard images onto canvas (resized to\n  max 800px). Images stored as dataUrl in elements.\n- Grid dots: toggleable dot grid in world space, adapts spacing to zoom.\n- Dark mode toggle: cycles auto/light/dark via class on root element.\n- Zoom indicator in sidebar with reset button.\n- Migration: reads old bitmap drawings from v1 localStorage format and\n  converts to image elements.\n- Scene renderer extracted to render.ts, types to types.ts.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "feat: add mobile pinch-to-zoom and two-finger pan\n\nMulti-touch support for mobile/tablet:\n- Two-finger pinch zooms in/out centered on the midpoint between\n  fingers. Zoom ratio is computed from the distance change.\n- Two-finger drag pans the canvas, preserving the world point under\n  the initial midpoint.\n- Second finger down cancels any in-progress drawing stroke (and\n  rolls back the undo entry), so accidental touches during drawing\n  don't leave artifacts.\n- Pointer tracking via activePtrsRef map; pinch state stored in\n  pinchRef with initial distance, midpoint, and camera snapshot.\n- Lifting one finger exits pinch mode cleanly without triggering\n  single-pointer handlers.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T12:21:26Z"
+            "date": "2026-05-27T14:11:05Z"
           }
         }
       }
@@ -648,36 +648,36 @@
   "freeappstore-online/password": {
     "meta": {
       "created_at": "2026-05-04T10:58:11Z",
-      "pushed_at": "2026-05-27T03:49:44Z"
+      "pushed_at": "2026-05-27T14:10:58Z"
     },
     "commits": [
       {
-        "sha": "ff9851f8b32d92389fdfaae9be7987c4355e2ae1",
-        "html_url": "https://github.com/freeappstore-online/password/commit/ff9851f8b32d92389fdfaae9be7987c4355e2ae1",
+        "sha": "558cfedf9dfaecb3d1880cde66d25dc312a22031",
+        "html_url": "https://github.com/freeappstore-online/password/commit/558cfedf9dfaecb3d1880cde66d25dc312a22031",
         "commit": {
-          "message": "ci: migrate deploy from CF Pages to R2",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-27T03:49:41Z"
+            "date": "2026-05-27T14:10:55Z"
           }
         }
       },
       {
-        "sha": "5b4b649e5935296342bbe83e2f092571e41ab38b",
-        "html_url": "https://github.com/freeappstore-online/password/commit/5b4b649e5935296342bbe83e2f092571e41ab38b",
+        "sha": "a175b1f4928fe18640e69339b5b78da9c87fb7e1",
+        "html_url": "https://github.com/freeappstore-online/password/commit/a175b1f4928fe18640e69339b5b78da9c87fb7e1",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-16T23:32:18Z"
+            "date": "2026-05-27T13:46:44Z"
           }
         }
       },
       {
-        "sha": "dd7b835eb8ee70a004147f2b96f8078345b134ba",
-        "html_url": "https://github.com/freeappstore-online/password/commit/dd7b835eb8ee70a004147f2b96f8078345b134ba",
+        "sha": "0305cedc3c07a9f0d4df1f22f4a8279fb7d4c4b1",
+        "html_url": "https://github.com/freeappstore-online/password/commit/0305cedc3c07a9f0d4df1f22f4a8279fb7d4c4b1",
         "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-14T11:06:39Z"
+            "date": "2026-05-27T13:08:31Z"
           }
         }
       }
@@ -724,36 +724,36 @@
   "freeappstore-online/weather": {
     "meta": {
       "created_at": "2026-05-04T10:58:19Z",
-      "pushed_at": "2026-05-27T03:49:56Z"
+      "pushed_at": "2026-05-27T14:11:20Z"
     },
     "commits": [
       {
-        "sha": "1f6f8311df51ecfc4d17ad6ca74b749414ef4c7f",
-        "html_url": "https://github.com/freeappstore-online/weather/commit/1f6f8311df51ecfc4d17ad6ca74b749414ef4c7f",
+        "sha": "d3e079a6a15529ef927c864fafd1b48afa168339",
+        "html_url": "https://github.com/freeappstore-online/weather/commit/d3e079a6a15529ef927c864fafd1b48afa168339",
         "commit": {
-          "message": "ci: migrate deploy from CF Pages to R2",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-27T03:49:53Z"
+            "date": "2026-05-27T14:11:17Z"
           }
         }
       },
       {
-        "sha": "15a1c03475addee683a6096cf3ca9068a78d8978",
-        "html_url": "https://github.com/freeappstore-online/weather/commit/15a1c03475addee683a6096cf3ca9068a78d8978",
+        "sha": "e3ce63de1709d99fbe23a5741176df438851eccb",
+        "html_url": "https://github.com/freeappstore-online/weather/commit/e3ce63de1709d99fbe23a5741176df438851eccb",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-16T23:32:30Z"
+            "date": "2026-05-27T13:46:57Z"
           }
         }
       },
       {
-        "sha": "90d5b41b7403c62c82af2f8775ccc45e593295ff",
-        "html_url": "https://github.com/freeappstore-online/weather/commit/90d5b41b7403c62c82af2f8775ccc45e593295ff",
+        "sha": "14f86ae014928e6ad023bb5e1e8b2718d4f560b2",
+        "html_url": "https://github.com/freeappstore-online/weather/commit/14f86ae014928e6ad023bb5e1e8b2718d4f560b2",
         "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-14T11:06:36Z"
+            "date": "2026-05-27T13:08:45Z"
           }
         }
       }
@@ -762,36 +762,36 @@
   "freeappstore-online/pomodoro": {
     "meta": {
       "created_at": "2026-05-04T10:58:05Z",
-      "pushed_at": "2026-05-27T03:49:47Z"
+      "pushed_at": "2026-05-27T14:11:01Z"
     },
     "commits": [
       {
-        "sha": "ddb5235beddf4a699acf0034c886108cbf13042a",
-        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/ddb5235beddf4a699acf0034c886108cbf13042a",
+        "sha": "29b8ff8600886cad6c9abc9b44198b1a8f60ec73",
+        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/29b8ff8600886cad6c9abc9b44198b1a8f60ec73",
         "commit": {
-          "message": "ci: migrate deploy from CF Pages to R2",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-27T03:49:44Z"
+            "date": "2026-05-27T14:10:58Z"
           }
         }
       },
       {
-        "sha": "21444b8142754e21181867113a3a87259a99e019",
-        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/21444b8142754e21181867113a3a87259a99e019",
+        "sha": "cf8978fa0c9b6be3c666f083ca377946bc383229",
+        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/cf8978fa0c9b6be3c666f083ca377946bc383229",
         "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-16T23:32:09Z"
+            "date": "2026-05-27T13:46:34Z"
           }
         }
       },
       {
-        "sha": "aeaf33010fe5162abfedb51fe3c227b0375c4596",
-        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/aeaf33010fe5162abfedb51fe3c227b0375c4596",
+        "sha": "d37cba2179ca094b90fed93a006f04ec9950e317",
+        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/d37cba2179ca094b90fed93a006f04ec9950e317",
         "commit": {
-          "message": "fix(manifest): add orientation + min_viewport_width\n\nRequired by the viewport-support compliance check. Without these,\n'fas check' on this app fails. Defaults to 'any' orientation and 360\npx min viewport width.",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-14T11:06:38Z"
+            "date": "2026-05-27T13:08:20Z"
           }
         }
       }
@@ -800,9 +800,29 @@
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-05-27T03:47:26Z"
+      "pushed_at": "2026-05-27T13:47:04Z"
     },
     "commits": [
+      {
+        "sha": "04084536b19855924dd4611d48e122a69e5869a1",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/04084536b19855924dd4611d48e122a69e5869a1",
+        "commit": {
+          "message": "docs: add README",
+          "author": {
+            "date": "2026-05-27T13:47:01Z"
+          }
+        }
+      },
+      {
+        "sha": "051a54766f5e10cacb36bdd2adc5bda74a8a3604",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/051a54766f5e10cacb36bdd2adc5bda74a8a3604",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:08:49Z"
+          }
+        }
+      },
       {
         "sha": "a712fcb259344d3e8bb41d72caaf3185bfcf5b04",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/a712fcb259344d3e8bb41d72caaf3185bfcf5b04",
@@ -812,62 +832,42 @@
             "date": "2026-05-27T03:47:24Z"
           }
         }
-      },
-      {
-        "sha": "effb1f13b6cce6ced1091f5f09e77b45191ce249",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/effb1f13b6cce6ced1091f5f09e77b45191ce249",
-        "commit": {
-          "message": "Add platform analytics loader\n\nEmbeds <script src=\".../v1/analytics.js?app=<id>\" defer></script> into\nweb/index.html so visits start showing up in the creator dashboard. The\nloader is served from the platform Worker; tags evolve without a redeploy.",
-          "author": {
-            "date": "2026-05-21T02:28:22Z"
-          }
-        }
-      },
-      {
-        "sha": "67c993cb681b3385ecf93f843fedbce8b70864bf",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/67c993cb681b3385ecf93f843fedbce8b70864bf",
-        "commit": {
-          "message": "fix: declare maskable icon purpose for Android PWA install\n\nAndroid Chrome installs PWAs as launcher shortcuts (not real apps with\ntheir own task slot) unless the manifest declares at least one icon\nwith purpose: 'maskable'. Add 'any maskable' to both 192/512 entries\nso installs land in the app drawer with an adaptive icon.",
-          "author": {
-            "date": "2026-05-20T04:47:35Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/calculator": {
     "meta": {
       "created_at": "2026-05-04T05:30:50Z",
-      "pushed_at": "2026-05-27T12:59:47Z"
+      "pushed_at": "2026-05-27T14:16:43Z"
     },
     "commits": [
       {
-        "sha": "4f96d9847fa31f46cb7bbbe2379cfc9b19e2f522",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/4f96d9847fa31f46cb7bbbe2379cfc9b19e2f522",
+        "sha": "db3a2b8766f7b4dcedca8e20d09ba009f9444521",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/db3a2b8766f7b4dcedca8e20d09ba009f9444521",
         "commit": {
-          "message": "fix: div-by-zero shows Error, near-zero trig cleanup, repeated equals; 77 tests\n\nBugs fixed:\n- Division by zero now returns NaN → displays \"Error\" (was silently 0)\n- cos(90°) and sin(180°) show \"0\" not \"6.12e-17\" (near-zero cleanup)\n- NaN/Infinity results display as \"Error\" in red instead of raw strings\n- 1/0 in scientific mode returns Error (was silently 0)\n- Repeated equals works: 5+3=== gives 8,11,14 (stores last operand/op)\n- Error state blocks further operations until AC is pressed\n- Extracted toRad/fromRad to calc.ts for testability\n\nTests expanded from 23 → 77 covering: arithmetic edge cases, factorial\noverflow, trig in deg mode (sin/cos/tan at key angles), inverse trig\n(including out-of-domain errors), ln/log/exp, sqrt/powers/reciprocal,\nnear-zero rounding, division by zero through full pipeline, and display\nprecision for long decimals.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "feat: unit converter, haptic feedback, undo (Ctrl+Z), landscape auto-scientific\n\nUnit converter: new tab with 5 categories (length, weight, temperature,\nvolume, speed). Select from/to units, type a value, see live conversion.\nSwap button flips direction and carries the result. Accessible via bottom\ntab bar on mobile, sidebar toggle on desktop.\n\nHaptic feedback: 8ms vibration pulse on every button press via\nnavigator.vibrate() — felt on mobile, no-op on desktop.\n\nUndo: Ctrl+Z / Cmd+Z reverts the last calculator action. Up to 30 undo\nlevels stored in a ref-based stack (not persisted across reloads).\n\nLandscape auto-scientific: on phones in landscape (max-height: 500px),\nscientific buttons + parentheses automatically appear in a side-by-side\nlayout regardless of the mode toggle. Portrait restores the user's\nchosen mode.\n\nTests expanded from 122 → 155 with 33 new conversion tests covering\nall 5 categories, edge cases (zero, negative, unknown unit → NaN),\nand round-trip accuracy.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T12:59:41Z"
+            "date": "2026-05-27T14:16:40Z"
           }
         }
       },
       {
-        "sha": "83fb24688e03fc1cb7cf613ec491cbaac41e7070",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/83fb24688e03fc1cb7cf613ec491cbaac41e7070",
+        "sha": "bea66c99296fa90396a069a4ab3442e059945f5d",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/bea66c99296fa90396a069a4ab3442e059945f5d",
         "commit": {
-          "message": "fix: multiple decimal points, float noise, percent fresh state; add tests\n\nBugs fixed:\n- Prevent entering multiple decimal points (e.g. 1.2.3)\n- Clean floating-point display noise (0.1+0.2 now shows 0.3)\n- percent() now sets fresh so next digit starts a new number\n- loadState() uses lazy initializer to avoid reading localStorage every render\n\nExtracted pure calc logic into calc.ts with 23 vitest tests covering\narithmetic, factorial, display cleaning, and decimal validation.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "feat: compact mobile layout, keyboard shortcut hints, swipe-to-delete history\n\nMobile layout: reduced padding, gaps, and button sizes on small screens\nusing responsive Tailwind classes (py-1.5→py-2.5, gap-1→gap-1.5/2,\ntext-[11px]→text-xs/base). Scientific mode no longer overflows on\nphones.\n\nKeyboard hints: buttons show their shortcut on hover via title tooltip\n(e.g., \"Keyboard: /\" on the ÷ button, \"Keyboard: Esc\" on AC).\n\nSwipe-to-delete: history entries can be swiped left on touch devices to\nreveal a red \"Delete\" action. Swipe past 80px threshold to delete, or\nrelease to snap back. On desktop, a ✕ button appears on hover instead.\nIndividual entry deletion exposed via new onDeleteEntry callback.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T12:52:17Z"
+            "date": "2026-05-27T14:08:57Z"
           }
         }
       },
       {
-        "sha": "8db25ba9a50ff42f0f955d5d72a01518e3fd0c0e",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/8db25ba9a50ff42f0f955d5d72a01518e3fd0c0e",
+        "sha": "3125798a7b73b2e8cfd4654471bb03cd6908c105",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/3125798a7b73b2e8cfd4654471bb03cd6908c105",
         "commit": {
-          "message": "feat: add scientific calculator mode\n\nToggle between basic and scientific modes (persisted in localStorage).\nScientific mode adds: sin/cos/tan (with inverse via 2nd), ln/log (with\neˣ/10ˣ inverse), √/x²/x³/xʸ/1/x, factorial, π/e constants, and a\nDEG/RAD angle unit toggle.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "docs: add README",
           "author": {
-            "date": "2026-05-27T12:42:03Z"
+            "date": "2026-05-27T13:46:14Z"
           }
         }
       }
@@ -932,9 +932,29 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-27T09:35:20Z"
+      "pushed_at": "2026-05-27T14:15:17Z"
     },
     "commits": [
+      {
+        "sha": "658cff2ddca5f29beb78e1ebde965417a474a3e1",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/658cff2ddca5f29beb78e1ebde965417a474a3e1",
+        "commit": {
+          "message": "fix: filter always visible, practiced indicator, edit validation\n\n- \"Unpractised only\" checkbox now shows whenever there are phrases,\n  not only when topics exist — previously inaccessible for topicless phrases\n- Topic dropdown only renders when topics exist (no empty dropdown)\n- Practice card shows \"practised\" label on already-practiced phrases\n- EditForm validates non-empty target/native before allowing save,\n  with disabled styling on the Save button\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T14:15:13Z"
+          }
+        }
+      },
+      {
+        "sha": "aaa7d3998d37aee35ec033d7fa00f58b94b055ab",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/aaa7d3998d37aee35ec033d7fa00f58b94b055ab",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:08:52Z"
+          }
+        }
+      },
       {
         "sha": "5f332118e0ad60702394ef6d75fccb5961822c44",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/5f332118e0ad60702394ef6d75fccb5961822c44",
@@ -942,26 +962,6 @@
           "message": "fix: inputs scale with font size, form/practice reset on pair switch\n\n- Input/select font-size changed from fixed 16px to max(16px, 1rem)\n  so they scale with the font size setting while preventing iOS zoom\n- AddForm remounts (clears fields) when language pair changes\n- PracticeTab remounts (resets index to 0) when pair changes\n- Font scale 1.0 no longer overrides browser default font-size\n- Font size slider labels use fixed 11px to stay stable\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T09:35:18Z"
-          }
-        }
-      },
-      {
-        "sha": "76aa4d5d500140d02256cd68b5e1dd20c7743ecc",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/76aa4d5d500140d02256cd68b5e1dd20c7743ecc",
-        "commit": {
-          "message": "Add font size setting, make fullscreen practice text larger\n\n- Font size slider in Settings (80%-160%), persisted to localStorage\n- Scales all rem-based text via root font-size; bottom nav stays fixed px\n- Fullscreen practice: main text up to clamp(2.5rem, 14vw, 7rem),\n  pronunciation and translation scaled proportionally\n- Practice card text also increased for better readability\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T08:02:58Z"
-          }
-        }
-      },
-      {
-        "sha": "6d55e1638b044917da943d98f682258a6459e10d",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/6d55e1638b044917da943d98f682258a6459e10d",
-        "commit": {
-          "message": "fix: practice tab no longer skips phrases when \"unpractised only\" is on\n\nThe \"Unpractised only\" filter and topic filter from the Phrases tab\nwere also applied to the Practice tab. When a phrase was marked\npracticed via \"Got it\", it disappeared from the list and the next\nphrase was skipped. Practice now always shows all phrases for the\ncurrent pair regardless of list filters.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T06:59:08Z"
           }
         }
       }
@@ -1102,9 +1102,29 @@
   "freeappstore-online/snowman": {
     "meta": {
       "created_at": "2026-05-17T15:41:58Z",
-      "pushed_at": "2026-05-27T04:09:21Z"
+      "pushed_at": "2026-05-27T13:49:38Z"
     },
     "commits": [
+      {
+        "sha": "02326b252f74b9657eb82443a474e79ee4839749",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/02326b252f74b9657eb82443a474e79ee4839749",
+        "commit": {
+          "message": "feat: add Google sign-in alongside GitHub",
+          "author": {
+            "date": "2026-05-27T13:49:35Z"
+          }
+        }
+      },
+      {
+        "sha": "cb3373864ed80a2909e948410298c1c468a4eb2c",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/cb3373864ed80a2909e948410298c1c468a4eb2c",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:08:56Z"
+          }
+        }
+      },
       {
         "sha": "d03b1cc5e0762f14203b9749dc7e19010d7fdc2a",
         "html_url": "https://github.com/freeappstore-online/snowman/commit/d03b1cc5e0762f14203b9749dc7e19010d7fdc2a",
@@ -1114,62 +1134,42 @@
             "date": "2026-05-27T04:09:18Z"
           }
         }
-      },
-      {
-        "sha": "ccb5e8eba51dbc3744ac38064d306b5381abc4f2",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/ccb5e8eba51dbc3744ac38064d306b5381abc4f2",
-        "commit": {
-          "message": "Fix mobile search panel alignment and padding consistency\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-22T08:04:20Z"
-          }
-        }
-      },
-      {
-        "sha": "6b65b96a229a698af1540851ae17ab7ec7827020",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/6b65b96a229a698af1540851ae17ab7ec7827020",
-        "commit": {
-          "message": "Align mobile search panel width with nav pill\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-22T07:55:45Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/typeflow": {
     "meta": {
       "created_at": "2026-05-18T09:59:33Z",
-      "pushed_at": "2026-05-27T03:47:33Z"
+      "pushed_at": "2026-05-27T14:16:23Z"
     },
     "commits": [
       {
-        "sha": "79b4d0e1efb00b1071cbb0d513fff349473e508e",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/79b4d0e1efb00b1071cbb0d513fff349473e508e",
+        "sha": "fc1c6db6051f24f53c1ba5b89fd650cbb3d7dac9",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/fc1c6db6051f24f53c1ba5b89fd650cbb3d7dac9",
         "commit": {
-          "message": "ci: add R2 deploy workflow",
+          "message": "fix: add --paper/--ink/--accent CSS vars for compliance",
           "author": {
-            "date": "2026-05-27T03:47:30Z"
+            "date": "2026-05-27T14:16:20Z"
           }
         }
       },
       {
-        "sha": "a994c1a02c8d87ba3b3624be03cc288f8631dc5f",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/a994c1a02c8d87ba3b3624be03cc288f8631dc5f",
+        "sha": "c01418361d2630189782cadcec7e6078636633fe",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/c01418361d2630189782cadcec7e6078636633fe",
         "commit": {
-          "message": "Add difficulty levels, stats/levelling, theme toggle, focus UX",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-20T11:10:44Z"
+            "date": "2026-05-27T14:11:13Z"
           }
         }
       },
       {
-        "sha": "3bb13058fd755ce641c0d33230e36f8147c22d57",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/3bb13058fd755ce641c0d33230e36f8147c22d57",
+        "sha": "947f2652546e98bf59e8352c855c96fda9bb15c6",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/947f2652546e98bf59e8352c855c96fda9bb15c6",
         "commit": {
-          "message": "Add difficulty levels, stats/levelling, theme toggle, focus UX\n\n- Light theme is now the default; user can toggle dark via ☾/☀ button\n  (stored in localStorage, no longer follows system preference)\n- Easy / Normal / Hard difficulty selector — each uses a distinct word\n  list (short common words / mixed / longer complex words)\n- Level system: Beginner → Novice → Apprentice → Skilled → Advanced →\n  Expert → Master, driven by personal-best WPM stored in localStorage\n- Sidebar level card shows PB, progress bar to next level, test count\n- Click-to-focus overlay on word display — clearly tells users to click\n  before typing; disappears once focused\n- Results screen shows ★ new personal best banner when PB is beaten\n- Mode and difficulty tabs now use bg-[var(--ink)] highlight so active\n  state is unambiguous in both light and dark themes\n- Wider max-w-4xl content area removes dead space on desktop\n- Timer enlarged to text-5xl display-font for better visual anchor\n- useStats / useTheme hooks extracted; App wires them to Shell + TypingArea\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-20T11:10:33Z"
+            "date": "2026-05-27T13:09:00Z"
           }
         }
       }
@@ -1178,9 +1178,29 @@
   "freeappstore-online/streak": {
     "meta": {
       "created_at": "2026-05-19T21:30:48Z",
-      "pushed_at": "2026-05-27T03:47:29Z"
+      "pushed_at": "2026-05-27T13:49:41Z"
     },
     "commits": [
+      {
+        "sha": "f7fa67038c32b1e13b659a210b0778406fc136e8",
+        "html_url": "https://github.com/freeappstore-online/streak/commit/f7fa67038c32b1e13b659a210b0778406fc136e8",
+        "commit": {
+          "message": "feat: add Google sign-in alongside GitHub",
+          "author": {
+            "date": "2026-05-27T13:49:39Z"
+          }
+        }
+      },
+      {
+        "sha": "b13f7dadfa86afc76cc7321cd6176147c586c9af",
+        "html_url": "https://github.com/freeappstore-online/streak/commit/b13f7dadfa86afc76cc7321cd6176147c586c9af",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:09:03Z"
+          }
+        }
+      },
       {
         "sha": "12058d8843b8932c19c1b82787a39fb16f0f89f8",
         "html_url": "https://github.com/freeappstore-online/streak/commit/12058d8843b8932c19c1b82787a39fb16f0f89f8",
@@ -1188,26 +1208,6 @@
           "message": "ci: add R2 deploy workflow",
           "author": {
             "date": "2026-05-27T03:47:26Z"
-          }
-        }
-      },
-      {
-        "sha": "60f0b7cfac996b8b121ca9c543098a9d70fc1b04",
-        "html_url": "https://github.com/freeappstore-online/streak/commit/60f0b7cfac996b8b121ca9c543098a9d70fc1b04",
-        "commit": {
-          "message": "Add platform analytics loader\n\nEmbeds <script src=\".../v1/analytics.js?app=<id>\" defer></script> into\nweb/index.html so visits start showing up in the creator dashboard. The\nloader is served from the platform Worker; tags evolve without a redeploy.",
-          "author": {
-            "date": "2026-05-21T02:28:25Z"
-          }
-        }
-      },
-      {
-        "sha": "0c1ea2a821c4535c3ee1c66bdef44d167bf66885",
-        "html_url": "https://github.com/freeappstore-online/streak/commit/0c1ea2a821c4535c3ee1c66bdef44d167bf66885",
-        "commit": {
-          "message": "fix: declare maskable icon purpose for Android PWA install\n\nAndroid Chrome installs PWAs as launcher shortcuts (not real apps with\ntheir own task slot) unless the manifest declares at least one icon\nwith purpose: 'maskable'. Add 'any maskable' to both 192/512 entries\nso installs land in the app drawer with an adaptive icon.",
-          "author": {
-            "date": "2026-05-20T04:47:35Z"
           }
         }
       }
@@ -1406,9 +1406,29 @@
   "freeappstore-online/whenly": {
     "meta": {
       "created_at": "2026-05-18T19:09:34Z",
-      "pushed_at": "2026-05-27T03:47:36Z"
+      "pushed_at": "2026-05-27T13:49:44Z"
     },
     "commits": [
+      {
+        "sha": "c79ad9ce708185c4765f5d5372af37246836be4d",
+        "html_url": "https://github.com/freeappstore-online/whenly/commit/c79ad9ce708185c4765f5d5372af37246836be4d",
+        "commit": {
+          "message": "feat: add Google sign-in alongside GitHub",
+          "author": {
+            "date": "2026-05-27T13:49:42Z"
+          }
+        }
+      },
+      {
+        "sha": "f869008af1474117b1fda75e8124eb86548e02c4",
+        "html_url": "https://github.com/freeappstore-online/whenly/commit/f869008af1474117b1fda75e8124eb86548e02c4",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:09:07Z"
+          }
+        }
+      },
       {
         "sha": "f4887fbb119d523a8a58491b6b157d8aca536240",
         "html_url": "https://github.com/freeappstore-online/whenly/commit/f4887fbb119d523a8a58491b6b157d8aca536240",
@@ -1418,35 +1438,35 @@
             "date": "2026-05-27T03:47:33Z"
           }
         }
-      },
-      {
-        "sha": "8f7cd158a8a010a6c4bb8a3eb59b53536561d1eb",
-        "html_url": "https://github.com/freeappstore-online/whenly/commit/8f7cd158a8a010a6c4bb8a3eb59b53536561d1eb",
-        "commit": {
-          "message": "Whenly: anonymous weekly time-slot voting app\n\nPort from Firebase to FAS platform. Uses @freeappstore/sdk for data:\n- polls collection for poll config (public read, owner write)\n- votes collection for per-user votes (public read, owner write)\n- GitHub OAuth via FAS shared auth\n- Tailwind v4 UI with FAS design tokens\n- Time grid with timezone conversion and auto-save voting\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-18T19:10:56Z"
-          }
-        }
-      },
-      {
-        "sha": "81444775eb7819b6c7598a5a043a61e5dc471937",
-        "html_url": "https://github.com/freeappstore-online/whenly/commit/81444775eb7819b6c7598a5a043a61e5dc471937",
-        "commit": {
-          "message": "Fix stale docs: raw GitHub URLs → freeappstore.online/skills.md, add agent auth flow\n\n- All SKILLS.md URLs now point to freeappstore.online/skills.md (was raw.githubusercontent)\n- claude-code.md: add non-interactive auth via gh CLI, full publish + push flow\n- brand/SKILLS.md: fix broken curl compliance command → fas check\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-15T04:29:00Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/kanban": {
     "meta": {
       "created_at": "2026-05-19T22:18:23Z",
-      "pushed_at": "2026-05-27T03:47:08Z"
+      "pushed_at": "2026-05-27T13:49:31Z"
     },
     "commits": [
+      {
+        "sha": "50d390012f56902e10824b2d434fedb6498183a0",
+        "html_url": "https://github.com/freeappstore-online/kanban/commit/50d390012f56902e10824b2d434fedb6498183a0",
+        "commit": {
+          "message": "feat: add Google sign-in alongside GitHub",
+          "author": {
+            "date": "2026-05-27T13:49:28Z"
+          }
+        }
+      },
+      {
+        "sha": "a5a36c0675d120d611becd2afa08c1060ed93d7e",
+        "html_url": "https://github.com/freeappstore-online/kanban/commit/a5a36c0675d120d611becd2afa08c1060ed93d7e",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:09:11Z"
+          }
+        }
+      },
       {
         "sha": "a2d26ef94388e831b8f46502e18e8c78d59a42d4",
         "html_url": "https://github.com/freeappstore-online/kanban/commit/a2d26ef94388e831b8f46502e18e8c78d59a42d4",
@@ -1456,62 +1476,42 @@
             "date": "2026-05-27T03:47:06Z"
           }
         }
-      },
-      {
-        "sha": "864265b71a2f333ce4e20029c396bd721812b18a",
-        "html_url": "https://github.com/freeappstore-online/kanban/commit/864265b71a2f333ce4e20029c396bd721812b18a",
-        "commit": {
-          "message": "Add platform analytics loader\n\nEmbeds <script src=\".../v1/analytics.js?app=<id>\" defer></script> into\nweb/index.html so visits start showing up in the creator dashboard. The\nloader is served from the platform Worker; tags evolve without a redeploy.",
-          "author": {
-            "date": "2026-05-21T02:28:14Z"
-          }
-        }
-      },
-      {
-        "sha": "db48b6c42844f9185be80c32199610dcee916930",
-        "html_url": "https://github.com/freeappstore-online/kanban/commit/db48b6c42844f9185be80c32199610dcee916930",
-        "commit": {
-          "message": "fix: declare maskable icon purpose for Android PWA install\n\nAndroid Chrome installs PWAs as launcher shortcuts (not real apps with\ntheir own task slot) unless the manifest declares at least one icon\nwith purpose: 'maskable'. Add 'any maskable' to both 192/512 entries\nso installs land in the app drawer with an adaptive icon.",
-          "author": {
-            "date": "2026-05-20T04:47:35Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/docbot": {
     "meta": {
       "created_at": "2026-05-20T09:44:20Z",
-      "pushed_at": "2026-05-27T03:47:52Z"
+      "pushed_at": "2026-05-27T14:14:46Z"
     },
     "commits": [
       {
-        "sha": "e2282f56bcfdf2d0d090f9ca9d7933098102cda2",
-        "html_url": "https://github.com/freeappstore-online/docbot/commit/e2282f56bcfdf2d0d090f9ca9d7933098102cda2",
+        "sha": "337beac8018ce6d04a5dc3c856c966c85d04af5c",
+        "html_url": "https://github.com/freeappstore-online/docbot/commit/337beac8018ce6d04a5dc3c856c966c85d04af5c",
         "commit": {
-          "message": "ci: add R2 deploy workflow",
+          "message": "fix: add manifest.json for compliance",
           "author": {
-            "date": "2026-05-27T03:47:05Z"
+            "date": "2026-05-27T14:14:43Z"
           }
         }
       },
       {
-        "sha": "7f97d425d1acb14c2828266ec9cb5fe32663bba9",
-        "html_url": "https://github.com/freeappstore-online/docbot/commit/7f97d425d1acb14c2828266ec9cb5fe32663bba9",
+        "sha": "4a02d281e447a9b83bada05698116dea6bb38f9a",
+        "html_url": "https://github.com/freeappstore-online/docbot/commit/4a02d281e447a9b83bada05698116dea6bb38f9a",
         "commit": {
-          "message": "Add platform analytics loader\n\nEmbeds <script src=\".../v1/analytics.js?app=<id>\" defer></script> into\nweb/index.html so visits start showing up in the creator dashboard. The\nloader is served from the platform Worker; tags evolve without a redeploy.",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-21T02:28:13Z"
+            "date": "2026-05-27T14:10:35Z"
           }
         }
       },
       {
-        "sha": "794574be9ace3ba7dd4bbe0f25268da8049b5ed3",
-        "html_url": "https://github.com/freeappstore-online/docbot/commit/794574be9ace3ba7dd4bbe0f25268da8049b5ed3",
+        "sha": "407ea50c7ffd5f6b1d98c10aee5b2c45f35f2f17",
+        "html_url": "https://github.com/freeappstore-online/docbot/commit/407ea50c7ffd5f6b1d98c10aee5b2c45f35f2f17",
         "commit": {
-          "message": "Harden security: sanitize source links, add CSP, fence prompt context\n\nThree findings from the audit:\n\n- H1: source-link <a href> in the chat now passes through sanitizeUrl;\n  persist.loadHistory rejects entries whose `sources` shape is wrong, so a\n  tampered localStorage value can't smuggle a javascript: URL onto a clickable\n  link.\n- M1: web/public/_headers adds CSP (default-src 'self'; connect-src restricted\n  to api.anthropic.com), nosniff, no-referrer, and a strict Permissions-Policy\n  on Cloudflare Pages.\n- M2: KB context is now wrapped in <context>…</context> and the system prompt\n  tells the model to treat it as untrusted data — defense against prompt\n  injection if a future KB source is less trustworthy than freeappstore.pages.dev.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-20T10:35:21Z"
+            "date": "2026-05-27T13:09:14Z"
           }
         }
       }
@@ -1520,36 +1520,36 @@
   "freeappstore-online/population-agent": {
     "meta": {
       "created_at": "2026-05-20T10:09:02Z",
-      "pushed_at": "2026-05-27T03:48:49Z"
+      "pushed_at": "2026-05-27T14:14:50Z"
     },
     "commits": [
       {
-        "sha": "cb53f83a5a1089990f931879891101bb0f1638fc",
-        "html_url": "https://github.com/freeappstore-online/population-agent/commit/cb53f83a5a1089990f931879891101bb0f1638fc",
+        "sha": "3ec2f878210ea302ca11bbc9e7787f042eec1c6f",
+        "html_url": "https://github.com/freeappstore-online/population-agent/commit/3ec2f878210ea302ca11bbc9e7787f042eec1c6f",
         "commit": {
-          "message": "ci: add R2 deploy workflow",
+          "message": "fix: add manifest.json for compliance",
           "author": {
-            "date": "2026-05-27T03:48:47Z"
+            "date": "2026-05-27T14:14:47Z"
           }
         }
       },
       {
-        "sha": "38cea4064d55ca45c96b901e68a6150a9c1c2a37",
-        "html_url": "https://github.com/freeappstore-online/population-agent/commit/38cea4064d55ca45c96b901e68a6150a9c1c2a37",
+        "sha": "e48f220337f5221fa42eea13890b51e0ef4c2ff8",
+        "html_url": "https://github.com/freeappstore-online/population-agent/commit/e48f220337f5221fa42eea13890b51e0ef4c2ff8",
         "commit": {
-          "message": "Switch to BYO Anthropic key — direct browser call, stored in localStorage\n\nDrops @freeappstore/sdk proxy in favour of a per-user key model: each visitor\nprovides their own Anthropic API key via a settings modal, stored locally\nin localStorage on their device only. The key is sent directly to\napi.anthropic.com using anthropic-dangerous-direct-browser-access:true.\n\nTrade-off: removes the need for a developer-side fas secret + proxy setup\n(so no single API key paying for all visitors), at the cost of asking each\nvisitor to bring their own key. Bundle drops ~3 KB after dropping the SDK.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
-            "date": "2026-05-20T23:26:41Z"
+            "date": "2026-05-27T14:11:02Z"
           }
         }
       },
       {
-        "sha": "10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
-        "html_url": "https://github.com/freeappstore-online/population-agent/commit/10c5db20c3ae1e863b93dabb8dcab140a1b70a57",
+        "sha": "b999ca0bcc8859d618254871e54f0ca132c52428",
+        "html_url": "https://github.com/freeappstore-online/population-agent/commit/b999ca0bcc8859d618254871e54f0ca132c52428",
         "commit": {
-          "message": "Add PopulationAgent chatbot — Claude Sonnet 4.6 + live ABS data\n\nBrowser-only React app that uses Claude Sonnet 4.6 with tool use to answer\nquestions about Australian population. The Anthropic API is routed through\n@freeappstore/sdk's secret-injecting proxy (key stored server-side via\nfas secret set, never reaches the browser). ABS Data API is called directly\nfrom the browser via fetch.\n\nFive tools exposed to the agent: get_population, get_population_time_series,\ncompare_states, list_abs_dataflows, query_abs_dataset (escape hatch).\nSDMX-JSON responses flattened into {period, value, dimensions} rows.\n\nChat history persists in localStorage. Streaming text deltas via SSE parsing.\nPrompt caching: cache_control ephemeral on last tool definition (caches\ntools + system prefix together; tools render before system in the request).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add favicon",
           "author": {
-            "date": "2026-05-20T10:07:55Z"
+            "date": "2026-05-27T13:09:17Z"
           }
         }
       }
@@ -1558,9 +1558,19 @@
   "freeappstore-online/facer": {
     "meta": {
       "created_at": "2026-05-20T10:09:22Z",
-      "pushed_at": "2026-05-27T03:47:55Z"
+      "pushed_at": "2026-05-27T13:09:23Z"
     },
     "commits": [
+      {
+        "sha": "fd86b6e4de2118c637e410ff0be41e738888cad2",
+        "html_url": "https://github.com/freeappstore-online/facer/commit/fd86b6e4de2118c637e410ff0be41e738888cad2",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:09:21Z"
+          }
+        }
+      },
       {
         "sha": "43380ee9508218e8bb547257377186a97f24c0e6",
         "html_url": "https://github.com/freeappstore-online/facer/commit/43380ee9508218e8bb547257377186a97f24c0e6",
@@ -1580,25 +1590,25 @@
             "date": "2026-05-21T02:28:14Z"
           }
         }
-      },
-      {
-        "sha": "d0abc32ea89bd1c11ef21a1061482e1d079441bd",
-        "html_url": "https://github.com/freeappstore-online/facer/commit/d0abc32ea89bd1c11ef21a1061482e1d079441bd",
-        "commit": {
-          "message": "detector: poll for window.faceapi, inject script as fallback\n\nIf the global isn't ready when React mounts (extension blocking /vendor/,\nslow network, service-worker stale state), wait up to 6s and then dynamically\ninject the script. Throw a useful error if it still fails.",
-          "author": {
-            "date": "2026-05-20T10:29:05Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/pdfreader": {
     "meta": {
       "created_at": "2026-05-22T00:24:40Z",
-      "pushed_at": "2026-05-27T04:09:04Z"
+      "pushed_at": "2026-05-27T13:09:27Z"
     },
     "commits": [
+      {
+        "sha": "e1a0df7b20eebab4b47ddc93fa3cf5ae02a9d7fa",
+        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/e1a0df7b20eebab4b47ddc93fa3cf5ae02a9d7fa",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:09:24Z"
+          }
+        }
+      },
       {
         "sha": "86961982745d934f1285f3f83e2ef9b4a4b0af69",
         "html_url": "https://github.com/freeappstore-online/pdfreader/commit/86961982745d934f1285f3f83e2ef9b4a4b0af69",
@@ -1616,16 +1626,6 @@
           "message": "feat: full-width reader, working font size, saved preferences\n\n- Hide sidebar/dock when viewing a PDF (hideChrome on Shell)\n- A-/A+ controls change canvas render scale (not just CSS zoom)\n- Invert mode + scale saved to localStorage, restored on reload\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-22T05:10:17Z"
-          }
-        }
-      },
-      {
-        "sha": "1c29540c5f58dcd7572558b831fd8962eb96499d",
-        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/1c29540c5f58dcd7572558b831fd8962eb96499d",
-        "commit": {
-          "message": "Add R2 deploy workflow\n\nCopies deploy.yml from template-standalone so pushes to main\nauto-deploy to the fas-apps R2 bucket.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-22T04:43:44Z"
           }
         }
       }
@@ -1672,9 +1672,29 @@
   "freeappstore-online/flight-search": {
     "meta": {
       "created_at": "2026-05-25T01:21:52Z",
-      "pushed_at": "2026-05-25T07:20:22Z"
+      "pushed_at": "2026-05-27T13:45:00Z"
     },
     "commits": [
+      {
+        "sha": "3cf69ff3a216a4b93c97b31d463ec2ecec8db800",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/3cf69ff3a216a4b93c97b31d463ec2ecec8db800",
+        "commit": {
+          "message": "docs: update CLAUDE.md to SDK v0.14.0+",
+          "author": {
+            "date": "2026-05-27T13:44:57Z"
+          }
+        }
+      },
+      {
+        "sha": "74f05f97bc4ad3e7bb2d30130e5decb1ed29aadb",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/74f05f97bc4ad3e7bb2d30130e5decb1ed29aadb",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:09:27Z"
+          }
+        }
+      },
       {
         "sha": "891a201fd3269170c6ac3cea010c0f5d6ded4ba7",
         "html_url": "https://github.com/freeappstore-online/flight-search/commit/891a201fd3269170c6ac3cea010c0f5d6ded4ba7",
@@ -1684,35 +1704,25 @@
             "date": "2026-05-25T07:20:17Z"
           }
         }
-      },
-      {
-        "sha": "e2caaa9277bec03af066140f3bd50af7ee46338c",
-        "html_url": "https://github.com/freeappstore-online/flight-search/commit/e2caaa9277bec03af066140f3bd50af7ee46338c",
-        "commit": {
-          "message": "redesign: single-page layout, no tabs, Google Flights style\n\n- Search form always visible at top (no tabs to navigate)\n- Results appear below search instantly\n- Saved + Compare are collapsible panels (not tabs)\n- No profile tab (FasShell handles user in topbar)\n- Timeline-style flight cards (departure time → duration → route)\n- Sort pills (price/duration/stops) as toggle buttons\n- Compare as inline table panel\n- Saved as inline list panel\n- Empty state with airplane icon\n- Proper flight card layout like real booking sites\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-25T04:12:33Z"
-          }
-        }
-      },
-      {
-        "sha": "8bb00712ad608cfaa68e02ac64189935f6ab2327",
-        "html_url": "https://github.com/freeappstore-online/flight-search/commit/8bb00712ad608cfaa68e02ac64189935f6ab2327",
-        "commit": {
-          "message": "fix: remove hotels tab (API returns 404), flights-only app\n\nTravelpayouts hotel cache API (/v2/cache.json) returns 404.\nOnly flight data is available via their API. Removed hotel UI,\ntypes, search, and references. App is now a focused flight search tool.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-25T04:06:08Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/qrreader": {
     "meta": {
       "created_at": "2026-05-23T18:47:11Z",
-      "pushed_at": "2026-05-27T04:09:18Z"
+      "pushed_at": "2026-05-27T13:09:34Z"
     },
     "commits": [
+      {
+        "sha": "c3d311117f510572aa306fdf1bdf8a03feac3dbf",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/c3d311117f510572aa306fdf1bdf8a03feac3dbf",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:09:31Z"
+          }
+        }
+      },
       {
         "sha": "c01316a3a78760c328e471c1113be07d0dcdf474",
         "html_url": "https://github.com/freeappstore-online/qrreader/commit/c01316a3a78760c328e471c1113be07d0dcdf474",
@@ -1732,25 +1742,25 @@
             "date": "2026-05-26T08:02:45Z"
           }
         }
-      },
-      {
-        "sha": "20f3a2d8db7fe749b1816b3607d401e2b780a45c",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/20f3a2d8db7fe749b1816b3607d401e2b780a45c",
-        "commit": {
-          "message": "[Add function] Drag & Paste image QR",
-          "author": {
-            "date": "2026-05-25T10:25:15Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/decision-wheel": {
     "meta": {
       "created_at": "2026-05-25T07:12:16Z",
-      "pushed_at": "2026-05-27T04:08:55Z"
+      "pushed_at": "2026-05-27T13:09:38Z"
     },
     "commits": [
+      {
+        "sha": "5dbb86e1d0cfbcb532862006732b562b4a6d3284",
+        "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/5dbb86e1d0cfbcb532862006732b562b4a6d3284",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:09:34Z"
+          }
+        }
+      },
       {
         "sha": "7ca994d981ed0a9d3b82ebe3aca907133f879431",
         "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/7ca994d981ed0a9d3b82ebe3aca907133f879431",
@@ -1770,25 +1780,25 @@
             "date": "2026-05-25T09:03:22Z"
           }
         }
-      },
-      {
-        "sha": "96ff3940a64762f7d45d81a2a6bd77fdc8e02172",
-        "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/96ff3940a64762f7d45d81a2a6bd77fdc8e02172",
-        "commit": {
-          "message": "Revise README for Decision Wheel application\n\nUpdated README to reflect the new Decision Wheel app and its features.",
-          "author": {
-            "date": "2026-05-25T07:39:09Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/smart-planner": {
     "meta": {
       "created_at": "2026-05-25T12:19:22Z",
-      "pushed_at": "2026-05-25T13:00:48Z"
+      "pushed_at": "2026-05-27T13:09:41Z"
     },
     "commits": [
+      {
+        "sha": "8789ef71930a250f06201569c63e19d3062124a0",
+        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/8789ef71930a250f06201569c63e19d3062124a0",
+        "commit": {
+          "message": "Add favicon",
+          "author": {
+            "date": "2026-05-27T13:09:38Z"
+          }
+        }
+      },
       {
         "sha": "ef2a9bda1a5c07951b88c68ccd394ffa398ca4f8",
         "html_url": "https://github.com/freeappstore-online/smart-planner/commit/ef2a9bda1a5c07951b88c68ccd394ffa398ca4f8",
@@ -1804,9 +1814,19 @@
   "freeappstore-online/message": {
     "meta": {
       "created_at": "2026-05-26T00:48:56Z",
-      "pushed_at": "2026-05-27T10:08:49Z"
+      "pushed_at": "2026-05-27T13:47:07Z"
     },
     "commits": [
+      {
+        "sha": "0014265840f5153c2f31b6ad992461adc760a6d1",
+        "html_url": "https://github.com/freeappstore-online/message/commit/0014265840f5153c2f31b6ad992461adc760a6d1",
+        "commit": {
+          "message": "docs: add README",
+          "author": {
+            "date": "2026-05-27T13:47:04Z"
+          }
+        }
+      },
       {
         "sha": "1eb4553fc157bf6cd4e6b4567797d2908bb3184b",
         "html_url": "https://github.com/freeappstore-online/message/commit/1eb4553fc157bf6cd4e6b4567797d2908bb3184b",
@@ -1826,16 +1846,6 @@
             "date": "2026-05-27T09:44:10Z"
           }
         }
-      },
-      {
-        "sha": "f9dd6ed923cbb268953a6c2d2b8d03840b1ee578",
-        "html_url": "https://github.com/freeappstore-online/message/commit/f9dd6ed923cbb268953a6c2d2b8d03840b1ee578",
-        "commit": {
-          "message": "Add search, day separators, delete conversations, copy/delete messages\n\nSearch:\n- Search icon in header opens full-text message search\n- Searches across all conversations, shows sender + date + preview\n- Minimum 2 characters, capped at 50 results\n\nDay separators:\n- \"Today\", \"Yesterday\", or \"Mon, May 26\" labels between message groups\n- Divider line on both sides for visual clarity\n\nDelete conversations:\n- Trash icon appears on hover/focus on each chat in the list\n- Confirmation modal before deleting\n- Removes both the chat entry and all its messages from IndexedDB\n\nMessage context menu (right-click or long-press):\n- Copy text to clipboard\n- Delete individual message\n- Bottom-sheet style on mobile with cancel button\n- Toast notification confirms the action\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T07:48:04Z"
-          }
-        }
       }
     ]
   },
@@ -1852,6 +1862,44 @@
           "message": "Initial commit from standalone template",
           "author": {
             "date": "2026-05-27T09:56:36Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/spreadsheet": {
+    "meta": {
+      "created_at": "2026-05-27T12:59:31Z",
+      "pushed_at": "2026-05-27T14:01:40Z"
+    },
+    "commits": [
+      {
+        "sha": "3d5c92c9ed9acd13dce0506bfe536fd844256c1f",
+        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/3d5c92c9ed9acd13dce0506bfe536fd844256c1f",
+        "commit": {
+          "message": "Fix 10 bugs found in quality audit\n\nUndo/redo:\n- Now saves and restores both cells AND formats (formatting\n  changes are undoable)\n- Redo stack properly tracks format state\n\nInsert/delete/sort:\n- Insert row/col now shifts formats along with cell values\n- Delete row/col now shifts formats along with cell values\n- Sort now moves formats with their rows\n- Extracted shared shiftEntries helper to eliminate duplication\n\nReplace all:\n- Fixed regex test/replace bug where global regex lastIndex\n  caused missed replacements\n\nKeyboard:\n- Removed bare ? key as help shortcut (was preventing typing ?\n  in cells). Help is now Ctrl+/ only.\n\nPopups:\n- Color picker closes on Escape and outside click\n- Context menu closes on Escape and outside click\n- Both use stopPropagation to prevent immediate self-dismissal\n\nFormula bar:\n- No longer auto-starts editing on focus (was triggering edit\n  mode when user just clicked the formula bar area)\n\nData model:\n- setSheet callback no longer captures stale activeSheet index\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T14:01:32Z"
+          }
+        }
+      },
+      {
+        "sha": "8f18c5c15ace15995890f7d57f49869680d6361e",
+        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/8f18c5c15ace15995890f7d57f49869680d6361e",
+        "commit": {
+          "message": "Add sheet tabs, formatting toolbar, and keyboard shortcuts help\n\nMultiple sheets:\n- Tab bar at the bottom with Sheet 1, Sheet 2, etc.\n- Click + to add new sheets\n- Double-click tab to rename\n- Right-click tab to delete\n- Backward-compatible: migrates old single-sheet localStorage\n\nFormatting toolbar:\n- Bold (Ctrl+B) and Italic (Ctrl+I) toggles\n- Text alignment: left / center / right\n- Background color picker (17 colors + clear)\n- Text color picker\n- All formatting applies to selection range\n\nCell formatting:\n- Per-cell bold, italic, alignment, bg color, text color\n- Formats stored alongside cell data, persist in localStorage\n- Visual feedback: active format buttons highlight in accent color\n\nKeyboard shortcuts help:\n- Press ? or Ctrl+/ to toggle the help panel\n- Modal overlay with all shortcuts organized by category:\n  Navigation, Editing, Formulas, Formatting, Tools\n\nData model refactored to WorkbookData with Sheet[] for\nmulti-sheet support. Automatic migration from old format.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T13:56:54Z"
+          }
+        }
+      },
+      {
+        "sha": "2aece1c0f2584a7e00e8c3e979014ca6bd282989",
+        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/2aece1c0f2584a7e00e8c3e979014ca6bd282989",
+        "commit": {
+          "message": "Add context menu, find/replace, undo/redo, sort\n\nContext menu (right-click any cell):\n- Insert/delete row above/below\n- Insert/delete column left/right\n- Sort column A→Z or Z→A (handles numbers and text, empty rows to bottom)\n\nFind & Replace:\n- Ctrl+F opens find bar, Ctrl+H opens find+replace\n- Highlights all matches (yellow) with current match brighter\n- Enter/Shift+Enter to navigate between matches\n- Replace one or replace all\n\nUndo/Redo:\n- Ctrl+Z undoes, Ctrl+Shift+Z / Ctrl+Y redoes\n- Up to 50 undo levels, redo stack clears on new edit\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T13:41:59Z"
           }
         }
       }
