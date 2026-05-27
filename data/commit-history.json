@@ -2300,5 +2300,23 @@
         }
       }
     ]
+  },
+  "freeappstore-online/morse": {
+    "meta": {
+      "created_at": "2026-05-27T14:59:16Z",
+      "pushed_at": "2026-05-27T14:59:37Z"
+    },
+    "commits": [
+      {
+        "sha": "b1b57e14dd5a6943ab353f14107779580e81c053",
+        "html_url": "https://github.com/freeappstore-online/morse/commit/b1b57e14dd5a6943ab353f14107779580e81c053",
+        "commit": {
+          "message": "Initial commit: morse",
+          "author": {
+            "date": "2026-05-27T14:59:25Z"
+          }
+        }
+      }
+    ]
   }
 }
