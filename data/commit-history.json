@@ -610,9 +610,19 @@
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-27T14:41:36Z"
+      "pushed_at": "2026-05-27T14:50:22Z"
     },
     "commits": [
+      {
+        "sha": "2b4e0f5175cec395693c7b88fdfa7b7c9ee7d198",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/2b4e0f5175cec395693c7b88fdfa7b7c9ee7d198",
+        "commit": {
+          "message": "feat: copy/paste elements, snap-to-grid\n\nCopy/paste (Ctrl+C / Ctrl+V):\n- Ctrl+C copies selected elements to an internal clipboard.\n- Ctrl+V pastes them with a 20px offset and auto-selects the clones.\n- Works with multi-select — copies and pastes all selected elements.\n- Image paste from system clipboard still works when internal clipboard\n  is empty (falls through to the existing paste handler).\n\nSnap-to-grid:\n- Hold Shift while dragging elements or drawing shapes to snap\n  positions to the 20px grid.\n- \"Snap\" toggle button in View section enables permanent snapping.\n- Applies to element drag, shape endpoint drawing, and resize.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T14:50:19Z"
+          }
+        }
+      },
       {
         "sha": "9f6d01f14e7cb504d59012b5a5b33408c638efe6",
         "html_url": "https://github.com/freeappstore-online/whiteboard/commit/9f6d01f14e7cb504d59012b5a5b33408c638efe6",
@@ -630,16 +640,6 @@
           "message": "feat: multi-select, opacity, filled shapes, bold/italic, box select, resize\n\nMajor feature batch:\n- Multi-select: select tool now supports multiple selection via box\n  drag (drag on empty space) and shift-click. Selected elements show\n  bounding indicators.\n- Opacity control: all drawing elements (path, line, arrow, rect,\n  ellipse) now support opacity (0-1). Slider in sidebar.\n- Filled shapes: rect and ellipse elements have a filled toggle.\n  When filled, shapes render with solid fill instead of stroke.\n- Bold/italic text: text elements support bold and italic flags.\n  Toggles shown in sidebar when text tool is active.\n- Box selection: drag on empty space with select tool draws a\n  selection rectangle; elements intersecting the box are selected.\n  New boxSelect() function in render.ts.\n- Resize handles: selected sticky/image elements show corner handles\n  for resizing.\n- Brush width presets: thin (2), medium (5), thick (10) buttons\n  replace the raw slider.\n- Camera utilities extracted to lib/camera.ts.\n- Package renamed to @whiteboard/web.\n- Tests updated to 56 with new field requirements (opacity, filled,\n  bold/italic).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T14:38:22Z"
-          }
-        }
-      },
-      {
-        "sha": "cad62de5ceabcbae07d102fae4f7ac066308a513",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/cad62de5ceabcbae07d102fae4f7ac066308a513",
-        "commit": {
-          "message": "Add apple-touch-icon",
-          "author": {
-            "date": "2026-05-27T14:19:51Z"
           }
         }
       }
@@ -1900,6 +1900,24 @@
           "message": "Fix 10 bugs found in quality audit\n\nUndo/redo:\n- Now saves and restores both cells AND formats (formatting\n  changes are undoable)\n- Redo stack properly tracks format state\n\nInsert/delete/sort:\n- Insert row/col now shifts formats along with cell values\n- Delete row/col now shifts formats along with cell values\n- Sort now moves formats with their rows\n- Extracted shared shiftEntries helper to eliminate duplication\n\nReplace all:\n- Fixed regex test/replace bug where global regex lastIndex\n  caused missed replacements\n\nKeyboard:\n- Removed bare ? key as help shortcut (was preventing typing ?\n  in cells). Help is now Ctrl+/ only.\n\nPopups:\n- Color picker closes on Escape and outside click\n- Context menu closes on Escape and outside click\n- Both use stopPropagation to prevent immediate self-dismissal\n\nFormula bar:\n- No longer auto-starts editing on focus (was triggering edit\n  mode when user just clicked the formula bar area)\n\nData model:\n- setSheet callback no longer captures stale activeSheet index\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T14:01:32Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/periodic-table": {
+    "meta": {
+      "created_at": "2026-05-27T14:49:41Z",
+      "pushed_at": "2026-05-27T14:50:31Z"
+    },
+    "commits": [
+      {
+        "sha": "983a414011902fba7e19c61836bdf3984763d014",
+        "html_url": "https://github.com/freeappstore-online/periodic-table/commit/983a414011902fba7e19c61836bdf3984763d014",
+        "commit": {
+          "message": "Initial commit: Periodic Table Explorer",
+          "author": {
+            "date": "2026-05-27T14:50:10Z"
           }
         }
       }
