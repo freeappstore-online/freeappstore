@@ -1102,6 +1102,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "countdown",
+      "name": "countdown",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Event countdown timer with flip-clock animation, presets, and progress rings",
+      "appUrl": "https://countdown.freeappstore.online",
+      "repo": "freeappstore-online/countdown",
+      "cfProject": "freecountdownapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
