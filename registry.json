@@ -982,6 +982,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "markdown",
+      "name": "markdown",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Markdown editor with live preview, from-scratch parser, and syntax highlighting",
+      "appUrl": "https://markdown.freeappstore.online",
+      "repo": "freeappstore-online/markdown",
+      "cfProject": "freemarkdownapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
