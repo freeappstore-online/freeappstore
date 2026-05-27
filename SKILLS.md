@@ -230,11 +230,13 @@ The `appId` must match the subdomain (e.g. `'timer'` for `timer.freeappstore.onl
 
 ### Auth
 
+**Every app that requires sign-in must offer both GitHub and Google as login options.** GitHub is the developer default; Google covers the wider audience. Apple is optional but encouraged.
+
 ```tsx
 // Imperative
 fas.auth.signIn()           // redirects to GitHub OAuth
 fas.auth.signIn('google')   // redirects to Google OAuth
-fas.auth.signIn('apple')    // redirects to Apple OAuth
+fas.auth.signIn('apple')    // redirects to Apple OAuth (optional)
 fas.auth.signOut()          // clears session
 fas.auth.user               // { id, login, avatarUrl } | null
 fas.auth.token              // session token string | null
@@ -244,6 +246,13 @@ fas.auth.onChange(listener)  // subscribe to auth state changes
 import { useAuth } from '@freeappstore/sdk/hooks'
 const { user, loading, signIn, signOut, deleteAccount, hasRole } = useAuth(fas)
 // hasRole('moderator') — async, checks if current user has the role
+```
+
+When building a sign-in screen, always render both buttons:
+
+```tsx
+<button onClick={() => signIn('github')}>Sign in with GitHub</button>
+<button onClick={() => signIn('google')}>Sign in with Google</button>
 ```
 
 ### Per-user KV Storage

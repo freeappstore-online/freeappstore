@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — FreeAppStore</title>
+  <meta name="description" content="Customize your FreeAppStore experience — theme, text size, and more." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+  <script>
+    (function(){try{var p=localStorage.getItem('stores-theme');var d=p==='dark'||(!p||p==='system')&&matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.dataset.theme='dark';var t=localStorage.getItem('stores-text-size');if(t)document.documentElement.dataset.text=t;}catch(e){}})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  __CF_BEACON__
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="brand" aria-label="FreeAppStore — Apps Marketplace">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="currentColor" stroke="none"></polygon></svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">AppStore</span>
+          <span class="brand-tag">Trusted Web Apps</span>
+        </span>
+      </a>
+
+      <nav>
+        <a href="/">Apps</a>
+        <a href="https://freegamestore.online">Games</a>
+        <a href="/about">About</a>
+        <a href="/developers">Developers</a>
+        <a href="/get-started">Get Started</a>
+        <a href="/guidelines">Guidelines</a>
+        <a href="https://console.freeappstore.online">Console</a>
+        <a href="/docs">Docs</a>
+        <a href="https://proappstore.online" class="pro-link">Pro</a>
+      </nav>
+
+      <div class="header-right">
+        <a href="/settings" class="settings-link active" aria-label="Settings" title="Settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </a>
+        <span id="navAuth"></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container settings-page">
+    <h1>Settings</h1>
+    <p class="lede">Customize your FreeAppStore experience. Changes are saved automatically.</p>
+
+    <section class="settings-section">
+      <h2>Appearance</h2>
+
+      <div class="setting-row">
+        <div class="setting-info">
+          <strong>Theme</strong>
+          <span class="setting-desc">Choose between light and dark mode, or follow your system preference.</span>
+        </div>
+        <div class="setting-control theme-picker" id="themePicker">
+          <button class="setting-option" type="button" data-theme="light" aria-label="Light theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            Light
+          </button>
+          <button class="setting-option" type="button" data-theme="dark" aria-label="Dark theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            Dark
+          </button>
+          <button class="setting-option" type="button" data-theme="system" aria-label="System theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            System
+          </button>
+        </div>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-info">
+          <strong>Text size</strong>
+          <span class="setting-desc">Adjust the reading size across all pages.</span>
+        </div>
+        <div class="setting-control text-size-picker" id="textSizePicker">
+          <button class="setting-option" type="button" data-size="sm" aria-label="Small text">A&minus;</button>
+          <button class="setting-option" type="button" data-size="" aria-label="Default text">A</button>
+          <button class="setting-option" type="button" data-size="lg" aria-label="Large text">A+</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-left">
+        <a href="/" class="logo">Free <span>Apps</span></a>
+        <p>Free forever, open source, privacy-first.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/about">About</a>
+        <a href="/build-with-ai">Build</a>
+        <a href="https://create.freeappstore.online">VibeCode</a>
+        <a href="/guidelines">Guidelines</a>
+        <a href="/docs">Docs</a>
+        <a href="/quality">Quality</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="https://github.com/freeappstore-online">GitHub</a>
+        <a href="https://proappstore.online" class="text-pro-only">Pro</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/settings.js" integrity="{{SRI_SETTINGS_JS}}" defer></script>
+  <script src="/auth.js" integrity="{{SRI_AUTH_JS}}"></script>
+</body>
+</html>

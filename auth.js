@@ -29,71 +29,25 @@
     if (preferDark) document.documentElement.dataset.theme = "dark";
   } catch (e) {}
 
-  // ── Theme toggle button (skip if storefront already shipped one) ──
-  if (!document.getElementById("themeToggle")) {
-    var headerC = document.querySelector("header .container");
+  // ── Settings link (inject on pages without a pre-built header-right) ──
+  if (!document.querySelector('.header-right')) {
+    var headerC = document.querySelector('header .container');
     if (headerC) {
-      var tt = document.createElement("button");
-      tt.id = "themeToggle";
-      tt.className = "theme-toggle";
-      tt.type = "button";
-      tt.setAttribute("aria-label", "Toggle dark mode");
-      tt.title = "Toggle dark mode";
-      tt.innerHTML =
-        '<svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>' +
-        '<svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
-      // Insert just before the navAuth (or at the start of header container)
-      var anchor = document.getElementById("navAuth");
-      if (anchor && anchor.parentNode) {
-        anchor.parentNode.insertBefore(tt, anchor);
-      } else {
-        headerC.appendChild(tt);
-      }
+      var hr = document.createElement('div');
+      hr.className = 'header-right';
+      var sl = document.createElement('a');
+      sl.href = '/settings';
+      sl.className = 'settings-link';
+      sl.setAttribute('aria-label', 'Settings');
+      sl.title = 'Settings';
+      sl.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>';
+      var navAuth = document.createElement('span');
+      navAuth.id = 'navAuth';
+      hr.appendChild(sl);
+      hr.appendChild(navAuth);
+      headerC.appendChild(hr);
     }
   }
-  // Wire click on whichever toggle ended up in the DOM.
-  var themeBtn = document.getElementById("themeToggle");
-  if (themeBtn && !themeBtn.dataset.bound) {
-    themeBtn.dataset.bound = "1";
-    themeBtn.addEventListener("click", function () {
-      var isDark = document.documentElement.dataset.theme !== "dark";
-      if (isDark) document.documentElement.dataset.theme = "dark";
-      else delete document.documentElement.dataset.theme;
-      try { localStorage.setItem("stores-theme", isDark ? "dark" : "light"); } catch (e) {}
-    });
-  }
-
-  // ── Text-size toggle ──
-  (function () {
-    var sizes = ['', 'lg', 'sm'];
-    var labels = ['A', 'A+', 'A\u2013'];
-    var headerRight = document.querySelector('.header-right');
-    if (!headerRight) return;
-    var btn = document.createElement('button');
-    btn.className = 'text-size-toggle';
-    btn.type = 'button';
-    btn.setAttribute('aria-label', 'Change text size');
-    btn.title = 'Change text size';
-    function currentIndex() {
-      var cur = document.documentElement.dataset.text || '';
-      var idx = sizes.indexOf(cur);
-      return idx < 0 ? 0 : idx;
-    }
-    function render() { btn.textContent = labels[currentIndex()]; }
-    render();
-    btn.addEventListener('click', function () {
-      var next = (currentIndex() + 1) % sizes.length;
-      if (sizes[next]) {
-        document.documentElement.dataset.text = sizes[next];
-        try { localStorage.setItem('stores-text-size', sizes[next]); } catch (e) {}
-      } else {
-        delete document.documentElement.dataset.text;
-        try { localStorage.removeItem('stores-text-size'); } catch (e) {}
-      }
-      render();
-    });
-    headerRight.insertBefore(btn, headerRight.firstChild);
-  })();
 
   // ── Mobile hamburger menu ──
   var nav = document.querySelector("header nav");

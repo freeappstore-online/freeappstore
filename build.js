@@ -304,7 +304,8 @@ function renderAppCard(app) {
   // Letter fallback lives on a data-attribute; storefront.js binds the
   // img.error listener and reads it. No more JS-string-in-HTML-attribute splicing.
   const letter = escapeHtml((app.name || '?').trim().charAt(0).toUpperCase());
-  return `        <div class="app-card compact" data-id="${escapeHtml(app.id)}" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}">
+  const authAttr = app.requiresAuth ? ' data-requires-auth="1"' : '';
+  return `        <div class="app-card compact" data-id="${escapeHtml(app.id)}" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}"${authAttr}>
           <div class="app-icon" data-letter="${letter}">
             <img src="${escapeHtml(app.appUrl)}/apple-touch-icon.png" alt="" loading="lazy" />
           </div>
@@ -367,13 +368,25 @@ const sriHashes = {
   ANALYTICS_JS: sriHash('analytics.js'),
   PRISM_JS: sriHash('prism.js'),
   PRISM_AUTODETECT_JS: sriHash('prism-autodetect.js'),
+  SETTINGS_JS: sriHash('settings.js'),
 };
+
+const categoryMap = new Map();
+for (const app of apps) {
+  const key = app.category.toLowerCase();
+  if (!categoryMap.has(key)) categoryMap.set(key, categoryLabel(app.category));
+}
+const categories = [...categoryMap.entries()].sort((a, b) => a[1].localeCompare(b[1]));
+const categoryFilters = categories
+  .map(([key, label]) => `<button class="filter-btn" type="button" data-category="${escapeHtml(key)}">${escapeHtml(label)}</button>`)
+  .join('\n        ');
 
 let indexHtml = indexTemplate
   .replace('__CF_BEACON__', CF_BEACON_SNIPPET)
   .replace('{{INLINE_SCRIPT_HASH}}', inlineScriptHash)
   .replace('{{APPS_GRID}}', appCards)
-  .replace('{{APPS_COUNT}}', String(apps.length));
+  .replace('{{APPS_COUNT}}', String(apps.length))
+  .replace('{{CATEGORY_FILTERS}}', categoryFilters);
 
 // Apply SRI hashes (placeholders look like {{SRI_AUTH_JS}}, {{SRI_SEARCH_JS}}, etc.)
 for (const [k, v] of Object.entries(sriHashes)) {
@@ -562,6 +575,14 @@ indexHtml = indexHtml.replace(
   JSON.stringify(crossRegistry).replace(/</g, '\\u003c'),
 );
 fs.writeFileSync(path.join(DIST, 'index.html'), indexHtml);
+
+// --- Settings page ---
+const settingsTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'settings.html'), 'utf8');
+let settingsHtml = settingsTemplate.replace('__CF_BEACON__', CF_BEACON_SNIPPET);
+for (const [k, v] of Object.entries(sriHashes)) {
+  settingsHtml = settingsHtml.replaceAll(`{{SRI_${k}}}`, v);
+}
+fs.writeFileSync(path.join(DIST, 'settings.html'), settingsHtml);
 
 // Per-card icon backgrounds (registry-driven). Lives in its own file so
 // a malformed iconBg slipping past validation can never become an inline
@@ -852,6 +873,7 @@ const filesToCopy = [
   'auth.js',
   'prism.js',
   'prism-autodetect.js',
+  'settings.js',
 ];
 
 // Security headers via CF Pages _headers — single source of truth for CSP and

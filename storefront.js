@@ -1,58 +1,41 @@
 /**
  * FreeAppStore storefront interactions:
- *   - mode tabs (AI Assistant / Simple Search)
+ *   - category filter bar
  *   - sort tabs (Featured / Top Rated / Most Active / Popular) — visual only
- *   - split-pane preview (load app in iframe on ≥1024px, navigate to about on <1024px)
+ *   - split-pane preview with device mode (desktop / tablet / mobile)
  *   - ?app=<id> deep link
- *
- * Theme toggle + mobile nav are handled separately by auth.js so they apply
- * on every page, not just the storefront.
  *
  * Vendored — each store ships its own copy. Don't depend across stores.
  */
 (function () {
-  // ---------- Mode tabs (AI Assistant / Simple Search) ----------
+  // ---------- Category filter ----------
   (function () {
-    var aiWrap = document.getElementById('aiInputWrap');
-    var searchWrap = document.getElementById('searchInputWrap');
-    var aiInput = document.getElementById('ai-prompt');
-    if (!aiWrap || !searchWrap) return;
+    var filterBar = document.getElementById('categoryFilter');
+    if (!filterBar) return;
+    var activeCategory = 'all';
 
-    document.querySelectorAll('.mode-tab').forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        document.querySelectorAll('.mode-tab').forEach(function (t) {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        var mode = tab.dataset.mode;
-        if (mode === 'ai') {
-          aiWrap.hidden = false;
-          searchWrap.hidden = true;
-          if (aiInput) aiInput.focus();
-        } else {
-          aiWrap.hidden = true;
-          searchWrap.hidden = false;
-          var sb = document.getElementById('storefront-search');
-          if (sb) sb.focus();
-        }
+    filterBar.addEventListener('click', function (e) {
+      var btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      filterBar.querySelectorAll('.filter-btn').forEach(function (b) {
+        b.classList.remove('active');
       });
+      btn.classList.add('active');
+      activeCategory = btn.dataset.category || 'all';
+      var cards = document.querySelectorAll('#apps-grid .app-card');
+      var shown = 0;
+      cards.forEach(function (card) {
+        var cat = (card.getAttribute('data-category') || '').toLowerCase();
+        var match = activeCategory === 'all' || cat === activeCategory.toLowerCase();
+        var searchHidden = card.dataset.searchHidden === '1';
+        card.hidden = !match || searchHidden;
+        if (!card.hidden) shown++;
+      });
+      var empty = document.getElementById('search-empty');
+      if (empty) empty.hidden = shown > 0;
     });
 
-    // AI Assistant has no LLM yet — Enter falls back to simple search.
-    if (aiInput) {
-      aiInput.addEventListener('keydown', function (e) {
-        if (e.key !== 'Enter' || !aiInput.value.trim()) return;
-        e.preventDefault();
-        var sb = document.getElementById('storefront-search');
-        if (!sb) return;
-        sb.value = aiInput.value;
-        sb.dispatchEvent(new Event('input', { bubbles: true }));
-        var searchTab = document.querySelector('.mode-tab[data-mode="search"]');
-        if (searchTab) searchTab.click();
-      });
-    }
+    window.__fasActiveCategory = function () { return activeCategory; };
   })();
 
   // ---------- Sort tabs (visual only) ----------
@@ -78,6 +61,7 @@
     var btnNewTab = document.getElementById('previewNewTab');
     var btnAbout = document.getElementById('previewAbout');
     var btnClose = document.getElementById('previewClose');
+    var modeBar = document.getElementById('previewModeBar');
     var current = null; // { id, name, url, aboutUrl }
     var loadTimeout = null;
     var loadToken = 0; // bumped on each loadInPane so stale fetches/timeouts no-op
@@ -142,12 +126,22 @@
       } catch (e) {}
     }
 
+    function showAuthRequired(meta) {
+      if (loadTimeout) { clearTimeout(loadTimeout); loadTimeout = null; }
+      pane.classList.remove('is-loading');
+      frame.hidden = true;
+      if (modeBar) modeBar.hidden = true;
+      if (empty) {
+        empty.hidden = false;
+        empty.classList.remove('is-error');
+        if (emptyTitleEl) emptyTitleEl.textContent = meta.name + ' requires sign-in';
+        if (emptyTipEl) emptyTipEl.innerHTML = 'This app needs you to log in, which can’t work inside a preview. <strong>Open it in a new tab</strong> to use it.';
+      }
+    }
+
     function loadInPane(meta, card) {
       current = meta;
       restoreEmpty();
-      pane.classList.add('is-loading');
-      frame.hidden = false;
-      empty.hidden = true;
       btnNewTab.hidden = false;
       if (btnAbout) btnAbout.hidden = !meta.aboutUrl;
       btnClose.hidden = false;
@@ -155,18 +149,22 @@
       activate(card);
       setUrlParam(meta.id);
 
-      // Pre-flight reachability: catches DNS NXDOMAIN, unreachable subdomain,
-      // connection refused. Browsers fire `load` for their own "site can't be
-      // reached" pages, so we can't rely on the iframe load event alone.
-      // no-cors so we don't need the target to send CORS headers; we only care
-      // whether the fetch throws (network error) or resolves (anything else).
+      if (meta.requiresAuth) {
+        showAuthRequired(meta);
+        return;
+      }
+
+      pane.classList.add('is-loading');
+      frame.hidden = false;
+      empty.hidden = true;
+      if (modeBar) modeBar.hidden = false;
+
       var token = ++loadToken;
       fetch(meta.url, { method: 'GET', mode: 'no-cors', cache: 'no-store', credentials: 'omit' })
         .then(function () {
-          if (token !== loadToken) return; // user clicked another card meanwhile
+          if (token !== loadToken) return;
           frame.src = meta.url;
           if (loadTimeout) clearTimeout(loadTimeout);
-          // Safety net: 10s for genuine hangs (rare since fetch already passed).
           loadTimeout = setTimeout(function () { showLoadError(meta); }, 10000);
           frame.addEventListener('load', function once() {
             pane.classList.remove('is-loading');
@@ -182,15 +180,17 @@
 
     function clearPane() {
       current = null;
-      loadToken++; // cancel any pending fetch / load handlers
+      loadToken++;
       if (loadTimeout) { clearTimeout(loadTimeout); loadTimeout = null; }
       frame.removeAttribute('src');
       frame.hidden = true;
+      frame.classList.remove('preview-tablet', 'preview-mobile');
       empty.hidden = false;
       restoreEmpty();
       btnNewTab.hidden = true;
       if (btnAbout) btnAbout.hidden = true;
       btnClose.hidden = true;
+      if (modeBar) modeBar.hidden = true;
       setTitle(null, '');
       activate(null);
       pane.classList.remove('is-loading');
@@ -212,6 +212,7 @@
         name: nameText,
         url: cta ? cta.getAttribute('href') : null,
         aboutUrl: card.dataset.about || null,
+        requiresAuth: card.dataset.requiresAuth === '1',
       };
     }
 
@@ -237,6 +238,22 @@
       if (current && current.aboutUrl) window.location.href = current.aboutUrl;
     });
     if (btnClose) btnClose.addEventListener('click', clearPane);
+
+    // Preview mode: desktop / tablet / mobile
+    if (modeBar) {
+      modeBar.addEventListener('click', function (e) {
+        var btn = e.target.closest('.preview-mode-btn');
+        if (!btn) return;
+        modeBar.querySelectorAll('.preview-mode-btn').forEach(function (b) {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+        var mode = btn.dataset.preview;
+        frame.classList.remove('preview-tablet', 'preview-mobile');
+        if (mode === 'tablet') frame.classList.add('preview-tablet');
+        else if (mode === 'mobile') frame.classList.add('preview-mobile');
+      });
+    }
 
     // Deep link: ?app=<id>
     try {

@@ -90,32 +90,42 @@
 
   function applyQuery(q) {
     const needle = q.trim().toLowerCase();
+    const activeCat = (typeof window.__fasActiveCategory === 'function')
+      ? window.__fasActiveCategory() : 'all';
     let localShown = 0;
 
     if (needle === '') {
-      // Empty query — restore default: show all local, hide cross.
-      for (const { el } of localHaystacks) el.hidden = false;
-      emptyMsg.hidden = true;
+      for (const { el } of localHaystacks) {
+        const cat = (el.getAttribute('data-category') || '').toLowerCase();
+        const catMatch = activeCat === 'all' || cat === activeCat.toLowerCase();
+        el.hidden = !catMatch;
+        el.dataset.searchHidden = '0';
+        if (!el.hidden) localShown++;
+      }
+      emptyMsg.hidden = localShown > 0;
       crossSection.hidden = true;
       crossGrid.innerHTML = '';
       return;
     }
 
     for (const { el, hay } of localHaystacks) {
-      const match = hay.includes(needle);
+      const textMatch = hay.includes(needle);
+      const cat = (el.getAttribute('data-category') || '').toLowerCase();
+      const catMatch = activeCat === 'all' || cat === activeCat.toLowerCase();
+      const match = textMatch && catMatch;
       el.hidden = !match;
+      el.dataset.searchHidden = textMatch ? '0' : '1';
       if (match) localShown++;
     }
     emptyMsg.hidden = localShown > 0;
 
-    // Cross-store hits.
     crossGrid.innerHTML = '';
     let crossShown = 0;
     for (const item of crossItems) {
       if (!item.hay.includes(needle)) continue;
       crossGrid.appendChild(buildCrossCard(item));
       crossShown++;
-      if (crossShown >= 12) break; // sane cap
+      if (crossShown >= 12) break;
     }
     crossSection.hidden = crossShown === 0;
   }
