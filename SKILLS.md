@@ -96,7 +96,7 @@ People join as creators to build apps/games. The flow:
 | **Store repo** | freeappstore-online/freeappstore | freegamestore-online/freegamestore |
 | **Registry file** | `registry.json` in store repo | `registry.json` in store repo |
 | **Templates** | template-standalone | template-game-canvas, template-game-cards, template-game-grid, template-game-3d |
-| **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys, email) | — || **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys, email) | — || **Accent color** | Blue (#2563eb) | Emerald (#10b981) |
+| **SDK (connected apps)** | `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, friends, proxy, keys, email, voice) | — || **Accent color** | Blue (#2563eb) | Emerald (#10b981) |
 | **Logo** | Free **Apps** | Free **Games** |
 | **Admin** | admin.freeappstore.online | admin.freegamestore.online |
 | **Publish portal** | publish.freeappstore.online | publish.freegamestore.online |
@@ -172,7 +172,7 @@ No further API calls or manual steps needed. Ever.
 
 - ONE environment: production only. Push to `main` = deploy. Fix forward.
 - Static hosting on Cloudflare R2 (served by the host Worker). No server-side code in apps.
-- Backend (if needed): `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, proxy, keys, email). `npm i @freeappstore/sdk`.
+- Backend (if needed): `@freeappstore/sdk` (auth, KV, counters, collections, rooms, roles, friends, proxy, keys, email, voice). `npm i @freeappstore/sdk`.
 - Free means free forever. No monetization in the free version.
 
 ## Tech Stack (required)
@@ -223,6 +223,7 @@ const fas = initApp({ appId: 'my-app' })
 // fas.counters — shared atomic counters
 // fas.collections — document database
 // fas.rooms    — real-time WebSocket rooms
+// fas.friends  — platform-level friend relationships
 // fas.proxy    — secret-injecting API proxy
 ```
 
@@ -357,6 +358,42 @@ const isBeta = await fas.roles.check('beta-tester')
 ```
 
 Use for: admin panels, moderation, content gating, feature flags by role. Custom roles work identically to the built-in defaults.
+
+### Friends
+
+Platform-level friend relationships. Friends are shared across all FreeAppStore apps.
+
+```tsx
+await fas.friends.list()                           // all accepted friends
+await fas.friends.list('pending_incoming')         // incoming requests
+await fas.friends.list('pending_outgoing')         // outgoing requests
+await fas.friends.request(userId)                  // send friend request
+await fas.friends.accept(userId)                   // accept request
+await fas.friends.remove(userId)                   // remove friend
+await fas.friends.search('username')               // search users
+
+// React hook
+import { useFriends } from '@freeappstore/sdk/hooks'
+const { friends, incoming, outgoing, request, accept, remove } = useFriends(fas)
+```
+
+### Voice Input
+
+Browser-native speech-to-text via Web Speech API. Graceful fallback when unsupported.
+
+```tsx
+import { useVoiceInput } from '@freeappstore/sdk/hooks'
+const voice = useVoiceInput()
+// voice.isSupported — boolean, true if browser supports speech recognition
+// voice.isListening — boolean, true while actively recording
+// voice.transcript — current speech text
+// voice.start() — begin listening
+// voice.stop() — stop listening
+
+// Ready-made UI component
+import { VoiceTextArea } from '@freeappstore/sdk/ui'
+<VoiceTextArea value={text} onChange={setText} placeholder="Type or speak..." />
+```
 
 ### Free APIs (no key required)
 
@@ -623,8 +660,8 @@ import { useAuth, useTheme } from '@freeappstore/sdk/hooks'
 | Import path | What you get |
 |---|---|
 | `@freeappstore/sdk` | `initApp`, `FreeAppStore`, types, roles, keys |
-| `@freeappstore/sdk/hooks` | `useAuth`, `useTheme` |
-| `@freeappstore/sdk/ui` | `FasShell`, `Avatar`, `SignInButton`, `ThemeToggle`, `TextSizeToggle`, `ProfileMenu`, `ProfilePage`, `Spinner`, `Badge`, `Card`, `Tabs`, `Modal`, `ConfirmDialog`, `EmptyState`, `ProgressBar`, `SearchInput`, `ListRow`, `ErrorBoundary`, `KeyPrompt` |
+| `@freeappstore/sdk/hooks` | `useAuth`, `useTheme`, `useFriends`, `useVoiceInput` |
+| `@freeappstore/sdk/ui` | `FasShell`, `Avatar`, `SignInButton`, `ThemeToggle`, `TextSizeToggle`, `ProfileMenu`, `ProfilePage`, `Spinner`, `Badge`, `Card`, `Tabs`, `Modal`, `ConfirmDialog`, `EmptyState`, `ProgressBar`, `SearchInput`, `ListRow`, `ErrorBoundary`, `KeyPrompt`, `VoiceTextArea` |
 
 ## Games SDK (`@freegamestore/games`)
 
@@ -928,3 +965,17 @@ Direct creators and users to the right place:
 | **Platform docs** | This file (SKILLS.md) |
 
 Do NOT send users to email, Slack, Discord, or any external service. All support is on GitHub.
+
+## Quality API
+
+Every app gets a VCQA code health score computed at deploy time.
+
+```
+GET https://api.freeappstore.online/v1/apps/{id}/quality     → JSON report
+GET https://api.freeappstore.online/v1/apps/{id}/quality/badge → SVG badge
+```
+
+Embed the badge in your README:
+```markdown
+![Code Quality](https://api.freeappstore.online/v1/apps/YOUR_APP_ID/quality/badge)
+```
