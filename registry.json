@@ -1267,6 +1267,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "tides",
+      "name": "tides",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Moon phase calendar, sun/moon rise-set times, eclipses, and tide estimates",
+      "appUrl": "https://tides.freeappstore.online",
+      "repo": "freeappstore-online/tides",
+      "cfProject": "freetidesapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
