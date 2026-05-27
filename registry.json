@@ -847,6 +847,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "budget",
+      "name": "budget",
+      "category": "Finance",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Personal budget tracker with categories, charts, accounts, and CSV export",
+      "appUrl": "https://budget.freeappstore.online",
+      "repo": "freeappstore-online/budget",
+      "cfProject": "freebudgetapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
