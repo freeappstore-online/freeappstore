@@ -2820,9 +2820,19 @@
   "freeappstore-online/shoplist": {
     "meta": {
       "created_at": "2026-05-28T05:42:08Z",
-      "pushed_at": "2026-05-28T13:34:39Z"
+      "pushed_at": "2026-05-28T21:47:18Z"
     },
     "commits": [
+      {
+        "sha": "b74dc24179e9da285bc74a044528bde391763cbb",
+        "html_url": "https://github.com/freeappstore-online/shoplist/commit/b74dc24179e9da285bc74a044528bde391763cbb",
+        "commit": {
+          "message": "fix: add packageManager field to fix CI deploy\n\npnpm/action-setup@v4 requires packageManager in package.json to know\nwhich pnpm version to install. Without it, the deploy workflow fails\nat the pnpm setup step.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-28T21:47:08Z"
+          }
+        }
+      },
       {
         "sha": "6f9da7c1740be0185521e60d8e3b135ae20915c7",
         "html_url": "https://github.com/freeappstore-online/shoplist/commit/6f9da7c1740be0185521e60d8e3b135ae20915c7",
@@ -2840,16 +2850,6 @@
           "message": "Initial app — built with FreeAppStore AI agent",
           "author": {
             "date": "2026-05-28T11:57:25Z"
-          }
-        }
-      },
-      {
-        "sha": "de1796a7dcfcbee5428743157e429e9db8551f97",
-        "html_url": "https://github.com/freeappstore-online/shoplist/commit/de1796a7dcfcbee5428743157e429e9db8551f97",
-        "commit": {
-          "message": "Fix build script approval issue for deployment",
-          "author": {
-            "date": "2026-05-28T05:44:00Z"
           }
         }
       }
