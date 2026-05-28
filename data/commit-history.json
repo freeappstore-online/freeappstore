@@ -154,9 +154,19 @@
   "freeappstore-online/books": {
     "meta": {
       "created_at": "2026-05-04T00:16:25Z",
-      "pushed_at": "2026-05-27T14:19:14Z"
+      "pushed_at": "2026-05-27T23:36:28Z"
     },
     "commits": [
+      {
+        "sha": "56a05a3bbb8214729f39be75ede6918c75e5fcd1",
+        "html_url": "https://github.com/freeappstore-online/books/commit/56a05a3bbb8214729f39be75ede6918c75e5fcd1",
+        "commit": {
+          "message": "Ignore .vibe-check/ artifacts (regenerated reports)\n\nvcqa generates report.html/json/history under .vibe-check/ on each scan.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T23:36:26Z"
+          }
+        }
+      },
       {
         "sha": "048308a53ceceb0c67335fe8ce455c80d9888b8b",
         "html_url": "https://github.com/freeappstore-online/books/commit/048308a53ceceb0c67335fe8ce455c80d9888b8b",
@@ -174,16 +184,6 @@
           "message": "docs: add README",
           "author": {
             "date": "2026-05-27T13:46:03Z"
-          }
-        }
-      },
-      {
-        "sha": "2aff2495df3836efa4db0cfd8753aad4cc75bddb",
-        "html_url": "https://github.com/freeappstore-online/books/commit/2aff2495df3836efa4db0cfd8753aad4cc75bddb",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:07:55Z"
           }
         }
       }
@@ -230,36 +230,36 @@
   "freeappstore-online/notes": {
     "meta": {
       "created_at": "2026-05-04T10:58:03Z",
-      "pushed_at": "2026-05-27T14:40:46Z"
+      "pushed_at": "2026-05-27T23:40:09Z"
     },
     "commits": [
       {
-        "sha": "e123f8bd3be68b5cfa4c27eed2a2864317bf7eb0",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/e123f8bd3be68b5cfa4c27eed2a2864317bf7eb0",
+        "sha": "0d0a10b504f9fdf1348162a2fca6e0b8182824d5",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/0d0a10b504f9fdf1348162a2fca6e0b8182824d5",
         "commit": {
-          "message": "feat: slash commands, undo/redo, word count, export, icon picker\n\nPolish pass:\n- Slash command menu: type / in the editor to open a filterable\n  command palette (H1-H3, lists, tasks, code, quote, divider).\n  Arrow keys to navigate, Enter to select, Escape to dismiss.\n- Undo/redo buttons in toolbar (with disabled state styling)\n- Word count in editor footer (updates on every edit)\n- Export as Markdown: converts TipTap HTML to .md file download\n  with proper heading, list, task, code block, and blockquote\n  conversion\n- Page icon picker: 12 emoji options in a popover grid, shown\n  in sidebar page tree and breadcrumbs\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "feat: mobile quick-switcher, storage quota guard, friendlier empty state\n\n- Mobile header now has a 🔎 button (alongside + New) that opens the\n  ⌘K quick switcher — previously the feature was desktop-only\n- saveNotes throws StorageQuotaError on QuotaExceededError; App catches\n  it and shows a persistent banner with a one-click \"Backup now\" so the\n  user can get their data out before triaging. Previously silent.\n- First-run state replaces the bare \"No pages yet\" line with a welcome\n  card explaining the app + a primary \"Create your first page\" button\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T14:40:42Z"
+            "date": "2026-05-27T23:40:06Z"
           }
         }
       },
       {
-        "sha": "86fd89a1f3c5c2ff22a4a4ae3151c8859c2fe8a1",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/86fd89a1f3c5c2ff22a4a4ae3151c8859c2fe8a1",
+        "sha": "4535a3289fc95ccab47f2b7a35675fc22ed41b5b",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/4535a3289fc95ccab47f2b7a35675fc22ed41b5b",
         "commit": {
-          "message": "Add apple-touch-icon",
+          "message": "fix: trash UX bugs — show only deletion roots; surface orphaned notes\n\nTwo real bugs in the soft-delete plumbing introduced in f7e2b96:\n\n1. Trash view listed every deleted descendant as its own row, but\n   \"Restore\" actually restores the whole cascade (matches by deletedAt).\n   So a parent with 5 children produced 6 rows that all did the same\n   thing. getTrash() now returns only deletion roots — a deleted note\n   whose parent is either null or not also in trash.\n\n2. If a parent was purged from trash while a child stayed (e.g. user\n   deleted them separately, then permanently deleted only the parent,\n   or imported a partial JSON backup), restoring the child left it with\n   parentId pointing to a missing note — invisible everywhere.\n   getRootNotes() now treats notes whose parent is missing-or-deleted\n   as roots so they surface in the sidebar.\n\nBoth behaviors are covered by new tests (45 total, all green).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T14:19:35Z"
+            "date": "2026-05-27T23:33:55Z"
           }
         }
       },
       {
-        "sha": "d5e8291433b912b91424d21367b198cb595979c2",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/d5e8291433b912b91424d21367b198cb595979c2",
+        "sha": "f7e2b9671c8e26c6b5027689d65d5ea748923825",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/f7e2b9671c8e26c6b5027689d65d5ea748923825",
         "commit": {
-          "message": "feat: TipTap block editor, nested pages, templates\n\nMajor upgrade from plain textarea to Notion-like block editor:\n\nBlock Editor (TipTap/ProseMirror):\n- Rich text toolbar: H1/H2/H3, bold, italic, strike, highlight\n- Block types: bullet list, numbered list, task list (checkboxes),\n  code block, blockquote, horizontal rule\n- Typography extension for smart quotes/dashes\n- Link support\n- Full keyboard shortcut support (Cmd+B, Cmd+I, etc.)\n\nNested Pages:\n- Notes can have sub-pages (parentId field)\n- Collapsible page tree in sidebar with expand/collapse\n- Breadcrumb navigation in editor toolbar\n- + button on each page to create child pages\n- Delete cascades to all children\n- Sub-pages section at bottom of editor\n\nTemplates:\n- Template picker when creating via + New Page button\n- 4 templates: Blank, Meeting Notes, Daily Journal, Project Brief\n- Each template pre-fills with structured TipTap HTML content\n- Cmd+N creates a quick blank note (skips picker)\n\nData model:\n- Added parentId, icon, template fields to Note\n- Backwards-compatible migration for existing localStorage notes\n- Removed marked dependency (replaced by TipTap)\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "feat: shippability pass — PWA icons, soft delete + trash, backups, error boundary\n\n- Manifest now declares 192/512 icons + maskable variant so Android/Chrome\n  PWA install renders properly (was puzzle-piece)\n- Delete is no longer destructive: notes are soft-deleted with deletedAt,\n  a 6s \"Undo\" toast appears immediately, and a Trash view (sidebar entry\n  when non-empty) supports per-item restore + permanent delete + empty all\n- \"Backup\" button in the sidebar exports a JSON of every page; Import\n  accepts both .md (single page) and .json (full backup, with parent-id\n  remapping so the imported tree stays intact)\n- ErrorBoundary wraps App: on crash, user gets the error message, a\n  \"Download backup\" recovery action (raw localStorage), and \"Reload\"\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T14:16:38Z"
+            "date": "2026-05-27T23:13:04Z"
           }
         }
       }
@@ -458,9 +458,19 @@
   "freeappstore-online/habits": {
     "meta": {
       "created_at": "2026-05-04T10:58:17Z",
-      "pushed_at": "2026-05-27T14:20:00Z"
+      "pushed_at": "2026-05-27T23:36:22Z"
     },
     "commits": [
+      {
+        "sha": "f3a1ce9c5ac5233bffa0d5736d9fb5a893bb29ae",
+        "html_url": "https://github.com/freeappstore-online/habits/commit/f3a1ce9c5ac5233bffa0d5736d9fb5a893bb29ae",
+        "commit": {
+          "message": "Ignore .vibe-check/ artifacts (regenerated reports)\n\nvcqa generates report.html/json/history under .vibe-check/ on each scan.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T23:36:20Z"
+          }
+        }
+      },
       {
         "sha": "6fb387201d3234874e6429752227b4503f42537a",
         "html_url": "https://github.com/freeappstore-online/habits/commit/6fb387201d3234874e6429752227b4503f42537a",
@@ -478,16 +488,6 @@
           "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
             "date": "2026-05-27T14:10:44Z"
-          }
-        }
-      },
-      {
-        "sha": "1751c9449885e09923f32fbf9a04ed1ff0bfec4c",
-        "html_url": "https://github.com/freeappstore-online/habits/commit/1751c9449885e09923f32fbf9a04ed1ff0bfec4c",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:54Z"
           }
         }
       }
@@ -610,9 +610,29 @@
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-27T15:00:26Z"
+      "pushed_at": "2026-05-27T23:29:34Z"
     },
     "commits": [
+      {
+        "sha": "a22afd97a64bb4f19b41d69efe669792fd925f70",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/a22afd97a64bb4f19b41d69efe669792fd925f70",
+        "commit": {
+          "message": "feat: offline support via service worker + localStorage quota recovery\n\n- vite-plugin-pwa generates sw.js, precaches all assets, runtime-caches Google Fonts\n- saveDrawings catches QuotaExceededError; surfaces a dismissable banner so auto-save failures stop being silent\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T23:29:31Z"
+          }
+        }
+      },
+      {
+        "sha": "84fbd78fe44348a21843c9c27c84f92046fabcb2",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/84fbd78fe44348a21843c9c27c84f92046fabcb2",
+        "commit": {
+          "message": "feat: edit text inline, align & distribute selection\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T23:04:03Z"
+          }
+        }
+      },
       {
         "sha": "fc912d6670df6fb68db82d036dc3c6236769be1c",
         "html_url": "https://github.com/freeappstore-online/whiteboard/commit/fc912d6670df6fb68db82d036dc3c6236769be1c",
@@ -620,26 +640,6 @@
           "message": "Update whiteboard",
           "author": {
             "date": "2026-05-27T15:00:23Z"
-          }
-        }
-      },
-      {
-        "sha": "2b4e0f5175cec395693c7b88fdfa7b7c9ee7d198",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/2b4e0f5175cec395693c7b88fdfa7b7c9ee7d198",
-        "commit": {
-          "message": "feat: copy/paste elements, snap-to-grid\n\nCopy/paste (Ctrl+C / Ctrl+V):\n- Ctrl+C copies selected elements to an internal clipboard.\n- Ctrl+V pastes them with a 20px offset and auto-selects the clones.\n- Works with multi-select — copies and pastes all selected elements.\n- Image paste from system clipboard still works when internal clipboard\n  is empty (falls through to the existing paste handler).\n\nSnap-to-grid:\n- Hold Shift while dragging elements or drawing shapes to snap\n  positions to the 20px grid.\n- \"Snap\" toggle button in View section enables permanent snapping.\n- Applies to element drag, shape endpoint drawing, and resize.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T14:50:19Z"
-          }
-        }
-      },
-      {
-        "sha": "9f6d01f14e7cb504d59012b5a5b33408c638efe6",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/9f6d01f14e7cb504d59012b5a5b33408c638efe6",
-        "commit": {
-          "message": "feat: pressure-sensitive strokes and SVG export\n\nPressure-sensitive pen:\n- PathElement now stores optional pressures[] array alongside points[].\n- Pointer pressure (from stylus/Apple Pencil) is captured on every\n  pointerdown and pointermove event. Falls back to 0.5 for mouse.\n- Renderer draws each segment with stroke width scaled by pressure,\n  producing natural thick/thin variation in freehand strokes.\n- Existing paths without pressure data render at uniform width.\n\nSVG export:\n- New exportSvg() function in render.ts converts all element types\n  to SVG markup: paths as <path d=\"...\">, shapes as native SVG\n  elements, text as <text> with tspan, stickies as rounded rects,\n  images as <image> with embedded dataUrl.\n- Handles opacity, filled shapes, bold/italic text, arrowheads.\n- Computes scene bounds with padding for the viewBox.\n- SVG button added to sidebar export section.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T14:41:33Z"
           }
         }
       }
@@ -932,36 +932,36 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-05-27T14:46:41Z"
+      "pushed_at": "2026-05-27T23:16:34Z"
     },
     "commits": [
       {
-        "sha": "d2c99f0c09b649b49bbd889c3080eda475b7f031",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/d2c99f0c09b649b49bbd889c3080eda475b7f031",
+        "sha": "87df1923cb1650b48445a5928fef890c9948e7cc",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/87df1923cb1650b48445a5928fef890c9948e7cc",
         "commit": {
-          "message": "Add swipe gestures, fullscreen \"Got it\", collapsible add form\n\n- Swipe left/right on practice card and fullscreen to navigate\n  between phrases (touch-action: pan-y preserves vertical scroll)\n- Fullscreen practice now has \"Got it\" button in header bar and\n  Enter/Space keyboard shortcut to mark phrase as practiced\n- Removed tap zone buttons from fullscreen (swipe replaces them)\n- Add form starts collapsed as \"+ Add phrase\" button, expands on\n  tap with auto-focus; \"Close\" button to collapse again\n- Phrase list is now immediately visible on the Phrases tab\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Extract storage module, add 54 tests, fix small bugs\n\n- New web/src/storage.ts holds Phrase/Pair/Contrast/Tab types,\n  storage keys, loaders, validators, and ID generation. App.tsx\n  imports from there, no more inline pure functions.\n- Add storage.test.ts (44 cases): seed fallback, v1→v2 migration,\n  range validation for speech rate / font scale, contrast/tab\n  enum guards, ID uniqueness.\n- Expand app.test.tsx (12 cases): tab persistence, aria-current,\n  contrast attribute toggle, font-scale style application, pair\n  switcher relabels form, full add-phrase flow writes to storage.\n- Add @testing-library/react cleanup in setup to prevent test\n  state leaks between renders.\n- Fix: justAdded setTimeout now cleaned up on unmount via ref.\n- Polish: aria-current=\"page\" + aria-label on bottom nav buttons\n  for accessibility.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T14:46:34Z"
+            "date": "2026-05-27T23:16:32Z"
           }
         }
       },
       {
-        "sha": "658cff2ddca5f29beb78e1ebde965417a474a3e1",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/658cff2ddca5f29beb78e1ebde965417a474a3e1",
+        "sha": "9ac1eb1f31666f42f145eaaa92c5f0eeabe1499b",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/9ac1eb1f31666f42f145eaaa92c5f0eeabe1499b",
         "commit": {
-          "message": "fix: filter always visible, practiced indicator, edit validation\n\n- \"Unpractised only\" checkbox now shows whenever there are phrases,\n  not only when topics exist — previously inaccessible for topicless phrases\n- Topic dropdown only renders when topics exist (no empty dropdown)\n- Practice card shows \"practised\" label on already-practiced phrases\n- EditForm validates non-empty target/native before allowing save,\n  with disabled styling on the Save button\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "message": "Add contrast setting (normal/high/max) for low-light readability\n\nDefault dark-mode --muted (#9ca3af) fades into the background when\nthe room is dim. New Contrast setting in Settings tab applies a\ndata-contrast attribute on <html>; CSS overrides bump --muted and\n--line strength at high/max levels, in both light and dark mode.\n\nPersisted to localStorage. Defaults to normal so existing users\nsee no change unless they opt in.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T14:15:13Z"
+            "date": "2026-05-27T23:08:50Z"
           }
         }
       },
       {
-        "sha": "aaa7d3998d37aee35ec033d7fa00f58b94b055ab",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/aaa7d3998d37aee35ec033d7fa00f58b94b055ab",
+        "sha": "db344efdf066ab8703e83c7622e016ec2bb8eb79",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/db344efdf066ab8703e83c7622e016ec2bb8eb79",
         "commit": {
-          "message": "Add favicon",
+          "message": "PWA: skipWaiting, clientsClaim, SPA navigation fallback\n\nService worker now activates immediately on update and claims open\nclients without requiring a refresh. SPA navigation falls back to\n/index.html so deep links work offline, with /api and /v1 routes\nexcluded so platform calls hit the network.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-27T13:08:52Z"
+            "date": "2026-05-27T23:05:50Z"
           }
         }
       }
@@ -1216,9 +1216,19 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-27T14:20:14Z"
+      "pushed_at": "2026-05-27T23:36:25Z"
     },
     "commits": [
+      {
+        "sha": "d98538150b7c4b1b747bc285aebfeca1c7c81371",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/d98538150b7c4b1b747bc285aebfeca1c7c81371",
+        "commit": {
+          "message": "Ignore .vibe-check/ artifacts (regenerated reports)\n\nvcqa generates report.html/json/history under .vibe-check/ on each scan.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T23:36:23Z"
+          }
+        }
+      },
       {
         "sha": "8f1bd35adabc2336acf8102e4453f96462a2cc32",
         "html_url": "https://github.com/freeappstore-online/artout/commit/8f1bd35adabc2336acf8102e4453f96462a2cc32",
@@ -1236,16 +1246,6 @@
           "message": "Add PLATFORM-NOTE.md: follow-up to scale request for platform team\n\nFocused ask: geo bounding box query is the one thing that unblocks\ngrowth. Offers to write the PR. Includes reproduction steps.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-25T05:26:17Z"
-          }
-        }
-      },
-      {
-        "sha": "df31132f3c2c2d8bae7ecd23e3abb996e45124ae",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/df31132f3c2c2d8bae7ecd23e3abb996e45124ae",
-        "commit": {
-          "message": "Remove stale CONSOLE-FIX.md (belongs in ops, not app repo)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-25T03:24:23Z"
           }
         }
       }
@@ -1814,9 +1814,19 @@
   "freeappstore-online/message": {
     "meta": {
       "created_at": "2026-05-26T00:48:56Z",
-      "pushed_at": "2026-05-27T14:49:41Z"
+      "pushed_at": "2026-05-27T23:36:13Z"
     },
     "commits": [
+      {
+        "sha": "f4ed3b7a2692ef8d728ab243483fec57c4440d93",
+        "html_url": "https://github.com/freeappstore-online/message/commit/f4ed3b7a2692ef8d728ab243483fec57c4440d93",
+        "commit": {
+          "message": "Ignore .vibe-check/ artifacts (regenerated reports)\n\nvcqa generates report.html/json/history under .vibe-check/ on each scan.\nUntrack the previously-committed reports and add the dir to .gitignore.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T23:36:11Z"
+          }
+        }
+      },
       {
         "sha": "6e0ef9587bb642f87a26bf113b60b9f0890a364a",
         "html_url": "https://github.com/freeappstore-online/message/commit/6e0ef9587bb642f87a26bf113b60b9f0890a364a",
@@ -1834,16 +1844,6 @@
           "message": "Add apple-touch-icon",
           "author": {
             "date": "2026-05-27T14:20:28Z"
-          }
-        }
-      },
-      {
-        "sha": "0014265840f5153c2f31b6ad992461adc760a6d1",
-        "html_url": "https://github.com/freeappstore-online/message/commit/0014265840f5153c2f31b6ad992461adc760a6d1",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:47:04Z"
           }
         }
       }
@@ -1870,9 +1870,29 @@
   "freeappstore-online/spreadsheet": {
     "meta": {
       "created_at": "2026-05-27T12:59:31Z",
-      "pushed_at": "2026-05-27T15:09:02Z"
+      "pushed_at": "2026-05-27T23:40:22Z"
     },
     "commits": [
+      {
+        "sha": "30f6d1979a29ce7a0d322f6555099a9578094522",
+        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/30f6d1979a29ce7a0d322f6555099a9578094522",
+        "commit": {
+          "message": "Add number formats and conditional formatting\n\nNumber formats (toolbar dropdown):\n- Auto (default behavior)\n- Currency: $1,234.56\n- Percent: 12.34% (multiplies by 100)\n- Decimal: 1234.56 (forces 2 decimals)\n\nPer-cell, persists with other formats.\n\nConditional formatting:\n- Rules button in toolbar (highlights when rules exist)\n- Dialog to add/remove rules per sheet\n- Rule types: greater than, less than, equals, contains, between (1..10)\n- Custom bg color, text color, and bold for matching cells\n- Last matching rule wins\n- Conditional format overrides cell format but loses to selection/find highlights\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T23:40:16Z"
+          }
+        }
+      },
+      {
+        "sha": "f98f83f398852089658e6a164414ebfe00c35e60",
+        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/f98f83f398852089658e6a164414ebfe00c35e60",
+        "commit": {
+          "message": "Close gaps: string literals, cross-sheet refs, header context menus\n\nFormula engine:\n- String literals in formulas: =SUBSTITUTE(A1,\"old\",\"new\") works\n- splitArgs respects quoted commas: LEN(\"a,b,c\") = 5\n- Escaped quotes: \"a\"\"b\" → a\"b\n- Cross-sheet refs: =Sheet2!A1, =SUM(Sheet2!A1:A10)\n- Case-insensitive sheet names (Excel convention)\n- Circular detection across sheets\n\nHeaders:\n- Right-click column header → context menu (insert/delete/sort)\n- Right-click row header → context menu (insert/delete/freeze)\n- Left-click column/row header → selects entire column/row\n\n10 new tests added (109 total, all passing).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-27T23:35:51Z"
+          }
+        }
+      },
       {
         "sha": "39633d484470648616750a41c2dd1d8b5660146c",
         "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/39633d484470648616750a41c2dd1d8b5660146c",
@@ -1880,26 +1900,6 @@
           "message": "Add freeze first row and auto-fill drag handle\n\nFreeze first row:\n- Right-click any cell → \"Freeze first row\"\n- Row 1 sticks below the column header while scrolling\n- Accent border underline indicates the freeze boundary\n- Toggle off via the same menu item\n\nAuto-fill drag handle:\n- Small accent square at bottom-right of selection\n- Drag down/up/left/right to fill cells\n- Pattern detection:\n  - Single number: increments by 1 (1 → 2,3,4...)\n  - Two+ numbers: detects step (2,4 → 6,8,10... / 10,9 → 8,7,6...)\n  - Text+number (Item 1, Item 2): increments trailing number\n  - Falls back to repeating the source values\n\nPWA workbox config also got skipWaiting + clientsClaim +\nnavigateFallbackDenylist for cleaner SW updates.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T15:08:54Z"
-          }
-        }
-      },
-      {
-        "sha": "c382584b87dd94b7ffd879a586b3458468dbe4bb",
-        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/c382584b87dd94b7ffd879a586b3458468dbe4bb",
-        "commit": {
-          "message": "Extract useSpreadsheet hook + 10 components\n\nApp.tsx: 1593 → 31 lines (thin shell composing hook + components)\n\nhooks/useSpreadsheet.ts (1009 lines):\n  All state, refs, effects, callbacks, derived values, virtualization\n\ncomponents/ (10 files, 698 lines total):\n  TopBar, FormulaBar, FormattingToolbar, ColorPicker,\n  Grid, FindBar, SheetTabs, StatusBar, ContextMenu, HelpDialog\n\nEach component receives a single `s: SpreadsheetState` prop.\nNo behavior changes — pure structural refactor.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T14:43:14Z"
-          }
-        }
-      },
-      {
-        "sha": "77bff1246b322bb646c080b82eb563f3c60fca8f",
-        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/77bff1246b322bb646c080b82eb563f3c60fca8f",
-        "commit": {
-          "message": "Split into modules, add 99 tests, virtualize grid\n\nModule extraction:\n- types.ts, constants.ts, lib/cell-refs.ts, lib/formula-engine.ts,\n  lib/csv.ts, lib/point-mode.ts, lib/persistence.ts\n\nTest suite (99 tests, vitest):\n- formula-engine: 70 tests (all 30+ functions, errors, circular refs)\n- cell-refs: 17 tests (roundtrip identity verification)\n- csv: 8 tests (quoted fields, escapes, TSV)\n\nGrid virtualization:\n- Only renders visible rows + 5-row buffer (85% fewer DOM nodes)\n- Absolute positioning with spacer for correct scrollbar\n- Sticky headers, auto scroll-into-view, editing row always rendered\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T14:22:50Z"
           }
         }
       }
