@@ -1312,6 +1312,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "lol-app",
+      "name": "lol-app",
+      "category": "lifestyle",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Mems",
+      "appUrl": "https://lol-app.freeappstore.online",
+      "repo": "freeappstore-online/lol-app",
+      "cfProject": "freelol-appapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
