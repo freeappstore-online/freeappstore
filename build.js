@@ -118,7 +118,7 @@ function ghFetch(urlPath) {
 }
 
 const FMT_DATE = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-const FMT_SHORT = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+const FMT_SHORT = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
 
 function escapeHtml(s) {
   return String(s)
@@ -527,6 +527,48 @@ function renderViewportBadge(manifest) {
   return `<p class="audit-badge ${cls}"><span class="dot"></span> Works on ~${coverage}% of devices · ${orientLabel} · min ${minWidth}px wide</p>`;
 }
 
+/**
+ * Fetch .buildinfo.json from each app's live URL to get the installed size.
+ * Written by the deploy workflow. Failures → null (size just doesn't render).
+ */
+function fetchBuildInfo(appUrl) {
+  return new Promise((resolve) => {
+    try {
+      const u = new URL('/.buildinfo.json', appUrl);
+      const req = https.request(
+        { hostname: u.hostname, path: u.pathname, method: 'GET' },
+        (r) => {
+          let data = '';
+          r.on('data', (c) => (data += c));
+          r.on('end', () => {
+            if (r.statusCode !== 200) return resolve(null);
+            try {
+              resolve(JSON.parse(data));
+            } catch {
+              resolve(null);
+            }
+          });
+        },
+      );
+      req.on('error', () => resolve(null));
+      req.setTimeout(6000, () => {
+        req.destroy();
+        resolve(null);
+      });
+      req.end();
+    } catch {
+      resolve(null);
+    }
+  });
+}
+
+function formatSize(bytes) {
+  if (bytes == null || bytes <= 0) return null;
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(0) + ' KB';
+  return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+}
+
 async function fetchCrossStoreRegistry() {
   // Pull the OTHER store's registry so the homepage search can
   // federate. Failure → empty registry, search still works locally.
@@ -561,11 +603,12 @@ async function fetchCrossStoreRegistry() {
 
 (async () => {
 console.log(`Fetching commit history for ${apps.length} apps (with disk cache fallback)...`);
-const [histories, auditMap, crossRegistry, manifests] = await Promise.all([
+const [histories, auditMap, crossRegistry, manifests, buildInfos] = await Promise.all([
   fetchAllHistories(apps),
   fetchAuditSummary(),
   fetchCrossStoreRegistry(),
   Promise.all(apps.map((a) => fetchManifest(a.appUrl))),
+  Promise.all(apps.map((a) => fetchBuildInfo(a.appUrl))),
 ]);
 
 // Now finalize and write the index page with the embedded cross-store
@@ -666,7 +709,8 @@ apps.forEach((app, i) => {
     .replace(/\{\{HISTORY_SECTION\}\}/g, renderHistorySection(app.repo, history))
     .replace(/\{\{AUDIT_BADGE\}\}/g, renderAuditBadge(auditMap.get(app.id)))
     .replace(/\{\{CODE_QUALITY_BADGE\}\}/g, renderCodeQualityBadge(app.id))
-    .replace(/\{\{VIEWPORT_BADGE\}\}/g, renderViewportBadge(manifests[i]));
+    .replace(/\{\{VIEWPORT_BADGE\}\}/g, renderViewportBadge(manifests[i]))
+    .replace(/\{\{SIZE\}\}/g, formatSize(buildInfos[i]?.size) || 'Unknown');
 
   // SRI hashes (detail pages use auth.js + detail-page.js).
   for (const [k, v] of Object.entries(sriHashes)) {
