@@ -1342,6 +1342,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "shoplist",
+      "name": "shoplist",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A fast, simple shopping checklist app for everyday grocery and store lists.",
+      "appUrl": "https://shoplist.freeappstore.online",
+      "repo": "freeappstore-online/shoplist",
+      "cfProject": "freeshoplistapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "tranchaungoctri"
     }
   ]
 }
