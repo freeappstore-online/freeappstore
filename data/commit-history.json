@@ -2854,5 +2854,43 @@
         }
       }
     ]
+  },
+  "freeappstore-online/agentcoder": {
+    "meta": {
+      "created_at": "2026-05-28T22:08:30Z",
+      "pushed_at": "2026-05-28T22:09:22Z"
+    },
+    "commits": [
+      {
+        "sha": "a1ec39716e54ecf031925df6d531024cc6882a37",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/a1ec39716e54ecf031925df6d531024cc6882a37",
+        "commit": {
+          "message": "feat: AgentCoder MVP — AI agent interpreter for FAS platform\n\nWeb app (React PWA):\n- Translation layer that explains what AI coding agents did in plain English\n- Device continuity via FAS Rooms (start on desktop, continue on phone)\n- AI-mediated compose (speak/type intent, AI converts to terminal command)\n- VoiceTextArea for hands-free control from mobile\n- KeyPrompt for Anthropic API key setup\n- Bridge status bar with connection/agent state indicators\n\nBridge (Node.js CLI — @agentcoder/bridge):\n- Connects to FAS Room via WebSocket (ws package)\n- Polls tmux sessions, captures screen output\n- Chunks output into 3.5KB frames for Room relay\n- Claude Code prompt detection (ready/busy/waiting states)\n- Rolling 500KB output buffer for catch-up mode\n- Heartbeat every 30s for online detection\n\n29 tests (10 web + 19 bridge):\n- JSON parsing: raw, markdown blocks, nested braces, greedy regex prevention\n- tmux state detection: ready, busy, waiting, false-positive prevention\n- Chunking: split, reassemble, boundary, buffer overflow\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-28T22:09:15Z"
+          }
+        }
+      },
+      {
+        "sha": "283eb50b3344878a855d948dba794dfdc5b4a5ee",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/283eb50b3344878a855d948dba794dfdc5b4a5ee",
+        "commit": {
+          "message": "fix: apps fail to load from iPhone home screen\n\nRoot cause: VitePWA workbox config missing navigateFallback. Without\nit, the service worker intercepts navigation requests in standalone\nmode but has no cached response for '/' — shows blank screen on iOS.\n\nFixes:\n1. Added navigateFallback: '/index.html' — SW now serves the SPA\n   shell for all navigation requests (with denylist for /api, /v1)\n2. Removed hardcoded <link rel=\"manifest\" href=\"/manifest.json\"> —\n   VitePWA injects the correct manifest link automatically. The\n   hardcoded one could point to a non-existent file.\n3. Removed duplicate apple-mobile-web-app-capable meta tags\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-25T10:07:53Z"
+          }
+        }
+      },
+      {
+        "sha": "3609e5e35448ce7192975bf4c78811f29ee76dbe",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/3609e5e35448ce7192975bf4c78811f29ee76dbe",
+        "commit": {
+          "message": "fix: allow text selection by default\n\nRemoved blanket `body { user-select: none }` which blocked all text\ncopy/select. Moved user-select: none to buttons, nav, labels, and\n[role=button] only — interactive controls that shouldn't be selected.\n\nText content, code blocks, and data are now selectable as expected.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-25T03:15:16Z"
+          }
+        }
+      }
+    ]
   }
 }
