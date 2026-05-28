@@ -1357,6 +1357,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "tranchaungoctri"
+    },
+    {
+      "id": "agentcoder",
+      "name": "agentcoder",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "AI agent interpreter — understand what your coding agent did, from any device",
+      "appUrl": "https://agentcoder.freeappstore.online",
+      "repo": "freeappstore-online/agentcoder",
+      "cfProject": "freeagentcoderapp",
+      "hostedOn": "r2",
+      "type": "connected",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
