@@ -1327,6 +1327,21 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "hello-world-greetings",
+      "name": "hello-world-greetings",
+      "category": "lifestyle",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Greets you in any language",
+      "appUrl": "https://hello-world-greetings.freeappstore.online",
+      "repo": "freeappstore-online/hello-world-greetings",
+      "cfProject": "freehello-world-greetingsapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
