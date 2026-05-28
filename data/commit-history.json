@@ -1710,36 +1710,36 @@
   "freeappstore-online/qrreader": {
     "meta": {
       "created_at": "2026-05-23T18:47:11Z",
-      "pushed_at": "2026-05-28T05:13:39Z"
+      "pushed_at": "2026-05-28T08:30:17Z"
     },
     "commits": [
       {
-        "sha": "9b7246b452f318292bf422936e773060b817eba6",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/9b7246b452f318292bf422936e773060b817eba6",
+        "sha": "63b7600e30a1199e84dec8dab2e5b9edec1a2c16",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/63b7600e30a1199e84dec8dab2e5b9edec1a2c16",
         "commit": {
-          "message": "Fix fas check",
+          "message": "Change size link tag",
           "author": {
-            "date": "2026-05-28T05:13:22Z"
+            "date": "2026-05-28T08:22:27Z"
           }
         }
       },
       {
-        "sha": "f24de97f099aa8aeb5fc260a700e3e53d518a2c7",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/f24de97f099aa8aeb5fc260a700e3e53d518a2c7",
+        "sha": "37e0140f593d93c576617a2dea35c6709cca214b",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/37e0140f593d93c576617a2dea35c6709cca214b",
         "commit": {
-          "message": "Add apple-touch-icon",
+          "message": "Add tag splash icon 12promax for testing",
           "author": {
-            "date": "2026-05-27T14:20:25Z"
+            "date": "2026-05-28T07:42:36Z"
           }
         }
       },
       {
-        "sha": "c3d311117f510572aa306fdf1bdf8a03feac3dbf",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/c3d311117f510572aa306fdf1bdf8a03feac3dbf",
+        "sha": "f6e288509995fc56ac6ae351b1d596035cc39cdf",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/f6e288509995fc56ac6ae351b1d596035cc39cdf",
         "commit": {
-          "message": "Add favicon",
+          "message": "Add tag splash icon 12promax for testing",
           "author": {
-            "date": "2026-05-27T13:09:31Z"
+            "date": "2026-05-28T07:42:36Z"
           }
         }
       }
@@ -1786,26 +1786,36 @@
   "freeappstore-online/smart-planner": {
     "meta": {
       "created_at": "2026-05-25T12:19:22Z",
-      "pushed_at": "2026-05-27T13:09:41Z"
+      "pushed_at": "2026-05-28T08:53:05Z"
     },
     "commits": [
       {
-        "sha": "8789ef71930a250f06201569c63e19d3062124a0",
-        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/8789ef71930a250f06201569c63e19d3062124a0",
+        "sha": "2afd235952bff52c7c56ca8610bd208e3429edce",
+        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/2afd235952bff52c7c56ca8610bd208e3429edce",
         "commit": {
-          "message": "Add favicon",
+          "message": "Updated dashboard UI",
           "author": {
-            "date": "2026-05-27T13:09:38Z"
+            "date": "2026-05-28T08:50:42Z"
           }
         }
       },
       {
-        "sha": "ef2a9bda1a5c07951b88c68ccd394ffa398ca4f8",
-        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/ef2a9bda1a5c07951b88c68ccd394ffa398ca4f8",
+        "sha": "9f9b23dcd59a31d56ad640c21e20d223d254dcdc",
+        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/9f9b23dcd59a31d56ad640c21e20d223d254dcdc",
         "commit": {
-          "message": "Initial commit",
+          "message": "Updated dashboard UI",
           "author": {
-            "date": "2026-05-25T13:00:34Z"
+            "date": "2026-05-28T04:58:39Z"
+          }
+        }
+      },
+      {
+        "sha": "0d20977d4a3af250a5cc7ac5c708d632aaadd694",
+        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/0d20977d4a3af250a5cc7ac5c708d632aaadd694",
+        "commit": {
+          "message": "Refactor UI and improve UX",
+          "author": {
+            "date": "2026-05-28T04:53:33Z"
           }
         }
       }
