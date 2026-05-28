@@ -2820,9 +2820,19 @@
   "freeappstore-online/shoplist": {
     "meta": {
       "created_at": "2026-05-28T05:42:08Z",
-      "pushed_at": "2026-05-28T11:57:25Z"
+      "pushed_at": "2026-05-28T13:34:39Z"
     },
     "commits": [
+      {
+        "sha": "6f9da7c1740be0185521e60d8e3b135ae20915c7",
+        "html_url": "https://github.com/freeappstore-online/shoplist/commit/6f9da7c1740be0185521e60d8e3b135ae20915c7",
+        "commit": {
+          "message": "update shoplist development",
+          "author": {
+            "date": "2026-05-28T13:34:36Z"
+          }
+        }
+      },
       {
         "sha": "b1fec8ff8e53337a866f8f57b5206c82bfb9f594",
         "html_url": "https://github.com/freeappstore-online/shoplist/commit/b1fec8ff8e53337a866f8f57b5206c82bfb9f594",
@@ -2840,16 +2850,6 @@
           "message": "Fix build script approval issue for deployment",
           "author": {
             "date": "2026-05-28T05:44:00Z"
-          }
-        }
-      },
-      {
-        "sha": "1c721d7bc853f8d88056455c31331a48d052b1a1",
-        "html_url": "https://github.com/freeappstore-online/shoplist/commit/1c721d7bc853f8d88056455c31331a48d052b1a1",
-        "commit": {
-          "message": "Initial app — built with FreeAppStore AI agent",
-          "author": {
-            "date": "2026-05-28T05:42:26Z"
           }
         }
       }
