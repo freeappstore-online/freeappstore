@@ -1372,6 +1372,21 @@
       "type": "connected",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "soccer-live",
+      "name": "soccer-live",
+      "category": "lifestyle",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Soccer scores",
+      "appUrl": "https://soccer-live.freeappstore.online",
+      "repo": "freeappstore-online/soccer-live",
+      "cfProject": "freesoccer-liveapp",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
