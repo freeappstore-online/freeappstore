@@ -2858,36 +2858,36 @@
   "freeappstore-online/agentcoder": {
     "meta": {
       "created_at": "2026-05-28T22:08:30Z",
-      "pushed_at": "2026-05-29T06:49:21Z"
+      "pushed_at": "2026-05-29T11:39:04Z"
     },
     "commits": [
       {
-        "sha": "0dec30a3403825ab9ad3ca83e58cb11228da842d",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/0dec30a3403825ab9ad3ca83e58cb11228da842d",
+        "sha": "33637bac5e0434dcd6b39d6070222c268cc6cb6d",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/33637bac5e0434dcd6b39d6070222c268cc6cb6d",
         "commit": {
-          "message": "fix: add type:module to root package.json for Node ESM shim\n\nPrevents MODULE_TYPELESS_PACKAGE_JSON warning when running\nbin/agentcoder.js via npx.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "feat: live TUI dashboard for bridge CLI\n\nReplaces bare console.log output with a live-updating terminal\ndashboard showing connection status, tmux sessions with agent states,\nactivity feed, and uptime. Zero dependencies — raw ANSI + readline.\n\nBridge now emits events (onConnected, onOutput, onSessionState, etc.)\nthat the TUI observes. Keyboard: q or Ctrl+C to quit.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-29T06:49:20Z"
+            "date": "2026-05-29T11:39:02Z"
           }
         }
       },
       {
-        "sha": "f4e5374ff71c7f93ace43f481d5d163465c41f6b",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/f4e5374ff71c7f93ace43f481d5d163465c41f6b",
+        "sha": "1faa36ca2901a601c12418cd3f36b3480ad5d865",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/1faa36ca2901a601c12418cd3f36b3480ad5d865",
         "commit": {
-          "message": "feat: add session disconnect button in status bar\n\nUsers can now disconnect from a session and return to the session\npicker without refreshing the page.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: remove dead code — unused sendCommand, sleep, clearBuffer\n\nsendCommand was ported from the original project but never called\nby Bridge (which uses polling + captureScreen directly). clearBuffer\nwas exported from useBridge but never called by any component.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-29T05:38:48Z"
+            "date": "2026-05-29T11:31:18Z"
           }
         }
       },
       {
-        "sha": "80ee8a53483cf3bb444d4e07c4ec29a406b18cc4",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/80ee8a53483cf3bb444d4e07c4ec29a406b18cc4",
+        "sha": "dd4101fd7bb4c3abc27fdb7692f79a24b73d6206",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/dd4101fd7bb4c3abc27fdb7692f79a24b73d6206",
         "commit": {
-          "message": "feat: add `agentcoder login` — browser-based CLI auth flow\n\nCLI starts a local HTTP server, opens the browser for GitHub OAuth.\nAfter sign-in, web UI auto-sends the FAS session token back to the\nCLI via localhost POST. Token is saved to ~/.agentcoder/credentials.json\nso subsequent `agentcoder start --session <id>` just works.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: conditional hooks, missing PWA manifest, CliAuthFlow ref leak\n\n1. Move useCallback(disconnect) before early returns — React hooks\n   must not be called conditionally\n2. Add static manifest.webmanifest with 192+512 PNG icons — fixes\n   compliance PWA manifest check\n3. Link manifest in index.html (replaces stale VitePWA comment)\n4. Remove useRef guard in CliAuthFlow — useEffect already handles\n   the redirect; ref prevented retry if token wasn't ready on first\n   render\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-29T05:37:54Z"
+            "date": "2026-05-29T11:25:42Z"
           }
         }
       }
