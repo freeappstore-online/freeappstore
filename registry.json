@@ -1387,6 +1387,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "convert-color",
+      "name": "convert-color",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A free, instant color format converter",
+      "appUrl": "https://convert-color.freeappstore.online",
+      "repo": "freeappstore-online/convert-color",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "TommyHoang2911"
     }
   ]
 }
