@@ -1710,9 +1710,19 @@
   "freeappstore-online/qrreader": {
     "meta": {
       "created_at": "2026-05-23T18:47:11Z",
-      "pushed_at": "2026-05-28T08:30:17Z"
+      "pushed_at": "2026-05-30T04:22:21Z"
     },
     "commits": [
+      {
+        "sha": "5d13ea7343428f7784284e5bf40f8b9d40a549eb",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/5d13ea7343428f7784284e5bf40f8b9d40a549eb",
+        "commit": {
+          "message": "Update for offline mode on ios & suggestion link to QR Generator",
+          "author": {
+            "date": "2026-05-30T04:21:54Z"
+          }
+        }
+      },
       {
         "sha": "63b7600e30a1199e84dec8dab2e5b9edec1a2c16",
         "html_url": "https://github.com/freeappstore-online/qrreader/commit/63b7600e30a1199e84dec8dab2e5b9edec1a2c16",
@@ -1726,16 +1736,6 @@
       {
         "sha": "37e0140f593d93c576617a2dea35c6709cca214b",
         "html_url": "https://github.com/freeappstore-online/qrreader/commit/37e0140f593d93c576617a2dea35c6709cca214b",
-        "commit": {
-          "message": "Add tag splash icon 12promax for testing",
-          "author": {
-            "date": "2026-05-28T07:42:36Z"
-          }
-        }
-      },
-      {
-        "sha": "f6e288509995fc56ac6ae351b1d596035cc39cdf",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/f6e288509995fc56ac6ae351b1d596035cc39cdf",
         "commit": {
           "message": "Add tag splash icon 12promax for testing",
           "author": {
@@ -2314,9 +2314,19 @@
   "freeappstore-online/morse": {
     "meta": {
       "created_at": "2026-05-27T14:59:16Z",
-      "pushed_at": "2026-05-27T14:59:37Z"
+      "pushed_at": "2026-05-30T08:14:54Z"
     },
     "commits": [
+      {
+        "sha": "8baf19d097bb71ba1bd376622362c26974c3cf0c",
+        "html_url": "https://github.com/freeappstore-online/morse/commit/8baf19d097bb71ba1bd376622362c26974c3cf0c",
+        "commit": {
+          "message": "fix: remove invalid focusRingColor CSS property",
+          "author": {
+            "date": "2026-05-30T08:14:54Z"
+          }
+        }
+      },
       {
         "sha": "b1b57e14dd5a6943ab353f14107779580e81c053",
         "html_url": "https://github.com/freeappstore-online/morse/commit/b1b57e14dd5a6943ab353f14107779580e81c053",
@@ -2692,9 +2702,19 @@
   "freeappstore-online/mindmap": {
     "meta": {
       "created_at": "2026-05-27T15:15:54Z",
-      "pushed_at": "2026-05-27T15:16:40Z"
+      "pushed_at": "2026-05-30T07:59:34Z"
     },
     "commits": [
+      {
+        "sha": "92b165ed9dd65677392001d64986cc13ba6cac3d",
+        "html_url": "https://github.com/freeappstore-online/mindmap/commit/92b165ed9dd65677392001d64986cc13ba6cac3d",
+        "commit": {
+          "message": "feat: add R2 deploy workflow",
+          "author": {
+            "date": "2026-05-30T07:59:34Z"
+          }
+        }
+      },
       {
         "sha": "540f0822b0767cc6d3670964bc810fb27b111cbc",
         "html_url": "https://github.com/freeappstore-online/mindmap/commit/540f0822b0767cc6d3670964bc810fb27b111cbc",
@@ -2764,9 +2784,19 @@
   "freeappstore-online/lol-app": {
     "meta": {
       "created_at": "2026-05-28T02:07:02Z",
-      "pushed_at": "2026-05-28T02:07:20Z"
+      "pushed_at": "2026-05-30T07:59:33Z"
     },
     "commits": [
+      {
+        "sha": "77fe5839d871a1fd3d60a960d9e4cb7eab53c90f",
+        "html_url": "https://github.com/freeappstore-online/lol-app/commit/77fe5839d871a1fd3d60a960d9e4cb7eab53c90f",
+        "commit": {
+          "message": "feat: add R2 deploy workflow",
+          "author": {
+            "date": "2026-05-30T07:59:33Z"
+          }
+        }
+      },
       {
         "sha": "32d5f36a9caa9a7683801c335ab0a53445da4647",
         "html_url": "https://github.com/freeappstore-online/lol-app/commit/32d5f36a9caa9a7683801c335ab0a53445da4647",
@@ -2858,36 +2888,36 @@
   "freeappstore-online/agentcoder": {
     "meta": {
       "created_at": "2026-05-28T22:08:30Z",
-      "pushed_at": "2026-05-29T23:46:28Z"
+      "pushed_at": "2026-05-30T08:31:50Z"
     },
     "commits": [
       {
-        "sha": "eaab16e70795fa9d592b7c0a378da1649bff98ca",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/eaab16e70795fa9d592b7c0a378da1649bff98ca",
+        "sha": "98c827f5ca6746aa6b15fe9705038f0e1f9c336d",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/98c827f5ca6746aa6b15fe9705038f0e1f9c336d",
         "commit": {
-          "message": "fix: 5 bugs + 8 new tests for production readiness\n\nBugs fixed:\n1. TUI picker opened before stdin raw mode — keypresses ignored\n2. Multi-agent buffer corruption — applyScreen replaced agent1 and\n   destroyed agent2's content. Now finds and replaces just the\n   target agent's block, preserving other agents.\n3. Diff highlight false-positives on tmux window list lines\n4. discoverSessions auto-opened picker before start() was called\n5. started flag guards picker auto-open timing\n\nNew tests (39 total, up from 31):\n- detectState: ❯ with send hint, ❯ depth boundary (15 lines),\n  lowercase false-positive prevention\n- extractResponse: status line preservation, multi-line with blanks,\n  fallback without ❯ prefix\n- applyScreen: multi-agent preservation, single/replace/trim\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: Enter sends directly, Cmd+Enter for AI compose\n\nRemoved the mandatory two-step compose flow. Enter now sends text\nstraight to the terminal. Cmd+Enter optionally AI-composes first.\nSend button replaces Compose as the primary action.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-29T23:46:26Z"
+            "date": "2026-05-30T08:31:48Z"
           }
         }
       },
       {
-        "sha": "e44c9422f1ce8e3a09d4db5bc5499353b770679a",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/e44c9422f1ce8e3a09d4db5bc5499353b770679a",
+        "sha": "7137e42baea8fe840f96dce92d26a258ecbc3a14",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/7137e42baea8fe840f96dce92d26a258ecbc3a14",
         "commit": {
-          "message": "feat: expandable window picker — select specific tmux windows\n\nPress → on a session in the picker to expand and see all its windows.\nSpace on a window sets it as the explicit target for that session.\nClaude Code windows are marked with ✳. Left arrow collapses.\n\nSessions without an explicit window selection still use smart\nauto-detection (finds the Claude pane automatically).\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "feat: show session ID in status bar + bridge start command when disconnected\n\nStatus bar now shows the session ID so users know which room they're\nin. \"Bridge not connected\" card shows the exact npx command to run\nwith the session ID pre-filled and a copy button.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-29T23:43:02Z"
+            "date": "2026-05-30T08:28:09Z"
           }
         }
       },
       {
-        "sha": "0ee634ebcb287b8a2b60ebdc09335cd95e12ec5b",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/0ee634ebcb287b8a2b60ebdc09335cd95e12ec5b",
+        "sha": "413c93c2f33a39669d2cddf747132fdb5ff5042f",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/413c93c2f33a39669d2cddf747132fdb5ff5042f",
         "commit": {
-          "message": "feat: smart pane detection — find Claude Code in multi-window sessions\n\nInstead of hardcoding :0.0, lists all panes in a session and finds\nthe one with \"claude\" in window name or \"✳\" in pane title. Falls back\nto session's active pane if no Claude pane found.\n\nTested: aipa→1.0, blo→0.0, messy→active (no Claude).\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: dark theme — override --surface to #161616 for card contrast\n\nCards use var(--surface) which was aliased to var(--paper) (#0a0a0a)\n— same as page background, invisible. Now --surface is #161616 in\ndark mode, giving cards visible contrast against the #0a0a0a bg.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-29T23:38:45Z"
+            "date": "2026-05-30T08:13:14Z"
           }
         }
       }
@@ -2896,9 +2926,19 @@
   "freeappstore-online/soccer-live": {
     "meta": {
       "created_at": "2026-05-29T07:56:41Z",
-      "pushed_at": "2026-05-29T08:08:30Z"
+      "pushed_at": "2026-05-30T07:42:59Z"
     },
     "commits": [
+      {
+        "sha": "217261572ab0096104e0acbe4f0b872eb8118e44",
+        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/217261572ab0096104e0acbe4f0b872eb8118e44",
+        "commit": {
+          "message": "fix: remove cache:pnpm from deploy workflow",
+          "author": {
+            "date": "2026-05-30T07:42:59Z"
+          }
+        }
+      },
       {
         "sha": "af354e4093a662ce74e83dcfaae1170cba30cbfc",
         "html_url": "https://github.com/freeappstore-online/soccer-live/commit/af354e4093a662ce74e83dcfaae1170cba30cbfc",
@@ -2916,16 +2956,6 @@
           "message": "Initial app — built with FreeAppStore AI agent",
           "author": {
             "date": "2026-05-29T07:57:01Z"
-          }
-        }
-      },
-      {
-        "sha": "fc29c7e85da5c828295698d4dcf3342868753a8f",
-        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/fc29c7e85da5c828295698d4dcf3342868753a8f",
-        "commit": {
-          "message": "Initial commit",
-          "author": {
-            "date": "2026-05-29T07:56:41Z"
           }
         }
       }
