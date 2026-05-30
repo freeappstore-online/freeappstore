@@ -2858,36 +2858,36 @@
   "freeappstore-online/agentcoder": {
     "meta": {
       "created_at": "2026-05-28T22:08:30Z",
-      "pushed_at": "2026-05-29T11:39:04Z"
+      "pushed_at": "2026-05-29T23:46:28Z"
     },
     "commits": [
       {
-        "sha": "33637bac5e0434dcd6b39d6070222c268cc6cb6d",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/33637bac5e0434dcd6b39d6070222c268cc6cb6d",
+        "sha": "eaab16e70795fa9d592b7c0a378da1649bff98ca",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/eaab16e70795fa9d592b7c0a378da1649bff98ca",
         "commit": {
-          "message": "feat: live TUI dashboard for bridge CLI\n\nReplaces bare console.log output with a live-updating terminal\ndashboard showing connection status, tmux sessions with agent states,\nactivity feed, and uptime. Zero dependencies — raw ANSI + readline.\n\nBridge now emits events (onConnected, onOutput, onSessionState, etc.)\nthat the TUI observes. Keyboard: q or Ctrl+C to quit.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: 5 bugs + 8 new tests for production readiness\n\nBugs fixed:\n1. TUI picker opened before stdin raw mode — keypresses ignored\n2. Multi-agent buffer corruption — applyScreen replaced agent1 and\n   destroyed agent2's content. Now finds and replaces just the\n   target agent's block, preserving other agents.\n3. Diff highlight false-positives on tmux window list lines\n4. discoverSessions auto-opened picker before start() was called\n5. started flag guards picker auto-open timing\n\nNew tests (39 total, up from 31):\n- detectState: ❯ with send hint, ❯ depth boundary (15 lines),\n  lowercase false-positive prevention\n- extractResponse: status line preservation, multi-line with blanks,\n  fallback without ❯ prefix\n- applyScreen: multi-agent preservation, single/replace/trim\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-29T11:39:02Z"
+            "date": "2026-05-29T23:46:26Z"
           }
         }
       },
       {
-        "sha": "1faa36ca2901a601c12418cd3f36b3480ad5d865",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/1faa36ca2901a601c12418cd3f36b3480ad5d865",
+        "sha": "e44c9422f1ce8e3a09d4db5bc5499353b770679a",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/e44c9422f1ce8e3a09d4db5bc5499353b770679a",
         "commit": {
-          "message": "fix: remove dead code — unused sendCommand, sleep, clearBuffer\n\nsendCommand was ported from the original project but never called\nby Bridge (which uses polling + captureScreen directly). clearBuffer\nwas exported from useBridge but never called by any component.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "feat: expandable window picker — select specific tmux windows\n\nPress → on a session in the picker to expand and see all its windows.\nSpace on a window sets it as the explicit target for that session.\nClaude Code windows are marked with ✳. Left arrow collapses.\n\nSessions without an explicit window selection still use smart\nauto-detection (finds the Claude pane automatically).\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-29T11:31:18Z"
+            "date": "2026-05-29T23:43:02Z"
           }
         }
       },
       {
-        "sha": "dd4101fd7bb4c3abc27fdb7692f79a24b73d6206",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/dd4101fd7bb4c3abc27fdb7692f79a24b73d6206",
+        "sha": "0ee634ebcb287b8a2b60ebdc09335cd95e12ec5b",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/0ee634ebcb287b8a2b60ebdc09335cd95e12ec5b",
         "commit": {
-          "message": "fix: conditional hooks, missing PWA manifest, CliAuthFlow ref leak\n\n1. Move useCallback(disconnect) before early returns — React hooks\n   must not be called conditionally\n2. Add static manifest.webmanifest with 192+512 PNG icons — fixes\n   compliance PWA manifest check\n3. Link manifest in index.html (replaces stale VitePWA comment)\n4. Remove useRef guard in CliAuthFlow — useEffect already handles\n   the redirect; ref prevented retry if token wasn't ready on first\n   render\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "feat: smart pane detection — find Claude Code in multi-window sessions\n\nInstead of hardcoding :0.0, lists all panes in a session and finds\nthe one with \"claude\" in window name or \"✳\" in pane title. Falls back\nto session's active pane if no Claude pane found.\n\nTested: aipa→1.0, blo→0.0, messy→active (no Claude).\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-29T11:25:42Z"
+            "date": "2026-05-29T23:38:45Z"
           }
         }
       }
