@@ -1401,6 +1401,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "TommyHoang2911"
+    },
+    {
+      "id": "crontab-explain",
+      "name": "crontab-explain",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Explanation of the Crontab order schedule",
+      "appUrl": "https://crontab-explain.freeappstore.online",
+      "repo": "freeappstore-online/crontab-explain",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "TommyHoang2911"
     }
   ]
 }
