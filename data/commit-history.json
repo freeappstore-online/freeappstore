@@ -1651,7 +1651,7 @@
         "sha": "1341b5195c14b116b910cf647003f4de69af9a38",
         "html_url": "https://github.com/freeappstore-online/faces/commit/1341b5195c14b116b910cf647003f4de69af9a38",
         "commit": {
-          "message": "Multi-step posting flow with rules + confirm + preloaded moderation\n\nFlow: Rules �� Camera → \"Are you sure? You can only post one!\" → Moderate → Upload\n\n- Rules screen explains all 5 rules before camera opens\n- AI models preload in background while user reads rules\n- Confirmation step: \"You can only post one face. This is it — forever on the wall.\"\n- Moderation runs only after user confirms\n- On failure, shows reason and offers Retake\n- preloadModels() exported from moderate.ts for early background loading\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "Multi-step posting flow with rules + confirm + preloaded moderation\n\nFlow: Rules → Camera → \"Are you sure? You can only post one!\" → Moderate → Upload\n\n- Rules screen explains all 5 rules before camera opens\n- AI models preload in background while user reads rules\n- Confirmation step: \"You can only post one face. This is it — forever on the wall.\"\n- Moderation runs only after user confirms\n- On failure, shows reason and offers Retake\n- preloadModels() exported from moderate.ts for early background loading\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-23T20:45:50Z"
           }
