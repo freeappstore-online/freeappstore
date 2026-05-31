@@ -1806,6 +1806,8 @@ footer .container {
      storefront CSP img-src already allows.
    - .author-hero: large header on the per-author page itself.
    ────────────────────────────────────────────────────────────────────────── */
+.app-hero-author { margin-top: 0.5rem; }
+.app-hero-emoji { font-size: 2rem; }
 .author-chip {
   display: inline-flex;
   align-items: center;
