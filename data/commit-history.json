@@ -2888,9 +2888,19 @@
   "freeappstore-online/agentcoder": {
     "meta": {
       "created_at": "2026-05-28T22:08:30Z",
-      "pushed_at": "2026-05-30T20:19:49Z"
+      "pushed_at": "2026-05-31T02:39:08Z"
     },
     "commits": [
+      {
+        "sha": "25cf875a98ade2292314cdfcea83271720586feb",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/25cf875a98ade2292314cdfcea83271720586feb",
+        "commit": {
+          "message": "feat: agent switching — tabs in web UI, Tab key in TUI\n\nWeb UI:\n- Agent tabs bar shows all watched sessions with state dots\n- Click to switch — terminal view, commands, and Ctrl+C target\n  the selected agent\n- Per-agent output buffers (no more mixed single buffer)\n\nTUI CLI:\n- Tab key cycles through watched agents\n- Selected agent highlighted with ▸ and cyan name\n- Auto-selects first agent when picker closes\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-05-31T02:39:06Z"
+          }
+        }
+      },
       {
         "sha": "039cd4df041f3ba5b45d7701fc0ac97289871a87",
         "html_url": "https://github.com/freeappstore-online/agentcoder/commit/039cd4df041f3ba5b45d7701fc0ac97289871a87",
@@ -2908,16 +2918,6 @@
           "message": "fix: Enter sends directly, Cmd+Enter for AI compose\n\nRemoved the mandatory two-step compose flow. Enter now sends text\nstraight to the terminal. Cmd+Enter optionally AI-composes first.\nSend button replaces Compose as the primary action.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-30T08:31:48Z"
-          }
-        }
-      },
-      {
-        "sha": "7137e42baea8fe840f96dce92d26a258ecbc3a14",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/7137e42baea8fe840f96dce92d26a258ecbc3a14",
-        "commit": {
-          "message": "feat: show session ID in status bar + bridge start command when disconnected\n\nStatus bar now shows the session ID so users know which room they're\nin. \"Bridge not connected\" card shows the exact npx command to run\nwith the session ID pre-filled and a copy button.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-30T08:28:09Z"
           }
         }
       }
