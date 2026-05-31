@@ -2923,44 +2923,6 @@
       }
     ]
   },
-  "freeappstore-online/soccer-live": {
-    "meta": {
-      "created_at": "2026-05-29T07:56:41Z",
-      "pushed_at": "2026-05-30T07:42:59Z"
-    },
-    "commits": [
-      {
-        "sha": "217261572ab0096104e0acbe4f0b872eb8118e44",
-        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/217261572ab0096104e0acbe4f0b872eb8118e44",
-        "commit": {
-          "message": "fix: remove cache:pnpm from deploy workflow",
-          "author": {
-            "date": "2026-05-30T07:42:59Z"
-          }
-        }
-      },
-      {
-        "sha": "af354e4093a662ce74e83dcfaae1170cba30cbfc",
-        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/af354e4093a662ce74e83dcfaae1170cba30cbfc",
-        "commit": {
-          "message": "Fix leagues (reliable only), dropdown selector with localStorage, no horizontal scroll, clean card layout",
-          "author": {
-            "date": "2026-05-29T08:08:29Z"
-          }
-        }
-      },
-      {
-        "sha": "1678d321317d3c7838b750a4c94dcf2f917407e2",
-        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/1678d321317d3c7838b750a4c94dcf2f917407e2",
-        "commit": {
-          "message": "Initial app — built with FreeAppStore AI agent",
-          "author": {
-            "date": "2026-05-29T07:57:01Z"
-          }
-        }
-      }
-    ]
-  },
   "freeappstore-online/convert-color": {
     "meta": {
       "created_at": "2026-05-30T01:09:02Z",
@@ -2994,6 +2956,44 @@
           "message": "Build Converter Color APP",
           "author": {
             "date": "2026-05-30T01:07:49Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/soccer-live": {
+    "meta": {
+      "created_at": "2026-05-29T07:56:41Z",
+      "pushed_at": "2026-05-30T07:42:59Z"
+    },
+    "commits": [
+      {
+        "sha": "217261572ab0096104e0acbe4f0b872eb8118e44",
+        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/217261572ab0096104e0acbe4f0b872eb8118e44",
+        "commit": {
+          "message": "fix: remove cache:pnpm from deploy workflow",
+          "author": {
+            "date": "2026-05-30T07:42:59Z"
+          }
+        }
+      },
+      {
+        "sha": "af354e4093a662ce74e83dcfaae1170cba30cbfc",
+        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/af354e4093a662ce74e83dcfaae1170cba30cbfc",
+        "commit": {
+          "message": "Fix leagues (reliable only), dropdown selector with localStorage, no horizontal scroll, clean card layout",
+          "author": {
+            "date": "2026-05-29T08:08:29Z"
+          }
+        }
+      },
+      {
+        "sha": "1678d321317d3c7838b750a4c94dcf2f917407e2",
+        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/1678d321317d3c7838b750a4c94dcf2f917407e2",
+        "commit": {
+          "message": "Initial app — built with FreeAppStore AI agent",
+          "author": {
+            "date": "2026-05-29T07:57:01Z"
           }
         }
       }
