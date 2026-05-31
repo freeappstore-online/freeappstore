@@ -2,9 +2,19 @@
   "freeappstore-online/language": {
     "meta": {
       "created_at": "2026-05-03T02:32:50Z",
-      "pushed_at": "2026-05-27T14:20:49Z"
+      "pushed_at": "2026-05-31T11:18:42Z"
     },
     "commits": [
+      {
+        "sha": "c11b6e4ba3d4cf34d2b88ed1a005811da20af946",
+        "html_url": "https://github.com/freeappstore-online/language/commit/c11b6e4ba3d4cf34d2b88ed1a005811da20af946",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:42Z"
+          }
+        }
+      },
       {
         "sha": "072fefdf7a4613f6550ed816a60c5e71f0a3e012",
         "html_url": "https://github.com/freeappstore-online/language/commit/072fefdf7a4613f6550ed816a60c5e71f0a3e012",
@@ -24,25 +34,25 @@
             "date": "2026-05-27T13:45:49Z"
           }
         }
-      },
-      {
-        "sha": "c6a71fd620c3ed18b89f4dd2f067fb523a03abad",
-        "html_url": "https://github.com/freeappstore-online/language/commit/c6a71fd620c3ed18b89f4dd2f067fb523a03abad",
-        "commit": {
-          "message": "ci: add R2 deploy workflow",
-          "author": {
-            "date": "2026-05-27T03:47:09Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/quiz": {
     "meta": {
       "created_at": "2026-05-03T02:32:57Z",
-      "pushed_at": "2026-05-27T14:19:10Z"
+      "pushed_at": "2026-05-31T11:18:46Z"
     },
     "commits": [
+      {
+        "sha": "64085056cd56756834b9d40cd745425863ff7a9c",
+        "html_url": "https://github.com/freeappstore-online/quiz/commit/64085056cd56756834b9d40cd745425863ff7a9c",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:45Z"
+          }
+        }
+      },
       {
         "sha": "b482ea9c7a44352dd151ebe6e2e556bb3fc958c3",
         "html_url": "https://github.com/freeappstore-online/quiz/commit/b482ea9c7a44352dd151ebe6e2e556bb3fc958c3",
@@ -62,25 +72,25 @@
             "date": "2026-05-27T13:46:00Z"
           }
         }
-      },
-      {
-        "sha": "a87377217c27df9e1899984f988f0db04762c3ea",
-        "html_url": "https://github.com/freeappstore-online/quiz/commit/a87377217c27df9e1899984f988f0db04762c3ea",
-        "commit": {
-          "message": "ci: add R2 deploy workflow",
-          "author": {
-            "date": "2026-05-27T03:47:21Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/chessclock": {
     "meta": {
       "created_at": "2026-05-04T10:01:30Z",
-      "pushed_at": "2026-05-27T14:19:27Z"
+      "pushed_at": "2026-05-31T11:18:50Z"
     },
     "commits": [
+      {
+        "sha": "78ceced181896a7cef991583a401c3677949a5a5",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/78ceced181896a7cef991583a401c3677949a5a5",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:50Z"
+          }
+        }
+      },
       {
         "sha": "bab22d4d5317495fe7b95d2671fb72d84fe624e3",
         "html_url": "https://github.com/freeappstore-online/chessclock/commit/bab22d4d5317495fe7b95d2671fb72d84fe624e3",
@@ -100,25 +110,25 @@
             "date": "2026-05-27T14:15:42Z"
           }
         }
-      },
-      {
-        "sha": "8b1eec2e2df4321f2e75cffaf8967e0c21583539",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/8b1eec2e2df4321f2e75cffaf8967e0c21583539",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:17Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/timer": {
     "meta": {
       "created_at": "2026-05-04T10:57:59Z",
-      "pushed_at": "2026-05-27T14:19:31Z"
+      "pushed_at": "2026-05-31T11:18:51Z"
     },
     "commits": [
+      {
+        "sha": "318b2cb2b30985b0bcf6af4770e5dda65794edac",
+        "html_url": "https://github.com/freeappstore-online/timer/commit/318b2cb2b30985b0bcf6af4770e5dda65794edac",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:51Z"
+          }
+        }
+      },
       {
         "sha": "d5803beed25b3466685d9bcdc79f0d9990479541",
         "html_url": "https://github.com/freeappstore-online/timer/commit/d5803beed25b3466685d9bcdc79f0d9990479541",
@@ -138,25 +148,25 @@
             "date": "2026-05-27T14:11:09Z"
           }
         }
-      },
-      {
-        "sha": "ebd6441139b113857b8d9ae23580aa77ddb5908c",
-        "html_url": "https://github.com/freeappstore-online/timer/commit/ebd6441139b113857b8d9ae23580aa77ddb5908c",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:20Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/books": {
     "meta": {
       "created_at": "2026-05-04T00:16:25Z",
-      "pushed_at": "2026-05-27T23:36:28Z"
+      "pushed_at": "2026-05-31T11:18:47Z"
     },
     "commits": [
+      {
+        "sha": "b9e7cc029bd0234183c1f007226e12c0b38745b6",
+        "html_url": "https://github.com/freeappstore-online/books/commit/b9e7cc029bd0234183c1f007226e12c0b38745b6",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:46Z"
+          }
+        }
+      },
       {
         "sha": "56a05a3bbb8214729f39be75ede6918c75e5fcd1",
         "html_url": "https://github.com/freeappstore-online/books/commit/56a05a3bbb8214729f39be75ede6918c75e5fcd1",
@@ -174,16 +184,6 @@
           "message": "Add apple-touch-icon",
           "author": {
             "date": "2026-05-27T14:19:10Z"
-          }
-        }
-      },
-      {
-        "sha": "a0d42aae358271473918c8c121f77e8c43014042",
-        "html_url": "https://github.com/freeappstore-online/books/commit/a0d42aae358271473918c8c121f77e8c43014042",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:03Z"
           }
         }
       }
@@ -230,9 +230,19 @@
   "freeappstore-online/notes": {
     "meta": {
       "created_at": "2026-05-04T10:58:03Z",
-      "pushed_at": "2026-05-27T23:40:09Z"
+      "pushed_at": "2026-05-31T11:18:54Z"
     },
     "commits": [
+      {
+        "sha": "e8bf9e175ce1348d74e9ffbe7e79983b5c596c3e",
+        "html_url": "https://github.com/freeappstore-online/notes/commit/e8bf9e175ce1348d74e9ffbe7e79983b5c596c3e",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:54Z"
+          }
+        }
+      },
       {
         "sha": "0d0a10b504f9fdf1348162a2fca6e0b8182824d5",
         "html_url": "https://github.com/freeappstore-online/notes/commit/0d0a10b504f9fdf1348162a2fca6e0b8182824d5",
@@ -252,25 +262,25 @@
             "date": "2026-05-27T23:33:55Z"
           }
         }
-      },
-      {
-        "sha": "f7e2b9671c8e26c6b5027689d65d5ea748923825",
-        "html_url": "https://github.com/freeappstore-online/notes/commit/f7e2b9671c8e26c6b5027689d65d5ea748923825",
-        "commit": {
-          "message": "feat: shippability pass — PWA icons, soft delete + trash, backups, error boundary\n\n- Manifest now declares 192/512 icons + maskable variant so Android/Chrome\n  PWA install renders properly (was puzzle-piece)\n- Delete is no longer destructive: notes are soft-deleted with deletedAt,\n  a 6s \"Undo\" toast appears immediately, and a Trash view (sidebar entry\n  when non-empty) supports per-item restore + permanent delete + empty all\n- \"Backup\" button in the sidebar exports a JSON of every page; Import\n  accepts both .md (single page) and .json (full backup, with parent-id\n  remapping so the imported tree stays intact)\n- ErrorBoundary wraps App: on crash, user gets the error message, a\n  \"Download backup\" recovery action (raw localStorage), and \"Reload\"\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T23:13:04Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/math": {
     "meta": {
       "created_at": "2026-05-03T02:32:52Z",
-      "pushed_at": "2026-05-27T14:19:06Z"
+      "pushed_at": "2026-05-31T11:18:43Z"
     },
     "commits": [
+      {
+        "sha": "417965b72baef0a99102b335d5ca4b115fbc9e20",
+        "html_url": "https://github.com/freeappstore-online/math/commit/417965b72baef0a99102b335d5ca4b115fbc9e20",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:43Z"
+          }
+        }
+      },
       {
         "sha": "4aebb6c3180f4346893d2d98620072cbdbf0be86",
         "html_url": "https://github.com/freeappstore-online/math/commit/4aebb6c3180f4346893d2d98620072cbdbf0be86",
@@ -290,25 +300,25 @@
             "date": "2026-05-27T13:45:53Z"
           }
         }
-      },
-      {
-        "sha": "95a6e17dbcf47b98c6dc8e87fa53b969f268461f",
-        "html_url": "https://github.com/freeappstore-online/math/commit/95a6e17dbcf47b98c6dc8e87fa53b969f268461f",
-        "commit": {
-          "message": "ci: add R2 deploy workflow",
-          "author": {
-            "date": "2026-05-27T03:47:12Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/bandmates": {
     "meta": {
       "created_at": "2026-05-04T01:43:04Z",
-      "pushed_at": "2026-05-27T14:19:17Z"
+      "pushed_at": "2026-05-31T11:18:48Z"
     },
     "commits": [
+      {
+        "sha": "9dcedc6367c78d090ed4b6bc1571fada10f48371",
+        "html_url": "https://github.com/freeappstore-online/bandmates/commit/9dcedc6367c78d090ed4b6bc1571fada10f48371",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:48Z"
+          }
+        }
+      },
       {
         "sha": "4fa4314af48537d1172162e5f59a49e20e41d20c",
         "html_url": "https://github.com/freeappstore-online/bandmates/commit/4fa4314af48537d1172162e5f59a49e20e41d20c",
@@ -328,25 +338,25 @@
             "date": "2026-05-27T13:46:07Z"
           }
         }
-      },
-      {
-        "sha": "c4be2c6f2207be1a7ca3427ae13be71a04c32946",
-        "html_url": "https://github.com/freeappstore-online/bandmates/commit/c4be2c6f2207be1a7ca3427ae13be71a04c32946",
-        "commit": {
-          "message": "ci: add R2 deploy workflow",
-          "author": {
-            "date": "2026-05-27T03:46:52Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/converter": {
     "meta": {
       "created_at": "2026-05-04T10:58:01Z",
-      "pushed_at": "2026-05-27T14:19:34Z"
+      "pushed_at": "2026-05-31T11:18:53Z"
     },
     "commits": [
+      {
+        "sha": "730529fcb908ad3dcf3bb71365e7b8bc552c01af",
+        "html_url": "https://github.com/freeappstore-online/converter/commit/730529fcb908ad3dcf3bb71365e7b8bc552c01af",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:52Z"
+          }
+        }
+      },
       {
         "sha": "ea99c0459d8dad2509c10fa4a01fa2a5ebc4816a",
         "html_url": "https://github.com/freeappstore-online/converter/commit/ea99c0459d8dad2509c10fa4a01fa2a5ebc4816a",
@@ -366,25 +376,25 @@
             "date": "2026-05-27T14:10:31Z"
           }
         }
-      },
-      {
-        "sha": "638ff9a4b0f4941b71637769915b9c3736bf7b6a",
-        "html_url": "https://github.com/freeappstore-online/converter/commit/638ff9a4b0f4941b71637769915b9c3736bf7b6a",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:24Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/qrcode": {
     "meta": {
       "created_at": "2026-05-04T10:58:07Z",
-      "pushed_at": "2026-05-27T14:19:45Z"
+      "pushed_at": "2026-05-31T11:18:56Z"
     },
     "commits": [
+      {
+        "sha": "e249e90c5e9fe0a90a514a47ad8098e7edba4a82",
+        "html_url": "https://github.com/freeappstore-online/qrcode/commit/e249e90c5e9fe0a90a514a47ad8098e7edba4a82",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:56Z"
+          }
+        }
+      },
       {
         "sha": "74ca14a6b3fa521fa87d99635c8b88e344c640e4",
         "html_url": "https://github.com/freeappstore-online/qrcode/commit/74ca14a6b3fa521fa87d99635c8b88e344c640e4",
@@ -402,16 +412,6 @@
           "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
             "date": "2026-05-27T14:11:05Z"
-          }
-        }
-      },
-      {
-        "sha": "32e526de09f51e25cfbb97fa6502f3f50c47c332",
-        "html_url": "https://github.com/freeappstore-online/qrcode/commit/32e526de09f51e25cfbb97fa6502f3f50c47c332",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:37Z"
           }
         }
       }
@@ -458,9 +458,19 @@
   "freeappstore-online/habits": {
     "meta": {
       "created_at": "2026-05-04T10:58:17Z",
-      "pushed_at": "2026-05-27T23:36:22Z"
+      "pushed_at": "2026-05-31T11:19:02Z"
     },
     "commits": [
+      {
+        "sha": "d36dfeb962cbdf589a5f9c18740c4a08b068aa14",
+        "html_url": "https://github.com/freeappstore-online/habits/commit/d36dfeb962cbdf589a5f9c18740c4a08b068aa14",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:02Z"
+          }
+        }
+      },
       {
         "sha": "f3a1ce9c5ac5233bffa0d5736d9fb5a893bb29ae",
         "html_url": "https://github.com/freeappstore-online/habits/commit/f3a1ce9c5ac5233bffa0d5736d9fb5a893bb29ae",
@@ -480,25 +490,25 @@
             "date": "2026-05-27T14:19:57Z"
           }
         }
-      },
-      {
-        "sha": "f13fab81c485223dc6cb3740a98d4b051c5584b8",
-        "html_url": "https://github.com/freeappstore-online/habits/commit/f13fab81c485223dc6cb3740a98d4b051c5584b8",
-        "commit": {
-          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
-          "author": {
-            "date": "2026-05-27T14:10:44Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/colorpicker": {
     "meta": {
       "created_at": "2026-05-04T10:58:10Z",
-      "pushed_at": "2026-05-27T14:19:48Z"
+      "pushed_at": "2026-05-31T11:18:57Z"
     },
     "commits": [
+      {
+        "sha": "e22655694dffe43edac34b3c21012e8cba321885",
+        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/e22655694dffe43edac34b3c21012e8cba321885",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:57Z"
+          }
+        }
+      },
       {
         "sha": "784ae4a72c02960728821d5860acab3d223b423b",
         "html_url": "https://github.com/freeappstore-online/colorpicker/commit/784ae4a72c02960728821d5860acab3d223b423b",
@@ -518,25 +528,25 @@
             "date": "2026-05-27T14:10:27Z"
           }
         }
-      },
-      {
-        "sha": "8b89978e7fb2aebeb96b9f83a7b66e226350f117",
-        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/8b89978e7fb2aebeb96b9f83a7b66e226350f117",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:41Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/music": {
     "meta": {
       "created_at": "2026-05-03T02:32:53Z",
-      "pushed_at": "2026-05-27T13:46:00Z"
+      "pushed_at": "2026-05-31T11:18:44Z"
     },
     "commits": [
+      {
+        "sha": "d0d13e8cc5885f64814651dcd655885c698bd85c",
+        "html_url": "https://github.com/freeappstore-online/music/commit/d0d13e8cc5885f64814651dcd655885c698bd85c",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:44Z"
+          }
+        }
+      },
       {
         "sha": "1c922d348cf9fd97e2fce9cf0e3b3f2c0615d859",
         "html_url": "https://github.com/freeappstore-online/music/commit/1c922d348cf9fd97e2fce9cf0e3b3f2c0615d859",
@@ -556,25 +566,25 @@
             "date": "2026-05-27T03:47:18Z"
           }
         }
-      },
-      {
-        "sha": "7afc1c6b1c6ae7b321e45b2549d94097597eed5a",
-        "html_url": "https://github.com/freeappstore-online/music/commit/7afc1c6b1c6ae7b321e45b2549d94097597eed5a",
-        "commit": {
-          "message": "Add root tsconfig.json, test script, repository field\n\nFixes quality scanner warnings for monorepo structure detection.",
-          "author": {
-            "date": "2026-05-16T23:31:28Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/flashcards": {
     "meta": {
       "created_at": "2026-05-04T10:58:15Z",
-      "pushed_at": "2026-05-27T14:19:57Z"
+      "pushed_at": "2026-05-31T11:19:01Z"
     },
     "commits": [
+      {
+        "sha": "17f1f563ace5a283e8105994afe2c23ead5979c7",
+        "html_url": "https://github.com/freeappstore-online/flashcards/commit/17f1f563ace5a283e8105994afe2c23ead5979c7",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:01Z"
+          }
+        }
+      },
       {
         "sha": "003b8550aa929c1e30f2d4a53a07f147c6192352",
         "html_url": "https://github.com/freeappstore-online/flashcards/commit/003b8550aa929c1e30f2d4a53a07f147c6192352",
@@ -594,25 +604,25 @@
             "date": "2026-05-27T14:10:41Z"
           }
         }
-      },
-      {
-        "sha": "483ae20e4f11139ab157ee41a5608e4569416fee",
-        "html_url": "https://github.com/freeappstore-online/flashcards/commit/483ae20e4f11139ab157ee41a5608e4569416fee",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:51Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-05-27T23:29:34Z"
+      "pushed_at": "2026-05-31T11:19:00Z"
     },
     "commits": [
+      {
+        "sha": "08b26f6542cde1e9090f316cbd55c01064976091",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/08b26f6542cde1e9090f316cbd55c01064976091",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:59Z"
+          }
+        }
+      },
       {
         "sha": "a22afd97a64bb4f19b41d69efe669792fd925f70",
         "html_url": "https://github.com/freeappstore-online/whiteboard/commit/a22afd97a64bb4f19b41d69efe669792fd925f70",
@@ -632,25 +642,25 @@
             "date": "2026-05-27T23:04:03Z"
           }
         }
-      },
-      {
-        "sha": "fc912d6670df6fb68db82d036dc3c6236769be1c",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/fc912d6670df6fb68db82d036dc3c6236769be1c",
-        "commit": {
-          "message": "Update whiteboard",
-          "author": {
-            "date": "2026-05-27T15:00:23Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/password": {
     "meta": {
       "created_at": "2026-05-04T10:58:11Z",
-      "pushed_at": "2026-05-27T14:19:51Z"
+      "pushed_at": "2026-05-31T11:18:58Z"
     },
     "commits": [
+      {
+        "sha": "9c02d04e80e8a942f70a29dff583232825b0afc5",
+        "html_url": "https://github.com/freeappstore-online/password/commit/9c02d04e80e8a942f70a29dff583232825b0afc5",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:58Z"
+          }
+        }
+      },
       {
         "sha": "f60e5daf36b6d1df219d15f2e3f994d8fc1c53ef",
         "html_url": "https://github.com/freeappstore-online/password/commit/f60e5daf36b6d1df219d15f2e3f994d8fc1c53ef",
@@ -668,16 +678,6 @@
           "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
             "date": "2026-05-27T14:10:55Z"
-          }
-        }
-      },
-      {
-        "sha": "a175b1f4928fe18640e69339b5b78da9c87fb7e1",
-        "html_url": "https://github.com/freeappstore-online/password/commit/a175b1f4928fe18640e69339b5b78da9c87fb7e1",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:44Z"
           }
         }
       }
@@ -724,9 +724,19 @@
   "freeappstore-online/weather": {
     "meta": {
       "created_at": "2026-05-04T10:58:19Z",
-      "pushed_at": "2026-05-27T14:20:04Z"
+      "pushed_at": "2026-05-31T11:19:03Z"
     },
     "commits": [
+      {
+        "sha": "816efd7cac169f0319274d9c6f6753da6f309ed7",
+        "html_url": "https://github.com/freeappstore-online/weather/commit/816efd7cac169f0319274d9c6f6753da6f309ed7",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:03Z"
+          }
+        }
+      },
       {
         "sha": "53cf2a6bf0ef025704289df8b8c52d63ae06be7b",
         "html_url": "https://github.com/freeappstore-online/weather/commit/53cf2a6bf0ef025704289df8b8c52d63ae06be7b",
@@ -746,25 +756,25 @@
             "date": "2026-05-27T14:11:17Z"
           }
         }
-      },
-      {
-        "sha": "e3ce63de1709d99fbe23a5741176df438851eccb",
-        "html_url": "https://github.com/freeappstore-online/weather/commit/e3ce63de1709d99fbe23a5741176df438851eccb",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:57Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/pomodoro": {
     "meta": {
       "created_at": "2026-05-04T10:58:05Z",
-      "pushed_at": "2026-05-27T14:19:41Z"
+      "pushed_at": "2026-05-31T11:18:55Z"
     },
     "commits": [
+      {
+        "sha": "8b38b26d28a1d8bfa725b522c3b8dda1c98a902b",
+        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/8b38b26d28a1d8bfa725b522c3b8dda1c98a902b",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:18:55Z"
+          }
+        }
+      },
       {
         "sha": "659a2801acde4a639e3b0d2faaa457b17f6b7104",
         "html_url": "https://github.com/freeappstore-online/pomodoro/commit/659a2801acde4a639e3b0d2faaa457b17f6b7104",
@@ -782,16 +792,6 @@
           "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
           "author": {
             "date": "2026-05-27T14:10:58Z"
-          }
-        }
-      },
-      {
-        "sha": "cf8978fa0c9b6be3c666f083ca377946bc383229",
-        "html_url": "https://github.com/freeappstore-online/pomodoro/commit/cf8978fa0c9b6be3c666f083ca377946bc383229",
-        "commit": {
-          "message": "docs: add README",
-          "author": {
-            "date": "2026-05-27T13:46:34Z"
           }
         }
       }
@@ -1102,9 +1102,19 @@
   "freeappstore-online/snowman": {
     "meta": {
       "created_at": "2026-05-17T15:41:58Z",
-      "pushed_at": "2026-05-27T14:20:07Z"
+      "pushed_at": "2026-05-31T11:19:05Z"
     },
     "commits": [
+      {
+        "sha": "c962a025585adf12000c1704dfb134a7f3e83948",
+        "html_url": "https://github.com/freeappstore-online/snowman/commit/c962a025585adf12000c1704dfb134a7f3e83948",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:05Z"
+          }
+        }
+      },
       {
         "sha": "bcb7caffb87231ee52147c47e219c63b09a48daf",
         "html_url": "https://github.com/freeappstore-online/snowman/commit/bcb7caffb87231ee52147c47e219c63b09a48daf",
@@ -1124,25 +1134,25 @@
             "date": "2026-05-27T13:49:35Z"
           }
         }
-      },
-      {
-        "sha": "cb3373864ed80a2909e948410298c1c468a4eb2c",
-        "html_url": "https://github.com/freeappstore-online/snowman/commit/cb3373864ed80a2909e948410298c1c468a4eb2c",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:08:56Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/typeflow": {
     "meta": {
       "created_at": "2026-05-18T09:59:33Z",
-      "pushed_at": "2026-05-27T14:20:10Z"
+      "pushed_at": "2026-05-31T11:19:07Z"
     },
     "commits": [
+      {
+        "sha": "32d053ef9b757fb939364e968f33fc7924c1ba3e",
+        "html_url": "https://github.com/freeappstore-online/typeflow/commit/32d053ef9b757fb939364e968f33fc7924c1ba3e",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:06Z"
+          }
+        }
+      },
       {
         "sha": "6792cab8eed7c18120244f0ba6d4a7bcffbc0d10",
         "html_url": "https://github.com/freeappstore-online/typeflow/commit/6792cab8eed7c18120244f0ba6d4a7bcffbc0d10",
@@ -1162,25 +1172,25 @@
             "date": "2026-05-27T14:16:20Z"
           }
         }
-      },
-      {
-        "sha": "c01418361d2630189782cadcec7e6078636633fe",
-        "html_url": "https://github.com/freeappstore-online/typeflow/commit/c01418361d2630189782cadcec7e6078636633fe",
-        "commit": {
-          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
-          "author": {
-            "date": "2026-05-27T14:11:13Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/streak": {
     "meta": {
       "created_at": "2026-05-19T21:30:48Z",
-      "pushed_at": "2026-05-27T13:49:41Z"
+      "pushed_at": "2026-05-31T11:19:08Z"
     },
     "commits": [
+      {
+        "sha": "18d8ed1eeb2eb64a743e94bcf8a70224e8b41cff",
+        "html_url": "https://github.com/freeappstore-online/streak/commit/18d8ed1eeb2eb64a743e94bcf8a70224e8b41cff",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:08Z"
+          }
+        }
+      },
       {
         "sha": "f7fa67038c32b1e13b659a210b0778406fc136e8",
         "html_url": "https://github.com/freeappstore-online/streak/commit/f7fa67038c32b1e13b659a210b0778406fc136e8",
@@ -1200,25 +1210,25 @@
             "date": "2026-05-27T13:09:03Z"
           }
         }
-      },
-      {
-        "sha": "12058d8843b8932c19c1b82787a39fb16f0f89f8",
-        "html_url": "https://github.com/freeappstore-online/streak/commit/12058d8843b8932c19c1b82787a39fb16f0f89f8",
-        "commit": {
-          "message": "ci: add R2 deploy workflow",
-          "author": {
-            "date": "2026-05-27T03:47:26Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-05-27T23:36:25Z"
+      "pushed_at": "2026-05-31T11:19:10Z"
     },
     "commits": [
+      {
+        "sha": "7f383e696ebafa28ba47df9e196263ff072aca13",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/7f383e696ebafa28ba47df9e196263ff072aca13",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:10Z"
+          }
+        }
+      },
       {
         "sha": "d98538150b7c4b1b747bc285aebfeca1c7c81371",
         "html_url": "https://github.com/freeappstore-online/artout/commit/d98538150b7c4b1b747bc285aebfeca1c7c81371",
@@ -1236,16 +1246,6 @@
           "message": "Add apple-touch-icon",
           "author": {
             "date": "2026-05-27T14:20:11Z"
-          }
-        }
-      },
-      {
-        "sha": "3cc3e0482b44e6bd687ab4410f26a80944992eb4",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/3cc3e0482b44e6bd687ab4410f26a80944992eb4",
-        "commit": {
-          "message": "Add PLATFORM-NOTE.md: follow-up to scale request for platform team\n\nFocused ask: geo bounding box query is the one thing that unblocks\ngrowth. Offers to write the PR. Includes reproduction steps.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-25T05:26:17Z"
           }
         }
       }
@@ -1406,9 +1406,19 @@
   "freeappstore-online/whenly": {
     "meta": {
       "created_at": "2026-05-18T19:09:34Z",
-      "pushed_at": "2026-05-27T14:20:21Z"
+      "pushed_at": "2026-05-31T11:19:12Z"
     },
     "commits": [
+      {
+        "sha": "7ea8871148557a393d402fa49882f0f87de5114a",
+        "html_url": "https://github.com/freeappstore-online/whenly/commit/7ea8871148557a393d402fa49882f0f87de5114a",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:12Z"
+          }
+        }
+      },
       {
         "sha": "8d3ddc7f4d7afea41fa8e1a314e3295a24cc0cbc",
         "html_url": "https://github.com/freeappstore-online/whenly/commit/8d3ddc7f4d7afea41fa8e1a314e3295a24cc0cbc",
@@ -1428,25 +1438,25 @@
             "date": "2026-05-27T13:49:42Z"
           }
         }
-      },
-      {
-        "sha": "f869008af1474117b1fda75e8124eb86548e02c4",
-        "html_url": "https://github.com/freeappstore-online/whenly/commit/f869008af1474117b1fda75e8124eb86548e02c4",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:09:07Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/kanban": {
     "meta": {
       "created_at": "2026-05-19T22:18:23Z",
-      "pushed_at": "2026-05-27T13:49:31Z"
+      "pushed_at": "2026-05-31T11:19:14Z"
     },
     "commits": [
+      {
+        "sha": "0864b893ad6e3ff63441dcb59514147ce10536d7",
+        "html_url": "https://github.com/freeappstore-online/kanban/commit/0864b893ad6e3ff63441dcb59514147ce10536d7",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:13Z"
+          }
+        }
+      },
       {
         "sha": "50d390012f56902e10824b2d434fedb6498183a0",
         "html_url": "https://github.com/freeappstore-online/kanban/commit/50d390012f56902e10824b2d434fedb6498183a0",
@@ -1466,25 +1476,25 @@
             "date": "2026-05-27T13:09:11Z"
           }
         }
-      },
-      {
-        "sha": "a2d26ef94388e831b8f46502e18e8c78d59a42d4",
-        "html_url": "https://github.com/freeappstore-online/kanban/commit/a2d26ef94388e831b8f46502e18e8c78d59a42d4",
-        "commit": {
-          "message": "ci: add R2 deploy workflow",
-          "author": {
-            "date": "2026-05-27T03:47:06Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/docbot": {
     "meta": {
       "created_at": "2026-05-20T09:44:20Z",
-      "pushed_at": "2026-05-27T14:14:46Z"
+      "pushed_at": "2026-05-31T11:19:15Z"
     },
     "commits": [
+      {
+        "sha": "45088f3cc93b9c5a0dfcb9e5db3de0427215727a",
+        "html_url": "https://github.com/freeappstore-online/docbot/commit/45088f3cc93b9c5a0dfcb9e5db3de0427215727a",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:15Z"
+          }
+        }
+      },
       {
         "sha": "337beac8018ce6d04a5dc3c856c966c85d04af5c",
         "html_url": "https://github.com/freeappstore-online/docbot/commit/337beac8018ce6d04a5dc3c856c966c85d04af5c",
@@ -1504,25 +1514,25 @@
             "date": "2026-05-27T14:10:35Z"
           }
         }
-      },
-      {
-        "sha": "407ea50c7ffd5f6b1d98c10aee5b2c45f35f2f17",
-        "html_url": "https://github.com/freeappstore-online/docbot/commit/407ea50c7ffd5f6b1d98c10aee5b2c45f35f2f17",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:09:14Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/population-agent": {
     "meta": {
       "created_at": "2026-05-20T10:09:02Z",
-      "pushed_at": "2026-05-27T14:14:50Z"
+      "pushed_at": "2026-05-31T11:19:16Z"
     },
     "commits": [
+      {
+        "sha": "99780b076537d818a57f7eb52beb0a54a07697ff",
+        "html_url": "https://github.com/freeappstore-online/population-agent/commit/99780b076537d818a57f7eb52beb0a54a07697ff",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:16Z"
+          }
+        }
+      },
       {
         "sha": "3ec2f878210ea302ca11bbc9e7787f042eec1c6f",
         "html_url": "https://github.com/freeappstore-online/population-agent/commit/3ec2f878210ea302ca11bbc9e7787f042eec1c6f",
@@ -1542,25 +1552,25 @@
             "date": "2026-05-27T14:11:02Z"
           }
         }
-      },
-      {
-        "sha": "b999ca0bcc8859d618254871e54f0ca132c52428",
-        "html_url": "https://github.com/freeappstore-online/population-agent/commit/b999ca0bcc8859d618254871e54f0ca132c52428",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:09:17Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/facer": {
     "meta": {
       "created_at": "2026-05-20T10:09:22Z",
-      "pushed_at": "2026-05-27T13:09:23Z"
+      "pushed_at": "2026-05-31T11:19:17Z"
     },
     "commits": [
+      {
+        "sha": "7e69c9f4e17a5d85104d553e5190275615da1df8",
+        "html_url": "https://github.com/freeappstore-online/facer/commit/7e69c9f4e17a5d85104d553e5190275615da1df8",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:17Z"
+          }
+        }
+      },
       {
         "sha": "fd86b6e4de2118c637e410ff0be41e738888cad2",
         "html_url": "https://github.com/freeappstore-online/facer/commit/fd86b6e4de2118c637e410ff0be41e738888cad2",
@@ -1580,25 +1590,25 @@
             "date": "2026-05-27T03:47:05Z"
           }
         }
-      },
-      {
-        "sha": "2fa3711fa32377ea7556b8d93529b73647867c7b",
-        "html_url": "https://github.com/freeappstore-online/facer/commit/2fa3711fa32377ea7556b8d93529b73647867c7b",
-        "commit": {
-          "message": "Add platform analytics loader\n\nEmbeds <script src=\".../v1/analytics.js?app=<id>\" defer></script> into\nweb/index.html so visits start showing up in the creator dashboard. The\nloader is served from the platform Worker; tags evolve without a redeploy.",
-          "author": {
-            "date": "2026-05-21T02:28:14Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/pdfreader": {
     "meta": {
       "created_at": "2026-05-22T00:24:40Z",
-      "pushed_at": "2026-05-27T14:20:24Z"
+      "pushed_at": "2026-05-31T11:19:19Z"
     },
     "commits": [
+      {
+        "sha": "aafe7f81fbcf6b69a580269bd94387c6d96046d7",
+        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/aafe7f81fbcf6b69a580269bd94387c6d96046d7",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:18Z"
+          }
+        }
+      },
       {
         "sha": "625bef94a4f9e8092d5f4bafcf4b34c3e9a9fd01",
         "html_url": "https://github.com/freeappstore-online/pdfreader/commit/625bef94a4f9e8092d5f4bafcf4b34c3e9a9fd01",
@@ -1618,25 +1628,25 @@
             "date": "2026-05-27T13:09:24Z"
           }
         }
-      },
-      {
-        "sha": "86961982745d934f1285f3f83e2ef9b4a4b0af69",
-        "html_url": "https://github.com/freeappstore-online/pdfreader/commit/86961982745d934f1285f3f83e2ef9b4a4b0af69",
-        "commit": {
-          "message": "ci: add VCQA code health scan to deploy\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T04:09:01Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/faces": {
     "meta": {
       "created_at": "2026-05-23T20:34:58Z",
-      "pushed_at": "2026-05-27T14:20:18Z"
+      "pushed_at": "2026-05-31T11:19:11Z"
     },
     "commits": [
+      {
+        "sha": "144d2a7d9b7af4397765f0b59d5329469e5bded0",
+        "html_url": "https://github.com/freeappstore-online/faces/commit/144d2a7d9b7af4397765f0b59d5329469e5bded0",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:11Z"
+          }
+        }
+      },
       {
         "sha": "552cbb5a211faa67616f0b8da533c6ccfc4eda07",
         "html_url": "https://github.com/freeappstore-online/faces/commit/552cbb5a211faa67616f0b8da533c6ccfc4eda07",
@@ -1656,25 +1666,25 @@
             "date": "2026-05-23T20:45:50Z"
           }
         }
-      },
-      {
-        "sha": "25578ac873709e15a889c281c176a94ba3ffe0d7",
-        "html_url": "https://github.com/freeappstore-online/faces/commit/25578ac873709e15a889c281c176a94ba3ffe0d7",
-        "commit": {
-          "message": "Add client-side AI moderation: face, age, NSFW checks\n\nAll checks run in-browser — nothing leaves the device until approved:\n- face-api.js: exactly 1 face required (no group, no faceless)\n- age estimation: must be 18+ (ageGenderNet)\n- nsfwjs: blocks nudity/porn (MobileNet classifier)\n\nModels lazy-loaded only when user picks a photo (~1.3MB face-api\n+ ~3MB tfjs/nsfw on first use). Main bundle stays at 70KB.\n\nPhoto cannot be uploaded until all checks pass. \"Add to wall\"\nbutton is disabled during checking and on failure.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-23T20:41:01Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/flight-search": {
     "meta": {
       "created_at": "2026-05-25T01:21:52Z",
-      "pushed_at": "2026-05-27T13:45:00Z"
+      "pushed_at": "2026-05-31T11:19:20Z"
     },
     "commits": [
+      {
+        "sha": "dc9511de8ee086587300731b92820f804ad945d7",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/dc9511de8ee086587300731b92820f804ad945d7",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:20Z"
+          }
+        }
+      },
       {
         "sha": "3cf69ff3a216a4b93c97b31d463ec2ecec8db800",
         "html_url": "https://github.com/freeappstore-online/flight-search/commit/3cf69ff3a216a4b93c97b31d463ec2ecec8db800",
@@ -1694,25 +1704,25 @@
             "date": "2026-05-27T13:09:27Z"
           }
         }
-      },
-      {
-        "sha": "891a201fd3269170c6ac3cea010c0f5d6ded4ba7",
-        "html_url": "https://github.com/freeappstore-online/flight-search/commit/891a201fd3269170c6ac3cea010c0f5d6ded4ba7",
-        "commit": {
-          "message": "fix: use correct CSS var names, improve flight card layout\n\nAll 63 inline style references used var(--color-X) but CSS defines\nvar(--X) — fixed to --paper, --ink, --muted, --line, --accent, --panel.\nStacked From/To with swap button, Google Flights-style timeline,\ntrip type toggle, text-only Compare/Save actions, best-price badge.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-25T07:20:17Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/qrreader": {
     "meta": {
       "created_at": "2026-05-23T18:47:11Z",
-      "pushed_at": "2026-05-30T04:22:21Z"
+      "pushed_at": "2026-05-31T11:19:21Z"
     },
     "commits": [
+      {
+        "sha": "93112341d72d3831d0439f3a6442153141ef7886",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/93112341d72d3831d0439f3a6442153141ef7886",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:21Z"
+          }
+        }
+      },
       {
         "sha": "5d13ea7343428f7784284e5bf40f8b9d40a549eb",
         "html_url": "https://github.com/freeappstore-online/qrreader/commit/5d13ea7343428f7784284e5bf40f8b9d40a549eb",
@@ -1732,25 +1742,25 @@
             "date": "2026-05-28T08:22:27Z"
           }
         }
-      },
-      {
-        "sha": "37e0140f593d93c576617a2dea35c6709cca214b",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/37e0140f593d93c576617a2dea35c6709cca214b",
-        "commit": {
-          "message": "Add tag splash icon 12promax for testing",
-          "author": {
-            "date": "2026-05-28T07:42:36Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/decision-wheel": {
     "meta": {
       "created_at": "2026-05-25T07:12:16Z",
-      "pushed_at": "2026-05-27T13:09:38Z"
+      "pushed_at": "2026-05-31T11:19:22Z"
     },
     "commits": [
+      {
+        "sha": "f49936676d0aa47361f42e5c23a285946ebaa3c1",
+        "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/f49936676d0aa47361f42e5c23a285946ebaa3c1",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:22Z"
+          }
+        }
+      },
       {
         "sha": "5dbb86e1d0cfbcb532862006732b562b4a6d3284",
         "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/5dbb86e1d0cfbcb532862006732b562b4a6d3284",
@@ -1770,25 +1780,25 @@
             "date": "2026-05-27T04:08:52Z"
           }
         }
-      },
-      {
-        "sha": "757d80f02a74fd9ee1bc0ce946eb19d183b74615",
-        "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/757d80f02a74fd9ee1bc0ce946eb19d183b74615",
-        "commit": {
-          "message": "feat: improve wheel UX and interaction behavior",
-          "author": {
-            "date": "2026-05-25T09:03:22Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/smart-planner": {
     "meta": {
       "created_at": "2026-05-25T12:19:22Z",
-      "pushed_at": "2026-05-28T08:53:05Z"
+      "pushed_at": "2026-05-31T11:19:23Z"
     },
     "commits": [
+      {
+        "sha": "cd34944f7cbace83ae0cdb16a381c7ca22fbdd39",
+        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/cd34944f7cbace83ae0cdb16a381c7ca22fbdd39",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:23Z"
+          }
+        }
+      },
       {
         "sha": "2afd235952bff52c7c56ca8610bd208e3429edce",
         "html_url": "https://github.com/freeappstore-online/smart-planner/commit/2afd235952bff52c7c56ca8610bd208e3429edce",
@@ -1808,25 +1818,25 @@
             "date": "2026-05-28T04:58:39Z"
           }
         }
-      },
-      {
-        "sha": "0d20977d4a3af250a5cc7ac5c708d632aaadd694",
-        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/0d20977d4a3af250a5cc7ac5c708d632aaadd694",
-        "commit": {
-          "message": "Refactor UI and improve UX",
-          "author": {
-            "date": "2026-05-28T04:53:33Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/message": {
     "meta": {
       "created_at": "2026-05-26T00:48:56Z",
-      "pushed_at": "2026-05-27T23:36:13Z"
+      "pushed_at": "2026-05-31T11:19:24Z"
     },
     "commits": [
+      {
+        "sha": "056982bfac358bab9ec25185695ed59b316c7c00",
+        "html_url": "https://github.com/freeappstore-online/message/commit/056982bfac358bab9ec25185695ed59b316c7c00",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:24Z"
+          }
+        }
+      },
       {
         "sha": "f4ed3b7a2692ef8d728ab243483fec57c4440d93",
         "html_url": "https://github.com/freeappstore-online/message/commit/f4ed3b7a2692ef8d728ab243483fec57c4440d93",
@@ -1844,16 +1854,6 @@
           "message": "feat: add PWA manifest\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T14:49:37Z"
-          }
-        }
-      },
-      {
-        "sha": "33fd0ed6a36b0c3ae032e5caabdd0621672d4ea1",
-        "html_url": "https://github.com/freeappstore-online/message/commit/33fd0ed6a36b0c3ae032e5caabdd0621672d4ea1",
-        "commit": {
-          "message": "Add apple-touch-icon",
-          "author": {
-            "date": "2026-05-27T14:20:28Z"
           }
         }
       }
@@ -1880,9 +1880,19 @@
   "freeappstore-online/spreadsheet": {
     "meta": {
       "created_at": "2026-05-27T12:59:31Z",
-      "pushed_at": "2026-05-27T23:40:22Z"
+      "pushed_at": "2026-05-31T11:19:26Z"
     },
     "commits": [
+      {
+        "sha": "f9d3ba854a6d65b56450b5dd20c32408d92c3097",
+        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/f9d3ba854a6d65b56450b5dd20c32408d92c3097",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:25Z"
+          }
+        }
+      },
       {
         "sha": "30f6d1979a29ce7a0d322f6555099a9578094522",
         "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/30f6d1979a29ce7a0d322f6555099a9578094522",
@@ -1900,16 +1910,6 @@
           "message": "Close gaps: string literals, cross-sheet refs, header context menus\n\nFormula engine:\n- String literals in formulas: =SUBSTITUTE(A1,\"old\",\"new\") works\n- splitArgs respects quoted commas: LEN(\"a,b,c\") = 5\n- Escaped quotes: \"a\"\"b\" → a\"b\n- Cross-sheet refs: =Sheet2!A1, =SUM(Sheet2!A1:A10)\n- Case-insensitive sheet names (Excel convention)\n- Circular detection across sheets\n\nHeaders:\n- Right-click column header → context menu (insert/delete/sort)\n- Right-click row header → context menu (insert/delete/freeze)\n- Left-click column/row header → selects entire column/row\n\n10 new tests added (109 total, all passing).\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T23:35:51Z"
-          }
-        }
-      },
-      {
-        "sha": "39633d484470648616750a41c2dd1d8b5660146c",
-        "html_url": "https://github.com/freeappstore-online/spreadsheet/commit/39633d484470648616750a41c2dd1d8b5660146c",
-        "commit": {
-          "message": "Add freeze first row and auto-fill drag handle\n\nFreeze first row:\n- Right-click any cell → \"Freeze first row\"\n- Row 1 sticks below the column header while scrolling\n- Accent border underline indicates the freeze boundary\n- Toggle off via the same menu item\n\nAuto-fill drag handle:\n- Small accent square at bottom-right of selection\n- Drag down/up/left/right to fill cells\n- Pattern detection:\n  - Single number: increments by 1 (1 → 2,3,4...)\n  - Two+ numbers: detects step (2,4 → 6,8,10... / 10,9 → 8,7,6...)\n  - Text+number (Item 1, Item 2): increments trailing number\n  - Falls back to repeating the source values\n\nPWA workbox config also got skipWaiting + clientsClaim +\nnavigateFallbackDenylist for cleaner SW updates.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T15:08:54Z"
           }
         }
       }
@@ -2044,9 +2044,19 @@
   "freeappstore-online/circuits": {
     "meta": {
       "created_at": "2026-05-27T14:53:40Z",
-      "pushed_at": "2026-05-27T14:54:02Z"
+      "pushed_at": "2026-05-31T11:19:29Z"
     },
     "commits": [
+      {
+        "sha": "e35e503efc5b9677f6c4d5f65adb965417a2d222",
+        "html_url": "https://github.com/freeappstore-online/circuits/commit/e35e503efc5b9677f6c4d5f65adb965417a2d222",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:29Z"
+          }
+        }
+      },
       {
         "sha": "2a0716e72fd8868f565d80582099ab3f719ee34b",
         "html_url": "https://github.com/freeappstore-online/circuits/commit/2a0716e72fd8868f565d80582099ab3f719ee34b",
@@ -2098,9 +2108,19 @@
   "freeappstore-online/geography": {
     "meta": {
       "created_at": "2026-05-27T14:54:49Z",
-      "pushed_at": "2026-05-27T14:55:11Z"
+      "pushed_at": "2026-05-31T11:19:31Z"
     },
     "commits": [
+      {
+        "sha": "a21c9451fddf7961ae2ed0472fb90dd94074de54",
+        "html_url": "https://github.com/freeappstore-online/geography/commit/a21c9451fddf7961ae2ed0472fb90dd94074de54",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:31Z"
+          }
+        }
+      },
       {
         "sha": "c6a14a7afee493b172880da6f3d456a406323eea",
         "html_url": "https://github.com/freeappstore-online/geography/commit/c6a14a7afee493b172880da6f3d456a406323eea",
@@ -2134,9 +2154,19 @@
   "freeappstore-online/meditation": {
     "meta": {
       "created_at": "2026-05-27T14:56:00Z",
-      "pushed_at": "2026-05-27T14:56:08Z"
+      "pushed_at": "2026-05-31T11:19:33Z"
     },
     "commits": [
+      {
+        "sha": "34be6dfc555ce84e47bb3cf85bf70007cf388a28",
+        "html_url": "https://github.com/freeappstore-online/meditation/commit/34be6dfc555ce84e47bb3cf85bf70007cf388a28",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:33Z"
+          }
+        }
+      },
       {
         "sha": "8ce4b9d0d5e42bb284ff29acfa9176867f0f13b3",
         "html_url": "https://github.com/freeappstore-online/meditation/commit/8ce4b9d0d5e42bb284ff29acfa9176867f0f13b3",
@@ -2684,9 +2714,19 @@
   "freeappstore-online/encode": {
     "meta": {
       "created_at": "2026-05-27T15:15:31Z",
-      "pushed_at": "2026-05-27T15:15:53Z"
+      "pushed_at": "2026-05-31T11:19:44Z"
     },
     "commits": [
+      {
+        "sha": "347dc811697b99aa436ac4566b473ba66f7319f9",
+        "html_url": "https://github.com/freeappstore-online/encode/commit/347dc811697b99aa436ac4566b473ba66f7319f9",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:44Z"
+          }
+        }
+      },
       {
         "sha": "c5a562eb9299205c74e37131a15baa7cfbff5d3d",
         "html_url": "https://github.com/freeappstore-online/encode/commit/c5a562eb9299205c74e37131a15baa7cfbff5d3d",
@@ -2748,9 +2788,19 @@
   "freeappstore-online/photo": {
     "meta": {
       "created_at": "2026-05-27T15:17:54Z",
-      "pushed_at": "2026-05-27T15:18:17Z"
+      "pushed_at": "2026-05-31T11:19:47Z"
     },
     "commits": [
+      {
+        "sha": "fc66df7017b36ac78e0c47294ee3889d315d7c04",
+        "html_url": "https://github.com/freeappstore-online/photo/commit/fc66df7017b36ac78e0c47294ee3889d315d7c04",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:46Z"
+          }
+        }
+      },
       {
         "sha": "4eb5a0ed30e1b961099ee8484f08f552ec25932b",
         "html_url": "https://github.com/freeappstore-online/photo/commit/4eb5a0ed30e1b961099ee8484f08f552ec25932b",
@@ -2822,9 +2872,19 @@
   "freeappstore-online/hello-world-greetings": {
     "meta": {
       "created_at": "2026-05-28T05:42:25Z",
-      "pushed_at": "2026-05-28T05:42:41Z"
+      "pushed_at": "2026-05-31T11:19:48Z"
     },
     "commits": [
+      {
+        "sha": "6b8d4efae1296c4691ab234d7d67ee1c03a4ffdb",
+        "html_url": "https://github.com/freeappstore-online/hello-world-greetings/commit/6b8d4efae1296c4691ab234d7d67ee1c03a4ffdb",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:48Z"
+          }
+        }
+      },
       {
         "sha": "b599755021452187f292a699de9fd9ce1ef76772",
         "html_url": "https://github.com/freeappstore-online/hello-world-greetings/commit/b599755021452187f292a699de9fd9ce1ef76772",
@@ -2888,9 +2948,19 @@
   "freeappstore-online/agentcoder": {
     "meta": {
       "created_at": "2026-05-28T22:08:30Z",
-      "pushed_at": "2026-05-31T03:11:54Z"
+      "pushed_at": "2026-05-31T11:19:50Z"
     },
     "commits": [
+      {
+        "sha": "640570eb21c0875befda3e0e9ad32230c0ef29a2",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/640570eb21c0875befda3e0e9ad32230c0ef29a2",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:50Z"
+          }
+        }
+      },
       {
         "sha": "410523fc1544cd44f5aa45ec23f3adb98704c89a",
         "html_url": "https://github.com/freeappstore-online/agentcoder/commit/410523fc1544cd44f5aa45ec23f3adb98704c89a",
@@ -2910,25 +2980,25 @@
             "date": "2026-05-31T03:10:01Z"
           }
         }
-      },
-      {
-        "sha": "e4c1213f30e2fe81f8aa026282b48cea980667d4",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/e4c1213f30e2fe81f8aa026282b48cea980667d4",
-        "commit": {
-          "message": "feat: task completion detection, dismissible key prompt, full README\n\nTask completion:\n- Detects busy→ready transition per agent\n- Shows \"Task completed\" banner with agent name\n- Auto-triggers translation on completion if key available\n- \"Summarize\" button if key exists but auto-translate off\n- \"Add key for summary\" button if no key\n\nKey-optional UX:\n- KeyPrompt is now dismissible (Dismiss button)\n- All features work without API key\n- Key only enables AI summaries and compose\n\nREADME:\n- Full product documentation: features, architecture, quick start\n- CLI reference with keyboard shortcuts\n- Development guide\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-31T03:01:52Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/convert-color": {
     "meta": {
       "created_at": "2026-05-30T01:09:02Z",
-      "pushed_at": "2026-05-30T02:16:58Z"
+      "pushed_at": "2026-05-31T11:19:52Z"
     },
     "commits": [
+      {
+        "sha": "0f9b0d2278b03e2e8557209766293db0aac8d51e",
+        "html_url": "https://github.com/freeappstore-online/convert-color/commit/0f9b0d2278b03e2e8557209766293db0aac8d51e",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:52Z"
+          }
+        }
+      },
       {
         "sha": "9ac6d6e21f155402fa7457c55d563fd999e30dad",
         "html_url": "https://github.com/freeappstore-online/convert-color/commit/9ac6d6e21f155402fa7457c55d563fd999e30dad",
@@ -2948,25 +3018,25 @@
             "date": "2026-05-30T01:55:58Z"
           }
         }
-      },
-      {
-        "sha": "732569bf12e8b745b1d7e5aff6adb9338df94666",
-        "html_url": "https://github.com/freeappstore-online/convert-color/commit/732569bf12e8b745b1d7e5aff6adb9338df94666",
-        "commit": {
-          "message": "Build Converter Color APP",
-          "author": {
-            "date": "2026-05-30T01:07:49Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/soccer-live": {
     "meta": {
       "created_at": "2026-05-29T07:56:41Z",
-      "pushed_at": "2026-05-30T07:42:59Z"
+      "pushed_at": "2026-05-31T11:19:51Z"
     },
     "commits": [
+      {
+        "sha": "b05def7c3f0828176a25cf001881c6e94623a4fb",
+        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/b05def7c3f0828176a25cf001881c6e94623a4fb",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:51Z"
+          }
+        }
+      },
       {
         "sha": "217261572ab0096104e0acbe4f0b872eb8118e44",
         "html_url": "https://github.com/freeappstore-online/soccer-live/commit/217261572ab0096104e0acbe4f0b872eb8118e44",
@@ -2986,25 +3056,25 @@
             "date": "2026-05-29T08:08:29Z"
           }
         }
-      },
-      {
-        "sha": "1678d321317d3c7838b750a4c94dcf2f917407e2",
-        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/1678d321317d3c7838b750a4c94dcf2f917407e2",
-        "commit": {
-          "message": "Initial app — built with FreeAppStore AI agent",
-          "author": {
-            "date": "2026-05-29T07:57:01Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/crontab-explain": {
     "meta": {
       "created_at": "2026-05-30T16:06:42Z",
-      "pushed_at": "2026-05-30T16:09:37Z"
+      "pushed_at": "2026-05-31T11:19:53Z"
     },
     "commits": [
+      {
+        "sha": "9bd6e5496b0429906910ad181f7dfbdd71206e97",
+        "html_url": "https://github.com/freeappstore-online/crontab-explain/commit/9bd6e5496b0429906910ad181f7dfbdd71206e97",
+        "commit": {
+          "message": "fix: enable pinch-zoom (a11y)",
+          "author": {
+            "date": "2026-05-31T11:19:53Z"
+          }
+        }
+      },
       {
         "sha": "7aa01d4766c01c401d2e71e66033d15efd6bae4e",
         "html_url": "https://github.com/freeappstore-online/crontab-explain/commit/7aa01d4766c01c401d2e71e66033d15efd6bae4e",
@@ -3022,16 +3092,6 @@
           "message": "Update Readme",
           "author": {
             "date": "2026-05-30T15:57:23Z"
-          }
-        }
-      },
-      {
-        "sha": "a537c10111695f71951bcd5355d440a5e916bce9",
-        "html_url": "https://github.com/freeappstore-online/crontab-explain/commit/a537c10111695f71951bcd5355d440a5e916bce9",
-        "commit": {
-          "message": "Crontab explain - Part of FreeAppStore",
-          "author": {
-            "date": "2026-05-30T15:55:19Z"
           }
         }
       }
