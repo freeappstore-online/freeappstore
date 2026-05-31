@@ -815,7 +815,7 @@ uniqueAuthors.forEach(username => {
 console.log(`Generated ${uniqueAuthors.length} author page(s) at /u/`);
 
 // --- Generate /developers index page ---
-const developersTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'developers.html'), 'utf8');
+const creatorsTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'creators.html'), 'utf8');
 const devCards = uniqueAuthors.map(username => {
   const authorApps = apps.filter(a => a.creatorGithub === username);
   const badges = computeAuthorBadges(authorApps);
@@ -832,14 +832,14 @@ const devCards = uniqueAuthors.map(username => {
         </a>`;
 }).join('\n');
 
-let developersHtml = developersTemplate
+let creatorsHtml = creatorsTemplate
   .replace('__CF_BEACON__', CF_BEACON_SNIPPET)
   .replace('{{DEVELOPERS_GRID}}', devCards);
 for (const [k, v] of Object.entries(sriHashes)) {
-  developersHtml = developersHtml.replaceAll(`{{SRI_${k}}}`, v);
+  creatorsHtml = creatorsHtml.replaceAll(`{{SRI_${k}}}`, v);
 }
-fs.writeFileSync(path.join(DIST, 'developers.html'), developersHtml);
-console.log(`Generated /developers page (${uniqueAuthors.length} developers)`);
+fs.writeFileSync(path.join(DIST, 'creators.html'), creatorsHtml);
+console.log(`Generated /creators page (${uniqueAuthors.length} creators)`);
 
 // --- Generate sitemap.xml ---
 
@@ -870,7 +870,7 @@ const sitemapEntries = [
   `  <url><loc>https://freeappstore.online/skills.md</loc><lastmod>${today}</lastmod><priority>0.9</priority></url>`,
   `  <url><loc>https://freeappstore.online/llms.txt</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
   `  <url><loc>https://freeappstore.online/quality.html</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
-  `  <url><loc>https://freeappstore.online/developers</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
+  `  <url><loc>https://freeappstore.online/creators</loc><lastmod>${today}</lastmod><priority>0.7</priority></url>`,
   `  <url><loc>https://freeappstore.online/privacy.html</loc><lastmod>${today}</lastmod><priority>0.5</priority></url>`,
   `  <url><loc>https://freeappstore.online/terms.html</loc><lastmod>${today}</lastmod><priority>0.5</priority></url>`,
   ...apps.map(app =>
@@ -920,6 +920,7 @@ const filesToCopy = [
   'prism.js',
   'prism-autodetect.js',
   'settings.js',
+  '_redirects',
 ];
 
 // Security headers via CF Pages _headers — single source of truth for CSP and

@@ -2180,7 +2180,7 @@ pre[class*="language-"] {
 /* =====================================================================
  * Developers index page — grid of developer cards
  * ===================================================================== */
-.developers-grid {
+.creators-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.25rem;
@@ -2247,7 +2247,7 @@ pre[class*="language-"] {
 :root[data-theme="dark"] .dev-badge.founding-developer { background: #451a03; color: #fcd34d; }
 
 @media (max-width: 600px) {
-  .developers-grid { grid-template-columns: 1fr; }
+  .creators-grid { grid-template-columns: 1fr; }
 }
 
 /* ── Capabilities page ────────────────────────────────────────── */
