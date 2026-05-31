@@ -305,9 +305,10 @@ function renderAppCard(app) {
   // img.error listener and reads it. No more JS-string-in-HTML-attribute splicing.
   const letter = escapeHtml((app.name || '?').trim().charAt(0).toUpperCase());
   const authAttr = app.requiresAuth ? ' data-requires-auth="1"' : '';
+  const iconEmoji = app.icon || `&#${(app.name || '?').codePointAt(0)};`;
   return `        <div class="app-card compact" data-id="${escapeHtml(app.id)}" data-category="${escapeHtml(app.category)}" data-about="/apps/${escapeHtml(app.id)}"${authAttr}>
           <div class="app-icon" data-letter="${letter}">
-            <img src="${escapeHtml(app.appUrl)}/apple-touch-icon.png" alt="" loading="lazy" />
+            <span class="app-emoji" aria-hidden="true">${iconEmoji}</span>
           </div>
           <div class="app-body">
             <span class="app-name">${escapeHtml(app.name)}${qualityBadge}</span>
