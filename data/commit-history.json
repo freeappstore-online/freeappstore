@@ -2948,36 +2948,36 @@
   "freeappstore-online/agentcoder": {
     "meta": {
       "created_at": "2026-05-28T22:08:30Z",
-      "pushed_at": "2026-05-31T11:19:50Z"
+      "pushed_at": "2026-05-31T23:32:23Z"
     },
     "commits": [
       {
-        "sha": "640570eb21c0875befda3e0e9ad32230c0ef29a2",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/640570eb21c0875befda3e0e9ad32230c0ef29a2",
+        "sha": "99750477e732e4a8070782ccca7e763e14355346",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/99750477e732e4a8070782ccca7e763e14355346",
         "commit": {
-          "message": "fix: enable pinch-zoom (a11y)",
+          "message": "fix: 3 bugs — false busy detection, chunk leak, empty input guard\n\n1. Agent state false positive: status words like \"Reading\" or\n   \"Writing\" in Claude's response text caused detectState to report\n   busy even when idle at a prompt. Fix: check prompt indicators\n   first (ready beats status words), only use ctrl+c as the\n   unambiguous busy signal that overrides a prompt. Also limit\n   status word matching to the last 5 lines of screen.\n\n2. Stale chunk memory leak: partial multi-chunk messages that\n   never completed (lost chunks) accumulated in the chunks map\n   forever. Fix: 30-second timeout cleanup interval evicts\n   incomplete entries.\n\n3. extractResponse with empty userInput: ''.includes('') is always\n   true, matching every line and returning nothing useful.\n   Fix: early return with full capture for empty/whitespace input.\n\nTests: 117 → 121 (+4 new)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-31T11:19:50Z"
+            "date": "2026-05-31T23:32:21Z"
           }
         }
       },
       {
-        "sha": "410523fc1544cd44f5aa45ec23f3adb98704c89a",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/410523fc1544cd44f5aa45ec23f3adb98704c89a",
+        "sha": "8eac7847dcf2280e252db7b97dfb3f042f2ea1f2",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/8eac7847dcf2280e252db7b97dfb3f042f2ea1f2",
         "commit": {
-          "message": "docs: update CLAUDE.md + README.md to match current state\n\nCLAUDE.md: full architecture map, design decisions, distribution,\ninfra details, 44 tests. README.md: test count updated to 44.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: 5 bugs — agent discovery, stale translation, idle polling\n\n1. Agents discovered from status messages, not just heartbeats.\n   Output/status arriving before the first heartbeat now immediately\n   populates the agent list so the UI shows data right away.\n\n2. Translation state (summary, error) resets on agent switch.\n   Previously switching agents kept the old agent's summary visible\n   over the new agent's terminal output.\n\n3. Auto-translate length tracker resets on agent switch.\n   lastTranslatedLen held the old agent's value, blocking auto-\n   translate from firing for the new agent's buffer.\n\n4. Bridge skips tmux polling when room is disconnected.\n   Previously ran captureScreen/detectState every 2s even when\n   the WebSocket was down — wasted CPU for nothing.\n\n5. TUI byte counter no longer counts unsent data.\n   Consequence of #4: no polling means no recordOutput calls when\n   disconnected, so \"Sent\" accurately reflects delivered bytes.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-31T03:11:52Z"
+            "date": "2026-05-31T23:14:20Z"
           }
         }
       },
       {
-        "sha": "a4ac42d69be847cf50203b09fa2aef84489ea01c",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/a4ac42d69be847cf50203b09fa2aef84489ea01c",
+        "sha": "f25acba87ea67f81ff79481d6be607abe31a200c",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/f25acba87ea67f81ff79481d6be607abe31a200c",
         "commit": {
-          "message": "fix: 4 bugs + 5 new tests (44 total)\n\nBugs fixed:\n1. Task completion effect fired on every output update — separated\n   state transition detection from translate call\n2. \"Waiting for output\" hidden when key dismissed — show when\n   keyDismissed too\n3. Duplicate \"Catch up\" + \"Summarize\" buttons — hide Catch up when\n   taskCompleted banner is showing\n4. Updated index.test.ts — old marker-based applyScreen tests replaced\n   with per-agent buffer + chunk reassembly tests matching new code\n\nNew tests:\n- parseTranslation: unicode in summary, large filesChanged arrays\n- chunk reassembly: out-of-order chunks, incomplete detection\n- per-agent buffers: replace, preserve, truncate\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: remove anthropic-version header — fails CORS preflight\n\nThe proxy's CORS config allows Authorization + Content-Type but not\nanthropic-version. Sending it from the browser triggers a preflight\nfailure (\"Failed to fetch\"). The proxy forwards it server-side — the\nclient doesn't need to send it.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-31T03:10:01Z"
+            "date": "2026-05-31T23:10:55Z"
           }
         }
       }
