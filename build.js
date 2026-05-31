@@ -959,6 +959,16 @@ fs.writeFileSync(path.join(DIST, '_headers'), [
   `  Content-Security-Policy: ${csp}`,
   `  Content-Security-Policy-Report-Only: ${csp}`,
   '',
+  '# Long cache for static assets (CSS/JS have SRI hashes so stale = harmless)',
+  '/*.css',
+  '  Cache-Control: public, max-age=86400, stale-while-revalidate=604800',
+  '/*.js',
+  '  Cache-Control: public, max-age=86400, stale-while-revalidate=604800',
+  '/*.png',
+  '  Cache-Control: public, max-age=604800, immutable',
+  '/*.svg',
+  '  Cache-Control: public, max-age=604800, immutable',
+  '',
 ].join('\n'));
 
 // Copy static assets. .html files get a substitution pass for {{SRI_*}}

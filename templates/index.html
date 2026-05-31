@@ -44,6 +44,8 @@
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+  <meta http-equiv="x-dns-prefetch-control" content="on" />
+  <link rel="dns-prefetch" href="https://api.freeappstore.online" />
   <!-- CSP lives in dist/_headers (HTTP-header source of truth). frame-ancestors,
        report-to, and Strict-Transport-Security only work as real HTTP headers,
        so duplicating CSP in <meta> creates drift; we don't. Local dev (no CF
@@ -238,6 +240,6 @@
   </footer>
 
   <script src="/storefront.js" integrity="{{SRI_STOREFRONT_JS}}" defer></script>
-  <script src="/auth.js" integrity="{{SRI_AUTH_JS}}"></script>
+  <script src="/auth.js" integrity="{{SRI_AUTH_JS}}" defer></script>
 </body>
 </html>
