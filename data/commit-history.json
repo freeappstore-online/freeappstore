@@ -2888,36 +2888,36 @@
   "freeappstore-online/agentcoder": {
     "meta": {
       "created_at": "2026-05-28T22:08:30Z",
-      "pushed_at": "2026-05-31T02:39:08Z"
+      "pushed_at": "2026-05-31T03:11:54Z"
     },
     "commits": [
       {
-        "sha": "25cf875a98ade2292314cdfcea83271720586feb",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/25cf875a98ade2292314cdfcea83271720586feb",
+        "sha": "410523fc1544cd44f5aa45ec23f3adb98704c89a",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/410523fc1544cd44f5aa45ec23f3adb98704c89a",
         "commit": {
-          "message": "feat: agent switching — tabs in web UI, Tab key in TUI\n\nWeb UI:\n- Agent tabs bar shows all watched sessions with state dots\n- Click to switch — terminal view, commands, and Ctrl+C target\n  the selected agent\n- Per-agent output buffers (no more mixed single buffer)\n\nTUI CLI:\n- Tab key cycles through watched agents\n- Selected agent highlighted with ▸ and cyan name\n- Auto-selects first agent when picker closes\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "docs: update CLAUDE.md + README.md to match current state\n\nCLAUDE.md: full architecture map, design decisions, distribution,\ninfra details, 44 tests. README.md: test count updated to 44.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-31T02:39:06Z"
+            "date": "2026-05-31T03:11:52Z"
           }
         }
       },
       {
-        "sha": "039cd4df041f3ba5b45d7701fc0ac97289871a87",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/039cd4df041f3ba5b45d7701fc0ac97289871a87",
+        "sha": "a4ac42d69be847cf50203b09fa2aef84489ea01c",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/a4ac42d69be847cf50203b09fa2aef84489ea01c",
         "commit": {
-          "message": "fix: remove compose preview — send directly, no two-step flow\n\nRemoved composedPreview state and UI entirely. Enter sends text\nstraight to the agent. Cmd+Enter AI-rewrites and sends in one step\n(no preview/confirm). Simpler, faster, less confusing.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: 4 bugs + 5 new tests (44 total)\n\nBugs fixed:\n1. Task completion effect fired on every output update — separated\n   state transition detection from translate call\n2. \"Waiting for output\" hidden when key dismissed — show when\n   keyDismissed too\n3. Duplicate \"Catch up\" + \"Summarize\" buttons — hide Catch up when\n   taskCompleted banner is showing\n4. Updated index.test.ts — old marker-based applyScreen tests replaced\n   with per-agent buffer + chunk reassembly tests matching new code\n\nNew tests:\n- parseTranslation: unicode in summary, large filesChanged arrays\n- chunk reassembly: out-of-order chunks, incomplete detection\n- per-agent buffers: replace, preserve, truncate\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-30T20:19:48Z"
+            "date": "2026-05-31T03:10:01Z"
           }
         }
       },
       {
-        "sha": "98c827f5ca6746aa6b15fe9705038f0e1f9c336d",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/98c827f5ca6746aa6b15fe9705038f0e1f9c336d",
+        "sha": "e4c1213f30e2fe81f8aa026282b48cea980667d4",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/e4c1213f30e2fe81f8aa026282b48cea980667d4",
         "commit": {
-          "message": "fix: Enter sends directly, Cmd+Enter for AI compose\n\nRemoved the mandatory two-step compose flow. Enter now sends text\nstraight to the terminal. Cmd+Enter optionally AI-composes first.\nSend button replaces Compose as the primary action.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "feat: task completion detection, dismissible key prompt, full README\n\nTask completion:\n- Detects busy→ready transition per agent\n- Shows \"Task completed\" banner with agent name\n- Auto-triggers translation on completion if key available\n- \"Summarize\" button if key exists but auto-translate off\n- \"Add key for summary\" button if no key\n\nKey-optional UX:\n- KeyPrompt is now dismissible (Dismiss button)\n- All features work without API key\n- Key only enables AI summaries and compose\n\nREADME:\n- Full product documentation: features, architecture, quick start\n- CLI reference with keyboard shortcuts\n- Development guide\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-30T08:31:48Z"
+            "date": "2026-05-31T03:01:52Z"
           }
         }
       }
