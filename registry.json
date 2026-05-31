@@ -1415,6 +1415,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "TommyHoang2911"
+    },
+    {
+      "id": "planning-poker",
+      "name": "planning-poker",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Realtime planning poker for Scrum teams to estimate story points and reach consensus.",
+      "appUrl": "https://planning-poker.freeappstore.online",
+      "repo": "freeappstore-online/planning-poker",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "ChaoLIUqaq"
     }
   ]
 }
