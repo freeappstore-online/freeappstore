@@ -58,9 +58,12 @@ validateRegistry(apps);
 const scoresPath = path.join(DIST, 'quality', 'scores.json');
 const qualityScores = fs.existsSync(scoresPath) ? JSON.parse(fs.readFileSync(scoresPath, 'utf8')) : {};
 
-// Read templates
-const indexTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'index.html'), 'utf8');
-const detailTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'app-detail.html'), 'utf8');
+// Shared header partial — injected into every page via {{HEADER}} placeholder
+const headerPartial = fs.readFileSync(path.join(ROOT, 'partials', 'header.html'), 'utf8');
+
+// Read templates (header partial injected on load)
+const indexTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'index.html'), 'utf8').replaceAll('{{HEADER}}', headerPartial);
+const detailTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'app-detail.html'), 'utf8').replaceAll('{{HEADER}}', headerPartial);
 
 // CF Web Analytics — token comes from FAS_CF_BEACON_TOKEN at build time. If
 // unset (local dev), the placeholder is replaced with an empty string so the
@@ -622,7 +625,7 @@ indexHtml = indexHtml.replace(
 fs.writeFileSync(path.join(DIST, 'index.html'), indexHtml);
 
 // --- Settings page ---
-const settingsTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'settings.html'), 'utf8');
+const settingsTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'settings.html'), 'utf8').replaceAll('{{HEADER}}', headerPartial);
 let settingsHtml = settingsTemplate.replace('__CF_BEACON__', CF_BEACON_SNIPPET);
 for (const [k, v] of Object.entries(sriHashes)) {
   settingsHtml = settingsHtml.replaceAll(`{{SRI_${k}}}`, v);
@@ -638,7 +641,7 @@ fs.writeFileSync(path.join(DIST, 'card-styles.css'), cardIconBackgrounds + '\n')
 // Embeds both the local apps registry and the cross-store games registry
 // so visitors can audit either from one page. The page is mostly static —
 // the live iframe + postMessage logic lives in /quality.js.
-const qualityTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'quality.html'), 'utf8');
+const qualityTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'quality.html'), 'utf8').replaceAll('{{HEADER}}', headerPartial);
 const qualityRegistry = {
   apps: apps.map(a => ({ id: a.id, name: a.name, appUrl: a.appUrl })),
   games: (crossRegistry.items || []).map(g => ({ id: g.id, name: g.name, appUrl: g.appUrl })),
@@ -728,7 +731,7 @@ apps.forEach((app, i) => {
 // from GitHub at render time (img tag, no API call here), lists every app
 // that author published. Apps without creatorGithub don't get an author
 // page — they render as plain "by FreeAppStore" text via renderAuthorChip.
-const authorTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'author.html'), 'utf8');
+const authorTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'author.html'), 'utf8').replaceAll('{{HEADER}}', headerPartial);
 const uniqueAuthors = [...new Set(apps.map(a => a.creatorGithub).filter(Boolean))];
 fs.mkdirSync(path.join(DIST, 'u'), { recursive: true });
 
@@ -815,7 +818,7 @@ uniqueAuthors.forEach(username => {
 console.log(`Generated ${uniqueAuthors.length} author page(s) at /u/`);
 
 // --- Generate /developers index page ---
-const creatorsTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'creators.html'), 'utf8');
+const creatorsTemplate = fs.readFileSync(path.join(ROOT, 'templates', 'creators.html'), 'utf8').replaceAll('{{HEADER}}', headerPartial);
 const devCards = uniqueAuthors.map(username => {
   const authorApps = apps.filter(a => a.creatorGithub === username);
   const badges = computeAuthorBadges(authorApps);
@@ -981,6 +984,7 @@ filesToCopy.forEach(file => {
   const dst = path.join(DIST, file);
   if (file.endsWith('.html')) {
     let html = fs.readFileSync(src, 'utf8');
+    html = html.replaceAll('{{HEADER}}', headerPartial);
     for (const [k, v] of Object.entries(sriHashes)) {
       html = html.replaceAll(`{{SRI_${k}}}`, v);
     }
