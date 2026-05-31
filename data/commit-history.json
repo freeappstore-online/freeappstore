@@ -2888,150 +2888,36 @@
   "freeappstore-online/agentcoder": {
     "meta": {
       "created_at": "2026-05-28T22:08:30Z",
-      "pushed_at": "2026-05-31T03:11:54Z"
+      "pushed_at": "2026-05-30T20:19:49Z"
     },
     "commits": [
       {
-        "sha": "410523fc1544cd44f5aa45ec23f3adb98704c89a",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/410523fc1544cd44f5aa45ec23f3adb98704c89a",
+        "sha": "039cd4df041f3ba5b45d7701fc0ac97289871a87",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/039cd4df041f3ba5b45d7701fc0ac97289871a87",
         "commit": {
-          "message": "docs: update CLAUDE.md + README.md to match current state\n\nCLAUDE.md: full architecture map, design decisions, distribution,\ninfra details, 44 tests. README.md: test count updated to 44.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: remove compose preview — send directly, no two-step flow\n\nRemoved composedPreview state and UI entirely. Enter sends text\nstraight to the agent. Cmd+Enter AI-rewrites and sends in one step\n(no preview/confirm). Simpler, faster, less confusing.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-31T03:11:52Z"
+            "date": "2026-05-30T20:19:48Z"
           }
         }
       },
       {
-        "sha": "a4ac42d69be847cf50203b09fa2aef84489ea01c",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/a4ac42d69be847cf50203b09fa2aef84489ea01c",
+        "sha": "98c827f5ca6746aa6b15fe9705038f0e1f9c336d",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/98c827f5ca6746aa6b15fe9705038f0e1f9c336d",
         "commit": {
-          "message": "fix: 4 bugs + 5 new tests (44 total)\n\nBugs fixed:\n1. Task completion effect fired on every output update — separated\n   state transition detection from translate call\n2. \"Waiting for output\" hidden when key dismissed — show when\n   keyDismissed too\n3. Duplicate \"Catch up\" + \"Summarize\" buttons — hide Catch up when\n   taskCompleted banner is showing\n4. Updated index.test.ts — old marker-based applyScreen tests replaced\n   with per-agent buffer + chunk reassembly tests matching new code\n\nNew tests:\n- parseTranslation: unicode in summary, large filesChanged arrays\n- chunk reassembly: out-of-order chunks, incomplete detection\n- per-agent buffers: replace, preserve, truncate\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "fix: Enter sends directly, Cmd+Enter for AI compose\n\nRemoved the mandatory two-step compose flow. Enter now sends text\nstraight to the terminal. Cmd+Enter optionally AI-composes first.\nSend button replaces Compose as the primary action.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-31T03:10:01Z"
+            "date": "2026-05-30T08:31:48Z"
           }
         }
       },
       {
-        "sha": "e4c1213f30e2fe81f8aa026282b48cea980667d4",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/e4c1213f30e2fe81f8aa026282b48cea980667d4",
+        "sha": "7137e42baea8fe840f96dce92d26a258ecbc3a14",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/7137e42baea8fe840f96dce92d26a258ecbc3a14",
         "commit": {
-          "message": "feat: task completion detection, dismissible key prompt, full README\n\nTask completion:\n- Detects busy→ready transition per agent\n- Shows \"Task completed\" banner with agent name\n- Auto-triggers translation on completion if key available\n- \"Summarize\" button if key exists but auto-translate off\n- \"Add key for summary\" button if no key\n\nKey-optional UX:\n- KeyPrompt is now dismissible (Dismiss button)\n- All features work without API key\n- Key only enables AI summaries and compose\n\nREADME:\n- Full product documentation: features, architecture, quick start\n- CLI reference with keyboard shortcuts\n- Development guide\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "message": "feat: show session ID in status bar + bridge start command when disconnected\n\nStatus bar now shows the session ID so users know which room they're\nin. \"Bridge not connected\" card shows the exact npx command to run\nwith the session ID pre-filled and a copy button.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
-            "date": "2026-05-31T03:01:52Z"
-          }
-        }
-      }
-    ]
-  },
-  "freeappstore-online/soccer-live": {
-    "meta": {
-      "created_at": "2026-05-29T07:56:41Z",
-      "pushed_at": "2026-05-30T07:42:59Z"
-    },
-    "commits": [
-      {
-        "sha": "217261572ab0096104e0acbe4f0b872eb8118e44",
-        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/217261572ab0096104e0acbe4f0b872eb8118e44",
-        "commit": {
-          "message": "fix: remove cache:pnpm from deploy workflow",
-          "author": {
-            "date": "2026-05-30T07:42:59Z"
-          }
-        }
-      },
-      {
-        "sha": "af354e4093a662ce74e83dcfaae1170cba30cbfc",
-        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/af354e4093a662ce74e83dcfaae1170cba30cbfc",
-        "commit": {
-          "message": "Fix leagues (reliable only), dropdown selector with localStorage, no horizontal scroll, clean card layout",
-          "author": {
-            "date": "2026-05-29T08:08:29Z"
-          }
-        }
-      },
-      {
-        "sha": "1678d321317d3c7838b750a4c94dcf2f917407e2",
-        "html_url": "https://github.com/freeappstore-online/soccer-live/commit/1678d321317d3c7838b750a4c94dcf2f917407e2",
-        "commit": {
-          "message": "Initial app — built with FreeAppStore AI agent",
-          "author": {
-            "date": "2026-05-29T07:57:01Z"
-          }
-        }
-      }
-    ]
-  },
-  "freeappstore-online/crontab-explain": {
-    "meta": {
-      "created_at": "2026-05-30T16:06:42Z",
-      "pushed_at": "2026-05-30T16:09:37Z"
-    },
-    "commits": [
-      {
-        "sha": "7aa01d4766c01c401d2e71e66033d15efd6bae4e",
-        "html_url": "https://github.com/freeappstore-online/crontab-explain/commit/7aa01d4766c01c401d2e71e66033d15efd6bae4e",
-        "commit": {
-          "message": "Update freeappstore sdk version",
-          "author": {
-            "date": "2026-05-30T16:05:01Z"
-          }
-        }
-      },
-      {
-        "sha": "798b4b09052c7134d4fbf7b20a852f35c0a51204",
-        "html_url": "https://github.com/freeappstore-online/crontab-explain/commit/798b4b09052c7134d4fbf7b20a852f35c0a51204",
-        "commit": {
-          "message": "Update Readme",
-          "author": {
-            "date": "2026-05-30T15:57:23Z"
-          }
-        }
-      },
-      {
-        "sha": "a537c10111695f71951bcd5355d440a5e916bce9",
-        "html_url": "https://github.com/freeappstore-online/crontab-explain/commit/a537c10111695f71951bcd5355d440a5e916bce9",
-        "commit": {
-          "message": "Crontab explain - Part of FreeAppStore",
-          "author": {
-            "date": "2026-05-30T15:55:19Z"
-          }
-        }
-      }
-    ]
-  },
-  "freeappstore-online/convert-color": {
-    "meta": {
-      "created_at": "2026-05-30T01:09:02Z",
-      "pushed_at": "2026-05-30T02:16:58Z"
-    },
-    "commits": [
-      {
-        "sha": "9ac6d6e21f155402fa7457c55d563fd999e30dad",
-        "html_url": "https://github.com/freeappstore-online/convert-color/commit/9ac6d6e21f155402fa7457c55d563fd999e30dad",
-        "commit": {
-          "message": "Update logo",
-          "author": {
-            "date": "2026-05-30T02:15:12Z"
-          }
-        }
-      },
-      {
-        "sha": "0c2473c8a7650c791ea8677ffcfca258bb557227",
-        "html_url": "https://github.com/freeappstore-online/convert-color/commit/0c2473c8a7650c791ea8677ffcfca258bb557227",
-        "commit": {
-          "message": "Update README.md",
-          "author": {
-            "date": "2026-05-30T01:55:58Z"
-          }
-        }
-      },
-      {
-        "sha": "732569bf12e8b745b1d7e5aff6adb9338df94666",
-        "html_url": "https://github.com/freeappstore-online/convert-color/commit/732569bf12e8b745b1d7e5aff6adb9338df94666",
-        "commit": {
-          "message": "Build Converter Color APP",
-          "author": {
-            "date": "2026-05-30T01:07:49Z"
+            "date": "2026-05-30T08:28:09Z"
           }
         }
       }
