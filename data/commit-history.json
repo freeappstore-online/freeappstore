@@ -3096,5 +3096,43 @@
         }
       }
     ]
+  },
+  "freeappstore-online/planning-poker": {
+    "meta": {
+      "created_at": "2026-05-31T23:55:33Z",
+      "pushed_at": "2026-06-01T01:56:22Z"
+    },
+    "commits": [
+      {
+        "sha": "8bcaab2e18cec8f4f319be464d423156a4306c3c",
+        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/8bcaab2e18cec8f4f319be464d423156a4306c3c",
+        "commit": {
+          "message": "feat: add toast notifications",
+          "author": {
+            "date": "2026-06-01T01:56:20Z"
+          }
+        }
+      },
+      {
+        "sha": "49f107399bf4bbf5220983476ff6eb5de6acc8f3",
+        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/49f107399bf4bbf5220983476ff6eb5de6acc8f3",
+        "commit": {
+          "message": "fix: add freeappstore footer link",
+          "author": {
+            "date": "2026-06-01T00:17:03Z"
+          }
+        }
+      },
+      {
+        "sha": "6db157a8499344eb2e49289c9f9e47d9a8f24dac",
+        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/6db157a8499344eb2e49289c9f9e47d9a8f24dac",
+        "commit": {
+          "message": "fix: rename manifest file",
+          "author": {
+            "date": "2026-06-01T00:06:51Z"
+          }
+        }
+      }
+    ]
   }
 }
