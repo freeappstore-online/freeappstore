@@ -3100,9 +3100,29 @@
   "freeappstore-online/planning-poker": {
     "meta": {
       "created_at": "2026-05-31T23:55:33Z",
-      "pushed_at": "2026-06-01T01:56:22Z"
+      "pushed_at": "2026-06-01T10:00:54Z"
     },
     "commits": [
+      {
+        "sha": "461a0848d3a4b1a87cf002c38fdf392df3a97ea8",
+        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/461a0848d3a4b1a87cf002c38fdf392df3a97ea8",
+        "commit": {
+          "message": "fix: show end session only to admin",
+          "author": {
+            "date": "2026-06-01T10:00:44Z"
+          }
+        }
+      },
+      {
+        "sha": "2d9b740a3510a96d3a9eb9c8e4b546c020481ff2",
+        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/2d9b740a3510a96d3a9eb9c8e4b546c020481ff2",
+        "commit": {
+          "message": "chore: remove R2 deploy workflow from personal repo",
+          "author": {
+            "date": "2026-06-01T06:15:48Z"
+          }
+        }
+      },
       {
         "sha": "8bcaab2e18cec8f4f319be464d423156a4306c3c",
         "html_url": "https://github.com/freeappstore-online/planning-poker/commit/8bcaab2e18cec8f4f319be464d423156a4306c3c",
@@ -3110,26 +3130,6 @@
           "message": "feat: add toast notifications",
           "author": {
             "date": "2026-06-01T01:56:20Z"
-          }
-        }
-      },
-      {
-        "sha": "49f107399bf4bbf5220983476ff6eb5de6acc8f3",
-        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/49f107399bf4bbf5220983476ff6eb5de6acc8f3",
-        "commit": {
-          "message": "fix: add freeappstore footer link",
-          "author": {
-            "date": "2026-06-01T00:17:03Z"
-          }
-        }
-      },
-      {
-        "sha": "6db157a8499344eb2e49289c9f9e47d9a8f24dac",
-        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/6db157a8499344eb2e49289c9f9e47d9a8f24dac",
-        "commit": {
-          "message": "fix: rename manifest file",
-          "author": {
-            "date": "2026-06-01T00:06:51Z"
           }
         }
       }
