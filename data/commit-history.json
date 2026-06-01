@@ -2948,9 +2948,19 @@
   "freeappstore-online/agentcoder": {
     "meta": {
       "created_at": "2026-05-28T22:08:30Z",
-      "pushed_at": "2026-05-31T23:32:23Z"
+      "pushed_at": "2026-06-01T00:11:07Z"
     },
     "commits": [
+      {
+        "sha": "cad631ce881db8a74ac4ff988216f28e9e643e05",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/cad631ce881db8a74ac4ff988216f28e9e643e05",
+        "commit": {
+          "message": "fix: 8 bugs — safe storage, map leak, stale prefs, session validation\n\n1. localStorage crash in Safari private mode — safe-storage wrappers\n2. Unbounded lastScreens Map — prune on setWatchList\n3. replayCurrentScreens without room state check\n4. Auto-translate fires with stale prefs — refs + prefsLoaded gate\n5. Session ID validation (alphanumeric + hyphens, 1-32 chars)\n6. CopyLine setTimeout not cleared on unmount\n7. compose() missing AbortController\n8. Bridge dist rebuild\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-06-01T00:11:03Z"
+          }
+        }
+      },
       {
         "sha": "99750477e732e4a8070782ccca7e763e14355346",
         "html_url": "https://github.com/freeappstore-online/agentcoder/commit/99750477e732e4a8070782ccca7e763e14355346",
@@ -2968,16 +2978,6 @@
           "message": "fix: 5 bugs — agent discovery, stale translation, idle polling\n\n1. Agents discovered from status messages, not just heartbeats.\n   Output/status arriving before the first heartbeat now immediately\n   populates the agent list so the UI shows data right away.\n\n2. Translation state (summary, error) resets on agent switch.\n   Previously switching agents kept the old agent's summary visible\n   over the new agent's terminal output.\n\n3. Auto-translate length tracker resets on agent switch.\n   lastTranslatedLen held the old agent's value, blocking auto-\n   translate from firing for the new agent's buffer.\n\n4. Bridge skips tmux polling when room is disconnected.\n   Previously ran captureScreen/detectState every 2s even when\n   the WebSocket was down — wasted CPU for nothing.\n\n5. TUI byte counter no longer counts unsent data.\n   Consequence of #4: no polling means no recordOutput calls when\n   disconnected, so \"Sent\" accurately reflects delivered bytes.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-31T23:14:20Z"
-          }
-        }
-      },
-      {
-        "sha": "f25acba87ea67f81ff79481d6be607abe31a200c",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/f25acba87ea67f81ff79481d6be607abe31a200c",
-        "commit": {
-          "message": "fix: remove anthropic-version header — fails CORS preflight\n\nThe proxy's CORS config allows Authorization + Content-Type but not\nanthropic-version. Sending it from the browser triggers a preflight\nfailure (\"Failed to fetch\"). The proxy forwards it server-side — the\nclient doesn't need to send it.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-31T23:10:55Z"
           }
         }
       }
