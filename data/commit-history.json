@@ -2948,9 +2948,19 @@
   "freeappstore-online/agentcoder": {
     "meta": {
       "created_at": "2026-05-28T22:08:30Z",
-      "pushed_at": "2026-06-01T00:11:07Z"
+      "pushed_at": "2026-06-01T02:35:26Z"
     },
     "commits": [
+      {
+        "sha": "eae96d3d2e3dd57463776de426afa27f9270d98b",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/eae96d3d2e3dd57463776de426afa27f9270d98b",
+        "commit": {
+          "message": "feat: add Google sign-in button\n\nPlatform credentials configured in Doppler + backend worker.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-06-01T02:35:24Z"
+          }
+        }
+      },
       {
         "sha": "cad631ce881db8a74ac4ff988216f28e9e643e05",
         "html_url": "https://github.com/freeappstore-online/agentcoder/commit/cad631ce881db8a74ac4ff988216f28e9e643e05",
@@ -2968,16 +2978,6 @@
           "message": "fix: 3 bugs — false busy detection, chunk leak, empty input guard\n\n1. Agent state false positive: status words like \"Reading\" or\n   \"Writing\" in Claude's response text caused detectState to report\n   busy even when idle at a prompt. Fix: check prompt indicators\n   first (ready beats status words), only use ctrl+c as the\n   unambiguous busy signal that overrides a prompt. Also limit\n   status word matching to the last 5 lines of screen.\n\n2. Stale chunk memory leak: partial multi-chunk messages that\n   never completed (lost chunks) accumulated in the chunks map\n   forever. Fix: 30-second timeout cleanup interval evicts\n   incomplete entries.\n\n3. extractResponse with empty userInput: ''.includes('') is always\n   true, matching every line and returning nothing useful.\n   Fix: early return with full capture for empty/whitespace input.\n\nTests: 117 → 121 (+4 new)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-31T23:32:21Z"
-          }
-        }
-      },
-      {
-        "sha": "8eac7847dcf2280e252db7b97dfb3f042f2ea1f2",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/8eac7847dcf2280e252db7b97dfb3f042f2ea1f2",
-        "commit": {
-          "message": "fix: 5 bugs — agent discovery, stale translation, idle polling\n\n1. Agents discovered from status messages, not just heartbeats.\n   Output/status arriving before the first heartbeat now immediately\n   populates the agent list so the UI shows data right away.\n\n2. Translation state (summary, error) resets on agent switch.\n   Previously switching agents kept the old agent's summary visible\n   over the new agent's terminal output.\n\n3. Auto-translate length tracker resets on agent switch.\n   lastTranslatedLen held the old agent's value, blocking auto-\n   translate from firing for the new agent's buffer.\n\n4. Bridge skips tmux polling when room is disconnected.\n   Previously ran captureScreen/detectState every 2s even when\n   the WebSocket was down — wasted CPU for nothing.\n\n5. TUI byte counter no longer counts unsent data.\n   Consequence of #4: no polling means no recordOutput calls when\n   disconnected, so \"Sent\" accurately reflects delivered bytes.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-31T23:14:20Z"
           }
         }
       }
