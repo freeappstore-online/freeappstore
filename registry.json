@@ -1457,6 +1457,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "TommyHoang2911"
+    },
+    {
+      "id": "lens-journal",
+      "name": "lens-journal",
+      "category": "Social",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A free, offline-first photography session journal.",
+      "appUrl": "https://lens-journal.freeappstore.online",
+      "repo": "freeappstore-online/lens-journal",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "TommyHoang2911"
     }
   ]
 }
