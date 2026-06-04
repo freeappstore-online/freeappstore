@@ -3100,9 +3100,19 @@
   "freeappstore-online/planning-poker": {
     "meta": {
       "created_at": "2026-05-31T23:55:33Z",
-      "pushed_at": "2026-06-01T10:00:54Z"
+      "pushed_at": "2026-06-04T12:26:45Z"
     },
     "commits": [
+      {
+        "sha": "d59b9846e2c03a233972d634f7a77d3c9486aec9",
+        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/d59b9846e2c03a233972d634f7a77d3c9486aec9",
+        "commit": {
+          "message": "feat: add planning poker v2 sprint metrics",
+          "author": {
+            "date": "2026-06-04T12:26:37Z"
+          }
+        }
+      },
       {
         "sha": "461a0848d3a4b1a87cf002c38fdf392df3a97ea8",
         "html_url": "https://github.com/freeappstore-online/planning-poker/commit/461a0848d3a4b1a87cf002c38fdf392df3a97ea8",
@@ -3120,16 +3130,6 @@
           "message": "chore: remove R2 deploy workflow from personal repo",
           "author": {
             "date": "2026-06-01T06:15:48Z"
-          }
-        }
-      },
-      {
-        "sha": "8bcaab2e18cec8f4f319be464d423156a4306c3c",
-        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/8bcaab2e18cec8f4f319be464d423156a4306c3c",
-        "commit": {
-          "message": "feat: add toast notifications",
-          "author": {
-            "date": "2026-06-01T01:56:20Z"
           }
         }
       }
