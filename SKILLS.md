@@ -159,6 +159,7 @@ Provisioning is done by the **platform admin** or by the creator via the **publi
 If the user wants a new app created, direct them to:
 - **Self-service:** https://publish.freeappstore.online (sign in with GitHub, create instantly)
 - **Admin:** https://admin.freeappstore.online (admin only)
+- **From your editor:** the MCP `create_app` / `agent_build` tools provision + deploy directly (see *MCP Server* below)
 
 Do NOT run curl commands against Cloudflare APIs. Do NOT use wrangler for provisioning. Do NOT ask for API tokens.
 
@@ -927,8 +928,16 @@ The command is `fas init`, not `fas create`. If you see `fas create` in old docs
 
 ## MCP Server
 
-AI agents can connect to the FreeAppStore MCP server for tool-based access:
+The FreeAppStore MCP server lets an AI agent drive the **full app lifecycle from inside your editor** — not just read-only info. Endpoint: `https://mcp.freeappstore.online/mcp` (Streamable HTTP).
 
+### Connect
+
+**Claude Code:**
+```bash
+claude mcp add freeappstore -- npx mcp-remote https://mcp.freeappstore.online/mcp
+```
+
+**Cursor / any MCP client** (config form):
 ```json
 {
   "mcpServers": {
@@ -940,7 +949,69 @@ AI agents can connect to the FreeAppStore MCP server for tool-based access:
 }
 ```
 
-Tools: `list_apps`, `deploy_status`, `app_info`, `platform_guide`, `sdk_reference`.
+### Authentication
+
+Read-only tools (`platform_guide`, `sdk_reference`, `list_apps`, `app_info`, `deploy_status`) work unauthenticated. Tools that **build, mutate, or inspect repo contents** need a FAS session token — the same token `fas login` caches at `~/.fas/config.json`. Pass it as a bearer header through `mcp-remote`:
+
+```bash
+TOKEN=$(jq -r .token ~/.fas/config.json)
+claude mcp add freeappstore -- \
+  npx mcp-remote https://mcp.freeappstore.online/mcp \
+  --header "Authorization: Bearer $TOKEN"
+```
+
+### Two ways to build an app over MCP
+
+The MCP supports both "I write the code" and "the platform writes the code":
+
+1. **Your AI writes the code, MCP ships it.** Use `create_app` to provision + scaffold + deploy, then `update_files` / `read_file` / `list_files` to iterate on the repo. You author every file; the MCP just provisions and pushes.
+2. **You prompt, the platform's VibeCode agent writes + deploys it.** Use `agent_build` with a natural-language prompt — the server-side VibeCode agent writes the code and deploys it for you, using *your* vaulted AI key (so the provider you pick must match a key in your vault). Poll with `agent_status`.
+
+### Tool reference
+
+**Build & ship (auth required):**
+
+| Tool | Signature | What it does |
+|---|---|---|
+| `create_app` | `(app_id, category, oneliner, type?, description?)` | Provision + scaffold + deploy. Goes live at `<app_id>.freeappstore.online`. `type` is `standalone` (no backend) or `connected` (SDK). |
+| `update_files` | `(app_id, files: [{path, content}], message?)` | Push file edits to the repo; auto-redeploys. Owner only. |
+| `read_file` | `(app_id, path)` | Read one file from an app repo. |
+| `list_files` | `(app_id)` | List the file tree of an app repo. |
+
+**VibeCode agent (auth required):**
+
+| Tool | Signature | What it does |
+|---|---|---|
+| `agent_build` | `(prompt, provider?, model?, session_id?)` | The platform's VibeCode agent writes + deploys an app from your prompt. `provider` is `anthropic`\|`openai`\|`openrouter`\|`google` and must match a key in your vault. Pass `session_id` to continue an existing build. |
+| `agent_status` | `(session_id)` | Poll a running `agent_build`. |
+
+**Inspect & reference:**
+
+| Tool | Signature | What it does |
+|---|---|---|
+| `list_apps` | `()` | Your published apps. |
+| `app_info` | `(app_id)` | Registry + metadata for one app. |
+| `deploy_status` | `(app_id)` | Latest deploy state. |
+| `app_logs` | `(app_id, level?, limit?)` | Recent app logs. |
+| `platform_guide` | `()` | Returns this guide. |
+| `sdk_reference` | `(feature?)` | SDK docs, optionally scoped to one feature (`auth`, `kv`, `rooms`, …). |
+
+### Examples (one prompt per mode)
+
+```
+# Mode 1 — your AI writes it, MCP ships it
+create_app(app_id="habit-tracker", category="productivity",
+           oneliner="Track daily habits with streaks", type="connected")
+# then iterate:
+update_files(app_id="habit-tracker",
+             files=[{path:"web/src/App.tsx", content:"…"}],
+             message="Add streak counter")
+
+# Mode 2 — you prompt, the VibeCode agent writes + deploys it
+agent_build(prompt="A pomodoro timer with a focus log and dark mode",
+            provider="anthropic")
+agent_status(session_id="…")   # poll until deployed
+```
 
 ## Infrastructure
 

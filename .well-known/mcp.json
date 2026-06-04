@@ -3,21 +3,49 @@
   "servers": [
     {
       "name": "FreeAppStore",
-      "description": "AI agent tools for the FreeAppStore platform. List apps, check deploy status, get SDK reference, fetch platform guide.",
+      "description": "AI agent tools for the FreeAppStore platform. Build, publish, and improve apps end-to-end: scaffold and deploy a new app, write files and auto-redeploy, or hand a prompt to the VibeCode agent — plus inspect apps, check deploys, read logs, and fetch SDK/platform reference.",
       "endpoint": "https://mcp.freeappstore.online/mcp",
       "transport": "streamable-http",
       "tools": [
         {
-          "name": "list_apps",
-          "description": "List your published apps on FreeAppStore"
+          "name": "create_app",
+          "description": "Create + publish a new app: provision repo/hosting/listing, scaffold a template, deploy live at <id>.freeappstore.online"
         },
         {
-          "name": "deploy_status",
-          "description": "Check GitHub Actions deploy status for any app"
+          "name": "update_files",
+          "description": "Write/overwrite files in an app you own; auto-redeploys"
+        },
+        {
+          "name": "read_file",
+          "description": "Read a file from an app's repo"
+        },
+        {
+          "name": "list_files",
+          "description": "List files in an app's repo"
+        },
+        {
+          "name": "agent_build",
+          "description": "Hand a prompt to the VibeCode agent; it writes the code and deploys it (uses your vaulted AI key)"
+        },
+        {
+          "name": "agent_status",
+          "description": "Poll an agent_build session for app id, deploy phase, live URL"
+        },
+        {
+          "name": "list_apps",
+          "description": "List your published apps"
         },
         {
           "name": "app_info",
-          "description": "Get app URLs, repo, status, and store listing"
+          "description": "Get an app's live URL, repo, store listing, status"
+        },
+        {
+          "name": "deploy_status",
+          "description": "Check recent GitHub Actions deploy runs for an app"
+        },
+        {
+          "name": "app_logs",
+          "description": "Recent errors/warnings/SDK calls/build info for an app you own"
         },
         {
           "name": "platform_guide",
@@ -25,7 +53,7 @@
         },
         {
           "name": "sdk_reference",
-          "description": "Quick SDK reference for auth, KV, counters, collections, rooms, proxy, keys, hooks, and UI components"
+          "description": "Quick @freeappstore/sdk reference"
         }
       ]
     }

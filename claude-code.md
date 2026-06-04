@@ -32,6 +32,32 @@ chmod 600 ~/.fas/config.json
 
 If `gh` is not available, run `fas login` (opens browser for GitHub device flow).
 
+## MCP (build from your editor)
+
+You can build, publish, and improve apps **without leaving your editor** via the FreeAppStore MCP server. Connect it once:
+
+```bash
+# Claude Code
+claude mcp add freeappstore -- npx mcp-remote https://mcp.freeappstore.online/mcp
+```
+
+In Cursor (and other MCP clients), add a server whose command is `npx mcp-remote https://mcp.freeappstore.online/mcp`.
+
+There are **two modes**:
+
+1. **Your editor's AI writes the code, the MCP ships it.** Claude (or Cursor) generates the app locally, then calls the MCP tools to provision and push it: `create_app`, `update_files`, `read_file`, `list_files`.
+2. **You just prompt — the platform's VibeCode agent writes + deploys it.** Hand the build off entirely: `agent_build` kicks off a server-side VibeCode run (using an AI key from your vault), and `agent_status` polls progress. No local code needed.
+
+Authenticated tools use your `fas login` session token. Pass it to the server via the mcp-remote `--header` flag:
+
+```bash
+# Grab the session token from ~/.fas/config.json (.session.token), then:
+claude mcp add freeappstore -- npx mcp-remote https://mcp.freeappstore.online/mcp \
+  --header "Authorization: Bearer <token>"
+```
+
+Full guide: https://freeappstore.online/docs/mcp
+
 ## Tech stack (mandatory, no substitutions)
 
 - TypeScript ^5.7, React ^19, Vite ^6, Tailwind CSS ^4.1, pnpm

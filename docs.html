@@ -269,17 +269,13 @@ const keys = await fas.keys.status()
       <p>Two ways for AI agents to access the platform:</p>
 
       <h3>MCP Server (recommended)</h3>
-      <p>Connect your AI agent directly to FreeAppStore tools via MCP:</p>
-      <pre><code>// Add to ~/.claude.json (Claude Code) or your MCP client config:
-{
-  "mcpServers": {
-    "freeappstore": {
-      "command": "npx",
-      "args": ["mcp-remote", "https://mcp.freeappstore.online/mcp"]
-    }
-  }
-}</code></pre>
-      <p>Tools: <code>deploy_status</code>, <code>app_info</code>, <code>sdk_reference</code>, <code>platform_guide</code>, <code>list_apps</code>. <a href="/docs/mcp">Full MCP docs &rarr;</a></p>
+      <p>Connect your AI agent directly to FreeAppStore tools via MCP. One line:</p>
+      <pre><code># Claude Code
+claude mcp add freeappstore -- npx mcp-remote https://mcp.freeappstore.online/mcp
+
+# Cursor — add a server with the command:
+npx mcp-remote https://mcp.freeappstore.online/mcp</code></pre>
+      <p><strong>Build from your editor, two ways:</strong> let your editor's AI write the code and ship it (<code>create_app</code>, <code>update_files</code>, <code>read_file</code>, <code>list_files</code>), or just prompt and let the platform's VibeCode agent write + deploy it (<code>agent_build</code>, <code>agent_status</code>). Read-only tools include <code>deploy_status</code>, <code>app_info</code>, <code>sdk_reference</code>, <code>platform_guide</code>, and <code>list_apps</code>. <a href="/docs/mcp">Full MCP docs &rarr;</a></p>
 
       <h3>SKILLS.md (text-based)</h3>
       <p>For agents without MCP support, point them at the machine-readable guide:</p>
@@ -323,7 +319,7 @@ See https://freeappstore.online/skills.md for platform skills.</code></pre>
       <h2>Links</h2>
       <ul>
         <li><a href="/docs/api">API Reference</a> — public REST endpoints (auth, quality, audit, publish, analytics)</li>
-        <li><a href="/docs/mcp">MCP Server</a> — connect AI agents via MCP tools</li>
+        <li><a href="/docs/mcp">MCP Server</a> — build, publish, and improve apps from your editor (create_app, update_files) or hand the build to the VibeCode agent (agent_build)</li>
         <li><a href="https://www.npmjs.com/package/@freeappstore/sdk">@freeappstore/sdk on npm</a></li>
         <li><a href="https://github.com/freeappstore-online/platform">Platform source code</a></li>
         <li><a href="/docs/ui">UI Component Library</a></li>

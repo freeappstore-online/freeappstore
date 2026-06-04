@@ -5,7 +5,7 @@
 ## AI Agent Integration
 
 - [SKILLS.md](https://freeappstore.online/skills.md): Complete platform guide for AI agents. Tech stack, SDK reference (auth, KV, counters, collections, rooms, proxy), UI components, CLI commands, deploy flow, compliance rules. Point your AI agent here.
-- [MCP Server](https://mcp.freeappstore.online/mcp): Remote MCP server (Streamable HTTP). Tools: `deploy_status`, `app_info`, `sdk_reference`, `platform_guide`, `list_apps`. Connect with `npx mcp-remote https://mcp.freeappstore.online/mcp`.
+- [MCP Server](https://mcp.freeappstore.online/mcp): Remote MCP server (Streamable HTTP). Drives the full build loop in two modes: (a) your AI writes the code — `create_app`, `update_files`, `read_file`, `list_files` (write a file, it auto-redeploys); (b) the platform's VibeCode agent writes+deploys from a prompt — `agent_build`, `agent_status`. Plus inspect/reference: `list_apps`, `app_info`, `deploy_status`, `app_logs`, `platform_guide`, `sdk_reference`. Connect with `npx mcp-remote https://mcp.freeappstore.online/mcp`.
 - [MCP Discovery](https://freeappstore.online/.well-known/mcp.json): Auto-discovery endpoint for MCP clients and registries.
 - [MCP Docs](https://freeappstore.online/docs/mcp): Setup guide for Claude Code, Cursor, and other MCP clients.
 

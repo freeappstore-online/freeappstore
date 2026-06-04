@@ -302,6 +302,26 @@ room.onPeers(peers => console.log(peers.length, 'online'))</div>
       </div>
     </div>
 
+    <!-- ==================== MCP ==================== -->
+    <h2 class="ai-h2">Build straight from your editor (MCP)</h2>
+    <p class="ai-note-small">Connect the FreeAppStore MCP server and build, publish, and improve apps without ever leaving Claude Code or Cursor.</p>
+    <div class="ai-cmd"><span class="comment"># Claude Code</span>
+claude mcp add freeappstore -- npx mcp-remote https://mcp.freeappstore.online/mcp
+
+<span class="comment"># Cursor — add a server with this command:</span>
+npx mcp-remote https://mcp.freeappstore.online/mcp</div>
+    <div class="ai-two-col">
+      <div class="ai-pane">
+        <h3>Your AI writes, MCP ships</h3>
+        <p>Your editor's AI generates the code, then ships it through the platform with <code>create_app</code>, <code>update_files</code>, <code>read_file</code>, and <code>list_files</code>.</p>
+      </div>
+      <div class="ai-pane is-accent">
+        <h3 class="is-accent">Just prompt — agent builds it</h3>
+        <p>Hand it off entirely: <code>agent_build</code> kicks off the platform's VibeCode agent (using an AI key from your vault) and <code>agent_status</code> tracks it. No local code needed.</p>
+      </div>
+    </div>
+    <p class="ai-note-small-tight"><a href="/docs/mcp">Full MCP guide &rarr;</a></p>
+
     <!-- ==================== ALSO ==================== -->
     <h2 class="ai-h2">Also available</h2>
     <div class="ai-two-col-mid">
