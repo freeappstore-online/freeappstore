@@ -1443,6 +1443,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "extract-color",
+      "name": "extract-color",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Drop, paste, or select an image to extract its dominant color palette — with HEX and RGB values you can copy on click.",
+      "appUrl": "https://extract-color.freeappstore.online",
+      "repo": "freeappstore-online/extract-color",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "TommyHoang2911"
     }
   ]
 }
