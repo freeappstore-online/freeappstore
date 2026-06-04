@@ -3138,9 +3138,19 @@
   "freeappstore-online/mcp-live-demo": {
     "meta": {
       "created_at": "2026-06-04T03:38:26Z",
-      "pushed_at": "2026-06-04T03:47:06Z"
+      "pushed_at": "2026-06-04T05:50:48Z"
     },
     "commits": [
+      {
+        "sha": "b2c125c2bfa8436877553be3ae1beb9947490c10",
+        "html_url": "https://github.com/freeappstore-online/mcp-live-demo/commit/b2c125c2bfa8436877553be3ae1beb9947490c10",
+        "commit": {
+          "message": "Build a Reaction Time game (via MCP update_files)",
+          "author": {
+            "date": "2026-06-04T05:50:48Z"
+          }
+        }
+      },
       {
         "sha": "1b9ce67e649fa2ecd0779bfff429bff325ffbc40",
         "html_url": "https://github.com/freeappstore-online/mcp-live-demo/commit/1b9ce67e649fa2ecd0779bfff429bff325ffbc40",
@@ -3158,16 +3168,6 @@
           "message": "Initial mcp-live-demo — scaffolded via MCP",
           "author": {
             "date": "2026-06-04T03:38:50Z"
-          }
-        }
-      },
-      {
-        "sha": "d43f688c25a30ce4ee1763e059b26ddfad3dee13",
-        "html_url": "https://github.com/freeappstore-online/mcp-live-demo/commit/d43f688c25a30ce4ee1763e059b26ddfad3dee13",
-        "commit": {
-          "message": "seed",
-          "author": {
-            "date": "2026-06-04T03:38:39Z"
           }
         }
       }
