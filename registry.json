@@ -1429,6 +1429,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "ChaoLIUqaq"
+    },
+    {
+      "id": "e2e-fix-check",
+      "name": "e2e-fix-check",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "E2E test of the publish provision fix",
+      "appUrl": "https://e2e-fix-check.freeappstore.online",
+      "repo": "freeappstore-online/e2e-fix-check",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
