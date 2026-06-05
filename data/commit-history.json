@@ -3100,9 +3100,29 @@
   "freeappstore-online/planning-poker": {
     "meta": {
       "created_at": "2026-05-31T23:55:33Z",
-      "pushed_at": "2026-06-04T12:26:45Z"
+      "pushed_at": "2026-06-05T09:02:48Z"
     },
     "commits": [
+      {
+        "sha": "9c5ad2cc4e77b7a7d51817acd0062ae00f194b5f",
+        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/9c5ad2cc4e77b7a7d51817acd0062ae00f194b5f",
+        "commit": {
+          "message": "feat: add sprint persistence and mobile ticket management",
+          "author": {
+            "date": "2026-06-05T09:02:46Z"
+          }
+        }
+      },
+      {
+        "sha": "c99b4a95ecc3b56a19a6e0beaf923e809bedeaf3",
+        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/c99b4a95ecc3b56a19a6e0beaf923e809bedeaf3",
+        "commit": {
+          "message": "fix: restore R2 deploy workflow",
+          "author": {
+            "date": "2026-06-05T06:30:47Z"
+          }
+        }
+      },
       {
         "sha": "d59b9846e2c03a233972d634f7a77d3c9486aec9",
         "html_url": "https://github.com/freeappstore-online/planning-poker/commit/d59b9846e2c03a233972d634f7a77d3c9486aec9",
@@ -3110,26 +3130,6 @@
           "message": "feat: add planning poker v2 sprint metrics",
           "author": {
             "date": "2026-06-04T12:26:37Z"
-          }
-        }
-      },
-      {
-        "sha": "461a0848d3a4b1a87cf002c38fdf392df3a97ea8",
-        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/461a0848d3a4b1a87cf002c38fdf392df3a97ea8",
-        "commit": {
-          "message": "fix: show end session only to admin",
-          "author": {
-            "date": "2026-06-01T10:00:44Z"
-          }
-        }
-      },
-      {
-        "sha": "2d9b740a3510a96d3a9eb9c8e4b546c020481ff2",
-        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/2d9b740a3510a96d3a9eb9c8e4b546c020481ff2",
-        "commit": {
-          "message": "chore: remove R2 deploy workflow from personal repo",
-          "author": {
-            "date": "2026-06-01T06:15:48Z"
           }
         }
       }
