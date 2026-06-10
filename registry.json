@@ -1485,6 +1485,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "TommyHoang2911"
+    },
+    {
+      "id": "slowdown",
+      "name": "slowdown",
+      "category": "Health & Fitness",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A simple mood check-in app that recommends one short reset and tracks how you are doing lately.",
+      "appUrl": "https://slowdown.freeappstore.online",
+      "repo": "freeappstore-online/slowdown",
+      "hostedOn": "r2",
+      "type": "connected",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
