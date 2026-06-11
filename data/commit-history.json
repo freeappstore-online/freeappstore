@@ -3252,36 +3252,36 @@
   "freeappstore-online/whisper-room": {
     "meta": {
       "created_at": "2026-06-09T12:09:20Z",
-      "pushed_at": "2026-06-11T03:48:57Z"
+      "pushed_at": "2026-06-11T09:23:28Z"
     },
     "commits": [
       {
-        "sha": "81accc7079db74807bae1b60d89aa3a69f04b99e",
-        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/81accc7079db74807bae1b60d89aa3a69f04b99e",
+        "sha": "959d3a7cc66f5e860377038145260981e1bca529",
+        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/959d3a7cc66f5e860377038145260981e1bca529",
         "commit": {
-          "message": "Add notice WS error",
+          "message": "Fix some bug",
           "author": {
-            "date": "2026-06-11T03:47:50Z"
+            "date": "2026-06-11T09:23:06Z"
           }
         }
       },
       {
-        "sha": "eec45b6318a579985d2682d41eff36d696a88152",
-        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/eec45b6318a579985d2682d41eff36d696a88152",
+        "sha": "052271cfc6bf1638a47f06ee55a33ed42e580620",
+        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/052271cfc6bf1638a47f06ee55a33ed42e580620",
         "commit": {
-          "message": "Fix bug & add function - Join Room by QR & send single file",
+          "message": "Update UI",
           "author": {
-            "date": "2026-06-10T12:22:33Z"
+            "date": "2026-06-11T09:02:49Z"
           }
         }
       },
       {
-        "sha": "5f817cb8be7f0352d13ac021f9d4ebc4d3bdef63",
-        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/5f817cb8be7f0352d13ac021f9d4ebc4d3bdef63",
+        "sha": "31686741b202ae43c919b505798d449b20a98d05",
+        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/31686741b202ae43c919b505798d449b20a98d05",
         "commit": {
-          "message": "Update UI & refactor code",
+          "message": "Add notice message when WS is not connected",
           "author": {
-            "date": "2026-06-09T17:32:56Z"
+            "date": "2026-06-11T08:41:52Z"
           }
         }
       }
