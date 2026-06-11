@@ -3252,9 +3252,19 @@
   "freeappstore-online/whisper-room": {
     "meta": {
       "created_at": "2026-06-09T12:09:20Z",
-      "pushed_at": "2026-06-11T09:23:28Z"
+      "pushed_at": "2026-06-11T15:26:02Z"
     },
     "commits": [
+      {
+        "sha": "8e79f28b52ed255c83addf47645f80e6df78c240",
+        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/8e79f28b52ed255c83addf47645f80e6df78c240",
+        "commit": {
+          "message": "Add loading waiting for peers",
+          "author": {
+            "date": "2026-06-11T15:24:30Z"
+          }
+        }
+      },
       {
         "sha": "959d3a7cc66f5e860377038145260981e1bca529",
         "html_url": "https://github.com/freeappstore-online/whisper-room/commit/959d3a7cc66f5e860377038145260981e1bca529",
@@ -3272,16 +3282,6 @@
           "message": "Update UI",
           "author": {
             "date": "2026-06-11T09:02:49Z"
-          }
-        }
-      },
-      {
-        "sha": "31686741b202ae43c919b505798d449b20a98d05",
-        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/31686741b202ae43c919b505798d449b20a98d05",
-        "commit": {
-          "message": "Add notice message when WS is not connected",
-          "author": {
-            "date": "2026-06-11T08:41:52Z"
           }
         }
       }
