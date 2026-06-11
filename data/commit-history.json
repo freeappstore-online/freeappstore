@@ -3252,9 +3252,19 @@
   "freeappstore-online/whisper-room": {
     "meta": {
       "created_at": "2026-06-09T12:09:20Z",
-      "pushed_at": "2026-06-11T15:26:02Z"
+      "pushed_at": "2026-06-11T16:32:21Z"
     },
     "commits": [
+      {
+        "sha": "7aef36cdf2bdad3d5fe21d48e863e2965a0f0e2b",
+        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/7aef36cdf2bdad3d5fe21d48e863e2965a0f0e2b",
+        "commit": {
+          "message": "Fix UI for Safari",
+          "author": {
+            "date": "2026-06-11T16:32:04Z"
+          }
+        }
+      },
       {
         "sha": "8e79f28b52ed255c83addf47645f80e6df78c240",
         "html_url": "https://github.com/freeappstore-online/whisper-room/commit/8e79f28b52ed255c83addf47645f80e6df78c240",
@@ -3272,16 +3282,6 @@
           "message": "Fix some bug",
           "author": {
             "date": "2026-06-11T09:23:06Z"
-          }
-        }
-      },
-      {
-        "sha": "052271cfc6bf1638a47f06ee55a33ed42e580620",
-        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/052271cfc6bf1638a47f06ee55a33ed42e580620",
-        "commit": {
-          "message": "Update UI",
-          "author": {
-            "date": "2026-06-11T09:02:49Z"
           }
         }
       }
