@@ -3252,9 +3252,19 @@
   "freeappstore-online/whisper-room": {
     "meta": {
       "created_at": "2026-06-09T12:09:20Z",
-      "pushed_at": "2026-06-10T12:23:13Z"
+      "pushed_at": "2026-06-11T03:48:57Z"
     },
     "commits": [
+      {
+        "sha": "81accc7079db74807bae1b60d89aa3a69f04b99e",
+        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/81accc7079db74807bae1b60d89aa3a69f04b99e",
+        "commit": {
+          "message": "Add notice WS error",
+          "author": {
+            "date": "2026-06-11T03:47:50Z"
+          }
+        }
+      },
       {
         "sha": "eec45b6318a579985d2682d41eff36d696a88152",
         "html_url": "https://github.com/freeappstore-online/whisper-room/commit/eec45b6318a579985d2682d41eff36d696a88152",
@@ -3272,16 +3282,6 @@
           "message": "Update UI & refactor code",
           "author": {
             "date": "2026-06-09T17:32:56Z"
-          }
-        }
-      },
-      {
-        "sha": "e9cbdfc4591aac35574a795fee81a97aa71d6eb1",
-        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/e9cbdfc4591aac35574a795fee81a97aa71d6eb1",
-        "commit": {
-          "message": "First commit whisper-room app",
-          "author": {
-            "date": "2026-06-09T12:08:35Z"
           }
         }
       }
