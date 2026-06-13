@@ -1499,6 +1499,20 @@
       "type": "connected",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "webshare",
+      "name": "webshare",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Get AirDrop privileges on any device!",
+      "appUrl": "https://webshare.freeappstore.online",
+      "repo": "freeappstore-online/webshare",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "dawsonhuang0"
     }
   ]
 }
