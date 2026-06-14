@@ -81,7 +81,7 @@
       el('p', { class: 'meta' }, [
         'Use the ',
         el('a', { class: 'a-signin', href: '/get-started.html' }, 'getting-started guide'),
-        ' or VibeCode at create.freeappstore.online to publish one.'
+        ' or VibeCode at console.freeappstore.online/create to publish one.'
       ])
     ]));
   }

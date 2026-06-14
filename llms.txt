@@ -32,7 +32,7 @@
 
 - [App Catalog](https://freeappstore.online/): Browse all published apps.
 - [Creator Console](https://console.freeappstore.online/): Manage your apps, deploy status, analytics.
-- [VibeCode](https://create.freeappstore.online/): AI app builder in the browser.
+- [VibeCode](https://console.freeappstore.online/create): AI app builder in the browser.
 - [Pricing](https://freeappstore.online/pricing): Free vs Pro feature comparison and cost breakdown.
 - [Platform Source](https://github.com/freeappstore-online/platform): SDK, CLI, compliance, and backend source code.
 
