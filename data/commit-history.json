@@ -3328,36 +3328,36 @@
   "freeappstore-online/webshare": {
     "meta": {
       "created_at": "2026-06-13T15:34:03Z",
-      "pushed_at": "2026-06-13T17:20:18Z"
+      "pushed_at": "2026-06-15T04:36:27Z"
     },
     "commits": [
       {
-        "sha": "c6174a063fe6bf34e0655516912729df17f0bd3a",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/c6174a063fe6bf34e0655516912729df17f0bd3a",
+        "sha": "84898ebd9d2eaeb6319d7a4b5a6b572d32133ffb",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/84898ebd9d2eaeb6319d7a4b5a6b572d32133ffb",
         "commit": {
-          "message": "Revert \"Fix iOS flicker: keep FloatingWindow mounted, hide with visibility instead of unmounting\"\n\nThis reverts commit c10eddf0755a8dc6d9f1b6e07ce4da4a00aa6f87.",
+          "message": "fix: remove unused FilesPage view state from App (FilesPage manages it internally)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-13T17:20:11Z"
+            "date": "2026-06-15T04:36:21Z"
           }
         }
       },
       {
-        "sha": "c10eddf0755a8dc6d9f1b6e07ce4da4a00aa6f87",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/c10eddf0755a8dc6d9f1b6e07ce4da4a00aa6f87",
+        "sha": "f1e1cf8a8e4b2c639713d4b3948743478a02bf55",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/f1e1cf8a8e4b2c639713d4b3948743478a02bf55",
         "commit": {
-          "message": "Fix iOS flicker: keep FloatingWindow mounted, hide with visibility instead of unmounting\n\nUnmounting the DOM node after the close animation caused Safari to trash\nthe GPU texture for the heavy box-shadow, causing a full-page repaint flash.\nNow we keep the element alive and use visibility/pointerEvents to hide it.\nAlso removed will-change: opacity since Safari handles this natively.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "fix: remove unused view props from Main and unused DeviceKind import\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-13T17:03:30Z"
+            "date": "2026-06-15T04:34:04Z"
           }
         }
       },
       {
-        "sha": "a5a90e956483d272a0925c3895bd8a2ab18e527f",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/a5a90e956483d272a0925c3895bd8a2ab18e527f",
+        "sha": "4d2ed993817484bfe6dd0ee86c54bd2b3d3f5cf0",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/4d2ed993817484bfe6dd0ee86c54bd2b3d3f5cf0",
         "commit": {
-          "message": "Fix iOS flicker: let forwards animation hold GPU layer, remove willChange on card\n\nStripping will-change after animation end forced Safari to destroy the GPU\ncomposite layer, causing a 16ms CPU repaint of the heavy box-shadow.\nKeeping the forwards fill-mode alive holds the layer permanently.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "feat: redesign SharePage with AirDrop-style layout and icons/list view modes\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-13T16:56:39Z"
+            "date": "2026-06-15T04:32:23Z"
           }
         }
       }
