@@ -3328,36 +3328,36 @@
   "freeappstore-online/webshare": {
     "meta": {
       "created_at": "2026-06-13T15:34:03Z",
-      "pushed_at": "2026-06-17T06:20:35Z"
+      "pushed_at": "2026-06-17T10:57:18Z"
     },
     "commits": [
       {
-        "sha": "cd50388a178d0b3c06e2ff3ef0569296e3a995e1",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/cd50388a178d0b3c06e2ff3ef0569296e3a995e1",
+        "sha": "4065f64968aa4371f6d15915ec7e04af98baafc6",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/4065f64968aa4371f6d15915ec7e04af98baafc6",
         "commit": {
-          "message": "Polish share page: avatar pulse, multi-send, status text\n\n- Replace brightness() filter pulse with scale+opacity+gray tint overlay\n  (works on all avatar colors including pure black/white)\n- Allow multiple simultaneous outgoing requests (one per peer, AirDrop-style)\n- Add inline status text below peer name in both list and icon views;\n  group name+status tightly in icon view\n- Fix WebSocket CLOSING race in setHello; reset backoff on clearHello\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Polish share UX: persistent statuses and simplified incoming request\n\n- Rename accepted status to \"Sent\", keep both Sent/Declined permanently\n- Add ellipsis back to \"Waiting…\"\n- Remove onClearOutgoing prop (no longer needed)\n- Incoming share: replace Modal+file grid with FloatingWindow + simple message\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-17T06:20:26Z"
+            "date": "2026-06-17T10:57:09Z"
           }
         }
       },
       {
-        "sha": "45d39074a7e1cfadb7edc4528a2a623df2a412d5",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/45d39074a7e1cfadb7edc4528a2a623df2a412d5",
+        "sha": "d2819ba9d84bafc3d6a681e696a5ce329f94feb8",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/d2819ba9d84bafc3d6a681e696a5ce329f94feb8",
         "commit": {
-          "message": "feat: pulse avatar and show inline status instead of bottom bar\n\nClicking a peer now pulses their avatar and shows Waiting…/Accepted!/\nDeclined below their name. Accepted and Declined auto-clear after 2s.\nRemoves the outgoing status bar at the bottom of SharePage.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Center floating window on mobile, lock top edge on content change\n\n- On mobile (<640px): compute paddingTop = (vh - cardH) / 2 on open so\n  window starts centered; lock it so shrinking content moves only the\n  bottom edge, not the top\n- Keep lock through exit animation (reset only when render=false)\n- Desktop: unchanged (items-start + pt-[4.5rem])\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-17T05:06:10Z"
+            "date": "2026-06-17T10:16:17Z"
           }
         }
       },
       {
-        "sha": "0f1db1eddc9cbf6cc15cdf8fb696cfffd2d7ff2e",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/0f1db1eddc9cbf6cc15cdf8fb696cfffd2d7ff2e",
+        "sha": "96d67c6db27006221dc85cc2017b9e754adb47da",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/96d67c6db27006221dc85cc2017b9e754adb47da",
         "commit": {
-          "message": "fix: remove shadow from Back to items button\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Polish discoverable toggle and share page spacing\n\n- Discoverable row: full-width pill with bg, description+tip always visible,\n  single button so the whole pill is clickable and scales on press\n- Use var(--paper) bg for dark mode contrast\n- Tighten share page scroll container bottom margin\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-17T05:00:08Z"
+            "date": "2026-06-17T10:00:44Z"
           }
         }
       }
@@ -3386,6 +3386,44 @@
           "message": "Initial commit from standalone template",
           "author": {
             "date": "2026-06-17T03:57:17Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/study-room": {
+    "meta": {
+      "created_at": "2026-06-17T08:44:43Z",
+      "pushed_at": "2026-06-17T09:13:25Z"
+    },
+    "commits": [
+      {
+        "sha": "c7a39492c06dd6c755f7746a5b56019a9982c932",
+        "html_url": "https://github.com/freeappstore-online/study-room/commit/c7a39492c06dd6c755f7746a5b56019a9982c932",
+        "commit": {
+          "message": "Fix board access on tablet widths",
+          "author": {
+            "date": "2026-06-17T09:13:17Z"
+          }
+        }
+      },
+      {
+        "sha": "a3f3e563866267a753a4e1658e63eb4febadde5d",
+        "html_url": "https://github.com/freeappstore-online/study-room/commit/a3f3e563866267a753a4e1658e63eb4febadde5d",
+        "commit": {
+          "message": "Add PWA manifest",
+          "author": {
+            "date": "2026-06-17T09:01:55Z"
+          }
+        }
+      },
+      {
+        "sha": "e52ea323f6f38a5c09449238149e79b0daa537f3",
+        "html_url": "https://github.com/freeappstore-online/study-room/commit/e52ea323f6f38a5c09449238149e79b0daa537f3",
+        "commit": {
+          "message": "Fix FreeAppStore compliance warnings",
+          "author": {
+            "date": "2026-06-16T01:47:34Z"
           }
         }
       }
