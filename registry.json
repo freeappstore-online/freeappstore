@@ -1513,6 +1513,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "dawsonhuang0"
+    },
+    {
+      "id": "quickslotwebfas",
+      "name": "quickslotwebfas",
+      "category": "Other (specify in description)",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Scheduler",
+      "appUrl": "https://quickslotwebfas.freeappstore.online",
+      "repo": "freeappstore-online/quickslotwebfas",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "Shivam2434"
     }
   ]
 }
