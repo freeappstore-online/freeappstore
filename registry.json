@@ -1527,6 +1527,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "Shivam2434"
+    },
+    {
+      "id": "study-room",
+      "name": "study-room",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A quiet shared Pomodoro room for focused study sessions with async discussion and saved study notes.",
+      "appUrl": "https://study-room.freeappstore.online",
+      "repo": "freeappstore-online/study-room",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "ChaoLIUqaq"
     }
   ]
 }
