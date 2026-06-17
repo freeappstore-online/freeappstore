@@ -3328,36 +3328,36 @@
   "freeappstore-online/webshare": {
     "meta": {
       "created_at": "2026-06-13T15:34:03Z",
-      "pushed_at": "2026-06-17T10:57:18Z"
+      "pushed_at": "2026-06-17T12:08:53Z"
     },
     "commits": [
       {
-        "sha": "4065f64968aa4371f6d15915ec7e04af98baafc6",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/4065f64968aa4371f6d15915ec7e04af98baafc6",
+        "sha": "01d3bc0f4af792f9b091a5c0eb259ccb7a5ce8d3",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/01d3bc0f4af792f9b091a5c0eb259ccb7a5ce8d3",
         "commit": {
-          "message": "Polish share UX: persistent statuses and simplified incoming request\n\n- Rename accepted status to \"Sent\", keep both Sent/Declined permanently\n- Add ellipsis back to \"Waiting…\"\n- Remove onClearOutgoing prop (no longer needed)\n- Incoming share: replace Modal+file grid with FloatingWindow + simple message\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Wire up selected-files sharing — pass selection up through onShare\n\nShare button now sends only the selected files when in select mode,\ninstead of always sending all staged files.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-17T10:57:09Z"
+            "date": "2026-06-17T12:08:45Z"
           }
         }
       },
       {
-        "sha": "d2819ba9d84bafc3d6a681e696a5ce329f94feb8",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/d2819ba9d84bafc3d6a681e696a5ce329f94feb8",
+        "sha": "492062c9ad07410f65b434931d39ac11d6c87170",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/492062c9ad07410f65b434931d39ac11d6c87170",
         "commit": {
-          "message": "Center floating window on mobile, lock top edge on content change\n\n- On mobile (<640px): compute paddingTop = (vh - cardH) / 2 on open so\n  window starts centered; lock it so shrinking content moves only the\n  bottom edge, not the top\n- Keep lock through exit animation (reset only when render=false)\n- Desktop: unchanged (items-start + pt-[4.5rem])\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Allow backdrop click to close incoming share window\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-17T10:16:17Z"
+            "date": "2026-06-17T11:55:34Z"
           }
         }
       },
       {
-        "sha": "96d67c6db27006221dc85cc2017b9e754adb47da",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/96d67c6db27006221dc85cc2017b9e754adb47da",
+        "sha": "12e0288dfc585e3dce4ede88bbae382a822bba0b",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/12e0288dfc585e3dce4ede88bbae382a822bba0b",
         "commit": {
-          "message": "Polish discoverable toggle and share page spacing\n\n- Discoverable row: full-width pill with bg, description+tip always visible,\n  single button so the whole pill is clickable and scales on press\n- Use var(--paper) bg for dark mode contrast\n- Tighten share page scroll container bottom margin\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Show withdrawn state on receiver's incoming share window\n\nWhen the sender withdraws, keep the FloatingWindow open with the sender's\nprofile intact, swap the prompt to \"withdrew sharing\", and replace\nDecline/Accept with a single Ok button that dismisses it.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-17T10:00:44Z"
+            "date": "2026-06-17T11:35:10Z"
           }
         }
       }
