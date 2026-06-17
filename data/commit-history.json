@@ -3328,36 +3328,64 @@
   "freeappstore-online/webshare": {
     "meta": {
       "created_at": "2026-06-13T15:34:03Z",
-      "pushed_at": "2026-06-17T03:55:17Z"
+      "pushed_at": "2026-06-17T04:47:00Z"
     },
     "commits": [
       {
-        "sha": "38c9f07bf290765cac0ece3a956bdf431fc5262b",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/38c9f07bf290765cac0ece3a956bdf431fc5262b",
+        "sha": "c1222085b9ba131e9c3403aedfbb6157ecd1a8e8",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/c1222085b9ba131e9c3403aedfbb6157ecd1a8e8",
         "commit": {
-          "message": "config: set production signal URL and fix folder tip wording\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "fix: re-enable discoverable reconnects immediately\n\nCancel pending backoff timer and connect right away when setHello is\ncalled while the socket is down. Also reset attempt counter in\nclearHello so backoff doesn't accumulate across toggle cycles.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-17T03:55:01Z"
+            "date": "2026-06-17T04:46:50Z"
           }
         }
       },
       {
-        "sha": "84898ebd9d2eaeb6319d7a4b5a6b572d32133ffb",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/84898ebd9d2eaeb6319d7a4b5a6b572d32133ffb",
+        "sha": "8257d0b5a0549a4729a9481d3fc70294e33d023d",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/8257d0b5a0549a4729a9481d3fc70294e33d023d",
         "commit": {
-          "message": "fix: remove unused FilesPage view state from App (FilesPage manages it internally)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "feat: wire Discoverable toggle to signal presence\n\nToggle off bounces the WebSocket so the server drops the peer from the\nroster; toggle on re-announces via setHello. State lifted to App so it\npersists across files/share navigation.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-15T04:36:21Z"
+            "date": "2026-06-17T04:36:52Z"
           }
         }
       },
       {
-        "sha": "f1e1cf8a8e4b2c639713d4b3948743478a02bf55",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/f1e1cf8a8e4b2c639713d4b3948743478a02bf55",
+        "sha": "b0eda31de8d90e2bfe2d9a0d6be840671cda854f",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/b0eda31de8d90e2bfe2d9a0d6be840671cda854f",
         "commit": {
-          "message": "fix: remove unused view props from Main and unused DeviceKind import\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "feat: use logo as favicon\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-15T04:34:04Z"
+            "date": "2026-06-17T04:36:45Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/quickslotwebfas": {
+    "meta": {
+      "created_at": "2026-06-17T04:28:47Z",
+      "pushed_at": "2026-06-17T04:35:47Z"
+    },
+    "commits": [
+      {
+        "sha": "d72833bfa187bdbc720525f2ea1c975b7fadaddd",
+        "html_url": "https://github.com/freeappstore-online/quickslotwebfas/commit/d72833bfa187bdbc720525f2ea1c975b7fadaddd",
+        "commit": {
+          "message": "initial commit",
+          "author": {
+            "date": "2026-06-17T04:27:40Z"
+          }
+        }
+      },
+      {
+        "sha": "1a93d2d2735d05d06e769fede650387da45c5906",
+        "html_url": "https://github.com/freeappstore-online/quickslotwebfas/commit/1a93d2d2735d05d06e769fede650387da45c5906",
+        "commit": {
+          "message": "Initial commit from standalone template",
+          "author": {
+            "date": "2026-06-17T03:57:17Z"
           }
         }
       }
