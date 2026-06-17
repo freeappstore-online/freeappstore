@@ -3328,9 +3328,19 @@
   "freeappstore-online/webshare": {
     "meta": {
       "created_at": "2026-06-13T15:34:03Z",
-      "pushed_at": "2026-06-15T04:36:27Z"
+      "pushed_at": "2026-06-17T03:55:17Z"
     },
     "commits": [
+      {
+        "sha": "38c9f07bf290765cac0ece3a956bdf431fc5262b",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/38c9f07bf290765cac0ece3a956bdf431fc5262b",
+        "commit": {
+          "message": "config: set production signal URL and fix folder tip wording\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-06-17T03:55:01Z"
+          }
+        }
+      },
       {
         "sha": "84898ebd9d2eaeb6319d7a4b5a6b572d32133ffb",
         "html_url": "https://github.com/freeappstore-online/webshare/commit/84898ebd9d2eaeb6319d7a4b5a6b572d32133ffb",
@@ -3348,16 +3358,6 @@
           "message": "fix: remove unused view props from Main and unused DeviceKind import\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
             "date": "2026-06-15T04:34:04Z"
-          }
-        }
-      },
-      {
-        "sha": "4d2ed993817484bfe6dd0ee86c54bd2b3d3f5cf0",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/4d2ed993817484bfe6dd0ee86c54bd2b3d3f5cf0",
-        "commit": {
-          "message": "feat: redesign SharePage with AirDrop-style layout and icons/list view modes\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-06-15T04:32:23Z"
           }
         }
       }
