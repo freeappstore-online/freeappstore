@@ -3328,36 +3328,36 @@
   "freeappstore-online/webshare": {
     "meta": {
       "created_at": "2026-06-13T15:34:03Z",
-      "pushed_at": "2026-06-17T04:47:00Z"
+      "pushed_at": "2026-06-17T06:20:35Z"
     },
     "commits": [
       {
-        "sha": "c1222085b9ba131e9c3403aedfbb6157ecd1a8e8",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/c1222085b9ba131e9c3403aedfbb6157ecd1a8e8",
+        "sha": "cd50388a178d0b3c06e2ff3ef0569296e3a995e1",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/cd50388a178d0b3c06e2ff3ef0569296e3a995e1",
         "commit": {
-          "message": "fix: re-enable discoverable reconnects immediately\n\nCancel pending backoff timer and connect right away when setHello is\ncalled while the socket is down. Also reset attempt counter in\nclearHello so backoff doesn't accumulate across toggle cycles.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "Polish share page: avatar pulse, multi-send, status text\n\n- Replace brightness() filter pulse with scale+opacity+gray tint overlay\n  (works on all avatar colors including pure black/white)\n- Allow multiple simultaneous outgoing requests (one per peer, AirDrop-style)\n- Add inline status text below peer name in both list and icon views;\n  group name+status tightly in icon view\n- Fix WebSocket CLOSING race in setHello; reset backoff on clearHello\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-17T04:46:50Z"
+            "date": "2026-06-17T06:20:26Z"
           }
         }
       },
       {
-        "sha": "8257d0b5a0549a4729a9481d3fc70294e33d023d",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/8257d0b5a0549a4729a9481d3fc70294e33d023d",
+        "sha": "45d39074a7e1cfadb7edc4528a2a623df2a412d5",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/45d39074a7e1cfadb7edc4528a2a623df2a412d5",
         "commit": {
-          "message": "feat: wire Discoverable toggle to signal presence\n\nToggle off bounces the WebSocket so the server drops the peer from the\nroster; toggle on re-announces via setHello. State lifted to App so it\npersists across files/share navigation.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "feat: pulse avatar and show inline status instead of bottom bar\n\nClicking a peer now pulses their avatar and shows Waiting…/Accepted!/\nDeclined below their name. Accepted and Declined auto-clear after 2s.\nRemoves the outgoing status bar at the bottom of SharePage.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-17T04:36:52Z"
+            "date": "2026-06-17T05:06:10Z"
           }
         }
       },
       {
-        "sha": "b0eda31de8d90e2bfe2d9a0d6be840671cda854f",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/b0eda31de8d90e2bfe2d9a0d6be840671cda854f",
+        "sha": "0f1db1eddc9cbf6cc15cdf8fb696cfffd2d7ff2e",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/0f1db1eddc9cbf6cc15cdf8fb696cfffd2d7ff2e",
         "commit": {
-          "message": "feat: use logo as favicon\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "message": "fix: remove shadow from Back to items button\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
-            "date": "2026-06-17T04:36:45Z"
+            "date": "2026-06-17T05:00:08Z"
           }
         }
       }
