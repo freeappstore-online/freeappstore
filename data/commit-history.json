@@ -3328,9 +3328,29 @@
   "freeappstore-online/webshare": {
     "meta": {
       "created_at": "2026-06-13T15:34:03Z",
-      "pushed_at": "2026-06-17T12:08:53Z"
+      "pushed_at": "2026-06-18T12:01:16Z"
     },
     "commits": [
+      {
+        "sha": "9793fdda436ce7d31ff0ae0d1dd7053067a9ffb9",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/9793fdda436ce7d31ff0ae0d1dd7053067a9ffb9",
+        "commit": {
+          "message": "Update signal worker name and URL to webshare.freeappstore.workers.dev\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-06-18T12:01:04Z"
+          }
+        }
+      },
+      {
+        "sha": "88c0c8c6841485c879e56bcb479d5ec0dfa9455d",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/88c0c8c6841485c879e56bcb479d5ec0dfa9455d",
+        "commit": {
+          "message": "Update signal worker name/URL to webshare-freeappstore\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-06-18T11:44:54Z"
+          }
+        }
+      },
       {
         "sha": "01d3bc0f4af792f9b091a5c0eb259ccb7a5ce8d3",
         "html_url": "https://github.com/freeappstore-online/webshare/commit/01d3bc0f4af792f9b091a5c0eb259ccb7a5ce8d3",
@@ -3338,26 +3358,6 @@
           "message": "Wire up selected-files sharing — pass selection up through onShare\n\nShare button now sends only the selected files when in select mode,\ninstead of always sending all staged files.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
             "date": "2026-06-17T12:08:45Z"
-          }
-        }
-      },
-      {
-        "sha": "492062c9ad07410f65b434931d39ac11d6c87170",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/492062c9ad07410f65b434931d39ac11d6c87170",
-        "commit": {
-          "message": "Allow backdrop click to close incoming share window\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-06-17T11:55:34Z"
-          }
-        }
-      },
-      {
-        "sha": "12e0288dfc585e3dce4ede88bbae382a822bba0b",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/12e0288dfc585e3dce4ede88bbae382a822bba0b",
-        "commit": {
-          "message": "Show withdrawn state on receiver's incoming share window\n\nWhen the sender withdraws, keep the FloatingWindow open with the sender's\nprofile intact, swap the prompt to \"withdrew sharing\", and replace\nDecline/Accept with a single Ok button that dismisses it.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-06-17T11:35:10Z"
           }
         }
       }
