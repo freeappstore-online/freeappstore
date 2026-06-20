@@ -1541,6 +1541,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "ChaoLIUqaq"
+    },
+    {
+      "id": "piano",
+      "name": "piano",
+      "category": "Other (specify in description)",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Play piano in your browser with keyboard and touch support",
+      "appUrl": "https://piano.freeappstore.online",
+      "repo": "freeappstore-online/piano",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
