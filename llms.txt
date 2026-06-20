@@ -8,6 +8,10 @@
 - [MCP Server](https://mcp.freeappstore.online/mcp): Remote MCP server (Streamable HTTP). Drives the full build loop in two modes: (a) your AI writes the code — `create_app`, `update_files`, `read_file`, `list_files` (write a file, it auto-redeploys); (b) the platform's VibeCode agent writes+deploys from a prompt — `agent_build`, `agent_status`. Plus inspect/reference: `list_apps`, `app_info`, `deploy_status`, `app_logs`, `platform_guide`, `sdk_reference`. Connect with `npx mcp-remote https://mcp.freeappstore.online/mcp`.
 - [MCP Discovery](https://freeappstore.online/.well-known/mcp.json): Auto-discovery endpoint for MCP clients and registries.
 - [MCP Docs](https://freeappstore.online/docs/mcp): Setup guide for Claude Code, Cursor, and other MCP clients.
+- [MCP Auth](https://freeappstore.online/docs/mcp#authentication): OAuth 2.1 (automatic via mcp-remote) or Bearer session token. Write tools verify per-app ownership.
+- [MCP Security](https://freeappstore.online/docs/mcp#security): Scoped tokens, session isolation, rate limiting, read-only mode, dry-run support. No generic shell/API proxy.
+- [MCP Capabilities](https://freeappstore.online/docs/mcp#capabilities): What's read-only, what's write-protected, what's not supported via MCP.
+- [Agent Instructions](https://github.com/freeappstore-online/mcp/blob/main/AGENTS.md): Rules for AI agents — use MCP only, no direct REST API calls, confirm before destructive actions.
 
 ## SDK
 
