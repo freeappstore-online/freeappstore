@@ -1555,6 +1555,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "pillcount",
+      "name": "pillcount",
+      "category": "Health & Fitness",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Track your daily pill intake with counts, timestamps, and streaks",
+      "appUrl": "https://pillcount.freeappstore.online",
+      "repo": "freeappstore-online/pillcount",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
