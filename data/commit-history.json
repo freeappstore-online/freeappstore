@@ -3442,9 +3442,29 @@
   "freeappstore-online/piano": {
     "meta": {
       "created_at": "2026-06-20T22:05:20Z",
-      "pushed_at": "2026-06-20T22:48:52Z"
+      "pushed_at": "2026-06-21T06:06:51Z"
     },
     "commits": [
+      {
+        "sha": "b850f2c4a99519c6448cc469abcee18669082b4d",
+        "html_url": "https://github.com/freeappstore-online/piano/commit/b850f2c4a99519c6448cc469abcee18669082b4d",
+        "commit": {
+          "message": "docs: complete MCP tool list, note voice requires React\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-06-21T06:06:49Z"
+          }
+        }
+      },
+      {
+        "sha": "eb09be51c22ffacab9d699bacdbb6937f8d80123",
+        "html_url": "https://github.com/freeappstore-online/piano/commit/eb09be51c22ffacab9d699bacdbb6937f8d80123",
+        "commit": {
+          "message": "fix: proper key press/release, touch-action, fix lru-cache lockfile\n\n- Keys visually depress on press and release on pointer/key up\n- Support simultaneous key presses (chords)\n- Add touch-action:none to prevent zoom/scroll on mobile\n- Regenerate lockfile to fix vite-plugin-pwa lru-cache crash\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-06-21T05:55:51Z"
+          }
+        }
+      },
       {
         "sha": "98eb9d9598990897aebc00c75e3a594092c1ec0b",
         "html_url": "https://github.com/freeappstore-online/piano/commit/98eb9d9598990897aebc00c75e3a594092c1ec0b",
@@ -3452,26 +3472,6 @@
           "message": "fix: add missing 10th black key mapping, improve keyboard hint\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-06-20T22:48:50Z"
-          }
-        }
-      },
-      {
-        "sha": "bffa92878fc80f6dbb693f78231a596d4060a420",
-        "html_url": "https://github.com/freeappstore-online/piano/commit/bffa92878fc80f6dbb693f78231a596d4060a420",
-        "commit": {
-          "message": "fix: CI compliance — check for SDK dep instead of domain string\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-06-20T22:15:31Z"
-          }
-        }
-      },
-      {
-        "sha": "2f8d481e76cd1aae620ea843c8602b8916a0b8f0",
-        "html_url": "https://github.com/freeappstore-online/piano/commit/2f8d481e76cd1aae620ea843c8602b8916a0b8f0",
-        "commit": {
-          "message": "feat: piano keyboard app — 2-octave Web Audio piano with keyboard input\n\n- Playable piano with realistic key styling\n- Keyboard mapping (A-L white, W-E-T-Y-U-O-P black)\n- Sustain toggle and octave shift controls\n- Web Audio API synthesis (triangle wave + low-pass filter)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-06-20T22:05:45Z"
           }
         }
       }
