@@ -3476,5 +3476,43 @@
         }
       }
     ]
+  },
+  "freeappstore-online/pillcount": {
+    "meta": {
+      "created_at": "2026-06-21T06:51:56Z",
+      "pushed_at": "2026-06-21T07:09:43Z"
+    },
+    "commits": [
+      {
+        "sha": "2ae9f3f0cdedcf75cb493ccb90a53819f4500c2a",
+        "html_url": "https://github.com/freeappstore-online/pillcount/commit/2ae9f3f0cdedcf75cb493ccb90a53819f4500c2a",
+        "commit": {
+          "message": "fix: timezone bugs, undo persistence, duplicate timestamp keys\n\n- todayISO() now uses local timezone (was UTC — pills near midnight\n  would appear in the wrong day)\n- todayPills filter uses local date comparison (not string prefix)\n- toLocalDate() parses YYYY-MM-DD as local time (not UTC midnight)\n- useEffect clears localStorage when data is null (undo to zero\n  was persisting stale data)\n- Today's log uses stable keys and correct pill numbering\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-06-21T07:09:41Z"
+          }
+        }
+      },
+      {
+        "sha": "52e05e433d76825085ef854f344eab8928848ba6",
+        "html_url": "https://github.com/freeappstore-online/pillcount/commit/52e05e433d76825085ef854f344eab8928848ba6",
+        "commit": {
+          "message": "feat: pill counter — track daily intake with timestamps and streaks\n\n- Big pill count display with \"Take Pill\" button\n- Day counter (days since start), today's count, start date\n- Today's log with pill number + time taken\n- Full history (collapsible, reverse chronological)\n- Undo last pill, reset all data\n- All data saved to localStorage\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-06-21T06:52:09Z"
+          }
+        }
+      },
+      {
+        "sha": "3a40a8e658a09b00f81054e65032afa7be023943",
+        "html_url": "https://github.com/freeappstore-online/pillcount/commit/3a40a8e658a09b00f81054e65032afa7be023943",
+        "commit": {
+          "message": "docs: complete MCP tool list, note voice requires React\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-06-21T06:06:26Z"
+          }
+        }
+      }
+    ]
   }
 }
