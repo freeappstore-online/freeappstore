@@ -1569,6 +1569,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "my-todo-app",
+      "name": "my-todo-app",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A clean todo app with priorities, due dates, search and progress tracking.",
+      "appUrl": "https://my-todo-app.freeappstore.online",
+      "repo": "freeappstore-online/my-todo-app",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "James1234804"
     }
   ]
 }
