@@ -40,9 +40,29 @@
   "freeappstore-online/quiz": {
     "meta": {
       "created_at": "2026-05-03T02:32:57Z",
-      "pushed_at": "2026-06-20T22:42:52Z"
+      "pushed_at": "2026-07-01T06:59:34Z"
     },
     "commits": [
+      {
+        "sha": "a04c37c72ad82cd72c7ef1aab64dbdfa5fe2bead",
+        "html_url": "https://github.com/freeappstore-online/quiz/commit/a04c37c72ad82cd72c7ef1aab64dbdfa5fe2bead",
+        "commit": {
+          "message": "chore: remove test/build artifact junk; gitignore it\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-01T05:22:54Z"
+          }
+        }
+      },
+      {
+        "sha": "a83fa1f55d6f568c4e51b6d5b2627bad46395d47",
+        "html_url": "https://github.com/freeappstore-online/quiz/commit/a83fa1f55d6f568c4e51b6d5b2627bad46395d47",
+        "commit": {
+          "message": "chore: drop committed .playwright-mcp logs; gitignore them\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-01T02:19:50Z"
+          }
+        }
+      },
       {
         "sha": "99f7cd5587198a59fb660ca8c1b4093592217da3",
         "html_url": "https://github.com/freeappstore-online/quiz/commit/99f7cd5587198a59fb660ca8c1b4093592217da3",
@@ -50,26 +70,6 @@
           "message": "fix: restore compliance.yml with SDK dep check",
           "author": {
             "date": "2026-06-20T22:42:51Z"
-          }
-        }
-      },
-      {
-        "sha": "d755ff5bd644adf3df4a4af34a71a1d5f885b2ca",
-        "html_url": "https://github.com/freeappstore-online/quiz/commit/d755ff5bd644adf3df4a4af34a71a1d5f885b2ca",
-        "commit": {
-          "message": "fix: CI compliance — check SDK dep instead of domain string",
-          "author": {
-            "date": "2026-06-20T22:40:58Z"
-          }
-        }
-      },
-      {
-        "sha": "64085056cd56756834b9d40cd745425863ff7a9c",
-        "html_url": "https://github.com/freeappstore-online/quiz/commit/64085056cd56756834b9d40cd745425863ff7a9c",
-        "commit": {
-          "message": "fix: enable pinch-zoom (a11y)",
-          "author": {
-            "date": "2026-05-31T11:18:45Z"
           }
         }
       }
@@ -154,9 +154,19 @@
   "freeappstore-online/books": {
     "meta": {
       "created_at": "2026-05-04T00:16:25Z",
-      "pushed_at": "2026-06-20T22:42:19Z"
+      "pushed_at": "2026-07-01T06:59:45Z"
     },
     "commits": [
+      {
+        "sha": "2c20f28b3dc42f6c7402a83ece5e3231053e0929",
+        "html_url": "https://github.com/freeappstore-online/books/commit/2c20f28b3dc42f6c7402a83ece5e3231053e0929",
+        "commit": {
+          "message": "chore: remove test/build artifact junk; gitignore it\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-01T05:22:53Z"
+          }
+        }
+      },
       {
         "sha": "d897f3291127ff450e1c14c68a3fb5d4c9eb5c66",
         "html_url": "https://github.com/freeappstore-online/books/commit/d897f3291127ff450e1c14c68a3fb5d4c9eb5c66",
@@ -174,16 +184,6 @@
           "message": "fix: CI compliance — check SDK dep instead of domain string",
           "author": {
             "date": "2026-06-20T22:40:16Z"
-          }
-        }
-      },
-      {
-        "sha": "b9e7cc029bd0234183c1f007226e12c0b38745b6",
-        "html_url": "https://github.com/freeappstore-online/books/commit/b9e7cc029bd0234183c1f007226e12c0b38745b6",
-        "commit": {
-          "message": "fix: enable pinch-zoom (a11y)",
-          "author": {
-            "date": "2026-05-31T11:18:46Z"
           }
         }
       }
@@ -268,9 +268,29 @@
   "freeappstore-online/math": {
     "meta": {
       "created_at": "2026-05-03T02:32:52Z",
-      "pushed_at": "2026-06-20T22:42:39Z"
+      "pushed_at": "2026-07-01T06:59:28Z"
     },
     "commits": [
+      {
+        "sha": "101c98dc955362abcb4abb6790c5b3b63df97e43",
+        "html_url": "https://github.com/freeappstore-online/math/commit/101c98dc955362abcb4abb6790c5b3b63df97e43",
+        "commit": {
+          "message": "chore: drop committed .wrangler local state; gitignore it\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-01T02:20:03Z"
+          }
+        }
+      },
+      {
+        "sha": "947b8642814f82170830df2f4b763b872882d965",
+        "html_url": "https://github.com/freeappstore-online/math/commit/947b8642814f82170830df2f4b763b872882d965",
+        "commit": {
+          "message": "chore: drop committed .playwright-mcp logs; gitignore them\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-01T02:19:50Z"
+          }
+        }
+      },
       {
         "sha": "14b79e213aba3f2c8b4ef1302370999616e529bd",
         "html_url": "https://github.com/freeappstore-online/math/commit/14b79e213aba3f2c8b4ef1302370999616e529bd",
@@ -278,26 +298,6 @@
           "message": "fix: restore compliance.yml with SDK dep check",
           "author": {
             "date": "2026-06-20T22:42:39Z"
-          }
-        }
-      },
-      {
-        "sha": "9344f9cb084e131208ea21c9a287f77911e969df",
-        "html_url": "https://github.com/freeappstore-online/math/commit/9344f9cb084e131208ea21c9a287f77911e969df",
-        "commit": {
-          "message": "fix: CI compliance — check SDK dep instead of domain string",
-          "author": {
-            "date": "2026-06-20T22:40:40Z"
-          }
-        }
-      },
-      {
-        "sha": "417965b72baef0a99102b335d5ca4b115fbc9e20",
-        "html_url": "https://github.com/freeappstore-online/math/commit/417965b72baef0a99102b335d5ca4b115fbc9e20",
-        "commit": {
-          "message": "fix: enable pinch-zoom (a11y)",
-          "author": {
-            "date": "2026-05-31T11:18:43Z"
           }
         }
       }
@@ -458,9 +458,19 @@
   "freeappstore-online/habits": {
     "meta": {
       "created_at": "2026-05-04T10:58:17Z",
-      "pushed_at": "2026-06-20T22:42:35Z"
+      "pushed_at": "2026-07-01T06:59:56Z"
     },
     "commits": [
+      {
+        "sha": "702a3b224148e44fecb04ff547dfd57743e2fbd3",
+        "html_url": "https://github.com/freeappstore-online/habits/commit/702a3b224148e44fecb04ff547dfd57743e2fbd3",
+        "commit": {
+          "message": "chore: remove test/build artifact junk; gitignore it\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-01T05:22:53Z"
+          }
+        }
+      },
       {
         "sha": "3f109a8a6c86f74ec0d8d84eeb2eac5c57eeae2b",
         "html_url": "https://github.com/freeappstore-online/habits/commit/3f109a8a6c86f74ec0d8d84eeb2eac5c57eeae2b",
@@ -478,16 +488,6 @@
           "message": "fix: CI compliance — check SDK dep instead of domain string",
           "author": {
             "date": "2026-06-20T22:40:34Z"
-          }
-        }
-      },
-      {
-        "sha": "603ba382b2d879373468a60fbce955e3374814d6",
-        "html_url": "https://github.com/freeappstore-online/habits/commit/603ba382b2d879373468a60fbce955e3374814d6",
-        "commit": {
-          "message": "docs: update CLAUDE.md — R2 not CF Pages",
-          "author": {
-            "date": "2026-05-31T11:36:16Z"
           }
         }
       }
@@ -838,9 +838,19 @@
   "freeappstore-online/calculator": {
     "meta": {
       "created_at": "2026-05-04T05:30:50Z",
-      "pushed_at": "2026-06-20T22:42:20Z"
+      "pushed_at": "2026-07-01T06:59:50Z"
     },
     "commits": [
+      {
+        "sha": "186921caa94a3af97891bb487d1deb076c982d1d",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/186921caa94a3af97891bb487d1deb076c982d1d",
+        "commit": {
+          "message": "chore: remove test/build artifact junk; gitignore it\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-01T05:22:53Z"
+          }
+        }
+      },
       {
         "sha": "4f46a6e5f0f72df13d22e96ab99939832fb8efbc",
         "html_url": "https://github.com/freeappstore-online/calculator/commit/4f46a6e5f0f72df13d22e96ab99939832fb8efbc",
@@ -858,16 +868,6 @@
           "message": "fix: CI compliance — check SDK dep instead of domain string",
           "author": {
             "date": "2026-06-20T22:40:18Z"
-          }
-        }
-      },
-      {
-        "sha": "f858ff741c2c7d08a87b18b8fba72a92e59c3471",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/f858ff741c2c7d08a87b18b8fba72a92e59c3471",
-        "commit": {
-          "message": "docs: update CLAUDE.md — R2 not CF Pages",
-          "author": {
-            "date": "2026-05-31T11:36:09Z"
           }
         }
       }
@@ -1216,9 +1216,19 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-06-20T22:42:16Z"
+      "pushed_at": "2026-07-01T06:59:39Z"
     },
     "commits": [
+      {
+        "sha": "3e1964eb63d9fb50419707363fd59934b9d15eb6",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/3e1964eb63d9fb50419707363fd59934b9d15eb6",
+        "commit": {
+          "message": "chore: remove test/build artifact junk; gitignore it\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-01T05:22:53Z"
+          }
+        }
+      },
       {
         "sha": "bca380c03f371e818ff7c1fd406b7beb38e385e6",
         "html_url": "https://github.com/freeappstore-online/artout/commit/bca380c03f371e818ff7c1fd406b7beb38e385e6",
@@ -1236,16 +1246,6 @@
           "message": "fix: CI compliance — check SDK dep instead of domain string",
           "author": {
             "date": "2026-06-20T22:40:12Z"
-          }
-        }
-      },
-      {
-        "sha": "7f383e696ebafa28ba47df9e196263ff072aca13",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/7f383e696ebafa28ba47df9e196263ff072aca13",
-        "commit": {
-          "message": "fix: enable pinch-zoom (a11y)",
-          "author": {
-            "date": "2026-05-31T11:19:10Z"
           }
         }
       }
@@ -1824,9 +1824,19 @@
   "freeappstore-online/message": {
     "meta": {
       "created_at": "2026-05-26T00:48:56Z",
-      "pushed_at": "2026-05-31T11:19:24Z"
+      "pushed_at": "2026-07-01T07:00:01Z"
     },
     "commits": [
+      {
+        "sha": "eb039179719acf81e44beec704b514448c99d9b2",
+        "html_url": "https://github.com/freeappstore-online/message/commit/eb039179719acf81e44beec704b514448c99d9b2",
+        "commit": {
+          "message": "chore: remove test/build artifact junk; gitignore it\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-01T05:22:54Z"
+          }
+        }
+      },
       {
         "sha": "056982bfac358bab9ec25185695ed59b316c7c00",
         "html_url": "https://github.com/freeappstore-online/message/commit/056982bfac358bab9ec25185695ed59b316c7c00",
@@ -1844,16 +1854,6 @@
           "message": "Ignore .vibe-check/ artifacts (regenerated reports)\n\nvcqa generates report.html/json/history under .vibe-check/ on each scan.\nUntrack the previously-committed reports and add the dir to .gitignore.\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-05-27T23:36:11Z"
-          }
-        }
-      },
-      {
-        "sha": "6e0ef9587bb642f87a26bf113b60b9f0890a364a",
-        "html_url": "https://github.com/freeappstore-online/message/commit/6e0ef9587bb642f87a26bf113b60b9f0890a364a",
-        "commit": {
-          "message": "feat: add PWA manifest\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T14:49:37Z"
           }
         }
       }
