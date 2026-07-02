@@ -3328,9 +3328,19 @@
   "freeappstore-online/webshare": {
     "meta": {
       "created_at": "2026-06-13T15:34:03Z",
-      "pushed_at": "2026-06-22T00:23:12Z"
+      "pushed_at": "2026-07-02T01:40:36Z"
     },
     "commits": [
+      {
+        "sha": "01185ee2c57dfdba7970ddd9532c71b1d1d2a83b",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/01185ee2c57dfdba7970ddd9532c71b1d1d2a83b",
+        "commit": {
+          "message": "Fix share-request reliability bugs found in pre-transfer audit\n\n- Trim share-req file previews to the worker's 64KB message cap so big\n  batches aren't silently dropped (sender no longer stuck on Waiting…)\n- Group IPv6 peers by /64 prefix — each device has its own address, so\n  same-network peers never met on IPv6\n- Don't bounce a fresh socket when clearHello() has nothing to retract\n- Queue incoming share requests instead of overwriting the one on screen\n- Only add outgoing \"Waiting…\" entries when the send actually went out,\n  and clear the ghost roster while disconnected\n- Don't let a crossing share-resp overwrite a withdrawn request\n- Clear staged share files and discoverability on profile reset\n- Clamp untrusted peer payload fields before rendering\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-02T01:40:24Z"
+          }
+        }
+      },
       {
         "sha": "23020ebc00a5b2898d37e181fe124fb34ef4815e",
         "html_url": "https://github.com/freeappstore-online/webshare/commit/23020ebc00a5b2898d37e181fe124fb34ef4815e",
@@ -3348,16 +3358,6 @@
           "message": "Update signal worker name and URL to webshare.freeappstore.workers.dev\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
           "author": {
             "date": "2026-06-18T12:01:04Z"
-          }
-        }
-      },
-      {
-        "sha": "88c0c8c6841485c879e56bcb479d5ec0dfa9455d",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/88c0c8c6841485c879e56bcb479d5ec0dfa9455d",
-        "commit": {
-          "message": "Update signal worker name/URL to webshare-freeappstore\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-06-18T11:44:54Z"
           }
         }
       }
