@@ -346,7 +346,7 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "hostedOn": "r2",
-      "creatorGithub": "serge-ivo",
+      "creatorGithub": "dawsonhuang0",
       "requiresAuth": true
     },
     {
@@ -362,7 +362,7 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "hostedOn": "r2",
-      "creatorGithub": "serge-ivo"
+      "creatorGithub": "abid8195"
     },
     {
       "id": "streak",
