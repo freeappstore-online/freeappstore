@@ -3328,9 +3328,29 @@
   "freeappstore-online/webshare": {
     "meta": {
       "created_at": "2026-06-13T15:34:03Z",
-      "pushed_at": "2026-07-02T01:40:36Z"
+      "pushed_at": "2026-07-02T11:31:22Z"
     },
     "commits": [
+      {
+        "sha": "4806ef08a117b9314d171d09492e1c9818d96f71",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/4806ef08a117b9314d171d09492e1c9818d96f71",
+        "commit": {
+          "message": "Show code-room peers in a \"People from Share Code\" section on top\n\nReceivers who entered the share code get their own labeled section above\nthe Wi-Fi peers, separated by a line; anyone present in both rooms only\nshows there. Peer tiles/rows are now shared render helpers.\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-02T11:31:20Z"
+          }
+        }
+      },
+      {
+        "sha": "4d5bd8179822edde9ae6c78c55d8c1245c349b15",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/4d5bd8179822edde9ae6c78c55d8c1245c349b15",
+        "commit": {
+          "message": "Add share codes: receive files across networks with a 6-digit code or QR\n\n- \"Receive files…\" button on the empty main page opens a code-entry\n  window (6 boxes, auto-advance, paste) with a QR camera scanner\n- Senders auto-host a code on the share page: shown with QR under the\n  profile on desktop, behind a \"Share via Share Code\" button on mobile\n- The code room rides on a second signaling connection so LAN discovery\n  keeps working; rosters are merged and replies route to the right socket\n- Entering a code counts as consent — requests arriving through it are\n  auto-accepted, no Accept/Decline prompt\n- QR encodes ?code= deep link, so scanning with a native camera app\n  lands straight in the sender's room\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-02T11:23:08Z"
+          }
+        }
+      },
       {
         "sha": "01185ee2c57dfdba7970ddd9532c71b1d1d2a83b",
         "html_url": "https://github.com/freeappstore-online/webshare/commit/01185ee2c57dfdba7970ddd9532c71b1d1d2a83b",
@@ -3338,26 +3358,6 @@
           "message": "Fix share-request reliability bugs found in pre-transfer audit\n\n- Trim share-req file previews to the worker's 64KB message cap so big\n  batches aren't silently dropped (sender no longer stuck on Waiting…)\n- Group IPv6 peers by /64 prefix — each device has its own address, so\n  same-network peers never met on IPv6\n- Don't bounce a fresh socket when clearHello() has nothing to retract\n- Queue incoming share requests instead of overwriting the one on screen\n- Only add outgoing \"Waiting…\" entries when the send actually went out,\n  and clear the ghost roster while disconnected\n- Don't let a crossing share-resp overwrite a withdrawn request\n- Clear staged share files and discoverability on profile reset\n- Clamp untrusted peer payload fields before rendering\n\nCo-Authored-By: Claude Fable 5 <noreply@anthropic.com>",
           "author": {
             "date": "2026-07-02T01:40:24Z"
-          }
-        }
-      },
-      {
-        "sha": "23020ebc00a5b2898d37e181fe124fb34ef4815e",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/23020ebc00a5b2898d37e181fe124fb34ef4815e",
-        "commit": {
-          "message": "Debounce discoverability toggle to avoid burning signal requests on rapid flips\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-06-22T00:22:32Z"
-          }
-        }
-      },
-      {
-        "sha": "9793fdda436ce7d31ff0ae0d1dd7053067a9ffb9",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/9793fdda436ce7d31ff0ae0d1dd7053067a9ffb9",
-        "commit": {
-          "message": "Update signal worker name and URL to webshare.freeappstore.workers.dev\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-06-18T12:01:04Z"
           }
         }
       }
