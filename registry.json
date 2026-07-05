@@ -1583,6 +1583,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "James1234804"
+    },
+    {
+      "id": "taskflow",
+      "name": "taskflow",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Simple Task Manager to organize, track and complete your daily tasks.",
+      "appUrl": "https://taskflow.freeappstore.online",
+      "repo": "freeappstore-online/taskflow",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "Reetu23"
     }
   ]
 }
