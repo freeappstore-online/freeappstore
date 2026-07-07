@@ -3580,5 +3580,33 @@
         }
       }
     ]
+  },
+  "freeappstore-online/dodge-drop": {
+    "meta": {
+      "created_at": "2026-07-07T00:29:37Z",
+      "pushed_at": "2026-07-07T00:36:58Z"
+    },
+    "commits": [
+      {
+        "sha": "771938e639158b11242c98f90d2b68798d7b343f",
+        "html_url": "https://github.com/freeappstore-online/dodge-drop/commit/771938e639158b11242c98f90d2b68798d7b343f",
+        "commit": {
+          "message": "Build Dodge Drop game",
+          "author": {
+            "date": "2026-06-19T06:43:04Z"
+          }
+        }
+      },
+      {
+        "sha": "0feb628328a79e992afae4a0ace146ea78783300",
+        "html_url": "https://github.com/freeappstore-online/dodge-drop/commit/0feb628328a79e992afae4a0ace146ea78783300",
+        "commit": {
+          "message": "Initial commit from canvas template",
+          "author": {
+            "date": "2026-06-19T03:42:28Z"
+          }
+        }
+      }
+    ]
   }
 }
