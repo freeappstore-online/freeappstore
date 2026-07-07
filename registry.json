@@ -1611,6 +1611,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "viri543"
+    },
+    {
+      "id": "stock-tracker",
+      "name": "stock-tracker",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A clean and simple stock inventory tracker to manage your products and monitor stock levels",
+      "appUrl": "https://stock-tracker.freeappstore.online",
+      "repo": "freeappstore-online/stock-tracker",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "James1234804"
     }
   ]
 }
