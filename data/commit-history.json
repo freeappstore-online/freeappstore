@@ -78,9 +78,19 @@
   "freeappstore-online/chessclock": {
     "meta": {
       "created_at": "2026-05-04T10:01:30Z",
-      "pushed_at": "2026-05-31T11:18:50Z"
+      "pushed_at": "2026-07-06T23:16:33Z"
     },
     "commits": [
+      {
+        "sha": "f0907b61a236916a5ba13ab1bcb94744084c8334",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/f0907b61a236916a5ba13ab1bcb94744084c8334",
+        "commit": {
+          "message": "Switch service worker to network-first caching (v3)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T20:40:16Z"
+          }
+        }
+      },
       {
         "sha": "78ceced181896a7cef991583a401c3677949a5a5",
         "html_url": "https://github.com/freeappstore-online/chessclock/commit/78ceced181896a7cef991583a401c3677949a5a5",
@@ -98,16 +108,6 @@
           "message": "Add apple-touch-icon",
           "author": {
             "date": "2026-05-27T14:19:24Z"
-          }
-        }
-      },
-      {
-        "sha": "b27fdeebd74b2d32e6e0b6dcb32e5795c23a904b",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/b27fdeebd74b2d32e6e0b6dcb32e5795c23a904b",
-        "commit": {
-          "message": "Add custom time control, service worker, move time stats\n\nCustom time control:\n- Two number inputs (1-180 min, 0-60 sec) in a \"Custom\" section\n  below presets on the setup screen\n- Typing auto-selects the custom control, presets deselect\n- Inputs highlight with accent border when custom is active\n- Persistence upgraded from label string to JSON {m, i} format\n  with backwards-compatible restore from old format\n\nService worker (offline PWA):\n- Network-first for navigation, cache-first for assets\n- Pre-caches shell (/, index.html, manifest, icon) on install\n- Falls back to cached index.html when offline\n- Old caches cleaned on activate\n- Registered on window load in main.tsx\n\nMove time stats:\n- Tracks per-player move times via ref (no extra re-renders)\n- Last move time shown in info line: \"3 mv · 8.2s\"\n- Formatted as Xs (< 10s with decimal), Xs (< 60s), XmYs (longer)\n- Resets on game reset\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T14:15:42Z"
           }
         }
       }
@@ -534,9 +534,19 @@
   "freeappstore-online/music": {
     "meta": {
       "created_at": "2026-05-03T02:32:53Z",
-      "pushed_at": "2026-06-20T22:42:42Z"
+      "pushed_at": "2026-07-06T23:18:02Z"
     },
     "commits": [
+      {
+        "sha": "4131b0120eb37712f46a1eff8dcca0760437e349",
+        "html_url": "https://github.com/freeappstore-online/music/commit/4131b0120eb37712f46a1eff8dcca0760437e349",
+        "commit": {
+          "message": "Switch service worker to network-first caching (v3)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T20:40:17Z"
+          }
+        }
+      },
       {
         "sha": "2117c05defce67a9c57706ba94812f7f83cfe2c8",
         "html_url": "https://github.com/freeappstore-online/music/commit/2117c05defce67a9c57706ba94812f7f83cfe2c8",
@@ -554,16 +564,6 @@
           "message": "fix: CI compliance — check SDK dep instead of domain string",
           "author": {
             "date": "2026-06-20T22:40:44Z"
-          }
-        }
-      },
-      {
-        "sha": "d0d13e8cc5885f64814651dcd655885c698bd85c",
-        "html_url": "https://github.com/freeappstore-online/music/commit/d0d13e8cc5885f64814651dcd655885c698bd85c",
-        "commit": {
-          "message": "fix: enable pinch-zoom (a11y)",
-          "author": {
-            "date": "2026-05-31T11:18:44Z"
           }
         }
       }
@@ -800,9 +800,19 @@
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-06-20T22:42:53Z"
+      "pushed_at": "2026-07-06T23:18:52Z"
     },
     "commits": [
+      {
+        "sha": "9abb946fa282e79d58acb97476d542c240acee97",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/9abb946fa282e79d58acb97476d542c240acee97",
+        "commit": {
+          "message": "Harden PWA service worker: SPA navigate fallback + skipWaiting/clientsClaim\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T20:40:16Z"
+          }
+        }
+      },
       {
         "sha": "ae19ab99be7c155867a8217185f5496a67c0bb35",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/ae19ab99be7c155867a8217185f5496a67c0bb35",
@@ -820,16 +830,6 @@
           "message": "fix: CI compliance — check SDK dep instead of domain string",
           "author": {
             "date": "2026-06-20T22:41:00Z"
-          }
-        }
-      },
-      {
-        "sha": "c2bb0c6ae3006abd66e6050b34e69f3128afaef8",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/c2bb0c6ae3006abd66e6050b34e69f3128afaef8",
-        "commit": {
-          "message": "docs: update CLAUDE.md — R2 not CF Pages",
-          "author": {
-            "date": "2026-05-31T11:36:23Z"
           }
         }
       }
@@ -1178,9 +1178,19 @@
   "freeappstore-online/streak": {
     "meta": {
       "created_at": "2026-05-19T21:30:48Z",
-      "pushed_at": "2026-05-31T11:19:08Z"
+      "pushed_at": "2026-07-06T23:18:58Z"
     },
     "commits": [
+      {
+        "sha": "8411748242103c1a11dddc9c95d06ff65cc178cc",
+        "html_url": "https://github.com/freeappstore-online/streak/commit/8411748242103c1a11dddc9c95d06ff65cc178cc",
+        "commit": {
+          "message": "Harden PWA service worker: SPA navigate fallback + skipWaiting/clientsClaim\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T20:40:16Z"
+          }
+        }
+      },
       {
         "sha": "18d8ed1eeb2eb64a743e94bcf8a70224e8b41cff",
         "html_url": "https://github.com/freeappstore-online/streak/commit/18d8ed1eeb2eb64a743e94bcf8a70224e8b41cff",
@@ -1198,16 +1208,6 @@
           "message": "feat: add Google sign-in alongside GitHub",
           "author": {
             "date": "2026-05-27T13:49:39Z"
-          }
-        }
-      },
-      {
-        "sha": "b13f7dadfa86afc76cc7321cd6176147c586c9af",
-        "html_url": "https://github.com/freeappstore-online/streak/commit/b13f7dadfa86afc76cc7321cd6176147c586c9af",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:09:03Z"
           }
         }
       }
@@ -1444,9 +1444,19 @@
   "freeappstore-online/kanban": {
     "meta": {
       "created_at": "2026-05-19T22:18:23Z",
-      "pushed_at": "2026-05-31T11:19:14Z"
+      "pushed_at": "2026-07-06T23:17:34Z"
     },
     "commits": [
+      {
+        "sha": "b65e4f37febbbc45c62224d26d3efaad6dd3adeb",
+        "html_url": "https://github.com/freeappstore-online/kanban/commit/b65e4f37febbbc45c62224d26d3efaad6dd3adeb",
+        "commit": {
+          "message": "Harden PWA service worker: SPA navigate fallback + skipWaiting/clientsClaim\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T20:40:16Z"
+          }
+        }
+      },
       {
         "sha": "0864b893ad6e3ff63441dcb59514147ce10536d7",
         "html_url": "https://github.com/freeappstore-online/kanban/commit/0864b893ad6e3ff63441dcb59514147ce10536d7",
@@ -1466,25 +1476,25 @@
             "date": "2026-05-27T13:49:28Z"
           }
         }
-      },
-      {
-        "sha": "a5a36c0675d120d611becd2afa08c1060ed93d7e",
-        "html_url": "https://github.com/freeappstore-online/kanban/commit/a5a36c0675d120d611becd2afa08c1060ed93d7e",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:09:11Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/docbot": {
     "meta": {
       "created_at": "2026-05-20T09:44:20Z",
-      "pushed_at": "2026-05-31T11:19:15Z"
+      "pushed_at": "2026-07-06T23:16:55Z"
     },
     "commits": [
+      {
+        "sha": "cae54e502bf312386266910d6a82462fe28f878d",
+        "html_url": "https://github.com/freeappstore-online/docbot/commit/cae54e502bf312386266910d6a82462fe28f878d",
+        "commit": {
+          "message": "Harden PWA service worker: SPA navigate fallback + skipWaiting/clientsClaim\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T20:40:16Z"
+          }
+        }
+      },
       {
         "sha": "45088f3cc93b9c5a0dfcb9e5db3de0427215727a",
         "html_url": "https://github.com/freeappstore-online/docbot/commit/45088f3cc93b9c5a0dfcb9e5db3de0427215727a",
@@ -1504,25 +1514,25 @@
             "date": "2026-05-27T14:14:43Z"
           }
         }
-      },
-      {
-        "sha": "4a02d281e447a9b83bada05698116dea6bb38f9a",
-        "html_url": "https://github.com/freeappstore-online/docbot/commit/4a02d281e447a9b83bada05698116dea6bb38f9a",
-        "commit": {
-          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
-          "author": {
-            "date": "2026-05-27T14:10:35Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/population-agent": {
     "meta": {
       "created_at": "2026-05-20T10:09:02Z",
-      "pushed_at": "2026-05-31T11:19:16Z"
+      "pushed_at": "2026-07-06T23:18:19Z"
     },
     "commits": [
+      {
+        "sha": "a35e474179cd42da87b4e0d86a982a26fcc44987",
+        "html_url": "https://github.com/freeappstore-online/population-agent/commit/a35e474179cd42da87b4e0d86a982a26fcc44987",
+        "commit": {
+          "message": "Harden PWA service worker: SPA navigate fallback + skipWaiting/clientsClaim\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T20:40:16Z"
+          }
+        }
+      },
       {
         "sha": "99780b076537d818a57f7eb52beb0a54a07697ff",
         "html_url": "https://github.com/freeappstore-online/population-agent/commit/99780b076537d818a57f7eb52beb0a54a07697ff",
@@ -1542,25 +1552,25 @@
             "date": "2026-05-27T14:14:47Z"
           }
         }
-      },
-      {
-        "sha": "e48f220337f5221fa42eea13890b51e0ef4c2ff8",
-        "html_url": "https://github.com/freeappstore-online/population-agent/commit/e48f220337f5221fa42eea13890b51e0ef4c2ff8",
-        "commit": {
-          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
-          "author": {
-            "date": "2026-05-27T14:11:02Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/facer": {
     "meta": {
       "created_at": "2026-05-20T10:09:22Z",
-      "pushed_at": "2026-05-31T11:19:17Z"
+      "pushed_at": "2026-07-06T23:17:03Z"
     },
     "commits": [
+      {
+        "sha": "4e6e7fcef69bcebf9c5c34a8153827930b5928d5",
+        "html_url": "https://github.com/freeappstore-online/facer/commit/4e6e7fcef69bcebf9c5c34a8153827930b5928d5",
+        "commit": {
+          "message": "chore: remove test/build artifact junk; gitignore it\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-01T05:22:53Z"
+          }
+        }
+      },
       {
         "sha": "7e69c9f4e17a5d85104d553e5190275615da1df8",
         "html_url": "https://github.com/freeappstore-online/facer/commit/7e69c9f4e17a5d85104d553e5190275615da1df8",
@@ -1578,16 +1588,6 @@
           "message": "Add favicon",
           "author": {
             "date": "2026-05-27T13:09:21Z"
-          }
-        }
-      },
-      {
-        "sha": "43380ee9508218e8bb547257377186a97f24c0e6",
-        "html_url": "https://github.com/freeappstore-online/facer/commit/43380ee9508218e8bb547257377186a97f24c0e6",
-        "commit": {
-          "message": "ci: add R2 deploy workflow",
-          "author": {
-            "date": "2026-05-27T03:47:05Z"
           }
         }
       }
@@ -1672,9 +1672,19 @@
   "freeappstore-online/flight-search": {
     "meta": {
       "created_at": "2026-05-25T01:21:52Z",
-      "pushed_at": "2026-05-31T11:19:20Z"
+      "pushed_at": "2026-07-06T23:17:15Z"
     },
     "commits": [
+      {
+        "sha": "6da78bccc669b1e4556ea1b66fa27ba15d4e9b44",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/6da78bccc669b1e4556ea1b66fa27ba15d4e9b44",
+        "commit": {
+          "message": "Harden PWA service worker: SPA navigate fallback + skipWaiting/clientsClaim\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T20:40:16Z"
+          }
+        }
+      },
       {
         "sha": "dc9511de8ee086587300731b92820f804ad945d7",
         "html_url": "https://github.com/freeappstore-online/flight-search/commit/dc9511de8ee086587300731b92820f804ad945d7",
@@ -1694,25 +1704,25 @@
             "date": "2026-05-27T13:44:57Z"
           }
         }
-      },
-      {
-        "sha": "74f05f97bc4ad3e7bb2d30130e5decb1ed29aadb",
-        "html_url": "https://github.com/freeappstore-online/flight-search/commit/74f05f97bc4ad3e7bb2d30130e5decb1ed29aadb",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:09:27Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/qrreader": {
     "meta": {
       "created_at": "2026-05-23T18:47:11Z",
-      "pushed_at": "2026-05-31T11:19:21Z"
+      "pushed_at": "2026-07-06T23:45:14Z"
     },
     "commits": [
+      {
+        "sha": "02886e37076ad836147f72ef7b4740b748f51879",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/02886e37076ad836147f72ef7b4740b748f51879",
+        "commit": {
+          "message": "Harden PWA service worker: skipWaiting/clientsClaim + API navigate denylist\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T23:42:28Z"
+          }
+        }
+      },
       {
         "sha": "93112341d72d3831d0439f3a6442153141ef7886",
         "html_url": "https://github.com/freeappstore-online/qrreader/commit/93112341d72d3831d0439f3a6442153141ef7886",
@@ -1732,25 +1742,25 @@
             "date": "2026-05-30T04:21:54Z"
           }
         }
-      },
-      {
-        "sha": "63b7600e30a1199e84dec8dab2e5b9edec1a2c16",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/63b7600e30a1199e84dec8dab2e5b9edec1a2c16",
-        "commit": {
-          "message": "Change size link tag",
-          "author": {
-            "date": "2026-05-28T08:22:27Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/decision-wheel": {
     "meta": {
       "created_at": "2026-05-25T07:12:16Z",
-      "pushed_at": "2026-05-31T11:19:22Z"
+      "pushed_at": "2026-07-06T23:16:47Z"
     },
     "commits": [
+      {
+        "sha": "7e3336824000f72936d163cfc931cb40580bc0eb",
+        "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/7e3336824000f72936d163cfc931cb40580bc0eb",
+        "commit": {
+          "message": "Harden PWA service worker: SPA navigate fallback + skipWaiting/clientsClaim\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T20:40:16Z"
+          }
+        }
+      },
       {
         "sha": "f49936676d0aa47361f42e5c23a285946ebaa3c1",
         "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/f49936676d0aa47361f42e5c23a285946ebaa3c1",
@@ -1770,25 +1780,25 @@
             "date": "2026-05-27T13:09:34Z"
           }
         }
-      },
-      {
-        "sha": "7ca994d981ed0a9d3b82ebe3aca907133f879431",
-        "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/7ca994d981ed0a9d3b82ebe3aca907133f879431",
-        "commit": {
-          "message": "ci: add VCQA code health scan to deploy\n\nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-27T04:08:52Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/smart-planner": {
     "meta": {
       "created_at": "2026-05-25T12:19:22Z",
-      "pushed_at": "2026-05-31T11:19:23Z"
+      "pushed_at": "2026-07-06T23:18:44Z"
     },
     "commits": [
+      {
+        "sha": "e6f6da48b9b10961c933442f6e6d810be7fce9c8",
+        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/e6f6da48b9b10961c933442f6e6d810be7fce9c8",
+        "commit": {
+          "message": "Harden PWA service worker: SPA navigate fallback + skipWaiting/clientsClaim\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T20:40:16Z"
+          }
+        }
+      },
       {
         "sha": "cd34944f7cbace83ae0cdb16a381c7ca22fbdd39",
         "html_url": "https://github.com/freeappstore-online/smart-planner/commit/cd34944f7cbace83ae0cdb16a381c7ca22fbdd39",
@@ -1806,16 +1816,6 @@
           "message": "Updated dashboard UI",
           "author": {
             "date": "2026-05-28T08:50:42Z"
-          }
-        }
-      },
-      {
-        "sha": "9f9b23dcd59a31d56ad640c21e20d223d254dcdc",
-        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/9f9b23dcd59a31d56ad640c21e20d223d254dcdc",
-        "commit": {
-          "message": "Updated dashboard UI",
-          "author": {
-            "date": "2026-05-28T04:58:39Z"
           }
         }
       }
@@ -2788,9 +2788,19 @@
   "freeappstore-online/photo": {
     "meta": {
       "created_at": "2026-05-27T15:17:54Z",
-      "pushed_at": "2026-05-31T11:19:47Z"
+      "pushed_at": "2026-07-06T23:19:15Z"
     },
     "commits": [
+      {
+        "sha": "2baa040d0a813a46164cef8f74296f3425f1ef46",
+        "html_url": "https://github.com/freeappstore-online/photo/commit/2baa040d0a813a46164cef8f74296f3425f1ef46",
+        "commit": {
+          "message": "Editor: use shared Tool type for the tool prop\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-06T20:40:17Z"
+          }
+        }
+      },
       {
         "sha": "fc66df7017b36ac78e0c47294ee3889d315d7c04",
         "html_url": "https://github.com/freeappstore-online/photo/commit/fc66df7017b36ac78e0c47294ee3889d315d7c04",
