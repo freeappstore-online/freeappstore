@@ -141,7 +141,7 @@
 
   function showUser(user) {
     var a = document.createElement("a");
-    a.href = "https://console.freeappstore.online/profile";
+    a.href = "https://freeappstore.online/app/";
     a.title = user.login || "Profile";
     if (user.avatarUrl) {
       var img = document.createElement("img");

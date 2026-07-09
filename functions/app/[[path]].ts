@@ -1,6 +1,12 @@
 /**
  * Proxy /app/* to the FAS console (console.freeappstore.online).
  * Same pattern as PAS — single origin, shared auth, PWA scoped to /app/.
+ *
+ * The console (platform/sites/console) MUST be built with a relative Vite base
+ * ('./'). This proxy strips the /app prefix before fetching the origin, so the
+ * console's asset URLs have to resolve relative to /app/ in the browser. With
+ * an absolute base ('/') the browser requests /assets/* at the apex root, which
+ * never reaches this function and 404s. See sites/console/CLAUDE.md.
  */
 
 const CONSOLE_ORIGIN = 'https://console.freeappstore.online';
