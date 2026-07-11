@@ -3696,9 +3696,29 @@
   "freeappstore-online/face-morpher": {
     "meta": {
       "created_at": "2026-07-11T09:19:59Z",
-      "pushed_at": "2026-07-11T09:20:11Z"
+      "pushed_at": "2026-07-11T10:08:23Z"
     },
     "commits": [
+      {
+        "sha": "ac50c942e185234d7b1aa6dc61c9e2eb88f4c640",
+        "html_url": "https://github.com/freeappstore-online/face-morpher/commit/ac50c942e185234d7b1aa6dc61c9e2eb88f4c640",
+        "commit": {
+          "message": "Fix MediaPipe face landmark loading",
+          "author": {
+            "date": "2026-07-11T10:08:21Z"
+          }
+        }
+      },
+      {
+        "sha": "7149a400264e2fc73dd8b0e68959e24e4e0fcb95",
+        "html_url": "https://github.com/freeappstore-online/face-morpher/commit/7149a400264e2fc73dd8b0e68959e24e4e0fcb95",
+        "commit": {
+          "message": "Upgrade to MediaPipe Face Landmarker — 478-point on-device ML landmarks for all effects",
+          "author": {
+            "date": "2026-07-11T09:50:25Z"
+          }
+        }
+      },
       {
         "sha": "164626a9a3245c1cd08c9c7fc11a5706bfae35da",
         "html_url": "https://github.com/freeappstore-online/face-morpher/commit/164626a9a3245c1cd08c9c7fc11a5706bfae35da",
@@ -3706,16 +3726,6 @@
           "message": "Initial app — built with FreeAppStore AI agent",
           "author": {
             "date": "2026-07-11T09:20:11Z"
-          }
-        }
-      },
-      {
-        "sha": "ad8cf48918b481bd0674719c96796937c6bf28cb",
-        "html_url": "https://github.com/freeappstore-online/face-morpher/commit/ad8cf48918b481bd0674719c96796937c6bf28cb",
-        "commit": {
-          "message": "Initial commit",
-          "author": {
-            "date": "2026-07-11T09:20:00Z"
           }
         }
       }
