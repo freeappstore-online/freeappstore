@@ -1653,6 +1653,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "Pumpkin12345678910"
+    },
+    {
+      "id": "face-morpher",
+      "name": "face-morpher",
+      "category": "Creative",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Real-time funny face morphing effects using your camera — big eyes, wobble, alien, rainbow and more.",
+      "appUrl": "https://face-morpher.freeappstore.online",
+      "repo": "freeappstore-online/face-morpher",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-ivo"
     }
   ]
 }
