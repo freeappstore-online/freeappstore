@@ -1625,6 +1625,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "James1234804"
+    },
+    {
+      "id": "future-letters",
+      "name": "future-letters",
+      "category": "Health & Fitness",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A future-letter writing app",
+      "appUrl": "https://future-letters.freeappstore.online",
+      "repo": "freeappstore-online/future-letters",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "imhappyamber-design"
     }
   ]
 }
