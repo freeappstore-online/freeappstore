@@ -1639,6 +1639,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "imhappyamber-design"
+    },
+    {
+      "id": "shopping-list",
+      "name": "Shopping List",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A simple shopping list app — add items you need and tick them off to make them disappear.",
+      "appUrl": "https://shopping-list.freeappstore.online",
+      "repo": "freeappstore-online/shopping-list",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "Pumpkin12345678910"
     }
   ]
 }
