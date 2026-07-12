@@ -3556,26 +3556,36 @@
   "freeappstore-online/taskflow": {
     "meta": {
       "created_at": "2026-07-05T07:55:20Z",
-      "pushed_at": "2026-07-05T08:17:52Z"
+      "pushed_at": "2026-07-12T05:50:39Z"
     },
     "commits": [
       {
-        "sha": "6d0cc62579b9d28d1782c93ff98f6e22ed18b570",
-        "html_url": "https://github.com/freeappstore-online/taskflow/commit/6d0cc62579b9d28d1782c93ff98f6e22ed18b570",
+        "sha": "ff5fd20c9fccd1dd2202b80d70403a869d6dc6a5",
+        "html_url": "https://github.com/freeappstore-online/taskflow/commit/ff5fd20c9fccd1dd2202b80d70403a869d6dc6a5",
         "commit": {
-          "message": "Update TaskFlow UI and PWA configuration",
+          "message": "Update lockfile for react-icons dependency",
           "author": {
-            "date": "2026-07-05T08:17:33Z"
+            "date": "2026-07-12T05:50:29Z"
           }
         }
       },
       {
-        "sha": "ca67ca321fdf3071862c98e9997d097b000d96a8",
-        "html_url": "https://github.com/freeappstore-online/taskflow/commit/ca67ca321fdf3071862c98e9997d097b000d96a8",
+        "sha": "d8cab591455e8fd23b04e5836d1df42d1d15743c",
+        "html_url": "https://github.com/freeappstore-online/taskflow/commit/d8cab591455e8fd23b04e5836d1df42d1d15743c",
         "commit": {
-          "message": "Initial commit from standalone template",
+          "message": "Implement task creation, display, and deletion",
           "author": {
-            "date": "2026-07-05T05:23:28Z"
+            "date": "2026-07-12T05:30:07Z"
+          }
+        }
+      },
+      {
+        "sha": "d49d0c9fbfe079b412c8d6cf460fecd96a26046b",
+        "html_url": "https://github.com/freeappstore-online/taskflow/commit/d49d0c9fbfe079b412c8d6cf460fecd96a26046b",
+        "commit": {
+          "message": "Add task creation and render tasks in table",
+          "author": {
+            "date": "2026-07-12T05:09:57Z"
           }
         }
       }
@@ -3696,9 +3706,19 @@
   "freeappstore-online/face-morpher": {
     "meta": {
       "created_at": "2026-07-11T09:19:59Z",
-      "pushed_at": "2026-07-11T10:08:23Z"
+      "pushed_at": "2026-07-12T07:48:34Z"
     },
     "commits": [
+      {
+        "sha": "21a04b5e11035e5dd31312451fa5f67f77c72684",
+        "html_url": "https://github.com/freeappstore-online/face-morpher/commit/21a04b5e11035e5dd31312451fa5f67f77c72684",
+        "commit": {
+          "message": "Fullscreen camera view with effect pills overlaid on video, no scrolling",
+          "author": {
+            "date": "2026-07-12T07:48:33Z"
+          }
+        }
+      },
       {
         "sha": "ac50c942e185234d7b1aa6dc61c9e2eb88f4c640",
         "html_url": "https://github.com/freeappstore-online/face-morpher/commit/ac50c942e185234d7b1aa6dc61c9e2eb88f4c640",
@@ -3716,16 +3736,6 @@
           "message": "Upgrade to MediaPipe Face Landmarker — 478-point on-device ML landmarks for all effects",
           "author": {
             "date": "2026-07-11T09:50:25Z"
-          }
-        }
-      },
-      {
-        "sha": "164626a9a3245c1cd08c9c7fc11a5706bfae35da",
-        "html_url": "https://github.com/freeappstore-online/face-morpher/commit/164626a9a3245c1cd08c9c7fc11a5706bfae35da",
-        "commit": {
-          "message": "Initial app — built with FreeAppStore AI agent",
-          "author": {
-            "date": "2026-07-11T09:20:11Z"
           }
         }
       }
