@@ -3706,36 +3706,36 @@
   "freeappstore-online/face-morpher": {
     "meta": {
       "created_at": "2026-07-11T09:19:59Z",
-      "pushed_at": "2026-07-12T07:48:34Z"
+      "pushed_at": "2026-07-12T09:36:34Z"
     },
     "commits": [
       {
-        "sha": "21a04b5e11035e5dd31312451fa5f67f77c72684",
-        "html_url": "https://github.com/freeappstore-online/face-morpher/commit/21a04b5e11035e5dd31312451fa5f67f77c72684",
+        "sha": "bc5864b12247787adc2a8d19750acc0827938470",
+        "html_url": "https://github.com/freeappstore-online/face-morpher/commit/bc5864b12247787adc2a8d19750acc0827938470",
         "commit": {
-          "message": "Fullscreen camera view with effect pills overlaid on video, no scrolling",
+          "message": "Fix tracking: draw video unmirrored on canvas, mirror canvas via CSS scaleX(-1) so landmarks and video pixels are always in the same coordinate space",
           "author": {
-            "date": "2026-07-12T07:48:33Z"
+            "date": "2026-07-12T09:36:33Z"
           }
         }
       },
       {
-        "sha": "ac50c942e185234d7b1aa6dc61c9e2eb88f4c640",
-        "html_url": "https://github.com/freeappstore-online/face-morpher/commit/ac50c942e185234d7b1aa6dc61c9e2eb88f4c640",
+        "sha": "ce7e9977a1bbba917378da749c505879ccbee9d8",
+        "html_url": "https://github.com/freeappstore-online/face-morpher/commit/ce7e9977a1bbba917378da749c505879ccbee9d8",
         "commit": {
-          "message": "Fix MediaPipe face landmark loading",
+          "message": "Fix landmark tracking: use safe mesh indices, correct mirror transform, effectRef for render loop, proper eye centre calculation",
           "author": {
-            "date": "2026-07-11T10:08:21Z"
+            "date": "2026-07-12T09:05:45Z"
           }
         }
       },
       {
-        "sha": "7149a400264e2fc73dd8b0e68959e24e4e0fcb95",
-        "html_url": "https://github.com/freeappstore-online/face-morpher/commit/7149a400264e2fc73dd8b0e68959e24e4e0fcb95",
+        "sha": "973040cfb3d353b2a509f6e39ba216ab7829cd47",
+        "html_url": "https://github.com/freeappstore-online/face-morpher/commit/973040cfb3d353b2a509f6e39ba216ab7829cd47",
         "commit": {
-          "message": "Upgrade to MediaPipe Face Landmarker — 478-point on-device ML landmarks for all effects",
+          "message": "Fix squish/stretch blending, add cute eyes, heart eyes, sunglasses, dog mask, clown nose, crown, fire eyes overlays",
           "author": {
-            "date": "2026-07-11T09:50:25Z"
+            "date": "2026-07-12T08:52:53Z"
           }
         }
       }
