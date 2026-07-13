@@ -1667,6 +1667,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-ivo"
+    },
+    {
+      "id": "grade-goal",
+      "name": "grade-goal",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Calculate your current grade and the marks needed on remaining assessments to reach your target.",
+      "appUrl": "https://grade-goal.freeappstore.online",
+      "repo": "freeappstore-online/grade-goal",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "Mateysh3112"
     }
   ]
 }
