@@ -78,9 +78,19 @@
   "freeappstore-online/chessclock": {
     "meta": {
       "created_at": "2026-05-04T10:01:30Z",
-      "pushed_at": "2026-07-06T23:16:33Z"
+      "pushed_at": "2026-07-16T08:50:26Z"
     },
     "commits": [
+      {
+        "sha": "e44b37622fe81f86c11b1a3aa8f1ecca9feb678d",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/e44b37622fe81f86c11b1a3aa8f1ecca9feb678d",
+        "commit": {
+          "message": "Add MIT LICENSE (required for publication)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-16T08:50:23Z"
+          }
+        }
+      },
       {
         "sha": "f0907b61a236916a5ba13ab1bcb94744084c8334",
         "html_url": "https://github.com/freeappstore-online/chessclock/commit/f0907b61a236916a5ba13ab1bcb94744084c8334",
@@ -98,16 +108,6 @@
           "message": "fix: enable pinch-zoom (a11y)",
           "author": {
             "date": "2026-05-31T11:18:50Z"
-          }
-        }
-      },
-      {
-        "sha": "bab22d4d5317495fe7b95d2671fb72d84fe624e3",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/bab22d4d5317495fe7b95d2671fb72d84fe624e3",
-        "commit": {
-          "message": "Add apple-touch-icon",
-          "author": {
-            "date": "2026-05-27T14:19:24Z"
           }
         }
       }
