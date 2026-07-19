@@ -1723,6 +1723,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "kaitlyn531"
+    },
+    {
+      "id": "pizza-maker-game",
+      "name": "pizza-maker-game",
+      "category": "Lifestyle",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A fun 4-stage pizza making game: knead dough, add toppings, bake in the oven, and pack the box!",
+      "appUrl": "https://pizza-maker-game.freeappstore.online",
+      "repo": "freeappstore-online/pizza-maker-game",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "kaitlyn531"
     }
   ]
 }
