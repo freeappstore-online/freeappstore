@@ -4100,9 +4100,19 @@
   "freeappstore-online/future-letters": {
     "meta": {
       "created_at": "2026-07-11T06:59:00Z",
-      "pushed_at": "2026-07-19T06:27:20Z"
+      "pushed_at": "2026-07-19T06:37:39Z"
     },
     "commits": [
+      {
+        "sha": "56f8b9a82e4efee435891d1f5269ca740aca7d8e",
+        "html_url": "https://github.com/freeappstore-online/future-letters/commit/56f8b9a82e4efee435891d1f5269ca740aca7d8e",
+        "commit": {
+          "message": "Remove notification feature, keep time picker only",
+          "author": {
+            "date": "2026-07-19T06:37:39Z"
+          }
+        }
+      },
       {
         "sha": "ef3feb17e2612ce27151c22960ae8c2734e6895c",
         "html_url": "https://github.com/freeappstore-online/future-letters/commit/ef3feb17e2612ce27151c22960ae8c2734e6895c",
@@ -4120,16 +4130,6 @@
           "message": "Initial app — built with FreeAppStore AI agent",
           "author": {
             "date": "2026-07-11T06:59:14Z"
-          }
-        }
-      },
-      {
-        "sha": "9923415ffaee7081a1508b31249a8cc52ed843bd",
-        "html_url": "https://github.com/freeappstore-online/future-letters/commit/9923415ffaee7081a1508b31249a8cc52ed843bd",
-        "commit": {
-          "message": "Initial commit",
-          "author": {
-            "date": "2026-07-11T06:59:01Z"
           }
         }
       }
@@ -4336,9 +4336,19 @@
   "freeappstore-online/my-todo-app-3": {
     "meta": {
       "created_at": "2026-07-19T06:15:31Z",
-      "pushed_at": "2026-07-19T06:23:58Z"
+      "pushed_at": "2026-07-19T06:36:40Z"
     },
     "commits": [
+      {
+        "sha": "7cbdeee2a00e5e9e6310b9c4f1626f6f87e247bc",
+        "html_url": "https://github.com/freeappstore-online/my-todo-app-3/commit/7cbdeee2a00e5e9e6310b9c4f1626f6f87e247bc",
+        "commit": {
+          "message": "Full rebuild as Focus app — activity picker, countdown timer, ambient music, session history",
+          "author": {
+            "date": "2026-07-19T06:36:39Z"
+          }
+        }
+      },
       {
         "sha": "00d6071f67e3abc826064af13dc23b7e53a123d1",
         "html_url": "https://github.com/freeappstore-online/my-todo-app-3/commit/00d6071f67e3abc826064af13dc23b7e53a123d1",
@@ -4358,25 +4368,25 @@
             "date": "2026-07-19T06:15:44Z"
           }
         }
-      },
-      {
-        "sha": "17bf2d4410af01967b24252d957b1fe16b08cd5e",
-        "html_url": "https://github.com/freeappstore-online/my-todo-app-3/commit/17bf2d4410af01967b24252d957b1fe16b08cd5e",
-        "commit": {
-          "message": "Initial commit",
-          "author": {
-            "date": "2026-07-19T06:15:32Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/focus-timer": {
     "meta": {
       "created_at": "2026-07-19T06:16:35Z",
-      "pushed_at": "2026-07-19T06:23:39Z"
+      "pushed_at": "2026-07-19T06:40:10Z"
     },
     "commits": [
+      {
+        "sha": "929d7523d1d059af19866e5f0a17dc22eee3eeb9",
+        "html_url": "https://github.com/freeappstore-online/focus-timer/commit/929d7523d1d059af19866e5f0a17dc22eee3eeb9",
+        "commit": {
+          "message": "Redesign as real calendar with week/month grid views, no tabs, floating add button",
+          "author": {
+            "date": "2026-07-19T06:40:09Z"
+          }
+        }
+      },
       {
         "sha": "199f84ef2dac2188a989321d1caef7d03f88e400",
         "html_url": "https://github.com/freeappstore-online/focus-timer/commit/199f84ef2dac2188a989321d1caef7d03f88e400",
@@ -4394,16 +4404,6 @@
           "message": "Initial app — built with FreeAppStore AI agent",
           "author": {
             "date": "2026-07-19T06:16:48Z"
-          }
-        }
-      },
-      {
-        "sha": "dfe343024ac8421d82eec8d63d15a84d706320a7",
-        "html_url": "https://github.com/freeappstore-online/focus-timer/commit/dfe343024ac8421d82eec8d63d15a84d706320a7",
-        "commit": {
-          "message": "Initial commit",
-          "author": {
-            "date": "2026-07-19T06:16:36Z"
           }
         }
       }
@@ -4432,6 +4432,34 @@
           "message": "Initial commit",
           "author": {
             "date": "2026-07-19T06:35:17Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/smart-study-coach": {
+    "meta": {
+      "created_at": "2026-07-19T06:41:55Z",
+      "pushed_at": "2026-07-19T06:42:14Z"
+    },
+    "commits": [
+      {
+        "sha": "a19e6154129897b988418b6d4eab8c9d5786cc43",
+        "html_url": "https://github.com/freeappstore-online/smart-study-coach/commit/a19e6154129897b988418b6d4eab8c9d5786cc43",
+        "commit": {
+          "message": "Initial app — built with FreeAppStore AI agent",
+          "author": {
+            "date": "2026-07-19T06:42:13Z"
+          }
+        }
+      },
+      {
+        "sha": "c6558a40897ba34a2fc1b89ea71bfb35f2c1df10",
+        "html_url": "https://github.com/freeappstore-online/smart-study-coach/commit/c6558a40897ba34a2fc1b89ea71bfb35f2c1df10",
+        "commit": {
+          "message": "Initial commit",
+          "author": {
+            "date": "2026-07-19T06:41:56Z"
           }
         }
       }
