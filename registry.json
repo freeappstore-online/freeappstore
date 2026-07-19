@@ -1681,6 +1681,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "Mateysh3112"
+    },
+    {
+      "id": "my-todo-app-2",
+      "name": "my-todo-app-2",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A clean, fast todo app with priorities, categories, and dark mode — all saved locally.",
+      "appUrl": "https://my-todo-app-2.freeappstore.online",
+      "repo": "freeappstore-online/my-todo-app-2",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "buildlessonline-spec"
     }
   ]
 }
