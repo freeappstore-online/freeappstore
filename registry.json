@@ -1765,6 +1765,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "BUDDY-KIWI-BERRY"
+    },
+    {
+      "id": "colour-timer",
+      "name": "colour-timer",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A stopwatch and countdown timer with 12 customisable background colours.",
+      "appUrl": "https://colour-timer.freeappstore.online",
+      "repo": "freeappstore-online/colour-timer",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "Pumpkin12345678910"
     }
   ]
 }
