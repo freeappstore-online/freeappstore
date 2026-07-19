@@ -1737,6 +1737,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "kaitlyn531"
+    },
+    {
+      "id": "my-todo-app-3",
+      "name": "my-todo-app-3",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A clean, simple to-do app with priorities, due dates, and progress tracking.",
+      "appUrl": "https://my-todo-app-3.freeappstore.online",
+      "repo": "freeappstore-online/my-todo-app-3",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "ElliT-coder"
     }
   ]
 }
