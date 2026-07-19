@@ -1751,6 +1751,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "ElliT-coder"
+    },
+    {
+      "id": "focus-timer",
+      "name": "focus-timer",
+      "category": "Productivity",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Pomodoro-style focus timer with task tracking and productivity stats.",
+      "appUrl": "https://focus-timer.freeappstore.online",
+      "repo": "freeappstore-online/focus-timer",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "BUDDY-KIWI-BERRY"
     }
   ]
 }
