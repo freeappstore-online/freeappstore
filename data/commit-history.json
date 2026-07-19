@@ -4100,9 +4100,19 @@
   "freeappstore-online/future-letters": {
     "meta": {
       "created_at": "2026-07-11T06:59:00Z",
-      "pushed_at": "2026-07-11T06:59:14Z"
+      "pushed_at": "2026-07-19T06:27:20Z"
     },
     "commits": [
+      {
+        "sha": "ef3feb17e2612ce27151c22960ae8c2734e6895c",
+        "html_url": "https://github.com/freeappstore-online/future-letters/commit/ef3feb17e2612ce27151c22960ae8c2734e6895c",
+        "commit": {
+          "message": "Add time picker to delivery date + browser notification reminders",
+          "author": {
+            "date": "2026-07-19T06:27:20Z"
+          }
+        }
+      },
       {
         "sha": "a055ec01f3cd44ca882f7d46afbb4d40bd08a217",
         "html_url": "https://github.com/freeappstore-online/future-letters/commit/a055ec01f3cd44ca882f7d46afbb4d40bd08a217",
@@ -4222,9 +4232,19 @@
   "freeappstore-online/petdo": {
     "meta": {
       "created_at": "2026-07-19T05:15:23Z",
-      "pushed_at": "2026-07-19T05:27:18Z"
+      "pushed_at": "2026-07-19T06:23:53Z"
     },
     "commits": [
+      {
+        "sha": "87ed3464d954f4d8a77e3fb934eb224b691da668",
+        "html_url": "https://github.com/freeappstore-online/petdo/commit/87ed3464d954f4d8a77e3fb934eb224b691da668",
+        "commit": {
+          "message": "Add per-task coin rewards (1–20), colour-coded difficulty, coin stepper on each task row",
+          "author": {
+            "date": "2026-07-19T06:23:51Z"
+          }
+        }
+      },
       {
         "sha": "3d6714848f23d46a7c6926da9699a974abe52923",
         "html_url": "https://github.com/freeappstore-online/petdo/commit/3d6714848f23d46a7c6926da9699a974abe52923",
@@ -4242,16 +4262,6 @@
           "message": "Initial app — built with FreeAppStore AI agent",
           "author": {
             "date": "2026-07-19T05:15:35Z"
-          }
-        }
-      },
-      {
-        "sha": "7e3671f8cd1de437cefe47f20871bbb1b5a1fb4c",
-        "html_url": "https://github.com/freeappstore-online/petdo/commit/7e3671f8cd1de437cefe47f20871bbb1b5a1fb4c",
-        "commit": {
-          "message": "Initial commit",
-          "author": {
-            "date": "2026-07-19T05:15:23Z"
           }
         }
       }
@@ -4326,9 +4336,19 @@
   "freeappstore-online/my-todo-app-3": {
     "meta": {
       "created_at": "2026-07-19T06:15:31Z",
-      "pushed_at": "2026-07-19T06:15:45Z"
+      "pushed_at": "2026-07-19T06:23:58Z"
     },
     "commits": [
+      {
+        "sha": "00d6071f67e3abc826064af13dc23b7e53a123d1",
+        "html_url": "https://github.com/freeappstore-online/my-todo-app-3/commit/00d6071f67e3abc826064af13dc23b7e53a123d1",
+        "commit": {
+          "message": "Rebuild as Focus app with activity picker, countdown timer, and ambient music",
+          "author": {
+            "date": "2026-07-19T06:23:57Z"
+          }
+        }
+      },
       {
         "sha": "800521480e705f36b163a09773c8c877c94acd5f",
         "html_url": "https://github.com/freeappstore-online/my-todo-app-3/commit/800521480e705f36b163a09773c8c877c94acd5f",
@@ -4354,9 +4374,19 @@
   "freeappstore-online/focus-timer": {
     "meta": {
       "created_at": "2026-07-19T06:16:35Z",
-      "pushed_at": "2026-07-19T06:16:48Z"
+      "pushed_at": "2026-07-19T06:23:39Z"
     },
     "commits": [
+      {
+        "sha": "199f84ef2dac2188a989321d1caef7d03f88e400",
+        "html_url": "https://github.com/freeappstore-online/focus-timer/commit/199f84ef2dac2188a989321d1caef7d03f88e400",
+        "commit": {
+          "message": "Add schedule app with weekly/monthly tabs, daily reminders, and delete tabs",
+          "author": {
+            "date": "2026-07-19T06:23:38Z"
+          }
+        }
+      },
       {
         "sha": "17b3e56e5a32757638b5e5bb220c3997b8b65add",
         "html_url": "https://github.com/freeappstore-online/focus-timer/commit/17b3e56e5a32757638b5e5bb220c3997b8b65add",
@@ -4374,6 +4404,34 @@
           "message": "Initial commit",
           "author": {
             "date": "2026-07-19T06:16:36Z"
+          }
+        }
+      }
+    ]
+  },
+  "freeappstore-online/colour-timer": {
+    "meta": {
+      "created_at": "2026-07-19T06:35:16Z",
+      "pushed_at": "2026-07-19T06:35:29Z"
+    },
+    "commits": [
+      {
+        "sha": "b502a71c9d199abb1acade4f7c7ceda385750e68",
+        "html_url": "https://github.com/freeappstore-online/colour-timer/commit/b502a71c9d199abb1acade4f7c7ceda385750e68",
+        "commit": {
+          "message": "Initial app — built with FreeAppStore AI agent",
+          "author": {
+            "date": "2026-07-19T06:35:28Z"
+          }
+        }
+      },
+      {
+        "sha": "35de58c2734029dc41e64bcd442a5cb799cbe90d",
+        "html_url": "https://github.com/freeappstore-online/colour-timer/commit/35de58c2734029dc41e64bcd442a5cb799cbe90d",
+        "commit": {
+          "message": "Initial commit",
+          "author": {
+            "date": "2026-07-19T06:35:17Z"
           }
         }
       }
