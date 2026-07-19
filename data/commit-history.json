@@ -4336,9 +4336,19 @@
   "freeappstore-online/my-todo-app-3": {
     "meta": {
       "created_at": "2026-07-19T06:15:31Z",
-      "pushed_at": "2026-07-19T06:36:40Z"
+      "pushed_at": "2026-07-19T06:45:02Z"
     },
     "commits": [
+      {
+        "sha": "5dc16448ca96d887d5f71fcff2f85a8599640906",
+        "html_url": "https://github.com/freeappstore-online/my-todo-app-3/commit/5dc16448ca96d887d5f71fcff2f85a8599640906",
+        "commit": {
+          "message": "Fix sound: replace broken external MP3 URLs with Web Audio API procedural sound generation",
+          "author": {
+            "date": "2026-07-19T06:45:02Z"
+          }
+        }
+      },
       {
         "sha": "7cbdeee2a00e5e9e6310b9c4f1626f6f87e247bc",
         "html_url": "https://github.com/freeappstore-online/my-todo-app-3/commit/7cbdeee2a00e5e9e6310b9c4f1626f6f87e247bc",
@@ -4358,52 +4368,42 @@
             "date": "2026-07-19T06:23:57Z"
           }
         }
-      },
-      {
-        "sha": "800521480e705f36b163a09773c8c877c94acd5f",
-        "html_url": "https://github.com/freeappstore-online/my-todo-app-3/commit/800521480e705f36b163a09773c8c877c94acd5f",
-        "commit": {
-          "message": "Initial app — built with FreeAppStore AI agent",
-          "author": {
-            "date": "2026-07-19T06:15:44Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/focus-timer": {
     "meta": {
       "created_at": "2026-07-19T06:16:35Z",
-      "pushed_at": "2026-07-19T06:40:10Z"
+      "pushed_at": "2026-07-19T07:17:27Z"
     },
     "commits": [
       {
-        "sha": "929d7523d1d059af19866e5f0a17dc22eee3eeb9",
-        "html_url": "https://github.com/freeappstore-online/focus-timer/commit/929d7523d1d059af19866e5f0a17dc22eee3eeb9",
+        "sha": "cbcb78a2ea99eebd15996d49788c8ab2f85e0e14",
+        "html_url": "https://github.com/freeappstore-online/focus-timer/commit/cbcb78a2ea99eebd15996d49788c8ab2f85e0e14",
         "commit": {
-          "message": "Redesign as real calendar with week/month grid views, no tabs, floating add button",
+          "message": "Tap any reminder chip to open detail popup with delete button (with confirm step) — works in week, month and reminders views",
           "author": {
-            "date": "2026-07-19T06:40:09Z"
+            "date": "2026-07-19T07:17:27Z"
           }
         }
       },
       {
-        "sha": "199f84ef2dac2188a989321d1caef7d03f88e400",
-        "html_url": "https://github.com/freeappstore-online/focus-timer/commit/199f84ef2dac2188a989321d1caef7d03f88e400",
+        "sha": "db465305b400ce1146b5e2262ba83d6e8454dfdc",
+        "html_url": "https://github.com/freeappstore-online/focus-timer/commit/db465305b400ce1146b5e2262ba83d6e8454dfdc",
         "commit": {
-          "message": "Add schedule app with weekly/monthly tabs, daily reminders, and delete tabs",
+          "message": "Colourful pastel theme — lavender base, pastel reminder chips, gradient buttons, tinted day columns",
           "author": {
-            "date": "2026-07-19T06:23:38Z"
+            "date": "2026-07-19T07:12:21Z"
           }
         }
       },
       {
-        "sha": "17b3e56e5a32757638b5e5bb220c3997b8b65add",
-        "html_url": "https://github.com/freeappstore-online/focus-timer/commit/17b3e56e5a32757638b5e5bb220c3997b8b65add",
+        "sha": "80cbef4c3a9e38796e251dd07bde1b090bb2f794",
+        "html_url": "https://github.com/freeappstore-online/focus-timer/commit/80cbef4c3a9e38796e251dd07bde1b090bb2f794",
         "commit": {
-          "message": "Initial app — built with FreeAppStore AI agent",
+          "message": "Add minute picker on slot tap + notification sound when reminder time hits",
           "author": {
-            "date": "2026-07-19T06:16:48Z"
+            "date": "2026-07-19T07:02:17Z"
           }
         }
       }
@@ -4412,9 +4412,19 @@
   "freeappstore-online/colour-timer": {
     "meta": {
       "created_at": "2026-07-19T06:35:16Z",
-      "pushed_at": "2026-07-19T06:35:29Z"
+      "pushed_at": "2026-07-19T06:50:47Z"
     },
     "commits": [
+      {
+        "sha": "8023cd6b177ea5197f4a63ef1fcbf657ce2676f5",
+        "html_url": "https://github.com/freeappstore-online/colour-timer/commit/8023cd6b177ea5197f4a63ef1fcbf657ce2676f5",
+        "commit": {
+          "message": "Add background patterns + explosion animation when countdown finishes",
+          "author": {
+            "date": "2026-07-19T06:50:46Z"
+          }
+        }
+      },
       {
         "sha": "b502a71c9d199abb1acade4f7c7ceda385750e68",
         "html_url": "https://github.com/freeappstore-online/colour-timer/commit/b502a71c9d199abb1acade4f7c7ceda385750e68",
@@ -4440,9 +4450,19 @@
   "freeappstore-online/smart-study-coach": {
     "meta": {
       "created_at": "2026-07-19T06:41:55Z",
-      "pushed_at": "2026-07-19T06:42:14Z"
+      "pushed_at": "2026-07-19T06:50:58Z"
     },
     "commits": [
+      {
+        "sha": "90566e414dd3d190380225ceafa4e8710611ba9a",
+        "html_url": "https://github.com/freeappstore-online/smart-study-coach/commit/90566e414dd3d190380225ceafa4e8710611ba9a",
+        "commit": {
+          "message": "fix: add missing @freeappstore/sdk dependency (build was failing)\n\nApp.tsx imports initApp + useAuth from @freeappstore/sdk but the package was\nnever listed in web/package.json, so `vite build` failed to resolve it and the\nR2 deploy never produced output (site 404'd). Add the published SDK dep.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-07-19T06:50:56Z"
+          }
+        }
+      },
       {
         "sha": "a19e6154129897b988418b6d4eab8c9d5786cc43",
         "html_url": "https://github.com/freeappstore-online/smart-study-coach/commit/a19e6154129897b988418b6d4eab8c9d5786cc43",
