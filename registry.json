@@ -1695,6 +1695,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "buildlessonline-spec"
+    },
+    {
+      "id": "petdo",
+      "name": "petdo",
+      "category": "Lifestyle",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "A to-do list where completing tasks earns coins to feed your virtual pet — neglect your tasks and your pet dies!",
+      "appUrl": "https://petdo.freeappstore.online",
+      "repo": "freeappstore-online/petdo",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "PATRICIA-AU"
     }
   ]
 }
