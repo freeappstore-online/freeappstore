@@ -1779,6 +1779,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "Pumpkin12345678910"
+    },
+    {
+      "id": "smart-study-coach",
+      "name": "smart-study-coach",
+      "category": "Learning",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "AI-powered study tool that analyses your notes, generates quizzes and flashcards, and tutors you through an interactive chat.",
+      "appUrl": "https://smart-study-coach.freeappstore.online",
+      "repo": "freeappstore-online/smart-study-coach",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "thatonenerdykidinclass"
     }
   ]
 }
