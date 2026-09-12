@@ -5242,5 +5242,33 @@
         }
       }
     ]
+  },
+  "freeappstore-online/smoke-sandbox": {
+    "meta": {
+      "created_at": "2026-09-12T08:42:41Z",
+      "pushed_at": "2026-09-12T08:42:55Z"
+    },
+    "commits": [
+      {
+        "sha": "09c0a67e2a23f6c8023fbdced38adb1304ed6d31",
+        "html_url": "https://github.com/freeappstore-online/smoke-sandbox/commit/09c0a67e2a23f6c8023fbdced38adb1304ed6d31",
+        "commit": {
+          "message": "smoke-sandbox: maskable icons, describe purpose, store link",
+          "author": {
+            "date": "2026-09-12T08:42:35Z"
+          }
+        }
+      },
+      {
+        "sha": "23bdb3ab9016479e71afe0282771ae695d6cb7eb",
+        "html_url": "https://github.com/freeappstore-online/smoke-sandbox/commit/23bdb3ab9016479e71afe0282771ae695d6cb7eb",
+        "commit": {
+          "message": "Initial commit from standalone template",
+          "author": {
+            "date": "2026-09-12T08:42:17Z"
+          }
+        }
+      }
+    ]
   }
 }
