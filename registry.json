@@ -2101,6 +2101,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "Abrarcancode67"
+    },
+    {
+      "id": "smoke-sandbox",
+      "name": "smoke-sandbox",
+      "category": "Utilities",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "FreeAppStore platform monitoring sandbox. Not a real app.",
+      "appUrl": "https://smoke-sandbox.freeappstore.online",
+      "repo": "freeappstore-online/smoke-sandbox",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "serge-the-dev"
     }
   ]
 }
