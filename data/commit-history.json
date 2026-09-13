@@ -4858,36 +4858,36 @@
   "freeappstore-online/chefai-recipes": {
     "meta": {
       "created_at": "2026-08-09T06:41:57Z",
-      "pushed_at": "2026-08-09T11:04:24Z"
+      "pushed_at": "2026-09-13T06:05:14Z"
     },
     "commits": [
       {
-        "sha": "d356703f7614f2d0c83159019ff1bbf4d7628628",
-        "html_url": "https://github.com/freeappstore-online/chefai-recipes/commit/d356703f7614f2d0c83159019ff1bbf4d7628628",
+        "sha": "85625fd97e1554011a4c6dda67ce8eeb70879ae0",
+        "html_url": "https://github.com/freeappstore-online/chefai-recipes/commit/85625fd97e1554011a4c6dda67ce8eeb70879ae0",
         "commit": {
-          "message": "Fix build: escape nested quotes in search placeholder\n\nThe placeholder string used unescaped double quotes around \"pasta\ncarbonara\", breaking the JSX string literal and failing every R2\ndeploy since the app was created. Use curly quotes for the inner\nphrase.\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
+          "message": "Fix scale button - remove state resets that were hiding the result, simplify logic",
           "author": {
-            "date": "2026-08-09T11:04:22Z"
+            "date": "2026-09-13T06:05:13Z"
           }
         }
       },
       {
-        "sha": "e819ca401c68fde0c26ee02dc972f2601ef2a3ac",
-        "html_url": "https://github.com/freeappstore-online/chefai-recipes/commit/e819ca401c68fde0c26ee02dc972f2601ef2a3ac",
+        "sha": "98fe9fbcf08bfa2a441ecf2c069ae4851325058a",
+        "html_url": "https://github.com/freeappstore-online/chefai-recipes/commit/98fe9fbcf08bfa2a441ecf2c069ae4851325058a",
         "commit": {
-          "message": "Complete rewrite - clean recipe app with dietary restrictions and step-by-step instructions",
+          "message": "Simplify app to pure recipe scaler - no AI, no SDK, just ingredient maths",
           "author": {
-            "date": "2026-08-09T07:04:08Z"
+            "date": "2026-09-13T05:55:57Z"
           }
         }
       },
       {
-        "sha": "de1356278864e78ce7c6b987cdae0a8a0b2054ed",
-        "html_url": "https://github.com/freeappstore-online/chefai-recipes/commit/de1356278864e78ce7c6b987cdae0a8a0b2054ed",
+        "sha": "5579209cf84d77f97bc8064d5ff9d8bb17bd145a",
+        "html_url": "https://github.com/freeappstore-online/chefai-recipes/commit/5579209cf84d77f97bc8064d5ff9d8bb17bd145a",
         "commit": {
-          "message": "Simplify App.tsx and Shell.tsx to fix build errors",
+          "message": "Add Recipe Scaler - enter ingredients, set portions, scale to any number of people",
           "author": {
-            "date": "2026-08-09T07:01:18Z"
+            "date": "2026-09-13T05:50:07Z"
           }
         }
       }
