@@ -5170,9 +5170,19 @@
   "freeappstore-online/learner-coder": {
     "meta": {
       "created_at": "2026-08-31T13:54:04Z",
-      "pushed_at": "2026-09-02T12:40:58Z"
+      "pushed_at": "2026-09-15T13:55:32Z"
     },
     "commits": [
+      {
+        "sha": "b0a0fe87d9e6d9c7361211c2719595036c3727f9",
+        "html_url": "https://github.com/freeappstore-online/learner-coder/commit/b0a0fe87d9e6d9c7361211c2719595036c3727f9",
+        "commit": {
+          "message": "Add HTML tags lesson series, lesson parts/sub-numbering, and fix reset/preview UX\n\n- Add optional Lesson.part grouping so courses can show nested numbering\n  (1.1, 1.2, 2.1, ...) with a \"Part N · Title\" header in CourseView.\n- Restructure HTML Foundations into Part 1 (Getting Started) and a new\n  Part 2 (HTML Tags) covering headings, lists, links, images, tables, and\n  forms, each with realistic full-document starter code and an\n  instructional comment.\n- Fix a bug where those instructional comments (mentioning the very tag\n  being asked for) could fool naive regex checks into false passes/fails;\n  all HTML checks now strip comments before validating.\n- Fix LessonView reusing its \"passed\" state across lessons (missing key\n  prop), which let the Next lesson button appear on a freshly-opened,\n  uncompleted lesson.\n- Rework the floating preview window's first-open placement (viewport-\n  clamped, centered on the screen's middle third) and replace the Reset\n  confirm modal with a small arrow-anchored popover that repositions\n  itself to avoid viewport overflow.\n- Remove the redundant \"Show preview\" button now that Run always opens\n  the preview.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-09-15T13:55:23Z"
+          }
+        }
+      },
       {
         "sha": "c05316d62df6aaa8a5b9e8d51334c035719588b2",
         "html_url": "https://github.com/freeappstore-online/learner-coder/commit/c05316d62df6aaa8a5b9e8d51334c035719588b2",
@@ -5190,16 +5200,6 @@
           "message": "Fix Monaco IntelliSense breaking under CSP-restricted hosting\n\nRoot cause found by testing the live production console: this app's\nCSP has no worker-src directive, so it falls back to script-src (no\nblob: allowance). Monaco's default behavior is to attempt a real Web\nWorker first and only fall back once construction throws — but that\nerror-triggered fallback leaves the editor in a half-broken state\n(confirmed on prod: an uncaught event follows, and the suggest widget\nstops responding for HTML/CSS/JS, though the editor still renders and\nhighlights).\n\nDeclaring MonacoEnvironment.getWorker to return undefined *before*\nMonaco ever attempts a worker takes a different, clean in-process\ncode path instead — verified locally to preserve full real semantic\ncompletions (including full TypeScript signatures), just executed on\nthe main thread. Since that alone fully restores native IntelliSense\neverywhere, the static worker-free fallback providers added in the\nprevious commit are now redundant (they were only producing duplicate\nsuggestions) and are removed.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
           "author": {
             "date": "2026-09-02T11:55:00Z"
-          }
-        }
-      },
-      {
-        "sha": "580657547b65f2f6ead6ef37bac74ce191e600ad",
-        "html_url": "https://github.com/freeappstore-online/learner-coder/commit/580657547b65f2f6ead6ef37bac74ce191e600ad",
-        "commit": {
-          "message": "Add worker-free IntelliSense fallback for HTML/CSS/JS\n\nFreeAppStore's hosting CSP has no worker-src directive, so it falls\nback to script-src — which doesn't allow blob:. Monaco's built-in\nHTML/CSS/JS language services run inside a Web Worker created from a\nblob URL, so they're silently blocked in production even though they\nwork fine in local dev (confirmed via the browser console on the live\nsite: \"Creating a worker from 'blob:...' violates ... script-src\").\nPython's Jedi-backed completions were unaffected since they never use\na Monaco worker at all — they call into the already-loaded Pyodide\nruntime directly.\n\nAdds static, worker-free completion providers for HTML tags, CSS\nproperties, and JS keywords/common members, registered alongside (not\ninstead of) Monaco's built-ins — same worker-free approach as Python,\nso completions keep working under this CSP while dev still gets\nMonaco's richer native ones layered on top.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-09-02T11:37:31Z"
           }
         }
       }
