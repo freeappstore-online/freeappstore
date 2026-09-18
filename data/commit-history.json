@@ -5270,5 +5270,43 @@
         }
       }
     ]
+  },
+  "freeappstore-online/reactionlab": {
+    "meta": {
+      "created_at": "2026-09-18T00:03:40Z",
+      "pushed_at": "2026-09-18T00:47:51Z"
+    },
+    "commits": [
+      {
+        "sha": "435a5c0d773f7663695eb09ac2ab4577acc133fe",
+        "html_url": "https://github.com/freeappstore-online/reactionlab/commit/435a5c0d773f7663695eb09ac2ab4577acc133fe",
+        "commit": {
+          "message": "Remove hosting probe\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-09-18T00:47:47Z"
+          }
+        }
+      },
+      {
+        "sha": "f3b12df01c84fc89c013c7d1509a87297ef3930e",
+        "html_url": "https://github.com/freeappstore-online/reactionlab/commit/f3b12df01c84fc89c013c7d1509a87297ef3930e",
+        "commit": {
+          "message": "Temporary probe: nested index.html on R2 hosting\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-09-18T00:45:21Z"
+          }
+        }
+      },
+      {
+        "sha": "fdc34ce88bf848b945fd0a0425585e59118e35f0",
+        "html_url": "https://github.com/freeappstore-online/reactionlab/commit/fdc34ce88bf848b945fd0a0425585e59118e35f0",
+        "commit": {
+          "message": "Tighten touch and small-screen handling\n\n- Hide keyboard hints and enlarge small buttons / segmented controls to\n  44px on coarse pointers.\n- Disable pull-to-refresh (overscroll-behavior-y) so a swipe on a stage\n  cannot reload mid-run; suppress the iOS long-press callout on stages.\n- Gate hover lifts behind (hover: hover) so they do not stick after a tap.\n- History rows wrap into two lines on phones instead of a squeezed column.\n- Short viewports (landscape phones) size the stage to fit between the\n  app bar and dock, with squat choice tiles.\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "author": {
+            "date": "2026-09-18T00:17:59Z"
+          }
+        }
+      }
+    ]
   }
 }
