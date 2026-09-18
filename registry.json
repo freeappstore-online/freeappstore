@@ -2115,6 +2115,20 @@
       "type": "standalone",
       "developer": "FreeAppStore",
       "creatorGithub": "serge-the-dev"
+    },
+    {
+      "id": "reactionlab",
+      "name": "reactionlab",
+      "category": "Brain Training",
+      "icon": "🚀",
+      "iconBg": "#f3f4f6",
+      "description": "Four reaction-time and focus tests with millisecond-accurate timing — installable, fully offline, and every score stays on your device.",
+      "appUrl": "https://reactionlab.freeappstore.online",
+      "repo": "freeappstore-online/reactionlab",
+      "hostedOn": "r2",
+      "type": "standalone",
+      "developer": "FreeAppStore",
+      "creatorGithub": "abid8195"
     }
   ]
 }
