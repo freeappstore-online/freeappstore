@@ -201,8 +201,8 @@ app-name/
     └── src/
         ├── main.tsx
         ├── index.css      (Tailwind + brand CSS vars)
-        ├── App.tsx
-        └── components/Shell.tsx
+        ├── App.tsx        (renders <Shell> from @freeappstore/sdk/ui)
+        └── components/    (your screens)
 ```
 
 ## SDK Setup (`@freeappstore/sdk`)
@@ -560,34 +560,64 @@ The core app code stays the same. Auth, KV, collections, counters, and proxy all
 pnpm add @freeappstore/sdk
 ```
 
-### FasShell -- the app wrapper
+### Shell -- the app wrapper (every app starts here)
 
-Wraps your entire app. Provides: sticky topbar with brand logo + app name + ProfileMenu (or SignInButton when signed out), main content area, "Part of FreeAppStore" footer. Optional auth gate.
+**Every app wraps itself in `Shell` with one `nav` entry per screen.** It provides: sticky topbar with brand logo + app name + text size + theme + ProfileMenu (or SignInButton when signed out), the app's main navigation from `nav` (`<nav aria-label="Main">`, current screen highlighted, a menu button on phones), and around your screens an error boundary, loading fallback, toast region, offline banner and skip link. Optional auth gate. Needs `@freeappstore/sdk` 0.14.30+. `FasShell` is the same component under its older name.
 
 ```tsx
+import { useEffect, useState } from 'react'
 import { initApp } from '@freeappstore/sdk'
-import { FasShell } from '@freeappstore/sdk/ui'
+import { type NavItem, PageHeader, Shell, useToast } from '@freeappstore/sdk/ui'
 
 const fas = initApp({ appId: 'my-app' })
 
+// One entry per screen. `title` becomes the browser tab title on that route.
+const NAV: NavItem[] = [
+  { label: 'Home', href: '/', title: 'My App' },
+  { label: 'Settings', href: '/settings', title: 'Settings — My App' },
+]
+
 export default function App() {
+  const [path, setPath] = useState(location.pathname)
+  useEffect(() => {
+    const sync = () => setPath(location.pathname)   // back/forward
+    addEventListener('popstate', sync)
+    return () => removeEventListener('popstate', sync)
+  }, [])
+  const navigate = (href: string) => { history.pushState(null, '', href); setPath(href) }
+
   return (
-    <FasShell app={fas} appName="My App">
-      {/* your app content */}
-    </FasShell>
+    <Shell app={fas} appName="My App" nav={NAV} onNavigate={navigate}>
+      {path === '/settings' ? <Settings /> : <Home />}
+    </Shell>
   )
+}
+
+function Home() {
+  return <PageHeader title="Home" description="Your app starts here." />
+}
+
+function Settings() {
+  const toast = useToast()
+  return <PageHeader title="Settings" actions={<button onClick={() => toast.show('Saved', { variant: 'success' })}>Save</button>} />
 }
 ```
 
 Props:
 - `app` -- the `FreeAppStore` instance from `initApp()`
 - `appName` -- displayed in the topbar next to the brand logo
-- `requireAuth` -- if `true`, shows a sign-in screen instead of children when not authenticated
+- `nav` -- the app's screens: `{ label, href, icon?, title? }[]`
+- `onNavigate` -- client-side navigation for nav clicks (without it, nav items are ordinary links; the host serves the app for any path)
+- `renderNav` -- replace the built-in navbar (still placed in the topbar)
+- `requireAuth` -- if `true`, shows a sign-in screen instead of the app when not authenticated. Only for apps where everything needs an account; there is no paid tier or upgrade screen
 - `showThemeToggle` -- theme toggle in the ProfileMenu dropdown (default `true`)
+- `renderError` / `renderLoading` -- replace the error / loading fallback
+
+Each screen starts with `<PageHeader title description? actions? />` (its single h1, and the focus target after navigation). `useToast()` raises feedback, `useDocumentTitle()` sets a screen's tab title, `useOnline()` reports the connection. Full guide: https://docs.freeappstore.online/getting-started/#build-your-app-on-the-shell
 
 ### Individual components
 
-Use these when you need more layout control than FasShell provides. FasShell uses them internally.
+Use these inside `Shell`'s screens, or for layouts that don't use `Shell`. `Shell` uses the account components internally.
 
 ```tsx
 import {
@@ -640,15 +670,16 @@ import { useAuth, useTheme } from '@freeappstore/sdk/hooks'
 | `useAuth(app)` | `{ user, loading, signIn, signOut, deleteAccount, hasRole }` | Auth state + actions. `hasRole(role)` is async. |
 | `useTheme()` | `{ theme, preference, setPreference }` | Current theme ('light'\|'dark') + preference ('system'\|'light'\|'dark') |
 
-### When to use FasShell vs individual components
+### When to use Shell vs individual components
 
-- **Most apps:** Use `FasShell`. It handles the topbar, footer, auth gate, and theme in one wrapper.
-- **Custom layouts:** Use individual components. Import `useAuth` for auth state, `Avatar` + `ProfileMenu` for the topbar, `ThemeToggle` wherever you want it.
-- **The template's local `Shell.tsx`** is for standalone apps with no backend. When you add `@freeappstore/sdk`, replace `Shell` with `FasShell` or the individual SDK components.
+- **Every app:** Use `Shell` with `nav`. It handles the topbar, navigation, footer, auth gate, theme, error boundary and toasts in one wrapper. Both templates (`fas init`) already start inside it.
+- **Custom navigation:** Keep `Shell` and pass `renderNav`, or use the exported `NavBar`.
+- **Older apps** with a local `components/Shell.tsx` (sidebar + dock) or `FasShell` without `nav`: move to `Shell` with `nav`. See https://docs.freeappstore.online/ui/#migrating-to-the-shell
 
 ### What NOT to do
 
-- Do NOT build custom sign-in buttons. Use `SignInButton` or `FasShell`.
+- Do NOT build a custom header, sidebar, tab bar, bottom dock or error boundary, and do NOT put navigation inside a screen. Use `Shell` with `nav`.
+- Do NOT build custom sign-in buttons. Use `SignInButton` or `Shell`.
 - Do NOT build custom avatar components. Use `Avatar`.
 - Do NOT build custom theme toggles. Use `ThemeToggle`.
 - Do NOT build custom profile/settings pages. Use `ProfilePage` or `ProfileMenu`.
@@ -662,7 +693,7 @@ import { useAuth, useTheme } from '@freeappstore/sdk/hooks'
 |---|---|
 | `@freeappstore/sdk` | `initApp`, `FreeAppStore`, types, roles, keys |
 | `@freeappstore/sdk/hooks` | `useAuth`, `useTheme`, `useFriends`, `useVoiceInput` |
-| `@freeappstore/sdk/ui` | `FasShell`, `Avatar`, `SignInButton`, `ThemeToggle`, `TextSizeToggle`, `ProfileMenu`, `ProfilePage`, `Spinner`, `Badge`, `Card`, `Tabs`, `Modal`, `ConfirmDialog`, `EmptyState`, `ProgressBar`, `SearchInput`, `ListRow`, `ErrorBoundary`, `KeyPrompt`, `VoiceTextArea` |
+| `@freeappstore/sdk/ui` | `Shell` (alias `FasShell`), `PageHeader`, `NavBar`, `useToast`, `useDocumentTitle`, `useOnline`, `Avatar`, `SignInButton`, `ThemeToggle`, `TextSizeToggle`, `ProfileMenu`, `ProfilePage`, `Spinner`, `Badge`, `Card`, `Tabs`, `Modal`, `ConfirmDialog`, `EmptyState`, `ProgressBar`, `SearchInput`, `ListRow`, `ErrorBoundary`, `KeyPrompt`, `VoiceTextArea` |
 
 ## Games SDK (`@freegamestore/games`)
 
@@ -852,10 +883,10 @@ The auditor tests 12 viewports. Mobile phones are weighted highest:
 ## Brand Design
 
 - Fonts: Manrope (body) + Fraunces (display, 700-800)
-- CSS Variables: `--paper`, `--ink`, `--muted`, `--line`, `--panel`, `--glass`, `--dock`, `--accent`, `--success`, `--warning`, `--error`
-- Apps layout: Desktop = sidebar (17rem) + main. Mobile = header + main + dock.
+- CSS Variables: `--paper`, `--ink`, `--muted`, `--line`, `--line-strong`, `--panel`, `--accent`, `--success`, `--warning`, `--danger` (never the banned aliases `--bg`, `--surface`, `--border`, `--glass`, `--dock`, `--error`)
+- Apps layout: the SDK `Shell` (topbar with the app's navigation, then the screen). See "Shell -- the app wrapper" above.
 - Games layout: GameShell + GameTopbar (no sidebar, no dock — fullscreen)
-- Dark mode: `prefers-color-scheme: dark` or `[data-theme='dark']`
+- Dark mode: `:root[data-theme='dark']` (the SDK sets it from the system or the Shell's theme toggle)
 - Border radius: 1.25rem cards, 0.75rem buttons
 
 ## Privacy Rules

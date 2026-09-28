@@ -133,7 +133,7 @@
         <li>
           <strong>Develop locally</strong>
           <div class="contrib-cmd">cd my-app && pnpm install && pnpm dev</div>
-          <p>Edit <code>web/src/App.tsx</code>. The <code>Shell</code> component gives you the sidebar layout, brand fonts, and dark mode for free.</p>
+          <p>Edit <code>web/src/App.tsx</code>. It already wraps your app in the SDK's <code>Shell</code> with starter screens in its <code>nav</code> prop: the topbar, navigation, error boundary and toasts come for free. Add a <code>nav</code> entry for each screen you build.</p>
         </li>
         <li>
           <strong>Run compliance checks</strong>
@@ -174,8 +174,8 @@
       <ul>
         <li><strong>Use the template's CSS tokens.</strong> Colors, surfaces, lines, and spacing come from <code>--paper</code>, <code>--ink</code>, <code>--muted</code>, <code>--accent</code>, <code>--line</code>, <code>--line-strong</code>, <code>--panel</code>. Reference them via <code>var(--accent)</code>, etc. Don't redefine them in component CSS or inline styles.</li>
         <li><strong>Brand fonts only:</strong> Manrope (body) and Fraunces (display). System and monospace fallbacks are fine. No custom display fonts (Cormorant, Sora, Inter, etc.) — even when they'd look great.</li>
-        <li><strong>No custom theme.</strong> Light/dark mode comes from <code>prefers-color-scheme</code> and the template's variables. Don't ship your own theme switcher or override <code>color-scheme</code>.</li>
-        <li><strong>Layout uses <code>Shell</code>.</strong> The sidebar layout, header, and footer rhythm come from <code>web/src/components/Shell.tsx</code>. Apps may add content inside <code>Shell</code> but shouldn't replace it.</li>
+        <li><strong>No custom theme.</strong> Light/dark mode comes from the system preference, the <code>Shell</code>'s theme toggle (<code>:root[data-theme='dark']</code>) and the template's variables. Don't ship your own theme switcher or override <code>color-scheme</code>.</li>
+        <li><strong>Layout uses <code>Shell</code>.</strong> The topbar, navigation and footer rhythm come from the SDK's <code>Shell</code> (<code>@freeappstore/sdk/ui</code>): list every screen in its <code>nav</code> prop and build screens inside it, each starting with a <code>PageHeader</code>. Don't build your own header, sidebar or dock. <a href="https://docs.freeappstore.online/getting-started/#build-your-app-on-the-shell">How to build on the Shell</a>.</li>
       </ul>
 
       <p>The <code>fas check</code> compliance suite (run automatically before <code>fas publish</code> and again in your repo's CI) enforces:</p>

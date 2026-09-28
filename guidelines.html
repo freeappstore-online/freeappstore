@@ -99,37 +99,35 @@
         <tr><td><code>--muted</code></td><td><span class="color-swatch" data-swatch="muted-l"></span>#8a8780</td><td><span class="color-swatch" data-swatch="muted-d"></span>#7a7770</td><td>Secondary text</td></tr>
         <tr><td><code>--line</code></td><td><span class="color-swatch" data-swatch="line-l"></span>#e8e5e0</td><td><span class="color-swatch" data-swatch="line-d"></span>#2a2825</td><td>Borders</td></tr>
         <tr><td><code>--panel</code></td><td><span class="color-swatch" data-swatch="panel-l"></span>#f5f3f0</td><td><span class="color-swatch" data-swatch="panel-d"></span>#1e1d1b</td><td>Panel background</td></tr>
-        <tr><td><code>--glass</code></td><td colspan="2">rgba with 0.7 opacity</td><td>Frosted glass overlays</td></tr>
         <tr><td><code>--success</code></td><td><span class="color-swatch" data-swatch="success-l"></span>#22c55e</td><td><span class="color-swatch" data-swatch="success-d"></span>#4ade80</td><td>Correct / positive</td></tr>
         <tr><td><code>--warning</code></td><td><span class="color-swatch" data-swatch="warning-l"></span>#f59e0b</td><td><span class="color-swatch" data-swatch="warning-d"></span>#fbbf24</td><td>Caution</td></tr>
-        <tr><td><code>--error</code></td><td><span class="color-swatch" data-swatch="error-l"></span>#ef4444</td><td><span class="color-swatch" data-swatch="error-d"></span>#f87171</td><td>Wrong / destructive</td></tr>
+        <tr><td><code>--danger</code></td><td><span class="color-swatch" data-swatch="error-l"></span>#ef4444</td><td><span class="color-swatch" data-swatch="error-d"></span>#f87171</td><td>Wrong / destructive</td></tr>
       </table>
-      <p>Each app also gets ONE accent color for active states, primary buttons, and highlights. Dark mode follows system preference via <code>prefers-color-scheme: dark</code> — no manual toggle.</p>
+      <p>Each app also gets ONE accent color for active states, primary buttons, and highlights. Dark mode follows the system preference by default, and the Shell's theme toggle lets users override it; style dark mode with <code>:root[data-theme='dark']</code>, which the SDK sets. Never use the retired aliases <code>--bg</code>, <code>--surface</code>, <code>--border</code>, <code>--glass</code>, <code>--dock</code> or <code>--error</code>.</p>
 
       <h3>Shell Component Layout</h3>
-      <p>All apps use the same responsive Shell component:</p>
+      <p>All apps wrap themselves in the SDK's <code>Shell</code> (<code>@freeappstore/sdk/ui</code>) with one <code>nav</code> entry per screen: <code>&lt;Shell app={fas} appName="My App" nav={NAV}&gt;</code>. The Shell draws the topbar and the app's navigation (<code>&lt;nav aria-label="Main"&gt;</code>), and wraps each screen in an error boundary, toasts and an offline banner. Apps don't build their own header, sidebar or dock. <a href="https://docs.freeappstore.online/getting-started/#build-your-app-on-the-shell">How to build on the Shell</a>.</p>
 
       <div class="guide-two-col">
         <div class="rule-card">
-          <strong>Desktop (1024px+)</strong>
-          <div class="guide-shell-desktop">
-            <div class="guide-shell-sidebar">Sidebar<br>(17rem)<br><br>Nav<br>Tools</div>
-            <div class="guide-shell-main">Main Content</div>
+          <strong>Desktop (640px+)</strong>
+          <div class="guide-shell-mobile">
+            <div class="guide-shell-header">Topbar: logo · app name · Home · Notes · Settings · theme · profile</div>
+            <div class="guide-shell-content">Screen (PageHeader + content)</div>
           </div>
         </div>
         <div class="rule-card">
-          <strong>Mobile (&lt;1024px)</strong>
+          <strong>Mobile (&lt;640px)</strong>
           <div class="guide-shell-mobile">
-            <div class="guide-shell-header">App Header</div>
-            <div class="guide-shell-content">Main Content</div>
-            <div class="guide-shell-dock">Bottom Dock</div>
+            <div class="guide-shell-header">Topbar: logo · app name · ☰ menu · profile</div>
+            <div class="guide-shell-content">Screen (PageHeader + content)</div>
           </div>
         </div>
       </div>
 
       <table class="spec-table">
         <tr><th>Element</th><th>Value</th></tr>
-        <tr><td>Sidebar width</td><td><code>17rem</code></td></tr>
+        <tr><td>Navigation</td><td><code>Shell</code> <code>nav</code> prop (topbar; menu button below 640px)</td></tr>
         <tr><td>Card border radius</td><td><code>1.25rem</code></td></tr>
         <tr><td>Button border radius</td><td><code>0.75rem</code></td></tr>
         <tr><td>Card padding</td><td><code>1.5rem</code></td></tr>
@@ -172,8 +170,8 @@
         <li>Uses Manrope + Fraunces fonts</li>
         <li>Uses shared CSS custom properties for neutrals</li>
         <li>Single app-specific accent color</li>
-        <li>Sidebar (desktop) + dock (mobile) shell pattern</li>
-        <li>Dark mode via system preference</li>
+        <li>Wrapped in the SDK <code>Shell</code> with a <code>nav</code> entry per screen (no hand-built header, sidebar or dock)</li>
+        <li>Dark mode via <code>:root[data-theme='dark']</code> (follows the system and the Shell's theme toggle)</li>
         <li>Respects safe area insets (notched phones)</li>
       </ul>
 

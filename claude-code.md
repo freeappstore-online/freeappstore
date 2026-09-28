@@ -63,14 +63,14 @@ Full guide: https://freeappstore.online/docs/mcp
 - TypeScript ^5.7, React ^19, Vite ^6, Tailwind CSS ^4.1, pnpm
 - Node >=22
 - All styling via CSS variables defined in `web/src/index.css`
-- Layout via the `Shell` component (`web/src/components/Shell.tsx`)
-- Build your app inside `<Shell>` — it handles sidebar (desktop) and dock (mobile)
+- Layout via the SDK's `Shell` (`import { Shell } from '@freeappstore/sdk/ui'`, SDK 0.14.30+), already the root of `web/src/App.tsx`
+- Build your app inside `<Shell app={fas} appName="…" nav={NAV} onNavigate={navigate}>` with one `NAV` entry per screen — it renders the topbar, the app's navigation (`<nav aria-label="Main">`), an error boundary, toasts and an offline banner. Start each screen with `<PageHeader title="…" />`; use `useToast()` for feedback. Never build your own header, sidebar, tab bar or bottom dock. Guide: https://docs.freeappstore.online/getting-started/#build-your-app-on-the-shell
 
 ## Brand rules (mandatory)
 
 - Fonts: **Manrope** (body) + **Fraunces** (display/headings only)
-- CSS variables: `--paper`, `--ink`, `--muted`, `--line`, `--panel`, `--accent`, `--success`, `--warning`, `--error`
-- Dark mode via `prefers-color-scheme: dark` (already set up — just use the variables)
+- CSS variables: `--paper`, `--ink`, `--muted`, `--line`, `--panel`, `--accent`, `--success`, `--warning`, `--danger`
+- Dark mode via `:root[data-theme='dark']` (already set up — the SDK sets it from the system or the Shell's theme toggle; just use the variables)
 - Border radius: `1.25rem` cards, `0.75rem` buttons
 - Never add custom display fonts. Never redefine CSS variables.
 
@@ -96,9 +96,8 @@ my-app/
     └── src/
         ├── main.tsx       (do not modify)
         ├── index.css      (brand tokens — modify only to add app-specific vars)
-        ├── App.tsx         (your app entry point)
-        └── components/
-            └── Shell.tsx   (layout — extend nav items, don't restructure)
+        ├── App.tsx         (your app entry point: <Shell> with a NAV entry per screen)
+        └── components/     (your screens)
 ```
 
 ## How to build
