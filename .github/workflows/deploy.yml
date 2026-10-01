@@ -31,6 +31,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Build and security regression tests
+        run: npm test
+
       # Re-sync registry.json creator attribution from D1 (source of truth)
       # BEFORE building, so a stale static registry can't ship wrong creators
       # (the storefront stays static — this just regenerates the artifact).

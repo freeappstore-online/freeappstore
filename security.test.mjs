@@ -7,15 +7,47 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { runInNewContext } from "node:vm";
 
 // ── HTML escaping ──
 
-function esc(s) {
-  return String(s)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+// Exercise the production escaping function, rather than a test-only copy.
+const searchSource = readFileSync(new URL('./search.js', import.meta.url), 'utf8');
+const escSource = searchSource.slice(searchSource.indexOf('  function esc(s)'), searchSource.indexOf('  function categoryLabel'));
+const esc = runInNewContext(`${escSource}; esc`);
+
+function node() {
+  return {
+    children: [], dataset: {}, style: {}, classList: { add() {}, remove() {} },
+    textContent: '', innerHTML: '', hidden: false,
+    appendChild(child) { this.children.push(child); },
+    replaceChildren() { this.children = []; },
+    setAttribute() {}, addEventListener() {}, querySelectorAll() { return []; },
+  };
+}
+
+function searchCard(item, domain = 'freegamestore.online', path = 'games') {
+  const elements = Object.fromEntries(['storefront-search', 'apps-grid', 'search-empty', 'cross-store-results', 'cross-store-grid', 'cross-store-registry'].map(id => [id, node()]));
+  elements['cross-store-registry'].textContent = JSON.stringify({ items: [item], domain, path });
+  runInNewContext(searchSource, {
+    document: { getElementById: id => elements[id], createElement: node },
+    window: { location: { href: 'https://freeappstore.online/?q=needle' } }, URL,
+  });
+  return elements['cross-store-grid'].children[0];
+}
+
+async function authCallback(hash, response = { ok: true, status: 200, json: async () => ({ id: '1', login: '<img src=x onerror=alert(1)>' }) }, session = null) {
+  const avatar = node();
+  const calls = [], stored = [], cleared = [];
+  runInNewContext(readFileSync(new URL('./auth.js', import.meta.url), 'utf8'), {
+    document: { querySelectorAll: () => [], querySelector: selector => selector === '.header-right' ? node() : null, getElementById: () => avatar, createElement: node, documentElement: node() },
+    window: { location: { hash, pathname: '/', search: '' } },
+    history: { replaceState: (...args) => cleared.push(args) },
+    localStorage: { getItem: key => key === 'fas:session' ? session : null, setItem: (...args) => stored.push(args), removeItem() {} },
+    fetch: async (...args) => { calls.push(args); return response; }, URL,
+  });
+  await new Promise(resolve => setImmediate(resolve));
+  return { avatar, calls, stored, cleared };
 }
 
 const XSS_PAYLOADS = [
@@ -53,16 +85,36 @@ describe("search.js security", () => {
     assert.ok(searchJs.includes("${esc(item.name)}"), "item.name not escaped");
   });
 
-  it("escapes item.description", () => {
-    assert.ok(searchJs.includes("${esc(item.description)}"), "item.description not escaped");
+  it("renders malicious card fields safely using the current card layout", () => {
+    for (const payload of XSS_PAYLOADS) {
+      const card = searchCard({ id: 'needle/../x', name: payload, description: payload, icon: payload, iconBg: payload, category: 'needle' });
+      assert.ok(card);
+      assert.ok(card.innerHTML.includes(esc(payload)));
+      assert.ok(!card.innerHTML.includes(payload) || esc(payload) === payload);
+      assert.match(card.innerHTML, /background: #2563eb;/);
+      assert.ok(card.href.endsWith('/games/needle%2F..%2Fx.html'));
+      assert.equal(card.rel, 'noopener');
+    }
   });
 
-  it("escapes item.iconBg", () => {
-    assert.ok(searchJs.includes("${esc(item.iconBg)}"), "item.iconBg not escaped");
+  it("escapes the derived letter and category and preserves valid colors", () => {
+    const card = searchCard({ id: 'needle', name: '<svg>', category: 'needle<img>', iconBg: '#abc' });
+    assert.match(card.innerHTML, />&lt;<\/div>/);
+    assert.match(card.innerHTML, /Needle&lt;img&gt;/);
+    assert.match(card.innerHTML, /background: #abc;/);
   });
 
-  it("escapes item.icon", () => {
-    assert.ok(searchJs.includes("${esc(item.icon)}"), "item.icon not escaped");
+  it("rejects CSS declaration injection", () => {
+    const card = searchCard({ id: 'needle', name: 'Needle', category: 'test', iconBg: 'red; background: url(https://evil.example/track)' });
+    assert.match(card.innerHTML, /background: #2563eb;/);
+    assert.ok(!card.innerHTML.includes('evil.example'));
+  });
+
+  it("rejects unexpected registry destinations", () => {
+    for (const domain of ['evil.example', 'freegamestore.online@evil.example', 'freegamestore.online/../evil']) {
+      assert.equal(searchCard({ id: 'needle' }, domain), undefined);
+    }
+    assert.equal(searchCard({ id: 'needle' }, 'freegamestore.online', '..'), undefined);
   });
 });
 
@@ -96,13 +148,12 @@ describe("auth.js security", () => {
   const authJs = readFileSync("auth.js", "utf-8");
 
   it("does not use innerHTML with user data", () => {
-    // The only innerHTML usages should be for static HTML entities (hamburger/close icons)
-    const innerHtmlLines = authJs.split("\n").filter((l) => l.includes("innerHTML"));
-    for (const line of innerHtmlLines) {
-      assert.ok(
-        line.includes("&#9776;") || line.includes("&#10005;"),
-        `Suspicious innerHTML usage: ${line.trim()}`,
-      );
+    // Every HTML assignment must be a complete static string literal.
+    // This allows the settings SVG without allowing concatenated user data.
+    const assignments = [...authJs.matchAll(/\.innerHTML\s*=\s*([^\n]+)/g)];
+    assert.ok(assignments.length > 0);
+    for (const [, value] of assignments) {
+      assert.match(value, /^(?:"[^"\n]*"|'[^'\n]*');\s*$/);
     }
   });
 
@@ -116,6 +167,36 @@ describe("auth.js security", () => {
 
   it("clears hash after OAuth callback", () => {
     assert.ok(authJs.includes("replaceState"), "Should clear hash via replaceState");
+  });
+});
+
+describe("OAuth and cached-session regressions", () => {
+  it("strips malformed and invalid callback tokens without sending them", async () => {
+    for (const token of ['%E0%A4%A', 'bad%0D%0Aheader', '', 'x'.repeat(1025)]) {
+      const result = await authCallback('#fas_session=' + token);
+      assert.equal(result.cleared.length, 1);
+      assert.equal(result.calls.length, 0);
+      assert.equal(result.stored.length, 0);
+      assert.equal(result.avatar.children[0].textContent, 'Sign in');
+    }
+  });
+  it("does not cache a user from a failed authentication response", async () => {
+    const result = await authCallback('#fas_session=valid-token', { ok: false, status: 401, json: async () => ({ id: '1' }) });
+    assert.equal(result.stored.length, 0);
+    assert.equal(result.avatar.children[0].textContent, 'Sign in');
+  });
+  it("uses Bearer auth, clears the callback, and renders user data as text", async () => {
+    const result = await authCallback('#fas_session=valid-token');
+    assert.equal(result.calls[0][1].headers.Authorization, 'Bearer valid-token');
+    assert.equal(result.cleared.length, 1);
+    assert.equal(result.stored.length, 1);
+    assert.equal(result.avatar.children[0].textContent, '<img src=x onerror=alert(1)>');
+    assert.equal(result.avatar.children[0].innerHTML, '');
+  });
+  it("rejects unsafe cached tokens before fetch", async () => {
+    const result = await authCallback('', undefined, JSON.stringify({ token: 'bad\r\nheader', user: { id: '1' } }));
+    assert.equal(result.calls.length, 0);
+    assert.equal(result.avatar.children[0].textContent, 'Sign in');
   });
 });
 

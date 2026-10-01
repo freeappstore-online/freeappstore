@@ -39,7 +39,10 @@
       const parsed = JSON.parse(raw);
       // Registry shape: { items: [...], domain: 'freegamestore.online',
       // path: 'games' }. Build cards lazily.
-      crossItems = (parsed.items || []).map((item) => ({
+      // The other store is a fixed destination, never an arbitrary URL host.
+      const validRegistry = parsed.domain === "freegamestore.online"
+        && parsed.path === "games" && Array.isArray(parsed.items);
+      crossItems = (validRegistry ? parsed.items : []).map((item) => ({
         ...item,
         domain: parsed.domain,
         path: parsed.path,
@@ -73,7 +76,8 @@
     a.rel = 'noopener';
     a.style.textDecoration = 'none';
     const letter = (item.name || '?').trim().charAt(0).toUpperCase();
-    const iconBg = item.iconBg || '#2563eb';
+    // HTML escaping does not constrain CSS declarations. Accept colors only.
+    const iconBg = /^#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(item.iconBg) ? item.iconBg : '#2563eb';
     a.innerHTML = `
       <div class="app-icon" style="background: ${esc(iconBg)};">${esc(letter)}</div>
       <div class="app-body">

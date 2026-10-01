@@ -118,12 +118,16 @@
     // Check for OAuth callback hash
     var hash = window.location.hash;
     if (hash.indexOf("#fas_session=") === 0) {
-      var token = decodeURIComponent(hash.slice("#fas_session=".length));
+      var token = "";
+      try { token = decodeURIComponent(hash.slice("#fas_session=".length)); } catch (e) {}
       // Always strip the hash so a malformed token doesn't linger in the URL.
       history.replaceState(null, "", window.location.pathname + window.location.search);
       if (isPlausibleToken(token)) {
         fetch(API + "/v1/auth/me", { headers: { Authorization: "Bearer " + token } })
-          .then(function (r) { return r.json(); })
+          .then(function (r) {
+            if (!r.ok) throw new Error("Invalid session");
+            return r.json();
+          })
           .then(function (user) {
             if (user && user.id) {
               try { localStorage.setItem("fas:session", JSON.stringify({ token: token, user: user })); } catch (e) {}
