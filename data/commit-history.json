@@ -2,9 +2,19 @@
   "freeappstore-online/language": {
     "meta": {
       "created_at": "2026-05-03T02:32:50Z",
-      "pushed_at": "2026-06-20T22:42:36Z"
+      "pushed_at": "2026-10-05T10:17:05Z"
     },
     "commits": [
+      {
+        "sha": "a164c81f693aacbfe036b7357c905064144ffef0",
+        "html_url": "https://github.com/freeappstore-online/language/commit/a164c81f693aacbfe036b7357c905064144ffef0",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:17:03Z"
+          }
+        }
+      },
       {
         "sha": "e5d742e3740de6e1b7a259762c4a19738fe779df",
         "html_url": "https://github.com/freeappstore-online/language/commit/e5d742e3740de6e1b7a259762c4a19738fe779df",
@@ -24,25 +34,25 @@
             "date": "2026-06-20T22:40:36Z"
           }
         }
-      },
-      {
-        "sha": "b943572f2d5106e2fd5a8a7e2d2900e56958b26b",
-        "html_url": "https://github.com/freeappstore-online/language/commit/b943572f2d5106e2fd5a8a7e2d2900e56958b26b",
-        "commit": {
-          "message": "docs: remove obsolete CLOUDFLARE-PAGES.md (legacy deployment doc)\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-05-31T11:35:18Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/quiz": {
     "meta": {
       "created_at": "2026-05-03T02:32:57Z",
-      "pushed_at": "2026-07-01T06:59:34Z"
+      "pushed_at": "2026-10-05T11:13:34Z"
     },
     "commits": [
+      {
+        "sha": "5f4b636ead2c3ecebe0d00130e4ce9ac9eb54996",
+        "html_url": "https://github.com/freeappstore-online/quiz/commit/5f4b636ead2c3ecebe0d00130e4ce9ac9eb54996",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:13:32Z"
+          }
+        }
+      },
       {
         "sha": "a04c37c72ad82cd72c7ef1aab64dbdfa5fe2bead",
         "html_url": "https://github.com/freeappstore-online/quiz/commit/a04c37c72ad82cd72c7ef1aab64dbdfa5fe2bead",
@@ -62,25 +72,25 @@
             "date": "2026-07-01T02:19:50Z"
           }
         }
-      },
-      {
-        "sha": "99f7cd5587198a59fb660ca8c1b4093592217da3",
-        "html_url": "https://github.com/freeappstore-online/quiz/commit/99f7cd5587198a59fb660ca8c1b4093592217da3",
-        "commit": {
-          "message": "fix: restore compliance.yml with SDK dep check",
-          "author": {
-            "date": "2026-06-20T22:42:51Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/chessclock": {
     "meta": {
       "created_at": "2026-05-04T10:01:30Z",
-      "pushed_at": "2026-07-16T08:50:26Z"
+      "pushed_at": "2026-10-05T08:21:14Z"
     },
     "commits": [
+      {
+        "sha": "a617daae849a98dfa9c37a5d42fe9d54b7141c8e",
+        "html_url": "https://github.com/freeappstore-online/chessclock/commit/a617daae849a98dfa9c37a5d42fe9d54b7141c8e",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:21:12Z"
+          }
+        }
+      },
       {
         "sha": "e44b37622fe81f86c11b1a3aa8f1ecca9feb678d",
         "html_url": "https://github.com/freeappstore-online/chessclock/commit/e44b37622fe81f86c11b1a3aa8f1ecca9feb678d",
@@ -98,16 +108,6 @@
           "message": "Switch service worker to network-first caching (v3)\n\nCo-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>",
           "author": {
             "date": "2026-07-06T20:40:16Z"
-          }
-        }
-      },
-      {
-        "sha": "78ceced181896a7cef991583a401c3677949a5a5",
-        "html_url": "https://github.com/freeappstore-online/chessclock/commit/78ceced181896a7cef991583a401c3677949a5a5",
-        "commit": {
-          "message": "fix: enable pinch-zoom (a11y)",
-          "author": {
-            "date": "2026-05-31T11:18:50Z"
           }
         }
       }
@@ -154,9 +154,19 @@
   "freeappstore-online/books": {
     "meta": {
       "created_at": "2026-05-04T00:16:25Z",
-      "pushed_at": "2026-07-01T06:59:45Z"
+      "pushed_at": "2026-10-05T07:42:21Z"
     },
     "commits": [
+      {
+        "sha": "cb8a892ec37d1f66aeb07f9ec53c7b488c20a9c2",
+        "html_url": "https://github.com/freeappstore-online/books/commit/cb8a892ec37d1f66aeb07f9ec53c7b488c20a9c2",
+        "commit": {
+          "message": "ci: adopt shared platform compliance workflow",
+          "author": {
+            "date": "2026-10-05T07:42:19Z"
+          }
+        }
+      },
       {
         "sha": "2c20f28b3dc42f6c7402a83ece5e3231053e0929",
         "html_url": "https://github.com/freeappstore-online/books/commit/2c20f28b3dc42f6c7402a83ece5e3231053e0929",
@@ -174,16 +184,6 @@
           "message": "fix: restore compliance.yml with SDK dep check",
           "author": {
             "date": "2026-06-20T22:42:19Z"
-          }
-        }
-      },
-      {
-        "sha": "9eb4732c1d0270be46fb11713ba4f7a4a9526d4a",
-        "html_url": "https://github.com/freeappstore-online/books/commit/9eb4732c1d0270be46fb11713ba4f7a4a9526d4a",
-        "commit": {
-          "message": "fix: CI compliance — check SDK dep instead of domain string",
-          "author": {
-            "date": "2026-06-20T22:40:16Z"
           }
         }
       }
@@ -268,9 +268,19 @@
   "freeappstore-online/math": {
     "meta": {
       "created_at": "2026-05-03T02:32:52Z",
-      "pushed_at": "2026-07-01T06:59:28Z"
+      "pushed_at": "2026-10-05T10:21:15Z"
     },
     "commits": [
+      {
+        "sha": "3eb76b2acaefa634bc0fc01739ef7e9a050ad69c",
+        "html_url": "https://github.com/freeappstore-online/math/commit/3eb76b2acaefa634bc0fc01739ef7e9a050ad69c",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:21:12Z"
+          }
+        }
+      },
       {
         "sha": "101c98dc955362abcb4abb6790c5b3b63df97e43",
         "html_url": "https://github.com/freeappstore-online/math/commit/101c98dc955362abcb4abb6790c5b3b63df97e43",
@@ -290,25 +300,25 @@
             "date": "2026-07-01T02:19:50Z"
           }
         }
-      },
-      {
-        "sha": "14b79e213aba3f2c8b4ef1302370999616e529bd",
-        "html_url": "https://github.com/freeappstore-online/math/commit/14b79e213aba3f2c8b4ef1302370999616e529bd",
-        "commit": {
-          "message": "fix: restore compliance.yml with SDK dep check",
-          "author": {
-            "date": "2026-06-20T22:42:39Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/bandmates": {
     "meta": {
       "created_at": "2026-05-04T01:43:04Z",
-      "pushed_at": "2026-06-20T22:42:18Z"
+      "pushed_at": "2026-10-05T07:39:26Z"
     },
     "commits": [
+      {
+        "sha": "f949eb97335d33c1b3109aa9dee2ea93ae62edab",
+        "html_url": "https://github.com/freeappstore-online/bandmates/commit/f949eb97335d33c1b3109aa9dee2ea93ae62edab",
+        "commit": {
+          "message": "ci: adopt shared platform compliance workflow",
+          "author": {
+            "date": "2026-10-05T07:39:24Z"
+          }
+        }
+      },
       {
         "sha": "52fd22f9e073f45edb35454ca75970e096ccbe3a",
         "html_url": "https://github.com/freeappstore-online/bandmates/commit/52fd22f9e073f45edb35454ca75970e096ccbe3a",
@@ -328,25 +338,25 @@
             "date": "2026-06-20T22:40:14Z"
           }
         }
-      },
-      {
-        "sha": "9dcedc6367c78d090ed4b6bc1571fada10f48371",
-        "html_url": "https://github.com/freeappstore-online/bandmates/commit/9dcedc6367c78d090ed4b6bc1571fada10f48371",
-        "commit": {
-          "message": "fix: enable pinch-zoom (a11y)",
-          "author": {
-            "date": "2026-05-31T11:18:48Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/converter": {
     "meta": {
       "created_at": "2026-05-04T10:58:01Z",
-      "pushed_at": "2026-06-20T22:42:26Z"
+      "pushed_at": "2026-10-05T07:48:32Z"
     },
     "commits": [
+      {
+        "sha": "44c1e10acd22c2ee8c23f4192286476652b71ba0",
+        "html_url": "https://github.com/freeappstore-online/converter/commit/44c1e10acd22c2ee8c23f4192286476652b71ba0",
+        "commit": {
+          "message": "ci: adopt shared platform compliance workflow",
+          "author": {
+            "date": "2026-10-05T07:48:30Z"
+          }
+        }
+      },
       {
         "sha": "67b9755e2919debeafe22ad73772667cf1af0519",
         "html_url": "https://github.com/freeappstore-online/converter/commit/67b9755e2919debeafe22ad73772667cf1af0519",
@@ -364,16 +374,6 @@
           "message": "fix: CI compliance — check SDK dep instead of domain string",
           "author": {
             "date": "2026-06-20T22:40:24Z"
-          }
-        }
-      },
-      {
-        "sha": "77ac2cbd222b27d60cda8434b140bdfa8da5d608",
-        "html_url": "https://github.com/freeappstore-online/converter/commit/77ac2cbd222b27d60cda8434b140bdfa8da5d608",
-        "commit": {
-          "message": "docs: update CLAUDE.md — R2 not CF Pages",
-          "author": {
-            "date": "2026-05-31T11:36:12Z"
           }
         }
       }
@@ -420,9 +420,19 @@
   "freeappstore-online/meetup": {
     "meta": {
       "created_at": "2026-05-04T01:43:06Z",
-      "pushed_at": "2026-05-27T14:19:20Z"
+      "pushed_at": "2026-10-05T10:24:23Z"
     },
     "commits": [
+      {
+        "sha": "b4a8786af8657bc1a273157692c762bb5c7588ed",
+        "html_url": "https://github.com/freeappstore-online/meetup/commit/b4a8786af8657bc1a273157692c762bb5c7588ed",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:24:21Z"
+          }
+        }
+      },
       {
         "sha": "abf0f0a4913d0218da63603620872f6ccc5ed2dc",
         "html_url": "https://github.com/freeappstore-online/meetup/commit/abf0f0a4913d0218da63603620872f6ccc5ed2dc",
@@ -442,25 +452,25 @@
             "date": "2026-05-27T14:12:43Z"
           }
         }
-      },
-      {
-        "sha": "4c14e8bb044262036ba27d647b9d1e56d3c10ef2",
-        "html_url": "https://github.com/freeappstore-online/meetup/commit/4c14e8bb044262036ba27d647b9d1e56d3c10ef2",
-        "commit": {
-          "message": "fix: compliance CSS check accepts Tailwind 4 variable naming",
-          "author": {
-            "date": "2026-05-27T14:10:48Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/habits": {
     "meta": {
       "created_at": "2026-05-04T10:58:17Z",
-      "pushed_at": "2026-07-01T06:59:56Z"
+      "pushed_at": "2026-10-05T10:15:33Z"
     },
     "commits": [
+      {
+        "sha": "76c942efdae80cd8ca59a0e8f47d5ebfad4185cd",
+        "html_url": "https://github.com/freeappstore-online/habits/commit/76c942efdae80cd8ca59a0e8f47d5ebfad4185cd",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:15:31Z"
+          }
+        }
+      },
       {
         "sha": "702a3b224148e44fecb04ff547dfd57743e2fbd3",
         "html_url": "https://github.com/freeappstore-online/habits/commit/702a3b224148e44fecb04ff547dfd57743e2fbd3",
@@ -480,25 +490,25 @@
             "date": "2026-06-20T22:42:35Z"
           }
         }
-      },
-      {
-        "sha": "f84b4e93f34dc455755b222f5f36e917820ef78b",
-        "html_url": "https://github.com/freeappstore-online/habits/commit/f84b4e93f34dc455755b222f5f36e917820ef78b",
-        "commit": {
-          "message": "fix: CI compliance — check SDK dep instead of domain string",
-          "author": {
-            "date": "2026-06-20T22:40:34Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/colorpicker": {
     "meta": {
       "created_at": "2026-05-04T10:58:10Z",
-      "pushed_at": "2026-06-20T22:42:24Z"
+      "pushed_at": "2026-10-05T07:46:18Z"
     },
     "commits": [
+      {
+        "sha": "69021a26218926e5ac1c0bdde7e23c5c3e1b4bf8",
+        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/69021a26218926e5ac1c0bdde7e23c5c3e1b4bf8",
+        "commit": {
+          "message": "ci: adopt shared platform compliance workflow",
+          "author": {
+            "date": "2026-10-05T07:46:16Z"
+          }
+        }
+      },
       {
         "sha": "c0312d715472b39ab75e27db24e3f7ac9ade7718",
         "html_url": "https://github.com/freeappstore-online/colorpicker/commit/c0312d715472b39ab75e27db24e3f7ac9ade7718",
@@ -518,25 +528,35 @@
             "date": "2026-06-20T22:40:22Z"
           }
         }
-      },
-      {
-        "sha": "4cb0278a94b979a2dc4dd8acb858167b1aa012f9",
-        "html_url": "https://github.com/freeappstore-online/colorpicker/commit/4cb0278a94b979a2dc4dd8acb858167b1aa012f9",
-        "commit": {
-          "message": "docs: update CLAUDE.md — R2 not CF Pages",
-          "author": {
-            "date": "2026-05-31T11:36:11Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/music": {
     "meta": {
       "created_at": "2026-05-03T02:32:53Z",
-      "pushed_at": "2026-07-06T23:18:02Z"
+      "pushed_at": "2026-10-05T11:12:04Z"
     },
     "commits": [
+      {
+        "sha": "07dd8deae476e98c934c48d8b4efc7f6f76aa527",
+        "html_url": "https://github.com/freeappstore-online/music/commit/07dd8deae476e98c934c48d8b4efc7f6f76aa527",
+        "commit": {
+          "message": "chore: restore generated SEO artifacts",
+          "author": {
+            "date": "2026-10-05T11:12:02Z"
+          }
+        }
+      },
+      {
+        "sha": "7ad20a03ac19d65f6846242a592ad60d020a4f04",
+        "html_url": "https://github.com/freeappstore-online/music/commit/7ad20a03ac19d65f6846242a592ad60d020a4f04",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:11:38Z"
+          }
+        }
+      },
       {
         "sha": "4131b0120eb37712f46a1eff8dcca0760437e349",
         "html_url": "https://github.com/freeappstore-online/music/commit/4131b0120eb37712f46a1eff8dcca0760437e349",
@@ -546,35 +566,25 @@
             "date": "2026-07-06T20:40:17Z"
           }
         }
-      },
-      {
-        "sha": "2117c05defce67a9c57706ba94812f7f83cfe2c8",
-        "html_url": "https://github.com/freeappstore-online/music/commit/2117c05defce67a9c57706ba94812f7f83cfe2c8",
-        "commit": {
-          "message": "fix: restore compliance.yml with SDK dep check",
-          "author": {
-            "date": "2026-06-20T22:42:41Z"
-          }
-        }
-      },
-      {
-        "sha": "996a18976dead3ba1c9f72a55ad774cf64c750e0",
-        "html_url": "https://github.com/freeappstore-online/music/commit/996a18976dead3ba1c9f72a55ad774cf64c750e0",
-        "commit": {
-          "message": "fix: CI compliance — check SDK dep instead of domain string",
-          "author": {
-            "date": "2026-06-20T22:40:44Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/flashcards": {
     "meta": {
       "created_at": "2026-05-04T10:58:15Z",
-      "pushed_at": "2026-06-20T22:42:33Z"
+      "pushed_at": "2026-10-05T10:08:39Z"
     },
     "commits": [
+      {
+        "sha": "f512d7c3e48383fba1e81a90ad7074c4d81cfb48",
+        "html_url": "https://github.com/freeappstore-online/flashcards/commit/f512d7c3e48383fba1e81a90ad7074c4d81cfb48",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:08:37Z"
+          }
+        }
+      },
       {
         "sha": "2112be39284f18d30177d2c4679460f56ffd099a",
         "html_url": "https://github.com/freeappstore-online/flashcards/commit/2112be39284f18d30177d2c4679460f56ffd099a",
@@ -594,25 +604,25 @@
             "date": "2026-06-20T22:40:32Z"
           }
         }
-      },
-      {
-        "sha": "fd3958b013e4d80b2333d40c92f1b989408f600c",
-        "html_url": "https://github.com/freeappstore-online/flashcards/commit/fd3958b013e4d80b2333d40c92f1b989408f600c",
-        "commit": {
-          "message": "docs: update CLAUDE.md — R2 not CF Pages",
-          "author": {
-            "date": "2026-05-31T11:36:14Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/whiteboard": {
     "meta": {
       "created_at": "2026-05-04T10:58:13Z",
-      "pushed_at": "2026-06-20T22:43:00Z"
+      "pushed_at": "2026-10-05T11:21:07Z"
     },
     "commits": [
+      {
+        "sha": "31ef430f3a4222fff280f494169c82debe6c461d",
+        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/31ef430f3a4222fff280f494169c82debe6c461d",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:21:04Z"
+          }
+        }
+      },
       {
         "sha": "d3157aa96c972fa43a3f704755f8f3b27c4ab074",
         "html_url": "https://github.com/freeappstore-online/whiteboard/commit/d3157aa96c972fa43a3f704755f8f3b27c4ab074",
@@ -630,16 +640,6 @@
           "message": "fix: CI compliance — check SDK dep instead of domain string",
           "author": {
             "date": "2026-06-20T22:41:13Z"
-          }
-        }
-      },
-      {
-        "sha": "6e39ba2657a690b6d5846aed685924a7fdfc8a2e",
-        "html_url": "https://github.com/freeappstore-online/whiteboard/commit/6e39ba2657a690b6d5846aed685924a7fdfc8a2e",
-        "commit": {
-          "message": "docs: update CLAUDE.md — R2 not CF Pages",
-          "author": {
-            "date": "2026-05-31T11:36:29Z"
           }
         }
       }
@@ -724,9 +724,19 @@
   "freeappstore-online/weather": {
     "meta": {
       "created_at": "2026-05-04T10:58:19Z",
-      "pushed_at": "2026-06-20T22:42:57Z"
+      "pushed_at": "2026-10-05T11:23:42Z"
     },
     "commits": [
+      {
+        "sha": "895e5552372d9f0aad3b8b47438a80e3b30384e8",
+        "html_url": "https://github.com/freeappstore-online/weather/commit/895e5552372d9f0aad3b8b47438a80e3b30384e8",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:23:39Z"
+          }
+        }
+      },
       {
         "sha": "f6e5bc0b0f26fe7d80cb1b5e5f661634d49780f4",
         "html_url": "https://github.com/freeappstore-online/weather/commit/f6e5bc0b0f26fe7d80cb1b5e5f661634d49780f4",
@@ -744,16 +754,6 @@
           "message": "fix: CI compliance — check SDK dep instead of domain string",
           "author": {
             "date": "2026-06-20T22:41:08Z"
-          }
-        }
-      },
-      {
-        "sha": "c4729cb6b6c32245e0121f13856809922f0c554f",
-        "html_url": "https://github.com/freeappstore-online/weather/commit/c4729cb6b6c32245e0121f13856809922f0c554f",
-        "commit": {
-          "message": "docs: update CLAUDE.md — R2 not CF Pages",
-          "author": {
-            "date": "2026-05-31T11:36:28Z"
           }
         }
       }
@@ -800,9 +800,19 @@
   "freeappstore-online/stopwatch": {
     "meta": {
       "created_at": "2026-05-06T03:10:41Z",
-      "pushed_at": "2026-07-06T23:18:52Z"
+      "pushed_at": "2026-10-05T11:06:26Z"
     },
     "commits": [
+      {
+        "sha": "fbdc055a568750de4b674754402b0425749fd033",
+        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/fbdc055a568750de4b674754402b0425749fd033",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:06:23Z"
+          }
+        }
+      },
       {
         "sha": "9abb946fa282e79d58acb97476d542c240acee97",
         "html_url": "https://github.com/freeappstore-online/stopwatch/commit/9abb946fa282e79d58acb97476d542c240acee97",
@@ -822,25 +832,25 @@
             "date": "2026-06-20T22:42:53Z"
           }
         }
-      },
-      {
-        "sha": "41a66668be4568ba052fd092ac1d875f0ffecd02",
-        "html_url": "https://github.com/freeappstore-online/stopwatch/commit/41a66668be4568ba052fd092ac1d875f0ffecd02",
-        "commit": {
-          "message": "fix: CI compliance — check SDK dep instead of domain string",
-          "author": {
-            "date": "2026-06-20T22:41:00Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/calculator": {
     "meta": {
       "created_at": "2026-05-04T05:30:50Z",
-      "pushed_at": "2026-07-01T06:59:50Z"
+      "pushed_at": "2026-10-05T07:43:53Z"
     },
     "commits": [
+      {
+        "sha": "eef71d915c2eb000b22cf46c84b686c779ca6e21",
+        "html_url": "https://github.com/freeappstore-online/calculator/commit/eef71d915c2eb000b22cf46c84b686c779ca6e21",
+        "commit": {
+          "message": "ci: adopt shared platform compliance workflow",
+          "author": {
+            "date": "2026-10-05T07:43:51Z"
+          }
+        }
+      },
       {
         "sha": "186921caa94a3af97891bb487d1deb076c982d1d",
         "html_url": "https://github.com/freeappstore-online/calculator/commit/186921caa94a3af97891bb487d1deb076c982d1d",
@@ -858,16 +868,6 @@
           "message": "fix: restore compliance.yml with SDK dep check",
           "author": {
             "date": "2026-06-20T22:42:20Z"
-          }
-        }
-      },
-      {
-        "sha": "df7aa45739803372c86b5ed6181f3b5f323a2231",
-        "html_url": "https://github.com/freeappstore-online/calculator/commit/df7aa45739803372c86b5ed6181f3b5f323a2231",
-        "commit": {
-          "message": "fix: CI compliance — check SDK dep instead of domain string",
-          "author": {
-            "date": "2026-06-20T22:40:18Z"
           }
         }
       }
@@ -932,9 +932,19 @@
   "freeappstore-online/mandarin-english": {
     "meta": {
       "created_at": "2026-05-06T04:25:18Z",
-      "pushed_at": "2026-06-20T22:42:37Z"
+      "pushed_at": "2026-10-05T10:19:19Z"
     },
     "commits": [
+      {
+        "sha": "288cbb8364ed772f2797531379ee60fd81e9ad47",
+        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/288cbb8364ed772f2797531379ee60fd81e9ad47",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:19:16Z"
+          }
+        }
+      },
       {
         "sha": "da1ffb8bf9252a3878416c61597ad1a7931db08e",
         "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/da1ffb8bf9252a3878416c61597ad1a7931db08e",
@@ -952,16 +962,6 @@
           "message": "fix: CI compliance — check SDK dep instead of domain string",
           "author": {
             "date": "2026-06-20T22:40:38Z"
-          }
-        }
-      },
-      {
-        "sha": "2a0b3db5e60ddceef59f3bdf038aa9396f61e9e4",
-        "html_url": "https://github.com/freeappstore-online/mandarin-english/commit/2a0b3db5e60ddceef59f3bdf038aa9396f61e9e4",
-        "commit": {
-          "message": "docs: update CLAUDE.md — R2 not CF Pages",
-          "author": {
-            "date": "2026-05-31T11:36:17Z"
           }
         }
       }
@@ -1216,9 +1216,19 @@
   "freeappstore-online/artout": {
     "meta": {
       "created_at": "2026-05-18T19:12:27Z",
-      "pushed_at": "2026-07-01T06:59:39Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "5a964e395be5e96e693c6909d2b5e918ff262c89",
+        "html_url": "https://github.com/freeappstore-online/artout/commit/5a964e395be5e96e693c6909d2b5e918ff262c89",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "3e1964eb63d9fb50419707363fd59934b9d15eb6",
         "html_url": "https://github.com/freeappstore-online/artout/commit/3e1964eb63d9fb50419707363fd59934b9d15eb6",
@@ -1236,16 +1246,6 @@
           "message": "fix: restore compliance.yml with SDK dep check",
           "author": {
             "date": "2026-06-20T22:42:16Z"
-          }
-        }
-      },
-      {
-        "sha": "d69b1e1ce8c36a515ac368915b48426055f3a6a1",
-        "html_url": "https://github.com/freeappstore-online/artout/commit/d69b1e1ce8c36a515ac368915b48426055f3a6a1",
-        "commit": {
-          "message": "fix: CI compliance — check SDK dep instead of domain string",
-          "author": {
-            "date": "2026-06-20T22:40:12Z"
           }
         }
       }
@@ -1406,9 +1406,19 @@
   "freeappstore-online/whenly": {
     "meta": {
       "created_at": "2026-05-18T19:09:34Z",
-      "pushed_at": "2026-06-20T22:42:58Z"
+      "pushed_at": "2026-10-05T11:22:27Z"
     },
     "commits": [
+      {
+        "sha": "cae0b45d5e1560f984752db48a14667a5712256d",
+        "html_url": "https://github.com/freeappstore-online/whenly/commit/cae0b45d5e1560f984752db48a14667a5712256d",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:22:24Z"
+          }
+        }
+      },
       {
         "sha": "d2d08b4e22678828fe6b24212c48ba7c076b1d5c",
         "html_url": "https://github.com/freeappstore-online/whenly/commit/d2d08b4e22678828fe6b24212c48ba7c076b1d5c",
@@ -1426,16 +1436,6 @@
           "message": "fix: CI compliance — check SDK dep instead of domain string",
           "author": {
             "date": "2026-06-20T22:41:10Z"
-          }
-        }
-      },
-      {
-        "sha": "7ea8871148557a393d402fa49882f0f87de5114a",
-        "html_url": "https://github.com/freeappstore-online/whenly/commit/7ea8871148557a393d402fa49882f0f87de5114a",
-        "commit": {
-          "message": "fix: enable pinch-zoom (a11y)",
-          "author": {
-            "date": "2026-05-31T11:19:12Z"
           }
         }
       }
@@ -1482,9 +1482,19 @@
   "freeappstore-online/docbot": {
     "meta": {
       "created_at": "2026-05-20T09:44:20Z",
-      "pushed_at": "2026-07-06T23:16:55Z"
+      "pushed_at": "2026-10-05T09:59:41Z"
     },
     "commits": [
+      {
+        "sha": "7045f20fe9e16c5537e09e0cabb474c9d7dde08e",
+        "html_url": "https://github.com/freeappstore-online/docbot/commit/7045f20fe9e16c5537e09e0cabb474c9d7dde08e",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T09:59:38Z"
+          }
+        }
+      },
       {
         "sha": "cae54e502bf312386266910d6a82462fe28f878d",
         "html_url": "https://github.com/freeappstore-online/docbot/commit/cae54e502bf312386266910d6a82462fe28f878d",
@@ -1504,25 +1514,25 @@
             "date": "2026-05-31T11:19:15Z"
           }
         }
-      },
-      {
-        "sha": "337beac8018ce6d04a5dc3c856c966c85d04af5c",
-        "html_url": "https://github.com/freeappstore-online/docbot/commit/337beac8018ce6d04a5dc3c856c966c85d04af5c",
-        "commit": {
-          "message": "fix: add manifest.json for compliance",
-          "author": {
-            "date": "2026-05-27T14:14:43Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/population-agent": {
     "meta": {
       "created_at": "2026-05-20T10:09:02Z",
-      "pushed_at": "2026-07-06T23:18:19Z"
+      "pushed_at": "2026-10-05T11:09:37Z"
     },
     "commits": [
+      {
+        "sha": "14eb7b71692690cf018bdfd840726b3705ac9822",
+        "html_url": "https://github.com/freeappstore-online/population-agent/commit/14eb7b71692690cf018bdfd840726b3705ac9822",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:09:35Z"
+          }
+        }
+      },
       {
         "sha": "a35e474179cd42da87b4e0d86a982a26fcc44987",
         "html_url": "https://github.com/freeappstore-online/population-agent/commit/a35e474179cd42da87b4e0d86a982a26fcc44987",
@@ -1542,25 +1552,25 @@
             "date": "2026-05-31T11:19:16Z"
           }
         }
-      },
-      {
-        "sha": "3ec2f878210ea302ca11bbc9e7787f042eec1c6f",
-        "html_url": "https://github.com/freeappstore-online/population-agent/commit/3ec2f878210ea302ca11bbc9e7787f042eec1c6f",
-        "commit": {
-          "message": "fix: add manifest.json for compliance",
-          "author": {
-            "date": "2026-05-27T14:14:47Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/facer": {
     "meta": {
       "created_at": "2026-05-20T10:09:22Z",
-      "pushed_at": "2026-07-06T23:17:03Z"
+      "pushed_at": "2026-10-05T10:06:40Z"
     },
     "commits": [
+      {
+        "sha": "ecb5393e20e32f40686b60c091295acc2468da97",
+        "html_url": "https://github.com/freeappstore-online/facer/commit/ecb5393e20e32f40686b60c091295acc2468da97",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:06:37Z"
+          }
+        }
+      },
       {
         "sha": "4e6e7fcef69bcebf9c5c34a8153827930b5928d5",
         "html_url": "https://github.com/freeappstore-online/facer/commit/4e6e7fcef69bcebf9c5c34a8153827930b5928d5",
@@ -1578,16 +1588,6 @@
           "message": "fix: enable pinch-zoom (a11y)",
           "author": {
             "date": "2026-05-31T11:19:17Z"
-          }
-        }
-      },
-      {
-        "sha": "fd86b6e4de2118c637e410ff0be41e738888cad2",
-        "html_url": "https://github.com/freeappstore-online/facer/commit/fd86b6e4de2118c637e410ff0be41e738888cad2",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:09:21Z"
           }
         }
       }
@@ -1634,9 +1634,19 @@
   "freeappstore-online/faces": {
     "meta": {
       "created_at": "2026-05-23T20:34:58Z",
-      "pushed_at": "2026-06-20T22:42:32Z"
+      "pushed_at": "2026-10-05T10:07:41Z"
     },
     "commits": [
+      {
+        "sha": "4decb217fccc433b224cba47762df99abd2e0f67",
+        "html_url": "https://github.com/freeappstore-online/faces/commit/4decb217fccc433b224cba47762df99abd2e0f67",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:07:38Z"
+          }
+        }
+      },
       {
         "sha": "4cb39f4370558a7d81dfe95ce53df63000070cde",
         "html_url": "https://github.com/freeappstore-online/faces/commit/4cb39f4370558a7d81dfe95ce53df63000070cde",
@@ -1656,25 +1666,25 @@
             "date": "2026-06-20T22:40:30Z"
           }
         }
-      },
-      {
-        "sha": "144d2a7d9b7af4397765f0b59d5329469e5bded0",
-        "html_url": "https://github.com/freeappstore-online/faces/commit/144d2a7d9b7af4397765f0b59d5329469e5bded0",
-        "commit": {
-          "message": "fix: enable pinch-zoom (a11y)",
-          "author": {
-            "date": "2026-05-31T11:19:11Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/flight-search": {
     "meta": {
       "created_at": "2026-05-25T01:21:52Z",
-      "pushed_at": "2026-07-06T23:17:15Z"
+      "pushed_at": "2026-10-05T10:10:24Z"
     },
     "commits": [
+      {
+        "sha": "a985f7b79f366c3c5bc3191adedba215b9b7d6c9",
+        "html_url": "https://github.com/freeappstore-online/flight-search/commit/a985f7b79f366c3c5bc3191adedba215b9b7d6c9",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:10:22Z"
+          }
+        }
+      },
       {
         "sha": "6da78bccc669b1e4556ea1b66fa27ba15d4e9b44",
         "html_url": "https://github.com/freeappstore-online/flight-search/commit/6da78bccc669b1e4556ea1b66fa27ba15d4e9b44",
@@ -1694,25 +1704,25 @@
             "date": "2026-05-31T11:19:20Z"
           }
         }
-      },
-      {
-        "sha": "3cf69ff3a216a4b93c97b31d463ec2ecec8db800",
-        "html_url": "https://github.com/freeappstore-online/flight-search/commit/3cf69ff3a216a4b93c97b31d463ec2ecec8db800",
-        "commit": {
-          "message": "docs: update CLAUDE.md to SDK v0.14.0+",
-          "author": {
-            "date": "2026-05-27T13:44:57Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/qrreader": {
     "meta": {
       "created_at": "2026-05-23T18:47:11Z",
-      "pushed_at": "2026-07-06T23:45:14Z"
+      "pushed_at": "2026-10-05T11:04:06Z"
     },
     "commits": [
+      {
+        "sha": "3a6d743fc50e9060b9df29e08f16197c7078b596",
+        "html_url": "https://github.com/freeappstore-online/qrreader/commit/3a6d743fc50e9060b9df29e08f16197c7078b596",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:04:04Z"
+          }
+        }
+      },
       {
         "sha": "02886e37076ad836147f72ef7b4740b748f51879",
         "html_url": "https://github.com/freeappstore-online/qrreader/commit/02886e37076ad836147f72ef7b4740b748f51879",
@@ -1732,25 +1742,25 @@
             "date": "2026-05-31T11:19:21Z"
           }
         }
-      },
-      {
-        "sha": "5d13ea7343428f7784284e5bf40f8b9d40a549eb",
-        "html_url": "https://github.com/freeappstore-online/qrreader/commit/5d13ea7343428f7784284e5bf40f8b9d40a549eb",
-        "commit": {
-          "message": "Update for offline mode on ios & suggestion link to QR Generator",
-          "author": {
-            "date": "2026-05-30T04:21:54Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/decision-wheel": {
     "meta": {
       "created_at": "2026-05-25T07:12:16Z",
-      "pushed_at": "2026-07-06T23:16:47Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "ee3d9ae0205965583430911c2c0c5241c50103c3",
+        "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/ee3d9ae0205965583430911c2c0c5241c50103c3",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "7e3336824000f72936d163cfc931cb40580bc0eb",
         "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/7e3336824000f72936d163cfc931cb40580bc0eb",
@@ -1770,25 +1780,25 @@
             "date": "2026-05-31T11:19:22Z"
           }
         }
-      },
-      {
-        "sha": "5dbb86e1d0cfbcb532862006732b562b4a6d3284",
-        "html_url": "https://github.com/freeappstore-online/decision-wheel/commit/5dbb86e1d0cfbcb532862006732b562b4a6d3284",
-        "commit": {
-          "message": "Add favicon",
-          "author": {
-            "date": "2026-05-27T13:09:34Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/smart-planner": {
     "meta": {
       "created_at": "2026-05-25T12:19:22Z",
-      "pushed_at": "2026-07-06T23:18:44Z"
+      "pushed_at": "2026-10-05T11:08:01Z"
     },
     "commits": [
+      {
+        "sha": "90c54de35b8a3d3f3609527e11cce593e9609227",
+        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/90c54de35b8a3d3f3609527e11cce593e9609227",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:07:59Z"
+          }
+        }
+      },
       {
         "sha": "e6f6da48b9b10961c933442f6e6d810be7fce9c8",
         "html_url": "https://github.com/freeappstore-online/smart-planner/commit/e6f6da48b9b10961c933442f6e6d810be7fce9c8",
@@ -1806,16 +1816,6 @@
           "message": "fix: enable pinch-zoom (a11y)",
           "author": {
             "date": "2026-05-31T11:19:23Z"
-          }
-        }
-      },
-      {
-        "sha": "2afd235952bff52c7c56ca8610bd208e3429edce",
-        "html_url": "https://github.com/freeappstore-online/smart-planner/commit/2afd235952bff52c7c56ca8610bd208e3429edce",
-        "commit": {
-          "message": "Updated dashboard UI",
-          "author": {
-            "date": "2026-05-28T08:50:42Z"
           }
         }
       }
@@ -2030,9 +2030,19 @@
   "freeappstore-online/chemistry": {
     "meta": {
       "created_at": "2026-05-27T14:52:26Z",
-      "pushed_at": "2026-07-13T22:41:15Z"
+      "pushed_at": "2026-10-05T08:19:29Z"
     },
     "commits": [
+      {
+        "sha": "b6d3163a5370e2f7ec15e121e08d7bdf5048763e",
+        "html_url": "https://github.com/freeappstore-online/chemistry/commit/b6d3163a5370e2f7ec15e121e08d7bdf5048763e",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:19:27Z"
+          }
+        }
+      },
       {
         "sha": "d8fbc0808d458be6c7b5fa7c224c6f35881c531a",
         "html_url": "https://github.com/freeappstore-online/chemistry/commit/d8fbc0808d458be6c7b5fa7c224c6f35881c531a",
@@ -2086,9 +2096,19 @@
   "freeappstore-online/cell-biology": {
     "meta": {
       "created_at": "2026-05-27T14:53:13Z",
-      "pushed_at": "2026-07-13T22:41:08Z"
+      "pushed_at": "2026-10-05T08:16:29Z"
     },
     "commits": [
+      {
+        "sha": "1fd3d0ee175786ee3163c3dc09f4aa42e9527b24",
+        "html_url": "https://github.com/freeappstore-online/cell-biology/commit/1fd3d0ee175786ee3163c3dc09f4aa42e9527b24",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:16:27Z"
+          }
+        }
+      },
       {
         "sha": "5a70a4b635d820a79d858edad10511d30cb44c0b",
         "html_url": "https://github.com/freeappstore-online/cell-biology/commit/5a70a4b635d820a79d858edad10511d30cb44c0b",
@@ -2114,9 +2134,19 @@
   "freeappstore-online/circuits": {
     "meta": {
       "created_at": "2026-05-27T14:53:40Z",
-      "pushed_at": "2026-07-13T22:41:26Z"
+      "pushed_at": "2026-10-05T08:23:41Z"
     },
     "commits": [
+      {
+        "sha": "a1d22c2533e18a8e52277e3d753f6670c8bbf18f",
+        "html_url": "https://github.com/freeappstore-online/circuits/commit/a1d22c2533e18a8e52277e3d753f6670c8bbf18f",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:23:39Z"
+          }
+        }
+      },
       {
         "sha": "4d5b6eca45d580d0fb11c38d7588a12b24659391",
         "html_url": "https://github.com/freeappstore-online/circuits/commit/4d5b6eca45d580d0fb11c38d7588a12b24659391",
@@ -2134,16 +2164,6 @@
           "message": "fix: enable pinch-zoom (a11y)",
           "author": {
             "date": "2026-05-31T11:19:29Z"
-          }
-        }
-      },
-      {
-        "sha": "2a0716e72fd8868f565d80582099ab3f719ee34b",
-        "html_url": "https://github.com/freeappstore-online/circuits/commit/2a0716e72fd8868f565d80582099ab3f719ee34b",
-        "commit": {
-          "message": "Initial commit: circuits",
-          "author": {
-            "date": "2026-05-27T14:53:48Z"
           }
         }
       }
@@ -2330,9 +2350,19 @@
   "freeappstore-online/calories": {
     "meta": {
       "created_at": "2026-05-27T14:56:09Z",
-      "pushed_at": "2026-07-13T22:41:01Z"
+      "pushed_at": "2026-10-05T08:15:19Z"
     },
     "commits": [
+      {
+        "sha": "a9c9bf1c7aab5864f584896d34a217628178e2ea",
+        "html_url": "https://github.com/freeappstore-online/calories/commit/a9c9bf1c7aab5864f584896d34a217628178e2ea",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:15:16Z"
+          }
+        }
+      },
       {
         "sha": "98e11ed862899c0228cecf1ac335c33b7edefaca",
         "html_url": "https://github.com/freeappstore-online/calories/commit/98e11ed862899c0228cecf1ac335c33b7edefaca",
@@ -2386,9 +2416,19 @@
   "freeappstore-online/budget": {
     "meta": {
       "created_at": "2026-05-27T14:56:56Z",
-      "pushed_at": "2026-07-13T22:40:53Z"
+      "pushed_at": "2026-10-05T08:13:59Z"
     },
     "commits": [
+      {
+        "sha": "66ed2b5a42da4e3f3d98a691f54b61f4b30e310c",
+        "html_url": "https://github.com/freeappstore-online/budget/commit/66ed2b5a42da4e3f3d98a691f54b61f4b30e310c",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:13:55Z"
+          }
+        }
+      },
       {
         "sha": "b285ed1f177286fd117469c61ea86c6a121997e0",
         "html_url": "https://github.com/freeappstore-online/budget/commit/b285ed1f177286fd117469c61ea86c6a121997e0",
@@ -3408,9 +3448,19 @@
   "freeappstore-online/agentcoder": {
     "meta": {
       "created_at": "2026-05-28T22:08:30Z",
-      "pushed_at": "2026-06-20T22:42:15Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "d049ea0424860a0c1dc993bbe287402d95499468",
+        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/d049ea0424860a0c1dc993bbe287402d95499468",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "e71a56fd1723d0e1382797e4a900ab856253fa92",
         "html_url": "https://github.com/freeappstore-online/agentcoder/commit/e71a56fd1723d0e1382797e4a900ab856253fa92",
@@ -3430,25 +3480,25 @@
             "date": "2026-06-20T22:40:10Z"
           }
         }
-      },
-      {
-        "sha": "eae96d3d2e3dd57463776de426afa27f9270d98b",
-        "html_url": "https://github.com/freeappstore-online/agentcoder/commit/eae96d3d2e3dd57463776de426afa27f9270d98b",
-        "commit": {
-          "message": "feat: add Google sign-in button\n\nPlatform credentials configured in Doppler + backend worker.\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-06-01T02:35:24Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/convert-color": {
     "meta": {
       "created_at": "2026-05-30T01:09:02Z",
-      "pushed_at": "2026-05-31T11:19:52Z"
+      "pushed_at": "2026-10-05T07:47:30Z"
     },
     "commits": [
+      {
+        "sha": "e18571891522a21e438c18232d26981727a5d080",
+        "html_url": "https://github.com/freeappstore-online/convert-color/commit/e18571891522a21e438c18232d26981727a5d080",
+        "commit": {
+          "message": "ci: adopt shared platform compliance workflow",
+          "author": {
+            "date": "2026-10-05T07:47:28Z"
+          }
+        }
+      },
       {
         "sha": "0f9b0d2278b03e2e8557209766293db0aac8d51e",
         "html_url": "https://github.com/freeappstore-online/convert-color/commit/0f9b0d2278b03e2e8557209766293db0aac8d51e",
@@ -3466,16 +3516,6 @@
           "message": "Update logo",
           "author": {
             "date": "2026-05-30T02:15:12Z"
-          }
-        }
-      },
-      {
-        "sha": "0c2473c8a7650c791ea8677ffcfca258bb557227",
-        "html_url": "https://github.com/freeappstore-online/convert-color/commit/0c2473c8a7650c791ea8677ffcfca258bb557227",
-        "commit": {
-          "message": "Update README.md",
-          "author": {
-            "date": "2026-05-30T01:55:58Z"
           }
         }
       }
@@ -3522,9 +3562,19 @@
   "freeappstore-online/crontab-explain": {
     "meta": {
       "created_at": "2026-05-30T16:06:42Z",
-      "pushed_at": "2026-06-05T10:55:12Z"
+      "pushed_at": "2026-10-05T07:53:09Z"
     },
     "commits": [
+      {
+        "sha": "2c96e0aa57502581c6e11341d35f38e9e91c82dd",
+        "html_url": "https://github.com/freeappstore-online/crontab-explain/commit/2c96e0aa57502581c6e11341d35f38e9e91c82dd",
+        "commit": {
+          "message": "ci: adopt shared platform compliance workflow",
+          "author": {
+            "date": "2026-10-05T07:53:06Z"
+          }
+        }
+      },
       {
         "sha": "d8e969025fe79fa735989f48ae2924b935bd2d6e",
         "html_url": "https://github.com/freeappstore-online/crontab-explain/commit/d8e969025fe79fa735989f48ae2924b935bd2d6e",
@@ -3544,25 +3594,25 @@
             "date": "2026-05-31T11:19:53Z"
           }
         }
-      },
-      {
-        "sha": "7aa01d4766c01c401d2e71e66033d15efd6bae4e",
-        "html_url": "https://github.com/freeappstore-online/crontab-explain/commit/7aa01d4766c01c401d2e71e66033d15efd6bae4e",
-        "commit": {
-          "message": "Update freeappstore sdk version",
-          "author": {
-            "date": "2026-05-30T16:05:01Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/planning-poker": {
     "meta": {
       "created_at": "2026-05-31T23:55:33Z",
-      "pushed_at": "2026-06-15T08:03:59Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "aaa63c856d740e5a83f40e9ed05bb210dcad2b48",
+        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/aaa63c856d740e5a83f40e9ed05bb210dcad2b48",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "7be71aaf6e82edcdc990e83ef374d262edcc93af",
         "html_url": "https://github.com/freeappstore-online/planning-poker/commit/7be71aaf6e82edcdc990e83ef374d262edcc93af",
@@ -3580,16 +3630,6 @@
           "message": "feat: archive sprint history from velocity metrics",
           "author": {
             "date": "2026-06-05T10:46:46Z"
-          }
-        }
-      },
-      {
-        "sha": "9c5ad2cc4e77b7a7d51817acd0062ae00f194b5f",
-        "html_url": "https://github.com/freeappstore-online/planning-poker/commit/9c5ad2cc4e77b7a7d51817acd0062ae00f194b5f",
-        "commit": {
-          "message": "feat: add sprint persistence and mobile ticket management",
-          "author": {
-            "date": "2026-06-05T09:02:46Z"
           }
         }
       }
@@ -3636,9 +3676,19 @@
   "freeappstore-online/extract-color": {
     "meta": {
       "created_at": "2026-06-04T04:21:37Z",
-      "pushed_at": "2026-06-04T04:23:57Z"
+      "pushed_at": "2026-10-05T10:05:23Z"
     },
     "commits": [
+      {
+        "sha": "7595b59194ebae88328b689428d81d5148d8e65b",
+        "html_url": "https://github.com/freeappstore-online/extract-color/commit/7595b59194ebae88328b689428d81d5148d8e65b",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:05:20Z"
+          }
+        }
+      },
       {
         "sha": "a60d49400bd99237ca9958f2551db468526cbace",
         "html_url": "https://github.com/freeappstore-online/extract-color/commit/a60d49400bd99237ca9958f2551db468526cbace",
@@ -3658,25 +3708,25 @@
             "date": "2026-06-03T11:38:23Z"
           }
         }
-      },
-      {
-        "sha": "a15948132c3284c3d9101c869eee12c0d6903bbe",
-        "html_url": "https://github.com/freeappstore-online/extract-color/commit/a15948132c3284c3d9101c869eee12c0d6903bbe",
-        "commit": {
-          "message": "Initial commit from standalone template",
-          "author": {
-            "date": "2026-06-03T04:30:02Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/lens-journal": {
     "meta": {
       "created_at": "2026-06-04T17:05:23Z",
-      "pushed_at": "2026-06-09T10:30:14Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "2ee85122bf5d01087e1a0c3355d6f410004df92c",
+        "html_url": "https://github.com/freeappstore-online/lens-journal/commit/2ee85122bf5d01087e1a0c3355d6f410004df92c",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "7fee31ddff28f86d551fe6a05ce5f8813bdf19b2",
         "html_url": "https://github.com/freeappstore-online/lens-journal/commit/7fee31ddff28f86d551fe6a05ce5f8813bdf19b2",
@@ -3696,25 +3746,25 @@
             "date": "2026-06-08T07:44:30Z"
           }
         }
-      },
-      {
-        "sha": "0758bd6863facc8d92c3d8df4f17a1584c3c9abd",
-        "html_url": "https://github.com/freeappstore-online/lens-journal/commit/0758bd6863facc8d92c3d8df4f17a1584c3c9abd",
-        "commit": {
-          "message": "Add icon",
-          "author": {
-            "date": "2026-06-04T17:09:24Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/whisper-room": {
     "meta": {
       "created_at": "2026-06-09T12:09:20Z",
-      "pushed_at": "2026-06-23T14:55:22Z"
+      "pushed_at": "2026-10-05T11:16:33Z"
     },
     "commits": [
+      {
+        "sha": "1d4171f0968a9d88f4e7dc3c08f01532659b3924",
+        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/1d4171f0968a9d88f4e7dc3c08f01532659b3924",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:16:31Z"
+          }
+        }
+      },
       {
         "sha": "eff42635e69289b27f7953d2779439d9955f4695",
         "html_url": "https://github.com/freeappstore-online/whisper-room/commit/eff42635e69289b27f7953d2779439d9955f4695",
@@ -3732,16 +3782,6 @@
           "message": "Fix bug send file",
           "author": {
             "date": "2026-06-13T02:44:17Z"
-          }
-        }
-      },
-      {
-        "sha": "7aef36cdf2bdad3d5fe21d48e863e2965a0f0e2b",
-        "html_url": "https://github.com/freeappstore-online/whisper-room/commit/7aef36cdf2bdad3d5fe21d48e863e2965a0f0e2b",
-        "commit": {
-          "message": "Fix UI for Safari",
-          "author": {
-            "date": "2026-06-11T16:32:04Z"
           }
         }
       }
@@ -3788,9 +3828,19 @@
   "freeappstore-online/webshare": {
     "meta": {
       "created_at": "2026-06-13T15:34:03Z",
-      "pushed_at": "2026-08-04T04:14:15Z"
+      "pushed_at": "2026-10-05T11:01:54Z"
     },
     "commits": [
+      {
+        "sha": "5b2cd3cc1403861400a5dbcf7b52f54280daf1fe",
+        "html_url": "https://github.com/freeappstore-online/webshare/commit/5b2cd3cc1403861400a5dbcf7b52f54280daf1fe",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:01:52Z"
+          }
+        }
+      },
       {
         "sha": "316ea812553a0b551efd5a2b3cb10491ee5058cd",
         "html_url": "https://github.com/freeappstore-online/webshare/commit/316ea812553a0b551efd5a2b3cb10491ee5058cd",
@@ -3808,16 +3858,6 @@
           "message": "Wait for a connection that is still being negotiated\n\nThe two reports from the same failed attempt disagreed, and the phone's was\nthe honest one: four candidate pairs, none failed, all \"in-progress\", with\nICE at checking and the connection at connecting. Nothing had gone wrong —\nthe fifteen second timer fired while negotiation was still under way and\nkilled it.\n\nThe short timeout now only applies when ICE has nothing to show. While it\nis checking, or the connection is still coming up, the wait extends in five\nsecond steps to a hard limit of a minute. On a busy public network with\nmDNS lookups in the path, checking legitimately takes longer than fifteen\nseconds.\n\nThe verdict also stopped reading \"0 succeeded\" as \"all failed\". Pairs still\nbeing checked are counted and reported separately, because the difference\nbetween a network that refused the traffic and a negotiation that ran out\nof time is the whole question, and calling the second one client isolation\nwas wrong twice over.\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
           "author": {
             "date": "2026-08-04T04:06:03Z"
-          }
-        }
-      },
-      {
-        "sha": "8160954514b6cfd3418c0c47af6d0291cebe555c",
-        "html_url": "https://github.com/freeappstore-online/webshare/commit/8160954514b6cfd3418c0c47af6d0291cebe555c",
-        "commit": {
-          "message": "Name the one-sided mDNS case in the connection report\n\nA trace from a library network showed both offers received, both answers\nsent, then fifteen seconds of nothing: no ICE state change, no rejected\ncandidate, no pair. The remote candidates were .local mDNS names and ours\nwere not, which is the specific shape worth naming — this device has to\nresolve those names over the network to get an address, and forming no pair\nat all means the lookups came back empty.\n\nThe report now says that, and says what it does not know: our own address\nwent out in the clear, so the other device may still be able to reach us,\nand only its report can say whether it managed to. If neither side formed\npairs the network is keeping its clients apart as well, and nothing in the\napp reaches across that.\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-08-04T04:00:26Z"
           }
         }
       }
@@ -3902,9 +3942,19 @@
   "freeappstore-online/piano": {
     "meta": {
       "created_at": "2026-06-20T22:05:20Z",
-      "pushed_at": "2026-06-21T06:06:51Z"
+      "pushed_at": "2026-10-05T11:19:28Z"
     },
     "commits": [
+      {
+        "sha": "7eddac4abe42aecc1891b63170cf65e92087a442",
+        "html_url": "https://github.com/freeappstore-online/piano/commit/7eddac4abe42aecc1891b63170cf65e92087a442",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:19:25Z"
+          }
+        }
+      },
       {
         "sha": "b850f2c4a99519c6448cc469abcee18669082b4d",
         "html_url": "https://github.com/freeappstore-online/piano/commit/b850f2c4a99519c6448cc469abcee18669082b4d",
@@ -3924,25 +3974,25 @@
             "date": "2026-06-21T05:55:51Z"
           }
         }
-      },
-      {
-        "sha": "98eb9d9598990897aebc00c75e3a594092c1ec0b",
-        "html_url": "https://github.com/freeappstore-online/piano/commit/98eb9d9598990897aebc00c75e3a594092c1ec0b",
-        "commit": {
-          "message": "fix: add missing 10th black key mapping, improve keyboard hint\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-06-20T22:48:50Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/pillcount": {
     "meta": {
       "created_at": "2026-06-21T06:51:56Z",
-      "pushed_at": "2026-06-21T07:09:43Z"
+      "pushed_at": "2026-10-05T11:18:04Z"
     },
     "commits": [
+      {
+        "sha": "b87227ba1eb2607c8ba9da2d249d7f9ac0faaf62",
+        "html_url": "https://github.com/freeappstore-online/pillcount/commit/b87227ba1eb2607c8ba9da2d249d7f9ac0faaf62",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:18:01Z"
+          }
+        }
+      },
       {
         "sha": "2ae9f3f0cdedcf75cb493ccb90a53819f4500c2a",
         "html_url": "https://github.com/freeappstore-online/pillcount/commit/2ae9f3f0cdedcf75cb493ccb90a53819f4500c2a",
@@ -3962,25 +4012,25 @@
             "date": "2026-06-21T06:52:09Z"
           }
         }
-      },
-      {
-        "sha": "3a40a8e658a09b00f81054e65032afa7be023943",
-        "html_url": "https://github.com/freeappstore-online/pillcount/commit/3a40a8e658a09b00f81054e65032afa7be023943",
-        "commit": {
-          "message": "docs: complete MCP tool list, note voice requires React\n\nCo-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-06-21T06:06:26Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/my-todo-app": {
     "meta": {
       "created_at": "2026-06-26T06:47:57Z",
-      "pushed_at": "2026-06-27T20:15:22Z"
+      "pushed_at": "2026-10-05T11:15:02Z"
     },
     "commits": [
+      {
+        "sha": "1767501d5c261955e7c997f6aa62bf3298094e72",
+        "html_url": "https://github.com/freeappstore-online/my-todo-app/commit/1767501d5c261955e7c997f6aa62bf3298094e72",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml workflow (batch 5)",
+          "author": {
+            "date": "2026-10-05T11:15:00Z"
+          }
+        }
+      },
       {
         "sha": "593b92d4718ff000dd89f18fc4266dc345f6fa39",
         "html_url": "https://github.com/freeappstore-online/my-todo-app/commit/593b92d4718ff000dd89f18fc4266dc345f6fa39",
@@ -4006,9 +4056,19 @@
   "freeappstore-online/taskflow": {
     "meta": {
       "created_at": "2026-07-05T07:55:20Z",
-      "pushed_at": "2026-09-30T08:24:14Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "7757b0d7bcbdc80a2b88a7f5c0da599c6c2454c7",
+        "html_url": "https://github.com/freeappstore-online/taskflow/commit/7757b0d7bcbdc80a2b88a7f5c0da599c6c2454c7",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "7b15199baf9b3345b112eeed678f0e434f2af894",
         "html_url": "https://github.com/freeappstore-online/taskflow/commit/7b15199baf9b3345b112eeed678f0e434f2af894",
@@ -4028,25 +4088,25 @@
             "date": "2026-09-06T05:31:32Z"
           }
         }
-      },
-      {
-        "sha": "38cd2b01a77602a631c8e887f6ffd5efda58d39c",
-        "html_url": "https://github.com/freeappstore-online/taskflow/commit/38cd2b01a77602a631c8e887f6ffd5efda58d39c",
-        "commit": {
-          "message": "Add task export and import backup functionality",
-          "author": {
-            "date": "2026-08-24T13:43:43Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/dodge-drop": {
     "meta": {
       "created_at": "2026-07-07T00:29:37Z",
-      "pushed_at": "2026-07-07T00:36:58Z"
+      "pushed_at": "2026-10-05T10:03:05Z"
     },
     "commits": [
+      {
+        "sha": "27e63a48c46d9d3e7e33db18013d2e6cc9070bad",
+        "html_url": "https://github.com/freeappstore-online/dodge-drop/commit/27e63a48c46d9d3e7e33db18013d2e6cc9070bad",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:03:03Z"
+          }
+        }
+      },
       {
         "sha": "771938e639158b11242c98f90d2b68798d7b343f",
         "html_url": "https://github.com/freeappstore-online/dodge-drop/commit/771938e639158b11242c98f90d2b68798d7b343f",
@@ -4072,9 +4132,19 @@
   "freeappstore-online/stock-tracker": {
     "meta": {
       "created_at": "2026-07-07T21:23:05Z",
-      "pushed_at": "2026-07-07T21:30:35Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "778d48847a68165fd9bdf10a217bb6495ad8dcb6",
+        "html_url": "https://github.com/freeappstore-online/stock-tracker/commit/778d48847a68165fd9bdf10a217bb6495ad8dcb6",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "117a4536527b21ed20dcfa2b46d9cadd89974789",
         "html_url": "https://github.com/freeappstore-online/stock-tracker/commit/117a4536527b21ed20dcfa2b46d9cadd89974789",
@@ -4222,9 +4292,19 @@
   "freeappstore-online/dual-timezone": {
     "meta": {
       "created_at": "2026-07-27T08:17:33Z",
-      "pushed_at": "2026-07-27T10:41:56Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "3c9879deb029a8750adff756ca9d2616dd710441",
+        "html_url": "https://github.com/freeappstore-online/dual-timezone/commit/3c9879deb029a8750adff756ca9d2616dd710441",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "1c92b2e3e7cc8c17bdbd086e3ccdbae1b2508c54",
         "html_url": "https://github.com/freeappstore-online/dual-timezone/commit/1c92b2e3e7cc8c17bdbd086e3ccdbae1b2508c54",
@@ -4242,16 +4322,6 @@
           "message": "fix navbar",
           "author": {
             "date": "2026-07-27T10:38:27Z"
-          }
-        }
-      },
-      {
-        "sha": "81c28716b1a9ee1cf930b5981ab0a9d3181e4be3",
-        "html_url": "https://github.com/freeappstore-online/dual-timezone/commit/81c28716b1a9ee1cf930b5981ab0a9d3181e4be3",
-        "commit": {
-          "message": "feat: complete dual timezone app logic",
-          "author": {
-            "date": "2026-07-27T10:21:45Z"
           }
         }
       }
@@ -4412,9 +4482,19 @@
   "freeappstore-online/bill-reminders": {
     "meta": {
       "created_at": "2026-08-09T05:52:28Z",
-      "pushed_at": "2026-08-09T06:15:50Z"
+      "pushed_at": "2026-10-05T08:11:15Z"
     },
     "commits": [
+      {
+        "sha": "fbc3bb62fff8969fa20cc2e907c18d88e4ad860f",
+        "html_url": "https://github.com/freeappstore-online/bill-reminders/commit/fbc3bb62fff8969fa20cc2e907c18d88e4ad860f",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:11:12Z"
+          }
+        }
+      },
       {
         "sha": "a63285d55aeef37e6c6b7fcf21bf0ea07a9f67b1",
         "html_url": "https://github.com/freeappstore-online/bill-reminders/commit/a63285d55aeef37e6c6b7fcf21bf0ea07a9f67b1",
@@ -4434,25 +4514,25 @@
             "date": "2026-08-09T06:11:24Z"
           }
         }
-      },
-      {
-        "sha": "111ce86aee396212b20fb3e3b2ad8ea05134601e",
-        "html_url": "https://github.com/freeappstore-online/bill-reminders/commit/111ce86aee396212b20fb3e3b2ad8ea05134601e",
-        "commit": {
-          "message": "Add home page with dashboard, spending breakdown, urgent bills, and nav",
-          "author": {
-            "date": "2026-08-09T06:01:57Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/chore-list": {
     "meta": {
       "created_at": "2026-08-09T05:47:35Z",
-      "pushed_at": "2026-08-09T05:47:52Z"
+      "pushed_at": "2026-10-05T08:22:24Z"
     },
     "commits": [
+      {
+        "sha": "de47689c9a982a6b73954ad46cd2b32e3e3a9386",
+        "html_url": "https://github.com/freeappstore-online/chore-list/commit/de47689c9a982a6b73954ad46cd2b32e3e3a9386",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:22:21Z"
+          }
+        }
+      },
       {
         "sha": "ca4f86ec771b2a9564d42deca4b8d164eaa96024",
         "html_url": "https://github.com/freeappstore-online/chore-list/commit/ca4f86ec771b2a9564d42deca4b8d164eaa96024",
@@ -4516,9 +4596,19 @@
   "freeappstore-online/colour-timer": {
     "meta": {
       "created_at": "2026-07-19T06:35:16Z",
-      "pushed_at": "2026-07-19T06:50:47Z"
+      "pushed_at": "2026-10-05T08:25:59Z"
     },
     "commits": [
+      {
+        "sha": "7d61c1b63f44c532dbbc022a8c75fdf9b343ee46",
+        "html_url": "https://github.com/freeappstore-online/colour-timer/commit/7d61c1b63f44c532dbbc022a8c75fdf9b343ee46",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:25:57Z"
+          }
+        }
+      },
       {
         "sha": "8023cd6b177ea5197f4a63ef1fcbf657ce2676f5",
         "html_url": "https://github.com/freeappstore-online/colour-timer/commit/8023cd6b177ea5197f4a63ef1fcbf657ce2676f5",
@@ -4536,16 +4626,6 @@
           "message": "Initial app — built with FreeAppStore AI agent",
           "author": {
             "date": "2026-07-19T06:35:28Z"
-          }
-        }
-      },
-      {
-        "sha": "35de58c2734029dc41e64bcd442a5cb799cbe90d",
-        "html_url": "https://github.com/freeappstore-online/colour-timer/commit/35de58c2734029dc41e64bcd442a5cb799cbe90d",
-        "commit": {
-          "message": "Initial commit",
-          "author": {
-            "date": "2026-07-19T06:35:17Z"
           }
         }
       }
@@ -4630,9 +4710,19 @@
   "freeappstore-online/a11y-fixlist": {
     "meta": {
       "created_at": "2026-08-03T01:45:59Z",
-      "pushed_at": "2026-10-04T05:10:18Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "366e9916b2fe85fb589fe47733a5e6fd490332da",
+        "html_url": "https://github.com/freeappstore-online/a11y-fixlist/commit/366e9916b2fe85fb589fe47733a5e6fd490332da",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "4ea6359d4bd979a79aeb05f9ef255c5cfae7417c",
         "html_url": "https://github.com/freeappstore-online/a11y-fixlist/commit/4ea6359d4bd979a79aeb05f9ef255c5cfae7417c",
@@ -4652,25 +4742,25 @@
             "date": "2026-09-25T06:12:23Z"
           }
         }
-      },
-      {
-        "sha": "047c735f02a2c0256d00f3f64ba038e573ce49f8",
-        "html_url": "https://github.com/freeappstore-online/a11y-fixlist/commit/047c735f02a2c0256d00f3f64ba038e573ce49f8",
-        "commit": {
-          "message": "Added HTML textarea for customized scan, Refined UI and functions",
-          "author": {
-            "date": "2026-09-20T06:49:39Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/bag-buddy": {
     "meta": {
       "created_at": "2026-08-09T05:54:00Z",
-      "pushed_at": "2026-08-11T07:09:23Z"
+      "pushed_at": "2026-10-05T08:09:54Z"
     },
     "commits": [
+      {
+        "sha": "16e221c1e7060d9fc06794d4776d172d590d080a",
+        "html_url": "https://github.com/freeappstore-online/bag-buddy/commit/16e221c1e7060d9fc06794d4776d172d590d080a",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:09:52Z"
+          }
+        }
+      },
       {
         "sha": "a02fa416e4e9e4e1fe08096e102b0e468b25da03",
         "html_url": "https://github.com/freeappstore-online/bag-buddy/commit/a02fa416e4e9e4e1fe08096e102b0e468b25da03",
@@ -4690,25 +4780,25 @@
             "date": "2026-08-11T07:02:26Z"
           }
         }
-      },
-      {
-        "sha": "594856ea8d0b06752e30b3ead37c7c1614f4f5d5",
-        "html_url": "https://github.com/freeappstore-online/bag-buddy/commit/594856ea8d0b06752e30b3ead37c7c1614f4f5d5",
-        "commit": {
-          "message": "Fix welcome flow: parents skip event picker and go straight to dashboard, only children choose an event",
-          "author": {
-            "date": "2026-08-11T06:53:26Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/asmr-keyboard": {
     "meta": {
       "created_at": "2026-08-09T06:41:27Z",
-      "pushed_at": "2026-08-09T07:53:01Z"
+      "pushed_at": "2026-10-05T08:08:36Z"
     },
     "commits": [
+      {
+        "sha": "3a551d2c7f32bd228afd4224430092e4c81b6b44",
+        "html_url": "https://github.com/freeappstore-online/asmr-keyboard/commit/3a551d2c7f32bd228afd4224430092e4c81b6b44",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:08:34Z"
+          }
+        }
+      },
       {
         "sha": "daa28dde0451945b717121fe934c25ab1ceb926f",
         "html_url": "https://github.com/freeappstore-online/asmr-keyboard/commit/daa28dde0451945b717121fe934c25ab1ceb926f",
@@ -4726,16 +4816,6 @@
           "message": "Honey goo spread all over board (blobs, streaks, pools everywhere) + completely reworked per-theme sounds",
           "author": {
             "date": "2026-08-09T07:17:25Z"
-          }
-        }
-      },
-      {
-        "sha": "2b27db6f8a59be02fd9a4ad90885ea201ca160fd",
-        "html_url": "https://github.com/freeappstore-online/asmr-keyboard/commit/2b27db6f8a59be02fd9a4ad90885ea201ca160fd",
-        "commit": {
-          "message": "Pre-fill honey goo on load + add theme charms (clouds, candy, snowflakes, orbs)",
-          "author": {
-            "date": "2026-08-09T06:54:51Z"
           }
         }
       }
@@ -4858,9 +4938,19 @@
   "freeappstore-online/chefai-recipes": {
     "meta": {
       "created_at": "2026-08-09T06:41:57Z",
-      "pushed_at": "2026-09-13T06:05:14Z"
+      "pushed_at": "2026-10-05T08:17:31Z"
     },
     "commits": [
+      {
+        "sha": "02f5e8c8ad952847152bbe290bfba614fed8cfde",
+        "html_url": "https://github.com/freeappstore-online/chefai-recipes/commit/02f5e8c8ad952847152bbe290bfba614fed8cfde",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:17:29Z"
+          }
+        }
+      },
       {
         "sha": "85625fd97e1554011a4c6dda67ce8eeb70879ae0",
         "html_url": "https://github.com/freeappstore-online/chefai-recipes/commit/85625fd97e1554011a4c6dda67ce8eeb70879ae0",
@@ -4880,25 +4970,25 @@
             "date": "2026-09-13T05:55:57Z"
           }
         }
-      },
-      {
-        "sha": "5579209cf84d77f97bc8064d5ff9d8bb17bd145a",
-        "html_url": "https://github.com/freeappstore-online/chefai-recipes/commit/5579209cf84d77f97bc8064d5ff9d8bb17bd145a",
-        "commit": {
-          "message": "Add Recipe Scaler - enter ingredients, set portions, scale to any number of people",
-          "author": {
-            "date": "2026-09-13T05:50:07Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/asmr-boards": {
     "meta": {
       "created_at": "2026-08-09T05:01:56Z",
-      "pushed_at": "2026-08-09T05:02:10Z"
+      "pushed_at": "2026-10-05T08:06:41Z"
     },
     "commits": [
+      {
+        "sha": "289c0d5a06c1c7e3c1848160d18b709b77545f78",
+        "html_url": "https://github.com/freeappstore-online/asmr-boards/commit/289c0d5a06c1c7e3c1848160d18b709b77545f78",
+        "commit": {
+          "message": "chore: adopt shared app-ci.yml@main workflow (#104)",
+          "author": {
+            "date": "2026-10-05T08:06:39Z"
+          }
+        }
+      },
       {
         "sha": "b847997d301f4de847e59287b1e6745a597de6b4",
         "html_url": "https://github.com/freeappstore-online/asmr-boards/commit/b847997d301f4de847e59287b1e6745a597de6b4",
@@ -4924,9 +5014,19 @@
   "freeappstore-online/forktuner": {
     "meta": {
       "created_at": "2026-08-11T10:58:27Z",
-      "pushed_at": "2026-08-12T04:45:31Z"
+      "pushed_at": "2026-10-05T10:11:44Z"
     },
     "commits": [
+      {
+        "sha": "93e0e804be6a0b170744879bed878226081a3422",
+        "html_url": "https://github.com/freeappstore-online/forktuner/commit/93e0e804be6a0b170744879bed878226081a3422",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:11:42Z"
+          }
+        }
+      },
       {
         "sha": "00ae81969745429ebb7235e36ee7aeb7002e3116",
         "html_url": "https://github.com/freeappstore-online/forktuner/commit/00ae81969745429ebb7235e36ee7aeb7002e3116",
@@ -4946,25 +5046,25 @@
             "date": "2026-08-12T02:13:23Z"
           }
         }
-      },
-      {
-        "sha": "14c7123d6eb7af82dc494c642035fd330d59494c",
-        "html_url": "https://github.com/freeappstore-online/forktuner/commit/14c7123d6eb7af82dc494c642035fd330d59494c",
-        "commit": {
-          "message": "Fix invisible UI on non-FreeAppStore hosts\n\nThe app never defines the shared design tokens (--paper, --ink, --muted,\n--line, --panel, --glass, --dock, --success, --warning, --error) in its\nown CSS -- FreeAppStore's compliance rules require inheriting them from\nthe platform, not redefining them. That's correct when hosted there, but\non GitHub Pages nothing injects those values, so every var() reference\nresolved to nothing and the whole UI went invisible (unstyled text,\nno borders, no button backgrounds).\n\nAdds a runtime fallback (services/hostTokenFallback.ts) that supplies the\nsame tokens only when a host value isn't already present, so it's a\nno-op the moment this runs on FreeAppStore itself. Generated as a string\nat runtime rather than shipped as CSS source, which also keeps it from\ntripping the no-brand-overrides compliance check -- verified with\n`fas check` after adding it.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-08-12T00:27:25Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/devestimate": {
     "meta": {
       "created_at": "2026-08-14T11:31:56Z",
-      "pushed_at": "2026-09-20T10:25:07Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "74d0f003c5c78fc2eba35c2d5ff511c6cc8868d0",
+        "html_url": "https://github.com/freeappstore-online/devestimate/commit/74d0f003c5c78fc2eba35c2d5ff511c6cc8868d0",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "c7d9c7c91ecf72a8b075dfc4a5a0a8cc96b8f7f0",
         "html_url": "https://github.com/freeappstore-online/devestimate/commit/c7d9c7c91ecf72a8b075dfc4a5a0a8cc96b8f7f0",
@@ -4982,16 +5082,6 @@
           "message": "fixed local storage problem",
           "author": {
             "date": "2026-09-20T10:18:08Z"
-          }
-        }
-      },
-      {
-        "sha": "52bf3dfbeaf21700fa5aee6f67f7a6b3eb1094a2",
-        "html_url": "https://github.com/freeappstore-online/devestimate/commit/52bf3dfbeaf21700fa5aee6f67f7a6b3eb1094a2",
-        "commit": {
-          "message": "Merge pull request #3 from freeappstore-online/feature-estimate\n\nFeature estimate",
-          "author": {
-            "date": "2026-09-19T15:36:33Z"
           }
         }
       }
@@ -5038,9 +5128,19 @@
   "freeappstore-online/decision-compass": {
     "meta": {
       "created_at": "2026-08-27T09:17:50Z",
-      "pushed_at": "2026-08-27T09:48:06Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "388954708823c196992747f38e5870b36833cee7",
+        "html_url": "https://github.com/freeappstore-online/decision-compass/commit/388954708823c196992747f38e5870b36833cee7",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "cc449411f0ed4dcb82127fa07999494e6af06979",
         "html_url": "https://github.com/freeappstore-online/decision-compass/commit/cc449411f0ed4dcb82127fa07999494e6af06979",
@@ -5170,9 +5270,19 @@
   "freeappstore-online/learner-coder": {
     "meta": {
       "created_at": "2026-08-31T13:54:04Z",
-      "pushed_at": "2026-09-15T13:55:32Z"
+      "pushed_at": "2026-10-05T06:52:18Z"
     },
     "commits": [
+      {
+        "sha": "23e58a1515902949ad3b3c3b89452d09c3bcd1e5",
+        "html_url": "https://github.com/freeappstore-online/learner-coder/commit/23e58a1515902949ad3b3c3b89452d09c3bcd1e5",
+        "commit": {
+          "message": "ci: adopt shared app workflow",
+          "author": {
+            "date": "2026-10-05T06:52:15Z"
+          }
+        }
+      },
       {
         "sha": "b0a0fe87d9e6d9c7361211c2719595036c3727f9",
         "html_url": "https://github.com/freeappstore-online/learner-coder/commit/b0a0fe87d9e6d9c7361211c2719595036c3727f9",
@@ -5192,25 +5302,25 @@
             "date": "2026-09-02T12:40:56Z"
           }
         }
-      },
-      {
-        "sha": "6dab6e50c032c3cb9f03e325635ede65d6af97c3",
-        "html_url": "https://github.com/freeappstore-online/learner-coder/commit/6dab6e50c032c3cb9f03e325635ede65d6af97c3",
-        "commit": {
-          "message": "Fix Monaco IntelliSense breaking under CSP-restricted hosting\n\nRoot cause found by testing the live production console: this app's\nCSP has no worker-src directive, so it falls back to script-src (no\nblob: allowance). Monaco's default behavior is to attempt a real Web\nWorker first and only fall back once construction throws — but that\nerror-triggered fallback leaves the editor in a half-broken state\n(confirmed on prod: an uncaught event follows, and the suggest widget\nstops responding for HTML/CSS/JS, though the editor still renders and\nhighlights).\n\nDeclaring MonacoEnvironment.getWorker to return undefined *before*\nMonaco ever attempts a worker takes a different, clean in-process\ncode path instead — verified locally to preserve full real semantic\ncompletions (including full TypeScript signatures), just executed on\nthe main thread. Since that alone fully restores native IntelliSense\neverywhere, the static worker-free fallback providers added in the\nprevious commit are now redundant (they were only producing duplicate\nsuggestions) and are removed.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>",
-          "author": {
-            "date": "2026-09-02T11:55:00Z"
-          }
-        }
       }
     ]
   },
   "freeappstore-online/formulapad": {
     "meta": {
       "created_at": "2026-09-02T09:50:21Z",
-      "pushed_at": "2026-09-02T17:39:48Z"
+      "pushed_at": "2026-10-05T10:12:59Z"
     },
     "commits": [
+      {
+        "sha": "d18240b4937daec44df0c1ecf3dca1af6fbcdc7a",
+        "html_url": "https://github.com/freeappstore-online/formulapad/commit/d18240b4937daec44df0c1ecf3dca1af6fbcdc7a",
+        "commit": {
+          "message": "ci: adopt shared app-ci.yml caller (batch 4)",
+          "author": {
+            "date": "2026-10-05T10:12:57Z"
+          }
+        }
+      },
       {
         "sha": "4850a2bb755ea5ba529eddb0552a9c09793da539",
         "html_url": "https://github.com/freeappstore-online/formulapad/commit/4850a2bb755ea5ba529eddb0552a9c09793da539",
@@ -5228,16 +5338,6 @@
           "message": "fix: use cleanLabel regex to eliminate duplicate symbols across all math formulas",
           "author": {
             "date": "2026-09-02T17:28:44Z"
-          }
-        }
-      },
-      {
-        "sha": "8eb016966ee7839512f089cd31d603f4de446ba4",
-        "html_url": "https://github.com/freeappstore-online/formulapad/commit/8eb016966ee7839512f089cd31d603f4de446ba4",
-        "commit": {
-          "message": "fix: sanitize duplicate parameter symbols across all math and chemistry formulas",
-          "author": {
-            "date": "2026-09-02T17:10:18Z"
           }
         }
       }
